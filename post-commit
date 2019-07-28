@@ -1,0 +1,66 @@
+#!/bin/bash
+#	hooks/post-commit  3.220.279  2019-07-28T11:53:22.332390-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  six-rpi3b.cptx86.com 3.219-1-g54b68ef  
+#	   added hooks directory with pre-commit post-commit examples for TEST cases 
+### production standard 3.0 shellcheck
+### production standard 5.1.160 Copyright
+#       Copyright (c) 2019 Bradley Allen
+#       MIT License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
+###
+### production standard 1.0 DEBUG variable
+#       Order of precedence: environment variable, default code
+if [ "${DEBUG}" == "" ] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
+BOLD=$(tput -Txterm bold)
+NORMAL=$(tput -Txterm sgr0)
+#       Date and time function ISO 8601
+get_date_stamp() {
+DATE_STAMP=$(date +%Y-%m-%dT%H:%M:%S.%6N%:z)
+TEMP=$(date +%Z)
+DATE_STAMP="${DATE_STAMP} (${TEMP})"
+}
+#       Fully qualified domain name FQDN hostname
+LOCALHOST=$(hostname -f)
+#       Version
+SCRIPT_NAME=$(head -2 "${0}" | awk {'printf $2'})
+SCRIPT_VERSION=$(head -2 "${0}" | awk {'printf $3'})
+
+###
+POST_WORKING_DIRECTORY=$(git rev-parse --show-toplevel)
+if [ ! -r "${POST_WORKING_DIRECTORY}/hooks/COMMIT_FILE_LIST" ] ; then exit ; fi
+POST_COMMIT_FILES=$(cat "${POST_WORKING_DIRECTORY}"/hooks/COMMIT_FILE_LIST)
+
+if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]${NORMAL}  Files being commited hy ${GIT_AUTHOR_NAME} (${USER}): >${POST_COMMIT_FILES}<" 1>&2 ; fi
+echo    "'####:'##::: ##:::::::'########:'########::'######::'########:"
+echo    ". ##:: ###:: ##:::::::... ##..:: ##.....::'##... ##:... ##..::"
+echo    ": ##:: ####: ##:::::::::: ##:::: ##::::::: ##:::..::::: ##::::"
+echo    ": ##:: ## ## ##:::::::::: ##:::: ######:::. ######::::: ##::::"
+echo    ": ##:: ##. ####:::::::::: ##:::: ##...:::::..... ##:::: ##::::"
+echo    ": ##:: ##:. ###:::::::::: ##:::: ##:::::::'##::: ##:::: ##::::"
+echo    "'####: ##::. ##:::::::::: ##:::: ########:. ######::::: ##::::"
+echo    "....::..::::..:::::::::::..:::::........:::......::::::..:::::"
+
+#       Commited file loop to determine if TEST case directory for commited file
+for POST_FILE_NAME in ${POST_COMMIT_FILES} ; do
+	POST_COMMIT_FILE=$(echo ${POST_FILE_NAME} | rev | cut -d '/' -f 1 | rev)
+	POST_FILE_DIR=$(echo ${POST_FILE_NAME} | cut -d '/' -f 1 )
+	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]${NORMAL}  \${POST_FILE_NAME} >${POST_FILE_NAME}< \${POST_COMMIT_FILE} >${POST_COMMIT_FILE}< \${POST_FILE_DIR} >${POST_FILE_DIR}< \${POST_FILE_DIR}/TEST/\${POST_COMMIT_FILE} >${POST_FILE_DIR}/TEST/${POST_COMMIT_FILE}<" 1>&2 ; fi
+	#	if TEST case directory for commited file
+	if [ -d ${POST_FILE_DIR}/TEST/${POST_COMMIT_FILE} ] ; then
+		get_date_stamp ; echo -e "${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[INFO]  Test case directory found${NORMAL} (${POST_FILE_DIR}/TEST/${POST_COMMIT_FILE}) for ${GIT_AUTHOR_NAME} (${USER})."
+		#	Create list of FVT test cases
+		POST_FVT_TEST_CASES=$(ls -1 ${POST_FILE_DIR}/TEST/${POST_COMMIT_FILE} | grep -v "\." | grep FVT)
+		if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]${NORMAL}  \${POST_FVT_TEST_CASES} >${POST_FVT_TEST_CASES}<" 1>&2 ; fi
+		#       setup symbolic links
+		$(cd ${POST_WORKING_DIRECTORY}/${POST_FILE_DIR}/TEST/${POST_COMMIT_FILE} ; ${POST_WORKING_DIRECTORY}/${POST_FILE_DIR}/TEST/${POST_COMMIT_FILE}/FVT-setup.sh)
+		#	Loop through test cases
+		for POST_FVT_TEST_CASE in ${POST_FVT_TEST_CASES} ; do
+			#       Run FVT test cases
+			if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]${NORMAL}  \${POST_WORKING_DIRECTORY}/\${POST_FILE_DIR}/TEST/\${POST_COMMIT_FILE}/\${POST_FVT_TEST_CASE} >${POST_WORKING_DIRECTORY}/${POST_FILE_DIR}/TEST/${POST_COMMIT_FILE}/${POST_FVT_TEST_CASE}< \${POST_WORKING_DIRECTORY}/${POST_FILE_NAME} >${POST_WORKING_DIRECTORY}/${POST_FILE_NAME}<" 1>&2 ; fi
+			POST_COMMAND="${POST_WORKING_DIRECTORY}/${POST_FILE_DIR}/TEST/${POST_COMMIT_FILE}/${POST_FVT_TEST_CASE} ${POST_WORKING_DIRECTORY}/${POST_FILE_NAME}"
+			eval "${POST_COMMAND}"
+		done
+	else
+		get_date_stamp ; echo -e "${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[INFO]  No test case directory found${NORMAL} in ${POST_FILE_DIR}/TEST/${POST_COMMIT_FILE}, for ${GIT_AUTHOR_NAME}."
+	fi
+done
+rm    "${POST_WORKING_DIRECTORY}"/hooks/COMMIT_FILE_LIST
+###
