@@ -1,13 +1,7 @@
 #!/bin/bash
-#	hooks/post-commit  3.237.333  2019-08-10T13:56:26.315936-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.236-5-g632064e  
-#	   hooks/post-commit change last prototype variable name 
-#	hooks/post-commit  3.236.327  2019-08-10T12:52:54.689661-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.235-17-g3f5bcf6  
-#	   hooks/post-commit updated comments 
-#	hooks/post-commit  3.235.309  2019-08-09T22:08:53.228540-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.234  
-#	   hooks/post-commit change prototype variable name to more meaning full variable names 
-#	hooks/post-commit  3.233.307  2019-08-09T17:00:06.878635-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.232  
-#	   hooks/(pro,post)-commit Create FVT testing production standard using .git/hooks #26 
-###
+#	hooks/post-commit  3.241.463  2019-08-10T18:57:47.115402-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.240-1-g4514dd3  
+#	   hooks/post-commit remove FVT-*.out files run FVT-setup.sh if found in test case directory 
+###	Create FVT testing production standard using .git/hooks #26 
 #	post-commit - (git hook) run test cases if found
 #	    Loop through commited files found in COMMIT_FILE_LIST
 #	      - Note: pre-commit (git hook) created ${REPOSITORY_DIR}/hooks/COMMIT_FILE_LIST
@@ -62,11 +56,19 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 	#	Check if COMMIT_FILE has a 'TEST' directory
 	if [ -d "${COMMIT_PATH}"/TEST/"${COMMIT_FILE_NAME}" ] ; then
 		get_date_stamp ; echo -e "${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[INFO]  Test case directory found${NORMAL} (${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}) for ${GIT_AUTHOR_NAME} (${USER})."
+		#	Remove output from previous run of test cases
+		rm -f FVT-*.out
+		#	run FVT-setup.sh if found
+		if [ -s "${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}/FVT-setup.sh" ] ; then
+			cd "${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}"
+			./FVT-setup.sh
+		fi
 		#	Create list of FVT test cases
 		FVT_TEST_CASES=$(ls -1 ${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME} | grep -v "\." | grep "^FVT")
 		if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]${NORMAL}  \${FVT_TEST_CASES} >${FVT_TEST_CASES}<" 1>&2 ; fi
 		#       Links FVT-< >.expected (test case output) to other FVT test cases requiring the same test case output
-		cd ${REPOSITORY_DIR}/${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME} ; ${REPOSITORY_DIR}/${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}/FVT-setup.sh
+		cd "${REPOSITORY_DIR}/${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}"
+		"${REPOSITORY_DIR}/${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}/FVT-setup.sh"
 		#       Loop through FVT_TEST_CASES
 		for FVT_TEST_CASE in ${FVT_TEST_CASES} ; do
 			#       Run FVT_TEST_CASE(s)
