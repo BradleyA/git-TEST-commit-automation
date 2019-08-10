@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.237.333  2019-08-10T13:56:26.315936-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.236-5-g632064e  
+#	   hooks/post-commit change last prototype variable name 
 #	hooks/post-commit  3.236.327  2019-08-10T12:52:54.689661-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.235-17-g3f5bcf6  
 #	   hooks/post-commit updated comments 
 #	hooks/post-commit  3.235.309  2019-08-09T22:08:53.228540-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.234  
@@ -61,15 +63,15 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 	if [ -d "${COMMIT_PATH}"/TEST/"${COMMIT_FILE_NAME}" ] ; then
 		get_date_stamp ; echo -e "${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[INFO]  Test case directory found${NORMAL} (${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}) for ${GIT_AUTHOR_NAME} (${USER})."
 		#	Create list of FVT test cases
-		POST_FVT_TEST_CASES=$(ls -1 ${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME} | grep -v "\." | grep FVT)
-		if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]${NORMAL}  \${POST_FVT_TEST_CASES} >${POST_FVT_TEST_CASES}<" 1>&2 ; fi
+		FVT_TEST_CASES=$(ls -1 ${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME} | grep -v "\." | grep "^FVT")
+		if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]${NORMAL}  \${FVT_TEST_CASES} >${FVT_TEST_CASES}<" 1>&2 ; fi
 		#       Links FVT-< >.expected (test case output) to other FVT test cases requiring the same test case output
 		cd ${REPOSITORY_DIR}/${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME} ; ${REPOSITORY_DIR}/${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}/FVT-setup.sh
 		#       Loop through FVT_TEST_CASES
-		for POST_FVT_TEST_CASE in ${POST_FVT_TEST_CASES} ; do
+		for FVT_TEST_CASE in ${FVT_TEST_CASES} ; do
 			#       Run FVT_TEST_CASE(s)
-			if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]${NORMAL}  \${REPOSITORY_DIR}/\${COMMIT_PATH}/TEST/\${COMMIT_FILE_NAME}/\${POST_FVT_TEST_CASE} >${REPOSITORY_DIR}/${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}/${POST_FVT_TEST_CASE}< \${REPOSITORY_DIR}/${COMMIT_PATH_FILE_NAME} >${REPOSITORY_DIR}/${COMMIT_PATH_FILE_NAME}<" 1>&2 ; fi
-			TEST_CASE="${REPOSITORY_DIR}/${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}/${POST_FVT_TEST_CASE} ${REPOSITORY_DIR}/${COMMIT_PATH_FILE_NAME}"
+			if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]${NORMAL}  \${REPOSITORY_DIR}/\${COMMIT_PATH}/TEST/\${COMMIT_FILE_NAME}/\${FVT_TEST_CASE} >${REPOSITORY_DIR}/${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}/${FVT_TEST_CASE}< \${REPOSITORY_DIR}/${COMMIT_PATH_FILE_NAME} >${REPOSITORY_DIR}/${COMMIT_PATH_FILE_NAME}<" 1>&2 ; fi
+			TEST_CASE="${REPOSITORY_DIR}/${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}/${FVT_TEST_CASE} ${REPOSITORY_DIR}/${COMMIT_PATH_FILE_NAME}"
 			eval "${TEST_CASE}"
 		done
 	else
