@@ -1,16 +1,19 @@
 #!/bin/bash
+#	hooks/post-commit  3.236.327  2019-08-10T12:52:54.689661-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.235-17-g3f5bcf6  
+#	   hooks/post-commit updated comments 
 #	hooks/post-commit  3.235.309  2019-08-09T22:08:53.228540-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.234  
 #	   hooks/post-commit change prototype variable name to more meaning full variable names 
 #	hooks/post-commit  3.233.307  2019-08-09T17:00:06.878635-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.232  
 #	   hooks/(pro,post)-commit Create FVT testing production standard using .git/hooks #26 
 ###
 #	post-commit - (git hook) run test cases if found
-#	   Loop through commited files found in ${COMMIT_FILE_LIST}                  created by pre-commit (git hook)
-#	     Check if COMMIT_FILE has a 'TEST' directory
-#		Create list of FVT test cases
-#		       Links FVT-< >.expected (test case output) to other FVT test cases requiring the same test case output
-#			       Loop through FVT_TEST_CASES
-#				       Run FVT_TEST_CASE
+#	    Loop through commited files found in COMMIT_FILE_LIST
+#	      - Note: pre-commit (git hook) created ${REPOSITORY_DIR}/hooks/COMMIT_FILE_LIST
+#	        Check if COMMIT_FILE has a 'TEST' directory
+#	            Create list of FVT test cases
+#	                Links FVT-< >.expected (test case output) to other FVT test cases requiring the same test case output
+#	                    Loop through FVT_TEST_CASES
+#	                        Run FVT_TEST_CASE
 #
 ### production standard 3.0 shellcheck
 ### production standard 5.1.160 Copyright
@@ -48,7 +51,8 @@ echo    ": ##:: ##:. ###:::::::::: ##:::: ##:::::::'##::: ##:::: ##::::"
 echo    "'####: ##::. ##:::::::::: ##:::: ########:. ######::::: ##::::"
 echo    "....::..::::..:::::::::::..:::::........:::......::::::..:::::"
 
-#	Loop through commited files found in ${COMMIT_FILE_LIST}               >>>   created by pre-commit (git hook)
+#	Loop through commited files found in COMMIT_FILE_LIST
+#	  - Note: pre-commit (git hook) created ${REPOSITORY_DIR}/hooks/COMMIT_FILE_LIST
 for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 	COMMIT_FILE_NAME=$(echo "${COMMIT_PATH_FILE_NAME}" | rev | cut -d '/' -f 1 | rev)
 	COMMIT_PATH=$(echo "${COMMIT_PATH_FILE_NAME}" | sed -e s/${COMMIT_FILE_NAME}// )
@@ -72,5 +76,5 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 		get_date_stamp ; echo -e "${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[INFO]  No test case directory found${NORMAL} in ${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}, for ${GIT_AUTHOR_NAME}."
 	fi
 done
-#	rm    "${REPOSITORY_DIR}"/hooks/COMMIT_FILE_LIST	>>> uncomment 
+rm    "${REPOSITORY_DIR}"/hooks/COMMIT_FILE_LIST
 ###
