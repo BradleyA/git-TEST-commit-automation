@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/pre-commit  3.246.471  2019-08-10T20:05:34.480397-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.245-1-g58d7e0e  
+#	   ### production standard 10.0 FVT testing #26 
 #	hooks/pre-commit  3.234.308  2019-08-09T17:22:11.977835-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.233  
 #	   hooks/pre-commit run shellcheck 
 #	hooks/pre-commit  3.233.307  2019-08-09T17:00:35.389959-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.232  
@@ -30,9 +32,10 @@ LOCALHOST=$(hostname -f)
 #       Version
 SCRIPT_VERSION=$(head -2 "${0}" | awk {'printf $3'})
 
-###
+### production standard 10.0 FVT testing
 REPOSITORY_DIR=$(git rev-parse --show-toplevel)
 cd "${REPOSITORY_DIR}"
 if [ ! -d "${REPOSITORY_DIR}/hooks" ] ; then mkdir -p "${REPOSITORY_DIR}/hooks" ; fi
 if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]  Creating ${REPOSITORY_DIR}/hooks/COMMIT_FILE_LIST file includes files being commited${NORMAL} for ${GIT_AUTHOR_NAME} (${USER})." 1>&2 ; fi
 git status -s --untracked-files=no | grep -v '^D  ' | awk '{print $2}' > "${REPOSITORY_DIR}"/hooks/COMMIT_FILE_LIST
+###

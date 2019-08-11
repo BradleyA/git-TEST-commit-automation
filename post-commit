@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.246.471  2019-08-10T20:05:30.820672-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.245-1-g58d7e0e  
+#	   ### production standard 10.0 FVT testing #26 
 #	hooks/post-commit  3.244.468  2019-08-10T19:47:11.507493-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.243  
 #	   hooks/FVT-setup.sh hooks/post-commit move rm -f FVT-*.out from hooks/post-commit to hooks/FVT-setup.sh 
 #	hooks/post-commit  3.241.463  2019-08-10T18:57:47.115402-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.240-1-g4514dd3  
@@ -34,7 +36,7 @@ LOCALHOST=$(hostname -f)
 #       Version
 SCRIPT_VERSION=$(head -2 "${0}" | awk {'printf $3'})
 
-###
+### production standard 10.0 FVT testing
 REPOSITORY_DIR=$(git rev-parse --show-toplevel)
 if [ ! -r "${REPOSITORY_DIR}/hooks/COMMIT_FILE_LIST" ] ; then exit ; fi   # COMMIT_FILE_LIST is created by pre-commit (git hook)
 COMMIT_FILE_LIST=$(cat "${REPOSITORY_DIR}"/hooks/COMMIT_FILE_LIST)
