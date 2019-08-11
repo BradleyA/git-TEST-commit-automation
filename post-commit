@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.244.468  2019-08-10T19:47:11.507493-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.243  
+#	   hooks/FVT-setup.sh hooks/post-commit move rm -f FVT-*.out from hooks/post-commit to hooks/FVT-setup.sh 
 #	hooks/post-commit  3.241.463  2019-08-10T18:57:47.115402-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.240-1-g4514dd3  
 #	   hooks/post-commit remove FVT-*.out files run FVT-setup.sh if found in test case directory 
 ###	Create FVT testing production standard using .git/hooks #26 
@@ -56,8 +58,6 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 	#	Check if COMMIT_FILE has a 'TEST' directory
 	if [ -d "${COMMIT_PATH}"/TEST/"${COMMIT_FILE_NAME}" ] ; then
 		get_date_stamp ; echo -e "${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[INFO]  Test case directory found${NORMAL} (${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}) for ${GIT_AUTHOR_NAME} (${USER})."
-		#	Remove output from previous run of test cases
-		rm -f FVT-*.out
 		#	run FVT-setup.sh if found
 		if [ -s "${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}/FVT-setup.sh" ] ; then
 			cd "${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}"
