@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/FVT-setup.sh  3.247.474  2019-08-11T07:51:53.596729-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.246-2-g0eac612  
+# 	   change test case output extension from .out to .test-case-output #26 
 # 	hooks/FVT-setup.sh  3.246.471  2019-08-10T20:05:23.559251-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.245-1-g58d7e0e  
 # 	   ### production standard 10.0 FVT testing #26 
 # 	hooks/FVT-setup.sh  3.244.468  2019-08-10T19:47:00.778853-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.243  
@@ -14,7 +16,7 @@
 ##       MIT License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
 ### production standard 10.0 FVT testing
 #       Remove output from previous run of test cases
-rm -f FVT-*.out
+rm -f FVT-*.test-case-output
 #	Create symbolic link for all test case expected output that matches another test case expected output 
 #	Expected output from FVT-option-help-001 matches output from FVT-option-help-00[2,3,4,5,6]
 ln -fs FVT-option-help-001.expected FVT-option-help-002.expected

@@ -1,10 +1,12 @@
 #!/bin/bash
+#	hooks/post-commit  3.247.474  2019-08-11T07:52:04.611059-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.246-2-g0eac612  
+#	   change test case output extension from .out to .test-case-output #26 
 #	hooks/post-commit  3.246.471  2019-08-10T20:05:30.820672-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.245-1-g58d7e0e  
 #	   ### production standard 10.0 FVT testing #26 
 #	hooks/post-commit  3.244.468  2019-08-10T19:47:11.507493-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.243  
-#	   hooks/FVT-setup.sh hooks/post-commit move rm -f FVT-*.out from hooks/post-commit to hooks/FVT-setup.sh 
+#	   hooks/FVT-setup.sh hooks/post-commit move rm -f FVT-*.test-case-output from hooks/post-commit to hooks/FVT-setup.sh 
 #	hooks/post-commit  3.241.463  2019-08-10T18:57:47.115402-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.240-1-g4514dd3  
-#	   hooks/post-commit remove FVT-*.out files run FVT-setup.sh if found in test case directory 
+#	   hooks/post-commit remove FVT-*.test-case-output files run FVT-setup.sh if found in test case directory 
 ###	Create FVT testing production standard using .git/hooks #26 
 #	post-commit - (git hook) run test cases if found
 #	    Loop through commited files found in COMMIT_FILE_LIST
