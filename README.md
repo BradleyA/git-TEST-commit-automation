@@ -19,9 +19,11 @@ verifying that the design meets its specification from a functional perspective.
 ## Setup Test Cases
 
     git clone https://github.com/BradleyA/user-files.git
+    
     cd user-files/hooks
     ln -s ../../hooks/post-commit ../.git/hooks/post-commit
     ln -s ../../hooks/pre-commit ../.git/hooks/pre-commit
+    
     cd ..
     mkdir TEST/<FILE_TO_BE_TESTED>/
     cd TEST/<FILE_TO_BE_TESTED>/
