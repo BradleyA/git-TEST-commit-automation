@@ -9,10 +9,10 @@ The strategy of these scripts is to assist with running somthing and then checki
 **PASS** or **FAIL**, some methed will notify someone of the results. (not sure which method is going to work for me and you? . . . stdout, logs-scrape, tables, email, twitter, slack, tall a friand, etc.)
 
 
-Functional Verification is defined as the process of verifying that an RTL (Synthesizable Verilog, VHDL, SystemVerilog) design meets its specification from a functional perspective. ... Functional verification establishes that the design under test (DUT) implements the functionality of the specification correctly.
-
+Functional Verification is defined as the process of verifying that the design meets its specification from a functional perspective. ... Functional verification establishes that the design under test (DUT) implements the functionality of the specification correctly.
 
 verifying that the design meets its specification from a functional perspective. ... Functional verification establishes that the design under test (DUT) implements the functionality of the specification correctly.
+
  
 **hooks directory**, there are two GitHub commit hooks that support running of **test cases**.  The pre-commit GitHub hook bash script creates a list of commited files with repository subdirectory.  The post-commit GitHub hook bash script runs found FVT test case(s) for a commited file.  The hooks directory was created because I wanted to modify the github hooks and track changes per repository.  [Learn more about how to setup test cases.](hooks/README.md)
 
