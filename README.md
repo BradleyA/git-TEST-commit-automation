@@ -4,7 +4,9 @@
 
 # Production standard 10.0 FVT testing
 
-The strategy of these scripts is to assist developers and testers with running a command and then checking the output, or exit code.  Did the command Function as designed Then went the testing is complete, some methed will notify someone of the results. (not sure while method is going to work for me and you?)
+The strategy of these scripts is to assist with running a command and then checking the output, or exit code.  Did the command function as designed? 
+
+When the testing is complete, PASS or FAIL, some methed will notify someone of the results. (not sure which method is going to work for me and you?  stdout, logs-scrape, email, twitter, slack, etc.)
 
 
 Functional Verification is defined as the process of verifying that an RTL (Synthesizable Verilog, VHDL, SystemVerilog) design meets its specification from a functional perspective. ... Functional verification establishes that the design under test (DUT) implements the functionality of the specification correctly.
