@@ -1,8 +1,6 @@
 #!/bin/bash
-#	hooks/post-commit  3.259.499  2019-08-14T00:07:39.222849-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.258  
+#	hooks/post-commit  3.260.500  2019-08-14T00:15:25.266469-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.259  
 #	   testing shellcheck 
-#	hooks/post-commit  3.258.498  2019-08-14T00:04:40.476840-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.257  
-#	   testing FVT shellcheck 
 #	hooks/post-commit  3.253.487  2019-08-13T23:30:59.456717-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.252  
 #	   hooks/post-commit  total number of test cases and PASS/FAIL numbers per command 
 #	hooks/post-commit  3.247.474  2019-08-11T07:52:04.611059-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.246-2-g0eac612  
@@ -86,7 +84,8 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 			if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]${NORMAL}  \${REPOSITORY_DIR}/\${COMMIT_PATH}/TEST/\${COMMIT_FILE_NAME}/\${FVT_TEST_CASE} >${REPOSITORY_DIR}/${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}/${FVT_TEST_CASE}< \${REPOSITORY_DIR}/${COMMIT_PATH_FILE_NAME} >${REPOSITORY_DIR}/${COMMIT_PATH_FILE_NAME}<" 1>&2 ; fi
 			TEST_CASE="${REPOSITORY_DIR}/${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}/${FVT_TEST_CASE} ${REPOSITORY_DIR}/${COMMIT_PATH_FILE_NAME}"
 			eval "${TEST_CASE}"
-			if [ $% = 0 ] ; then
+			RETURN_CODE=${?}
+			if [ ${RETURN_CODE} -eq 0 ] ; then
 				NO_TEST_CASES_PASS=$((NO_TEST_CASES_PASS+1))
 			else
 				NO_TEST_CASES_FAIL=$((NO_TEST_CASES_FAIL+1))
