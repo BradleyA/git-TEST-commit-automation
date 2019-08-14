@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.256.496  2019-08-13T23:51:25.660338-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.255  
+#	   testing shellcheck 
 #	hooks/post-commit  3.255.495  2019-08-13T23:45:38.605094-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.254  
 #	   testing shellcheck test case 
 #	hooks/post-commit  3.253.487  2019-08-13T23:30:59.456717-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.252  
@@ -73,9 +75,9 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 			"${REPOSITORY_DIR}/${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}/FVT-setup.sh"
 		fi
 		#	Create list of FVT test cases
-		FVT_TEST_CASES=$(ls -1 ${COMMIT_FILE_NAME} | grep -v "\." | grep "^FVT")
+		FVT_TEST_CASES=$(ls -1 | grep -v "\." | grep "^FVT")
 		if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]${NORMAL}  \${FVT_TEST_CASES} >${FVT_TEST_CASES}<" 1>&2 ; fi
-		NO_TEST_CASES=$(ls -1 ${COMMIT_FILE_NAME} | grep -v "\." | grep "^FVT" | wc -l)
+		NO_TEST_CASES=$(ls -1  | grep -v "\." | grep "^FVT" | wc -l)
 		NO_TEST_CASES_PASS=0
 		NO_TEST_CASES_FAIL=0
 		#       Loop through FVT_TEST_CASES
