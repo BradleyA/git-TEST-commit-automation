@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.253.487  2019-08-13T23:30:59.456717-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.252  
+#	   hooks/post-commit  total number of test cases and PASS/FAIL numbers per command 
 #	hooks/post-commit  3.247.474  2019-08-11T07:52:04.611059-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.246-2-g0eac612  
 #	   change test case output extension from .out to .test-case-output #26 
 #	hooks/post-commit  3.246.471  2019-08-10T20:05:30.820672-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.245-1-g58d7e0e  
@@ -62,24 +64,31 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 	#	Check if COMMIT_FILE has a 'TEST' directory
 	if [ -d "${COMMIT_PATH}"/TEST/"${COMMIT_FILE_NAME}" ] ; then
 		get_date_stamp ; echo -e "${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[INFO]  Test case directory found${NORMAL} (${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}) for ${GIT_AUTHOR_NAME} (${USER})."
+		cd "${REPOSITORY_DIR}/${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}"
 		#	run FVT-setup.sh if found
 		if [ -s "${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}/FVT-setup.sh" ] ; then
-			cd "${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}"
-			./FVT-setup.sh
+			#   Links FVT-< >.expected (test case output) to other FVT test cases requiring the same test case output
+			"${REPOSITORY_DIR}/${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}/FVT-setup.sh"
 		fi
 		#	Create list of FVT test cases
 		FVT_TEST_CASES=$(ls -1 ${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME} | grep -v "\." | grep "^FVT")
 		if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]${NORMAL}  \${FVT_TEST_CASES} >${FVT_TEST_CASES}<" 1>&2 ; fi
-		#       Links FVT-< >.expected (test case output) to other FVT test cases requiring the same test case output
-		cd "${REPOSITORY_DIR}/${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}"
-		"${REPOSITORY_DIR}/${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}/FVT-setup.sh"
+		NO_TEST_CASES=$(ls -1 ${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME} | grep -v "\." | grep "^FVT" | wc -l)
+		NO_TEST_CASES_PASS=0
+		NO_TEST_CASES_FAIL=0
 		#       Loop through FVT_TEST_CASES
 		for FVT_TEST_CASE in ${FVT_TEST_CASES} ; do
 			#       Run FVT_TEST_CASE(s)
 			if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]${NORMAL}  \${REPOSITORY_DIR}/\${COMMIT_PATH}/TEST/\${COMMIT_FILE_NAME}/\${FVT_TEST_CASE} >${REPOSITORY_DIR}/${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}/${FVT_TEST_CASE}< \${REPOSITORY_DIR}/${COMMIT_PATH_FILE_NAME} >${REPOSITORY_DIR}/${COMMIT_PATH_FILE_NAME}<" 1>&2 ; fi
 			TEST_CASE="${REPOSITORY_DIR}/${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}/${FVT_TEST_CASE} ${REPOSITORY_DIR}/${COMMIT_PATH_FILE_NAME}"
 			eval "${TEST_CASE}"
+			if [ $% = 0 ] ; then
+				NO_TEST_CASES_PASS="${NO_TEST_CASES_PASS}"+1
+			else
+				NO_TEST_CASES_FAIL="${NO_TEST_CASES_FAIL}"+1
+			fi
 		done
+		echo -e ">>>  ${BOLD}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases=${NO_TEST_CASES}\n   Number of test cases pass=${NO_TEST_CASES_PASS}\n   Number of test cases fail=${NO_TEST_CASES_FAIL}"
 	else
 		get_date_stamp ; echo -e "${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[INFO]  No test case directory found${NORMAL} in ${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}, for ${GIT_AUTHOR_NAME}."
 	fi
