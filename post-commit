@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.259.499  2019-08-14T00:07:39.222849-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.258  
+#	   testing shellcheck 
 #	hooks/post-commit  3.258.498  2019-08-14T00:04:40.476840-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.257  
 #	   testing FVT shellcheck 
 #	hooks/post-commit  3.253.487  2019-08-13T23:30:59.456717-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.252  
@@ -85,9 +87,9 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 			TEST_CASE="${REPOSITORY_DIR}/${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}/${FVT_TEST_CASE} ${REPOSITORY_DIR}/${COMMIT_PATH_FILE_NAME}"
 			eval "${TEST_CASE}"
 			if [ $% = 0 ] ; then
-				NO_TEST_CASES_PASS=((NO_TEST_CASES_PASS++))
+				NO_TEST_CASES_PASS=$((NO_TEST_CASES_PASS+1))
 			else
-				NO_TEST_CASES_FAIL=((NO_TEST_CASES_FAIL++))
+				NO_TEST_CASES_FAIL=$((NO_TEST_CASES_FAIL+1))
 			fi
 		done
 		echo -e ">>>  ${BOLD}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases=${NO_TEST_CASES}\n   Number of test cases pass=${NO_TEST_CASES_PASS}\n   Number of test cases fail=${NO_TEST_CASES_FAIL}"
