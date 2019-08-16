@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.288.513  2019-08-16T15:10:17.629627-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.287  
+#	   testing post-commit test cases 
 #	hooks/post-commit  3.287.512  2019-08-16T15:05:30.849177-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.266  
 #	   hooks/post-commit  change method of counting number of test cases 
 ###	Create production standard TESTing using .git/hooks #26 
@@ -63,7 +65,7 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 			"${REPOSITORY_DIR}/${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}/SAST-setup.sh"
 		fi
 		#	Create list of test cases
-		SAST_TEST_CASES=$(ls -1 "^SAST" | grep -v "\.")
+		SAST_TEST_CASES=$(ls -1 "^SAST*" | grep -v "\.")
 		if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]${NORMAL}  \${SAST_TEST_CASES} >${SAST_TEST_CASES}<" 1>&2 ; fi
 		NO_TEST_CASES=$(ls -1 "^SAST" | grep -v "\." -c)
 		NO_TEST_CASES_PASS=0
