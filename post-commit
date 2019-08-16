@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.290.515  2019-08-16T15:18:23.442759-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.289  
+#	   hooks/post-coomit testing 
 #	hooks/post-commit  3.289.514  2019-08-16T15:13:54.470888-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.288  
 #	   testing SAST test case 
 ###	Create production standard TESTing using .git/hooks #26 
@@ -64,9 +66,9 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 		fi
 		#	Create list of test cases
 	pwd
-		SAST_TEST_CASES=$(ls -1 "^SAST*" | grep -v "\.")
+		SAST_TEST_CASES=$(ls -1 SAST* | grep -v "\.")
 		if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]${NORMAL}  \${SAST_TEST_CASES} >${SAST_TEST_CASES}<" 1>&2 ; fi
-		NO_TEST_CASES=$(ls -1 "^SAST" | grep -v "\." -c)
+		NO_TEST_CASES=$(ls -1 SAST* | grep -v "\." -c)
 		NO_TEST_CASES_PASS=0
 		NO_TEST_CASES_FAIL=0
 		#       Loop through test cases
