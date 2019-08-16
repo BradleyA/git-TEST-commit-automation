@@ -1,8 +1,6 @@
 #!/bin/bash
-#	hooks/post-commit  3.293.518  2019-08-16T16:06:31.544648-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.292  
-#	   test 
-#	hooks/post-commit  3.292.517  2019-08-16T15:39:58.008707-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.291  
-#	   hooks/post-commit update test case search 
+#	hooks/post-commit  3.294.519  2019-08-16T16:08:49.135633-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.293  
+#	   testing 
 ###	Create production standard TESTing using .git/hooks #26 
 #	post-commit - (git hook) run test cases if found
 #	    Loop through commited files found in COMMIT_FILE_LIST
@@ -54,6 +52,7 @@ echo    "....::..::::..:::::::::::..:::::........:::......::::::..:::::"
 for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 	COMMIT_FILE_NAME=$(echo "${COMMIT_PATH_FILE_NAME}" | rev | cut -d '/' -f 1 | rev)
 
+echo ${COMMIT_PATH_FILE_NAME}
 	COMMIT_PATH=$(echo "${COMMIT_PATH_FILE_NAME}" | sed -e s/"${COMMIT_FILE_NAME}"// )
 echo ${COMMIT_PATH}
         COMMIT_PATH=""
