@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.265.509  2019-08-16T14:42:24.658312-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.264  
+#	   testing hooks/FVT-setup.sh SAST test cases 
 #	hooks/post-commit  3.263.507  2019-08-16T14:09:15.046663-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.262-2-gc1be0e1  
 #	   hooks/post-commit add SAST testing #26 
 ###	Create production standard TESTing using .git/hooks #26 
@@ -81,7 +83,7 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 				NO_TEST_CASES_FAIL=$((NO_TEST_CASES_FAIL+1))
 			fi
 		done
-		echo -e ">>>  ${BOLD}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases=${NO_TEST_CASES}\n   Number of test cases pass=${NO_TEST_CASES_PASS}\n   Number of test cases fail=${NO_TEST_CASES_FAIL}"
+		echo -e ">>>	SAST: ${BOLD}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases=${NO_TEST_CASES}\n   Number of test cases pass=${NO_TEST_CASES_PASS}\n   Number of test cases fail=${NO_TEST_CASES_FAIL}"
 		###	FVT
 		#	run FVT-setup.sh if found (Function Verification Test)
 		if [ -s "${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}/FVT-setup.sh" ] ; then
@@ -106,7 +108,7 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 				NO_TEST_CASES_FAIL=$((NO_TEST_CASES_FAIL+1))
 			fi
 		done
-		echo -e ">>>  ${BOLD}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases=${NO_TEST_CASES}\n   Number of test cases pass=${NO_TEST_CASES_PASS}\n   Number of test cases fail=${NO_TEST_CASES_FAIL}"
+		echo -e ">>>	FVT: {BOLD}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases=${NO_TEST_CASES}\n   Number of test cases pass=${NO_TEST_CASES_PASS}\n   Number of test cases fail=${NO_TEST_CASES_FAIL}"
 	else
 		get_date_stamp ; echo -e "${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[INFO]  No test case directory found${NORMAL} in ${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}, for ${GIT_AUTHOR_NAME}."
 	fi

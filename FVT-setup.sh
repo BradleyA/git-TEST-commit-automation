@@ -1,10 +1,8 @@
 #!/bin/bash
-# 	hooks/FVT-setup.sh  3.264.508  2019-08-16T14:35:19.798883-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.263  
-# 	   hooks/FVT-setup.sh added SAST test cases #26 
-# 	hooks/FVT-setup.sh  3.264.508  2019-08-16T14:34:43.536825-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.263  
-# 	   hooks/FVT-setup.sh added SAST test cases 
-# 	template/TEST/template.sh/FVT-setup.sh  3.263.507  2019-08-16T14:09:18.293030-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.262-2-gc1be0e1  
-# 	   hooks/post-commit add SAST testing #26 
+# 	hooks/FVT-setup.sh  3.265.509  2019-08-16T14:41:57.977584-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.264  
+# 	   testing hooks/FVT-setup.sh SAST test cases 
+# 	hooks/FVT-setup.sh  3.265.509  2019-08-16T14:41:26.069900-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.264  
+# 	   3.266 
 ###
 #	FVT-setup.sh -  This script is optional.  It runs before test cases are run, if FVT-setup.sh is found in TEST/<file_name>/
 #	   Functional Verification Testing (FVT) - verify that the program logic conforms to design specification.
