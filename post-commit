@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.293.518  2019-08-16T16:06:31.544648-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.292  
+#	   test 
 #	hooks/post-commit  3.292.517  2019-08-16T15:39:58.008707-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.291  
 #	   hooks/post-commit update test case search 
 ###	Create production standard TESTing using .git/hooks #26 
@@ -30,7 +32,7 @@ DATE_STAMP="${DATE_STAMP} (${TEMP})"
 #       Fully qualified domain name FQDN hostname
 LOCALHOST=$(hostname -f)
 #       Version
-SCRIPT_VERSION=$(head -2 "${0}" | awk {'printf $3'})
+SCRIPT_VERSION=$(head -2 "${0}" | awk '{printf $3}')
 
 ### production standard 10.0 TESTing 
 REPOSITORY_DIR=$(git rev-parse --show-toplevel)
@@ -51,7 +53,15 @@ echo    "....::..::::..:::::::::::..:::::........:::......::::::..:::::"
 #	  - Note: pre-commit (git hook) created ${REPOSITORY_DIR}/hooks/COMMIT_FILE_LIST
 for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 	COMMIT_FILE_NAME=$(echo "${COMMIT_PATH_FILE_NAME}" | rev | cut -d '/' -f 1 | rev)
-	COMMIT_PATH=$(echo "${COMMIT_PATH_FILE_NAME}" | sed -e s/${COMMIT_FILE_NAME}// )
+
+	COMMIT_PATH=$(echo "${COMMIT_PATH_FILE_NAME}" | sed -e s/"${COMMIT_FILE_NAME}"// )
+echo ${COMMIT_PATH}
+        COMMIT_PATH=""
+echo "${COMMIT_PATH_FILE_NAME/${COMMIT_FILE_NAME}//}"
+echo ${COMMIT_PATH}
+        COMMIT_PATH=""
+exit
+
 	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]${NORMAL}  \${COMMIT_PATH_FILE_NAME} >${COMMIT_PATH_FILE_NAME}< \${COMMIT_FILE_NAME} >${COMMIT_FILE_NAME}< \${COMMIT_PATH} >${COMMIT_PATH}< \${COMMIT_PATH}/TEST/\${COMMIT_FILE_NAME} >${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}<" 1>&2 ; fi
 	#	Check if COMMIT_FILE has a 'TEST' directory
 	if [ -d "${COMMIT_PATH}"/TEST/"${COMMIT_FILE_NAME}" ] ; then
