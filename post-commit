@@ -1,6 +1,6 @@
 #!/bin/bash
-#	hooks/post-commit  3.299.524  2019-08-16T16:19:30.229901-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.298  
-#	   testing 
+#	hooks/post-commit  3.300.525  2019-08-16T16:21:38.721572-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.299  
+#	   hooks/post-commit complete shellcheck cleanup 
 ###	Create production standard TESTing using .git/hooks #26 
 #	post-commit - (git hook) run test cases if found
 #	    Loop through commited files found in COMMIT_FILE_LIST
@@ -51,11 +51,7 @@ echo    "....::..::::..:::::::::::..:::::........:::......::::::..:::::"
 #	  - Note: pre-commit (git hook) created ${REPOSITORY_DIR}/hooks/COMMIT_FILE_LIST
 for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 	COMMIT_FILE_NAME=$(echo "${COMMIT_PATH_FILE_NAME}" | rev | cut -d '/' -f 1 | rev)
-echo ${COMMIT_PATH_FILE_NAME}
         COMMIT_PATH="${COMMIT_PATH_FILE_NAME//${COMMIT_FILE_NAME}/}"
-echo ">>>>>${COMMIT_PATH}<<<<<what line is this 8888"
-exit
-
 	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]${NORMAL}  \${COMMIT_PATH_FILE_NAME} >${COMMIT_PATH_FILE_NAME}< \${COMMIT_FILE_NAME} >${COMMIT_FILE_NAME}< \${COMMIT_PATH} >${COMMIT_PATH}< \${COMMIT_PATH}/TEST/\${COMMIT_FILE_NAME} >${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}<" 1>&2 ; fi
 	#	Check if COMMIT_FILE has a 'TEST' directory
 	if [ -d "${COMMIT_PATH}"/TEST/"${COMMIT_FILE_NAME}" ] ; then
