@@ -1,5 +1,5 @@
 #!/bin/bash
-#	hooks/post-commit  3.297.522  2019-08-16T16:13:45.110688-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.296  
+#	hooks/post-commit  3.298.523  2019-08-16T16:18:24.141805-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.297  
 #	   testing 
 ###	Create production standard TESTing using .git/hooks #26 
 #	post-commit - (git hook) run test cases if found
@@ -55,7 +55,8 @@ echo ${COMMIT_PATH_FILE_NAME}
 	COMMIT_PATH=$(echo "${COMMIT_PATH_FILE_NAME}" | sed -e s/"${COMMIT_FILE_NAME}"// )
 echo ${COMMIT_PATH}
         COMMIT_PATH=$(echo "${COMMIT_PATH_FILE_NAME//${COMMIT_FILE_NAME}/}")
-echo ${COMMIT_PATH}"what line is this 8888"
+        COMMIT_PATH="${COMMIT_PATH_FILE_NAME//${COMMIT_FILE_NAME}/}"
+echo ">>>>>${COMMIT_PATH}<<<<<what line is this 8888"
         COMMIT_PATH=""
 exit
 
