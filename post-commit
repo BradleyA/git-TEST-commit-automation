@@ -1,25 +1,15 @@
 #!/bin/bash
-#	hooks/post-commit  3.260.500  2019-08-14T00:15:25.266469-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.259  
-#	   testing shellcheck 
-#	hooks/post-commit  3.253.487  2019-08-13T23:30:59.456717-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.252  
-#	   hooks/post-commit  total number of test cases and PASS/FAIL numbers per command 
-#	hooks/post-commit  3.247.474  2019-08-11T07:52:04.611059-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.246-2-g0eac612  
-#	   change test case output extension from .out to .test-case-output #26 
-#	hooks/post-commit  3.246.471  2019-08-10T20:05:30.820672-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.245-1-g58d7e0e  
-#	   ### production standard 10.0 FVT testing #26 
-#	hooks/post-commit  3.244.468  2019-08-10T19:47:11.507493-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.243  
-#	   hooks/FVT-setup.sh hooks/post-commit move rm -f FVT-*.test-case-output from hooks/post-commit to hooks/FVT-setup.sh 
-#	hooks/post-commit  3.241.463  2019-08-10T18:57:47.115402-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.240-1-g4514dd3  
-#	   hooks/post-commit remove FVT-*.test-case-output files run FVT-setup.sh if found in test case directory 
-###	Create FVT testing production standard using .git/hooks #26 
+#	hooks/post-commit  3.263.507  2019-08-16T14:09:15.046663-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.262-2-gc1be0e1  
+#	   hooks/post-commit add SAST testing #26 
+###	Create production standard TESTing using .git/hooks #26 
 #	post-commit - (git hook) run test cases if found
 #	    Loop through commited files found in COMMIT_FILE_LIST
 #	      - Note: pre-commit (git hook) created ${REPOSITORY_DIR}/hooks/COMMIT_FILE_LIST
 #	        Check if COMMIT_FILE has a 'TEST' directory
-#	            Create list of FVT test cases
-#	                Links FVT-< >.expected (test case output) to other FVT test cases requiring the same test case output
-#	                    Loop through FVT_TEST_CASES
-#	                        Run FVT_TEST_CASE
+#	            Create list of test cases
+#	                Links *.expected (test case output) to other test cases requiring the same test case output
+#	                    Loop through _TEST_CASE
+#	                        Run _TEST_CASE
 #
 ### production standard 3.0 shellcheck
 ### production standard 5.1.160 Copyright
@@ -42,7 +32,7 @@ LOCALHOST=$(hostname -f)
 #       Version
 SCRIPT_VERSION=$(head -2 "${0}" | awk {'printf $3'})
 
-### production standard 10.0 FVT testing
+### production standard 10.0 TESTing 
 REPOSITORY_DIR=$(git rev-parse --show-toplevel)
 if [ ! -r "${REPOSITORY_DIR}/hooks/COMMIT_FILE_LIST" ] ; then exit ; fi   # COMMIT_FILE_LIST is created by pre-commit (git hook)
 COMMIT_FILE_LIST=$(cat "${REPOSITORY_DIR}"/hooks/COMMIT_FILE_LIST)
@@ -67,9 +57,34 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 	if [ -d "${COMMIT_PATH}"/TEST/"${COMMIT_FILE_NAME}" ] ; then
 		get_date_stamp ; echo -e "${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[INFO]  Test case directory found${NORMAL} (${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}) for ${GIT_AUTHOR_NAME} (${USER})."
 		cd "${REPOSITORY_DIR}/${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}"
-		#	run FVT-setup.sh if found
+		###	SAST
+		#	run SAST-setup.sh if found (Static Analysis Software Test)
+		if [ -s "${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}/SAST-setup.sh" ] ; then
+			"${REPOSITORY_DIR}/${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}/SAST-setup.sh"
+		fi
+		#	Create list of test cases
+		SAST_TEST_CASES=$(ls -1 | grep -v "\." | grep "^SAST")
+		if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]${NORMAL}  \${SAST_TEST_CASES} >${SAST_TEST_CASES}<" 1>&2 ; fi
+		NO_TEST_CASES=$(ls -1  | grep -v "\." | grep "^SAST" | wc -l)
+		NO_TEST_CASES_PASS=0
+		NO_TEST_CASES_FAIL=0
+		#       Loop through test cases
+		for SAST_TEST_CASE in ${SAST_TEST_CASES} ; do
+			#       Run SAST_TEST_CASE(s)
+			if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]${NORMAL}  \${REPOSITORY_DIR}/\${COMMIT_PATH}/TEST/\${COMMIT_FILE_NAME}/\${SAST_TEST_CASE} >${REPOSITORY_DIR}/${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}/${SAST_TEST_CASE}< \${REPOSITORY_DIR}/${COMMIT_PATH_FILE_NAME} >${REPOSITORY_DIR}/${COMMIT_PATH_FILE_NAME}<" 1>&2 ; fi
+			TEST_CASE="${REPOSITORY_DIR}/${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}/${SAST_TEST_CASE} ${REPOSITORY_DIR}/${COMMIT_PATH_FILE_NAME}"
+			eval "${TEST_CASE}"
+			RETURN_CODE=${?}
+			if [ ${RETURN_CODE} -eq 0 ] ; then
+				NO_TEST_CASES_PASS=$((NO_TEST_CASES_PASS+1))
+			else
+				NO_TEST_CASES_FAIL=$((NO_TEST_CASES_FAIL+1))
+			fi
+		done
+		echo -e ">>>  ${BOLD}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases=${NO_TEST_CASES}\n   Number of test cases pass=${NO_TEST_CASES_PASS}\n   Number of test cases fail=${NO_TEST_CASES_FAIL}"
+		###	FVT
+		#	run FVT-setup.sh if found (Function Verification Test)
 		if [ -s "${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}/FVT-setup.sh" ] ; then
-			#   Links FVT-< >.expected (test case output) to other FVT test cases requiring the same test case output
 			"${REPOSITORY_DIR}/${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}/FVT-setup.sh"
 		fi
 		#	Create list of FVT test cases
