@@ -1,6 +1,6 @@
 #!/bin/bash
-#	hooks/pre-commit  3.263.507  2019-08-16T14:09:18.191328-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.262-2-gc1be0e1  
-#	   hooks/post-commit add SAST testing #26 
+#	hooks/pre-commit  3.302.528  2019-08-16T16:35:27.488939-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.301  
+#	   hooks/pre-commit add SAST testing #26 
 ###
 #	pre-commit - (git hook)  Create ${REPOSITORY_DIR}/hooks/COMMIT_FILE_LIST which includes files being commited
 #
@@ -22,7 +22,7 @@ DATE_STAMP="${DATE_STAMP} (${TEMP})"
 #       Fully qualified domain name FQDN hostname
 LOCALHOST=$(hostname -f)
 #       Version
-SCRIPT_VERSION=$(head -2 "${0}" | awk {'printf $3'})
+SCRIPT_VERSION=$(head -2 "${0}" | awk '{printf $3}')
 
 ### production standard 10.0 TESTing
 REPOSITORY_DIR=$(git rev-parse --show-toplevel)
