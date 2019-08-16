@@ -1,10 +1,6 @@
 #!/bin/bash
-#	hooks/post-commit  3.266.511  2019-08-16T14:52:22.031837-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.265-1-g5daf16a  
-#	   hooks/post-commit  added SAST test cases for post-commit 
-#	hooks/post-commit  3.265.509  2019-08-16T14:42:24.658312-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.264  
-#	   testing hooks/FVT-setup.sh SAST test cases 
-#	hooks/post-commit  3.263.507  2019-08-16T14:09:15.046663-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.262-2-gc1be0e1  
-#	   hooks/post-commit add SAST testing #26 
+#	hooks/post-commit  3.287.512  2019-08-16T15:05:30.849177-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.266  
+#	   hooks/post-commit  change method of counting number of test cases 
 ###	Create production standard TESTing using .git/hooks #26 
 #	post-commit - (git hook) run test cases if found
 #	    Loop through commited files found in COMMIT_FILE_LIST
@@ -67,9 +63,9 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 			"${REPOSITORY_DIR}/${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}/SAST-setup.sh"
 		fi
 		#	Create list of test cases
-		SAST_TEST_CASES=$(ls -1 | grep -v "\." | grep "^SAST")
+		SAST_TEST_CASES=$(ls -1 "^SAST" | grep -v "\.")
 		if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]${NORMAL}  \${SAST_TEST_CASES} >${SAST_TEST_CASES}<" 1>&2 ; fi
-		NO_TEST_CASES=$(ls -1  | grep -v "\." | grep "^SAST" | wc -l)
+		NO_TEST_CASES=$(ls -1 "^SAST" | grep -v "\." -c)
 		NO_TEST_CASES_PASS=0
 		NO_TEST_CASES_FAIL=0
 		#       Loop through test cases
@@ -92,9 +88,9 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 			"${REPOSITORY_DIR}/${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}/FVT-setup.sh"
 		fi
 		#	Create list of FVT test cases
-		FVT_TEST_CASES=$(ls -1 | grep -v "\." | grep "^FVT")
+		FVT_TEST_CASES=$(ls -1 "^FVT" | grep -v "\.")
 		if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]${NORMAL}  \${FVT_TEST_CASES} >${FVT_TEST_CASES}<" 1>&2 ; fi
-		NO_TEST_CASES=$(ls -1  | grep -v "\." | grep "^FVT" | wc -l)
+		NO_TEST_CASES=$(ls -1 "^FVT" | grep -v "\." -c)
 		NO_TEST_CASES_PASS=0
 		NO_TEST_CASES_FAIL=0
 		#       Loop through FVT_TEST_CASES
