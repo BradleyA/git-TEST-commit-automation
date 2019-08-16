@@ -1,6 +1,6 @@
 #!/bin/bash
-#	hooks/post-commit  3.291.516  2019-08-16T15:24:00.420459-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.290  
-#	   cleanup shellcheck incidents 
+#	hooks/post-commit  3.292.517  2019-08-16T15:39:58.008707-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.291  
+#	   hooks/post-commit update test case search 
 ###	Create production standard TESTing using .git/hooks #26 
 #	post-commit - (git hook) run test cases if found
 #	    Loop through commited files found in COMMIT_FILE_LIST
@@ -64,9 +64,9 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 		fi
 		#	Create list of test cases
 	pwd
-		SAST_TEST_CASES=$(ls -1 SAST* | grep -v "\.")
+		SAST_TEST_CASES=$(ls -1 | grep "^SAST" | grep -v "\.")
 		if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]${NORMAL}  \${SAST_TEST_CASES} >${SAST_TEST_CASES}<" 1>&2 ; fi
-		NO_TEST_CASES=$(ls -1 SAST* | grep -v "\." -c)
+		NO_TEST_CASES=$(ls -1 | grep "^SAST" | grep -v "\." -c)
 		NO_TEST_CASES_PASS=0
 		NO_TEST_CASES_FAIL=0
 		#       Loop through test cases
@@ -89,9 +89,9 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 			"${REPOSITORY_DIR}/${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}/FVT-setup.sh"
 		fi
 		#	Create list of FVT test cases
-		FVT_TEST_CASES=$(ls -1 FVT* | grep -v "\.")
+		FVT_TEST_CASES=$(ls -1 | grep "^FVT" | grep -v "\.")
 		if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]${NORMAL}  \${FVT_TEST_CASES} >${FVT_TEST_CASES}<" 1>&2 ; fi
-		NO_TEST_CASES=$(ls -1 FVT* | grep -v "\." -c)
+		NO_TEST_CASES=$(ls -1 | grep "^FVT" | grep -v "\." -c)
 		NO_TEST_CASES_PASS=0
 		NO_TEST_CASES_FAIL=0
 		#       Loop through FVT_TEST_CASES
