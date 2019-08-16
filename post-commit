@@ -1,7 +1,5 @@
 #!/bin/bash
-#	hooks/post-commit  3.295.520  2019-08-16T16:10:34.649301-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.294  
-#	   testing 
-#	hooks/post-commit  3.294.519  2019-08-16T16:08:49.135633-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.293  
+#	hooks/post-commit  3.296.521  2019-08-16T16:12:20.942991-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.295  
 #	   testing 
 ###	Create production standard TESTing using .git/hooks #26 
 #	post-commit - (git hook) run test cases if found
@@ -53,13 +51,12 @@ echo    "....::..::::..:::::::::::..:::::........:::......::::::..:::::"
 #	  - Note: pre-commit (git hook) created ${REPOSITORY_DIR}/hooks/COMMIT_FILE_LIST
 for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 	COMMIT_FILE_NAME=$(echo "${COMMIT_PATH_FILE_NAME}" | rev | cut -d '/' -f 1 | rev)
-
 echo ${COMMIT_PATH_FILE_NAME}
 	COMMIT_PATH=$(echo "${COMMIT_PATH_FILE_NAME}" | sed -e s/"${COMMIT_FILE_NAME}"// )
 echo ${COMMIT_PATH}
         COMMIT_PATH=""
 echo "${COMMIT_PATH_FILE_NAME//${COMMIT_FILE_NAME}/}"
-echo ${COMMIT_PATH}
+echo ${COMMIT_PATH}"what line is this 8888"
         COMMIT_PATH=""
 exit
 
