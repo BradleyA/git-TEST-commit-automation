@@ -1,0 +1,32 @@
+#!/bin/bash
+#	hooks/EXAMPLES/FVT-option-version-001  3.326.557  2019-08-17T11:47:30.913478-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.325  
+#	   copied test case into EXAMPLES directory 
+#	template/TEST/template.sh/FVT-option-version-001  3.262.504  2019-08-16T09:10:10.422990-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.261  
+#	   changed test cases from matching output to testing does the option function correctly 
+### production standard 3.0 shellcheck
+### production standard 5.1.160 Copyright
+#       Copyright (c) 2019 Bradley Allen
+#       MIT License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
+BOLD=$(tput -Txterm bold)
+NORMAL=$(tput -Txterm sgr0)
+###
+###     Place test case here
+
+#       TEST case Version 
+SCRIPT_NAME=$(head -2 "${1}" | awk {'printf $2'})
+SCRIPT_VERSION=$(head -2 "${1}" | awk {'printf $3'})
+echo "${SCRIPT_NAME} ${SCRIPT_VERSION}" > ${0}.expected
+
+"${1}" --version > "${0}".test-case-output
+
+###
+diff "${0}".expected "${0}".test-case-output >/dev/null 2>&1
+RETURN_CODE=${?}
+if [ ${RETURN_CODE} -eq 0 ] ; then
+        echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - No difference with expected output - ${BOLD}PASS - PASS${NORMAL}"
+elif [ ${RETURN_CODE} -eq 1 ] ; then
+        echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - Differences with expected output - ${BOLD}FAIL - FAIL${NORMAL}"
+        diff -y "${0}".expected "${0}".test-case-output
+else
+        echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - Test script ERROR - ${BOLD}FAIL - FAIL${NORMAL}"
+fi

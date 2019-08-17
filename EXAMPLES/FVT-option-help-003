@@ -1,0 +1,30 @@
+#!/bin/bash
+#	hooks/EXAMPLES/FVT-option-help-003  3.326.557  2019-08-17T11:47:07.960660-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.325  
+#	   copied test case into EXAMPLES directory 
+#	template/TEST/template.sh/FVT-option-help-003  3.262.504  2019-08-16T09:09:46.349270-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.261  
+#	   changed test cases from matching output to testing does the option function correctly 
+### production standard 3.0 shellcheck
+### production standard 5.1.160 Copyright
+#       Copyright (c) 2019 Bradley Allen
+#       MIT License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
+BOLD=$(tput -Txterm bold)
+NORMAL=$(tput -Txterm sgr0)
+###     Place test case here
+
+"${1}" help > "${0}".test-case-output
+
+#       The option is functioning correctly:  if USAGE && DESCRIPTION && DOCUMENTATION appear in "${0}".test-case-output 
+if grep -q 'USAGE' "${0}".test-case-output ; then
+        if grep -q 'DESCRIPTION' "${0}".test-case-output  ; then
+                if grep -q 'DOCUMENTATION' "${0}".test-case-output  ; then
+                        echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - USAGE DESCRIPTION DOCUMENTATION found in output ${BOLD}PASS - PASS${NORMAL}"
+                else
+                        echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - DOCUMENTATION not found in output - ${BOLD}FAIL - FAIL${NORMAL}"
+                fi
+        else
+                echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - DESCRIPTION not found in output - ${BOLD}FAIL - FAIL${NORMAL}"
+        fi
+else
+        echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - USAGE not found in output - ${BOLD}FAIL - FAIL${NORMAL}"
+fi
+###
