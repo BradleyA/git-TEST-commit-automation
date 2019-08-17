@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/find-testcase.sh  3.310.539  2019-08-17T09:37:19.835424-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.309  
+# 	   hooks/GIT-VARIABLES-EXAMPLES.sh used to debug hooks during development 
 # 	hooks/find-testcase.sh  3.307.536  2019-08-16T23:45:27.930978-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.306  
 # 	   hooks/find-testcase.sh initial commit in design stage 
 ###
@@ -33,6 +35,7 @@ for i in $DIR_LIST ; do
 	for j in ${TEST_CASE_DIR_LIST} ; do 
 		echo -e "\n${j}"
 		ls -1  "${j}" | grep -v "\." | sed 's/^/\t/'
+		ls -1  "${j}" | grep "setup.sh" | sed 's/^/\t/'
 	done
 done
 ###
