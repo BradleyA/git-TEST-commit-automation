@@ -1,0 +1,29 @@
+#!/bin/bash
+#	hooks/EXAMPLES/TEST/FVT-option-help-003/SAST-shellcheck-001  3.315.546  2019-08-17T10:42:10.652053-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.314  
+#	   FVT-option-help-003  added SAST test cases 
+### production standard 3.0 shellcheck
+### production standard 5.1.160 Copyright
+#       Copyright (c) 2019 Bradley Allen
+#       MIT License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
+BOLD=$(tput -Txterm bold)
+NORMAL=$(tput -Txterm sgr0)
+###	Place test case here
+
+#	analyse code for potential errors
+shellcheck "${1}" > "${0}".test-case-output
+
+###
+diff "${0}".expected "${0}".test-case-output >/dev/null 2>&1
+RETURN_CODE=${?}
+if [ ${RETURN_CODE} -eq 0 ] ; then
+	echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - No difference with expected output - ${BOLD}PASS - PASS${NORMAL}"
+	cat "${0}".test-case-output
+elif [ ${RETURN_CODE} -eq 1 ] ; then
+	echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - Differences with expected output - ${BOLD}FAIL - FAIL${NORMAL}"
+	diff -y "${0}".expected "${0}".test-case-output
+	exit 1
+else 
+	echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - Test script ERROR - ${BOLD}FAIL - FAIL${NORMAL}"
+	exit 2
+fi
+###
