@@ -1,6 +1,8 @@
 #!/bin/bash
-#	hooks/var-git-test.example  3.220.279  2019-07-28T11:53:29.945983-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  six-rpi3b.cptx86.com 3.219-1-g54b68ef  
-#	   added hooks directory with pre-commit post-commit examples for TEST cases 
+# 	hooks/EXAMPLES/GIT-VARIABLES-EXAMPLES.sh  3.311.540  2019-08-17T09:43:24.388440-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.310  
+# 	   hooks/EXAMPLES/GIT-VARIABLES-EXAMPLES.sh moved into example directory 
+###
+#	I use this file to help debug hooks during development
 ### production standard 3.0 shellcheck
 ### production standard 5.1.160 Copyright
 #       Copyright (c) 2019 Bradley Allen
