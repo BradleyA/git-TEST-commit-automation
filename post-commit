@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.327.562  2019-08-17T21:24:30.513022-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.326-4-g7d30265  
+#	   hooks/post-commit added times command to report user and sys times to user 
 #	hooks/post-commit  3.300.525  2019-08-16T16:21:38.721572-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.299  
 #	   hooks/post-commit complete shellcheck cleanup 
 ###	Create production standard TESTing using .git/hooks #26 
@@ -34,7 +36,7 @@ SCRIPT_VERSION=$(head -2 "${0}" | awk '{printf $3}')
 
 ### production standard 10.0 TESTing 
 REPOSITORY_DIR=$(git rev-parse --show-toplevel)
-if [ ! -r "${REPOSITORY_DIR}/hooks/COMMIT_FILE_LIST" ] ; then exit ; fi   # COMMIT_FILE_LIST is created by pre-commit (git hook)
+if [ ! -r "${REPOSITORY_DIR}/hooks/COMMIT_FILE_LIST" ] ; then echo "COMMIT_FILE_LIST is created by pre-commit (git hook)" ; exit ; fi
 COMMIT_FILE_LIST=$(cat "${REPOSITORY_DIR}"/hooks/COMMIT_FILE_LIST)
 
 if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]${NORMAL}  Files being commited hy ${GIT_AUTHOR_NAME} (${USER}): >${COMMIT_FILE_LIST}<" 1>&2 ; fi
@@ -113,4 +115,8 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 	fi
 done
 rm    "${REPOSITORY_DIR}"/hooks/COMMIT_FILE_LIST
+#	
+echo "     CPU Time    "
+echo "  user     sys"
+times
 ###
