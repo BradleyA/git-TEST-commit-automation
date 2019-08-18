@@ -1,5 +1,5 @@
 #!/bin/bash
-#	hooks/post-commit  3.328.563  2019-08-17T21:27:27.862203-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.327  
+#	hooks/post-commit  3.329.564  2019-08-17T21:29:38.442365-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.328  
 #	   hooks/post-commit added times command to report user and sys times to user 
 ###	Create production standard TESTing using .git/hooks #26 
 #	post-commit - (git hook) run test cases if found
@@ -82,7 +82,7 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 				NO_TEST_CASES_FAIL=$((NO_TEST_CASES_FAIL+1))
 			fi
 		done
-		echo -e ">>>	SAST: ${BOLD}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases=${NO_TEST_CASES}\n   Number of test cases pass=${NO_TEST_CASES_PASS}\n   Number of test cases fail=${NO_TEST_CASES_FAIL}"
+		echo -e "\n>>>	SAST: ${BOLD}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases=${NO_TEST_CASES}\n   Number of test cases pass=${NO_TEST_CASES_PASS}\n   Number of test cases fail=${NO_TEST_CASES_FAIL}"
 		###	FVT
 		#	run FVT-setup.sh if found (Function Verification Test)
 		if [ -s "${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}/FVT-setup.sh" ] ; then
@@ -107,14 +107,14 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 				NO_TEST_CASES_FAIL=$((NO_TEST_CASES_FAIL+1))
 			fi
 		done
-		echo -e ">>>	FVT: ${BOLD}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases=${NO_TEST_CASES}\n   Number of test cases pass=${NO_TEST_CASES_PASS}\n   Number of test cases fail=${NO_TEST_CASES_FAIL}"
+		echo -e "\n>>>	FVT: ${BOLD}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases=${NO_TEST_CASES}\n   Number of test cases pass=${NO_TEST_CASES_PASS}\n   Number of test cases fail=${NO_TEST_CASES_FAIL}"
 	else
 		get_date_stamp ; echo -e "${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[INFO]  No test case directory found${NORMAL} in ${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}, for ${GIT_AUTHOR_NAME}."
 	fi
 done
 rm    "${REPOSITORY_DIR}"/hooks/COMMIT_FILE_LIST
 #	
-echo -e "\n     CPU Time    "
+echo -e "\n>>>  CPU Time    "
 echo    "  user     sys"
 times
 echo -e "\n"
