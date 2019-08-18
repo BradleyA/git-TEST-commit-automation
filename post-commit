@@ -1,6 +1,6 @@
 #!/bin/bash
-#	hooks/post-commit  3.331.567  2019-08-17T22:39:16.280600-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.330-1-gc554299  
-#	   hooks/post-commit hooks/pre-commit correct typo 
+#	hooks/post-commit  3.332.568  2019-08-17T22:45:29.809687-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.331  
+#	   hooks/post-commit completed testing 
 ###	Create production standard TESTing using .git/hooks #26 
 #	post-commit - (git hook) run test cases if found
 #	    Loop through committed files found in COMMIT_FILE_LIST
