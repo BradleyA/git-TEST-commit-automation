@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.330.565  2019-08-17T22:24:34.058429-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.329  
+#	   hooks/pre-commit hooks/post-commit add DEBUG Operation finished. 
 #	hooks/post-commit  3.329.564  2019-08-17T21:29:38.442365-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.328  
 #	   hooks/post-commit added times command to report user and sys times to user 
 ###	Create production standard TESTing using .git/hooks #26 
@@ -113,9 +115,13 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 	fi
 done
 rm    "${REPOSITORY_DIR}"/hooks/COMMIT_FILE_LIST
-#	
+
+#
 echo -e "\n>>>  CPU Time    "
 echo    "  user     sys"
 times
 echo -e "\n"
+
+#
+if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation finished." 1>&2 ; fi
 ###
