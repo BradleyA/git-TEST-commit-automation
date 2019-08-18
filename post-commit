@@ -1,11 +1,9 @@
 #!/bin/bash
-#	hooks/post-commit  3.330.565  2019-08-17T22:24:34.058429-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.329  
-#	   hooks/pre-commit hooks/post-commit add DEBUG Operation finished. 
-#	hooks/post-commit  3.329.564  2019-08-17T21:29:38.442365-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.328  
-#	   hooks/post-commit added times command to report user and sys times to user 
+#	hooks/post-commit  3.331.567  2019-08-17T22:39:16.280600-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.330-1-gc554299  
+#	   hooks/post-commit hooks/pre-commit correct typo 
 ###	Create production standard TESTing using .git/hooks #26 
 #	post-commit - (git hook) run test cases if found
-#	    Loop through commited files found in COMMIT_FILE_LIST
+#	    Loop through committed files found in COMMIT_FILE_LIST
 #	      - Note: pre-commit (git hook) created ${REPOSITORY_DIR}/hooks/COMMIT_FILE_LIST
 #	        Check if COMMIT_FILE has a 'TEST' directory
 #	            Create list of test cases
@@ -39,7 +37,7 @@ REPOSITORY_DIR=$(git rev-parse --show-toplevel)
 if [ ! -r "${REPOSITORY_DIR}/hooks/COMMIT_FILE_LIST" ] ; then echo "COMMIT_FILE_LIST is created by pre-commit (git hook)" ; exit ; fi
 COMMIT_FILE_LIST=$(cat "${REPOSITORY_DIR}"/hooks/COMMIT_FILE_LIST)
 
-if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]${NORMAL}  Files being commited hy ${GIT_AUTHOR_NAME} (${USER}): >${COMMIT_FILE_LIST}<" 1>&2 ; fi
+if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]${NORMAL}  Files being committed hy ${GIT_AUTHOR_NAME} (${USER}): >${COMMIT_FILE_LIST}<" 1>&2 ; fi
 echo    "'####:'##::: ##:::::::'########:'########::'######::'########:"
 echo    ". ##:: ###:: ##:::::::... ##..:: ##.....::'##... ##:... ##..::"
 echo    ": ##:: ####: ##:::::::::: ##:::: ##::::::: ##:::..::::: ##::::"
@@ -49,7 +47,7 @@ echo    ": ##:: ##:. ###:::::::::: ##:::: ##:::::::'##::: ##:::: ##::::"
 echo    "'####: ##::. ##:::::::::: ##:::: ########:. ######::::: ##::::"
 echo    "....::..::::..:::::::::::..:::::........:::......::::::..:::::"
 
-#	Loop through commited files found in COMMIT_FILE_LIST
+#	Loop through committed files found in COMMIT_FILE_LIST
 #	  - Note: pre-commit (git hook) created ${REPOSITORY_DIR}/hooks/COMMIT_FILE_LIST
 for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 	COMMIT_FILE_NAME=$(echo "${COMMIT_PATH_FILE_NAME}" | rev | cut -d '/' -f 1 | rev)
