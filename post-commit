@@ -1,8 +1,6 @@
 #!/bin/bash
-#	hooks/post-commit  3.327.562  2019-08-17T21:24:30.513022-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.326-4-g7d30265  
+#	hooks/post-commit  3.328.563  2019-08-17T21:27:27.862203-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.327  
 #	   hooks/post-commit added times command to report user and sys times to user 
-#	hooks/post-commit  3.300.525  2019-08-16T16:21:38.721572-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.299  
-#	   hooks/post-commit complete shellcheck cleanup 
 ###	Create production standard TESTing using .git/hooks #26 
 #	post-commit - (git hook) run test cases if found
 #	    Loop through commited files found in COMMIT_FILE_LIST
@@ -116,7 +114,8 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 done
 rm    "${REPOSITORY_DIR}"/hooks/COMMIT_FILE_LIST
 #	
-echo "     CPU Time    "
-echo "  user     sys"
+echo -e "\n     CPU Time    "
+echo    "  user     sys"
 times
+echo -e "\n"
 ###
