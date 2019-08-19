@@ -1,10 +1,8 @@
 #!/bin/bash
-# 	hooks/find-testcase.sh  3.310.539  2019-08-17T09:37:19.835424-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.309  
-# 	   hooks/GIT-VARIABLES-EXAMPLES.sh used to debug hooks during development 
-# 	hooks/find-testcase.sh  3.307.536  2019-08-16T23:45:27.930978-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.306  
-# 	   hooks/find-testcase.sh initial commit in design stage 
+# 	hooks/bin/find-TEST-cases.sh  3.343.582  2019-08-19T15:08:07.144904-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.342  
+# 	   hooks/bin/find-TEST-cases.sh updated description and added DEBIG 'Operation finished' 
 ###
-#	find-testcase.sh
+#	find-testcase.sh -  search from top of repository to find TEST directory and test cases
 #
 ### production standard 3.0 shellcheck
 ### production standard 5.1.160 Copyright
@@ -38,4 +36,8 @@ for i in $DIR_LIST ; do
 		ls -1  "${j}" | grep "setup.sh" | sed 's/^/\t/'
 	done
 done
+
+#
+if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation finished." 1>&2 ; fi
 ###
+
