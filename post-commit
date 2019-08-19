@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.350.589  2019-08-19T16:04:11.520006-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.349  
+#	   testing 
 #	hooks/post-commit  3.349.588  2019-08-19T15:56:55.300020-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.348  
 #	   testing 
 #	hooks/post-commit  3.348.587  2019-08-19T15:46:44.954696-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.347  
@@ -63,11 +65,12 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 		cd "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}"
 		###	SAST
 		#	run SAST-setup.sh if found (Static Analysis Software Test)
+	echo 	">>>	${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SAST-setup.sh"
 		if [ -s "${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SAST-setup.sh" ] ; then
 			"${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SAST-setup.sh"
-	echo "did this command get run ???"
+	echo ">>>	did this command get run ???"
 		fi
-	echo 	"${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SAST-setup.sh"
+	echo 	">>>	${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SAST-setup.sh"
 		#	Create list of test cases
 		SAST_TEST_CASES=$(ls -1 | grep "^SAST" | grep -v "\.")
 		if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]${NORMAL}  \${SAST_TEST_CASES} >${SAST_TEST_CASES}<" 1>&2 ; fi
