@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/find-TEST-cases.sh  3.343.582  2019-08-19T15:08:07.144904-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.342  
-# 	   hooks/bin/find-TEST-cases.sh updated description and added DEBIG 'Operation finished' 
+# 	hooks/bin/find-TEST-cases.sh  3.344.583  2019-08-19T15:22:21.611373-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.343  
+# 	   testing 
 ###
 #	find-testcase.sh -  search from top of repository to find TEST directory and test cases
 #
