@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/SAST-setup.sh  3.335.573  2019-08-18T21:25:54.937316-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.334-1-gb85dde4  
+# 	   hooks/EXAMPLES/FVT-setup.sh hooks/EXAMPLES/SAST-setup.sh add commond test cases with ln 
 # 	hooks/SAST-setup.sh  3.303.530  2019-08-16T16:41:54.923689-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.302-1-gf0d1209  
 # 	   hooks/SAST-setup.sh  initial commit after testing in post-commit 
 ###
@@ -13,4 +15,14 @@
 ###
 #       Remove output from previous run of test cases
 rm -f SAST-*.test-case-output
+#
+### production standard 10.0 TESTing 
+REPOSITORY_DIR=$(git rev-parse --show-toplevel)
+#       Add shared TEST cases with command
+#          uncomment the test case to be tested
+#       SAST
+#       ln -fs ${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-permission-644-001 SAST-permission-644-001
+#       ln -fs ${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-permission-755-001 SAST-permission-755-001
+ln -fs ${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-permission-775-001 SAST-permission-775-001
+ln -fs ${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-shellcheck-001 SAST-shellcheck-001
 ###		

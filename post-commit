@@ -1,6 +1,6 @@
 #!/bin/bash
-#	hooks/post-commit  3.332.568  2019-08-17T22:45:29.809687-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.331  
-#	   hooks/post-commit completed testing 
+#	hooks/post-commit  3.335.573  2019-08-18T21:26:02.508119-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.334-1-gb85dde4  
+#	   hooks/EXAMPLES/FVT-setup.sh hooks/EXAMPLES/SAST-setup.sh add commond test cases with ln 
 ###	Create production standard TESTing using .git/hooks #26 
 #	post-commit - (git hook) run test cases if found
 #	    Loop through committed files found in COMMIT_FILE_LIST
