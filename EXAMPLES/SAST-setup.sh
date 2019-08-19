@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/SAST-setup.sh  3.353.592  2019-08-19T16:18:40.148386-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.352  
+# 	   testing 
 # 	hooks/EXAMPLES/SAST-setup.sh  3.335.573  2019-08-18T21:25:54.937316-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.334-1-gb85dde4  
 # 	   hooks/EXAMPLES/FVT-setup.sh hooks/EXAMPLES/SAST-setup.sh add commond test cases with ln 
 # 	hooks/SAST-setup.sh  3.303.530  2019-08-16T16:41:54.923689-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.302-1-gf0d1209  
@@ -18,6 +20,11 @@ rm -f SAST-*.test-case-output
 #
 ### production standard 10.0 TESTing 
 REPOSITORY_DIR=$(git rev-parse --show-toplevel)
+
+pwd
+echo ">>>	${REPOSITORY_DIR}   		<<<"
+git rev-parse --show-toplevel
+echo ">>>	hooks/EXAMPLES/SAST-setup.sh   <<<"
 #       Add shared TEST cases with command
 #          uncomment the test case to be tested
 #       SAST
