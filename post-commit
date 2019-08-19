@@ -1,9 +1,5 @@
 #!/bin/bash
-#	hooks/post-commit  3.350.589  2019-08-19T16:04:11.520006-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.349  
-#	   testing 
-#	hooks/post-commit  3.349.588  2019-08-19T15:56:55.300020-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.348  
-#	   testing 
-#	hooks/post-commit  3.348.587  2019-08-19T15:46:44.954696-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.347  
+#	hooks/post-commit  3.351.590  2019-08-19T16:07:08.607784-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.350  
 #	   testing 
 #	hooks/post-commit  3.338.577  2019-08-19T14:09:42.058269-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.337  
 #	   hooks/post-commit improve user help explaining why 
@@ -66,10 +62,12 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 		###	SAST
 		#	run SAST-setup.sh if found (Static Analysis Software Test)
 	echo 	">>>	${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SAST-setup.sh"
+set -x
 		if [ -s "${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SAST-setup.sh" ] ; then
 			"${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SAST-setup.sh"
 	echo ">>>	did this command get run ???"
 		fi
+set +x
 	echo 	">>>	${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SAST-setup.sh"
 		#	Create list of test cases
 		SAST_TEST_CASES=$(ls -1 | grep "^SAST" | grep -v "\.")
