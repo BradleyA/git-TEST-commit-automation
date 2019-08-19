@@ -1,6 +1,6 @@
 #!/bin/bash
-#	hooks/post-commit  3.335.573  2019-08-18T21:26:02.508119-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.334-1-gb85dde4  
-#	   hooks/EXAMPLES/FVT-setup.sh hooks/EXAMPLES/SAST-setup.sh add commond test cases with ln 
+#	hooks/post-commit  3.338.577  2019-08-19T14:09:42.058269-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.337  
+#	   hooks/post-commit improve user help explaining why 
 ###	Create production standard TESTing using .git/hooks #26 
 #	post-commit - (git hook) run test cases if found
 #	    Loop through committed files found in COMMIT_FILE_LIST
@@ -34,7 +34,7 @@ SCRIPT_VERSION=$(head -2 "${0}" | awk '{printf $3}')
 
 ### production standard 10.0 TESTing 
 REPOSITORY_DIR=$(git rev-parse --show-toplevel)
-if [ ! -r "${REPOSITORY_DIR}/hooks/COMMIT_FILE_LIST" ] ; then echo "COMMIT_FILE_LIST is created by pre-commit (git hook)" ; exit ; fi
+if [ ! -r "${REPOSITORY_DIR}/hooks/COMMIT_FILE_LIST" ] ; then echo "COMMIT_FILE_LIST is created by pre-commit (git hook) and is required input for this script." ; exit 1 ; fi
 COMMIT_FILE_LIST=$(cat "${REPOSITORY_DIR}"/hooks/COMMIT_FILE_LIST)
 
 if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]${NORMAL}  Files being committed hy ${GIT_AUTHOR_NAME} (${USER}): >${COMMIT_FILE_LIST}<" 1>&2 ; fi
@@ -50,7 +50,7 @@ echo    "....::..::::..:::::::::::..:::::........:::......::::::..:::::"
 #	Loop through committed files found in COMMIT_FILE_LIST
 #	  - Note: pre-commit (git hook) created ${REPOSITORY_DIR}/hooks/COMMIT_FILE_LIST
 for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
-	COMMIT_FILE_NAME=$(echo "${COMMIT_PATH_FILE_NAME}" | rev | cut -d '/' -f 1 | rev)
+	COMMIT_FILE_NAME=$(echo "${COMMIT_PATH_FILE_NAME}" | rev | cut -d '/' -f 1 | rev)  # Did not use baseline becasue I did not want to eliminate directories with a dot trailing SUFFIX
         COMMIT_PATH="${COMMIT_PATH_FILE_NAME//${COMMIT_FILE_NAME}/}"
 	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]${NORMAL}  \${COMMIT_PATH_FILE_NAME} >${COMMIT_PATH_FILE_NAME}< \${COMMIT_FILE_NAME} >${COMMIT_FILE_NAME}< \${COMMIT_PATH} >${COMMIT_PATH}< \${COMMIT_PATH}/TEST/\${COMMIT_FILE_NAME} >${COMMIT_PATH}/TEST/${COMMIT_FILE_NAME}<" 1>&2 ; fi
 	#	Check if COMMIT_FILE has a 'TEST' directory
