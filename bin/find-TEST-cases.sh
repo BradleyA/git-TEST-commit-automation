@@ -1,5 +1,5 @@
 #!/bin/bash
-# 	hooks/bin/find-TEST-cases.sh  3.359.598  2019-08-19T16:56:21.357107-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.358  
+# 	hooks/bin/find-TEST-cases.sh  3.361.600  2019-08-19T17:01:56.980888-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.360  
 # 	   testing 
 ###
 #	find-testcase.sh -  search from top of repository to find TEST directory and test cases
