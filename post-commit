@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.357.596  2019-08-19T16:48:46.480182-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.356  
+#	   testing 
 #	hooks/post-commit  3.355.594  2019-08-19T16:31:46.816510-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.354  
 #	   testing 
 #	hooks/post-commit  3.354.593  2019-08-19T16:25:25.131423-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.353  
@@ -61,9 +63,11 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 	if [ -d "${REPOSITORY_DIR}/${COMMIT_PATH}"TEST/"${COMMIT_FILE_NAME}" ] ; then
 		get_date_stamp ; echo -e "${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[INFO]  Test case directory found${NORMAL} (${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}) for ${GIT_AUTHOR_NAME} (${USER})."
 		cd "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}"
+pwd
 		###	SAST
 		#	run SAST-setup.sh if found (Static Analysis Software Test)
 		if [ -s "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SAST-setup.sh" ] ; then
+pwd
 			"${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SAST-setup.sh"
 	echo ">>>	did this command get run ???"
 		fi
