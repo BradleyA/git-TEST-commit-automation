@@ -1,7 +1,5 @@
 #!/bin/bash
-#	hooks/post-commit  3.345.584  2019-08-19T15:29:36.998068-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.344  
-#	   testing 
-#	hooks/post-commit  3.344.583  2019-08-19T15:22:26.135756-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.343  
+#	hooks/post-commit  3.348.587  2019-08-19T15:46:44.954696-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.347  
 #	   testing 
 #	hooks/post-commit  3.338.577  2019-08-19T14:09:42.058269-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.337  
 #	   hooks/post-commit improve user help explaining why 
