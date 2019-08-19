@@ -1,5 +1,5 @@
 #!/bin/bash
-#	hooks/post-commit  3.360.599  2019-08-19T17:00:53.567417-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.359  
+#	hooks/post-commit  3.362.601  2019-08-19T17:09:19.578193-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.361  
 #	   testing 
 #	hooks/post-commit  3.338.577  2019-08-19T14:09:42.058269-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.337  
 #	   hooks/post-commit improve user help explaining why 
@@ -62,11 +62,10 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 		###	SAST
 		#	run SAST-setup.sh if found (Static Analysis Software Test)
 		if [ -s "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SAST-setup.sh" ] ; then
-pwd
-			"${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SAST-setup.sh"
+	echo ">>>"pwd
+			"${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SAST-setup.sh ${REPOSITORY_DIR}"
 	echo ">>>	did this command get run ???"
 		fi
-	echo 	">>>	${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SAST-setup.sh"
 		#	Create list of test cases
 		SAST_TEST_CASES=$(ls -1 | grep "^SAST" | grep -v "\.")
 		if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]${NORMAL}  \${SAST_TEST_CASES} >${SAST_TEST_CASES}<" 1>&2 ; fi
