@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/EXAMPLES/SAST-permission-775-001  3.382.621  2019-08-20T15:37:59.265731-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.381  
+#	   hooks/bin/TEST/find-TEST-cases.sh/SAST-setup.sh  completed testing 
 #	hooks/EXAMPLES/SAST-permission-775-001  3.381.620  2019-08-20T15:20:47.236752-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.380  
 #	   testing return code from test case 
 #	hooks/EXAMPLES/SAST-permission-775-001  3.334.571  2019-08-18T00:04:32.376157-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.333-1-gfdd1a29  
@@ -9,8 +11,23 @@
 ### production standard 5.1.160 Copyright
 #       Copyright (c) 2019 Bradley Allen
 #       MIT License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
+###
+### production standard 1.0 DEBUG variable
+#       Order of precedence: environment variable, default code
+if [ "${DEBUG}" == "" ] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
 BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
+#       Date and time function ISO 8601
+get_date_stamp() {
+DATE_STAMP=$(date +%Y-%m-%dT%H:%M:%S.%6N%:z)
+TEMP=$(date +%Z)
+DATE_STAMP="${DATE_STAMP} (${TEMP})"
+}
+#       Fully qualified domain name FQDN hostname
+LOCALHOST=$(hostname -f)
+#       Version
+SCRIPT_VERSION=$(head -2 "${0}" | awk '{printf $3}')
+
 ###	Place test case here
 
 if [ -g "${1}" ] ; then
@@ -33,5 +50,8 @@ else
 	echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - file permission: check mode - ${BOLD}FAIL - FAIL${NORMAL}"
 	exit 1
 fi
+#
+if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation finished." 1>&2 ; fi
+
 exit 124
 ###

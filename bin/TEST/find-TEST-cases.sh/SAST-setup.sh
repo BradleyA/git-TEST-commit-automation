@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/TEST/find-TEST-cases.sh/SAST-setup.sh  3.378.617  2019-08-20T14:49:19.129469-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.377  
-# 	   testing 
+# 	hooks/bin/TEST/find-TEST-cases.sh/SAST-setup.sh  3.382.621  2019-08-20T15:37:59.414672-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.381  
+# 	   hooks/bin/TEST/find-TEST-cases.sh/SAST-setup.sh  completed testing 
 ###
 #	SAST-setup.sh -  This script is optional.  It runs before test cases are run, if SAST-setup.sh is found in TEST/<file_name>/
 #	   Static Analysis Software Testing (SAST) - examination of the code prior to the program’s execution
@@ -27,18 +27,17 @@ LOCALHOST=$(hostname -f)
 #       Version
 SCRIPT_VERSION=$(head -2 "${0}" | awk '{printf $3}')
 
-#       Remove output from previous run of test cases
+###       Remove output from previous run of test cases
 rm -f SAST-*.test-case-output
 #
 ### production standard 10.0 TESTing 
 REPOSITORY_DIR=${1}
-#       Add shared TEST cases with command
-#          uncomment the test case to be tested
-#       SAST
-#       ln -fs ${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-permission-644-001 SAST-permission-644-001
-#       ln -fs ${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-permission-755-001 SAST-permission-755-001
-ln -fs ${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-permission-775-001 SAST-permission-775-001
-ln -fs ${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-shellcheck-001 SAST-shellcheck-001
+
+#	uncomment shared TEST cases for command
+#       ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-permission-644-001" SAST-permission-644-001
+#       ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-permission-755-001" SAST-permission-755-001
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-permission-775-001" SAST-permission-775-001
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-shellcheck-001" SAST-shellcheck-001
 #
 if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation finished." 1>&2 ; fi
 ###
