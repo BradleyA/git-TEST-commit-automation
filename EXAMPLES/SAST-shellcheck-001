@@ -1,8 +1,6 @@
 #!/bin/bash
-#	hooks/EXAMPLES/SAST-shellcheck-001  3.334.571  2019-08-18T00:04:36.899853-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.333-1-gfdd1a29  
-#	   initial commit 
-#	hooks/TEST/pre-commit/SAST-shellcheck-001  3.301.527  2019-08-16T16:32:41.291952-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.300-1-gf8a6c29  
-#	   hooks/pre-commit  added SAST test cases for pre-commit 
+#	hooks/EXAMPLES/SAST-shellcheck-001  3.386.625  2019-08-20T17:00:07.967160-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.385  
+#	   hooks/EXAMPLES/SAST-shellcheck-001  added exit 0 
 ### production standard 3.0 shellcheck
 ### production standard 5.1.160 Copyright
 #       Copyright (c) 2019 Bradley Allen
@@ -28,4 +26,5 @@ else
 	echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - Test script ERROR - ${BOLD}FAIL - FAIL${NORMAL}"
 	exit 2
 fi
+exit 0
 ###
