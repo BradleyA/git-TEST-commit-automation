@@ -1,29 +1,48 @@
 #!/bin/bash
-#	hooks/EXAMPLES/SAST-permission-644-001  3.334.571  2019-08-18T00:04:26.925534-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.333-1-gfdd1a29  
-#	   initial commit 
-#	hooks/TEST/pre-commit/SAST-permission-001  3.301.527  2019-08-16T16:32:32.032546-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.300-1-gf8a6c29  
-#	   hooks/pre-commit  added SAST test cases for pre-commit 
+#	hooks/EXAMPLES/SAST-permission-644-001  3.383.622  2019-08-20T16:28:33.073395-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.382  
+#	   hooks/EXAMPLES/SAST-permission-???-001 changed design flow, added DEBUG 
 ### production standard 3.0 shellcheck
 ### production standard 5.1.160 Copyright
 #       Copyright (c) 2019 Bradley Allen
 #       MIT License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
+###
+### production standard 1.0 DEBUG variable
+#       Order of precedence: environment variable, default code
+if [ "${DEBUG}" == "" ] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
 BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
-###	Place test case here
+#       Date and time function ISO 8601
+get_date_stamp() {
+DATE_STAMP=$(date +%Y-%m-%dT%H:%M:%S.%6N%:z)
+TEMP=$(date +%Z)
+DATE_STAMP="${DATE_STAMP} (${TEMP})"
+}
+#       Fully qualified domain name FQDN hostname
+LOCALHOST=$(hostname -f)
+#       Version
+SCRIPT_VERSION=$(head -2 "${0}" | awk '{printf $3}')
+if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation started." 1>&2 ; fi
 
-#       Verify file permissions
-if [ $(stat -Lc %a "${1}") == 644 ]; then
-	echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - file permission: check mode - ${BOLD}PASS - PASS${NORMAL}"
-else
-	echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - file permission: check mode - ${BOLD}FAIL - FAIL${NORMAL}"
-fi
+###     Place test case here
 if [ -g "${1}" ] ; then
-	echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - file permission: FILE exists and its set-group-ID bit is set - ${BOLD}FAIL - FAIL${NORMAL}"
+        echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - file permission: FILE exists and its set-group-ID bit is set - ${BOLD}FAIL - FAIL${NORMAL}"
+        exit 1
 fi
 if [ -u "${1}" ] ; then
-	echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - file permission: FILE exists and its set-user-ID bit is set - ${BOLD}FAIL - FAIL${NORMAL}"
+        echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - file permission: FILE exists and its set-user-ID bit is set - ${BOLD}FAIL - FAIL${NORMAL}"
+        exit 1
 fi
-if [ -k "${1}" ] ; then	#	no effect on files, directory, all files in directory will be modifiable only by their owners (example /tmp)
-	echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - directory permission: FILE exists and has its sticky bit set - ${BOLD}FAIL - FAIL${NORMAL}"
+if [ -k "${1}" ] ; then #       no effect on files, but directories, all files in directory will be modifiable only by their owners (example /tmp)
+        echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - directory permission: FILE exists and has its sticky bit set - ${BOLD}FAIL - FAIL${NORMAL}"
+        exit 1
 fi
-##
+#       Verify file permissions
+if [ $(stat -Lc %a "${1}") == 644 ]; then
+        echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - file permission: check mode - ${BOLD}PASS - PASS${NORMAL}"
+        exit 0
+else
+        echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - file permission: check mode - ${BOLD}FAIL - FAIL${NORMAL}"
+        exit 1
+fi
+exit 124
+###
