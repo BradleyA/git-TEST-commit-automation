@@ -1,5 +1,5 @@
 #!/bin/bash
-#	hooks/post-commit  3.369.608  2019-08-20T13:29:36.247139-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.368  
+#	hooks/post-commit  3.370.609  2019-08-20T13:33:20.097476-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.369  
 #	   testing 
 ###	Create production standard TESTing using .git/hooks #26 
 #	post-commit - (git hook) run test cases if found
@@ -62,6 +62,7 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 		if [ -s "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SAST-setup.sh" ] ; then
 	echo ">>>"; pwd
 set -x
+			"${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SAST-setup.sh" "${REPOSITORY_DIR}"
 			"${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SAST-setup.sh" "${REPOSITORY_DIR}"
 set +x
 	echo ">>> 	did this command get run ???";pwd
