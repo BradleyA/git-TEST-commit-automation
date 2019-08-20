@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/TEST/find-TEST-cases.sh/SAST-setup.sh  3.376.615  2019-08-20T13:49:56.397298-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.375  
+# 	   testing hooks/bin/TEST/find-TEST-cases.sh/SAST-setup.sh 
 # 	hooks/bin/TEST/find-TEST-cases.sh/SAST-setup.sh  3.375.614  2019-08-20T13:47:14.104517-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.374  
 # 	   testing 
 ###
@@ -16,7 +18,7 @@ rm -f SAST-*.test-case-output
 #
 ### production standard 10.0 TESTing 
 echo ">>>	SAST-setup.sh ${0} ${1} ${2} <<<<"
-REPOSITORY_DIR=$(1)
+REPOSITORY_DIR=${1}
 #       Add shared TEST cases with command
 #          uncomment the test case to be tested
 #       SAST
