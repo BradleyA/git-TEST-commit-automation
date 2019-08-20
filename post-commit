@@ -1,5 +1,5 @@
 #!/bin/bash
-#	hooks/post-commit  3.373.612  2019-08-20T13:41:43.553833-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.372  
+#	hooks/post-commit  3.380.619  2019-08-20T15:10:47.298883-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.379  
 #	   testing 
 ###	Create production standard TESTing using .git/hooks #26 
 #	post-commit - (git hook) run test cases if found
@@ -60,11 +60,7 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 		###	SAST
 		#	run SAST-setup.sh if found (Static Analysis Software Test)
 		if [ -s "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SAST-setup.sh" ] ; then
-	echo ">>>	REMOVE THIS WHEN WORKING"; pwd
-set -x
 			"${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SAST-setup.sh" "${REPOSITORY_DIR}"
-set +x
-	echo ">>> 	did this command get run ???";pwd
 		fi
 		#	Create list of test cases
 		SAST_TEST_CASES=$(ls -1 | grep "^SAST" | grep -v "\.")
@@ -79,11 +75,16 @@ set +x
 			TEST_CASE="${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/${SAST_TEST_CASE} ${REPOSITORY_DIR}/${COMMIT_PATH_FILE_NAME}"
 			eval "${TEST_CASE}"
 			RETURN_CODE=${?}
+	echo ">>>	REMOVE THIS WHEN WORKING"; pwd
+	set -x
 			if [ ${RETURN_CODE} -eq 0 ] ; then
 				NO_TEST_CASES_PASS=$((NO_TEST_CASES_PASS+1))
 			else
 				NO_TEST_CASES_FAIL=$((NO_TEST_CASES_FAIL+1))
 			fi
+	set +x
+	echo -e "\n>>>	SAST: ${BOLD}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases=${NO_TEST_CASES}\n   Number of test cases pass=${NO_TEST_CASES_PASS}\n   Number of test cases fail=${NO_TEST_CASES_FAIL}"
+	echo ">>> 	REMOVE THIS WHEN WORKING  "
 		done
 		echo -e "\n>>>	SAST: ${BOLD}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases=${NO_TEST_CASES}\n   Number of test cases pass=${NO_TEST_CASES_PASS}\n   Number of test cases fail=${NO_TEST_CASES_FAIL}"
 		###	FVT
