@@ -1,8 +1,6 @@
 #!/bin/bash
-#	hooks/post-commit  3.367.606  2019-08-20T13:25:28.981300-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.366  
+#	hooks/post-commit  3.368.607  2019-08-20T13:28:13.733292-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.367  
 #	   testing 
-#	hooks/post-commit  3.338.577  2019-08-19T14:09:42.058269-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.337  
-#	   hooks/post-commit improve user help explaining why 
 ###	Create production standard TESTing using .git/hooks #26 
 #	post-commit - (git hook) run test cases if found
 #	    Loop through committed files found in COMMIT_FILE_LIST
@@ -64,7 +62,7 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 		if [ -s "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SAST-setup.sh" ] ; then
 	echo ">>>"pwd
 set -x
-			"../../${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SAST-setup.sh" "${REPOSITORY_DIR}"
+			"${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SAST-setup.sh" "${REPOSITORY_DIR}"
 set +x
 	echo ">>> pwd	did this command get run ???"
 		fi
