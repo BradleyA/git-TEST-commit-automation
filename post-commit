@@ -1,6 +1,6 @@
 #!/bin/bash
-#	hooks/post-commit  3.380.619  2019-08-20T15:10:47.298883-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.379  
-#	   testing 
+#	hooks/post-commit  3.381.620  2019-08-20T15:20:54.357461-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.380  
+#	   testing return code from test case 
 ###	Create production standard TESTing using .git/hooks #26 
 #	post-commit - (git hook) run test cases if found
 #	    Loop through committed files found in COMMIT_FILE_LIST
@@ -56,11 +56,11 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 	#	Check if COMMIT_FILE has a 'TEST' directory
 	if [ -d "${REPOSITORY_DIR}/${COMMIT_PATH}"TEST/"${COMMIT_FILE_NAME}" ] ; then
 		get_date_stamp ; echo -e "${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[INFO]  Test case directory found${NORMAL} (${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}) for ${GIT_AUTHOR_NAME} (${USER})."
-		cd "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}"
+		cd "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}"			# >>> changed
 		###	SAST
 		#	run SAST-setup.sh if found (Static Analysis Software Test)
-		if [ -s "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SAST-setup.sh" ] ; then
-			"${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SAST-setup.sh" "${REPOSITORY_DIR}"
+		if [ -s "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SAST-setup.sh" ] ; then			# >>> changed
+			"${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SAST-setup.sh" "${REPOSITORY_DIR}"			# >>> changed
 		fi
 		#	Create list of test cases
 		SAST_TEST_CASES=$(ls -1 | grep "^SAST" | grep -v "\.")
@@ -75,7 +75,8 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 			TEST_CASE="${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/${SAST_TEST_CASE} ${REPOSITORY_DIR}/${COMMIT_PATH_FILE_NAME}"
 			eval "${TEST_CASE}"
 			RETURN_CODE=${?}
-	echo ">>>	REMOVE THIS WHEN WORKING"; pwd
+			if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]${NORMAL}  \${RETURN_CODE} >${RETURN_CODE}<" 1>&2 ; fi                     # >>> changed
+	echo ">>>	REMOVE THIS WHEN WORKING <<< RETURN_CODE >${?}<"; pwd
 	set -x
 			if [ ${RETURN_CODE} -eq 0 ] ; then
 				NO_TEST_CASES_PASS=$((NO_TEST_CASES_PASS+1))
