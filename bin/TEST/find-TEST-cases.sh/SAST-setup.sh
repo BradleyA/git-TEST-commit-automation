@@ -1,12 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/TEST/find-TEST-cases.sh/SAST-setup.sh  3.358.597  2019-08-19T16:52:51.058907-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.357  
+# 	hooks/bin/TEST/find-TEST-cases.sh/SAST-setup.sh  3.364.603  2019-08-20T13:12:54.368543-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.363  
 # 	   testing 
-# 	hooks/EXAMPLES/SAST-setup.sh  3.353.592  2019-08-19T16:18:40.148386-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.352  
-# 	   testing 
-# 	hooks/EXAMPLES/SAST-setup.sh  3.335.573  2019-08-18T21:25:54.937316-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.334-1-gb85dde4  
-# 	   hooks/EXAMPLES/FVT-setup.sh hooks/EXAMPLES/SAST-setup.sh add commond test cases with ln 
-# 	hooks/SAST-setup.sh  3.303.530  2019-08-16T16:41:54.923689-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.302-1-gf0d1209  
-# 	   hooks/SAST-setup.sh  initial commit after testing in post-commit 
 ###
 #	SAST-setup.sh -  This script is optional.  It runs before test cases are run, if SAST-setup.sh is found in TEST/<file_name>/
 #	   Static Analysis Software Testing (SAST) - examination of the code prior to the program’s execution
@@ -21,12 +15,7 @@
 rm -f SAST-*.test-case-output
 #
 ### production standard 10.0 TESTing 
-REPOSITORY_DIR=$(git rev-parse --show-toplevel)
-
-pwd
-echo ">>>	${REPOSITORY_DIR}   		<<<"
-git rev-parse --show-toplevel
-echo ">>>	hooks/EXAMPLES/SAST-setup.sh   <<<"
+REPOSITORY_DIR=$(1)
 #       Add shared TEST cases with command
 #          uncomment the test case to be tested
 #       SAST
