@@ -1,7 +1,5 @@
 #!/bin/bash
-# 	hooks/bin/TEST/find-TEST-cases.sh/SAST-setup.sh  3.371.610  2019-08-20T13:36:55.313461-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.370  
-# 	   testing 
-# 	hooks/bin/TEST/find-TEST-cases.sh/SAST-setup.sh  3.364.603  2019-08-20T13:12:54.368543-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.363  
+# 	hooks/bin/TEST/find-TEST-cases.sh/SAST-setup.sh  3.375.614  2019-08-20T13:47:14.104517-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.374  
 # 	   testing 
 ###
 #	SAST-setup.sh -  This script is optional.  It runs before test cases are run, if SAST-setup.sh is found in TEST/<file_name>/
@@ -17,7 +15,7 @@
 rm -f SAST-*.test-case-output
 #
 ### production standard 10.0 TESTing 
-echo ${0} ${1} ${2}
+echo ">>>	SAST-setup.sh ${0} ${1} ${2} <<<<"
 REPOSITORY_DIR=$(1)
 #       Add shared TEST cases with command
 #          uncomment the test case to be tested
