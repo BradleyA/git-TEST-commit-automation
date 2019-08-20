@@ -1,7 +1,5 @@
 #!/bin/bash
-# 	hooks/bin/TEST/find-TEST-cases.sh/SAST-setup.sh  3.376.615  2019-08-20T13:49:56.397298-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.375  
-# 	   testing hooks/bin/TEST/find-TEST-cases.sh/SAST-setup.sh 
-# 	hooks/bin/TEST/find-TEST-cases.sh/SAST-setup.sh  3.375.614  2019-08-20T13:47:14.104517-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.374  
+# 	hooks/bin/TEST/find-TEST-cases.sh/SAST-setup.sh  3.378.617  2019-08-20T14:49:19.129469-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.377  
 # 	   testing 
 ###
 #	SAST-setup.sh -  This script is optional.  It runs before test cases are run, if SAST-setup.sh is found in TEST/<file_name>/
@@ -13,11 +11,26 @@
 ##       Copyright (c) 2019 Bradley Allen
 ##       MIT License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
 ###
+### production standard 1.0 DEBUG variable
+#       Order of precedence: environment variable, default code
+if [ "${DEBUG}" == "" ] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
+BOLD=$(tput -Txterm bold)
+NORMAL=$(tput -Txterm sgr0)
+#       Date and time function ISO 8601
+get_date_stamp() {
+DATE_STAMP=$(date +%Y-%m-%dT%H:%M:%S.%6N%:z)
+TEMP=$(date +%Z)
+DATE_STAMP="${DATE_STAMP} (${TEMP})"
+}
+#       Fully qualified domain name FQDN hostname
+LOCALHOST=$(hostname -f)
+#       Version
+SCRIPT_VERSION=$(head -2 "${0}" | awk '{printf $3}')
+
 #       Remove output from previous run of test cases
 rm -f SAST-*.test-case-output
 #
 ### production standard 10.0 TESTing 
-echo ">>>	SAST-setup.sh ${0} ${1} ${2} <<<<"
 REPOSITORY_DIR=${1}
 #       Add shared TEST cases with command
 #          uncomment the test case to be tested
@@ -26,4 +39,6 @@ REPOSITORY_DIR=${1}
 #       ln -fs ${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-permission-755-001 SAST-permission-755-001
 ln -fs ${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-permission-775-001 SAST-permission-775-001
 ln -fs ${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-shellcheck-001 SAST-shellcheck-001
-###		
+#
+if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation finished." 1>&2 ; fi
+###
