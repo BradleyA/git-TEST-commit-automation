@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.365.604  2019-08-20T13:15:59.244512-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.364  
+#	   testing 
 #	hooks/post-commit  3.364.603  2019-08-20T13:13:00.644926-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.363  
 #	   testing 
 #	hooks/post-commit  3.338.577  2019-08-19T14:09:42.058269-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.337  
@@ -63,7 +65,7 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 		#	run SAST-setup.sh if found (Static Analysis Software Test)
 		if [ -s "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SAST-setup.sh" ] ; then
 	echo ">>>"pwd
-			"${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SAST-setup.sh" "${REPOSITORY_DIR}"
+			"${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SAST-setup.sh" "../../${REPOSITORY_DIR}"
 	echo ">>> pwd	did this command get run ???"
 		fi
 		#	Create list of test cases
