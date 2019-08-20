@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.384.623  2019-08-20T16:39:01.979337-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.383  
+#	   hooks/post-commit  complete changes to SAST and FVT sections #26 
 #	hooks/post-commit  3.381.620  2019-08-20T15:20:54.357461-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.380  
 #	   testing return code from test case 
 ###	Create production standard TESTing using .git/hooks #26 
@@ -31,6 +33,7 @@ DATE_STAMP="${DATE_STAMP} (${TEMP})"
 LOCALHOST=$(hostname -f)
 #       Version
 SCRIPT_VERSION=$(head -2 "${0}" | awk '{printf $3}')
+if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation started." 1>&2 ; fi
 
 ### production standard 10.0 TESTing 
 REPOSITORY_DIR=$(git rev-parse --show-toplevel)
@@ -56,7 +59,7 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 	#	Check if COMMIT_FILE has a 'TEST' directory
 	if [ -d "${REPOSITORY_DIR}/${COMMIT_PATH}"TEST/"${COMMIT_FILE_NAME}" ] ; then
 		get_date_stamp ; echo -e "${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[INFO]  Test case directory found${NORMAL} (${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}) for ${GIT_AUTHOR_NAME} (${USER})."
-		cd "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}"			# >>> changed
+		cd "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}"
 		###	SAST
 		#	run SAST-setup.sh if found (Static Analysis Software Test)
 		if [ -s "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SAST-setup.sh" ] ; then			# >>> changed
@@ -75,23 +78,18 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 			TEST_CASE="${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/${SAST_TEST_CASE} ${REPOSITORY_DIR}/${COMMIT_PATH_FILE_NAME}"
 			eval "${TEST_CASE}"
 			RETURN_CODE=${?}
-			if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]${NORMAL}  \${RETURN_CODE} >${RETURN_CODE}<" 1>&2 ; fi                     # >>> changed
-	echo ">>>	REMOVE THIS WHEN WORKING <<< RETURN_CODE >${?}<"; pwd
-	set -x
+			if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]${NORMAL}  \${RETURN_CODE} >${RETURN_CODE}<" 1>&2 ; fi
 			if [ ${RETURN_CODE} -eq 0 ] ; then
 				NO_TEST_CASES_PASS=$((NO_TEST_CASES_PASS+1))
 			else
 				NO_TEST_CASES_FAIL=$((NO_TEST_CASES_FAIL+1))
 			fi
-	set +x
-	echo -e "\n>>>	SAST: ${BOLD}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases=${NO_TEST_CASES}\n   Number of test cases pass=${NO_TEST_CASES_PASS}\n   Number of test cases fail=${NO_TEST_CASES_FAIL}"
-	echo ">>> 	REMOVE THIS WHEN WORKING  "
 		done
 		echo -e "\n>>>	SAST: ${BOLD}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases=${NO_TEST_CASES}\n   Number of test cases pass=${NO_TEST_CASES_PASS}\n   Number of test cases fail=${NO_TEST_CASES_FAIL}"
 		###	FVT
 		#	run FVT-setup.sh if found (Function Verification Test)
-		if [ -s "${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/FVT-setup.sh" ] ; then
-			"${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/FVT-setup.sh"
+		if [ -s "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/FVT-setup.sh" ] ; then
+			"${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/FVT-setup.sh" "${REPOSITORY_DIR}"
 		fi
 		#	Create list of FVT test cases
 		FVT_TEST_CASES=$(ls -1 | grep "^FVT" | grep -v "\.")
@@ -106,6 +104,7 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 			TEST_CASE="${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/${FVT_TEST_CASE} ${REPOSITORY_DIR}/${COMMIT_PATH_FILE_NAME}"
 			eval "${TEST_CASE}"
 			RETURN_CODE=${?}
+			if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]${NORMAL}  \${RETURN_CODE} >${RETURN_CODE}<" 1>&2 ; fi
 			if [ ${RETURN_CODE} -eq 0 ] ; then
 				NO_TEST_CASES_PASS=$((NO_TEST_CASES_PASS+1))
 			else
@@ -119,9 +118,8 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 done
 rm    "${REPOSITORY_DIR}"/hooks/COMMIT_FILE_LIST
 
-#
-echo -e "\n>>>  CPU Time    "
-echo    "  user     sys"
+#	process times
+echo -e "\n>>>  CPU Time    \n  user     sys"
 times
 echo -e "\n"
 
