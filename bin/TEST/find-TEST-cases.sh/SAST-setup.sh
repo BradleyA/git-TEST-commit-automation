@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/TEST/find-TEST-cases.sh/SAST-setup.sh  3.385.624  2019-08-20T16:53:26.738540-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.384  
+# 	   hooks/EXAMPLES/SAST-setup.sh  completed testing #26 
 # 	hooks/bin/TEST/find-TEST-cases.sh/SAST-setup.sh  3.382.621  2019-08-20T15:37:59.414672-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.381  
 # 	   hooks/bin/TEST/find-TEST-cases.sh/SAST-setup.sh  completed testing 
 ###
@@ -35,8 +37,8 @@ REPOSITORY_DIR=${1}
 
 #	uncomment shared TEST cases for command
 #       ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-permission-644-001" SAST-permission-644-001
-#       ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-permission-755-001" SAST-permission-755-001
-ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-permission-775-001" SAST-permission-775-001
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-permission-755-001" SAST-permission-755-001
+#	ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-permission-775-001" SAST-permission-775-001
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-shellcheck-001" SAST-shellcheck-001
 #
 if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation finished." 1>&2 ; fi
