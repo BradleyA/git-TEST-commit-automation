@@ -1,5 +1,7 @@
 #!/bin/bash
-#	hooks/EXAMPLES/SAST-permission-644-001  3.383.622  2019-08-20T16:28:33.073395-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.382  
+#	hooks/EXAMPLES/SAST-permission-644-001  3.327.668  2019-08-21T15:05:59.705679-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.426  
+#	   hooks/EXAMPLES/SAST-permission-644-001  quick test case test 
+#	hooks/EXAMPLES/SAST-permission-644-001  3.383.622  2019-08-20T16:28:33.073395-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.382
 #	   hooks/EXAMPLES/SAST-permission-???-001 changed design flow, added DEBUG 
 ### production standard 3.0 shellcheck
 ### production standard 5.1.160 Copyright
