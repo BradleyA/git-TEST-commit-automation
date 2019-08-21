@@ -1,6 +1,6 @@
 #!/bin/bash
-#	hooks/post-commit  3.419.660  2019-08-21T12:27:52.716066-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.418  
-#	   hooks/post-commit  modified spacing with reporting status and CPU load #26 
+#	hooks/post-commit  3.420.661  2019-08-21T12:29:09.967766-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.419  
+#	   hooks/post-commit  modified spacing with reporting status and CPU load 
 #	hooks/post-commit  3.384.623  2019-08-20T16:39:01.979337-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.383  
 #	   hooks/post-commit  complete changes to SAST and FVT sections #26 
 ###	Create production standard TESTing using .git/hooks #26 
@@ -121,6 +121,7 @@ rm    "${REPOSITORY_DIR}"/hooks/COMMIT_FILE_LIST
 #	process times
 echo -e ">>>  CPU Time    \n  user     sys"
 times
+echo -e "\n"
 
 #
 if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation finished." 1>&2 ; fi
