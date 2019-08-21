@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.418.659  2019-08-21T12:25:46.016197-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.417  
+#	   hooks/post-commit  modified spacing with reporting status and CPU load 
 #	hooks/post-commit  3.384.623  2019-08-20T16:39:01.979337-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.383  
 #	   hooks/post-commit  complete changes to SAST and FVT sections #26 
 ###	Create production standard TESTing using .git/hooks #26 
@@ -109,7 +111,7 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 				NO_TEST_CASES_FAIL=$((NO_TEST_CASES_FAIL+1))
 			fi
 		done
-		echo -e "\n>>>	FVT: ${BOLD}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases=${NO_TEST_CASES}\n   Number of test cases pass=${NO_TEST_CASES_PASS}\n   Number of test cases fail=${NO_TEST_CASES_FAIL}"
+		echo -e "\n>>>	FVT: ${BOLD}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases=${NO_TEST_CASES}\n   Number of test cases pass=${NO_TEST_CASES_PASS}\n   Number of test cases fail=${NO_TEST_CASES_FAIL}\n"
 	else
 		get_date_stamp ; echo -e "${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[INFO]  No test case directory found${NORMAL} in ${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}, for ${GIT_AUTHOR_NAME}."
 	fi
@@ -117,7 +119,7 @@ done
 rm    "${REPOSITORY_DIR}"/hooks/COMMIT_FILE_LIST
 
 #	process times
-echo -e "\n>>>  CPU Time    \n  user     sys"
+echo -e ">>>  CPU Time    \n  user     sys"
 times
 echo -e "\n"
 
