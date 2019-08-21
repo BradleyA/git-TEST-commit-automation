@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/TEST/post-commit/SAST-setup.sh  3.389.628  2019-08-21T00:13:49.975196-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.388  
-# 	   hooks/TEST/post-commit/SAST-setup.sh  added SAST TEST cases 
+# 	hooks/TEST/post-commit/SAST-setup.sh  3.390.629  2019-08-21T00:18:45.791302-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.389  
+# 	   hooks/TEST/post-commit/SAST-setup.sh   updated latest changes 
 ###
 #	SAST-setup.sh -  This script is optional.  It runs before test cases are run, if SAST-setup.sh is found in TEST/<file_name>/
 #	   Static Analysis Software Testing (SAST) - examination of the code prior to the program’s execution
