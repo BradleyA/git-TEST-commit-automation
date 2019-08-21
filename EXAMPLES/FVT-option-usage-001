@@ -1,6 +1,6 @@
 #!/bin/bash
-#	hooks/EXAMPLES/FVT-option-usage-001  3.407.648  2019-08-21T11:27:39.928004-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.406  
-#	   hooks/EXAMPLES/FVT-option-usage-001  added exit return codes 
+#	hooks/EXAMPLES/FVT-option-usage-001  3.408.649  2019-08-21T11:29:55.170458-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.407  
+#	   hooks/EXAMPLES/FVT-option-usage-001   added exit return codes retesting 
 ### production standard 3.0 shellcheck
 ### production standard 5.1.160 Copyright
 #       Copyright (c) 2019 Bradley Allen
