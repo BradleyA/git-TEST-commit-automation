@@ -1,5 +1,7 @@
 #!/bin/bash
-#	hooks/EXAMPLES/FVT-option-help-002  3.395.636  2019-08-21T10:31:10.017792-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.394  
+#	hooks/EXAMPLES/FVT-option-help-002  3.399.640  2019-08-21T10:55:30.684157-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.398  
+#	   hooks/EXAMPLES/FVT-option-help-002  testing TEST/FVT-option-help-002/SAST-shellcheck-001 
+#	hooks/EXAMPLES/FVT-option-help-002  3.395.636  2019-08-21T10:31:10.017792-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.394
 #	   hooks/EXAMPLES/FVT-option-help-002  added exit return codes 
 ### production standard 3.0 shellcheck
 ### production standard 5.1.160 Copyright
