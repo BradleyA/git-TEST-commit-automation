@@ -1,8 +1,6 @@
 #!/bin/bash
-#	hooks/pre-commit  3.331.567  2019-08-17T22:39:27.479125-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.330-1-gc554299  
-#	   hooks/post-commit hooks/pre-commit correct typo 
-#	hooks/pre-commit  3.302.528  2019-08-16T16:35:27.488939-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.301  
-#	   hooks/pre-commit add SAST testing #26 
+#	hooks/pre-commit  3.391.632  2019-08-21T00:35:00.966637-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.390-2-g89a0f1f  
+#	   hooks/TEST/pre-commit/SAST-setup.sh quick test for setup 
 ###
 #	pre-commit - (git hook)  Create ${REPOSITORY_DIR}/hooks/COMMIT_FILE_LIST which includes files being committed
 #
