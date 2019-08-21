@@ -1,20 +1,25 @@
 
-In /home/uadmin/github/BradleyA/user-files/hooks/post-commit line 67:
+In /home/uadmin/github/BradleyA/user-files/hooks/post-commit line 60:
+	if [ -d "${REPOSITORY_DIR}/${COMMIT_PATH}"TEST/"${COMMIT_FILE_NAME}" ] ; then
+                                                  ^-- SC2140: The double quotes around this do nothing. Remove or escape them.
+
+
+In /home/uadmin/github/BradleyA/user-files/hooks/post-commit line 69:
 		SAST_TEST_CASES=$(ls -1 | grep "^SAST" | grep -v "\.")
                                   ^-- SC2010: Don't use ls | grep. Use a glob or a for loop with a condition to allow non-alphanumeric filenames.
 
 
-In /home/uadmin/github/BradleyA/user-files/hooks/post-commit line 69:
+In /home/uadmin/github/BradleyA/user-files/hooks/post-commit line 71:
 		NO_TEST_CASES=$(ls -1 | grep "^SAST" | grep -v "\." -c)
                                 ^-- SC2010: Don't use ls | grep. Use a glob or a for loop with a condition to allow non-alphanumeric filenames.
 
 
-In /home/uadmin/github/BradleyA/user-files/hooks/post-commit line 92:
+In /home/uadmin/github/BradleyA/user-files/hooks/post-commit line 95:
 		FVT_TEST_CASES=$(ls -1 | grep "^FVT" | grep -v "\.")
                                  ^-- SC2010: Don't use ls | grep. Use a glob or a for loop with a condition to allow non-alphanumeric filenames.
 
 
-In /home/uadmin/github/BradleyA/user-files/hooks/post-commit line 94:
+In /home/uadmin/github/BradleyA/user-files/hooks/post-commit line 97:
 		NO_TEST_CASES=$(ls -1 | grep "^FVT" | grep -v "\." -c)
                                 ^-- SC2010: Don't use ls | grep. Use a glob or a for loop with a condition to allow non-alphanumeric filenames.
 
