@@ -1,8 +1,6 @@
 #!/bin/bash
 #	hooks/post-commit  3.384.623  2019-08-20T16:39:01.979337-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.383  
 #	   hooks/post-commit  complete changes to SAST and FVT sections #26 
-#	hooks/post-commit  3.381.620  2019-08-20T15:20:54.357461-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.380  
-#	   testing return code from test case 
 ###	Create production standard TESTing using .git/hooks #26 
 #	post-commit - (git hook) run test cases if found
 #	    Loop through committed files found in COMMIT_FILE_LIST
