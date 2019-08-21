@@ -1,14 +1,28 @@
 #!/bin/bash
-#	hooks/EXAMPLES/FVT-option-usage-002  3.326.557  2019-08-17T11:47:23.332512-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.325  
-#	   copied test case into EXAMPLES directory 
-#	template/TEST/template.sh/FVT-option-usage-002  3.262.504  2019-08-16T09:10:00.823547-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.261  
-#	   changed test cases from matching output to testing does the option function correctly 
+#	hooks/EXAMPLES/FVT-option-usage-002  3.410.651  2019-08-21T11:39:53.716970-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.409  
+#	   hooks/EXAMPLES/FVT-option-usage-002  added exit return codes 
 ### production standard 3.0 shellcheck
 ### production standard 5.1.160 Copyright
 #       Copyright (c) 2019 Bradley Allen
 #       MIT License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
+###
+### production standard 1.0 DEBUG variable
+#       Order of precedence: environment variable, default code
+if [ "${DEBUG}" == "" ] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
 BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
+#       Date and time function ISO 8601
+get_date_stamp() {
+DATE_STAMP=$(date +%Y-%m-%dT%H:%M:%S.%6N%:z)
+TEMP=$(date +%Z)
+DATE_STAMP="${DATE_STAMP} (${TEMP})"
+}
+#       Fully qualified domain name FQDN hostname
+LOCALHOST=$(hostname -f)
+#       Version
+SCRIPT_VERSION=$(head -2 "${0}" | awk '{printf $3}')
+if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation started." 1>&2 ; fi
+
 ###     Place test case here
 
 "${1}" -usage > "${0}".test-case-output
@@ -18,13 +32,18 @@ if grep -q 'USAGE' "${0}".test-case-output ; then
         if ! grep -q 'DESCRIPTION' "${0}".test-case-output  ; then
                 if ! grep -q 'DOCUMENTATION' "${0}".test-case-output  ; then
                         echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - USAGE found in output ${BOLD}PASS - PASS${NORMAL}"
+			exit 0
                 else
                         echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - DOCUMENTATION found in output - ${BOLD}FAIL - FAIL${NORMAL}"
+			exit 1
                 fi
         else
                 echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - DESCRIPTION found in output - ${BOLD}FAIL - FAIL${NORMAL}"
+		exit 1
         fi
 else
         echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - USAGE not found in output - ${BOLD}FAIL - FAIL${NORMAL}"
+	exit 1
 fi
+exit 124
 ###
