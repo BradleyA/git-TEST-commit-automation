@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/GIT-VARIABLES-EXAMPLES.sh  3.311.540  2019-08-17T09:43:24.388440-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.310  
-# 	   hooks/EXAMPLES/GIT-VARIABLES-EXAMPLES.sh moved into example directory 
+# 	hooks/EXAMPLES/GIT-VARIABLES-EXAMPLES.sh  3.426.667  2019-08-21T15:02:34.751797-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.425  
+# 	   hooks/EXAMPLES/GIT-VARIABLES-EXAMPLES.sh  quick test of test cases 
 ###
 #	I use this file to help debug hooks during development
 ### production standard 3.0 shellcheck
