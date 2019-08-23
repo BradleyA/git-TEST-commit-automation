@@ -1,9 +1,14 @@
 #!/bin/bash
+# 	hooks/bin/list-git-TEST-cases.sh  3.435.682  2019-08-22T22:29:49.612246-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.434  
+# 	   hooks/bin/list-git-TEST-cases.sh added options all (run FVT,SAST -setup.sh) , clean to remove symbolics 
+# 	hooks/bin/list-git-TEST-cases.sh  3.435.682  2019-08-22T22:28:57.747454-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.434  
+# 	   hooks/bin/list-git-TEST-cases.sh added options all (run FVT,SAST -setup.sh) , clean to remove symbolics 
 # 	hooks/bin/list-git-TEST-cases.sh  3.434.681  2019-08-22T20:49:55.098191-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.433  
 # 	   hooks/bin/list-git-TEST-cases.sh added color to output and update comment 
 ###
 #	list-git-TEST-cases.sh -  search from top of repository to list TEST directory test cases
-#
+#	   list-git-TEST-cases.sh all - runs FVT-setup.sh and SAST-setup.sh to create symbolic links to EXAMPLES before listing all test cases
+#	   list-git-TEST-cases.sh clean - remove symbolic links from TEST/<command>/ directories
 ### production standard 3.0 shellcheck
 ### production standard 5.1.160 Copyright
 #       Copyright (c) 2019 Bradley Allen
@@ -31,6 +36,9 @@ DIR_LIST=$(find . -type d -name TEST)
 for i in $DIR_LIST ; do
 	TEST_CASE_DIR_LIST=$(ls -1d $i/* | cut -c 3-)
 	for j in ${TEST_CASE_DIR_LIST} ; do 
+		if [ "${1}" == "all" ] && [ -x "${j}/FVT-setup.sh" ]  ; then cd "${REPOSITORY_DIR}/${j}" ; ./FVT-setup.sh  "${REPOSITORY_DIR}" ; cd "${REPOSITORY_DIR}" ; fi
+		if [ "${1}" == "all" ] && [ -x "${j}/SAST-setup.sh" ] ; then cd "${REPOSITORY_DIR}/${j}" ; ./SAST-setup.sh "${REPOSITORY_DIR}" ; cd "${REPOSITORY_DIR}" ; fi
+		if [ "${1}" == "clean" ]  ; then cd "${REPOSITORY_DIR}/${j}" ; for k in $(ls -1) ; do { [ ! -L "$k" ] || rm -v "$k"; } ; done  ; cd "${REPOSITORY_DIR}" ; fi
 		TEST_CASE_DIR_END=$(echo "${j}" | rev | cut -d '/' -f 1 | rev)
 		TEST_CASE_DIR_START="${j//${TEST_CASE_DIR_END}/}"
 		printf "${TEST_CASE_DIR_START}\e[1;33m${TEST_CASE_DIR_END}\033[0m \n"
