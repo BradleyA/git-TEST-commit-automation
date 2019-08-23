@@ -1,7 +1,7 @@
 #!/bin/bash
+# 	hooks/bin/list-git-TEST-cases.sh  3.436.683  2019-08-22T22:43:19.610899-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.435  
+# 	   hooks/bin/list-git-TEST-cases.sh  changed print order so when using clean option it display the directory first 
 # 	hooks/bin/list-git-TEST-cases.sh  3.435.682  2019-08-22T22:29:49.612246-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.434  
-# 	   hooks/bin/list-git-TEST-cases.sh added options all (run FVT,SAST -setup.sh) , clean to remove symbolics 
-# 	hooks/bin/list-git-TEST-cases.sh  3.435.682  2019-08-22T22:28:57.747454-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.434  
 # 	   hooks/bin/list-git-TEST-cases.sh added options all (run FVT,SAST -setup.sh) , clean to remove symbolics 
 # 	hooks/bin/list-git-TEST-cases.sh  3.434.681  2019-08-22T20:49:55.098191-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.433  
 # 	   hooks/bin/list-git-TEST-cases.sh added color to output and update comment 
@@ -36,12 +36,12 @@ DIR_LIST=$(find . -type d -name TEST)
 for i in $DIR_LIST ; do
 	TEST_CASE_DIR_LIST=$(ls -1d $i/* | cut -c 3-)
 	for j in ${TEST_CASE_DIR_LIST} ; do 
-		if [ "${1}" == "all" ] && [ -x "${j}/FVT-setup.sh" ]  ; then cd "${REPOSITORY_DIR}/${j}" ; ./FVT-setup.sh  "${REPOSITORY_DIR}" ; cd "${REPOSITORY_DIR}" ; fi
-		if [ "${1}" == "all" ] && [ -x "${j}/SAST-setup.sh" ] ; then cd "${REPOSITORY_DIR}/${j}" ; ./SAST-setup.sh "${REPOSITORY_DIR}" ; cd "${REPOSITORY_DIR}" ; fi
-		if [ "${1}" == "clean" ]  ; then cd "${REPOSITORY_DIR}/${j}" ; for k in $(ls -1) ; do { [ ! -L "$k" ] || rm -v "$k"; } ; done  ; cd "${REPOSITORY_DIR}" ; fi
 		TEST_CASE_DIR_END=$(echo "${j}" | rev | cut -d '/' -f 1 | rev)
 		TEST_CASE_DIR_START="${j//${TEST_CASE_DIR_END}/}"
 		printf "${TEST_CASE_DIR_START}\e[1;33m${TEST_CASE_DIR_END}\033[0m \n"
+		if [ "${1}" == "all" ] && [ -x "${j}/FVT-setup.sh" ]  ; then cd "${REPOSITORY_DIR}/${j}" ; ./FVT-setup.sh  "${REPOSITORY_DIR}" ; cd "${REPOSITORY_DIR}" ; fi
+		if [ "${1}" == "all" ] && [ -x "${j}/SAST-setup.sh" ] ; then cd "${REPOSITORY_DIR}/${j}" ; ./SAST-setup.sh "${REPOSITORY_DIR}" ; cd "${REPOSITORY_DIR}" ; fi
+		if [ "${1}" == "clean" ]  ; then cd "${REPOSITORY_DIR}/${j}" ; for k in $(ls -1) ; do { [ ! -L "$k" ] || rm -v "$k"; } ; done  ; cd "${REPOSITORY_DIR}" ; fi
 		printf "\033[1;32m $(ls -1  "${j}" | grep -v "\." | sed 's/^/\t/')\033[0m \n"
 		printf "\033[1;36m $(ls -1  "${j}" | grep "setup.sh" | sed 's/^/\t/')\033[0m\n"
 	done
