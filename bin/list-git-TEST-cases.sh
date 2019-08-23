@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/find-TEST-cases.sh  3.387.626  2019-08-20T23:31:42.430091-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.386  
-# 	   hooks/bin/TEST/find-TEST-cases.sh/SAST-setup.sh  completed testing 
+# 	hooks/bin/list-git-TEST-cases.sh  3.433.680  2019-08-22T20:40:22.993832-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.432  
+# 	   hooks/bin/list-git-TEST-cases.sh 
 ###
 #	find-git-TEST-cases.sh -  search from top of repository to find TEST directory and test cases
 #
@@ -31,9 +31,11 @@ DIR_LIST=$(find . -type d -name TEST)
 for i in $DIR_LIST ; do
 	TEST_CASE_DIR_LIST=$(ls -1d $i/* | cut -c 3-)
 	for j in ${TEST_CASE_DIR_LIST} ; do 
-		echo -e "\n${j}"
-		ls -1  "${j}" | grep -v "\." | sed 's/^/\t/'
-		ls -1  "${j}" | grep "setup.sh" | sed 's/^/\t/'
+		TEST_CASE_DIR_END=$(echo "${j}" | rev | cut -d '/' -f 1 | rev)
+		TEST_CASE_DIR_START="${j//${TEST_CASE_DIR_END}/}"
+		printf "${TEST_CASE_DIR_START}\e[1;33m${TEST_CASE_DIR_END}\033[0m \n"
+		printf "\033[1;32m $(ls -1  "${j}" | grep -v "\." | sed 's/^/\t/')\033[0m \n"
+		printf "\033[1;36m $(ls -1  "${j}" | grep "setup.sh" | sed 's/^/\t/')\033[0m\n"
 	done
 done
 
