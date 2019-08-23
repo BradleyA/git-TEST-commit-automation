@@ -1,8 +1,8 @@
 #!/bin/bash
-# 	hooks/bin/list-git-TEST-cases.sh  3.433.680  2019-08-22T20:40:22.993832-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.432  
-# 	   hooks/bin/list-git-TEST-cases.sh 
+# 	hooks/bin/list-git-TEST-cases.sh  3.434.681  2019-08-22T20:49:55.098191-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.433  
+# 	   hooks/bin/list-git-TEST-cases.sh added color to output and update comment 
 ###
-#	find-git-TEST-cases.sh -  search from top of repository to find TEST directory and test cases
+#	list-git-TEST-cases.sh -  search from top of repository to list TEST directory test cases
 #
 ### production standard 3.0 shellcheck
 ### production standard 5.1.160 Copyright
