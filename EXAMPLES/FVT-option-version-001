@@ -1,6 +1,6 @@
 #!/bin/bash
-#	hooks/EXAMPLES/FVT-option-version-001  3.340.687  2019-08-23T00:02:50.952295-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.439  
-#	   hooks/EXAMPLES/FVT-option-version-001  testing 
+#	hooks/EXAMPLES/FVT-option-version-001  3.440.688  2019-08-26T17:23:21.950428-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.439-1-g271f90f  
+#	   hooks/post-commit   add counting for return code > 1 #28 
 #	hooks/EXAMPLES/FVT-option-version-001  3.417.658  2019-08-21T12:20:53.644212-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.416  
 #	   hooks/EXAMPLES/FVT-option-version-001 hooks/EXAMPLES/FVT-option-version-002 added exit return codes and corrected incident with shellcheck 
 ### production standard 3.0 shellcheck
@@ -32,7 +32,7 @@ if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP}
 set -x
 pwd
 echo "${SCRIPT_NAME} ${SCRIPT_VERSION}" > "${0}.expected"
-set -x
+set +x
 
 "${1}" --version > "${0}".test-case-output
 

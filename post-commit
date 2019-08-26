@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.440.688  2019-08-26T17:23:25.222904-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.439-1-g271f90f  
+#	   hooks/post-commit   add counting for return code > 1 #28 
 #	hooks/post-commit  3.420.661  2019-08-21T12:29:09.967766-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.419  
 #	   hooks/post-commit  modified spacing with reporting status and CPU load 
 #	hooks/post-commit  3.384.623  2019-08-20T16:39:01.979337-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.383  
@@ -60,8 +62,8 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 	if [ -d "${REPOSITORY_DIR}/${COMMIT_PATH}"TEST/"${COMMIT_FILE_NAME}" ] ; then
 		get_date_stamp ; echo -e "${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[INFO]  Test case directory found${NORMAL} (${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}) for ${GIT_AUTHOR_NAME} (${USER})."
 		cd "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}"
-		###	SAST
-		#	run SAST-setup.sh if found (Static Analysis Software Test)
+		###	SAST (Static Analysis Software Test)
+		#	run SAST-setup.sh if found
 		if [ -s "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SAST-setup.sh" ] ; then			# >>> changed
 			"${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SAST-setup.sh" "${REPOSITORY_DIR}"			# >>> changed
 		fi
@@ -71,6 +73,7 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 		NO_TEST_CASES=$(ls -1 | grep "^SAST" | grep -v "\." -c)
 		NO_TEST_CASES_PASS=0
 		NO_TEST_CASES_FAIL=0
+		NO_TEST_CASES_ERROR=0
 		#       Loop through test cases
 		for SAST_TEST_CASE in ${SAST_TEST_CASES} ; do
 			#       Run SAST_TEST_CASE(s)
@@ -81,13 +84,15 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 			if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]${NORMAL}  \${RETURN_CODE} >${RETURN_CODE}<" 1>&2 ; fi
 			if [ ${RETURN_CODE} -eq 0 ] ; then
 				NO_TEST_CASES_PASS=$((NO_TEST_CASES_PASS+1))
-			else
+			elif [ ${RETURN_CODE} -eq 1 ] ; then					# >>> changed
 				NO_TEST_CASES_FAIL=$((NO_TEST_CASES_FAIL+1))
+			else									# >>> added			
+				NO_TEST_CASES_ERROR=$((NO_TEST_CASES_ERROR+1))			# >>> added
 			fi
 		done
 		echo -e "\n>>>	SAST: ${BOLD}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases=${NO_TEST_CASES}\n   Number of test cases pass=${NO_TEST_CASES_PASS}\n   Number of test cases fail=${NO_TEST_CASES_FAIL}"
-		###	FVT
-		#	run FVT-setup.sh if found (Function Verification Test)
+		###	FVT (Function Verification Test)
+		#	run FVT-setup.sh if found
 		if [ -s "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/FVT-setup.sh" ] ; then
 			"${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/FVT-setup.sh" "${REPOSITORY_DIR}"
 		fi
@@ -97,6 +102,7 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 		NO_TEST_CASES=$(ls -1 | grep "^FVT" | grep -v "\." -c)
 		NO_TEST_CASES_PASS=0
 		NO_TEST_CASES_FAIL=0
+		NO_TEST_CASES_ERROR=0
 		#       Loop through FVT_TEST_CASES
 		for FVT_TEST_CASE in ${FVT_TEST_CASES} ; do
 			#       Run FVT_TEST_CASE(s)
