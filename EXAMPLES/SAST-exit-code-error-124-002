@@ -1,0 +1,38 @@
+#!/bin/bash
+#	hooks/EXAMPLES/SAST-exit-code-error-124-002  3.471.724  2019-08-27T16:37:09.481775-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.470-3-ged80a9d  
+#	   hooks/EXAMPLES/FVT-exit-code-error-124-001 hooks/EXAMPLES/FVT-exit-code-error-124-002 hooks/EXAMPLES/FVT-exit-code-error-2-001 hooks/EXAMPLES/SAST-exit-code-error-124-001 hooks/EXAMPLES/SAST-exit-code-error-124-002 hooks/EXAMPLES/SAST-exit-code-error-2-001   added exit code error test cases 
+### production standard 3.0 shellcheck
+### production standard 5.1.160 Copyright
+#       Copyright (c) 2019 Bradley Allen
+#       MIT License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
+### production standard 1.0 DEBUG variable
+#       Order of precedence: environment variable, default code
+if [ "${DEBUG}" == "" ] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
+BOLD=$(tput -Txterm bold)
+NORMAL=$(tput -Txterm sgr0)
+#       Date and time function ISO 8601
+get_date_stamp() {
+DATE_STAMP=$(date +%Y-%m-%dT%H:%M:%S.%6N%:z)
+TEMP=$(date +%Z)
+DATE_STAMP="${DATE_STAMP} (${TEMP})"
+}
+#       Fully qualified domain name FQDN hostname
+LOCALHOST=$(hostname -f)
+#       Version
+SCRIPT_VERSION=$(head -2 "${0}" | awk '{printf $3}')
+if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation started." 1>&2 ; fi
+
+###     Appendix E. Exit Codes With Special Meanings
+#       Exit      Meaning                            Example                    Comments
+#       1         Catchall for general errors        let "var1 = 1/0"           Miscellaneous errors, such as "divide by zero" and other impermissible operations
+#       2         Misuse of shell builtins           empty_function() {}        Missing keyword or command, or permission problem (and diff return code on a failed binary file comparison).
+#       126       Command invoked cannot execute     /dev/null                  Permission problem or command is not an executable
+#       127       "command not found"                illegal_command            Possible problem with $PATH or a typo
+#       128       Invalid argument to exit           exit 3.14159               exit takes only integer args in the range 0 - 255
+#       128+n     Fatal error signal "n"             kill -9 $PPID of script    $? returns 137 (128 + 9)
+#       130       Script terminated by Control-C     Ctl-C                      Control-C is fatal error signal 2, (130 = 128 + 2, see above)
+#       255*      Exit status out of range           exit -1                    exit takes only integer args in the range 0 - 255
+
+###     Place test case here
+echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - exit code 124: report test case error exit code total - ${BOLD}ERROR - ERROR${NORMAL}"
+exit 124
