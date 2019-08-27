@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.441.689  2019-08-26T22:12:36.296713-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.440  
+#	   testing error 
 #	hooks/post-commit  3.440.688  2019-08-26T17:23:25.222904-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.439-1-g271f90f  
 #	   hooks/post-commit   add counting for return code > 1 #28 
 #	hooks/post-commit  3.420.661  2019-08-21T12:29:09.967766-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.419  
@@ -59,7 +61,7 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
         COMMIT_PATH="${COMMIT_PATH_FILE_NAME//${COMMIT_FILE_NAME}/}"
 	if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]${NORMAL}  \${COMMIT_PATH_FILE_NAME} >${COMMIT_PATH_FILE_NAME}< \${COMMIT_FILE_NAME} >${COMMIT_FILE_NAME}< \${COMMIT_PATH} >${COMMIT_PATH}< \${COMMIT_PATH}TEST/\${COMMIT_FILE_NAME} >${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}<" 1>&2 ; fi
 	#	Check if COMMIT_FILE has a 'TEST' directory
-	if [ -d "${REPOSITORY_DIR}/${COMMIT_PATH}"TEST/"${COMMIT_FILE_NAME}" ] ; then
+	if [ -d "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}" ] ; then
 		get_date_stamp ; echo -e "${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[INFO]  Test case directory found${NORMAL} (${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}) for ${GIT_AUTHOR_NAME} (${USER})."
 		cd "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}"
 		###	SAST (Static Analysis Software Test)
@@ -74,6 +76,7 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 		NO_TEST_CASES_PASS=0
 		NO_TEST_CASES_FAIL=0
 		NO_TEST_CASES_ERROR=0
+		RETURN_CODE_TEST_CASES_ERROR=""
 		#       Loop through test cases
 		for SAST_TEST_CASE in ${SAST_TEST_CASES} ; do
 			#       Run SAST_TEST_CASE(s)
@@ -88,9 +91,13 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 				NO_TEST_CASES_FAIL=$((NO_TEST_CASES_FAIL+1))
 			else									# >>> added			
 				NO_TEST_CASES_ERROR=$((NO_TEST_CASES_ERROR+1))			# >>> added
+				RETURN_CODE_TEST_CASES_ERROR="${RETURN_CODE_TEST_CASES_ERROR} ${RETURN_CODE}"                   # >>> added
+				echo " >>>	${RETURN_CODE_TEST_CASES_ERROR}"
 			fi
 		done
 		echo -e "\n>>>	SAST: ${BOLD}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases=${NO_TEST_CASES}\n   Number of test cases pass=${NO_TEST_CASES_PASS}\n   Number of test cases fail=${NO_TEST_CASES_FAIL}"
+		cat "${RETURN_CODE_TEST_CASES_ERROR}" | tr ' ' '\n\t' | sort | uniq -c | sort -k 2 -n  			# >>> added
+
 		###	FVT (Function Verification Test)
 		#	run FVT-setup.sh if found
 		if [ -s "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/FVT-setup.sh" ] ; then
