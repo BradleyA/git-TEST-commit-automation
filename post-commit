@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.460.708  2019-08-26T23:02:44.678331-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.459  
+#	   hooks/post-commit   testing return code error 
 #	hooks/post-commit  3.459.707  2019-08-26T23:01:09.914624-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.458  
 #	   hooks/post-commit   testing return code error 
 #	hooks/post-commit  3.458.706  2019-08-26T22:55:45.714826-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.457  
@@ -95,12 +97,11 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 				NO_TEST_CASES_FAIL=$((NO_TEST_CASES_FAIL+1))
 			else									# >>> added			
 				NO_TEST_CASES_ERROR=$((NO_TEST_CASES_ERROR+1))			# >>> added
-				RETURN_CODE_TEST_CASES_ERROR="${RETURN_CODE_TEST_CASES_ERROR}${RETURN_CODE} "                   # >>> added
+				RETURN_CODE_TEST_CASES_ERROR="${RETURN_CODE_TEST_CASES_ERROR}\t${RETURN_CODE} "                   # >>> added
 				echo " >>>${RETURN_CODE_TEST_CASES_ERROR}<<<"			# >>> added
 			fi
 		done
 		echo -e "\n>>>	SAST: ${BOLD}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases=${NO_TEST_CASES}\n   Number of test cases pass=${NO_TEST_CASES_PASS}\n   Number of test cases fail=${NO_TEST_CASES_FAIL}\n   Number of test cases error=${NO_TEST_CASES_ERROR}\n"
-		echo  ">>>${RETURN_CODE_TEST_CASES_ERROR}<<<"
 		echo  "${RETURN_CODE_TEST_CASES_ERROR}" | tr ' ' '\n' | grep '[^[:blank:]]' |  sort | uniq -c | sort -k 2 -n  			# >>> added
 
 		###	FVT (Function Verification Test)
