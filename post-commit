@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.452.700  2019-08-26T22:44:48.849250-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.451  
+#	   hooks/post-commit   testing return code error 
 #	hooks/post-commit  3.451.699  2019-08-26T22:40:19.247543-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.450  
 #	   hooks/post-commit   testing return code error 
 #	hooks/post-commit  3.450.698  2019-08-26T22:37:08.438963-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.449  
@@ -102,7 +104,7 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 			fi
 		done
 		echo -e "\n>>>	SAST: ${BOLD}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases=${NO_TEST_CASES}\n   Number of test cases pass=${NO_TEST_CASES_PASS}\n   Number of test cases fail=${NO_TEST_CASES_FAIL}\n   Number of test cases error=${NO_TEST_CASES_ERROR}\n"
-		echo  "${RETURN_CODE_TEST_CASES_ERROR}" | tr ' ' '\n\t' | sort | uniq -c | sort -k 2 -n  			# >>> added
+		echo  "${RETURN_CODE_TEST_CASES_ERROR}" | tr ' ' '\n\t' | sort | uniq -c -d | sort -k 2 -n  			# >>> added
 
 		###	FVT (Function Verification Test)
 		#	run FVT-setup.sh if found
