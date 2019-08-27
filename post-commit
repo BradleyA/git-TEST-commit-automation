@@ -1,6 +1,6 @@
 #!/bin/bash
-#	hooks/post-commit  3.462.711  2019-08-26T23:08:10.585353-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.461  
-#	   hooks/post-commit   testing return code error 
+#	hooks/post-commit  3.464.713  2019-08-27T05:39:00.967316-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.463  
+#	   hooks/post-commit   testing exit code error total report 
 #	hooks/post-commit  3.440.688  2019-08-26T17:23:25.222904-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.439-1-g271f90f  
 #	   hooks/post-commit   add counting for return code > 1 #28 
 #	hooks/post-commit  3.420.661  2019-08-21T12:29:09.967766-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.419  
@@ -92,10 +92,9 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 			else									# >>> added			
 				NO_TEST_CASES_ERROR=$((NO_TEST_CASES_ERROR+1))			# >>> added
 				RETURN_CODE_TEST_CASES_ERROR="${RETURN_CODE_TEST_CASES_ERROR}${RETURN_CODE} "                   # >>> added
-				echo " >>>${RETURN_CODE_TEST_CASES_ERROR}<<<"			# >>> added
 			fi
 		done
-		echo -e "\n>>>	SAST: ${BOLD}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases = ${NO_TEST_CASES}\n   Number of test cases pass = ${NO_TEST_CASES_PASS}\n   Number of test cases fail = ${NO_TEST_CASES_FAIL}\n   Number of test cases error = ${NO_TEST_CASES_ERROR}\n"
+		echo -e "\n>>>	SAST: ${BOLD}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases = ${NO_TEST_CASES}\n   Number of test cases pass = ${NO_TEST_CASES_PASS}\n   Number of test cases fail = ${NO_TEST_CASES_FAIL}\n   Number of test cases error = ${NO_TEST_CASES_ERROR}"
 		echo  "${RETURN_CODE_TEST_CASES_ERROR}" | tr ' ' '\n' | grep '[^[:blank:]]' | sort | uniq -c | sort -k 2 -n  			# >>> added
 
 		###	FVT (Function Verification Test)
@@ -110,6 +109,7 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 		NO_TEST_CASES_PASS=0
 		NO_TEST_CASES_FAIL=0
 		NO_TEST_CASES_ERROR=0
+		RETURN_CODE_TEST_CASES_ERROR=""
 		#       Loop through FVT_TEST_CASES
 		for FVT_TEST_CASE in ${FVT_TEST_CASES} ; do
 			#       Run FVT_TEST_CASE(s)
@@ -120,11 +120,15 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 			if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[DEBUG]${NORMAL}  \${RETURN_CODE} >${RETURN_CODE}<" 1>&2 ; fi
 			if [ ${RETURN_CODE} -eq 0 ] ; then
 				NO_TEST_CASES_PASS=$((NO_TEST_CASES_PASS+1))
-			else
+			elif  [ ${RETURN_CODE} -eq 1 ] ; then
 				NO_TEST_CASES_FAIL=$((NO_TEST_CASES_FAIL+1))
+                        else                                                                    # >>> added                     
+                                NO_TEST_CASES_ERROR=$((NO_TEST_CASES_ERROR+1))                  # >>> added
+                                RETURN_CODE_TEST_CASES_ERROR="${RETURN_CODE_TEST_CASES_ERROR}${RETURN_CODE} "                   # >>> added
 			fi
 		done
-		echo -e "\n>>>	FVT: ${BOLD}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases=${NO_TEST_CASES}\n   Number of test cases pass=${NO_TEST_CASES_PASS}\n   Number of test cases fail=${NO_TEST_CASES_FAIL}\n   Number of test cases error=${NO_TEST_CASES_ERROR}\n"
+		echo -e "\n>>>	FVT: ${BOLD}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases = ${NO_TEST_CASES}\n   Number of test cases pass = ${NO_TEST_CASES_PASS}\n   Number of test cases fail = ${NO_TEST_CASES_FAIL}\n   Number of test cases error = ${NO_TEST_CASES_ERROR}"
+		echo  "${RETURN_CODE_TEST_CASES_ERROR}" | tr ' ' '\n' | grep '[^[:blank:]]' | sort | uniq -c | sort -k 2 -n  			# >>> added
 	else
 		get_date_stamp ; echo -e "${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[INFO]  No test case directory found${NORMAL} in ${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}, for ${GIT_AUTHOR_NAME}."
 	fi
