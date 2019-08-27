@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.445.693  2019-08-26T22:25:23.127049-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.444  
+#	   hooks/post-commit   testing return code error 
 #	hooks/post-commit  3.444.692  2019-08-26T22:20:32.981067-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.443  
 #	   hooks/post-commit   testing return code error 
 #	hooks/post-commit  3.442.690  2019-08-26T22:14:17.144195-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.441 
@@ -99,7 +101,7 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 				echo " >>>	${RETURN_CODE_TEST_CASES_ERROR}"
 			fi
 		done
-		echo -e "\n>>>	SAST: ${BOLD}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases=${NO_TEST_CASES}\n   Number of test cases pass=${NO_TEST_CASES_PASS}\n   Number of test cases fail=${NO_TEST_CASES_FAIL}"
+		echo -e "\n>>>	SAST: ${BOLD}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases=${NO_TEST_CASES}\n   Number of test cases pass=${NO_TEST_CASES_PASS}\n   Number of test cases fail=${NO_TEST_CASES_FAIL}\n   Number of test cases error=${NO_TEST_CASES_ERROR}\n"
 		echo  "${RETURN_CODE_TEST_CASES_ERROR}" | tr ' ' '\n\t' | sort | uniq -c | sort -k 2 -n  			# >>> added
 
 		###	FVT (Function Verification Test)
@@ -128,7 +130,7 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 				NO_TEST_CASES_FAIL=$((NO_TEST_CASES_FAIL+1))
 			fi
 		done
-		echo -e "\n>>>	FVT: ${BOLD}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases=${NO_TEST_CASES}\n   Number of test cases pass=${NO_TEST_CASES_PASS}\n   Number of test cases fail=${NO_TEST_CASES_FAIL}\n"
+		echo -e "\n>>>	FVT: ${BOLD}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases=${NO_TEST_CASES}\n   Number of test cases pass=${NO_TEST_CASES_PASS}\n   Number of test cases fail=${NO_TEST_CASES_FAIL}\n   Number of test cases error=${NO_TEST_CASES_ERROR}\n"
 	else
 		get_date_stamp ; echo -e "${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[INFO]  No test case directory found${NORMAL} in ${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}, for ${GIT_AUTHOR_NAME}."
 	fi
