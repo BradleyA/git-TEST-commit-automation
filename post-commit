@@ -1,16 +1,6 @@
 #!/bin/bash
-#	hooks/post-commit  3.453.701  2019-08-26T22:45:49.312224-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.452  
-#	   hooks/post-commit   testing return code error 
-#	hooks/post-commit  3.452.700  2019-08-26T22:44:48.849250-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.451  
-#	   hooks/post-commit   testing return code error 
-#	hooks/post-commit  3.451.699  2019-08-26T22:40:19.247543-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.450  
-#	   hooks/post-commit   testing return code error 
-#	hooks/post-commit  3.450.698  2019-08-26T22:37:08.438963-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.449  
-#	   hooks/post-commit   testing return code error 
-#	hooks/post-commit  3.449.697  2019-08-26T22:35:05.547301-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.448  
-#	   hooks/post-commit   testing return code error 
-#	hooks/post-commit  3.448.696  2019-08-26T22:32:38.531114-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.447  
-#	   hooks/post-commit   testing return code error 
+@	hooks/post-commit  3.454.702  2019-08-26T22:48:02.865282-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.453  
+@	   hooks/post-commit   testing return code error 
 #	hooks/post-commit  3.440.688  2019-08-26T17:23:25.222904-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.439-1-g271f90f  
 #	   hooks/post-commit   add counting for return code > 1 #28 
 #	hooks/post-commit  3.420.661  2019-08-21T12:29:09.967766-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.419  
@@ -101,7 +91,7 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 				NO_TEST_CASES_FAIL=$((NO_TEST_CASES_FAIL+1))
 			else									# >>> added			
 				NO_TEST_CASES_ERROR=$((NO_TEST_CASES_ERROR+1))			# >>> added
-				RETURN_CODE_TEST_CASES_ERROR="${RETURN_CODE_TEST_CASES_ERROR}${RETURN_CODE}\n"                   # >>> added
+				RETURN_CODE_TEST_CASES_ERROR="${RETURN_CODE_TEST_CASES_ERROR}${RETURN_CODE} "                   # >>> added
 				echo " >>>${RETURN_CODE_TEST_CASES_ERROR}<<<"			# >>> added
 			fi
 		done
