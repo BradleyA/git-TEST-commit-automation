@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/TEST/post-commit/SAST-setup.sh  3.390.629  2019-08-21T00:18:45.791302-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.389  
-# 	   hooks/TEST/post-commit/SAST-setup.sh   updated latest changes 
+# 	hooks/TEST/post-commit/SAST-setup.sh  3.469.719  2019-08-27T16:10:01.262627-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.468-1-ga4d2cc4  
+# 	   hooks/EXAMPLES/FVT-setup.sh hooks/EXAMPLES/SAST-setup.sh hooks/TEST/post-commit/FVT-setup.sh hooks/TEST/post-commit/SAST-setup.sh   updated with exit-code-error close #28 
 ###
 #	SAST-setup.sh -  This script is optional.  It runs before test cases are run, if SAST-setup.sh is found in TEST/<file_name>/
 #	   Static Analysis Software Testing (SAST) - examination of the code prior to the program’s execution
@@ -37,6 +37,10 @@ REPOSITORY_DIR=${1}
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-permission-755-001" SAST-permission-755-001
 #	ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-permission-775-001" SAST-permission-775-001
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-shellcheck-001" SAST-shellcheck-001
+#
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-exit-code-error-124-001"  SAST-exit-code-error-124-001
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-exit-code-error-124-002"  SAST-exit-code-error-124-002
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-exit-code-error-2-001"    SAST-exit-code-error-2-001
 #
 if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation finished." 1>&2 ; fi
 ###

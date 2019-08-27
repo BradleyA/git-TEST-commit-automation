@@ -1,5 +1,5 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/FVT-setup.sh  3.469.719  2019-08-27T16:10:00.778164-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.468-1-ga4d2cc4  
+# 	hooks/TEST/post-commit/FVT-setup.sh  3.469.719  2019-08-27T16:10:01.089049-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.468-1-ga4d2cc4  
 # 	   hooks/EXAMPLES/FVT-setup.sh hooks/EXAMPLES/SAST-setup.sh hooks/TEST/post-commit/FVT-setup.sh hooks/TEST/post-commit/SAST-setup.sh   updated with exit-code-error close #28 
 ###
 #	FVT-setup.sh -  This script is optional.  It runs before test cases are run, if FVT-setup.sh is found in TEST/<file_name>/
@@ -44,10 +44,10 @@ ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-help-001" FVT-option-help-00
 #	ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-version-001" FVT-option-version-001
 #	ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-version-002" FVT-option-version-002
 #	ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-version-003" FVT-option-version-003
-#
-#	ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-exit-code-error-124-001"  FVT-exit-code-error-124-001
-#	ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-exit-code-error-124-002"  FVT-exit-code-error-124-002
-#	ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-exit-code-error-2-001"    FVT-exit-code-error-2-001
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-exit-code-error-124-001"  FVT-exit-code-error-124-001
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-exit-code-error-124-002"  FVT-exit-code-error-124-002
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-exit-code-error-2-001"    FVT-exit-code-error-2-001
+
 #
 if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation finished." 1>&2 ; fi
 ###
