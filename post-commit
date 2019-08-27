@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.450.698  2019-08-26T22:37:08.438963-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.449  
+#	   hooks/post-commit   testing return code error 
 #	hooks/post-commit  3.449.697  2019-08-26T22:35:05.547301-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.448  
 #	   hooks/post-commit   testing return code error 
 #	hooks/post-commit  3.448.696  2019-08-26T22:32:38.531114-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.447  
@@ -94,7 +96,7 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 			else									# >>> added			
 				NO_TEST_CASES_ERROR=$((NO_TEST_CASES_ERROR+1))			# >>> added
 				RETURN_CODE_TEST_CASES_ERROR="${RETURN_CODE_TEST_CASES_ERROR}${RETURN_CODE} "                   # >>> added
-				echo " >>>	${RETURN_CODE_TEST_CASES_ERROR}"
+				echo " >>>${RETURN_CODE_TEST_CASES_ERROR}<<<"			# >>> added
 			fi
 		done
 		echo -e "\n>>>	SAST: ${BOLD}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases=${NO_TEST_CASES}\n   Number of test cases pass=${NO_TEST_CASES_PASS}\n   Number of test cases fail=${NO_TEST_CASES_FAIL}\n   Number of test cases error=${NO_TEST_CASES_ERROR}\n"
