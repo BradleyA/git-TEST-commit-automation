@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.467.716  2019-08-27T06:11:40.033261-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.466  
+#	   hooks/post-commit   testing test case exit code error total report #28 
 #	hooks/post-commit  3.466.715  2019-08-27T06:07:35.245142-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.465  
 #	   hooks/post-commit   testing test case exit code error total report #28 
 #	hooks/post-commit  3.440.688  2019-08-26T17:23:25.222904-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.439-1-g271f90f  
@@ -136,7 +138,7 @@ done
 rm    "${REPOSITORY_DIR}"/hooks/COMMIT_FILE_LIST
 
 #	process times
-echo -e ">>>  CPU Time    \n  user     sys"
+echo -e "\n>>>  CPU Time    \n  user     sys"
 times
 echo -e "\n"
 
