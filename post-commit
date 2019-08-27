@@ -1,12 +1,6 @@
 #!/bin/bash
-#	hooks/post-commit  3.445.693  2019-08-26T22:25:23.127049-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.444  
+#	hooks/post-commit  3.446.694  2019-08-26T22:27:20.591424-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.445  
 #	   hooks/post-commit   testing return code error 
-#	hooks/post-commit  3.444.692  2019-08-26T22:20:32.981067-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.443  
-#	   hooks/post-commit   testing return code error 
-#	hooks/post-commit  3.442.690  2019-08-26T22:14:17.144195-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.441 
-#	   testing return code error 
-#	hooks/post-commit  3.441.689  2019-08-26T22:12:36.296713-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.440  
-#	   testing error 
 #	hooks/post-commit  3.440.688  2019-08-26T17:23:25.222904-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.439-1-g271f90f  
 #	   hooks/post-commit   add counting for return code > 1 #28 
 #	hooks/post-commit  3.420.661  2019-08-21T12:29:09.967766-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.419  
