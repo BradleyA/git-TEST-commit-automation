@@ -1,5 +1,7 @@
 #!/bin/bash
-#	hooks/post-commit  3.442.690  2019-08-26T22:14:17.144195-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.441  
+@	hooks/post-commit  3.443.691  2019-08-26T22:18:54.218451-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.442  
+@	   testing return code error 
+#	hooks/post-commit  3.442.690  2019-08-26T22:14:17.144195-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.441 
 #	   testing return code error 
 #	hooks/post-commit  3.441.689  2019-08-26T22:12:36.296713-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.440  
 #	   testing error 
