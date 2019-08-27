@@ -1,6 +1,6 @@
 #!/bin/bash
-#	hooks/EXAMPLES/SAST-permission-644-001  3.327.668  2019-08-21T15:05:59.705679-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.426  
-#	   hooks/EXAMPLES/SAST-permission-644-001  quick test case test 
+#	hooks/EXAMPLES/SAST-permission-644-001  3.463.712  2019-08-27T05:28:26.807535-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.462  
+#	   hooks/EXAMPLES/SAST-permission-???-???  include file mode in output 
 #	hooks/EXAMPLES/SAST-permission-644-001  3.383.622  2019-08-20T16:28:33.073395-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.382
 #	   hooks/EXAMPLES/SAST-permission-???-001 changed design flow, added DEBUG 
 ### production standard 3.0 shellcheck
@@ -40,10 +40,10 @@ if [ -k "${1}" ] ; then #       no effect on files, but directories, all files i
 fi
 #       Verify file permissions
 if [ $(stat -Lc %a "${1}") == 644 ]; then
-        echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - file permission: check mode - ${BOLD}PASS - PASS${NORMAL}"
+        echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - file permission: check mode 644 - ${BOLD}PASS - PASS${NORMAL}"
         exit 0
 else
-        echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - file permission: check mode - ${BOLD}FAIL - FAIL${NORMAL}"
+        echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - file permission: check mode 644 - ${BOLD}FAIL - FAIL${NORMAL}"
         exit 1
 fi
 exit 124
