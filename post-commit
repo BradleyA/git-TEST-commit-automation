@@ -1,10 +1,6 @@
 #!/bin/bash
-#	hooks/post-commit  3.468.717  2019-08-27T14:19:46.487173-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.467  
-#	   hooks/post-commit  cleanup development code ; testing changes 
-#	hooks/post-commit  3.440.688  2019-08-26T17:23:25.222904-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.439-1-g271f90f  
-#	   hooks/post-commit   add counting for return code > 1 #28 
-#	hooks/post-commit  3.420.661  2019-08-21T12:29:09.967766-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.419  
-#	   hooks/post-commit  modified spacing with reporting status and CPU load 
+#	hooks/post-commit  3.470.720  2019-08-27T16:22:06.512393-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.469  
+#	   hooks/post-commit  completed testing ready for production close #26 
 ###	Create production standard TESTing using .git/hooks #26 
 #	post-commit - (git hook) run test cases if found
 #	    Loop through committed files found in COMMIT_FILE_LIST
