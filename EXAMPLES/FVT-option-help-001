@@ -1,14 +1,13 @@
 #!/bin/bash
-#	hooks/EXAMPLES/FVT-option-help-001  3.398.639  2019-08-21T10:52:21.140989-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.397  
-#	   hooks/EXAMPLES/FVT-option-help-001  testing TEST/FVT-option-help-001/SAST-shellcheck-001 
-#	hooks/EXAMPLES/FVT-option-help-001  3.393.634  2019-08-21T10:19:16.385303-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.392
-#	   hooks/EXAMPLES/FVT-option-help-001  added exit return codes 
-### production standard 3.0 shellcheck
-### production standard 5.1.160 Copyright
+#	hooks/EXAMPLES/FVT-option-help-001  3.473.727  2019-08-30T22:09:02.627062-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.472  
+#	   template/template.sh remove a tabs for two spaces 
+###  Template
+### Production standard 3.0 shellcheck
+### Production standard 5.1.160 Copyright
 #       Copyright (c) 2019 Bradley Allen
 #       MIT License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
 ###
-### production standard 1.0 DEBUG variable
+### Production standard 1.0 DEBUG variable
 #       Order of precedence: environment variable, default code
 if [ "${DEBUG}" == "" ] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
 BOLD=$(tput -Txterm bold)
