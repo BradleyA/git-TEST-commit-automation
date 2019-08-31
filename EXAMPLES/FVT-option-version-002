@@ -1,49 +1,55 @@
 #!/bin/bash
-#	hooks/EXAMPLES/FVT-option-version-002  3.417.658  2019-08-21T12:20:57.980254-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.416  
-#	   hooks/EXAMPLES/FVT-option-version-001 hooks/EXAMPLES/FVT-option-version-002 added exit return codes and corrected incident with shellcheck 
-### production standard 3.0 shellcheck
-### production standard 5.1.160 Copyright
-#       Copyright (c) 2019 Bradley Allen
-#       MIT License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
-###
-### production standard 1.0 DEBUG variable
-#       Order of precedence: environment variable, default code
-if [ "${DEBUG}" == "" ] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
+#	hooks/EXAMPLES/FVT-option-version-002  3.479.733  2019-08-31T13:59:31.674499-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.478  
+#	   hooks/EXAMPLES/FVT-option-version-002 hooks/EXAMPLES/FVT-option-version-003  copy changes from hooks/EXAMPLES/FVT-option-version-001 
+###  FVT-option-version-001 - test case
+###  Production standard 3.0 shellcheck
+###  Production standard 5.1.160 Copyright
+#    Copyright (c) 2019 Bradley Allen
+#    MIT License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
+###  Production standard 1.3.475 DEBUG variable
+#    Order of precedence: environment variable, default code
+if [[ "${DEBUG}" == ""  ]] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
+if [[ "${DEBUG}" == "2" ]] ; then set -x    ; fi   # Print trace of simple commands before they are executed
+if [[ "${DEBUG}" == "3" ]] ; then set -v    ; fi   # Print shell input lines as they are read
+#
 BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
-#       Date and time function ISO 8601
+
+#    Date and time function ISO 8601
 get_date_stamp() {
-DATE_STAMP=$(date +%Y-%m-%dT%H:%M:%S.%6N%:z)
-TEMP=$(date +%Z)
-DATE_STAMP="${DATE_STAMP} (${TEMP})"
+  DATE_STAMP=$(date +%Y-%m-%dT%H:%M:%S.%6N%:z)
+  TEMP=$(date +%Z)
+  DATE_STAMP="${DATE_STAMP} (${TEMP})"
 }
-#       Fully qualified domain name FQDN hostname
+
+#    Fully qualified domain name FQDN hostname
 LOCALHOST=$(hostname -f)
-#       Version
-SCRIPT_VERSION=$(head -2 "${0}" | awk '{printf $3}')
-SCRIPT_NAME=$(head -2 "${1}" | awk '{printf $2}')
+
+#    Version
+SCRIPT_VERSION=$(head -2 "${1}" | awk '{printf $3}')
+
 if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation started." 1>&2 ; fi
 
-###     Place test case here
+###  Place test case here
 
-#	TEST case Version
-echo "${SCRIPT_NAME} ${SCRIPT_VERSION}" > "${0}.expected"
+TEST_VERSION=$(head -2 "${1}" | awk '{printf $3}')
+TEST_NAME=$(head -2 "${1}" | awk '{printf $2}')
+echo "${TEST_NAME} ${TEST_VERSION=}" > "${0}.expected"
 
 "${1}" -version > "${0}".test-case-output
 
-###
 diff "${0}".expected "${0}".test-case-output >/dev/null 2>&1
 RETURN_CODE=${?}
 if [ ${RETURN_CODE} -eq 0 ] ; then
         echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - No difference with expected output - ${BOLD}PASS - PASS${NORMAL}"
-	exit 0
+  exit 0
 elif [ ${RETURN_CODE} -eq 1 ] ; then
         echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - Differences with expected output - ${BOLD}FAIL - FAIL${NORMAL}"
         diff -y "${0}".expected "${0}".test-case-output
-	exit 1
+  exit 1
 else
         echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - Test script ERROR - ${BOLD}FAIL - FAIL${NORMAL}"
-	exit 2
+  exit 2
 fi
 exit 124
 ###
