@@ -1,7 +1,7 @@
 #!/bin/bash
-#	hooks/EXAMPLES/FVT-option-version-002  3.479.733  2019-08-31T13:59:31.674499-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.478  
-#	   hooks/EXAMPLES/FVT-option-version-002 hooks/EXAMPLES/FVT-option-version-003  copy changes from hooks/EXAMPLES/FVT-option-version-001 
-###  FVT-option-version-001 - test case
+#	hooks/EXAMPLES/FVT-option-version-002  3.480.735  2019-08-31T15:43:51.864188-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.479-1-g9975d58  
+#	   hooks/EXAMPLES/FVT-option-version-001 002 003  remove tabs use two spaces add additional tests in test cases 
+###  hooks/EXAMPLES/FVT-option-version-001 - test case
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.1.160 Copyright
 #    Copyright (c) 2019 Bradley Allen
@@ -33,23 +33,27 @@ if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP}
 ###  Place test case here
 
 TEST_VERSION=$(head -2 "${1}" | awk '{printf $3}')
+if [[ -z "${TEST_VERSION}" ]] ; then echo "${BOLD}Test case --->${NORMAL} ${0} ${1} 1 - Test script setup FAIL: TEST_VERSION is zero length - ${BOLD}FAIL - FAIL${NORMAL}" ; exit 1 ; fi
 TEST_NAME=$(head -2 "${1}" | awk '{printf $2}')
+if [[ -z "${TEST_NAME}" ]] ; then echo "${BOLD}Test case --->${NORMAL} ${0} ${1} 1 - Test script setup FAIL: TEST_NAME is zero length - ${BOLD}FAIL - FAIL${NORMAL}" ; exit 1 ; fi
 echo "${TEST_NAME} ${TEST_VERSION=}" > "${0}.expected"
 
 "${1}" -version > "${0}".test-case-output
 
 diff "${0}".expected "${0}".test-case-output >/dev/null 2>&1
 RETURN_CODE=${?}
-if [ ${RETURN_CODE} -eq 0 ] ; then
-        echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - No difference with expected output - ${BOLD}PASS - PASS${NORMAL}"
+if [[ "${RETURN_CODE}" -eq 0 ]] ; then
+  echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - No difference with expected output - ${BOLD}PASS - PASS${NORMAL}"
   exit 0
-elif [ ${RETURN_CODE} -eq 1 ] ; then
-        echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - Differences with expected output - ${BOLD}FAIL - FAIL${NORMAL}"
-        diff -y "${0}".expected "${0}".test-case-output
+elif [[ "${RETURN_CODE}" -eq 1 ]] ; then
+  echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - Differences with expected output - ${BOLD}FAIL - FAIL${NORMAL}"
+  diff -y "${0}".expected "${0}".test-case-output
   exit 1
 else
-        echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - Test script ERROR - ${BOLD}FAIL - FAIL${NORMAL}"
+  echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - Test script logic ERROR - ${BOLD}FAIL - FAIL${NORMAL}"
   exit 2
 fi
+
+echo "${BOLD}Test case --->${NORMAL} ${0} ${1} 124 - Test script logic ERROR - ${BOLD}FAIL - FAIL${NORMAL}"
 exit 124
 ###
