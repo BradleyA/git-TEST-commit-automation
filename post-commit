@@ -1,5 +1,7 @@
 #!/bin/bash
-#	hooks/post-commit  3.470.720  2019-08-27T16:22:06.512393-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.469  
+#	hooks/post-commit  3.489.744  2019-08-31T23:27:22.448542-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.488  
+#	   hooks/TEST/post-commit/FVT-setup.sh  testing 
+#	hooks/post-commit  3.470.720  2019-08-27T16:22:06.512393-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.469
 #	   hooks/post-commit  completed testing ready for production close #26 
 ###	Create production standard TESTing using .git/hooks #26 
 #	post-commit - (git hook) run test cases if found
