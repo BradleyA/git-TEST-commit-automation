@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/TEST/post-commit/SA-setup.sh  2.9.287  2019-09-01T18:40:05.794571-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.8  
+# 	   hooks/TEST/post-commit/SA-setup.sh  change permission to 775 
 # 	hooks/TEST/post-commit/SA-setup.sh  2.4.279  2019-09-01T15:00:26.380246-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.3-5-gaab1b24  
 # 	   hooks/bin/list-git-TEST-cases.sh Rename SAST to SA for Static Analysis close #1 
 ###  hooks/EXAMPLES/SA-setup.sh - This script is optional.  It runs before test cases
@@ -44,8 +46,8 @@ REPOSITORY_DIR=${1}
 #    Uncomment shared TEST cases for command
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-644-001"      SA-permission-644-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-664-001"      SA-permission-664-001
-ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-755-001"      SA-permission-755-001
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-775-001"      SA-permission-775-001
+#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-755-001"      SA-permission-755-001
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-775-001"      SA-permission-775-001
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-shellcheck-001"           SA-shellcheck-001
 #
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-exit-code-error-124-001" SA-exit-code-error-124-001
