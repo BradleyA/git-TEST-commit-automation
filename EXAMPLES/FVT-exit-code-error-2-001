@@ -1,26 +1,34 @@
 #!/bin/bash
-#	hooks/EXAMPLES/FVT-exit-code-error-2-001  3.471.724  2019-08-27T16:37:04.498969-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.470-3-ged80a9d  
-#	   hooks/EXAMPLES/FVT-exit-code-error-124-001 hooks/EXAMPLES/FVT-exit-code-error-124-002 hooks/EXAMPLES/FVT-exit-code-error-2-001 hooks/EXAMPLES/SAST-exit-code-error-124-001 hooks/EXAMPLES/SAST-exit-code-error-124-002 hooks/EXAMPLES/SAST-exit-code-error-2-001   added exit code error test cases 
-### production standard 3.0 shellcheck
-### production standard 5.1.160 Copyright
-#       Copyright (c) 2019 Bradley Allen
-#       MIT License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
-### production standard 1.0 DEBUG variable
-#       Order of precedence: environment variable, default code
-if [ "${DEBUG}" == "" ] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
+#	hooks/EXAMPLES/FVT-exit-code-error-2-001  3.483.738  2019-08-31T20:51:25.521441-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.482  
+#	   hooks/EXAMPLES/FVT-exit-code-error-124-001 002 003   changes tabs to two spaces copy Production standard 1.3.475 DEBUG variable 
+###  hooks/EXAMPLES/FVT-exit-code-error-2-001 - test case
+###  Production standard 3.0 shellcheck
+###  Production standard 5.1.160 Copyright
+#    Copyright (c) 2019 Bradley Allen
+#    MIT License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
+###  Production standard 1.3.475 DEBUG variable
+#    Order of precedence: environment variable, default code
+if [[ "${DEBUG}" == ""  ]] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
+if [[ "${DEBUG}" == "2" ]] ; then set -x    ; fi   # Print trace of simple commands before they are executed
+if [[ "${DEBUG}" == "3" ]] ; then set -v    ; fi   # Print shell input lines as they are read
+#
 BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
-#       Date and time function ISO 8601
+
+#    Date and time function ISO 8601
 get_date_stamp() {
-DATE_STAMP=$(date +%Y-%m-%dT%H:%M:%S.%6N%:z)
-TEMP=$(date +%Z)
-DATE_STAMP="${DATE_STAMP} (${TEMP})"
+  DATE_STAMP=$(date +%Y-%m-%dT%H:%M:%S.%6N%:z)
+  TEMP=$(date +%Z)
+  DATE_STAMP="${DATE_STAMP} (${TEMP})"
 }
-#       Fully qualified domain name FQDN hostname
+
+#    Fully qualified domain name FQDN hostname
 LOCALHOST=$(hostname -f)
-#       Version
-SCRIPT_VERSION=$(head -2 "${0}" | awk '{printf $3}')
-if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation started." 1>&2 ; fi
+
+#    Version
+SCRIPT_VERSION=$(head -2 "${1}" | awk '{printf $3}')
+
+if [[ "${DEBUG}" == "1" ]] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation started." 1>&2 ; fi
 
 ###     Appendix E. Exit Codes With Special Meanings
 #       Exit      Meaning                            Example                    Comments
@@ -34,5 +42,7 @@ if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP}
 #       255*      Exit status out of range           exit -1                    exit takes only integer args in the range 0 - 255
 
 ###     Place test case here
-echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - exit code 2: report test case error exit code total - ${BOLD}ERROR - ERROR${NORMAL}"
-exit 2
+
+echo "${BOLD}Test case --->${NORMAL} ${0} ${1} 2 - exit code 2: report test case error exit code total - ${BOLD}ERROR - ERROR${NORMAL}"
+exit 124
+###
