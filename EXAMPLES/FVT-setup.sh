@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/FVT-setup.sh  3.484.739  2019-08-31T21:16:43.481436-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.483  
-# 	   hooks/EXAMPLES/FVT-setup.sh   changes tabs to two spaces copy Production standard 1.3.475 DEBUG variable 
+# 	hooks/EXAMPLES/FVT-setup.sh  3.485.740  2019-08-31T21:19:16.394013-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.484  
+# 	   hooks/EXAMPLES/FVT-setup.sh   few typos 
 ###  hooks/EXAMPLES/FVT-setup.sh - This script is optional.  It runs before test cases
 #    are run, if FVT-setup.sh is found in TEST/<file_name>/
 #    Functional Verification Testing (FVT) - verify that the program logic conforms to
@@ -32,7 +32,7 @@ LOCALHOST=$(hostname -f)
 #    Version
 SCRIPT_VERSION=$(head -2 "${1}" | awk '{printf $3}')
 
-if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation started." 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation started." 1>&2 ; fi
 
 ###  Production standard 10.0 TESTing
 #    Remove output from previous run of test cases
@@ -58,5 +58,5 @@ ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-help-001"          FVT-optio
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-exit-code-error-124-002"  FVT-exit-code-error-124-002
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-exit-code-error-2-001"    FVT-exit-code-error-2-001
 #
-if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation finished." 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation finished." 1>&2 ; fi
 ###
