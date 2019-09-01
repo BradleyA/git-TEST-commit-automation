@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/TEST/post-commit/FVT-setup.sh  3.490.745  2019-08-31T23:31:19.046707-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.489  
+# 	   hooks/TEST/post-commit/FVT-setup.sh  correct incident found during TEST FVT-option-help-001 
 # 	hooks/TEST/post-commit/FVT-setup.sh  3.489.744  2019-08-31T23:27:05.831045-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.488  
 # 	   hooks/TEST/post-commit/FVT-setup.sh  testing 
 ###  hooks/EXAMPLES/FVT-setup.sh - This script is optional.  It runs before test cases
@@ -41,7 +43,7 @@ rm -f FVT-*.test-case-output
 REPOSITORY_DIR=${1}
 
 #    Uncomment shared TEST cases for TESTing
-ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-help-001"          FVT-option-help-001
+#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-help-001"          FVT-option-help-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-help-002"          FVT-option-help-002
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-help-003"          FVT-option-help-003
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-help-004"          FVT-option-help-004
