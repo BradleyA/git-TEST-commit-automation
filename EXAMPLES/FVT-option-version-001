@@ -1,4 +1,8 @@
 #!/bin/bash
+#	hooks/EXAMPLES/FVT-option-version-001  3.488.743  2019-08-31T23:13:20.099685-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.487  
+#	   SCRIPT_VERSION incident corrected and correct Test script logic ERROR message 
+#	hooks/EXAMPLES/FVT-option-version-001  3.488.743  2019-08-31T23:11:10.514081-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.487  
+#	   SCRIPT_VERSION incident corrected and correct Test script logic ERROR message 
 #	hooks/EXAMPLES/FVT-option-version-001  3.487.742  2019-08-31T21:38:17.637422-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.486  
 #	   hooks/EXAMPLES/SAST-exit-code-error-124-001   change tab to two spaces update Production standard 1.3.475 DEBUG variable 
 #	hooks/EXAMPLES/FVT-option-version-001  3.480.735  2019-08-31T15:43:45.645291-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.479-1-g9975d58  
@@ -45,17 +49,17 @@ echo "${TEST_NAME} ${TEST_VERSION=}" > "${0}.expected"
 diff "${0}".expected "${0}".test-case-output >/dev/null 2>&1
 RETURN_CODE=${?}
 if [[ "${RETURN_CODE}" -eq 0 ]] ; then
-  echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - No difference with expected output - ${BOLD}PASS - PASS${NORMAL}"
+  echo "${BOLD}Test case --->${NORMAL} ${0} ${1} 0 - No difference with expected output - ${BOLD}PASS - PASS${NORMAL}"
   exit 0
 elif [[ "${RETURN_CODE}" -eq 1 ]] ; then
-  echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - Differences with expected output - ${BOLD}FAIL - FAIL${NORMAL}"
+  echo "${BOLD}Test case --->${NORMAL} ${0} ${1} 1 - Differences with expected output - ${BOLD}FAIL - FAIL${NORMAL}"
   diff -y "${0}".expected "${0}".test-case-output
   exit 1
 else
-  echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - Test script logic ERROR - ${BOLD}FAIL - FAIL${NORMAL}"
+  echo "${BOLD}Test case --->${NORMAL} ${0} ${1} 2 - Test script logic ERROR - ${BOLD}ERROR - ERROR${NORMAL}"
   exit 2
 fi
 
-echo "${BOLD}Test case --->${NORMAL} ${0} ${1} 124 - Test script logic ERROR - ${BOLD}FAIL - FAIL${NORMAL}"
+echo "${BOLD}Test case --->${NORMAL} ${0} ${1} 124 - Test script logic ERROR - ${BOLD}ERROR - ERROR${NORMAL}"
 exit 124
 ###

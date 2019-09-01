@@ -1,4 +1,8 @@
 #!/bin/bash
+#	hooks/EXAMPLES/FVT-option-help-005  3.488.743  2019-08-31T23:12:56.099992-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.487  
+#	   SCRIPT_VERSION incident corrected and correct Test script logic ERROR message 
+#	hooks/EXAMPLES/FVT-option-help-005  3.488.743  2019-08-31T23:10:52.295456-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.487  
+#	   SCRIPT_VERSION incident corrected and correct Test script logic ERROR message 
 #	hooks/EXAMPLES/FVT-option-help-005  3.481.736  2019-08-31T16:14:09.395646-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.480  
 #	   hooks/EXAMPLES/FVT-option-help-001 002 003 004 005 006   change tab to two spaces update Production standard 1.3.475 DEBUG variable 
 ###  hooks/EXAMPLES/FVT-option-help-005 - test case
@@ -26,9 +30,9 @@ get_date_stamp() {
 LOCALHOST=$(hostname -f)
 
 #    Version
-SCRIPT_VERSION=$(head -2 "${1}" | awk '{printf $3}')
+SCRIPT_VERSION=$(head -2 "${0}" | awk '{printf $3}')
 
-if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation started." 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation started." 1>&2 ; fi
 
 ###  Place test case here
 
@@ -53,6 +57,6 @@ else
   exit 1
 fi
 
-echo "${BOLD}Test case --->${NORMAL} ${0} ${1} 124 - Test script logic ERROR - ${BOLD}FAIL - FAIL${NORMAL}"
+echo "${BOLD}Test case --->${NORMAL} ${0} ${1} 124 - Test script logic ERROR - ${BOLD}ERROR - ERROR${NORMAL}"
 exit 124
 ###

@@ -1,50 +1,59 @@
 #!/bin/bash
-#	hooks/EXAMPLES/SAST-permission-775-001  3.463.712  2019-08-27T05:28:35.962605-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.462  
-#	   hooks/EXAMPLES/SAST-permission-???-???  include file mode in output 
-#	hooks/EXAMPLES/SAST-permission-775-001  3.383.622  2019-08-20T16:28:43.931598-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.382 
-#	   hooks/EXAMPLES/SAST-permission-???-001 changed design flow, added DEBUG 
-### production standard 3.0 shellcheck
-### production standard 5.1.160 Copyright
-#       Copyright (c) 2019 Bradley Allen
-#       MIT License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
-###
-### production standard 1.0 DEBUG variable
-#       Order of precedence: environment variable, default code
-if [ "${DEBUG}" == "" ] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
+#	hooks/EXAMPLES/SAST-permission-775-001  3.488.743  2019-08-31T23:14:09.876400-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.487  
+#	   SCRIPT_VERSION incident corrected and correct Test script logic ERROR message 
+#	hooks/EXAMPLES/SAST-permission-775-001  3.488.743  2019-08-31T23:11:41.308239-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.487  
+#	   SCRIPT_VERSION incident corrected and correct Test script logic ERROR message 
+###  hooks/EXAMPLES/hooks/EXAMPLES/SAST-permission-775-001 - test case
+###  Production standard 3.0 shellcheck
+###  Production standard 5.1.160 Copyright
+#    Copyright (c) 2019 Bradley Allen
+#    MIT License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
+###  Production standard 1.3.475 DEBUG variable
+#    Order of precedence: environment variable, default code
+if [[ "${DEBUG}" == ""  ]] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
+if [[ "${DEBUG}" == "2" ]] ; then set -x    ; fi   # Print trace of simple commands before they are executed
+if [[ "${DEBUG}" == "3" ]] ; then set -v    ; fi   # Print shell input lines as they are read
+#
 BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
-#       Date and time function ISO 8601
-get_date_stamp() {
-DATE_STAMP=$(date +%Y-%m-%dT%H:%M:%S.%6N%:z)
-TEMP=$(date +%Z)
-DATE_STAMP="${DATE_STAMP} (${TEMP})"
-}
-#       Fully qualified domain name FQDN hostname
-LOCALHOST=$(hostname -f)
-#       Version
-SCRIPT_VERSION=$(head -2 "${0}" | awk '{printf $3}')
-if [ "${DEBUG}" == "1" ] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation started." 1>&2 ; fi
 
-###	Place test case here
-if [ -g "${1}" ] ; then
-	echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - file permission: FILE exists and its set-group-ID bit is set - ${BOLD}FAIL - FAIL${NORMAL}"
-	exit 1
+#    Date and time function ISO 8601
+get_date_stamp() {
+  DATE_STAMP=$(date +%Y-%m-%dT%H:%M:%S.%6N%:z)
+  TEMP=$(date +%Z)
+  DATE_STAMP="${DATE_STAMP} (${TEMP})"
+}
+
+#    Fully qualified domain name FQDN hostname
+LOCALHOST=$(hostname -f)
+
+#    Version
+SCRIPT_VERSION=$(head -2 "${0}" | awk '{printf $3}')
+
+if [[ "${DEBUG}" == "1" ]] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation started." 1>&2 ; fi
+
+###  Place test case here
+if [[ -g "${1}" ]] ; then
+  echo "${BOLD}Test case --->${NORMAL} ${0} ${1} 1 - file permission: FILE exists and its set-group-ID bit is set - ${BOLD}FAIL - FAIL${NORMAL}"
+  exit 1
 fi
-if [ -u "${1}" ] ; then
-	echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - file permission: FILE exists and its set-user-ID bit is set - ${BOLD}FAIL - FAIL${NORMAL}"
-	exit 1
+if [[ -u "${1}" ]] ; then
+  echo "${BOLD}Test case --->${NORMAL} ${0} ${1} 1 - file permission: FILE exists and its set-user-ID bit is set - ${BOLD}FAIL - FAIL${NORMAL}"
+  exit 1
 fi
-if [ -k "${1}" ] ; then	#	no effect on files, but directories, all files in directory will be modifiable only by their owners (example /tmp)
-	echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - directory permission: FILE exists and has its sticky bit set - ${BOLD}FAIL - FAIL${NORMAL}"
-	exit 1
+if [[ -k "${1}" ]] ; then  #  no effect on files, but directories, all files in directory will be modifiable only by their owners (example /tmp)
+  echo "${BOLD}Test case --->${NORMAL} ${0} ${1} 1 - directory permission: FILE exists and has its sticky bit set - ${BOLD}FAIL - FAIL${NORMAL}"
+  exit 1
 fi
-#       Verify file permissions
-if [ $(stat -Lc %a "${1}") == 775 ]; then
-	echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - file permission: check mode 775 - ${BOLD}PASS - PASS${NORMAL}"
-	exit 0
+#    Verify file permissions
+if [[ $(stat -Lc %a "${1}") == 775 ]] ; then
+  echo "${BOLD}Test case --->${NORMAL} ${0} ${1} 0 - file permission: check mode 775 - ${BOLD}PASS - PASS${NORMAL}"
+  exit 0
 else
-	echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - file permission: check mode 775 - ${BOLD}FAIL - FAIL${NORMAL}"
-	exit 1
+  echo "${BOLD}Test case --->${NORMAL} ${0} ${1} 1 - file permission: check mode 775 - ${BOLD}FAIL - FAIL${NORMAL}"
+  exit 1
 fi
+
+echo "${BOLD}Test case --->${NORMAL} ${0} ${1} 124 - Test script logic ERROR - ${BOLD}ERROR - ERROR${NORMAL}"
 exit 124
 ###

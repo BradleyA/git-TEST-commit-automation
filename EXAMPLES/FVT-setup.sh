@@ -1,4 +1,8 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/FVT-setup.sh  3.488.743  2019-08-31T23:13:27.607919-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.487  
+# 	   SCRIPT_VERSION incident corrected and correct Test script logic ERROR message 
+# 	hooks/EXAMPLES/FVT-setup.sh  3.488.743  2019-08-31T23:11:17.014756-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.487  
+# 	   SCRIPT_VERSION incident corrected and correct Test script logic ERROR message 
 # 	hooks/EXAMPLES/FVT-setup.sh  3.485.740  2019-08-31T21:19:16.394013-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.484  
 # 	   hooks/EXAMPLES/FVT-setup.sh   few typos 
 ###  hooks/EXAMPLES/FVT-setup.sh - This script is optional.  It runs before test cases
@@ -30,7 +34,7 @@ get_date_stamp() {
 LOCALHOST=$(hostname -f)
 
 #    Version
-SCRIPT_VERSION=$(head -2 "${1}" | awk '{printf $3}')
+SCRIPT_VERSION=$(head -2 "${0}" | awk '{printf $3}')
 
 if [[ "${DEBUG}" == "1" ]] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation started." 1>&2 ; fi
 
