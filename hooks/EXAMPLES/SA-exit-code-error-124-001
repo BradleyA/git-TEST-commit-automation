@@ -1,7 +1,7 @@
 #!/bin/bash
-#	hooks/EXAMPLES/SAST-exit-code-error-124-001  3.487.742  2019-08-31T21:38:21.432019-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.486  
-#	   hooks/EXAMPLES/SAST-exit-code-error-124-001   change tab to two spaces update Production standard 1.3.475 DEBUG variable 
-###  hooks/EXAMPLES/SAST-exit-code-error-124-001 - test case
+#	hooks/EXAMPLES/SA-exit-code-error-124-001  2.4.279  2019-09-01T15:00:01.837878-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.3-5-gaab1b24  
+#	   hooks/bin/list-git-TEST-cases.sh Rename SAST to SA for Static Analysis close #1 
+###  hooks/EXAMPLES/SA-exit-code-error-124-001 - test case
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.1.160 Copyright
 #    Copyright (c) 2019 Bradley Allen

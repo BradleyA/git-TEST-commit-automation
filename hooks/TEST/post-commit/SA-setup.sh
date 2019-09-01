@@ -1,5 +1,5 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/SA-setup.sh  2.4.279  2019-09-01T15:00:22.851795-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.3-5-gaab1b24  
+# 	hooks/TEST/post-commit/SA-setup.sh  2.4.279  2019-09-01T15:00:26.380246-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.3-5-gaab1b24  
 # 	   hooks/bin/list-git-TEST-cases.sh Rename SAST to SA for Static Analysis close #1 
 ###  hooks/EXAMPLES/SA-setup.sh - This script is optional.  It runs before test cases
 #    are run, if SA-setup.sh is found in TEST/<file_name>/
