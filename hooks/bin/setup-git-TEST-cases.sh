@@ -1,13 +1,14 @@
 #!/bin/bash
-# 	hooks/bin/setup-git-TEST-cases.sh  3.432.679  2019-08-22T20:35:19.791238-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.431-1-gdfe8546  
-# 	   hooks/bin/find-git-TEST-cases.sh  add color to output 
-# 	hooks/bin/setup-TEST-cases.sh  3.340.579  2019-08-19T14:22:23.150084-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.339  
-# 	   hooks/bin/setup-TEST-cases.sh hooks/bin/teardown-TEST-cases.sh changed file permission 
-# 	hooks/bin/setup-TEST-cases.sh  3.339.578  2019-08-19T14:15:31.400490-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.338  
-# 	   hooks/bin/setup-TEST-cases.sh hooks/bin/teardown-TEST-cases.sh initial commit 
+# 	hooks/bin/setup-git-TEST-cases.sh  2.1.269  2019-09-01T12:52:19.200878-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 'No-parent-git-tag-found-in-repository'  
+# 	   hooks/bin/setup-git-TEST-cases.sh  add ruff notes about linking commands 
 ###
 #	after clone  repository
+#      after tar, copy, or clone  repository
 #	copy commands to /usr/local/bin
+#
+cd git-TEST-commit-automation/hooks
+ln -s ../../hooks/post-commit ../.git/hooks/post-commit
+ln -s ../../hooks/pre-commit ../.git/hooks/pre-commit
 #	
 #	need to determine where to start after copying commands
 #
