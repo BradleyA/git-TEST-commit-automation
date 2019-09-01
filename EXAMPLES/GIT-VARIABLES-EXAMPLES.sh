@@ -1,12 +1,11 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/GIT-VARIABLES-EXAMPLES.sh  3.426.667  2019-08-21T15:02:34.751797-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.425  
-# 	   hooks/EXAMPLES/GIT-VARIABLES-EXAMPLES.sh  quick test of test cases 
-###
-#	I use this file to help debug hooks during development
-### production standard 3.0 shellcheck
-### production standard 5.1.160 Copyright
-#       Copyright (c) 2019 Bradley Allen
-#       MIT License is in the online DOCUMENTATION
+# 	hooks/EXAMPLES/GIT-VARIABLES-EXAMPLES.sh  3.486.741  2019-08-31T21:21:03.826987-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.485  
+# 	   hooks/EXAMPLES/GIT-VARIABLES-EXAMPLES.sh   typo 
+###  I use this file to help debug hooks during development
+###  Production standard 3.0 shellcheck
+###  Production standard 5.1.160 Copyright
+#    Copyright (c) 2019 Bradley Allen
+#    MIT License is in the online DOCUMENTATION
 ###
 echo "GIT_AUTHOR_DATE >${GIT_AUTHOR_DATE}<"
 echo "GIT_AUTHOR_NAME >${GIT_AUTHOR_NAME}<"
@@ -20,5 +19,3 @@ echo "pwd >$(pwd)<"
 echo "GIT_WORK_TREE >${GIT_WORK_TREE}<"
 hook="$(git rev-parse --git-path hooks/post-commit)"
 echo "hook >${hook}<"
-
-
