@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/SAST-setup.sh  3.492.747  2019-09-01T00:08:55.943899-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.491  
+# 	   copy latest SAST-setup.sh & #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-help-001"          FVT-option-help-001 
 # 	hooks/EXAMPLES/SAST-setup.sh  3.488.743  2019-08-31T23:14:10.141041-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.487  
 # 	   SCRIPT_VERSION incident corrected and correct Test script logic ERROR message 
 # 	hooks/EXAMPLES/SAST-setup.sh  3.488.743  2019-08-31T23:11:41.512764-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.487  
@@ -53,6 +55,6 @@ ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-shellcheck-001"           SAST-she
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-exit-code-error-124-001" SAST-exit-code-error-124-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-exit-code-error-124-002" SAST-exit-code-error-124-002
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-exit-code-error-2-001"   SAST-exit-code-error-2-001
-#
+
 if [[ "${DEBUG}" == "1" ]] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation finished." 1>&2 ; fi
 ###

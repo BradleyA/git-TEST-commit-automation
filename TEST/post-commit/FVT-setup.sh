@@ -1,8 +1,6 @@
 #!/bin/bash
-# 	hooks/TEST/post-commit/FVT-setup.sh  3.490.745  2019-08-31T23:31:19.046707-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.489  
-# 	   hooks/TEST/post-commit/FVT-setup.sh  correct incident found during TEST FVT-option-help-001 
-# 	hooks/TEST/post-commit/FVT-setup.sh  3.489.744  2019-08-31T23:27:05.831045-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.488  
-# 	   hooks/TEST/post-commit/FVT-setup.sh  testing 
+# 	hooks/TEST/post-commit/FVT-setup.sh  3.492.747  2019-09-01T00:08:59.434147-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.491  
+# 	   copy latest SAST-setup.sh & #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-help-001"          FVT-option-help-001 
 ###  hooks/EXAMPLES/FVT-setup.sh - This script is optional.  It runs before test cases
 #    are run, if FVT-setup.sh is found in TEST/<file_name>/
 #    Functional Verification Testing (FVT) - verify that the program logic conforms to
@@ -59,7 +57,6 @@ REPOSITORY_DIR=${1}
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-exit-code-error-124-001"  FVT-exit-code-error-124-001
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-exit-code-error-124-002"  FVT-exit-code-error-124-002
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-exit-code-error-2-001"    FVT-exit-code-error-2-001
-#
 
 if [[ "${DEBUG}" == "1" ]] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation finished." 1>&2 ; fi
 ###
