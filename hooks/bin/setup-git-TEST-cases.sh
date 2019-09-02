@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/setup-git-TEST-cases.sh  2.30.312  2019-09-02T15:24:16.403824-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.29-1-g22ca97d  
+# 	   hooks/bin/setup-git-TEST-cases.sh   change design from mv to tar so not to loose test cases added that are not in repository 
 # 	hooks/bin/setup-git-TEST-cases.sh  2.29.310  2019-09-02T13:35:03.394915-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.28  
 # 	   hooks/bin/setup-git-TEST-cases.sh  change code to support design requirement - download the latest git-TEST-commit-automation/hooks 
 # 	hooks/bin/setup-git-TEST-cases.sh  2.26.306  2019-09-02T10:18:12.614578-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.25 
@@ -44,20 +46,23 @@ if git -C . rev-parse 2> /dev/null ; then  #  currect directory in a git reposit
   cd "$(git rev-parse --show-toplevel || echo '.')"  #  change to top git repository directory 
   REPOSITORY_NAME=$(git rev-parse --show-toplevel | rev | cut -d / -f 1 | rev)
   curl -L https://api.github.com/repos/BradleyA/git-TEST-commit-automation/tarball | tar -xzf - --wildcards BradleyA-git-TEST-commit-automation-*/hooks
-  mv BradleyA-git-TEST-commit-automation-*/hooks hooks
-  rmdir BradleyA-git-TEST-commit-automation-*
+  cd ./BradleyA-git-TEST-commit-automation-*
+  tar -cf - ./hooks/ | (cd .. && tar -xf -)
+  cd ..
+  rm -rf  BradleyA-git-TEST-commit-automation-*
   cd hooks
   if [[ -x "post-commit" ]] && [[ -x "pre-commit" ]]  ; then  # do files exist and execute permission
+    ln -fs ../../hooks/pre-commit  ../.git/hooks/pre-commit
     ln -fs ../../hooks/post-commit ../.git/hooks/post-commit
-    ln -fs ../../hooks/pre-commit ../.git/hooks/pre-commit
   else
     get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  Unable to link ${REPOSITORY_NAME}/hooks/{pre-commit,post-commit} to ${REPOSITORY_NAME}/.git/hooks/{pre-commit,post-commit} because {pre-commit,post-commit} is NOT found in current directory ($(pwd)) or does not have execute permission." 1>&2
     exit 2
   fi
-  if [[ -x "bin/check-git-TEST-cases.sh" ]] ; then
-    cp -p bin/check-git-TEST-cases.sh /usr/local/bin
+  if [[ -x  "bin/check-git-TEST-cases.sh" ]] && [[ -x bin/setup-git-TEST-cases.sh ]]  && [[ -w /usr/local/bin ]]  ; then
+    cp -f -p bin/check-git-TEST-cases.sh /usr/local/bin/check-git-TEST-cases.sh
+    cp -f -p bin/setup-git-TEST-cases.sh /usr/local/bin/setup-git-TEST-cases.sh
   else
-    get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  Unable to cp ${REPOSITORY_NAME}/hooks/bin/check-git-TEST-cases.sh to /usr/local/bin because check-git-TEST-cases.sh is NOT found or does not have execute permission." 1>&2
+    get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  Unable to link ${REPOSITORY_NAME}/hooks/bin/{check-git-TEST-cases.sh,setup-git-TEST-cases.sh} to /usr/local/bin because check-git-TEST-cases.sh or setup-git-TEST-cases.sh is NOT found or does not have execute permission or /usr/local/bin is not writable." 1>&2
     exit 2
   fi
 else
