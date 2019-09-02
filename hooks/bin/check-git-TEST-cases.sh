@@ -1,21 +1,15 @@
 #!/bin/bash
+# 	hooks/bin/check-git-TEST-cases.sh  2.24.304  2019-09-02T09:19:27.945746-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.23  
+# 	   hooks/bin/check-git-TEST-cases.sh - add support for clean file need testing #3 
 # 	hooks/bin/check-git-TEST-cases.sh  2.23.303  2019-09-02T09:09:45.577247-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.22  
 # 	   updated Production standard 1.3.496 DEBUG variable 
 # 	hooks/bin/check-git-TEST-cases.sh  2.22.302  2019-09-02T08:45:34.772225-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.21-2-g0b19d58 
 # 	   hooks/bin/check-git-TEST-cases.sh  correct incident from last night  3 line were deleted and added back 
 # 	hooks/bin/check-git-TEST-cases.sh  2.7.285  2019-09-01T18:15:07.870384-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.6-1-g9568dd7  
 # 	   hooks/bin/check-git-TEST-cases.sh  add support to execute clean if found in TEST/<command>/ 
-# 	hooks/bin/check-git-TEST-cases.sh  2.2.270  2019-09-01T13:38:43.648913-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.1  
-# 	   hooks/bin/check-git-TEST-cases.sh  change tab to two spaces update Production standard 1.3.475 DEBUG variable  change SAST to SA #1 
 # 	hooks/bin/check-git-TEST-cases.sh  3.437.684  2019-08-22T23:14:27.310360-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.436  
 # 	   hooks/bin/check-git-TEST-cases.sh  added to check-git-TEST-cases.sh clean rm -f FVT-*.test-case-output & rm -f SAST-*.test-case-output 
-# 	hooks/bin/check-git-TEST-cases.sh  3.437.684  2019-08-22T23:13:43.584470-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.436  
-# 	   hooks/bin/check-git-TEST-cases.sh  added to check-git-TEST-cases.sh clean rm -f FVT-*.test-case-output & rm -f SAST-*.test-case-output 
 # 	hooks/bin/check-git-TEST-cases.sh  3.436.683  2019-08-22T22:43:19.610899-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.435  
-# 	   hooks/bin/check-git-TEST-cases.sh  changed print order so when using clean option it display the directory first 
-# 	hooks/bin/check-git-TEST-cases.sh  3.435.682  2019-08-22T22:29:49.612246-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.434  
-# 	   hooks/bin/check-git-TEST-cases.sh added options all (run FVT,SAST -setup.sh) , clean to remove symbolics 
-# 	hooks/bin/check-git-TEST-cases.sh  3.434.681  2019-08-22T20:49:55.098191-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.433  
 # 	   hooks/bin/check-git-TEST-cases.sh added color to output and update comment 
 ###   hooks/bin/check-git-TEST-cases.sh -  search from top of repository to list TEST directory test cases
 #       check-git-TEST-cases.sh all - runs FVT-setup.sh and SA-setup.sh to create symbolic links to EXAMPLES before listing all test cases
