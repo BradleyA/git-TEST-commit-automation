@@ -1,21 +1,24 @@
 #!/bin/bash
-# 	hooks/bin/TEST/list-git-TEST-cases.sh/SAST-setup.sh  3.492.747  2019-09-01T00:08:59.958108-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.491  
-# 	   copy latest SAST-setup.sh & #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-help-001"          FVT-option-help-001 
-###  hooks/EXAMPLES/SAST-setup.sh - This script is optional.  It runs before test cases
-#    are run, if SAST-setup.sh is found in TEST/<file_name>/
-#    Static Analysis Software Testing (SAST) - examination of code prior to the program’s execution
-#    SAST is code analysis, syntax, permission, code inspection, code review, data flow
+# 	hooks/bin/TEST/check-git-TEST-cases.sh/SA-setup.sh  2.23.303  2019-09-02T09:09:45.465181-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.22  
+# 	   updated Production standard 1.3.496 DEBUG variable 
+# 	hooks/EXAMPLES/SA-setup.sh  2.4.279  2019-09-01T15:00:22.851795-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.3-5-gaab1b24  
+# 	   hooks/bin/list-git-TEST-cases.sh Rename SAST to SA for Static Analysis close #1 
+###  hooks/EXAMPLES/SA-setup.sh - This script is optional.  It runs before test cases
+#    are run, if SA-setup.sh is found in TEST/<file_name>/
+#    Static Analysis (SA) - examination of code prior to the program’s execution
+#    SA is code analysis, syntax, permission, code inspection, code review, data flow
 #    analysis, and walkthrough (manually reviewing algorithms as well as documents to
 #    find any errors).
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.1.160 Copyright
 #    Copyright (c) 2019 Bradley Allen
 #    MIT License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
-###  Production standard 1.3.475 DEBUG variable
+###  Production standard 1.3.496 DEBUG variable
 #    Order of precedence: environment variable, default code
 if [[ "${DEBUG}" == ""  ]] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
 if [[ "${DEBUG}" == "2" ]] ; then set -x    ; fi   # Print trace of simple commands before they are executed
 if [[ "${DEBUG}" == "3" ]] ; then set -v    ; fi   # Print shell input lines as they are read
+if [[ "${DEBUG}" == "4" ]] ; then set -e    ; fi   # Exit command has a non-zero exit status
 #
 BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
@@ -37,20 +40,20 @@ if [[ "${DEBUG}" == "1" ]] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAM
 
 ###  Production standard 10.0 TESTing 
 #    Remove output from previous run of test cases
-rm -f SAST-*.test-case-output
+rm -f SA-*.test-case-output
 
 REPOSITORY_DIR=${1}
 
 #    Uncomment shared TEST cases for command
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-permission-644-001"      SAST-permission-644-001
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-permission-664-001"      SAST-permission-664-001
-ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-permission-755-001"      SAST-permission-755-001
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-permission-775-001"      SAST-permission-775-001
-ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-shellcheck-001"           SAST-shellcheck-001
+#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-644-001"      SA-permission-644-001
+#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-664-001"      SA-permission-664-001
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-755-001"      SA-permission-755-001
+#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-775-001"      SA-permission-775-001
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-shellcheck-001"           SA-shellcheck-001
 #
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-exit-code-error-124-001" SAST-exit-code-error-124-001
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-exit-code-error-124-002" SAST-exit-code-error-124-002
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SAST-exit-code-error-2-001"   SAST-exit-code-error-2-001
+#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-exit-code-error-124-001" SA-exit-code-error-124-001
+#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-exit-code-error-124-002" SA-exit-code-error-124-002
+#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-exit-code-error-2-001"   SA-exit-code-error-2-001
 
 if [[ "${DEBUG}" == "1" ]] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation finished." 1>&2 ; fi
 ###

@@ -1,5 +1,7 @@
 #!/bin/bash
-# 	hooks/bin/check-git-TEST-cases.sh  2.22.302  2019-09-02T08:45:34.772225-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.21-2-g0b19d58  
+# 	hooks/bin/check-git-TEST-cases.sh  2.23.303  2019-09-02T09:09:45.577247-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.22  
+# 	   updated Production standard 1.3.496 DEBUG variable 
+# 	hooks/bin/check-git-TEST-cases.sh  2.22.302  2019-09-02T08:45:34.772225-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.21-2-g0b19d58 
 # 	   hooks/bin/check-git-TEST-cases.sh  correct incident from last night  3 line were deleted and added back 
 # 	hooks/bin/check-git-TEST-cases.sh  2.7.285  2019-09-01T18:15:07.870384-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.6-1-g9568dd7  
 # 	   hooks/bin/check-git-TEST-cases.sh  add support to execute clean if found in TEST/<command>/ 
@@ -22,11 +24,12 @@
 ###  Production standard 5.1.160 Copyright
 #    Copyright (c) 2019 Bradley Allen
 #    MIT License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
-###  Production standard 1.3.475 DEBUG variable
+###  Production standard 1.3.496 DEBUG variable
 #    Order of precedence: environment variable, default code
 if [[ "${DEBUG}" == ""  ]] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
 if [[ "${DEBUG}" == "2" ]] ; then set -x    ; fi   # Print trace of simple commands before they are executed
 if [[ "${DEBUG}" == "3" ]] ; then set -v    ; fi   # Print shell input lines as they are read
+if [[ "${DEBUG}" == "4" ]] ; then set -e    ; fi   # Exit command has a non-zero exit status
 #
 BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
