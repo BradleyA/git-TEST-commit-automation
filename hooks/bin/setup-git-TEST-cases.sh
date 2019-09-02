@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/setup-git-TEST-cases.sh  2.5.281  2019-09-01T17:37:46.037186-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.4-1-g8119f2a  
-# 	   hooks/bin/setup-git-TEST-cases.sh  setup git TEST cases in current repository #2 
+# 	hooks/bin/setup-git-TEST-cases.sh  2.25.305  2019-09-02T10:07:47.622650-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.24  
+# 	   hooks/bin/setup-git-TEST-cases.sh - setup git TEST cases in current repository #2 testing 
 ###  hooks/EXAMPLES/setup-git-TEST-cases.sh - 
 #    after clone  repository
 #    after tar, copy, or clone  repository
@@ -9,11 +9,12 @@
 ###  Production standard 5.1.160 Copyright
 #    Copyright (c) 2019 Bradley Allen
 #    MIT License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
-###  Production standard 1.3.475 DEBUG variable
+###  Production standard 1.3.496 DEBUG variable
 #    Order of precedence: environment variable, default code
 if [[ "${DEBUG}" == ""  ]] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
 if [[ "${DEBUG}" == "2" ]] ; then set -x    ; fi   # Print trace of simple commands before they are executed
 if [[ "${DEBUG}" == "3" ]] ; then set -v    ; fi   # Print shell input lines as they are read
+if [[ "${DEBUG}" == "4" ]] ; then set -e    ; fi   # Exit command has a non-zero exit status
 #
 BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
@@ -41,8 +42,10 @@ if git -C . rev-parse 2> /dev/null ; then  #  currect directory in a git reposit
   if [[ -d "hooks" ]] ; then
     cd hooks
   else
-    get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  This git repository, ${REPOSITORY_NAME}, does not include a ${REPOSITORY_NAME}/hooks directory." 1>&2
-    exit 2
+    curl -L https://api.github.com/repos/BradleyA/git-TEST-commit-automation/tarball | tar -xzf - --wildcards BradleyA-git-TEST-commit-automation-*/hooks
+    mv BradleyA-git-TEST-commit-automation-*/hooks hooks
+    rmdir BradleyA-git-TEST-commit-automation-21dadd7/
+    cd hooks
   fi
   if [[ -x "post-commit" ]] && [[ -x "pre-commit" ]]  ; then  # do files exist and execute permission
     ln -s ../../hooks/post-commit ../.git/hooks/post-commit
