@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/TEST/post-commit/SA-setup.sh  2.21.299  2019-09-01T23:14:08.436441-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.20  
+# 	   hooks/TEST/post-commit/SA-setup.sh testing 
 # 	hooks/TEST/post-commit/SA-setup.sh  2.9.287  2019-09-01T18:40:05.794571-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.8  
 # 	   hooks/TEST/post-commit/SA-setup.sh  change permission to 775 
 # 	hooks/TEST/post-commit/SA-setup.sh  2.4.279  2019-09-01T15:00:26.380246-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.3-5-gaab1b24  
@@ -35,7 +37,7 @@ LOCALHOST=$(hostname -f)
 #    Version
 SCRIPT_VERSION=$(head -2 "${0}" | awk '{printf $3}')
 
-if [[ "${DEBUG}" == "1" ]] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation started." 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation started. >>>>>>>>>>>>>>>>>>>>>> <<<<<<<<<<<<<<<<<<< >>>>>>>>>>>>>>>>>>>>>>>> <<<<<<<<<<<<<<<<<<<<<  >>>>>>>>>>>>>>>." 1>&2 ; fi
 
 ###  Production standard 10.0 TESTing 
 #    Remove output from previous run of test cases
