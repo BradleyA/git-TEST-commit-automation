@@ -1,11 +1,15 @@
-git-TEST-commit-automation
-
- Scripts to assist with running something and then checking the output, or exit code then reporting results 
-
+**WARNING**: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
 
 # in development
+Production standard 10.0 FVT testing
 
-**WARNING**: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
+
+git-TEST-commit-automation
+
+Scripts to assist running something and then checking something then reporting somthing 
+
+to assist with running something and then checking the outpu
+
 
 # git-TEST-commit-automation
 
