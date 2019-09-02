@@ -69,6 +69,9 @@ Create a test case in directory, TEST/<file_to_be_tested>/, and name the file 'F
 
 
 # Memo:
+
+note: update SA-setup.sh : find ./hooks/ -type f -name SA-setup.sh -exec vi {} \;
+
 Add something about creating a symbolic link from ../.git/hooks to this hooks directory that are managed in this repository using markit.
 
 
