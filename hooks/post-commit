@@ -1,16 +1,6 @@
 #!/bin/bash
-#	hooks/post-commit  2.19.297  2019-09-01T22:55:42.939726-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.18  
-#	   hooks/post-commit  testing --problem was in test case reporting exit 124 but should be been 2 
-#	hooks/post-commit  2.16.294  2019-09-01T22:41:49.570649-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.15  
-#	   hooks/post-commit testing #4 
-#	hooks/post-commit  2.15.293  2019-09-01T22:39:03.464324-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.14 
-#	   hooks/post-commit testing #4 
-#	hooks/post-commit  2.14.292  2019-09-01T22:36:57.149791-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.13  
-#	   hooks/post-commit   testing #4 
-#	hooks/post-commit  2.13.291  2019-09-01T22:30:47.138215-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.12  
-#	   hooks/post-commit testing test cases 
-#	hooks/post-commit  2.12.290  2019-09-01T18:45:00.957769-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.11 
-#	   hooks/post-commit   testing test case change 
+#	hooks/post-commit  2.20.298  2019-09-01T22:57:33.509641-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.19  
+#	   hooks/post-commit  testing --problem was in test case reporting exit 124 but should be been 2 close #4 
 #	hooks/post-commit  2.8.286  2019-09-01T18:38:10.870847-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.7  
 #	   hooks/post-commit  change tab to two spaces update Production standard 1.3.475 DEBUG variable 
 ###  hooks/post-commit - Create production standard TESTing using .git/hooks #26 
