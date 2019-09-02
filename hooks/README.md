@@ -6,7 +6,20 @@ Production standard 10.0 FVT testing
 
 git-TEST-commit-automation
 
-Scripts to assist running something and then checking something then reporting somthing 
+Scripts to assist running something and then checking something then reporting somthing after a user 'git commits' something
+How is that?
+
+    git commit -m 'latest changes'
+
+After the user enters the above command, git runs any git hooks found in <repository/.git/hooks/ directory.  Git hooks are scripts that Git executes before or after events. Two git hooks are included with this solution. 
+
+- pre-commit - Create <REPOSITORY>/hooks/COMMIT_FILE_LIST which includes files being committed
+
+two pre-commit and post-commit scripts
+Git hooks are run locally.
+
+
+two hooks
 
 to assist with running something and then checking the outpu
 
