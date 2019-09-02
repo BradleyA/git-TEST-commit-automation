@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/check-git-TEST-cases.sh  2.22.302  2019-09-02T08:45:34.772225-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.21-2-g0b19d58  
+# 	   hooks/bin/check-git-TEST-cases.sh  correct incident from last night  3 line were deleted and added back 
 # 	hooks/bin/check-git-TEST-cases.sh  2.7.285  2019-09-01T18:15:07.870384-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.6-1-g9568dd7  
 # 	   hooks/bin/check-git-TEST-cases.sh  add support to execute clean if found in TEST/<command>/ 
 # 	hooks/bin/check-git-TEST-cases.sh  2.2.270  2019-09-01T13:38:43.648913-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.1  
@@ -65,4 +67,3 @@ done
 #
 if [[ "${DEBUG}" == "1" ]] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation finished." 1>&2 ; fi
 ###
-
