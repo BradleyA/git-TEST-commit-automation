@@ -1,5 +1,7 @@
 #!/bin/bash
-# 	hooks/bin/setup-git-TEST-cases.sh  2.26.306  2019-09-02T10:18:12.614578-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.25  
+# 	hooks/bin/setup-git-TEST-cases.sh  2.27.307  2019-09-02T10:22:26.280172-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.26  
+# 	   hooks/bin/setup-git-TEST-cases.sh  checking test cases 
+# 	hooks/bin/setup-git-TEST-cases.sh  2.26.306  2019-09-02T10:18:12.614578-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.25 
 # 	   hooks/bin/setup-git-TEST-cases.sh  corrected incidents rmdir download directory & force links if already existing 
 # 	hooks/bin/setup-git-TEST-cases.sh  2.25.305  2019-09-02T10:07:47.622650-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.24  
 # 	   hooks/bin/setup-git-TEST-cases.sh - setup git TEST cases in current repository #2 testing 
