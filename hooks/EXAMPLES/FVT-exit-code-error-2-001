@@ -1,6 +1,6 @@
 #!/bin/bash
-hooks/EXAMPLES/FVT-exit-code-error-2-001  corrected incident  - total number of errors per error wrong #4	hooks/EXAMPLES/FVT-exit-code-error-2-001  2.17.295  2019-09-01T22:47:49.113136-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.16  #
-hooks/EXAMPLES/FVT-exit-code-error-2-001  corrected incident  - total number of errors per error wrong #4	   2.18 #
+#	hooks/EXAMPLES/FVT-exit-code-error-2-001  2.18.296  2019-09-01T22:49:18.715516-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.17  
+#	   hooks/EXAMPLES/FVT-exit-code-error-2-001  corrected incident  - total number of errors per error wrong 
 #	hooks/EXAMPLES/FVT-exit-code-error-2-001  3.488.743  2019-08-31T23:12:40.478055-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.487  
 #	   SCRIPT_VERSION incident corrected and correct Test script logic ERROR message 
 #	hooks/EXAMPLES/FVT-exit-code-error-2-001  3.488.743  2019-08-31T23:10:37.600518-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.487  
