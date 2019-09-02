@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  2.19.297  2019-09-01T22:55:42.939726-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.18  
+#	   hooks/post-commit  testing --problem was in test case reporting exit 124 but should be been 2 
 #	hooks/post-commit  2.16.294  2019-09-01T22:41:49.570649-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.15  
 #	   hooks/post-commit testing #4 
 #	hooks/post-commit  2.15.293  2019-09-01T22:39:03.464324-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.14 
@@ -105,7 +107,7 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
         TEST_CASES_ERROR_EXIT_CODE="${TEST_CASES_ERROR_EXIT_CODE}${EXIT_CODE} "
       fi
     done
-    echo -e "\n>>>  SA: ${BOLD}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases = ${NO_TEST_CASES}\n   Number of test cases pass = ${NO_TEST_CASES_PASS}\n   Number of test cases fail = ${NO_TEST_CASES_FAIL}\n   Number of test cases error = ${NO_TEST_CASES_ERROR}     \${TEST_CASES_ERROR_EXIT_CODE} >${TEST_CASES_ERROR_EXIT_CODE}<"
+    echo -e "\n>>>  SA: ${BOLD}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases = ${NO_TEST_CASES}\n   Number of test cases pass = ${NO_TEST_CASES_PASS}\n   Number of test cases fail = ${NO_TEST_CASES_FAIL}\n   Number of test cases error = ${NO_TEST_CASES_ERROR}"
     echo  "${TEST_CASES_ERROR_EXIT_CODE}" | tr ' ' '\n' | grep '[^[:blank:]]' | sort | uniq -c | sort -k 2 -n  #  List error exit codes and how many of each exit code
 
     ###  FVT (Function Verification Test)
@@ -138,7 +140,7 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
         TEST_CASES_ERROR_EXIT_CODE="${TEST_CASES_ERROR_EXIT_CODE}${EXIT_CODE} "
       fi
     done
-    echo -e "\n>>>  FVT: ${BOLD}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases = ${NO_TEST_CASES}\n   Number of test cases pass = ${NO_TEST_CASES_PASS}\n   Number of test cases fail = ${NO_TEST_CASES_FAIL}\n   Number of test cases error = ${NO_TEST_CASES_ERROR}      \${TEST_CASES_ERROR_EXIT_CODE} >${TEST_CASES_ERROR_EXIT_CODE}<"
+    echo -e "\n>>>  FVT: ${BOLD}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases = ${NO_TEST_CASES}\n   Number of test cases pass = ${NO_TEST_CASES_PASS}\n   Number of test cases fail = ${NO_TEST_CASES_FAIL}\n   Number of test cases error = ${NO_TEST_CASES_ERROR}"
     echo  "${TEST_CASES_ERROR_EXIT_CODE}" | tr ' ' '\n' | grep '[^[:blank:]]' | sort | uniq -c | sort -k 2 -n  #  List error exit codes and how many of each exit code
   else
     get_date_stamp ; echo -e "${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${BOLD}[INFO]  No test case directory found${NORMAL} in ${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}, for ${GIT_AUTHOR_NAME}."
