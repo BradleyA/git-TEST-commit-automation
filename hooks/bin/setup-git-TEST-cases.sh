@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/setup-git-TEST-cases.sh  2.27.307  2019-09-02T10:22:26.280172-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.26  
-# 	   hooks/bin/setup-git-TEST-cases.sh  checking test cases 
+# 	hooks/bin/setup-git-TEST-cases.sh  2.29.310  2019-09-02T13:35:03.394915-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.28  
+# 	   hooks/bin/setup-git-TEST-cases.sh  change code to support design requirement - download the latest git-TEST-commit-automation/hooks 
 # 	hooks/bin/setup-git-TEST-cases.sh  2.26.306  2019-09-02T10:18:12.614578-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.25 
 # 	   hooks/bin/setup-git-TEST-cases.sh  corrected incidents rmdir download directory & force links if already existing 
 # 	hooks/bin/setup-git-TEST-cases.sh  2.25.305  2019-09-02T10:07:47.622650-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.24  
@@ -43,14 +43,10 @@ if [[ "${DEBUG}" == "1" ]] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAM
 if git -C . rev-parse 2> /dev/null ; then  #  currect directory in a git repository
   cd "$(git rev-parse --show-toplevel || echo '.')"  #  change to top git repository directory 
   REPOSITORY_NAME=$(git rev-parse --show-toplevel | rev | cut -d / -f 1 | rev)
-  if [[ -d "hooks" ]] ; then
-    cd hooks
-  else
-    curl -L https://api.github.com/repos/BradleyA/git-TEST-commit-automation/tarball | tar -xzf - --wildcards BradleyA-git-TEST-commit-automation-*/hooks
-    mv BradleyA-git-TEST-commit-automation-*/hooks hooks
-    rmdir BradleyA-git-TEST-commit-automation-*
-    cd hooks
-  fi
+  curl -L https://api.github.com/repos/BradleyA/git-TEST-commit-automation/tarball | tar -xzf - --wildcards BradleyA-git-TEST-commit-automation-*/hooks
+  mv BradleyA-git-TEST-commit-automation-*/hooks hooks
+  rmdir BradleyA-git-TEST-commit-automation-*
+  cd hooks
   if [[ -x "post-commit" ]] && [[ -x "pre-commit" ]]  ; then  # do files exist and execute permission
     ln -fs ../../hooks/post-commit ../.git/hooks/post-commit
     ln -fs ../../hooks/pre-commit ../.git/hooks/pre-commit
