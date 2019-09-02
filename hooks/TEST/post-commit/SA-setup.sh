@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/TEST/post-commit/SA-setup.sh  2.21.299  2019-09-01T23:14:08.436441-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.20  
-# 	   hooks/TEST/post-commit/SA-setup.sh testing 
+# 	hooks/TEST/post-commit/SA-setup.sh  2.28.309  2019-09-02T11:50:52.990963-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.27-1-g33b15cd  
+# 	   SA-setup.sh  change permission to 775 and update Production standard 1.3.496 DEBUG variable 
 # 	hooks/TEST/post-commit/SA-setup.sh  2.9.287  2019-09-01T18:40:05.794571-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.8  
 # 	   hooks/TEST/post-commit/SA-setup.sh  change permission to 775 
 # 	hooks/TEST/post-commit/SA-setup.sh  2.4.279  2019-09-01T15:00:26.380246-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.3-5-gaab1b24  
@@ -15,11 +15,12 @@
 ###  Production standard 5.1.160 Copyright
 #    Copyright (c) 2019 Bradley Allen
 #    MIT License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
-###  Production standard 1.3.475 DEBUG variable
+###  Production standard 1.3.496 DEBUG variable
 #    Order of precedence: environment variable, default code
 if [[ "${DEBUG}" == ""  ]] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
 if [[ "${DEBUG}" == "2" ]] ; then set -x    ; fi   # Print trace of simple commands before they are executed
 if [[ "${DEBUG}" == "3" ]] ; then set -v    ; fi   # Print shell input lines as they are read
+if [[ "${DEBUG}" == "4" ]] ; then set -e    ; fi   # Exit command has a non-zero exit status
 #
 BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
@@ -37,7 +38,7 @@ LOCALHOST=$(hostname -f)
 #    Version
 SCRIPT_VERSION=$(head -2 "${0}" | awk '{printf $3}')
 
-if [[ "${DEBUG}" == "1" ]] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation started. >>>>>>>>>>>>>>>>>>>>>> <<<<<<<<<<<<<<<<<<< >>>>>>>>>>>>>>>>>>>>>>>> <<<<<<<<<<<<<<<<<<<<<  >>>>>>>>>>>>>>>." 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation started." 1>&2 ; fi
 
 ###  Production standard 10.0 TESTing 
 #    Remove output from previous run of test cases

@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/TEST/check-git-TEST-cases.sh/SA-setup.sh  2.28.309  2019-09-02T11:50:53.144722-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.27-1-g33b15cd  
+# 	   SA-setup.sh  change permission to 775 and update Production standard 1.3.496 DEBUG variable 
 # 	hooks/bin/TEST/check-git-TEST-cases.sh/SA-setup.sh  2.23.303  2019-09-02T09:09:45.465181-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.22  
 # 	   updated Production standard 1.3.496 DEBUG variable 
 # 	hooks/EXAMPLES/SA-setup.sh  2.4.279  2019-09-01T15:00:22.851795-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.3-5-gaab1b24  
@@ -47,8 +49,8 @@ REPOSITORY_DIR=${1}
 #    Uncomment shared TEST cases for command
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-644-001"      SA-permission-644-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-664-001"      SA-permission-664-001
-ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-755-001"      SA-permission-755-001
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-775-001"      SA-permission-775-001
+#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-755-001"      SA-permission-755-001
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-775-001"      SA-permission-775-001
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-shellcheck-001"           SA-shellcheck-001
 #
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-exit-code-error-124-001" SA-exit-code-error-124-001
