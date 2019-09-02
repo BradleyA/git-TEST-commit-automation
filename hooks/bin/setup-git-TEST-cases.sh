@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/setup-git-TEST-cases.sh  2.26.306  2019-09-02T10:18:12.614578-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.25  
+# 	   hooks/bin/setup-git-TEST-cases.sh  corrected incidents rmdir download directory & force links if already existing 
 # 	hooks/bin/setup-git-TEST-cases.sh  2.25.305  2019-09-02T10:07:47.622650-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.24  
 # 	   hooks/bin/setup-git-TEST-cases.sh - setup git TEST cases in current repository #2 testing 
 ###  hooks/EXAMPLES/setup-git-TEST-cases.sh - 
@@ -44,12 +46,12 @@ if git -C . rev-parse 2> /dev/null ; then  #  currect directory in a git reposit
   else
     curl -L https://api.github.com/repos/BradleyA/git-TEST-commit-automation/tarball | tar -xzf - --wildcards BradleyA-git-TEST-commit-automation-*/hooks
     mv BradleyA-git-TEST-commit-automation-*/hooks hooks
-    rmdir BradleyA-git-TEST-commit-automation-21dadd7/
+    rmdir BradleyA-git-TEST-commit-automation-*
     cd hooks
   fi
   if [[ -x "post-commit" ]] && [[ -x "pre-commit" ]]  ; then  # do files exist and execute permission
-    ln -s ../../hooks/post-commit ../.git/hooks/post-commit
-    ln -s ../../hooks/pre-commit ../.git/hooks/pre-commit
+    ln -fs ../../hooks/post-commit ../.git/hooks/post-commit
+    ln -fs ../../hooks/pre-commit ../.git/hooks/pre-commit
   else
     get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  Unable to link ${REPOSITORY_NAME}/hooks/{pre-commit,post-commit} to ${REPOSITORY_NAME}/.git/hooks/{pre-commit,post-commit} because {pre-commit,post-commit} is NOT found in current directory ($(pwd)) or does not have execute permission." 1>&2
     exit 2
