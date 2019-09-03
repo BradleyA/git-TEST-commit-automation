@@ -21,14 +21,14 @@ Scripts to assist running something, and checking something, then reporting some
     - Design for quick test case git branch merge
     - Quick upgrade of default test cases and test case code fixes
     - Quick test branch merge from test team's custom test cases (no merge conflicts)
-    - Quick configuration of FVT and SA test case for command (FVT-setup.sh, SA-setup.sh, FVT-cleanup.sh, SA-cleanup.sh, etc.)
+    - Quick configuration of FVT and SA test case for command in <REPOSITORY>/<PATH>/TEST/<COMMIT_FILE_NAME>/{FVT-setup.sh, SA-setup.sh, FVT-cleanup.sh, SA-cleanup.sh}
     - Quick backup of any test cases (<FILE-NAME>.tar) (code in uninstall and option for backup)
 
 How is that?
 
     git commit -m 'latest changes' <COMMIT_FILE_NAME>
 
-After entering the above command, Git runs any Git hooks found in <repository/.git/hooks/ directory.  Git hooks are scripts that Git executes before or after events. Two local Git hooks are included with git-TEST-commit-automation. 
+After entering the above command, Git runs any Git hooks found in <REPOSITORY>/.git/hooks/ directory.  Git hooks are scripts that Git executes before or after events. Two local Git hooks are included with git-TEST-commit-automation. 
 
 - hooks/pre-commit  - Creates <REPOSITORY>/hooks/COMMIT_FILE_LIST with a list of <REPOSITORY-PATH>/<FILE> being committed
 - hooks/post-commit - Run production standard TESTing using .git/hooks
