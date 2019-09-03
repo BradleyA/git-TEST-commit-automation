@@ -3,7 +3,7 @@
 # in development
 # git-TEST-commit-automation
 
-Scripts to assist running something, and checking something, then reporting something; after you commit something. 
+Scripts to assist running something, and checking something, then reporting something; when you commit something. 
 
 #### Strategy:
 
