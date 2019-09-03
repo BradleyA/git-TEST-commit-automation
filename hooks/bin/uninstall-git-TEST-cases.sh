@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/uninstall-git-TEST-cases.sh  2.35.318  2019-09-02T22:00:29.469045-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.34  
+# 	   hooks/bin/uninstall-git-TEST-cases.sh  working draft 
 # 	hooks/bin/uninstall-git-TEST-cases.sh  2.34.317  2019-09-02T19:48:26.610128-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.33-1-g77236a1  
 # 	   hooks/bin/uninstall-git-TEST-cases.sh  second draft 
 # 	hooks/bin/uninstall-git-TEST-cases.sh  2.33.315  2019-09-02T17:19:59.393951-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.32  
@@ -37,36 +39,40 @@ if [[ "${DEBUG}" == "1" ]] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAM
 
 if git -C . rev-parse 2> /dev/null ; then  #  currect directory in a git repository
   cd "$(git rev-parse --show-toplevel || echo '.')"  #  change to top git repository directory 
-  REPOSITORY_NAME=$(git rev-parse --show-toplevel | rev | cut -d / -f 1 | rev)
-
   #    Tar copy of ./hooks into /tmp after a day should auto delete . . . someday I will want this back and  quick!
   TMP_FILE_1=$(mktemp)  #  create temporary file
   TMP_FILE_2=$(mktemp)  #  create temporary file
   TMP_FILE_3=$(mktemp)  #  create temporary file
+  TMP_FILE_2s=$(mktemp)  #  create temporary file
+  TMP_FILE_3s=$(mktemp)  #  create temporary file
   find . -path '*TEST/*' | grep -v './hooks'  >  "${TMP_FILE_2}"  #  ALL TEST directories and file not under hooks
   find ./hooks  >  "${TMP_FILE_3}"  #  ALL files and directories under hooks
-  tar -rvf "${TMP_FILE_1}" --files-from "${TMP_FILE_2}" --files-from "${TMP_FILE_3}"
-  mv "${TMP_FILE_1}" "${TMP_FILE_1}.tar"
+  tar -rf "${TMP_FILE_1}.tar" --files-from "${TMP_FILE_2}" --files-from "${TMP_FILE_3}"
+#	>>>	  mv "${TMP_FILE_1}" "${TMP_FILE_1}.tar"
 
 #    git rm -r hooks
-  while read -r file-name ; do
-    if git ls-files --error-unmatch bob/sally/sue/marcia 2> /dev/null ; then
-      git rm -f "${file-name}"  #  Remove tracked file
+  sort -r "${TMP_FILE_2}" > "${TMP_FILE_2s}"
+  while read -r name ; do
+    if git ls-files --error-unmatch "$name" 2> /dev/null ; then
+      git rm -f "$name"  #  Remove tracked file
     else
-      rm -f "${file-name}"  #  Remove untracked file
+      rm -f "$name"  #  Remove untracked file
     fi
-echo ">>> ${file-name}"
-  done < $(sort -r < "${TMP_FILE_2}")
+  done <  "${TMP_FILE_2s}"
+#  done <$(cat "${TMP_FILE_2}" | sort -r)
+#  done <$(sort -r "${TMP_FILE_2}")
+#  done <$(cat "${TMP_FILE_2}" | sort -r)
 
 #    git rm -r hooks
-  while read -r file-name ; do
+  sort -r "${TMP_FILE_3}" > "${TMP_FILE_3s}"
+  while read -r name ; do
     if git ls-files --error-unmatch bob/sally/sue/marcia 2> /dev/null ; then
-      git rm -f "${file-name}"  #  Remove tracked file
+      git rm -f "${name}"  #  Remove tracked file
     else
-      rm -f "${file-name}"  #  Remove untracked file
+      rm -f "${name}"  #  Remove untracked file
     fi
-echo ">>> ${file-name}"
-  done < $(sort -r < "${TMP_FILE_3}")
+echo ">>> ${name}"
+  done <  "${TMP_FILE_3s}"
 
   rm -f  .git/hooks/pre-commit
   rm -f  .git/hooks/post-commit
@@ -77,7 +83,6 @@ echo ">>> ${file-name}"
 #		git push
 
 fi
-
 
 # >>>  consider adding a user hint and include link to README.md  . . .  to answer that question, what now (WTF)  . . .  shit I forgot, hadn't done this in six months, quick!  . . . . . .
 # >>>  A copy of the files can be found in "${TMP_FILE_1}.tar"
