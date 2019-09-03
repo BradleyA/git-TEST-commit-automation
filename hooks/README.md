@@ -5,18 +5,19 @@ Production standard 10.0 FVT testing
 - Running tests on code with quick turn around helps a developer when he finished part of a desgin or fixing a typo.  
 - If you are notified that there is an incident after something when something was entered on version 3.498.  If you just pushed that version 1 minutes ago or if you pushed it 12 days ago, which of these two scenarios would take you less time.
 - Design is to encourge code developement while developing tests for code.
+- Continuous Testing  (CT) at every level and in every silo is required to reduce risk.
 
 git-TEST-commit-automation
 
-Scripts to assist running something, checking something, reporting something; after a developer updates something
-Huh WTF? 
-How is that?
+Scripts to assist running something, and checking something, then reporting something; after a developer commits something.
+
+Huh WTF?  How is that?
 
 
 
     git commit -m 'latest changes'
 
-After the user enters the above command, git runs any git hooks found in <repository/.git/hooks/ directory.  Git hooks are scripts that Git executes before or after events. Two git hooks are included with this solution. 
+After the user enters the above command, Git runs any Git hooks found in <repository/.git/hooks/ directory.  Git hooks are scripts that Git executes before or after events. Two Git hooks  included with this solution. 
 
 - pre-commit - Create <REPOSITORY>/hooks/COMMIT_FILE_LIST which includes files being committed
 
@@ -40,7 +41,7 @@ Functional Verification is defined as the process of verifying that the design m
 verifying that the design meets its specification from a functional perspective. ... Functional verification establishes that the design under test (DUT) implements the functionality of the specification correctly.
 
  
-**hooks directory**, there are two GitHub commit hooks that support running of **test cases**.  The pre-commit GitHub hook bash script creates a list of committed files with repository subdirectory.  The post-commit GitHub hook bash script runs found FVT test case(s) for a committed file.  The hooks directory was created because I wanted to modify the github hooks and track changes per repository.  [Learn more about how to setup test cases.](hooks/README.md)
+**hooks directory**, there are two GitHub commit hooks that support running of **test cases**.  The pre-commit GitHub hook bash script creates a list of committed files with repository subdirectory.  The post-commit GitHub hook bash script runs found FVT test case(s) for a committed file.  The hooks directory was created because I wanted to modify the GitHub hooks and track changes per repository.  [Learn more about how to setup test cases.](hooks/README.md)
 
 **Note I found about hooks I need to remember and add to the readme why I added a hooks directory so the hooks can be managed by the repository . . .Hooks are per-repository and are never pushed. Similarly, the repo config isn't pushed either, nor is anything in .git/info , or a number of other things. Pushing and pulling only exchanges branches/tags and commit objects (and anything reachable from a commit, e.g. trees, blobs**
 
