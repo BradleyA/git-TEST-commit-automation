@@ -20,7 +20,7 @@ After entering the above command, Git runs any Git hooks found in <repository/.g
 - hooks/pre-commit  - Creates <REPOSITORY>/hooks/COMMIT_FILE_LIST with a list of <REPOSITORY-PATH>/<FILE> being committed
 - hooks/post-commit - Run production standard TESTing using .git/hooks
   
-  - Production standard TESTing - run test cases if found on <REPOSITORY>/hooks/COMMIT_FILE_LIST
+    **Production standard TESTing** - run test cases if found on <REPOSITORY>/hooks/COMMIT_FILE_LIST
   - Loop through committed files found in COMMIT_FILE_LIST
   - Check if COMMIT_FILE has a 'TEST' directory
   - Create links to EXAMPLES/<TEST_CASE> and <TEST_CASE>.expected (test case output) and other test case setup
