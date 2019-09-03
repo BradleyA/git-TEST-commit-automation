@@ -31,17 +31,15 @@ How is that?
 After entering the above command, Git runs any Git hooks found in \<REPOSITORY-NAME>/.git/hooks/ directory.  Git hooks are scripts that Git executes before or after events. Two local Git hooks are included with git-TEST-commit-automation. 
 
 - hooks/pre-commit  - Creates \<REPOSITORY>/hooks/COMMIT_FILE_LIST with a list of \<REPOSITORY-PATH>/\<FILE> being committed
-- hooks/post-commit - Run production standard TESTing using .git/hooks
-  
-    **Production standard TESTing** - run test cases if found on \<REPOSITORY>/hooks/COMMIT_FILE_LIST
+- hooks/post-commit - Run production standard TESTing  
+
+     **Production standard TESTing** - run test cases if found on \<REPOSITORY>/hooks/COMMIT_FILE_LIST
   - Loop through committed files found in COMMIT_FILE_LIST
   - Check if COMMIT_FILE has a 'TEST' directory
   - Create links to EXAMPLES/\<TEST_CASE> and \<TEST_CASE>.expected (test case output) and other test case setup
   - Create list of test cases found in \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/ directory
   - Loop through \<TEST_CASE>
   - Run \<TEST_CASE>
-
-
 
 
 **PASS** or **FAIL**, some methed will notify someone of the results. (not sure which method is going to work for me and you? . . . stdout, logs-scrape, tables, email, twitter, slack, tall a friand, etc.)
