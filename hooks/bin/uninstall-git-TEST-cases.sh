@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/uninstall-git-TEST-cases.sh  2.39.323  2019-09-02T23:08:57.145383-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.38  
+# 	   hooks/bin/uninstall-git-TEST-cases.sh  add code to check if ./hooks directory before running find on hooks :-) 
 # 	hooks/bin/uninstall-git-TEST-cases.sh  2.38.322  2019-09-02T22:50:18.870628-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.37-1-gc4d73f1  
 # 	   hooks/bin/uninstall-git-TEST-cases.sh  draft removing files 
 # 	hooks/bin/uninstall-git-TEST-cases.sh  2.37.320  2019-09-02T22:29:04.434909-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.36  
@@ -50,7 +52,9 @@ if git -C . rev-parse 2> /dev/null ; then  #  currect directory in a git reposit
   TMP_FILE_2s=$(mktemp)   #  create temporary file
   TMP_FILE_3s=$(mktemp)   #  create temporary file
   find . -path '*TEST/*' | grep -v './hooks'  >  "${TMP_FILE_2}"  #  ALL TEST directories and file not under hooks
-  find ./hooks  >  "${TMP_FILE_3}"  #  ALL files and directories under hooks
+  if [[ -d hooks ]] ; then 
+    find ./hooks  >  "${TMP_FILE_3}"  #  ALL files and directories under hooks
+  fi
   tar -rf "${TMP_FILE_1}.tar" --files-from "${TMP_FILE_2}" --files-from "${TMP_FILE_3}"
 
 #    git rm -r hooks
