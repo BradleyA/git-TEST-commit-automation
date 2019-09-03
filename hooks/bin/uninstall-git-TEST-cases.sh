@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/uninstall-git-TEST-cases.sh  2.34.317  2019-09-02T19:48:26.610128-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.33-1-g77236a1  
+# 	   hooks/bin/uninstall-git-TEST-cases.sh  second draft 
 # 	hooks/bin/uninstall-git-TEST-cases.sh  2.33.315  2019-09-02T17:19:59.393951-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.32  
 # 	   hooks/bin/uninstall-git-TEST-cases.sh  draft test 
 ###  hooks/bin/uninstall-git-TEST-cases.sh - uninstall git TEST cases in current repository
@@ -37,51 +39,49 @@ if git -C . rev-parse 2> /dev/null ; then  #  currect directory in a git reposit
   cd "$(git rev-parse --show-toplevel || echo '.')"  #  change to top git repository directory 
   REPOSITORY_NAME=$(git rev-parse --show-toplevel | rev | cut -d / -f 1 | rev)
 
-#  tar copy of ./hooks into /tmp after a day should auto delete . . . someday I will want this back quick
-TMP_FILE_1=$(mktemp)  #  create temporary file
-TMP_FILE_2=$(mktemp)  #  create temporary file
-TMP_FILE_3=$(mktemp)  #  create temporary file
-echo "\${TMP_FILE_1} >${TMP_FILE_1}<"
-echo "\${TMP_FILE_2} >${TMP_FILE_2}<"
-echo "\${TMP_FILE_3} >${TMP_FILE_3}<"
-find . -path '*TEST/*' | grep -v './hooks'  >  "/tmp/${TMP_FILE_2}"  #  ALL TEST directories and file not under hooks
-find ./hooks  >  "/tmp/${TMP_FILE_3}"  #  ALL files and directories under hooks
+  #    Tar copy of ./hooks into /tmp after a day should auto delete . . . someday I will want this back and  quick!
+  TMP_FILE_1=$(mktemp)  #  create temporary file
+  TMP_FILE_2=$(mktemp)  #  create temporary file
+  TMP_FILE_3=$(mktemp)  #  create temporary file
+  find . -path '*TEST/*' | grep -v './hooks'  >  "${TMP_FILE_2}"  #  ALL TEST directories and file not under hooks
+  find ./hooks  >  "${TMP_FILE_3}"  #  ALL files and directories under hooks
+  tar -rvf "${TMP_FILE_1}" --files-from "${TMP_FILE_2}" --files-from "${TMP_FILE_3}"
+  mv "${TMP_FILE_1}" "${TMP_FILE_1}.tar"
 
-tar -rvf "/tmp/${TMP_FILE_1}" --files-from "/tmp/${TMP_FILE_2}" --files-from "/tmp/${TMP_FILE_3}"
+#    git rm -r hooks
+  while read -r file-name ; do
+    if git ls-files --error-unmatch bob/sally/sue/marcia 2> /dev/null ; then
+      git rm -f "${file-name}"  #  Remove tracked file
+    else
+      rm -f "${file-name}"  #  Remove untracked file
+    fi
+echo ">>> ${file-name}"
+  done < $(sort -r < "${TMP_FILE_2}")
 
+#    git rm -r hooks
+  while read -r file-name ; do
+    if git ls-files --error-unmatch bob/sally/sue/marcia 2> /dev/null ; then
+      git rm -f "${file-name}"  #  Remove tracked file
+    else
+      rm -f "${file-name}"  #  Remove untracked file
+    fi
+echo ">>> ${file-name}"
+  done < $(sort -r < "${TMP_FILE_3}")
 
-#		git rm -r hooks
+  rm -f  .git/hooks/pre-commit
+  rm -f  .git/hooks/post-commit
+  rm -f  /usr/local/bin/check-git-TEST-cases.sh
+  rm -f  /usr/local/bin/setup-git-TEST-cases.sh
+
 #		git commit -m 'remove git-TEST-commit-automation  hooks recursively'
 #		git push
 
+fi
 
-#		  curl -L https://api.github.com/repos/BradleyA/git-TEST-commit-automation/tarball | tar -xzf - --wildcards BradleyA-git-TEST-commit-automation-*/hooks
-#		  cd ./BradleyA-git-TEST-commit-automation-*
-#		  tar -cf - ./hooks/ | (cd .. && tar -xf -)
-#		  cd ..
-#		  rm -rf  BradleyA-git-TEST-commit-automation-*
-#		  cd hooks
-#		  if [[ -x "post-commit" ]] && [[ -x "pre-commit" ]]  ; then  # do files exist and execute permission
-#		    ln -fs ../../hooks/pre-commit  ../.git/hooks/pre-commit
-#		    ln -fs ../../hooks/post-commit ../.git/hooks/post-commit
-#		  else
-#		    get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  Unable to link ${REPOSITORY_NAME}/hooks/{pre-commit,post-commit} to ${REPOSITORY_NAME}/.git/hooks/{pre-commit,post-commit} because {pre-commit,post-commit} is NOT found in current directory ($(pwd)) or does not have execute permission." 1>&2
-#		    exit 2
-#		  fi
-#		  if [[ -x  "bin/check-git-TEST-cases.sh" ]] && [[ -x bin/setup-git-TEST-cases.sh ]]  && [[ -w /usr/local/bin ]]  ; then
-#		    cp -f -p bin/check-git-TEST-cases.sh /usr/local/bin/check-git-TEST-cases.sh
-#		    cp -f -p bin/setup-git-TEST-cases.sh /usr/local/bin/setup-git-TEST-cases.sh
-#		  else
-#		    get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  Unable to link ${REPOSITORY_NAME}/hooks/bin/{check-git-TEST-cases.sh,setup-git-TEST-cases.sh} to /usr/local/bin because check-git-TEST-cases.sh or setup-git-TEST-cases.sh is NOT found or does not have execute permission or /usr/local/bin is not writable." 1>&2
-#		    exit 2
-#		  fi
-#		else
-#		  EXIT_CODE=${?}
-#		  get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  The current directory, ($(pwd)), is Not a git repository (or any of the parent directories)." 1>&2
-#		  exit ${EXIT_CODE}
-#		fi
+
+# >>>  consider adding a user hint and include link to README.md  . . .  to answer that question, what now (WTF)  . . .  shit I forgot, hadn't done this in six months, quick!  . . . . . .
+# >>>  A copy of the files can be found in "${TMP_FILE_1}.tar"
+
 #		
-#		# >>>  consider adding a user hint and include link to README.md  . . .  to answer that question, what now (WTF)  . . .  shit I forgot, hadn't done this in six months, quick!  . . . . . .
-#		
-#		if [[ "${DEBUG}" == "1" ]] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation finished." 1>&2 ; fi
-#		###
+if [[ "${DEBUG}" == "1" ]] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation finished." 1>&2 ; fi
+###
