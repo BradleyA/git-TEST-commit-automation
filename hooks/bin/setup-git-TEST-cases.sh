@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/setup-git-TEST-cases.sh  2.36.319  2019-09-02T22:05:35.245643-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.35  
+# 	   hooks/bin/setup-git-TEST-cases.sh  copy uninstall-git-TEST-cases.sh to /usr/local/bin:wq 
 # 	hooks/bin/setup-git-TEST-cases.sh  2.32.314  2019-09-02T15:58:38.783019-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.31  
 # 	   hooks/bin/setup-git-TEST-cases.sh  ready for test repeat 
 # 	hooks/bin/setup-git-TEST-cases.sh  2.30.312  2019-09-02T15:24:16.403824-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.29-1-g22ca97d  
@@ -59,8 +61,9 @@ if git -C . rev-parse 2> /dev/null ; then  #  currect directory in a git reposit
     exit 2
   fi
   if [[ -x  "bin/check-git-TEST-cases.sh" ]] && [[ -x bin/setup-git-TEST-cases.sh ]]  && [[ -w /usr/local/bin ]]  ; then
-    cp -f -p bin/check-git-TEST-cases.sh /usr/local/bin/check-git-TEST-cases.sh
-    cp -f -p bin/setup-git-TEST-cases.sh /usr/local/bin/setup-git-TEST-cases.sh
+    cp -f -p bin/check-git-TEST-cases.sh      /usr/local/bin/check-git-TEST-cases.sh
+    cp -f -p bin/setup-git-TEST-cases.sh      /usr/local/bin/setup-git-TEST-cases.sh
+    cp -f -p bin/uninstall-git-TEST-cases.sh  /usr/local/bin/uninstall-git-TEST-cases.sh
   else
     get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  Unable to link ${REPOSITORY_NAME}/hooks/bin/{check-git-TEST-cases.sh,setup-git-TEST-cases.sh} to /usr/local/bin because check-git-TEST-cases.sh or setup-git-TEST-cases.sh is NOT found or does not have execute permission or /usr/local/bin is not writable." 1>&2
     exit 2
