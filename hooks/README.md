@@ -22,7 +22,7 @@ Scripts to assist running something, and checking something, then reporting some
     - Quick upgrade of default test cases and test case code fixes
     - Quick test branch merge from test team's custom test cases (no merge conflicts)
     - Quick configuration of FVT and SA test case for command (FVT-setup.sh, SA-setup.sh, FVT-cleanup.sh, SA-cleanup.sh, etc.)
-    - Quick backup of any test cases (<FILE-NAME>.tar)
+    - Quick backup of any test cases (<FILE-NAME>.tar) (code in uninstall and option for backup)
 
 How is that?
 
