@@ -14,7 +14,7 @@ Scripts to assist running something, and checking something, then reporting some
 - Continuous Testing (CT) at every level, in every silo is required to reduce business risk and improve quality.
 - Quick setup with default test cases on any Git repository (in a few seconds)
 - Quick uninstall on any Git repository (in a few seconds)
-- Quick check of testing depth for each command in GIT repository 
+- Quick check of test case depth for each command on any Git repository 
 - Mantain test cases with code repository (you know all in one)
 
 - Quick configuration of FVT and SA test case for command
