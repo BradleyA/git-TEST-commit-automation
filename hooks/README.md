@@ -12,7 +12,7 @@ Scripts to assist running something, and checking something, then reporting some
     - If you just pushed that version 1 minutes ago or if you pushed it 12 days ago, which of these two scenarios would take you less time to resolution.
 - This design offers quick feed back to code commits and test case commits.
 - Continuous Testing (CT) at every level, in every silo is required to reduce business risk and improve quality.
-- Quick setup on any Git repository with default test cases (in a few seconds)
+- Quick setup with default test cases on any Git repository (in a few seconds)
 - Quick uninstall on any Git repository (in a few seconds)
 - Quick check of testing depth for each command in GIT repository 
 - Mantain test cases with code repository (you know all in one)
