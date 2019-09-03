@@ -8,7 +8,8 @@ Scripts to assist running something, and checking something, then reporting some
 #### Strategy:
 
 - Running tests on code with quick turn around helps when finishing a desgin or fixing an incident.  
-- If you are notified that there is an incident after something when something was entered on version 3.498.  If you just pushed that version 1 minutes ago or if you pushed it 12 days ago, which of these two scenarios would take you less time to resolution.
+- If you are notified that there is an incident after something when something was entered on version 3.498.
+    - If you just pushed that version 1 minutes ago or if you pushed it 12 days ago, which of these two scenarios would take you less time to resolution.
 - This design offers quick feed back to code commits and test case commits.
 - Continuous Testing (CT) at every level, in every silo is required to reduce risk.  These scripts add to CT strategy.
 - Quick setup and uninstall on any git repository
