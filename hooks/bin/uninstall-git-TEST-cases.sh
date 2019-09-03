@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/uninstall-git-TEST-cases.sh  2.38.322  2019-09-02T22:50:18.870628-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.37-1-gc4d73f1  
+# 	   hooks/bin/uninstall-git-TEST-cases.sh  draft removing files 
 # 	hooks/bin/uninstall-git-TEST-cases.sh  2.37.320  2019-09-02T22:29:04.434909-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.36  
 # 	   hooks/bin/uninstall-git-TEST-cases.sh  add code to rmdir directories 
 # 	hooks/bin/uninstall-git-TEST-cases.sh  2.35.318  2019-09-02T22:00:29.469045-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.34  
@@ -77,7 +79,6 @@ if git -C . rev-parse 2> /dev/null ; then  #  currect directory in a git reposit
         rm -f "${name}"   #  Remove untracked file
       fi 
     fi
-echo ">>> ${name}"
   done <  "${TMP_FILE_3s}"
 #
   rm -f  .git/hooks/pre-commit
@@ -88,7 +89,6 @@ echo ">>> ${name}"
 
 #		git commit -m 'remove git-TEST-commit-automation  hooks recursively'
 #		git push
-
 fi
 
 # >>>  consider adding a user hint and include link to README.md  . . .  to answer that question, what now (WTF)  . . .  shit I forgot, hadn't done this in six months, quick!  . . . . . .
