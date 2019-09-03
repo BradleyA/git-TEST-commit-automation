@@ -18,7 +18,7 @@ After the user enters the above command, git runs any git hooks found in <reposi
 two pre-commit and post-commit scripts
 Git hooks are run locally.
 
-
+SDLC (software delivery lifecycle).
 two hooks
 
 to assist with running something and then checking the outpu
