@@ -3,8 +3,15 @@
 # in development
 # git-TEST-commit-automation
 
+Scripts to assist running something, and checking something, then reporting something; after a developer commits something. 
+
 Scripts to assist running something, and checking something, then reporting something; after a developer commits something.
-The strategy of these scripts is to assist with running something and then checking the output, or exit code.  Did this something function as designed?  Did
+
+The strategy of these scripts is to assist with running something and then checking the output, or exit code.  
+
+Did this something function as designed?  
+
+Did
 
 Production standard 10.0 FVT testing
 - Running tests on code with quick turn around helps when finishing a desgin or fixing an incident.  
