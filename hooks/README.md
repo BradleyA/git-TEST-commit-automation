@@ -59,9 +59,9 @@ verifying that the design meets its specification from a functional perspective.
 
 ## Setup Test Cases
 
-    git clone https://github.com/BradleyA/user-files.git
+    git clone https://github.com/BradleyA/git-TEST-commit-automation.git
     
-    cd user-files/hooks
+    cd git-TEST-commit-automation/hooks
     ln -s ../../hooks/post-commit ../.git/hooks/post-commit
     ln -s ../../hooks/pre-commit ../.git/hooks/pre-commit
     
