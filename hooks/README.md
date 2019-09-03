@@ -26,7 +26,7 @@ Scripts to assist running something, and checking something, then reporting some
 
 How is that?
 
-    git commit -m 'latest changes' \<COMMIT_FILE_NAME>
+    git commit -m 'latest changes' <COMMIT_FILE_NAME>
 
 After entering the above command, Git runs any Git hooks found in \<REPOSITORY-NAME>/.git/hooks/ directory.  Git hooks are scripts that Git executes before or after events. Two local Git hooks are included with git-TEST-commit-automation. 
 
