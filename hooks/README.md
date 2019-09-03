@@ -2,7 +2,7 @@
 
 # in development
 Production standard 10.0 FVT testing
-- Running tests on code with quick turn around helps a developer when he finished part of a desgin or fixing a typo.  
+- Running tests on code with quick turn around helps a developer when he finishes a desgin or fixing a typo.  
 - If you are notified that there is an incident after something when something was entered on version 3.498.  If you just pushed that version 1 minutes ago or if you pushed it 12 days ago, which of these two scenarios would take you less time.
 - Design is to encourge code developement while developing tests for code.
 - Continuous Testing  (CT) at every level and in every silo is required to reduce risk.
