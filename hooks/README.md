@@ -14,11 +14,14 @@ Scripts to assist running something, and checking something, then reporting some
 - Continuous Testing (CT) at every level, in every silo is required to reduce business risk and improve quality.
 - Quick setup with default test cases on any Git repository (in a few seconds)
 - Quick uninstall on any Git repository (in a few seconds)
-- Quick check of test case depth for each command on any Git repository (in a few seconds)
-- Mantain test cases with code repository (you know all in one)
-
-- Quick configuration of FVT and SA test case for command
-- Quick backup of any test cases (<FILE-NAME>.tar)
+- Quick check of test case depth for each command on any Git repository (in a few seconds) (all clean)
+- Mantain test cases in code repository (you know all in one repository)
+    **Work needed here**
+    - Design for quick test case git branch merge
+    - Quick upgrade of default test cases and test case code fixes
+    - Quick test branch merge from test team's custom test cases (no merge conflicts)
+    - Quick configuration of FVT and SA test case for command (FVT-setup.sh, SA-setup.sh, FVT-cleanup.sh, SA-cleanup.sh, etc.)
+    - Quick backup of any test cases (<FILE-NAME>.tar)
 
 How is that?
 
