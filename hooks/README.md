@@ -1,15 +1,18 @@
 **WARNING**: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
 
 # in development
+# git-TEST-commit-automation
+
+Scripts to assist running something, and checking something, then reporting something; after a developer commits something.
+The strategy of these scripts is to assist with running something and then checking the output, or exit code.  Did this something function as designed?  Did
+
 Production standard 10.0 FVT testing
 - Running tests on code with quick turn around helps when finishing a desgin or fixing an incident.  
 - If you are notified that there is an incident after something when something was entered on version 3.498.  If you just pushed that version 1 minutes ago or if you pushed it 12 days ago, which of these two scenarios would take you less time to resolution.
 - This design offers quick feed back to code commits and test case commits.
 - Continuous Testing (CT) at every level, in every silo is required to reduce risk.  These scripts add to CT strategy.
 
-git-TEST-commit-automation
 
-Scripts to assist running something, and checking something, then reporting something; after a developer commits something.
 
 Huh WTF?  How is that?
 
@@ -29,15 +32,7 @@ After entering the above command, Git runs any Git hooks found in <repository/.g
   - Run <TEST_CASE>
 
 
-SDLC (software delivery lifecycle).
-two hooks
 
-to assist with running something and then checking the outpu
-
-
-# git-TEST-commit-automation
-
-The strategy of these scripts is to assist with running something and then checking the output, or exit code.  Did this something function as designed?  Did
 
 **PASS** or **FAIL**, some methed will notify someone of the results. (not sure which method is going to work for me and you? . . . stdout, logs-scrape, tables, email, twitter, slack, tall a friand, etc.)
 
