@@ -15,6 +15,7 @@ Scripts to assist running something, and checking something, then reporting some
 - Quick setup with default test cases on any Git repository (in a few seconds)
 - Quick uninstall on any Git repository (in a few seconds)
 - Quick check of test case depth for each command on any Git repository (in a few seconds) (all clean)
+- Include hooks/ in repository because .git/hooks/ is not maintained
 - Mantain test cases in code repository (you know all in one repository)
    
    **Work needed here**
