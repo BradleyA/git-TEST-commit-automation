@@ -16,7 +16,8 @@ Scripts to assist running something, and checking something, then reporting some
 - Quick uninstall on any Git repository (in a few seconds)
 - Quick check of test case depth for each command on any Git repository (in a few seconds) (all clean)
 - Mantain test cases in code repository (you know all in one repository)
-    **Work needed here**
+   
+   **Work needed here**
     - Design for quick test case git branch merge
     - Quick upgrade of default test cases and test case code fixes
     - Quick test branch merge from test team's custom test cases (no merge conflicts)
