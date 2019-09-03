@@ -2,10 +2,10 @@
 
 # in development
 Production standard 10.0 FVT testing
-- Running tests on code with quick turn around helps a developer when he finishes a desgin or fixing an incident.  
-- If you are notified that there is an incident after something when something was entered on version 3.498.  If you just pushed that version 1 minutes ago or if you pushed it 12 days ago, which of these two scenarios would take you less time.
-- Design is to encourge code developement while developing tests for code.
-- Continuous Testing  (CT) at every level and in every silo is required to reduce risk.
+- Running tests on code with quick turn around helps when finishing a desgin or fixing an incident.  
+- If you are notified that there is an incident after something when something was entered on version 3.498.  If you just pushed that version 1 minutes ago or if you pushed it 12 days ago, which of these two scenarios would take you less time to resolution.
+- This design offers quick feed back to code commits and test case commits.
+- Continuous Testing (CT) at every level, in every silo is required to reduce risk.  These scripts add to CT strategy.
 
 git-TEST-commit-automation
 
@@ -13,13 +13,21 @@ Scripts to assist running something, and checking something, then reporting some
 
 Huh WTF?  How is that?
 
-
-
     git commit -m 'latest changes'
 
-After the user enters the above command, Git runs any Git hooks found in <repository/.git/hooks/ directory.  Git hooks are scripts that Git executes before or after events. Two Git hooks  included with this solution. 
+After the user enters the above command, Git runs any Git hooks found in <repository/.git/hooks/ directory.  Git hooks are scripts that Git executes before or after events. Two Git hooks are included with git-TEST-commit-automation. 
 
-- pre-commit - Create <REPOSITORY>/hooks/COMMIT_FILE_LIST which includes files being committed
+- hooks/pre-commit  - Creates <REPOSITORY>/hooks/COMMIT_FILE_LIST with a list of <REPOSITORY-PATH>/<FILE> being committed
+- hooks/post-commit - Create production standard TESTing using .git/hooks #26 
+  post-commit - (git hook) run test cases if found
+      Loop through committed files found in COMMIT_FILE_LIST
+        Check if COMMIT_FILE has a 'TEST' directory
+          Create links to EXAMPLES/<TEST_CASE> and <TEST_CASE>.expected (test case output) and other setup
+	    Create list of test cases found in <REPOSITORY>/<PATH>/TEST/<COMMIT_FILE_NAME>/ directory
+              Loop through _TEST_CASE
+                Run _TEST_CASE
+
+	
 
 two pre-commit and post-commit scripts
 Git hooks are run locally.
