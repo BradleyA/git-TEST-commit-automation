@@ -100,115 +100,53 @@ Create a test case in directory, TEST/<file_to_be_tested>/, and name the file 'F
 
 # Memo:
 
-note: update SA-setup.sh : find ./hooks/ -type f -name SA-setup.sh -exec vi {} \;
+Note: 
+edit  all SA-setup.sh:
 
-note:      
-$ git status
-On branch master
-Your branch is up-to-date with 'origin/master'.
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
+    find ./hooks/ -type f -name SA-setup.sh -exec vi {} \;
+
+Note:  
+
+    $ git status
+    On branch master
+    Your branch is up-to-date with 'origin/master'.
+    Untracked files:
+      (use "git add <file>..." to include in what will be committed)
 
 	hooks/
 
 nothing added to commit but untracked files present (use "git add" to track)
-021452 uadmin@three-rpi3b: /tmp/dmonitor
-     $ ls -al
-total 32
-drwxrwxr-x 5 uadmin uadmin 4096 Sep  2 14:37 .
-drwxrwxrwt 9 root   root   4096 Sep  2 14:52 ..
--rwxrwxr-x 1 uadmin uadmin 1606 Sep  2 14:36 dmonitor
-drwxrwxr-x 8 uadmin uadmin 4096 Sep  2 14:52 .git
-drwxrwxr-x 5 uadmin uadmin 4096 Sep  2 13:40 hooks
-drwxrwxr-x 2 uadmin uadmin 4096 Sep  2 14:36 images
--rw-rw-r-- 1 uadmin uadmin 1070 Sep  2 14:36 LICENSE
--rw-rw-r-- 1 uadmin uadmin 4038 Sep  2 14:36 README.md
+ 
+     021452 uadmin@three-rpi3b: /tmp/dmonitor
+         $ ls -al
+    total 32
+    drwxrwxr-x 5 uadmin uadmin 4096 Sep  2 14:37 .
+    drwxrwxrwt 9 root   root   4096 Sep  2 14:52 ..
+    -rwxrwxr-x 1 uadmin uadmin 1606 Sep  2 14:36 dmonitor
+    drwxrwxr-x 8 uadmin uadmin 4096 Sep  2 14:52 .git
+    drwxrwxr-x 5 uadmin uadmin 4096 Sep  2 13:40 hooks
+    drwxrwxr-x 2 uadmin uadmin 4096 Sep  2 14:36 images
+    -rw-rw-r-- 1 uadmin uadmin 1070 Sep  2 14:36 LICENSE
+    -rw-rw-r-- 1 uadmin uadmin 4038 Sep  2 14:36 README.md
 
-021452 uadmin@three-rpi3b: /tmp/dmonitor
-     $ mkdir -p TEST/dmonitor
-021453 uadmin@three-rpi3b: /tmp/dmonitor
-     $ cp hooks/EXAMPLES/SA-setup.sh !$
-cp hooks/EXAMPLES/SA-setup.sh TEST/dmonitor
+    021452 uadmin@three-rpi3b: /tmp/dmonitor
+         $ mkdir -p TEST/dmonitor
+    021453 uadmin@three-rpi3b: /tmp/dmonitor
+         $ cp hooks/EXAMPLES/SA-setup.sh TEST/dmonitor
 
 
-Add something about creating a symbolic link from ../.git/hooks to this hooks directory that are managed in this repository using markit.
-
+Add something about creating a symbolic link from ../.git/hooks to this hooks directory that are managed in this repository using markit.  . . .  covered earlier WTF
 
 Need to add something here but what?
 
 ====>>>
+
 ====>>>
 
+You can turn a folder within a Git repository into a brand new repository.    **find that doc I printed to complete this section
 
-You can turn a folder within a Git repository into a brand new repository.
+add branch marge what ever 
 
-If you create a new clone of the repository, you won't lose any of your Git history or changes when you split a folder into a separate repository.
-
-    Open Terminal.
-
-    Change the current working directory to the location where you want to create your new repository.
-
-    Clone the repository that contains the subfolder.
-
-    >  git clone https://github.com/USERNAME/REPOSITORY-NAME
-
-git clone https://github.com/BradleyA/user-files.git
-
-    Change the current working directory to your cloned repository.
-
-    $ cd REPOSITORY-NAME
-
-cd user-files
-
-    To filter out the subfolder from the rest of the files in the repository, run git filter-branch, supplying this information:
-
-        FOLDER-NAME: The folder within your project that you'd like to create a separate repository from.
-
-        BRANCH-NAME: The default branch for your current project, for example, master or gh-pages.
-
-        $ git filter-branch --prune-empty --subdirectory-filter FOLDER-NAME  BRANCH-NAME 
-          # Filter the specified branch in your directory and remove empty commits
-          > Rewrite 48dc599c80e20527ed902928085e7861e6b3cbe6 (89/89)
-          > Ref 'refs/heads/BRANCH-NAME' was rewritten
-
-git filter-branch --prune-empty --subdirectory-filter hooks master
-
-    The repository should now only contain the files that were in your subfolder.
-    Create a new repository on GitHub.
-
-    At the top of your new GitHub repository's Quick Setup page, click to copy the remote repository URL. 
-    Copy remote repository URL field
-
-    Tip: For information on the difference between HTTPS and SSH URLs, see "Which remote URL should I use?"
-    
-    Check the existing remote name for your repository. For example, origin or upstream are two common choices.  
-
-    $ git remote -v
-    > origin  https://github.com/USERNAME/REPOSITORY-NAME.git (fetch)
-    > origin  https://github.com/USERNAME/REPOSITORY-NAME.git (push)
-
-git remote -v
-
-    Set up a new remote URL for your new repository using the existing remote name and the remote repository URL you copied in step 7.
-
-    git remote set-url origin https://github.com/USERNAME/NEW-REPOSITORY-NAME.git
-
-git remote set-url origin https://github.com/BradleyA/git-TEST-commit-automation.git
-
-    Verify that the remote URL has changed with your new repository name.
-
-    $ git remote -v
-    # Verify new remote URL
-    > origin  https://github.com/USERNAME/NEW-REPOSITORY-NAME.git (fetch)
-    > origin  https://github.com/USERNAME/NEW-REPOSITORY-NAME.git (push)
-
-git remote -v
-
-    Push your changes to the new repository on GitHub.
-
-    git push -u origin BRANCH-NAME
-
-git push -u origin master
 
 
 
