@@ -19,7 +19,7 @@ Scripts to assist running something, and checking something, then reporting some
 - Quick check of test case depth for each file TESTed for any Git repository (in seconds) (option: all)
 - Quick reduction of untracked TEST case files (in seconds) (option: clean)
 - Include hooks/ in repostory because .git/hooks is not pushed to GitHub (need to retest)
-- Mantain test cases in repository (you know all in one repository) with repository files being TESTed . . .  custom TEST cases
+- Maintain test cases in repository (you know all in one repository) with repository files being TESTed . . .  custom TEST cases
    
    **Work needed here**
     - Design for quick test case git branch merge
