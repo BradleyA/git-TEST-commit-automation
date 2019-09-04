@@ -141,6 +141,15 @@ Need to add something here but what?
 
 ====>>>
 
+[BradleyA/git-TEST-commit-automation] hooks/bin/setup-git-TEST-cases.sh - setup git TEST cases in current repository (#2)
+after setup-git-TEST-cases.sh is run some additions steps are needed
+
+git add hooks - if you want to include the tools in your repository remembering you can always upgrade to a later level without losing custom scripts or remove it
+
+git add hooks
+git commit -m 'install git-TEST-commit-automation'
+
+
 ====>>>
 
 You can turn a folder within a Git repository into a brand new repository.    **find that doc I printed to complete this section
