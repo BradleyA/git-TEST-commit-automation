@@ -35,41 +35,50 @@ How is that?
 
     git commit -m 'latest changes' <COMMIT_FILE_NAME>
 
-After entering the above command, Git runs any Git hooks found in \<REPOSITORY-NAME>/.git/hooks/ directory.  Git hooks are scripts that Git executes before or after events. Two local Git hooks are included with git-TEST-commit-automation. 
+After entering the above command, Git runs any Git hooks found in \<REPOSITORY-NAME>/.git/hooks/ directory.  Git hooks are scripts that Git executes before and/or after events. Two local Git hooks are included with git-TEST-commit-automation. 
 
 - hooks/pre-commit  - Creates \<REPOSITORY>/hooks/COMMIT_FILE_LIST with a list of \<REPOSITORY-PATH>/\<FILE> being committed
 - hooks/post-commit - Run production standard TESTing  
 
-     **Production standard TESTing** - run test cases if found on \<REPOSITORY>/hooks/COMMIT_FILE_LIST
+     **Production standard TESTing** - run test cases if found in \<REPOSITORY>/hooks/COMMIT_FILE_LIST
   - Loop through committed files found in COMMIT_FILE_LIST
   - Check if COMMIT_FILE has a 'TEST' directory
-  - Create links to EXAMPLES/\<TEST_CASE> and \<TEST_CASE>.expected (test case output) and other test case setup
+  - Create links to EXAMPLES/\<TEST_CASE> and \<TEST_CASE>.expected (test case output) and other test case files
   - Create list of test cases found in \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/ directory
-  - Loop through \<TEST_CASE>
-  - Run \<TEST_CASE>
+  - Loop through \<REPOSITORY>/\<PATH>/TEST/\<TEST_CASE>
+  - Run \<REPOSITORY>/\<PATH>/TEST/\<TEST_CASE>
 
+**PASS** or **FAIL** or **ERROR**, some methed will notify someone of the results. (not sure which method is going to work for me and you? . . . stdout, logs-scrape, tables, email, twitter, slack, tall a friand, etc.)
+ 
+**hooks directory**
 
-**PASS** or **FAIL**, some methed will notify someone of the results. (not sure which method is going to work for me and you? . . . stdout, logs-scrape, tables, email, twitter, slack, tall a friand, etc.)
+There are two GitHub commit hooks that support running of **test cases**.  The pre-commit GitHub hook bash script creates a list of committed files with repository subdirectory.  The post-commit GitHub hook bash script runs found FVT test case(s) for a committed file.  The hooks directory was created because I wanted to modify the GitHub hooks and track changes per repository.
 
 **start review and merge here**
-Functional Verification is defined as the process of verifying that the design meets its specification from a functional perspective. ... Functional verification establishes that the design under test (DUT) implements the functionality of the specification correctly.
+
+**Functional Verification** is defined as the process of verifying that the design meets its specification from a functional perspective. ... Functional verification establishes that the design under test (DUT) implements the functionality of the specification correctly.
 verifying that the design meets its specification from a functional perspective. ... Functional verification establishes that the design under test (DUT) implements the functionality of the specification correctly.
 
- 
-**hooks directory**, there are two GitHub commit hooks that support running of **test cases**.  The pre-commit GitHub hook bash script creates a list of committed files with repository subdirectory.  The post-commit GitHub hook bash script runs found FVT test case(s) for a committed file.  The hooks directory was created because I wanted to modify the GitHub hooks and track changes per repository.  [Learn more about how to setup test cases.](hooks/README.md)
 
-**Note I found about hooks I need to remember and add to the readme why I added a hooks directory so the hooks can be managed by the repository . . .Hooks are per-repository and are never pushed. Similarly, the repo config isn't pushed either, nor is anything in .git/info , or a number of other things. Pushing and pulling only exchanges branches/tags and commit objects (and anything reachable from a commit, e.g. trees, blobs**
+[Learn more about how to setup test cases.](hooks/README.md)
+
+**Note**   I found out about hooks and need to remember and add to the README why I added a hooks directory in the repository so the hooks can be managed by the repository . . .Hooks are per-repository and are not designed to be pushed but can be pushed. Similarly, the repo config isn't pushed either, nor is anything in .git/info , or a number of other things. Pushing and pulling only exchanges branches/tags and commit objects (and anything reachable from a commit, e.g. trees, blobs**
 
 **setup an environment for all tests to be run, creating directories for output, setting environment variables ... include clean section to remove and unset environment variables**
 
 ## Setup Test Cases
 
+First do this then 
+
     git clone https://github.com/BradleyA/git-TEST-commit-automation.git
-    
+ 
+ **setup-git-TEST-cases.sh**
+ 
     cd git-TEST-commit-automation/hooks
     ln -s ../../hooks/post-commit ../.git/hooks/post-commit
     ln -s ../../hooks/pre-commit ../.git/hooks/pre-commit
-    
+
+How to edit this shit FVT-setup.sh and SA-setup.sh . . . ore make a script or option
     cd ..
     mkdir TEST/<FILE_TO_BE_TESTED>/
     cd TEST/<FILE_TO_BE_TESTED>/
