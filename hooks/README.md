@@ -17,7 +17,7 @@ Scripts to assist running something, and checking something, then reporting some
 - Quick setup with default test cases for any Git repository (in seconds)
 - Quick uninstall on any Git repository (in seconds)
 - Quick check of test case depth for each file TESTed for any Git repository (in seconds) (option: all)
-- Quick reduction of untracked TEST case files
+- Quick reduction of untracked TEST case files (in seconds) (option: clean)
 - Include hooks/ in repostory because .git/hooks is not pushed to GitHub (need to retest)
 - Mantain test cases in repository (you know all in one repository) with repository files being TESTed . . .  custom TEST cases
    
