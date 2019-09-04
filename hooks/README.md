@@ -8,14 +8,15 @@ Scripts to assist running something, and checking something, then reporting some
 
 #### Strategy:
 
-- Running tests on code with quick turn around helps when finishing a desgin or fixing an incident.  
-- If you are notified that there is an incident after something when something was entered on version 3.498.
-    - If you just pushed that version 1 minutes ago or if you pushed it 12 days ago, which of these two scenarios would take you less time to resolution.
-- This design offers quick feed back to code commits and test case commits.
+- This design offers quick feed back to file commits and test case commits in a Git repository. 
+  - If you are notified that there is an incident with your file when something was entered using version 3.498.
+      - It has been 1 minute or 12 days, which of these two scenarios would take less time to resolution.
 - Continuous Testing (CT) at every level, in every silo is required to reduce business risk and improve quality.
-- Quick setup with default test cases on any Git repository (in a few seconds)
-- Quick uninstall on any Git repository (in a few seconds)
-- Quick check of test case depth for each command on any Git repository (in a few seconds) (all clean)
+
+#### Objectives:
+- Quick setup with default test cases for any Git repository (in seconds)
+- Quick uninstall on any Git repository (in seconds)
+- Quick check of test case depth for each file TESTed for any Git repository (in seconds) (all clean)
 - Include hooks/ in repository because .git/hooks/ is not maintained
 - Mantain test cases in code repository (you know all in one repository)
    
