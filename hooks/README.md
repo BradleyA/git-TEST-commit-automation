@@ -22,11 +22,14 @@ Scripts to assist running something, and checking something, then reporting some
 - Maintain test cases in repository (you know all in one repository) with repository files being TESTed . . .  custom TEST cases
    
    **Work needed here**
-    - Design for quick test case git branch merge
-    - Quick upgrade of default test cases and test case code fixes
-    - Quick test branch merge from test team's custom test cases (no merge conflicts)
+    - Design for quick test case git branch merge (include steps)
+    - Quick upgrade of default test cases and test case code fixes (include steps)
+    - Quick test branch merge from test team's custom test cases (no merge conflicts)  (include steps)
     - Quick configuration of FVT and SA test case for command in \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/{FVT-setup.sh, SA-setup.sh, FVT-cleanup.sh, SA-cleanup.sh}
-    - Quick backup of any test cases (\<FILE-NAME>.tar) (code in uninstall and option for backup)
+    - Quick backup of all test cases in repository (\<FILE-NAME>.tar) (code in uninstall and option for backup)
+    - Allow support in design for additional test case type (FVT,SA)
+    - support several types of files
+    - support BATS
 
 How is that?
 
