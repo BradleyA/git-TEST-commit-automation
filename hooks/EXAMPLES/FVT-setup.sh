@@ -1,10 +1,9 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/FVT-setup.sh  2.41.366  2019-09-05T15:40:08.178299-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.40  
-# 	   correct shellcheck incidents SC2046 
-# 	hooks/EXAMPLES/FVT-setup.sh  2.40.365  2019-09-05T15:10:32.849003-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.39-41-g76a187e  
-# 	   close #11 hooks/EXAMPLES/FVT-setup.sh  upgraded Production standard 1.3.496 DEBUG variable ; added REPOSITORY_DIR for #11 ; added more ln 
-#86# hooks/EXAMPLES/FVT-setup.sh - This script is optional.  It is for setting up
+# 	hooks/EXAMPLES/FVT-setup.sh  2.43.368  2019-09-05T16:51:54.953262-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.42  
+# 	   #11 updated comment text for #11 
+#86# hooks/EXAMPLES/FVT-setup.sh - This script is optional.  It is for
 #    'Production standard 10.0 TESTing' test cases.  Copy it to TEST/<file_name>/.
+#    If FVT-setup.sh is found in TEST/<file_name>/ post-commit executes it.
 #    Functional Verification Testing (FVT) - verify that the program logic conforms
 #    to design specification.
 ###  Production standard 3.0 shellcheck
@@ -44,7 +43,7 @@ if [[ ! -z "${1}" ]] ; then  # post-commit must pass REPOSITORY_DIR because post
   REPOSITORY_DIR=${1}
 else
   REPOSITORY_DIR=$(git rev-parse --show-toplevel)  #  not called by post-commit
-  if [[ "${0}" != $(basename "${0}") ]] ; then  #  is script executed in TEST/<COMMIT_FILE_NAME>/ directory
+  if [[ "${0}" != $(basename "${0}") ]] ; then  #  script must execute in TEST/<COMMIT_FILE_NAME>/ directory
     cd "$(dirname "${0}")"
   fi
 fi
