@@ -1,17 +1,13 @@
 #!/bin/bash
-# 	hooks/bin/setup-git-TEST-cases.sh  2.36.319  2019-09-02T22:05:35.245643-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.35  
-# 	   hooks/bin/setup-git-TEST-cases.sh  copy uninstall-git-TEST-cases.sh to /usr/local/bin:wq 
-# 	hooks/bin/setup-git-TEST-cases.sh  2.32.314  2019-09-02T15:58:38.783019-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.31  
-# 	   hooks/bin/setup-git-TEST-cases.sh  ready for test repeat 
+# 	hooks/bin/setup-git-TEST-cases.sh  2.44.369  2019-09-05T17:19:00.262539-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.43  
+# 	   #2 hooks/bin/setup-git-TEST-cases.sh  testing 
 # 	hooks/bin/setup-git-TEST-cases.sh  2.30.312  2019-09-02T15:24:16.403824-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.29-1-g22ca97d  
 # 	   hooks/bin/setup-git-TEST-cases.sh   change design from mv to tar so not to loose test cases added that are not in repository 
 # 	hooks/bin/setup-git-TEST-cases.sh  2.29.310  2019-09-02T13:35:03.394915-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.28  
 # 	   hooks/bin/setup-git-TEST-cases.sh  change code to support design requirement - download the latest git-TEST-commit-automation/hooks 
 # 	hooks/bin/setup-git-TEST-cases.sh  2.26.306  2019-09-02T10:18:12.614578-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.25 
 # 	   hooks/bin/setup-git-TEST-cases.sh  corrected incidents rmdir download directory & force links if already existing 
-# 	hooks/bin/setup-git-TEST-cases.sh  2.25.305  2019-09-02T10:07:47.622650-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.24  
-# 	   hooks/bin/setup-git-TEST-cases.sh - setup git TEST cases in current repository #2 testing 
-###  hooks/bin/setup-git-TEST-cases.sh - setup git TEST cases in current repository
+#86# hooks/bin/setup-git-TEST-cases.sh - setup git TEST cases in current repository
 #    copy commands to /usr/local/bin
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.1.160 Copyright
