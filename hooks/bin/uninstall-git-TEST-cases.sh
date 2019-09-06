@@ -1,17 +1,9 @@
 #!/bin/bash
+# 	hooks/bin/uninstall-git-TEST-cases.sh  2.45.370  2019-09-05T20:28:25.285025-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.44  
+# 	   #1 #2 #3 #14  added #86# 
 # 	hooks/bin/uninstall-git-TEST-cases.sh  2.39.323  2019-09-02T23:08:57.145383-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.38  
 # 	   hooks/bin/uninstall-git-TEST-cases.sh  add code to check if ./hooks directory before running find on hooks :-) 
-# 	hooks/bin/uninstall-git-TEST-cases.sh  2.38.322  2019-09-02T22:50:18.870628-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.37-1-gc4d73f1  
-# 	   hooks/bin/uninstall-git-TEST-cases.sh  draft removing files 
-# 	hooks/bin/uninstall-git-TEST-cases.sh  2.37.320  2019-09-02T22:29:04.434909-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.36  
-# 	   hooks/bin/uninstall-git-TEST-cases.sh  add code to rmdir directories 
-# 	hooks/bin/uninstall-git-TEST-cases.sh  2.35.318  2019-09-02T22:00:29.469045-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.34  
-# 	   hooks/bin/uninstall-git-TEST-cases.sh  working draft 
-# 	hooks/bin/uninstall-git-TEST-cases.sh  2.34.317  2019-09-02T19:48:26.610128-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.33-1-g77236a1  
-# 	   hooks/bin/uninstall-git-TEST-cases.sh  second draft 
-# 	hooks/bin/uninstall-git-TEST-cases.sh  2.33.315  2019-09-02T17:19:59.393951-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.32  
-# 	   hooks/bin/uninstall-git-TEST-cases.sh  draft test 
-###  hooks/bin/uninstall-git-TEST-cases.sh - uninstall git TEST cases in current repository
+#86# hooks/bin/uninstall-git-TEST-cases.sh - uninstall git TEST cases in current repository
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.1.160 Copyright
 #    Copyright (c) 2019 Bradley Allen
@@ -58,7 +50,7 @@ if git -C . rev-parse 2> /dev/null ; then  #  currect directory in a git reposit
   tar -rf "${TMP_FILE_1}.tar" --files-from "${TMP_FILE_2}" --files-from "${TMP_FILE_3}"
 
 #    git rm -r hooks
-  sort -r "${TMP_FILE_2}" > "${TMP_FILE_2s}"
+  sort -r "${TMP_FILE_2}" > "${TMP_FILE_2s}"  #  remove files before directories
   while read -r name ; do
     if git ls-files --error-unmatch "$name" 2> /dev/null ; then
       git rm -f "$name"   #  Remove tracked file
@@ -72,7 +64,7 @@ if git -C . rev-parse 2> /dev/null ; then  #  currect directory in a git reposit
   done <  "${TMP_FILE_2s}"
 
 #    git rm -r hooks
-  sort -r "${TMP_FILE_3}" > "${TMP_FILE_3s}"
+  sort -r "${TMP_FILE_3}" > "${TMP_FILE_3s}"  # remove files before directories
   while read -r name ; do
     if git ls-files --error-unmatch "${name}" 2> /dev/null ; then
       git rm -f "${name}" #  Remove tracked file
@@ -95,8 +87,8 @@ if git -C . rev-parse 2> /dev/null ; then  #  currect directory in a git reposit
 #		git push
 fi
 
-# >>>  consider adding a user hint and include link to README.md  . . .  to answer that question, what now (WTF)  . . .  shit I forgot, hadn't done this in six months, quick!  . . . . . .
-# >>>  A copy of the files can be found in "${TMP_FILE_1}.tar"
+# >>>  consider adding a user hint and include link to README.md  . . .  to answer that question, what now (WTF)  . . .  shit I forgot, hadn't done this in six months, quick!  . . .  is there a backup?  where?  . . .  are all the files and directories gone?  yep!
+# >>>  A copy of the files can be found in "${TMP_FILE_1}.tar" for les than 24 hours  . . .   I don't know when
 
 #		
 if [[ "${DEBUG}" == "1" ]] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation finished." 1>&2 ; fi

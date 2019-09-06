@@ -1,12 +1,10 @@
 #!/bin/bash
-# 	hooks/bin/setup-git-TEST-cases.sh  2.44.369  2019-09-05T17:19:00.262539-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.43  
-# 	   #2 hooks/bin/setup-git-TEST-cases.sh  testing 
+# 	hooks/bin/setup-git-TEST-cases.sh  2.45.370  2019-09-05T20:28:25.205673-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.44  
+# 	   #1 #2 #3 #14  added #86# 
 # 	hooks/bin/setup-git-TEST-cases.sh  2.30.312  2019-09-02T15:24:16.403824-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.29-1-g22ca97d  
 # 	   hooks/bin/setup-git-TEST-cases.sh   change design from mv to tar so not to loose test cases added that are not in repository 
 # 	hooks/bin/setup-git-TEST-cases.sh  2.29.310  2019-09-02T13:35:03.394915-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.28  
 # 	   hooks/bin/setup-git-TEST-cases.sh  change code to support design requirement - download the latest git-TEST-commit-automation/hooks 
-# 	hooks/bin/setup-git-TEST-cases.sh  2.26.306  2019-09-02T10:18:12.614578-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.25 
-# 	   hooks/bin/setup-git-TEST-cases.sh  corrected incidents rmdir download directory & force links if already existing 
 #86# hooks/bin/setup-git-TEST-cases.sh - setup git TEST cases in current repository
 #    copy commands to /usr/local/bin
 ###  Production standard 3.0 shellcheck
@@ -69,6 +67,14 @@ else
   get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  The current directory, ($(pwd)), is Not a git repository (or any of the parent directories)." 1>&2
   exit ${EXIT_CODE}
 fi
+
+cd "$(git rev-parse --show-toplevel || echo '.')"  #  change to top git repository directory
+hooks/bin/check-git-TEST-cases.sh clean
+#    . . .
+#    git add hooks
+#    git commit -m 'install latest git-TEST-commit-automation/hooks'
+#    check-git-TEST-cases.sh clean
+#    git push
 
 # >>>  consider adding a user hint and include link to README.md  . . .  to answer that question, what now (WTF)  . . .  shit I forgot, hadn't done this in six months, quick!  . . . . . .
 
