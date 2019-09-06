@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/EXAMPLES/SA-permission-grp-10000-001  2.52.382  2019-09-06T11:20:19.272175-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.51  
+#	   #7 hooks/EXAMPLES/SA-permission-grp-10000-001  changed messages from owner to group 
 #	hooks/EXAMPLES/SA-permission-grp-10000-001  2.51.381  2019-09-06T11:16:31.457401-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.50-1-g4a701ea  
 #	   #7 hooks/EXAMPLES/SA-permission-grp-10000-001 test the test cases for the test case 
 #	hooks/EXAMPLES/SA-permission-grp-10000-001  2.50.379  2019-09-06T11:06:38.321785-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.49-1-g212d5dd 
@@ -41,12 +43,12 @@ FILE_GROUP_ID_NUM=$(stat -Lc %g "${1}")
 #	GROUP_ID_NAME=$(getent group "${GROUP_ID_NUM}" | cut -d : -f 1)
 #	FILE_GROUP_ID_NAME=$(stat -Lc %G "${1}")
 
-#    Verify file owner
+#    Verify file group
 if [[ "${FILE_GROUP_ID_NUM}" == "${GROUP_ID_NUM}" ]] ; then
-  echo "${BOLD}Test case --->${NORMAL} ${0} ${1} 0 - file permission: check owner: ${FILE_GROUP_ID_NUM} - ${BOLD}PASS - PASS${NORMAL}"
+  echo "${BOLD}Test case --->${NORMAL} ${0} ${1} 0 - file permission: check group: ${FILE_GROUP_ID_NUM} - ${BOLD}PASS - PASS${NORMAL}"
   exit 0
 else
-  echo "${BOLD}Test case --->${NORMAL} ${0} ${1} 1 - file permission: check owner: ${FILE_GROUP_ID_NUM} - ${BOLD}FAIL - FAIL${NORMAL}"
+  echo "${BOLD}Test case --->${NORMAL} ${0} ${1} 1 - file permission: check group: ${FILE_GROUP_ID_NUM} - ${BOLD}FAIL - FAIL${NORMAL}"
   exit 1
 fi
 
