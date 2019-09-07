@@ -52,10 +52,10 @@ After entering the above command, Git runs any Git hooks found in \<REPOSITORY-N
   - Check if COMMIT_FILE has a 'TEST' directory
   - Create links to EXAMPLES/\<TEST_CASE> and \<TEST_CASE>.expected and other test case files (FVT-setup.sh, SA-setup.sh)
   - Create list of test cases found in \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/ directory (files starting with SA-, FVT-)
-  - Loop through \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/\SA-<TEST_CASE>
-    - Run \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/\SA-<TEST_CASE>
-  - Loop through \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/\FVT-<TEST_CASE>
-    - Run \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/\FVT-<TEST_CASE>
+  - Loop through \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/SA-<TEST_CASE>
+    - Run \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/SA-<TEST_CASE>
+  - Loop through \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/FVT-<TEST_CASE>
+    - Run \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/FVT-<TEST_CASE>
   
 **PASS** or **FAIL** or **ERROR**, some methed will notify someone of the results. (not sure which method is going to work for me and you? . . . stdout, logs-scrape, tables, email, twitter, slack, tall a friand, etc.)
  
@@ -100,6 +100,16 @@ Create a test case in directory, TEST/<FILE_TO_BE_TESTED>/, and name the file 'F
 
 
 # Memo:
+
+#### Quick setup to test this solution
+- fork or clone
+- edit test script to test
+- create TEST/\<COMMIT_FILE_NAME>/SA-<TEST_CASE> directory
+- copy hooks/EXAMPLES/TEST/\<COMMIT_FILE_NAME>/SA-<TEST_CASE>  
+
+#### Setup for continued reuse
+
+#### Steps for submitting additional test cases and code changes use pull requests
 
 Note: 
 edit  all SA-setup.sh:
