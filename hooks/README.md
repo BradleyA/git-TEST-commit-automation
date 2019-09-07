@@ -104,8 +104,8 @@ Create a test case in directory, TEST/<FILE_TO_BE_TESTED>/, and name the file 'F
 #### Quick setup to test this solution
 - fork or clone
 - edit test script to test
-- create TEST/\<COMMIT_FILE_NAME>/SA-<TEST_CASE> directory
-- copy hooks/EXAMPLES/TEST/\<COMMIT_FILE_NAME>/SA-<TEST_CASE>  
+- create TEST/\<COMMIT_FILE_NAME>/ directory
+- copy hooks/EXAMPLES/SA-setup.sh TEST/\<COMMIT_FILE_NAME>/SA-setup.sh  
 
 #### Setup for continued reuse
 
