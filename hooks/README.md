@@ -14,12 +14,13 @@ Continuous Integration and Continuous Delivery (CI/CD) requires Continuous Testi
   - If you are notified that there is an incident with your file when something was done with version 3.498.
      - It has been 1 minute or a two week sprint, which of these two scenarios would take less time to resolution.
 
-
 #### Objectives:
 - Quick setup with default test cases for any Git repository (in seconds)
 - Quick uninstall on any Git repository (in seconds)
 - Quick check of test case depth for each file TESTed for any Git repository (in seconds) (option: all)
 - Quick reduction of untracked TEST case files (in seconds) (option: clean)
+
+#### Notes:
 - Include hooks/ in repostory because .git/hooks is not pushed and hooks change and changes need to be tracked (need to retest)
 - Include test cases with repository files being TESTed
 - 
