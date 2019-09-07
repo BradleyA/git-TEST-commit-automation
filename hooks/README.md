@@ -11,9 +11,9 @@ Scripts to assist running something, and checking something, then reporting some
 
 #### Strategy:
 
-- This design offers quick feed back to file commits and test case commits in a Git repository. 
-  - If you are notified that there is an incident with your file when something was entered using version 3.498.
-      - It has been 1 minute or 12 days, which of these two scenarios would take less time to resolution.
+- Test case feedback to user executing 'git commit -m '#145 closed - corrected xxxx' in a Git repository.  It is important NOT to stop the git commit.  
+  - If you are notified that there is an incident with your file when something was done with version 3.498.
+     - It has been 1 minute or a two week sprint, which of these two scenarios would take less time to resolution.
 - Continuous Testing (CT) at every level, in every silo is required to reduce business risk and improve quality.
 
 #### Objectives:
