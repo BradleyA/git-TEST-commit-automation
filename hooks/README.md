@@ -20,22 +20,22 @@ Continuous Integration and Continuous Delivery (CI/CD) requires Continuous Testi
 - Quick check of test case depth for each file TESTed for any Git repository (in seconds) (option: all)
 - Quick reduction of untracked TEST case files (in seconds) (option: clean)
 
-#### Notes:
-- Include hooks/ in repostory because .git/hooks is not pushed and hooks change and changes need to be tracked (need to retest)
-- Include test cases with repository files being TESTed
-- 
-
-- Test case feedback for developer executing 'git commit -m '#145 closed - corrected xxxx' in a Git repository.  It is important NOT to stop the git commit. 
-   
    **Work needed here**
     - Design for quick test case git branch merge (include steps)
-    - Quick upgrade of default test cases and test case code fixes (include steps, first test completed)
+    - Quick upgrade of default test cases with test case code fixes (include steps, first test completed with setup-git-TEST-cases.sh)
     - Quick test branch merge from test team's custom test cases without merge conflicts (include steps)
-    - Quick setup and configuration of FVT and SA test cases in \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/{FVT-setup.sh, SA-setup.sh, FVT-cleanup.sh, SA-cleanup.sh}
+       - challenge is SA-setup.sh & FVT-setup.sh could be changed by development and test teams 
+    - Quick setup and configuration of FVT and SA test cases in \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/{FVT-setup.sh, SA-setup.sh, FVT-cleanup.sh, SA-cleanup.sh} (create-TEST-structure-for-git-file <git file> . . . )
     - Quick backup of all test cases in repository (\<FILE-NAME>.tar) (code is currently in uninstall) (option: backup)
     - Include support for custom test cases or intergration with other test or CI solutions 
     - Support several types of files (support additional test case types (FVT,SA)
     - Support BATS
+	
+#### Notes:
+- Include hooks/ in repostory because .git/hooks is not pushed and hooks change and changes need to be tracked (need to retest)
+- Include test cases with repository files being TESTed because changes need to be tracked.
+- And developers know what to test
+- Test case feedback for developer executing 'git commit -m '#145 closed - corrected xxxx' in a Git repository.  It is important NOT to stop the git commit. 
 
 How is that?
 
