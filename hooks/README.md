@@ -1,6 +1,6 @@
 **WARNING**: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
 
-# in development 
+# in development 9/7/2019 test
 (8/2019 - 9/2019)
 # git-TEST-commit-automation
 
