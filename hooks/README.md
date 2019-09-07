@@ -20,18 +20,19 @@ Scripts to assist running something, and checking something, then reporting some
 - Quick uninstall on any Git repository (in seconds)
 - Quick check of test case depth for each file TESTed for any Git repository (in seconds) (option: all)
 - Quick reduction of untracked TEST case files (in seconds) (option: clean)
-- Include hooks/ in repostory because .git/hooks is not pushed to GitHub (need to retest)
-- Maintain test cases in repository (you know all in one repository) with repository files being TESTed . . .  custom TEST cases
+- Include hooks/ in repostory because .git/hooks is not pushed and hooks change and changes need to be tracked (need to retest)
+- Include test cases with repository files being TESTed
+- 
    
    **Work needed here**
     - Design for quick test case git branch merge (include steps)
-    - Quick upgrade of default test cases and test case code fixes (include steps)
-    - Quick test branch merge from test team's custom test cases (no merge conflicts)  (include steps)
-    - Quick configuration of FVT and SA test case for command in \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/{FVT-setup.sh, SA-setup.sh, FVT-cleanup.sh, SA-cleanup.sh}
-    - Quick backup of all test cases in repository (\<FILE-NAME>.tar) (code in uninstall and option for backup)
-    - Allow support in design for additional test case type (FVT,SA)
-    - support several types of files
-    - support BATS
+    - Quick upgrade of default test cases and test case code fixes (include steps, first test completed)
+    - Quick test branch merge from test team's custom test cases without merge conflicts (include steps)
+    - Quick setup and configuration of FVT and SA test cases in \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/{FVT-setup.sh, SA-setup.sh, FVT-cleanup.sh, SA-cleanup.sh}
+    - Quick backup of all test cases in repository (\<FILE-NAME>.tar) (code is currently in uninstall) (option: backup)
+    - Include support for custom test cases or intergration with other test or CI solutions 
+    - Support several types of files (support additional test case types (FVT,SA)
+    - Support BATS
 
 How is that?
 
@@ -44,13 +45,16 @@ After entering the above command, Git runs any Git hooks found in \<REPOSITORY-N
 - hooks/pre-commit  - Creates \<REPOSITORY>/hooks/COMMIT_FILE_LIST with a list of \<REPOSITORY-PATH>/\<FILE> being committed
 - hooks/post-commit - Run production standard TESTing  
 
-     **Production standard TESTing** - run test cases if found in \<REPOSITORY>/hooks/COMMIT_FILE_LIST
+     **Production standard TESTing** - run test cases for files found in \<REPOSITORY>/hooks/COMMIT_FILE_LIST
   - Loop through committed files found in COMMIT_FILE_LIST
   - Check if COMMIT_FILE has a 'TEST' directory
-  - Create links to EXAMPLES/\<TEST_CASE> and \<TEST_CASE>.expected (test case output) and other test case files
-  - Create list of test cases found in \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/ directory
-  - Loop through \<REPOSITORY>/\<PATH>/TEST/\<TEST_CASE>
-  - Run \<REPOSITORY>/\<PATH>/TEST/\<TEST_CASE>
+  - Create links to EXAMPLES/\<TEST_CASE> and \<TEST_CASE>.expected and other test case files (FVT-setup.sh, SA-setup.sh)
+  - Create list of test cases found in \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/ directory (files starting with SA-, FVT-)
+  - Loop through \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/\SA-<TEST_CASE>
+    - Run \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/\SA-<TEST_CASE>
+  - Loop through \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/\FVT-<TEST_CASE>
+    - Run \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/\FVT-<TEST_CASE>
+  
 
 **PASS** or **FAIL** or **ERROR**, some methed will notify someone of the results. (not sure which method is going to work for me and you? . . . stdout, logs-scrape, tables, email, twitter, slack, tall a friand, etc.)
  
