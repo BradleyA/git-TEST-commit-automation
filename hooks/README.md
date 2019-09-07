@@ -11,7 +11,6 @@
 Scripts to assist running something, and checking something, then reporting something; when you commit something. 
 
 Continuous Integration and Continuous Delivery (CI/CD) requires Continuous Testing (CT) for DevOps teams to deliver fast quality solutions to customers.  Intergating CT automation into the development pipeline at every level reduces business risk and improves quality which keeps customers happy. 
-- Test case feedback for developer executing 'git commit -m '#145 closed - corrected xxxx' in a Git repository.  It is important NOT to stop the git commit.  
   - If you are notified that there is an incident with your file when something was done with version 3.498.
      - It has been 1 minute or a two week sprint, which of these two scenarios would take less time to resolution.
 
@@ -24,6 +23,8 @@ Continuous Integration and Continuous Delivery (CI/CD) requires Continuous Testi
 - Include hooks/ in repostory because .git/hooks is not pushed and hooks change and changes need to be tracked (need to retest)
 - Include test cases with repository files being TESTed
 - 
+
+- Test case feedback for developer executing 'git commit -m '#145 closed - corrected xxxx' in a Git repository.  It is important NOT to stop the git commit. 
    
    **Work needed here**
     - Design for quick test case git branch merge (include steps)
