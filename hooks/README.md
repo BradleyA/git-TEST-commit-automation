@@ -60,16 +60,10 @@ After entering the above command, Git runs any Git hooks found in \<REPOSITORY-N
 **PASS** or **FAIL** or **ERROR**, some methed will notify someone of the results. (not sure which method is going to work for me and you? . . . stdout, logs-scrape, tables, email, twitter, slack, tall a friand, etc.)
  
 **hooks directory**  The hooks directory was created because I wanted to modify the GitHub hooks and track changes per repository.  Include hooks/ in repostory because .git/hooks is not pushed and hooks change and these changes need to be tracked in a Git repository. (need to retest)
-
-**start review and merge here**
+**Note**   I found out about hooks and need to remember and add to the README why I added a hooks directory in the repository so the hooks can be managed by the repository . . .Hooks are per-repository and are not designed to be pushed but can be pushed. Similarly, the repo config isn't pushed either, nor is anything in .git/info , or a number of other things. Pushing and pulling only exchanges branches/tags and commit objects (and anything reachable from a commit, e.g. trees, blobs**
 
 **Functional Verification** is defined as the process of verifying that the design meets its specification from a functional perspective. ... Functional verification establishes that the design under test (DUT) implements the functionality of the specification correctly.
 verifying that the design meets its specification from a functional perspective. ... Functional verification establishes that the design under test (DUT) implements the functionality of the specification correctly.
-
-
-[Learn more about how to setup test cases.](SETUP_TEST_CASES.md)
-
-**Note**   I found out about hooks and need to remember and add to the README why I added a hooks directory in the repository so the hooks can be managed by the repository . . .Hooks are per-repository and are not designed to be pushed but can be pushed. Similarly, the repo config isn't pushed either, nor is anything in .git/info , or a number of other things. Pushing and pulling only exchanges branches/tags and commit objects (and anything reachable from a commit, e.g. trees, blobs**
 
 **setup an environment for all tests to be run, creating directories for output, setting environment variables ... include clean section to remove and unset environment variables**
 
@@ -85,12 +79,12 @@ First do this then
     ln -s ../../hooks/post-commit ../.git/hooks/post-commit
     ln -s ../../hooks/pre-commit ../.git/hooks/pre-commit
 
-How to edit this shit FVT-setup.sh and SA-setup.sh . . . ore make a script or option
-    cd ..
-    mkdir TEST/<FILE_TO_BE_TESTED>/
+How to edit this shit FVT-setup.sh and SA-setup.sh . . . Or  make another script or option to existing script
+    cd <into Git repository direcory where <FILE_TO_BE_TESTED> is located. 
+    mkdir -p TEST/<FILE_TO_BE_TESTED>/
     cd TEST/<FILE_TO_BE_TESTED>/
 
-Create a test case in directory, TEST/<file_to_be_tested>/, and name the file 'FVT-<test-case-name-no-dot-001>' (example: FVT-option-help-001).  Place the expected results from the test case into a file with the same name but add '.expcted' ('dot'expected).  In your test case, pipe the output into a file with the same name but add '.test-case-output'.  Append the following lines into your test case:
+Create a test case in directory, TEST/<FILE_TO_BE_TESTED>/, and name the file 'FVT-<test-case-name-no-dot-001>' (example: FVT-option-help-001).  Place the expected results from the test case into a file with the same test case name but add '.expcted' ('dot'expected).  In your test case, pipe the output into a file with the same name but add '.test-case-output'.  Append the following lines into your test case:
 
     #
     diff "${0}".expected "${0}".test-case-output >/dev/null 2>&1
@@ -162,7 +156,3 @@ git commit -m 'install git-TEST-commit-automation'
 You can turn a folder within a Git repository into a brand new repository.    **find that doc I printed to complete this section
 
 add branch marge what ever 
-
-
-
-
