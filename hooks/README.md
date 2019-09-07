@@ -73,11 +73,34 @@ First do this then
 
     git clone https://github.com/BradleyA/git-TEST-commit-automation.git
  
- **setup-git-TEST-cases.sh**
+ **execute setup-git-TEST-cases.sh in an existing Git repository already using git-TEST-commit-automation**
  
-    cd git-TEST-commit-automation/hooks
-    ln -s ../../hooks/post-commit ../.git/hooks/post-commit
-    ln -s ../../hooks/pre-commit ../.git/hooks/pre-commit
+    cd ~/github/BradleyA/\<REPOSITORY>
+    setup-git-TEST-cases.sh
+      % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                     Dload  Upload   Total   Spent    Left  Speed
+      0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+    100  106k    0  106k    0     0  60836      0 --:--:--  0:00:01 --:--:--  222k
+
+    git status
+    On branch master
+    Your branch is up-to-date with 'origin/master'.
+    Changes not staged for commit:
+      (use "git add <file>..." to update what will be committed)
+      (use "git checkout -- <file>..." to discard changes in working directory)
+
+            modified:   hooks/README.md
+
+    Untracked files:
+      (use "git add <file>..." to include in what will be committed)
+
+            hooks/EXAMPLES/FVT-exit-code-error-0-001
+            hooks/EXAMPLES/FVT-exit-code-error-1-001
+            hooks/EXAMPLES/tmp-test-tar-files/name-that-file-txt
+            hooks/SETUP_TEST_CASES.md
+
+    no changes added to commit (use "git add" and/or "git commit -a")
+
 
 How to edit this shit FVT-setup.sh and SA-setup.sh . . . Or  make another script or option to existing script
     cd <into Git repository direcory where <FILE_TO_BE_TESTED> is located. 
