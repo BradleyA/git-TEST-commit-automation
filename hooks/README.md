@@ -98,7 +98,6 @@ Create a test case in directory, TEST/<FILE_TO_BE_TESTED>/, and name the file 'F
            echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - Test script ERROR - ${BOLD}FAIL - FAIL${NORMAL}"
     fi
 
-
 # Memo:
 
 #### Quick setup to test this solution
