@@ -11,10 +11,11 @@ Scripts to assist running something, and checking something, then reporting some
 
 #### Strategy:
 
-- Test case feedback to user executing 'git commit -m '#145 closed - corrected xxxx' in a Git repository.  It is important NOT to stop the git commit.  
+Continuous Integration and Continuous Delivery (CI/CD) requires Continuous Testing (CT) for DevOps teams to deliver fast quality solutions to customers.  Intergating CT automation into the development pipeline at every level reduces business risk and improves quality which keeps customers happy. 
+- Test case feedback for developer executing 'git commit -m '#145 closed - corrected xxxx' in a Git repository.  It is important NOT to stop the git commit.  
   - If you are notified that there is an incident with your file when something was done with version 3.498.
      - It has been 1 minute or a two week sprint, which of these two scenarios would take less time to resolution.
-- Continuous Testing (CT) at every level, in every silo is required to reduce business risk and improve quality.
+
 
 #### Objectives:
 - Quick setup with default test cases for any Git repository (in seconds)
