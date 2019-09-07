@@ -67,7 +67,7 @@ After entering the above command, Git runs any Git hooks found in \<REPOSITORY-N
 verifying that the design meets its specification from a functional perspective. ... Functional verification establishes that the design under test (DUT) implements the functionality of the specification correctly.
 
 
-[Learn more about how to setup test cases.](hooks/SETUP_TEST_CASES.md)
+[Learn more about how to setup test cases.](SETUP_TEST_CASES.md)
 
 **Note**   I found out about hooks and need to remember and add to the README why I added a hooks directory in the repository so the hooks can be managed by the repository . . .Hooks are per-repository and are not designed to be pushed but can be pushed. Similarly, the repo config isn't pushed either, nor is anything in .git/info , or a number of other things. Pushing and pulling only exchanges branches/tags and commit objects (and anything reachable from a commit, e.g. trees, blobs**
 
