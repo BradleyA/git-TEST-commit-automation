@@ -38,7 +38,7 @@ Continuous Integration and Continuous Delivery (CI/CD) requires Continuous Testi
 
 How is that?
 
- **Start editing from here:  These notes and cut and paste information  make some since when finshing design**
+ **Start editing from here:  These notes are cut and paste of information and make some since once I finsh design**
 
     git commit -m 'latest changes' <COMMIT_FILE_NAME>
 
