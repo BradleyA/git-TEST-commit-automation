@@ -29,7 +29,6 @@ Continuous Integration and Continuous Delivery (CI/CD) requires Continuous Testi
     - Quick backup of all test cases in repository (\<FILE-NAME>.tar) (code is currently in uninstall) (option: backup)
     - Include support for custom test cases or intergration with other test or CI solutions 
     - Support several types of files (support additional test case types (FVT,SA)
-    - Support BATS
 	
 #### Notes:
 - Include hooks/ in repostory because .git/hooks is not pushed and hooks change and changes need to be tracked (need to retest)
