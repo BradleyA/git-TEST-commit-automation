@@ -103,7 +103,23 @@ First do this then
 
 https://help.github.com/en/articles/syncing-a-fork
 
+Start a new git repository
+
+    Create a directory mksdir    git-TEST-1
+    Go into the new directory    cd git-TEST-1
+    Type                         git init .
+    Write some code              vi sample.sh
+       #!/bin/bash
+       ### ./sample.sh
+       echo "Hello World"
+    chmod +x sample.sh
+    Add sample.sh to Git        git add sample.sh
+    Commit sample.sh            git commit -m 'initial commit'
+    
+    
+
 How to edit this shit FVT-setup.sh and SA-setup.sh . . . Or  make another script or option to existing script
+
     cd <into Git repository direcory where <FILE_TO_BE_TESTED> is located. 
     mkdir -p TEST/<FILE_TO_BE_TESTED>/
     cd TEST/<FILE_TO_BE_TESTED>/
