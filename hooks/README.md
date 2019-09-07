@@ -1,7 +1,9 @@
 **WARNING**: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
 
-# in development 9/7/2019 test
+# in development
 (8/2019 - 9/2019)
+# in test 9/7/2019
+
 # git-TEST-commit-automation
 
 Scripts to assist running something, and checking something, then reporting something; when you commit something. 
