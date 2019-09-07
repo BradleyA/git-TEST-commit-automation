@@ -101,6 +101,7 @@ First do this then
 
     no changes added to commit (use "git add" and/or "git commit -a")
 
+https://help.github.com/en/articles/syncing-a-fork
 
 How to edit this shit FVT-setup.sh and SA-setup.sh . . . Or  make another script or option to existing script
     cd <into Git repository direcory where <FILE_TO_BE_TESTED> is located. 
