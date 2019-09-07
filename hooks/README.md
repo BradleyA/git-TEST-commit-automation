@@ -7,9 +7,8 @@
 
 # git-TEST-commit-automation
 
-Scripts to assist running something, and checking something, then reporting something; when you commit something. 
-
 #### Strategy:
+Scripts to assist running something, and checking something, then reporting something; when you commit something. 
 
 Continuous Integration and Continuous Delivery (CI/CD) requires Continuous Testing (CT) for DevOps teams to deliver fast quality solutions to customers.  Intergating CT automation into the development pipeline at every level reduces business risk and improves quality which keeps customers happy. 
 - Test case feedback for developer executing 'git commit -m '#145 closed - corrected xxxx' in a Git repository.  It is important NOT to stop the git commit.  
