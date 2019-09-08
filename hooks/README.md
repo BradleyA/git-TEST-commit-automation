@@ -103,32 +103,39 @@ First do this then
 
 https://help.github.com/en/articles/syncing-a-fork
 
-Start a new git repository to test git-TEST-commit-automation solution
+Start a new Git repository to test git-TEST-commit-automation solution
 
-    Create a directory mksdir    git-TEST-1
-    Go into the new directory    cd git-TEST-1
-    Type                         git init .
-    Write some code              vi sample.sh
-       #!/bin/bash
-       ### ./sample.sh
-       echo "Hello World"
+    mkdir git-TEST-A            #  Create a directory for a Git repository
+    cd git-TEST-1   
+    git init .                  #  Create an empty Git repository
+    vi sample.sh                #  Write a shell script              
+         #!/bin/bash
+         ###  sample.sh 
+         echo "Hello World"
     chmod +x sample.sh
+    #  Download git-TEST-commit-automation into this repository under the hooks directory
     curl -L https://api.github.com/repos/BradleyA/git-TEST-commit-automation/tarball | tar -xzf - --wildcards BradleyA-git-TEST-commit-automation-*/hooks/bin/setup-git-TEST-cases.sh ; mv BradleyA-git-TEST-commit-automation-*/hooks/bin/setup-git-TEST-cases.sh . ; rm -r BradleyA-git-TEST-commit-automation-*/
-    ./setup-git-TEST-cases.sh
-    rm setup-git-TEST-cases.sh
-    mkdir -p TEST/sample.sh
-    cp hooks/EXAMPLES/SA-setup.sh TEST/sample.sh
-    git add TEST/ sample.sh
-    #
-    git commit -m 'initial commit'  # runs two test cases one PASS and one ERROR
-    #  the test case SA-shellcheck-001, 
+    ./setup-git-TEST-cases.sh   #  setup git-TEST-commit-automation in hooks directory and .git/hooks directory
+    rm setup-git-TEST-cases.sh  #  
     
-    touch TEST/sample.sh/SA-shellcheck-001.expected
+    mkdir -p TEST/sample.sh     #  Creating these two directories triggers post-commit to search for test cases for sample.sh
+    cp -p hooks/EXAMPLES/SA-setup.sh TEST/sample.sh
+    git add TEST/sample.sh      #  Include test case direcory in Git repository so test case follow code
+    
+    git commit -m 'initial commit'  # runs two test cases one PASS and one ERROR
+
+
+    # >>>   stop here for the nught   the test case SA-shellcheck-001 has the ERROR <<<<<<<<<<<<<
+    
+    touch TEST/sample.sh/SA-shellcheck-001.expected  #  correct incident by adding an empty SA-shellcheck-001.expected file for SA-shellcheck-001 to compare with the SA-shellcheck-001.test-case-output file (is the output what is expected?)
+    
+    
     vi sample.sh
-    echo "try again"
+       echo "try again"                    #  add line to end of file
     git add sample.sh
     git commit -m 'try two'
         
+    . . . . . 	
  
 How to edit this shit FVT-setup.sh and SA-setup.sh . . . Or  make another script or option to existing script
 
