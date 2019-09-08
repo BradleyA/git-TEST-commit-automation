@@ -103,7 +103,7 @@ First do this then
 
 https://help.github.com/en/articles/syncing-a-fork
 
-Start a new git repository
+Start a new git repository to test git-TEST-commit-automation solution
 
     Create a directory mksdir    git-TEST-1
     Go into the new directory    cd git-TEST-1
@@ -113,9 +113,22 @@ Start a new git repository
        ### ./sample.sh
        echo "Hello World"
     chmod +x sample.sh
-    Add sample.sh to Git        git add sample.sh
-    Commit sample.sh            git commit -m 'initial commit'
+    curl -L https://api.github.com/repos/BradleyA/git-TEST-commit-automation/tarball | tar -xzf - --wildcards BradleyA-git-TEST-commit-automation-*/hooks/bin/setup-git-TEST-cases.sh ; mv BradleyA-git-TEST-commit-automation-*/hooks/bin/setup-git-TEST-cases.sh . ; rm -r BradleyA-git-TEST-commit-automation-*/
+    ./setup-git-TEST-cases.sh
+    rm setup-git-TEST-cases.sh
+    mkdir -p TEST/sample.sh
+    cp hooks/EXAMPLES/SA-setup.sh TEST/sample.sh
+    git add TEST/ sample.sh
+    #
+    git commit -m 'initial commit'  # runs two test cases one PASS and one ERROR
+    #  the test case SA-shellcheck-001, 
     
+    touch TEST/sample.sh/SA-shellcheck-001.expected
+    vi sample.sh
+    echo "try again"
+    git add sample.sh
+    git commit -m 'try two'
+        
     
 
 How to edit this shit FVT-setup.sh and SA-setup.sh . . . Or  make another script or option to existing script
