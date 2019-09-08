@@ -60,7 +60,7 @@ After entering the above command, Git runs any Git hooks found in \<REPOSITORY-N
 **PASS** or **FAIL** or **ERROR**, some methed will notify someone of the results. (not sure which method is going to work for me and you? . . . stdout, logs-scrape, tables, email, twitter, slack, tall a friand, etc.)
  
 **hooks directory**  The hooks directory was created because I wanted to modify the GitHub hooks and track changes per repository.  Include hooks/ in repostory because .git/hooks is not pushed and hooks change and these changes need to be tracked in a Git repository. (need to retest)
-**Note**   I found out about hooks and need to remember and add to the README why I added a hooks directory in the repository so the hooks can be managed by the repository . . .Hooks are per-repository and are not designed to be pushed but can be pushed. Similarly, the repo config isn't pushed either, nor is anything in .git/info , or a number of other things. Pushing and pulling only exchanges branches/tags and commit objects (and anything reachable from a commit, e.g. trees, blobs**
+**Note**   I found out about hooks and need to remember and add to the README why I added a hooks directory in the repository so the hooks can be managed by the repository . . .Hooks are per-repository and are not designed to be pushed but can be pushed. Similarly, the repo config isn't pushed either, nor is anything in .git/info , or a number of other things. Pushing and pulling only exchanges branches/tags and commit objects (and anything reachable from a commit, e.g. trees, blobs** Add something about creating a symbolic link from ../.git/hooks to this hooks directory that are managed in this repository using markit. 
 
 **Functional Verification** is defined as the process of verifying that the design meets its specification from a functional perspective. ... Functional verification establishes that the design under test (DUT) implements the functionality of the specification correctly.
 verifying that the design meets its specification from a functional perspective. ... Functional verification establishes that the design under test (DUT) implements the functionality of the specification correctly.
@@ -129,8 +129,7 @@ Start a new git repository to test git-TEST-commit-automation solution
     git add sample.sh
     git commit -m 'try two'
         
-    
-
+ 
 How to edit this shit FVT-setup.sh and SA-setup.sh . . . Or  make another script or option to existing script
 
     cd <into Git repository direcory where <FILE_TO_BE_TESTED> is located. 
@@ -138,18 +137,6 @@ How to edit this shit FVT-setup.sh and SA-setup.sh . . . Or  make another script
     cd TEST/<FILE_TO_BE_TESTED>/
 
 Create a test case in directory, TEST/<FILE_TO_BE_TESTED>/, and name the file 'FVT-<test-case-name-no-dot-001>' (example: FVT-option-help-001).  Place the expected results from the test case into a file with the same test case name but add '.expcted' ('dot'expected).  In your test case, pipe the output into a file with the same name but add '.test-case-output'.  Append the following lines into your test case:
-
-    #
-    diff "${0}".expected "${0}".test-case-output >/dev/null 2>&1
-    RETURN_CODE=${?}
-    if [ ${RETURN_CODE} -eq 0 ] ; then
-           echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - No difference with expected output - ${BOLD}PASS - PASS${NORMAL}"
-    elif [ ${RETURN_CODE} -eq 1 ] ; then
-           echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - Differences with expected output - ${BOLD}FAIL - FAIL${NORMAL}"
-           diff -y "${0}".expected "${0}".test-case-output
-    else
-           echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - Test script ERROR - ${BOLD}FAIL - FAIL${NORMAL}"
-    fi
 
 # Memo:
 
@@ -170,18 +157,17 @@ edit  all SA-setup.sh:
 
 Note:  
 
-    $ git status
+     $ git status
     On branch master
     Your branch is up-to-date with 'origin/master'.
     Untracked files:
       (use "git add <file>..." to include in what will be committed)
 
-	**hooks/**
+	hooks/
 
-nothing added to commit but untracked files present (use "git add" to track)
- 
-     021452 uadmin@three-rpi3b: /tmp/dmonitor
-         $ ls -al
+Nothing added to commit after adding hooks but untracked files present (use "git add" to track)
+
+     $ ls -al
     total 32
     drwxrwxr-x 5 uadmin uadmin 4096 Sep  2 14:37 .
     drwxrwxrwt 9 root   root   4096 Sep  2 14:52 ..
@@ -191,14 +177,12 @@ nothing added to commit but untracked files present (use "git add" to track)
     drwxrwxr-x 2 uadmin uadmin 4096 Sep  2 14:36 images
     -rw-rw-r-- 1 uadmin uadmin 1070 Sep  2 14:36 LICENSE
     -rw-rw-r-- 1 uadmin uadmin 4038 Sep  2 14:36 README.md
+ 
+     $ **mkdir -p TEST/dmonitor**
+    
+     $ cp hooks/EXAMPLES/SA-setup.sh TEST/dmonitor
 
-    021452 uadmin@three-rpi3b: /tmp/dmonitor
-         $ **mkdir -p TEST/dmonitor**
-    021453 uadmin@three-rpi3b: /tmp/dmonitor
-         $ **cp hooks/EXAMPLES/SA-setup.sh TEST/dmonitor**
 
-
-Add something about creating a symbolic link from ../.git/hooks to this hooks directory that are managed in this repository using markit.  . . .  covered earlier WTF
 
 Need to add something here but what?
 
