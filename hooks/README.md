@@ -134,7 +134,7 @@ https://help.github.com/en/articles/syncing-a-fork
 
 You will notice that the 'git commit' command triggered a search for test cases and '...No test case directory found in TEST/sample.sh/TEST/SA-setup.sh' message.
 
-**Make a change to sample.sh and execute test case when running 'git commit'
+**Make a change to sample.sh and execute test case when running 'git commit'**
     
     vi sample.sh
     
@@ -145,11 +145,11 @@ You will notice that the 'git commit' command triggered a search for test cases 
 
 Two Static Analysis (SA) test cases were executed with one PASSing and the other ERRORing.  The message from the ERROR, '.../TEST-git-commit/TEST/sample.sh/SA-shellcheck-001.expected was not found.  Unable to compare shellcheck output.'  This test case requires SA-shellcheck-001.expected file so the test case can compare the expected output to SA-shellcheck-001.test-case-output.  Create an empty file because we want the expected output from shellcheck to be no errors.
 
-**Create an empty file, TEST/sample.sh/SA-shellcheck-001.expected
+**Create an empty file, TEST/sample.sh/SA-shellcheck-001.expected**
 
     touch TEST/sample.sh/SA-shellcheck-001.expected  #  create empty SA-shellcheck-001.expected file
     
-**Make a change to sample.sh and execute test case when running 'git commit'
+**Make a change to sample.sh and execute test case when running 'git commit'**
     
     vi sample.sh
     
