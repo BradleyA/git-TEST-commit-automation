@@ -36,7 +36,7 @@ Continuous Integration and Continuous Delivery (CI/CD) requires Continuous Testi
 #### Notes:
 
 - Include test cases with repository files being TESTed because changes need to be tracked.
-- And developers know what to test
+- Developers know what to test
 - Test case feedback for developer executing 'git commit -m '#145 closed - corrected xxxx' in a Git repository.  It is important NOT to stop the git commit. 
 
 
@@ -78,6 +78,8 @@ First do this then
     no changes added to commit (use "git add" and/or "git commit -a")
 
 https://help.github.com/en/articles/syncing-a-fork
+
+## Quick setup test of git-TEST-commit-automation solution
 
 **Start a new Git repository to test git-TEST-commit-automation solution**
 
