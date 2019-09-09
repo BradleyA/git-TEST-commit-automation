@@ -117,13 +117,13 @@ Start a new Git repository to test git-TEST-commit-automation solution
     #  Download git-TEST-commit-automation into this repository under the hooks directory
     curl -L https://api.github.com/repos/BradleyA/git-TEST-commit-automation/tarball | tar -xzf - --wildcards BradleyA-git-TEST-commit-automation-*/hooks/bin/setup-git-TEST-cases.sh ; mv BradleyA-git-TEST-commit-automation-*/hooks/bin/setup-git-TEST-cases.sh . ; rm -r BradleyA-git-TEST-commit-automation-*/
     ./setup-git-TEST-cases.sh   #  setup git-TEST-commit-automation in hooks directory and .git/hooks directory
-    rm setup-git-TEST-cases.sh  #  
+    rm setup-git-TEST-cases.sh
     
     mkdir -p TEST/sample.sh     #  Creating these two directories triggers post-commit to search for test cases for sample.sh
     cp -p hooks/EXAMPLES/SA-setup.sh TEST/sample.sh
     git add TEST/sample.sh      #  Include test case direcory in Git repository so test case follow code
     
-    git commit -m 'initial commit'  # runs two test cases one PASS and one ERROR
+    git commit -m 'initial commit'  #  runs two test cases one PASS and one ERROR
 
 
     # >>>   stop here for the nught   the test case SA-shellcheck-001 has the ERROR <<<<<<<<<<<<<
