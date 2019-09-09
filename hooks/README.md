@@ -158,16 +158,13 @@ Two Static Analysis (SA) test cases were executed with one PASSing and the other
     git add sample.sh
     git commit -m 'Second change to sample.sh'    
 
-Two test cases were run and two test cases have passed.  When you make changes to sample.sh and run Git commit, post-commit will search for test cases to run in TEST/sample.sh/ directory.  To add additional default SA- test case, edit TEST/sample.sh/SA-setup.sh and remove the starting comment '#'.
+Two test cases were run and two test cases have passed.  When you make changes to sample.sh and run Git commit, post-commit will search for test cases to run in TEST/sample.sh/ directory.  To add additional default SA- test case, edit TEST/sample.sh/SA-setup.sh file and remove the starting comment '#'.
     
- 
-How to edit this shit FVT-setup.sh and SA-setup.sh . . . Or  make another script or option to existing script
+**Create custom test cases**
 
-    cd <into Git repository direcory where <FILE_TO_BE_TESTED> is located. 
-    mkdir -p TEST/<FILE_TO_BE_TESTED>/
-    cd TEST/<FILE_TO_BE_TESTED>/
+Create a test case in directory, TEST/<FILE_TO_BE_TESTED>/, in the same direcory of the <FILE_TO_BE_TESTED>.  There are two locations to place your custom test case.  For test cases designed only for one file, use TEST/<FILE_TO_BE_TESTED>/ directory.  For test cases designed to be shared for more than one files use hooks/EXAMPLES/ directory.  Currently SA-* and FVT-* test cases are the only test cases supported by post-commit.
 
-Create a test case in directory, TEST/<FILE_TO_BE_TESTED>/, and name the file 'FVT-<test-case-name-no-dot-001>' (example: FVT-option-help-001).  Place the expected results from the test case into a file with the same test case name but add '.expcted' ('dot'expected).  In your test case, pipe the output into a file with the same name but add '.test-case-output'.  Append the following lines into your test case:
+and name the file 'FVT-<test-case-name-no-dot-001>' (example: FVT-option-help-001).  Place the expected results from the test case into a file with the same test case name but add '.expcted' ('dot'expected).  In your test case, pipe the output into a file with the same name but add '.test-case-output'.  Append the following lines into your test case:
 
 # Memo:
 
