@@ -132,7 +132,7 @@ https://help.github.com/en/articles/syncing-a-fork
     git add TEST/sample.sh/SA-setup.sh  #  Include test case direcory in Git repository
     git commit -m 'initial commit' 
 
-You will notice that the 'git commit' command triggered a search for test cases and '...No test case directory found in TEST/sample.sh/TEST/SA-setup.sh' message.
+You will notice that the 'git commit' command triggered a search for test cases and '...No test case directory found in TEST/sample.sh/TEST/SA-setup.sh' message.  After running 'git add TEST/sample.sh/SA-setup.sh', the Git hook, post-commit, was looking for TEST/sample.sh/TEST/SA-setup.sh/ directory to test SA-setup.sh.  Since the directory was not found an INFOrmation massage was displayed.
 
 **Make a change to sample.sh and execute test case when running 'git commit'**
     
@@ -143,7 +143,7 @@ You will notice that the 'git commit' command triggered a search for test cases 
     git add sample.sh
     git commit -m 'First change to sample.sh'
 
-Two Static Analysis (SA) test cases were executed with one PASSing and the other ERRORing.  The message from the ERROR, '.../TEST-git-commit/TEST/sample.sh/SA-shellcheck-001.expected was not found.  Unable to compare shellcheck output.'  This test case requires SA-shellcheck-001.expected file so the test case can compare the expected output to SA-shellcheck-001.test-case-output.  Create an empty file because we want the expected output from shellcheck to be no errors.
+Two Static Analysis (SA) test cases were executed with one PASSing and the other ERRORing.  The message from the ERROR, '.../TEST-git-commit/TEST/sample.sh/SA-shellcheck-001.expected was not found.  Unable to compare shellcheck output.'  This test case requires a SA-shellcheck-001.expected file so the test case can compare the expected output to SA-shellcheck-001.test-case-output file.  Create an empty file because we want the expected output from shellcheck to be no errors.
 
 **Create an empty file, TEST/sample.sh/SA-shellcheck-001.expected**
 
@@ -156,9 +156,9 @@ Two Static Analysis (SA) test cases were executed with one PASSing and the other
          echo "Second change"    #  add this line to end of sample.sh file
 	 
     git add sample.sh
-    git commit -m 'Second change to sample.sh'
-    
-    for SA-shellcheck-001 to compare with the SA-shellcheck-001.test-case-output file (is the output what is expected?). . . . 	
+    git commit -m 'Second change to sample.sh'    
+
+Two test cases were run and two test cases have passed.  When you make changes to sample.sh and run Git commit, post-commit will search for test cases to run in TEST/sample.sh/ directory.  To add additional default SA- test case, edit TEST/sample.sh/SA-setup.sh and remove the starting comment '#'.
     
  
 How to edit this shit FVT-setup.sh and SA-setup.sh . . . Or  make another script or option to existing script
