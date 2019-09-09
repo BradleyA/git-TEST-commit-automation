@@ -30,32 +30,15 @@ Continuous Integration and Continuous Delivery (CI/CD) requires Continuous Testi
     - Include support for custom test cases or intergration with other test or CI solutions 
     - Support several types of files (support additional test case types (FVT,SA)
 	
+**Start editing from here:  These notes are cut and paste of information and make some since once I finsh design**
+
 #### Notes:
 
 - Include test cases with repository files being TESTed because changes need to be tracked.
 - And developers know what to test
 - Test case feedback for developer executing 'git commit -m '#145 closed - corrected xxxx' in a Git repository.  It is important NOT to stop the git commit. 
+ 
 
-How is that?
-
- **Start editing from here:  These notes are cut and paste of information and make some since once I finsh design**
-
-    git commit -m 'latest changes' <COMMIT_FILE_NAME>
-
-After entering the above command, Git runs any Git hooks found in \<REPOSITORY-NAME>/.git/hooks/ directory.  Git hooks are scripts that Git executes before and/or after events. Two local Git hooks are included with git-TEST-commit-automation. 
-
-- hooks/pre-commit  - Creates \<REPOSITORY>/hooks/COMMIT_FILE_LIST with a list of \<REPOSITORY-PATH>/\<FILE> being committed
-- hooks/post-commit - Run production standard TESTing  
-
-     **Production standard TESTing** - run test cases for files found in \<REPOSITORY>/hooks/COMMIT_FILE_LIST
-  - Loop through committed files found in COMMIT_FILE_LIST
-  - Check if COMMIT_FILE has a 'TEST' directory
-  - Create links to EXAMPLES/\<TEST_CASE> and \<TEST_CASE>.expected and other test case files (FVT-setup.sh, SA-setup.sh)
-  - Create list of test cases found in \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/ directory (files starting with SA-, FVT-)
-  - Loop through \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/SA-<TEST_CASE>
-    - Run \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/SA-<TEST_CASE>
-  - Loop through \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/FVT-<TEST_CASE>
-    - Run \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/FVT-<TEST_CASE>
   
 **PASS** or **FAIL** or **ERROR**, some methed will notify someone of the results. (not sure which method is going to work for me and you? . . . stdout, logs-scrape, tables, email, twitter, slack, tall a friand, etc.)
  
@@ -210,9 +193,24 @@ Nothing added to commit after adding hooks but untracked files present (use "git
     
      $ cp hooks/EXAMPLES/SA-setup.sh TEST/dmonitor
 
+====>>>  Moved from above
 
+    git commit -m 'latest changes' <COMMIT_FILE_NAME>
 
-Need to add something here but what?
+After entering the above command, Git runs any Git hooks found in \<REPOSITORY-NAME>/.git/hooks/ directory.  Git hooks are scripts that Git executes before and/or after events. Two local Git hooks are included with git-TEST-commit-automation. 
+
+- hooks/pre-commit  - Creates \<REPOSITORY>/hooks/COMMIT_FILE_LIST with a list of \<REPOSITORY-PATH>/\<FILE> being committed
+- hooks/post-commit - Run production standard TESTing  
+
+     **Production standard TESTing** - run test cases for files found in \<REPOSITORY>/hooks/COMMIT_FILE_LIST
+  - Loop through committed files found in COMMIT_FILE_LIST
+  - Check if COMMIT_FILE has a 'TEST' directory
+  - Create links to EXAMPLES/\<TEST_CASE> and \<TEST_CASE>.expected and other test case files (FVT-setup.sh, SA-setup.sh)
+  - Create list of test cases found in \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/ directory (files starting with SA-, FVT-)
+  - Loop through \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/SA-<TEST_CASE>
+    - Run \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/SA-<TEST_CASE>
+  - Loop through \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/FVT-<TEST_CASE>
+    - Run \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/FVT-<TEST_CASE>
 
 ====>>>
 
