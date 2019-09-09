@@ -125,7 +125,7 @@ Two Static Analysis (SA) test cases were executed with one PASSing and the other
 **Create an empty file, TEST/sample.sh/SA-shellcheck-001.expected**
 
     touch TEST/sample.sh/SA-shellcheck-001.expected  #  create empty SA-shellcheck-001.expected file
-    git add TEST/sample.sh/SA-shellcheck-001.expected  #  Include test case .expected output in Git repository
+    git add TEST/sample.sh/SA-shellcheck-001.expected  #  Include test case .expected output file in Git repository
     git commit -m 'initial commit' 
 
 **Make a change to sample.sh and run 'git add' and 'git commit'**
@@ -138,8 +138,8 @@ Two Static Analysis (SA) test cases were executed with one PASSing and the other
     git commit -m 'Second change to sample.sh'    
 
 Two test cases were run and two test cases have passed.  When you make changes to sample.sh and run Git commit, post-commit will search for test cases to run in TEST/sample.sh/ directory.  To add additional default SA- test case, edit TEST/sample.sh/SA-setup.sh file and remove the starting comment '#'.
-    
-**Create custom test cases**
+  
+## Create Custom Test Cases
 
 Create a test case in directory, TEST/<FILE_TO_BE_TESTED>/, in the same direcory of the <FILE_TO_BE_TESTED>.  There are two locations to place your custom test case.  For test cases designed only for one file, use TEST/<FILE_TO_BE_TESTED>/ directory.  For test cases designed to be shared for more than one files use hooks/EXAMPLES/ directory.  Currently SA-* and FVT-* test cases are the only test cases supported by post-commit.
 
