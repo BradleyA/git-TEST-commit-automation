@@ -79,7 +79,7 @@ First do this then
 
 https://help.github.com/en/articles/syncing-a-fork
 
-## Quick setup test of git-TEST-commit-automation solution
+## Steps to evaluate git-TEST-commit-automation solution
 
 **Start a new Git repository to test git-TEST-commit-automation solution**
 
