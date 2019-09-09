@@ -76,6 +76,7 @@ First do this then
  **execute setup-git-TEST-cases.sh in an existing Git repository already using git-TEST-commit-automation**
  
     cd ~/github/BradleyA/\<REPOSITORY>
+    curl -L https://api.github.com/repos/BradleyA/git-TEST-commit-automation/tarball | tar -xzf - --wildcards BradleyA-git-TEST-commit-automation-*/hooks/bin/setup-git-TEST-cases.sh ; mv BradleyA-git-TEST-commit-automation-*/hooks/bin/setup-git-TEST-cases.sh . ; rm -r BradleyA-git-TEST-commit-automation-*/
     setup-git-TEST-cases.sh
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                      Dload  Upload   Total   Spent    Left  Speed
@@ -105,8 +106,8 @@ https://help.github.com/en/articles/syncing-a-fork
 
 Start a new Git repository to test git-TEST-commit-automation solution
 
-    mkdir git-TEST-A            #  Create a directory for a Git repository
-    cd git-TEST-1   
+    mkdir TEST-git-commit       #  Create a directory for a Git repository
+    cd TEST-git-commit
     git init .                  #  Create an empty Git repository
     vi sample.sh                #  Write a shell script              
          #!/bin/bash
@@ -114,7 +115,7 @@ Start a new Git repository to test git-TEST-commit-automation solution
          echo "Hello World"
     chmod +x sample.sh
     #  Download git-TEST-commit-automation into this repository under the hooks directory
-    curl -L https://api.github.com/repos/BradleyA/git-TEST-commit-automation/tarball | tar -xzf - --wildcards BradleyA-git-TEST-commit-automation-*/hooks/bin/setup-git-TEST-cases.sh ; mv BradleyA-git-TEST-commit-automation-*/hooks/bin/setup-git-TEST-cases.sh . ; rm -r BradleyA-git-TEST-commit-automation-*/
+    curl -L https://api.github.com/repos/BradleyA/git-TEST-commit-automation/tarball | tar -xzf - --wildcards BradleyA-git-TEST-commit-automation-*r/hooks/bin/setup-git-TEST-cases.sh ; mv BradleyA-git-TEST-commit-automation-*/hooks/bin/setup-git-TEST-cases.sh . ; rm -r BradleyA-git-TEST-commit-automation-*/
     ./setup-git-TEST-cases.sh   #  setup git-TEST-commit-automation in hooks directory and .git/hooks directory
     rm setup-git-TEST-cases.sh  #  
     
