@@ -109,10 +109,12 @@ https://help.github.com/en/articles/syncing-a-fork
     mkdir TEST-git-commit       #  Create a directory for a Git repository
     cd TEST-git-commit
     git init .                  #  Create an empty Git repository
-    vi sample.sh                #  Write a shell script              
+    vi sample.sh                #  Write a shell script
+    
          #!/bin/bash
          ###  sample.sh 
          echo "Hello World"
+    
     chmod +x sample.sh
     git add sample.sh
     git commit -m 'initial commit' sample.sh
