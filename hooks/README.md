@@ -96,7 +96,7 @@ https://help.github.com/en/articles/syncing-a-fork
     git add sample.sh
     git commit -m 'initial commit' sample.sh
     
-**Download and execute setup-git-TEST-cases.sh to setup git-TEST-commit-automation in TEST-git-commit repository**
+**Download and execute setup-git-TEST-cases.sh to setup git-TEST-commit-automation solution**
 
     curl -L https://api.github.com/repos/BradleyA/git-TEST-commit-automation/tarball | tar -xzf - --wildcards BradleyA-git-TEST-commit-automation-*/hooks/bin/setup-git-TEST-cases.sh ; mv BradleyA-git-TEST-commit-automation-*/hooks/bin/setup-git-TEST-cases.sh . ; rm -r BradleyA-git-TEST-commit-automation-*/
     ./setup-git-TEST-cases.sh   #  setup git-TEST-commit-automation in hooks directory and .git/hooks directory
@@ -109,9 +109,9 @@ https://help.github.com/en/articles/syncing-a-fork
     git add TEST/sample.sh/SA-setup.sh  #  Include test case direcory in Git repository
     git commit -m 'initial commit' 
 
-You will notice that the 'git commit' command triggered a search for test cases and '...No test case directory found in TEST/sample.sh/TEST/SA-setup.sh' message.  After running 'git add TEST/sample.sh/SA-setup.sh', the Git hook, post-commit, was looking for TEST/sample.sh/TEST/SA-setup.sh/ directory to test SA-setup.sh.  Since the directory was not found an INFOrmation massage was displayed.
+You will notice that the 'git commit' command triggered a search for test cases and '...No test case directory found in TEST/sample.sh/TEST/SA-setup.sh' message.  After running 'git add TEST/sample.sh/SA-setup.sh' and 'git commit', the Git hook, post-commit, was looking for TEST/sample.sh/TEST/SA-setup.sh/ directory to test SA-setup.sh.  Since the directory was not found an INFOrmation massage was displayed.
 
-**Make a change to sample.sh and execute test case when running 'git commit'**
+**Make a change to sample.sh and running 'git add' and 'git commit'**
     
     vi sample.sh
     
