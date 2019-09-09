@@ -106,7 +106,7 @@ https://help.github.com/en/articles/syncing-a-fork
     
     mkdir -p TEST/sample.sh     #  Create directories to trigger post-commit to search for test cases for sample.sh
     cp -p hooks/EXAMPLES/SA-setup.sh TEST/sample.sh  # copy the SA setup file which has two test case links uncommented
-    git add TEST/sample.sh/SA-setup.sh  #  Include test case direcory in Git repository
+    git add TEST/sample.sh/SA-setup.sh  #  Include test case direcory and SA-setup.sh in Git repository
     git commit -m 'initial commit' 
 
 You will notice that the 'git commit' command triggered a search for test cases and '...No test case directory found in TEST/sample.sh/TEST/SA-setup.sh' message.  After running 'git add TEST/sample.sh/SA-setup.sh' and 'git commit', the Git hook, post-commit, was looking for TEST/sample.sh/TEST/SA-setup.sh/ directory to test SA-setup.sh.  Since the directory was not found an INFOrmation massage was displayed.
@@ -120,12 +120,14 @@ You will notice that the 'git commit' command triggered a search for test cases 
     git add sample.sh
     git commit -m 'First change to sample.sh'
 
-Two Static Analysis (SA) test cases were executed with one PASSing and the other ERRORing.  The message from the ERROR, '.../TEST-git-commit/TEST/sample.sh/SA-shellcheck-001.expected was not found.  Unable to compare shellcheck output.'  This test case requires a SA-shellcheck-001.expected file so the test case can compare the expected output to SA-shellcheck-001.test-case-output file.  Create an empty file because we want the expected output from shellcheck to be no errors.
+Two Static Analysis (SA) test cases were executed with one PASSing and the other ERRORing.  The message from the ERROR, '.../TEST-git-commit/TEST/sample.sh/SA-shellcheck-001.expected was not found.  Unable to compare shellcheck output.'  This test case requires a SA-shellcheck-001.expected file so the test case can compare the expected output to SA-shellcheck-001.test-case-output file.  Create an empty file because we want the expected output from shellcheck to be with no errors.
 
 **Create an empty file, TEST/sample.sh/SA-shellcheck-001.expected**
 
     touch TEST/sample.sh/SA-shellcheck-001.expected  #  create empty SA-shellcheck-001.expected file
-    
+    git add TEST/sample.sh/SA-shellcheck-001.expected  #  Include test case .expected output in Git repository
+    git commit -m 'initial commit' 
+
 **Make a change to sample.sh and run 'git add' and 'git commit'**
     
     vi sample.sh
