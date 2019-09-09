@@ -100,7 +100,7 @@ https://help.github.com/en/articles/syncing-a-fork
 
     curl -L https://api.github.com/repos/BradleyA/git-TEST-commit-automation/tarball | tar -xzf - --wildcards BradleyA-git-TEST-commit-automation-*/hooks/bin/setup-git-TEST-cases.sh ; mv BradleyA-git-TEST-commit-automation-*/hooks/bin/setup-git-TEST-cases.sh . ; rm -r BradleyA-git-TEST-commit-automation-*/
     ./setup-git-TEST-cases.sh   #  setup git-TEST-commit-automation in hooks directory and .git/hooks directory
-    rm setup-git-TEST-cases.sh  #  remove setup-git-TEST-cases.sh
+    rm setup-git-TEST-cases.sh  #  remove setup-git-TEST-cases.sh and setup is complete
     
 **Configure default test cases for sample.sh and execute two test cases**   
     
