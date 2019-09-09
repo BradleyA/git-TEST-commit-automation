@@ -20,7 +20,10 @@ Continuous Integration and Continuous Delivery (CI/CD) requires Continuous Testi
 - Quick check of test case depth for each file TESTed for any Git repository (in seconds) (option: all)
 - Quick reduction of untracked TEST case files (in seconds) (option: clean)
 
-   **Work needed here**
+#### Future objectives 
+    
+  **Work needed here**
+  
     - Design for quick test case git branch merge (include steps)
     - Quick upgrade of default test cases with test case code fixes (include steps, first test completed with setup-git-TEST-cases.sh)
     - Quick test branch merge from test team's custom test cases without merge conflicts (include steps)
