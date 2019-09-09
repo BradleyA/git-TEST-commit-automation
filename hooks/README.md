@@ -104,7 +104,7 @@ First do this then
 
 https://help.github.com/en/articles/syncing-a-fork
 
-Start a new Git repository to test git-TEST-commit-automation solution
+**Start a new Git repository to test git-TEST-commit-automation solution**
 
     mkdir TEST-git-commit       #  Create a directory for a Git repository
     cd TEST-git-commit
@@ -117,17 +117,20 @@ Start a new Git repository to test git-TEST-commit-automation solution
     git add sample.sh
     git commit -m 'initial commit' sample.sh
     
-#  Download git-TEST-commit-automation into this repository under the hooks directory
+**Download and execute setup-git-TEST-cases.sh to setup git-TEST-commit-automation in TEST-git-commit repository**
 
     curl -L https://api.github.com/repos/BradleyA/git-TEST-commit-automation/tarball | tar -xzf - --wildcards BradleyA-git-TEST-commit-automation-*/hooks/bin/setup-git-TEST-cases.sh ; mv BradleyA-git-TEST-commit-automation-*/hooks/bin/setup-git-TEST-cases.sh . ; rm -r BradleyA-git-TEST-commit-automation-*/
     ./setup-git-TEST-cases.sh   #  setup git-TEST-commit-automation in hooks directory and .git/hooks directory
-    rm setup-git-TEST-cases.sh
+    rm setup-git-TEST-cases.sh  #  remove setup-git-TEST-cases.sh
     
-    mkdir -p TEST/sample.sh     #  Creating these two directories triggers post-commit to search for test cases for sample.sh
-    cp -p hooks/EXAMPLES/SA-setup.sh TEST/sample.sh
-    git add TEST/sample.sh      #  Include test case direcory in Git repository so test case follow code
+**Configure default test cases for samples.sh and execute two test cases**   
     
-    git commit -m 'initial commit'  #  runs two test cases one PASS and one ERROR
+    mkdir -p TEST/sample.sh     #  Create directories to trigger post-commit to search for test cases for sample.sh
+    cp -p hooks/EXAMPLES/SA-setup.sh TEST/sample.sh  # copy the SA setup file which has two test case links uncommented
+    git add TEST/sample.sh/SA-setup.sh  #  Include test case direcory in Git repository
+    git commit -m 'initial commit' 
+
+You will notice that the 'git commit' command trigger a search for test cases and none where found for SA-setup
 
 
     # >>>   stop here for the nught   the test case SA-shellcheck-001 has the ERROR <<<<<<<<<<<<<
