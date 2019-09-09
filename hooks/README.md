@@ -125,27 +125,41 @@ https://help.github.com/en/articles/syncing-a-fork
     ./setup-git-TEST-cases.sh   #  setup git-TEST-commit-automation in hooks directory and .git/hooks directory
     rm setup-git-TEST-cases.sh  #  remove setup-git-TEST-cases.sh
     
-**Configure default test cases for samples.sh and execute two test cases**   
+**Configure default test cases for sample.sh and execute two test cases**   
     
     mkdir -p TEST/sample.sh     #  Create directories to trigger post-commit to search for test cases for sample.sh
     cp -p hooks/EXAMPLES/SA-setup.sh TEST/sample.sh  # copy the SA setup file which has two test case links uncommented
     git add TEST/sample.sh/SA-setup.sh  #  Include test case direcory in Git repository
     git commit -m 'initial commit' 
 
-You will notice that the 'git commit' command trigger a search for test cases and none where found for SA-setup
+You will notice that the 'git commit' command triggered a search for test cases and '...No test case directory found in TEST/sample.sh/TEST/SA-setup.sh' message.
 
-
-    # >>>   stop here for the nught   the test case SA-shellcheck-001 has the ERROR <<<<<<<<<<<<<
-    
-    touch TEST/sample.sh/SA-shellcheck-001.expected  #  correct incident by adding an empty SA-shellcheck-001.expected file for SA-shellcheck-001 to compare with the SA-shellcheck-001.test-case-output file (is the output what is expected?)
-    
+**Make a change to sample.sh and execute test case when running 'git commit'
     
     vi sample.sh
-       echo "try again"                    #  add line to end of file
+    
+         echo "First change"    #  add this line to end of sample.sh file
+	 
     git add sample.sh
-    git commit -m 'try two'
-        
-    . . . . . 	
+    git commit -m 'First change to sample.sh'
+
+Two Static Analysis (SA) test cases were executed with one PASSing and the other ERRORing.  The message from the ERROR, '.../TEST-git-commit/TEST/sample.sh/SA-shellcheck-001.expected was not found.  Unable to compare shellcheck output.'  This test case requires SA-shellcheck-001.expected file so the test case can compare the expected output to SA-shellcheck-001.test-case-output.  Create an empty file because we want the expected output from shellcheck to be no errors.
+
+**Create an empty file, TEST/sample.sh/SA-shellcheck-001.expected
+
+    touch TEST/sample.sh/SA-shellcheck-001.expected  #  create empty SA-shellcheck-001.expected file
+    
+**Make a change to sample.sh and execute test case when running 'git commit'
+    
+    vi sample.sh
+    
+         echo "Second change"    #  add this line to end of sample.sh file
+	 
+    git add sample.sh
+    git commit -m 'Second change to sample.sh'
+    
+    for SA-shellcheck-001 to compare with the SA-shellcheck-001.test-case-output file (is the output what is expected?). . . . 	
+    
  
 How to edit this shit FVT-setup.sh and SA-setup.sh . . . Or  make another script or option to existing script
 
