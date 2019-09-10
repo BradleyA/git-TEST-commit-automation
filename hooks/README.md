@@ -102,7 +102,7 @@ https://help.github.com/en/articles/syncing-a-fork
     ./setup-git-TEST-cases.sh   #  setup git-TEST-commit-automation in hooks directory and .git/hooks directory
     rm setup-git-TEST-cases.sh  #  remove setup-git-TEST-cases.sh and setup is complete
     
-**Configure default test cases for sample.sh and execute two test cases**   
+**Configure two default test cases for sample.sh and execute them**   
     
     mkdir -p TEST/sample.sh     #  Create directories to trigger post-commit to search for test cases for sample.sh
     cp -p hooks/EXAMPLES/SA-setup.sh TEST/sample.sh  # copy the SA setup file which has two test case links uncommented
