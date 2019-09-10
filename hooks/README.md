@@ -97,7 +97,9 @@ Create a test case in directory, TEST/<FILE_TO_BE_TESTED>/, in the same direcory
 
 When creating a custom test case name it 'SA-<test-case-name-no-dot-001>' for Static Analysis (SA) or 'FVT-<test-case-name-no-dot-001>' for Funciotnal Verification Test.  For example a Functional Verification Test that tests if the option '--help' works is named FVT-option-help-001).
 
-**Funciotnal Verification** is defined as the process of verifying that the design meets its specification from a functional perspective. ... Functional verification establishes that the design under test (DUT) implements the functionality of the specification correctly.
+**Funciotnal Verification (FVT)** is defined as the process of verifying that the design meets its specification from a functional perspective. ... Functional verification establishes that the design under test (DUT) implements the functionality of the specification correctly.
+
+**Static Analysis (SA)** is the examination of code prior to the program’s execution SA is code analysis, syntax, permission, code inspection, code review, etc.
 	
 Place the expected results from the test case into a file with the same test case name but add '.expected' ('dot'expected).  Pipe the output from the test case into a file with the same name but add '.test-case-output'. 
 
