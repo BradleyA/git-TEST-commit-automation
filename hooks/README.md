@@ -3,7 +3,7 @@
 
 **In development** ...(8/2019 - 9/2019)
 
-**in test** ...............(9/7/2019 - )
+**In test** ...............(9/7/2019 - )
  
 **WARNING**: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
 
