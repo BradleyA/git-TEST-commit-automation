@@ -15,10 +15,10 @@ Continuous Integration and Continuous Delivery (CI/CD) requires Continuous Testi
      - It has been 1 minute or a two week sprint, which of these two scenarios would take less time to resolution.
 
 #### Objectives:
-- Quick setup with default test cases for any Git repository (in seconds)
-- Quick uninstall on any Git repository (in seconds)
-- Quick check of test case depth for each file TESTed for any Git repository (in seconds) (option: all)
-- Quick reduction of untracked TEST case files (in seconds) (option: clean)
+1) Quick setup with default test cases for any Git repository (in seconds)
+2) Quick uninstall on any Git repository (in seconds)
+3) Quick check of test case depth for each file TESTed for any Git repository (in seconds) (option: all)
+4) Quick reduction of untracked TEST case files (in seconds) (option: clean)
 
 #### Future Objectives 
 
@@ -49,6 +49,8 @@ Continuous Integration and Continuous Delivery (CI/CD) requires Continuous Testi
     git commit -m 'initial commit' sample.sh
     
 **Download and execute setup-git-TEST-cases.sh to setup git-TEST-commit-automation solution**
+
+Objective 1) Quick setup with default test cases for any Git repository (in seconds)
 
     curl -L https://api.github.com/repos/BradleyA/git-TEST-commit-automation/tarball | tar -xzf - --wildcards BradleyA-git-TEST-commit-automation-*/hooks/bin/setup-git-TEST-cases.sh ; mv BradleyA-git-TEST-commit-automation-*/hooks/bin/setup-git-TEST-cases.sh . ; rm -r BradleyA-git-TEST-commit-automation-*/
     ./setup-git-TEST-cases.sh   #  setup git-TEST-commit-automation in hooks directory and .git/hooks directory
