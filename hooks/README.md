@@ -1,10 +1,9 @@
 # git-TEST-commit-automation  [![Stable Release](https://img.shields.io/badge/Release-2.59-blue.svg)](https://github.com/BradleyA/git-TEST-commit-automation/releases/tag/2.59)    [![GitHub commits](https://img.shields.io/github/commits-since/BradleyA/git-TEST-commit-automation/2.59.svg)](https://github.com/BradleyA/git-TEST-commit-automation/commits/)
 
-### in development
-(8/2019 - 9/2019)
-### in test 
-(9/7/2019 - )
+**in development.......in test   **
 
+(8/2019 - 9/2019)....(9/7/2019 - )
+ 
 **WARNING**: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
 
 #### Strategy:
@@ -141,9 +140,17 @@ Two test cases were run and two test cases have passed.  When you make changes t
   
 ## Create Custom Test Cases
 
-Create a test case in directory, TEST/<FILE_TO_BE_TESTED>/, in the same direcory of the <FILE_TO_BE_TESTED>.  There are two locations to place your custom test case.  For test cases designed only for one file, use TEST/<FILE_TO_BE_TESTED>/ directory.  For test cases designed to be shared for more than one files use hooks/EXAMPLES/ directory.  Currently SA-* and FVT-* test cases are the only test cases supported by post-commit.
+Create a test case in directory, TEST/<FILE_TO_BE_TESTED>/, in the same direcory of the <FILE_TO_BE_TESTED>.  There are two locations to place your custom test case.  For test cases designed only for one file, use TEST/<FILE_TO_BE_TESTED>/ directory.  For test cases designed to be shared for more than one files use hooks/EXAMPLES/ directory and add a link (ln) to it in TEST/<FILE_TO_BE_TESTED>/SA-setup.sh.  Currently SA-* and FVT-* test cases are the only test cases supported by post-commit.
 
-and name the file 'FVT-<test-case-name-no-dot-001>' (example: FVT-option-help-001).  Place the expected results from the test case into a file with the same test case name but add '.expcted' ('dot'expected).  In your test case, pipe the output into a file with the same name but add '.test-case-output'.  Append the following lines into your test case:
+When creating a custom test case name it 'SA-<test-case-name-no-dot-001>' for Static Analysis (SA) or 'FVT-<test-case-name-no-dot-001>' for Funciotnal Verification Test.  For example a Functional Verification Test that tests if the option '--help' works is named FVT-option-help-001).
+
+**Funciotnal Verification** is defined as the process of verifying that the design meets its specification from a functional perspective. ... Functional verification establishes that the design under test (DUT) implements the functionality of the specification correctly.
+	
+Place the expected results from the test case into a file with the same test case name but add '.expected' ('dot'expected).  Pipe the output from the test case into a file with the same name but add '.test-case-output'. 
+
+## Do something else here
+
+Append the following lines into your test case:
 
 # Memo:
 
@@ -213,8 +220,6 @@ After entering the above command, Git runs any Git hooks found in \<REPOSITORY-N
 **hooks directory**  The hooks directory was created because I wanted to modify the GitHub hooks and track changes per repository.  Include hooks/ in repostory because .git/hooks is not pushed and hooks change and these changes need to be tracked in a Git repository. (need to retest)
 **Note**   I found out about hooks and need to remember and add to the README why I added a hooks directory in the repository so the hooks can be managed by the repository . . .Hooks are per-repository and are not designed to be pushed but can be pushed. Similarly, the repo config isn't pushed either, nor is anything in .git/info , or a number of other things. Pushing and pulling only exchanges branches/tags and commit objects (and anything reachable from a commit, e.g. trees, blobs** Add something about creating a symbolic link from ../.git/hooks to this hooks directory that are managed in this repository using markit. 
 
-**Functional Verification** is defined as the process of verifying that the design meets its specification from a functional perspective. ... Functional verification establishes that the design under test (DUT) implements the functionality of the specification correctly.
-verifying that the design meets its specification from a functional perspective. ... Functional verification establishes that the design under test (DUT) implements the functionality of the specification correctly.
 ====>>>
 
 [BradleyA/git-TEST-commit-automation] hooks/bin/setup-git-TEST-cases.sh - setup git TEST cases in current repository (#2)
