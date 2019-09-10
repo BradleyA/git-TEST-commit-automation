@@ -79,7 +79,7 @@ First do this then
 
 https://help.github.com/en/articles/syncing-a-fork
 
-## Quick setup test of git-TEST-commit-automation solution
+## Steps to evaluate git-TEST-commit-automation solution
 
 **Start a new Git repository to test git-TEST-commit-automation solution**
 
@@ -96,22 +96,22 @@ https://help.github.com/en/articles/syncing-a-fork
     git add sample.sh
     git commit -m 'initial commit' sample.sh
     
-**Download and execute setup-git-TEST-cases.sh to setup git-TEST-commit-automation in TEST-git-commit repository**
+**Download and execute setup-git-TEST-cases.sh to setup git-TEST-commit-automation solution**
 
     curl -L https://api.github.com/repos/BradleyA/git-TEST-commit-automation/tarball | tar -xzf - --wildcards BradleyA-git-TEST-commit-automation-*/hooks/bin/setup-git-TEST-cases.sh ; mv BradleyA-git-TEST-commit-automation-*/hooks/bin/setup-git-TEST-cases.sh . ; rm -r BradleyA-git-TEST-commit-automation-*/
     ./setup-git-TEST-cases.sh   #  setup git-TEST-commit-automation in hooks directory and .git/hooks directory
-    rm setup-git-TEST-cases.sh  #  remove setup-git-TEST-cases.sh
+    rm setup-git-TEST-cases.sh  #  remove setup-git-TEST-cases.sh and setup is complete
     
 **Configure default test cases for sample.sh and execute two test cases**   
     
     mkdir -p TEST/sample.sh     #  Create directories to trigger post-commit to search for test cases for sample.sh
     cp -p hooks/EXAMPLES/SA-setup.sh TEST/sample.sh  # copy the SA setup file which has two test case links uncommented
-    git add TEST/sample.sh/SA-setup.sh  #  Include test case direcory in Git repository
+    git add TEST/sample.sh/SA-setup.sh  #  Include test case direcory and SA-setup.sh in Git repository
     git commit -m 'initial commit' 
 
-You will notice that the 'git commit' command triggered a search for test cases and '...No test case directory found in TEST/sample.sh/TEST/SA-setup.sh' message.  After running 'git add TEST/sample.sh/SA-setup.sh', the Git hook, post-commit, was looking for TEST/sample.sh/TEST/SA-setup.sh/ directory to test SA-setup.sh.  Since the directory was not found an INFOrmation massage was displayed.
+You will notice that the 'git commit' command triggered a search for test cases and '...No test case directory found in TEST/sample.sh/TEST/SA-setup.sh' message.  After running 'git add TEST/sample.sh/SA-setup.sh' and 'git commit', the Git hook, post-commit, was looking for TEST/sample.sh/TEST/SA-setup.sh/ directory to test SA-setup.sh.  Since the directory was not found an INFOrmation massage was displayed.
 
-**Make a change to sample.sh and execute test case when running 'git commit'**
+**Make a change to sample.sh and run 'git add' and 'git commit'**
     
     vi sample.sh
     
@@ -120,13 +120,15 @@ You will notice that the 'git commit' command triggered a search for test cases 
     git add sample.sh
     git commit -m 'First change to sample.sh'
 
-Two Static Analysis (SA) test cases were executed with one PASSing and the other ERRORing.  The message from the ERROR, '.../TEST-git-commit/TEST/sample.sh/SA-shellcheck-001.expected was not found.  Unable to compare shellcheck output.'  This test case requires a SA-shellcheck-001.expected file so the test case can compare the expected output to SA-shellcheck-001.test-case-output file.  Create an empty file because we want the expected output from shellcheck to be no errors.
+Two Static Analysis (SA) test cases were executed with one PASSing and the other ERRORing.  The message from the ERROR, '.../TEST-git-commit/TEST/sample.sh/SA-shellcheck-001.expected was not found.  Unable to compare shellcheck output.'  This test case requires a SA-shellcheck-001.expected file so the test case can compare the expected output to SA-shellcheck-001.test-case-output file.  Create an empty file because we want the expected output from shellcheck to be with no errors.
 
 **Create an empty file, TEST/sample.sh/SA-shellcheck-001.expected**
 
     touch TEST/sample.sh/SA-shellcheck-001.expected  #  create empty SA-shellcheck-001.expected file
-    
-**Make a change to sample.sh and execute test case when running 'git commit'**
+    git add TEST/sample.sh/SA-shellcheck-001.expected  #  Include test case .expected output file in Git repository
+    git commit -m 'initial commit' 
+
+**Make a change to sample.sh and run 'git add' and 'git commit'**
     
     vi sample.sh
     
@@ -136,8 +138,8 @@ Two Static Analysis (SA) test cases were executed with one PASSing and the other
     git commit -m 'Second change to sample.sh'    
 
 Two test cases were run and two test cases have passed.  When you make changes to sample.sh and run Git commit, post-commit will search for test cases to run in TEST/sample.sh/ directory.  To add additional default SA- test case, edit TEST/sample.sh/SA-setup.sh file and remove the starting comment '#'.
-    
-**Create custom test cases**
+  
+## Create Custom Test Cases
 
 Create a test case in directory, TEST/<FILE_TO_BE_TESTED>/, in the same direcory of the <FILE_TO_BE_TESTED>.  There are two locations to place your custom test case.  For test cases designed only for one file, use TEST/<FILE_TO_BE_TESTED>/ directory.  For test cases designed to be shared for more than one files use hooks/EXAMPLES/ directory.  Currently SA-* and FVT-* test cases are the only test cases supported by post-commit.
 
