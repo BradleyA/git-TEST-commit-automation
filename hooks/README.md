@@ -31,54 +31,6 @@ Continuous Integration and Continuous Delivery (CI/CD) requires Continuous Testi
 - Include support for custom test cases or intergration with other test or CI solutions 
 - Support several types of files (support additional test case types (FVT,SA)
 	
-**Start editing from here:  These notes are cut and paste of information and make some since once I finsh design**
-
-#### Notes:
-
-- Include test cases with repository files being TESTed because changes need to be tracked.
-- Developers know what to test
-- Test case feedback for developer executing 'git commit -m '#145 closed - corrected xxxx' in a Git repository.  It is important NOT to stop the git commit. 
-
-
-**setup an environment for all tests to be run, creating directories for output, setting environment variables ... include clean section to remove and unset environment variables**
-
-## Setup Test Cases
-
-First do this then 
-
-    git clone https://github.com/BradleyA/git-TEST-commit-automation.git
- 
- **execute setup-git-TEST-cases.sh in an existing Git repository already using git-TEST-commit-automation**
- 
-    cd ~/github/BradleyA/\<REPOSITORY>
-    curl -L https://api.github.com/repos/BradleyA/git-TEST-commit-automation/tarball | tar -xzf - --wildcards BradleyA-git-TEST-commit-automation-*/hooks/bin/setup-git-TEST-cases.sh ; mv BradleyA-git-TEST-commit-automation-*/hooks/bin/setup-git-TEST-cases.sh . ; rm -r BradleyA-git-TEST-commit-automation-*/
-    setup-git-TEST-cases.sh
-      % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                     Dload  Upload   Total   Spent    Left  Speed
-      0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-    100  106k    0  106k    0     0  60836      0 --:--:--  0:00:01 --:--:--  222k
-
-    git status
-    On branch master
-    Your branch is up-to-date with 'origin/master'.
-    Changes not staged for commit:
-      (use "git add <file>..." to update what will be committed)
-      (use "git checkout -- <file>..." to discard changes in working directory)
-
-            modified:   hooks/README.md
-
-    Untracked files:
-      (use "git add <file>..." to include in what will be committed)
-
-            hooks/EXAMPLES/FVT-exit-code-error-0-001
-            hooks/EXAMPLES/FVT-exit-code-error-1-001
-            hooks/EXAMPLES/tmp-test-tar-files/name-that-file-txt
-            hooks/SETUP_TEST_CASES.md
-
-    no changes added to commit (use "git add" and/or "git commit -a")
-
-https://help.github.com/en/articles/syncing-a-fork
-
 ## Steps to evaluate git-TEST-commit-automation solution
 
 **Start a new Git repository to test git-TEST-commit-automation solution**
@@ -149,7 +101,49 @@ When creating a custom test case name it 'SA-<test-case-name-no-dot-001>' for St
 	
 Place the expected results from the test case into a file with the same test case name but add '.expected' ('dot'expected).  Pipe the output from the test case into a file with the same name but add '.test-case-output'. 
 
+**Start editing from here:  These notes are cut and paste of information and make some since once I finsh design**
+
+## Setup Test Cases ??
+
+First do this then 
+
+    git clone https://github.com/BradleyA/git-TEST-commit-automation.git
+ 
+ **execute setup-git-TEST-cases.sh in an existing Git repository already using git-TEST-commit-automation**
+ 
+    cd ~/github/BradleyA/\<REPOSITORY>
+    curl -L https://api.github.com/repos/BradleyA/git-TEST-commit-automation/tarball | tar -xzf - --wildcards BradleyA-git-TEST-commit-automation-*/hooks/bin/setup-git-TEST-cases.sh ; mv BradleyA-git-TEST-commit-automation-*/hooks/bin/setup-git-TEST-cases.sh . ; rm -r BradleyA-git-TEST-commit-automation-*/
+    setup-git-TEST-cases.sh
+      % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                     Dload  Upload   Total   Spent    Left  Speed
+      0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+    100  106k    0  106k    0     0  60836      0 --:--:--  0:00:01 --:--:--  222k
+
+    git status
+    On branch master
+    Your branch is up-to-date with 'origin/master'.
+    Changes not staged for commit:
+      (use "git add <file>..." to update what will be committed)
+      (use "git checkout -- <file>..." to discard changes in working directory)
+
+            modified:   hooks/README.md
+
+    Untracked files:
+      (use "git add <file>..." to include in what will be committed)
+
+            hooks/EXAMPLES/FVT-exit-code-error-0-001
+            hooks/EXAMPLES/FVT-exit-code-error-1-001
+            hooks/EXAMPLES/tmp-test-tar-files/name-that-file-txt
+            hooks/SETUP_TEST_CASES.md
+
+    no changes added to commit (use "git add" and/or "git commit -a")
+
+https://help.github.com/en/articles/syncing-a-fork
+
 ## Do something else here
+
+
+**setup an environment for all tests to be run, creating directories for output, setting environment variables ... include clean section to remove and unset environment variables**
 
 Append the following lines into your test case:
 
