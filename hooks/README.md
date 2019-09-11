@@ -153,6 +153,18 @@ Append the following lines into your test case:
 
 # Memo:
 
+    <COMMIT_FILE_NAME>.test-case-input - Add support
+  
+    <REPOSITORY>/<PATH>/TEST/<COMMIT_FILE_NAME>/
+      FVT-setup.sh  - setting up 'Production standard 10.0 TESTing' test cases
+      SA-setup.sh  - setting up 'Production standard 10.0 TESTing' test cases
+      FVT-cleanup.sh - remove all directories, files, links, ENVIRONMENT variables, <TEST_CASE_NAME>.test-case-output,etc for test cases
+      SA-cleanup.sh - remove all directories, files, links, ENVIRONMENT variables, <TEST_CASE_NAME>.test-case-output, etc for test cases
+      <TEST_CASE_NAME>.expected - expected output, error, etc
+      <TEST_CASE_NAME>.test-case-output - output produced from test case
+      <TEST_CASE_NAME>.test-case-input - input (. . text, directories, files, etc . . .)
+
+
 #### Quick setup to test this solution
 - fork or clone
 - edit test script to test
