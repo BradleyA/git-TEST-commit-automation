@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/SA-cleanup.sh  2.60.444  2019-09-09T17:28:07.793084-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.59-20-g99e2af3  
-# 	   SA-cleanup.sh FVT-cleanup.sh   initial commit 
+# 	hooks/EXAMPLES/SA-cleanup.sh  2.62.464  2019-09-10T21:04:04.288062-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.61-1-g1cac8a7  
+# 	   hooks/EXAMPLES/SA-cleanup.sh  add remove link files 
 #86# SA-cleanup.sh - test case cleanup
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.1.160 Copyright
@@ -43,7 +43,10 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBU
 
 ###  Place test case cleanup here
 
-#  unset
-#  rmdir
+#    unset environment variables
+#    rmdir temporary directories
+#    remove linked SA-* files
+for k in $(ls -1 "SA-*") ; do { [ ! -L "${k}" ] || rm -v "${k}"; } ; done
+#    rm -f temporary files
 rm -f SA-*.test-case-output
 ###
