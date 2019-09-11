@@ -1,8 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/uninstall-git-TEST-cases.sh  2.45.370  2019-09-05T20:28:25.285025-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.44  
-# 	   #1 #2 #3 #14  added #86# 
-# 	hooks/bin/uninstall-git-TEST-cases.sh  2.39.323  2019-09-02T23:08:57.145383-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.38  
-# 	   hooks/bin/uninstall-git-TEST-cases.sh  add code to check if ./hooks directory before running find on hooks :-) 
+# 	hooks/bin/uninstall-git-TEST-cases.sh  2.61.462  2019-09-10T20:06:29.817892-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.60-17-g46bae0a  
+# 	   close #20  hooks/bin/uninstall-git-TEST-cases.sh   correct incident with not removing TEST directory 
 #86# hooks/bin/uninstall-git-TEST-cases.sh - uninstall git TEST cases in current repository
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.1.160 Copyright
@@ -29,9 +27,21 @@ get_date_stamp() {
 LOCALHOST=$(hostname -f)
 
 #    Version
+SCRIPT_NAME=$(head -2 "${0}" | awk '{printf $2}')
 SCRIPT_VERSION=$(head -2 "${0}" | awk '{printf $3}')
 
-if [[ "${DEBUG}" == "1" ]] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation started." 1>&2 ; fi
+#    UID and GID
+USER_ID=$(id -u)
+GROUP_ID=$(id -g)
+
+###  Production standard 2.3.512 log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)
+new_message() {  #  $1="${SCRIPT_NAME}"  $2="${LINENO}"  $3="DEBUG INFO ERROR WARN"  $4="message"
+  get_date_stamp
+  echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${1}[$$] ${SCRIPT_VERSION} ${2} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[${3}]${NORMAL}  ${4}"
+}
+
+#    INFO
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "INFO" "  Started..." 1>&2 1>&2 ; fi
 
 ###
 
@@ -43,13 +53,14 @@ if git -C . rev-parse 2> /dev/null ; then  #  currect directory in a git reposit
   TMP_FILE_3=$(mktemp)    #  create temporary file
   TMP_FILE_2s=$(mktemp)   #  create temporary file
   TMP_FILE_3s=$(mktemp)   #  create temporary file
-  find . -path '*TEST/*' | grep -v './hooks'  >  "${TMP_FILE_2}"  #  ALL TEST directories and file not under hooks
+  find . -path '*TEST'   | grep -v './hooks' >  "${TMP_FILE_2}"  #  All TEST directores not under hooks directory #20
+  find . -path '*TEST/*' | grep -v './hooks' >> "${TMP_FILE_2}"  #  ALL TEST directory subdirectories and files not under hooks directory
   if [[ -d hooks ]] ; then 
     find ./hooks  >  "${TMP_FILE_3}"  #  ALL files and directories under hooks
   fi
   tar -rf "${TMP_FILE_1}.tar" --files-from "${TMP_FILE_2}" --files-from "${TMP_FILE_3}"
 
-#    git rm -r hooks
+#    Remove TEST directories, subdirectories, and files not under hooks directory
   sort -r "${TMP_FILE_2}" > "${TMP_FILE_2s}"  #  remove files before directories
   while read -r name ; do
     if git ls-files --error-unmatch "$name" 2> /dev/null ; then
@@ -63,7 +74,7 @@ if git -C . rev-parse 2> /dev/null ; then  #  currect directory in a git reposit
     fi
   done <  "${TMP_FILE_2s}"
 
-#    git rm -r hooks
+#    Remove hooks/ directory, subdirectories, and files
   sort -r "${TMP_FILE_3}" > "${TMP_FILE_3s}"  # remove files before directories
   while read -r name ; do
     if git ls-files --error-unmatch "${name}" 2> /dev/null ; then
@@ -82,14 +93,19 @@ if git -C . rev-parse 2> /dev/null ; then  #  currect directory in a git reposit
   rm -f  /usr/local/bin/check-git-TEST-cases.sh
   rm -f  /usr/local/bin/setup-git-TEST-cases.sh
   rm -f  /usr/local/bin/uninstall-git-TEST-cases.sh
-
-#		git commit -m 'remove git-TEST-commit-automation  hooks recursively'
-#		git push
+  mv "${TMP_FILE_1}.tar" .  #  #20   place the tar file in the repository top directory not /tmp
+  git commit -m 'remove git-TEST-commit-automation  hooks recursively'
+#  git push
+#
+else
+  EXIT_CODE=${?}
+  new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  The current directory, ($(pwd)), is Not a git repository (or any of the parent directories)." 1>&2
+  exit ${EXIT_CODE}
 fi
 
-# >>>  consider adding a user hint and include link to README.md  . . .  to answer that question, what now (WTF)  . . .  shit I forgot, hadn't done this in six months, quick!  . . .  is there a backup?  where?  . . .  are all the files and directories gone?  yep!
+# >>>  consider adding a user hint and include link to README.md  . . .  to answer that question, what now (WTF)  . . .  I forgot, hadn't done this in six months, quick!  . . .  is there a backup?  where?  . . .  are all the files and directories gone?  yep!
 # >>>  A copy of the files can be found in "${TMP_FILE_1}.tar" for les than 24 hours  . . .   I don't know when
 
 #		
-if [[ "${DEBUG}" == "1" ]] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation finished." 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "INFO" "  Operation finished..." 1>&2 ; fi
 ###
