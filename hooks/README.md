@@ -103,6 +103,9 @@ Two Static Analysis (SA) test cases were executed with one PASSing and the other
     git add sample.sh
     git commit -m 'Second change to sample.sh'    
 
+
+<img id="Steps git-TEST-commit-automation-6.gif" src="images/git-TEST-commit-automation-6.gif" >
+
 Two test cases were run and two test cases have passed.  When you make changes to sample.sh and run Git commit, post-commit will search for test cases to run in TEST/sample.sh/ directory.  To add additional default SA- test case, edit TEST/sample.sh/SA-setup.sh file and remove the starting comment '#'.
   
 ## Create Custom Test Cases
