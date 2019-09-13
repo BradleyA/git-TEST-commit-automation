@@ -44,7 +44,7 @@ Continuous Integration and Continuous Delivery (CI/CD) requires Continuous Testi
          ###  sample.sh 
          echo "Hello World"
     
-    chmod +x sample.sh
+    chmod 775 sample.sh
     git add sample.sh
     git commit -m 'initial commit' sample.sh
 
