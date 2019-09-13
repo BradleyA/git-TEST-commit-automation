@@ -31,7 +31,7 @@ Continuous Integration and Continuous Delivery (CI/CD) requires Continuous Testi
 - Include support for custom test cases or intergration with other test or CI solutions 
 - Support several types of files (support additional test case types (FVT,SA)
 	
-## Steps to evaluate git-TEST-commit-automation solution
+## [Steps to evaluate git-TEST-commit-automation solution](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/STEPS-TO-EVALUTE.md)
 
 **Start a new Git repository to test git-TEST-commit-automation solution**
 
