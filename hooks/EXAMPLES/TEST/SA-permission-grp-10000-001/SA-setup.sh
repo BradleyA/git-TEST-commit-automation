@@ -1,6 +1,8 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/SA-setup.sh  2.42.367  2019-09-05T16:46:57.526740-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.41  
-# 	   #13 hooks/EXAMPLES/SA-setup.sh  begin testing 
+# 	hooks/EXAMPLES/TEST/SA-permission-grp-10000-001/SA-setup.sh  2.67.496  2019-09-13T11:59:10.814185-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.66-2-g35d6ec8  
+# 	   copied latest version of SA-setup.sh 
+# 	hooks/EXAMPLES/SA-setup.sh  2.59.423  2019-09-08T22:15:35.308620-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.58  
+# 	   hooks/EXAMPLES/SA-*   add new_message 
 #86# hooks/EXAMPLES/SA-setup.sh - This script is optional.  It is for 
 #    'Production standard 10.0 TESTing' test cases.  Copy it to TEST/<file_name>/.
 #    If SA-setup.sh is found in TEST/<file_name>/ post-commit executes it.
@@ -19,7 +21,6 @@ if [[ "${DEBUG}" == "4" ]] ; then set -e    ; fi   # Exit command has a non-zero
 #
 BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
-
 #    Date and time function ISO 8601
 get_date_stamp() {
   DATE_STAMP=$(date +%Y-%m-%dT%H:%M:%S.%6N%:z)
@@ -31,11 +32,23 @@ get_date_stamp() {
 LOCALHOST=$(hostname -f)
 
 #    Version
+SCRIPT_NAME=$(head -2 "${0}" | awk '{printf $2}')
 SCRIPT_VERSION=$(head -2 "${0}" | awk '{printf $3}')
 
-if [[ "${DEBUG}" == "1" ]] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation started." 1>&2 ; fi
+#    UID and GID
+USER_ID=$(id -u)
+GROUP_ID=$(id -g)
+
+###  Production standard 2.3.512 log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)
+new_message() {  #  $1="${SCRIPT_NAME}"  $2="${LINENO}"  $3="DEBUG INFO ERROR WARN"  $4="message"
+  get_date_stamp
+  echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${1}[$$] ${SCRIPT_VERSION} ${2} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[${3}]${NORMAL}  ${4}"
+}
+
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Started..." 1>&2 ; fi
 
 ###  Production standard 10.0 TESTing 
+
 #    Remove output from previous run of test cases
 rm -f SA-*.test-case-output
 
@@ -49,15 +62,20 @@ else
 fi
 
 #    Uncomment shared TEST cases for command
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-644-001"      SA-permission-644-001
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-664-001"      SA-permission-664-001
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-755-001"      SA-permission-755-001
-ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-775-001"      SA-permission-775-001
-ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-shellcheck-001"           SA-shellcheck-001
+#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-exit-code-error-124-001"   SA-exit-code-error-124-001
+#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-exit-code-error-124-002"   SA-exit-code-error-124-002
+#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-exit-code-error-2-001"     SA-exit-code-error-2-001
 #
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-exit-code-error-124-001" SA-exit-code-error-124-001
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-exit-code-error-124-002" SA-exit-code-error-124-002
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-exit-code-error-2-001"   SA-exit-code-error-2-001
+#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-644-001"        SA-permission-644-001
+#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-664-001"        SA-permission-664-001
+#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-755-001"        SA-permission-755-001
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-775-001"        SA-permission-775-001
+#
+#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-grp-10000-001"  SA-permission-grp-10000-001
+#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-own-10000-001"  SA-permission-own-10000-001
+#
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-shellcheck-001"            SA-shellcheck-001
+#
 
 if [[ "${DEBUG}" == "1" ]] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation finished." 1>&2 ; fi
 ###

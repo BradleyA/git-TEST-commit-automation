@@ -1,15 +1,17 @@
 #!/bin/bash
-# 	hooks/bin/check-git-TEST-cases.sh  2.63.466  2019-09-10T21:47:11.110938-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.62-1-gc0ed686  
-# 	   hooks/bin/check-git-TEST-cases.sh   added new_message ; add (. ./SA-cleanup.sh) ; (. ./FVT-cleanup.sh) 
-# 	hooks/bin/check-git-TEST-cases.sh  2.7.285  2019-09-01T18:15:07.870384-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.6-1-g9568dd7  
-# 	   hooks/bin/check-git-TEST-cases.sh  add support to execute clean if found in TEST/<command>/ 
-# 	hooks/bin/check-git-TEST-cases.sh  3.437.684  2019-08-22T23:14:27.310360-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.436  
-# 	   hooks/bin/check-git-TEST-cases.sh  added to check-git-TEST-cases.sh clean rm -f FVT-*.test-case-output & rm -f SAST-*.test-case-output 
-# 	hooks/bin/check-git-TEST-cases.sh  3.436.683  2019-08-22T22:43:19.610899-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.435  
-# 	   hooks/bin/check-git-TEST-cases.sh added color to output and update comment 
-#86# hooks/bin/check-git-TEST-cases.sh -  search from top of repository to list TEST directory test cases
-#       check-git-TEST-cases.sh all - runs FVT-setup.sh and SA-setup.sh to create symbolic links to EXAMPLES before listing all test cases
-#       check-git-TEST-cases.sh clean - remove symbolic links from TEST/<command>/ directories
+# 	hooks/bin/list-git-TEST-cases.sh  2.67.496  2019-09-13T11:59:11.783195-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.66-2-g35d6ec8  
+# 	   copied latest version of SA-setup.sh 
+# 	hooks/bin/list-git-TEST-cases.sh  2.63.466  2019-09-10T21:47:11.110938-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.62-1-gc0ed686  
+# 	   hooks/bin/list-git-TEST-cases.sh   added new_message ; add (. ./SA-cleanup.sh) ; (. ./FVT-cleanup.sh) 
+# 	hooks/bin/list-git-TEST-cases.sh  2.7.285  2019-09-01T18:15:07.870384-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.6-1-g9568dd7  
+# 	   hooks/bin/list-git-TEST-cases.sh  add support to execute clean if found in TEST/<command>/ 
+# 	hooks/bin/list-git-TEST-cases.sh  3.437.684  2019-08-22T23:14:27.310360-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.436  
+# 	   hooks/bin/list-git-TEST-cases.sh  added to list-git-TEST-cases.sh clean rm -f FVT-*.test-case-output & rm -f SAST-*.test-case-output 
+# 	hooks/bin/list-git-TEST-cases.sh  3.436.683  2019-08-22T22:43:19.610899-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.435  
+# 	   hooks/bin/list-git-TEST-cases.sh added color to output and update comment 
+#86# hooks/bin/list-git-TEST-cases.sh -  search from top of repository to list TEST directory test cases
+#       list-git-TEST-cases.sh all - runs FVT-setup.sh and SA-setup.sh to create symbolic links to EXAMPLES before listing all test cases
+#       list-git-TEST-cases.sh clean - remove symbolic links from TEST/<command>/ directories
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.1.160 Copyright
 #    Copyright (c) 2019 Bradley Allen
