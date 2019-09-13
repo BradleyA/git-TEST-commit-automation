@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/list-git-TEST-cases.sh  2.69.503  2019-09-13T17:23:43.053898-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.68  
+# 	   hooks/bin/list-git-TEST-cases.sh   update OPTIONS section 
 # 	hooks/bin/list-git-TEST-cases.sh  2.68.502  2019-09-13T15:32:21.335831-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.67-5-gc55308b  
 # 	   hooks/bin/uninstall-git-TEST-cases.sh hooks/bin/setup-git-TEST-cases.sh update for name change from check-git-TEST-cases.sh to list-git-TEST-cases.sh 
 #86# hooks/bin/list-git-TEST-cases.sh -  search from top of repository to list TEST directory test cases
@@ -65,18 +67,16 @@ echo    "you are using other shells."
 echo    "   DEBUG           (default off '0')"
 echo -e "\n${BOLD}OPTIONS${NORMAL}"
 echo -e "Order of precedence: CLI options, environment variable, default code.\n"
-echo    "   -A, --ALL            show all files with test cases including hooks/ files and test cases -a -all"
-echo -e "\tCluster name (default '${DEFAULT_CLUSTER}')\n"
-echo    "   -d, --datadir, -d=, --datadir=<DATA_DIR>"
-echo -e "\tData directory (default '${DEFAULT_DATA_DIR}')\n"
-echo    "   -a, --admuser, -a=, --admuser=<ADMUSER>"
-echo -e "\tSite SRE administrator, default is user running script\n"
-echo    "   -f, --file, -f=, --filename=<FILENAME>"
-echo -e "\tPath and file on system '<path>/<file_name>'\n"
-echo    "   -S, --ssh_user, -S=, --ssh_user=<SSH_USER>"
-echo -e "\tLocation of user home directory (default ${DEFAULT_USER_HOME})\n"
-echo    "   -U, --user_home, -U=, --user_home=<USER_HOME>"
-echo -e "   "
+echo    "   -A, --ALL"
+echo -e "\tPrint all files with test cases including hooks/"
+echo    "   -a, --all"
+echo -e "\tPrint all files with test cases exclude hooks/"
+echo    "   -c, --clean"
+echo -e "\tRemove linked TEST cases and run FVT-cleanup.sh & SA-cleanup.sh"
+echo    "   -f, --filename, -f=, --filename=<FILENAME>"
+echo -e "\tPrint all <FILENAME> TEST cases"
+echo    "   -n, --none"
+echo -e "\tPrint all files that do NOT have TEST cases"
 ###  Production standard 6.1.177 Architecture tree
 echo -e "\n${BOLD}ARCHITECTURE TREE${NORMAL}"  # STORAGE & CERTIFICATION
 
