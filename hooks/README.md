@@ -33,6 +33,8 @@ Continuous Integration and Continuous Delivery (CI/CD) requires Continuous Testi
 	
 ## [Steps to evaluate git-TEST-commit-automation solution](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/STEPS-TO-EVALUTE.md)
 
+## [Steps to evaluate git-TEST-commit-automation solution](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/STEPS-TO-EVALUTE.md)
+
 **Start a new Git repository to test git-TEST-commit-automation solution**
 
     mkdir TEST-git-commit       #  Create a directory for a Git repository
