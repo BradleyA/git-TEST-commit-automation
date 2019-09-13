@@ -1,14 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/list-git-TEST-cases.sh  2.67.496  2019-09-13T11:59:11.783195-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.66-2-g35d6ec8  
-# 	   copied latest version of SA-setup.sh 
-# 	hooks/bin/list-git-TEST-cases.sh  2.63.466  2019-09-10T21:47:11.110938-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.62-1-gc0ed686  
-# 	   hooks/bin/list-git-TEST-cases.sh   added new_message ; add (. ./SA-cleanup.sh) ; (. ./FVT-cleanup.sh) 
-# 	hooks/bin/list-git-TEST-cases.sh  2.7.285  2019-09-01T18:15:07.870384-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.6-1-g9568dd7  
-# 	   hooks/bin/list-git-TEST-cases.sh  add support to execute clean if found in TEST/<command>/ 
-# 	hooks/bin/list-git-TEST-cases.sh  3.437.684  2019-08-22T23:14:27.310360-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.436  
-# 	   hooks/bin/list-git-TEST-cases.sh  added to list-git-TEST-cases.sh clean rm -f FVT-*.test-case-output & rm -f SAST-*.test-case-output 
-# 	hooks/bin/list-git-TEST-cases.sh  3.436.683  2019-08-22T22:43:19.610899-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.435  
-# 	   hooks/bin/list-git-TEST-cases.sh added color to output and update comment 
+# 	hooks/bin/list-git-TEST-cases.sh  2.68.502  2019-09-13T15:32:21.335831-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.67-5-gc55308b  
+# 	   hooks/bin/uninstall-git-TEST-cases.sh hooks/bin/setup-git-TEST-cases.sh update for name change from check-git-TEST-cases.sh to list-git-TEST-cases.sh 
 #86# hooks/bin/list-git-TEST-cases.sh -  search from top of repository to list TEST directory test cases
 #       list-git-TEST-cases.sh all - runs FVT-setup.sh and SA-setup.sh to create symbolic links to EXAMPLES before listing all test cases
 #       list-git-TEST-cases.sh clean - remove symbolic links from TEST/<command>/ directories
@@ -25,6 +17,76 @@ if [[ "${DEBUG}" == "4" ]] ; then set -e    ; fi   # Exit command has a non-zero
 #
 BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
+###  Production standard 8.3.214 --usage
+display_usage() {
+COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')
+echo -e "\n${NORMAL}${COMMAND_NAME}\n   search from top of repository to list TEST directory test cases"
+echo -e "\n${BOLD}USAGE${NORMAL}"
+echo    "   ${COMMAND_NAME} [-A | --ALL] [-a | --all] [-c | --clean] [-n | --none]"
+echo -e "                   [-f <GIT_PATH>/<FILE_NAME> | --filename <GIT_PATH>/<FILE_NAME>]\n"
+echo    "   ${COMMAND_NAME} [--help | -help | help | -h | h | -?]"
+echo    "   ${COMMAND_NAME} [--usage | -usage | -u]"
+echo    "   ${COMMAND_NAME} [--version | -version | -v]"
+}
+###  Production standard 0.3.214 --help
+display_help() {
+display_usage
+#    Displaying help DESCRIPTION in English en_US.UTF-8
+echo -e "\n${BOLD}DESCRIPTION${NORMAL}"
+echo    "<your help goes here>"
+echo    ">>> NEED TO COMPLETE THIS SOON, ONCE I KNOW HOW IT IS GOING TO WORK :-) <<<    |"
+
+echo -e "\n<<Paragraph two>>"
+
+###  Production standard 1.3.516 DEBUG variable
+echo -e "\nThe DEBUG environment variable can be set to '', '0', '1', '2', '3', or '4'."
+echo    "The setting '' or '0' will turn off all DEBUG messages during execution of this"
+echo    "script.  The setting '1' will print all DEBUG messages during execution of this"
+echo    "script.  The setting '2' (set -x) will print a trace of simple commands before"
+echo    "they are executed in this script.  The setting '3' (set -v) will print shell"
+echo    "input lines as they are read.  The setting '4' (set -e) will exit immediately"
+echo    "if non-zero exit status is recieved with some exceptions.  For more information"
+echo    "about any of the set options, see man bash."
+###  Production standard 4.0 Documentation Language
+#    Displaying help DESCRIPTION in French fr_CA.UTF-8, fr_FR.UTF-8, fr_CH.UTF-8
+if [[ "${LANG}" == "fr_CA.UTF-8" ]] || [[ "${LANG}" == "fr_FR.UTF-8" ]] || [[ "${LANG}" == "fr_CH.UTF-8" ]] ; then
+  echo -e "\n--> ${LANG}"
+  echo    "<votre aide va ici>" # your help goes here
+  echo    "Souhaitez-vous traduire la section description?" # Do you want to translate the description section?
+elif ! [[ "${LANG}" == "en_US.UTF-8" ]] ; then
+  get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[WARN]${NORMAL}  Your language, ${LANG}, is not supported.  Would you like to translate the description section?" 1>&2
+fi
+echo -e "\n${BOLD}ENVIRONMENT VARIABLES${NORMAL}"
+echo    "If using the bash shell, enter; 'export DEBUG=1' on the command line to set"
+echo    "the environment variable DEBUG to '1' (0 = debug off, 1 = debug on).  Use the"
+echo    "command, 'unset DEBUG' to remove the exported information from the environment"
+echo    "variable DEBUG.  You are on your own defining environment variables if"
+echo    "you are using other shells."
+echo    "   DEBUG           (default off '0')"
+echo -e "\n${BOLD}OPTIONS${NORMAL}"
+echo -e "Order of precedence: CLI options, environment variable, default code.\n"
+echo    "   -A, --ALL            show all files with test cases including hooks/ files and test cases -a -all"
+echo -e "\tCluster name (default '${DEFAULT_CLUSTER}')\n"
+echo    "   -d, --datadir, -d=, --datadir=<DATA_DIR>"
+echo -e "\tData directory (default '${DEFAULT_DATA_DIR}')\n"
+echo    "   -a, --admuser, -a=, --admuser=<ADMUSER>"
+echo -e "\tSite SRE administrator, default is user running script\n"
+echo    "   -f, --file, -f=, --filename=<FILENAME>"
+echo -e "\tPath and file on system '<path>/<file_name>'\n"
+echo    "   -S, --ssh_user, -S=, --ssh_user=<SSH_USER>"
+echo -e "\tLocation of user home directory (default ${DEFAULT_USER_HOME})\n"
+echo    "   -U, --user_home, -U=, --user_home=<USER_HOME>"
+echo -e "   "
+###  Production standard 6.1.177 Architecture tree
+echo -e "\n${BOLD}ARCHITECTURE TREE${NORMAL}"  # STORAGE & CERTIFICATION
+
+
+echo -e "\n${BOLD}DOCUMENTATION${NORMAL}"
+echo    "   https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md"
+echo -e "\n${BOLD}EXAMPLES${NORMAL}"
+echo -e "   <<your code examples description goes here>>\n\t${BOLD}${COMMAND_NAME} <<code example goes here>>${NORMAL}"
+echo -e "   <<your code examples description goes here>>\n\t${BOLD}${COMMAND_NAME}${NORMAL}"
+}
 
 #    Date and time function ISO 8601
 get_date_stamp() {
@@ -53,10 +115,43 @@ new_message() {  #  $1="${SCRIPT_NAME}"  $2="${LINENO}"  $3="DEBUG INFO ERROR WA
 #    INFO
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "INFO" "  Started..." 1>&2 ; fi
 
+#    Added following code because USER is not defined in crobtab jobs
+if ! [[ "${USER}" == "${LOGNAME}" ]] ; then  USER=${LOGNAME} ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Setting USER to support crobtab...  USER >${USER}<  LOGNAME >${LOGNAME}<" 1>&2 ; fi
+
+#    DEBUG
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "INFO" "  Name_of_command >${SCRIPT_NAME}< Name_of_arg1 >${1}< Name_of_arg2 >${2}< Name_of_arg3 >${3}<  Version of bash ${BASH_VERSION}" 1>&2 ; fi
+
+###  Production standard 9.3.513 Parse CLI options and arguments
+#	hooks/bin/list-git-TEST-cases.sh - add option to not show TEST cases for hooks/
+#	-A --ALL               1) show all files with test cases including hooks/ files and test cases
+#	-a --all               2) show all files with test cases but none in hooks/ directory
+#       -c --clean             3) remove symbolic TEST case links and run *cleanup.sh from TEST/<command>/ directories
+#	-f --filename -f= --filename=  4) show only one file with all files in TEST case directory
+#	-n --none              5.1) show all files that do NOT have any TEST/<FILE_NAME>/ directory #18
+#	                       5.2) show all files that do NOT have any files in TEST/<FILE_NAME>/ directory
+
+while [[ "${#}" -gt 0 ]] ; do
+  case "${1}" in
+    --help|-help|help|-h|h|-\?)  display_help | more ; exit 0 ;;
+    --usage|-usage|usage|-u)  display_usage ; exit 0  ;;
+    --version|-version|version|-v)  echo "${SCRIPT_NAME} ${SCRIPT_VERSION}" ; exit 0  ;;
+    -A|--ALL)   ;;
+    -a|--all)   ;;
+    -c|--clean) ;;
+    -f|--filename)  if [[ "${2}" == "" ]] ; then  display_usage ; new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Argument for ${1} is not found on command line" 1>&2 ; exit 1 ; fi ; FILE_NAME=${2} ; shift 2 ;;
+    -n|--none)  ;;
+    *)  new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Option, ${1}, entered on the command line is not supported." 1>&2 ; display_usage ; exit 1 ; ;;
+  esac
+done
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Variable... ADMUSER >${ADMUSER}< CLUSTER >${CLUSTER}< DATA_DIR >${DATA_DIR}< FILE_NAME >${FILE_NAME}< SSH_USER >${SSH_USER}< USER_HOME >${USER_HOME}<" 1>&2 ; fi
+
+###
+
 ###  Production standard 10.0 TESTing
 REPOSITORY_DIR=$(git rev-parse --show-toplevel)
 cd "${REPOSITORY_DIR}"
-DIR_LIST=$(find . -type d -name TEST)
+DIR_LIST=$(find . -type d -name TEST)  #  create list of TEST directories
 for i in $DIR_LIST ; do
   TEST_CASE_DIR_LIST=$(ls -1d "${i}"/* | cut -c 3-)
   for j in ${TEST_CASE_DIR_LIST} ; do 

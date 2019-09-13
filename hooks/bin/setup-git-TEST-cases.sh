@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/setup-git-TEST-cases.sh  2.68.502  2019-09-13T15:32:21.489353-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.67-5-gc55308b  
+# 	   hooks/bin/uninstall-git-TEST-cases.sh hooks/bin/setup-git-TEST-cases.sh update for name change from check-git-TEST-cases.sh to list-git-TEST-cases.sh 
 # 	hooks/bin/setup-git-TEST-cases.sh  2.45.370  2019-09-05T20:28:25.205673-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.44  
 # 	   #1 #2 #3 #14  added #86# 
 # 	hooks/bin/setup-git-TEST-cases.sh  2.30.312  2019-09-02T15:24:16.403824-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.29-1-g22ca97d  
@@ -54,12 +56,12 @@ if git -C . rev-parse 2> /dev/null ; then  #  currect directory in a git reposit
     get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  Unable to link ${REPOSITORY_NAME}/hooks/{pre-commit,post-commit} to ${REPOSITORY_NAME}/.git/hooks/{pre-commit,post-commit} because {pre-commit,post-commit} is NOT found in current directory ($(pwd)) or does not have execute permission." 1>&2
     exit 2
   fi
-  if [[ -x  "bin/check-git-TEST-cases.sh" ]] && [[ -x bin/setup-git-TEST-cases.sh ]]  && [[ -w /usr/local/bin ]]  ; then
-    cp -f -p bin/check-git-TEST-cases.sh      /usr/local/bin/check-git-TEST-cases.sh
+  if [[ -x  "bin/list-git-TEST-cases.sh" ]] && [[ -x bin/setup-git-TEST-cases.sh ]]  && [[ -x bin/uninstall-git-TEST-cases.sh ]] && [[ -w /usr/local/bin ]]  ; then
+    cp -f -p bin/list-git-TEST-cases.sh       /usr/local/bin/list-git-TEST-cases.sh
     cp -f -p bin/setup-git-TEST-cases.sh      /usr/local/bin/setup-git-TEST-cases.sh
     cp -f -p bin/uninstall-git-TEST-cases.sh  /usr/local/bin/uninstall-git-TEST-cases.sh
   else
-    get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  Unable to link ${REPOSITORY_NAME}/hooks/bin/{check-git-TEST-cases.sh,setup-git-TEST-cases.sh} to /usr/local/bin because check-git-TEST-cases.sh or setup-git-TEST-cases.sh is NOT found or does not have execute permission or /usr/local/bin is not writable." 1>&2
+    get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  Unable to link ${REPOSITORY_NAME}/hooks/bin/{list-git-TEST-cases.sh,setup-git-TEST-cases.sh,uninstall-git-TEST-cases.sh} to /usr/local/bin because list-git-TEST-cases.sh or setup-git-TEST-cases.sh or uninstall-git-TEST-cases.sh is NOT found or does not have execute permission or /usr/local/bin is not writable." 1>&2
     exit 2
   fi
 else
@@ -69,11 +71,11 @@ else
 fi
 
 cd "$(git rev-parse --show-toplevel || echo '.')"  #  change to top git repository directory
-hooks/bin/check-git-TEST-cases.sh clean
+hooks/bin/list-git-TEST-cases.sh clean
 #    . . .
 #    git add hooks
 #    git commit -m 'install latest git-TEST-commit-automation/hooks'
-#    check-git-TEST-cases.sh clean
+#    list-git-TEST-cases.sh clean
 #    git push
 
 # >>>  consider adding a user hint and include link to README.md  . . .  to answer that question, what now (WTF)  . . .  shit I forgot, hadn't done this in six months, quick!  . . . . . .
