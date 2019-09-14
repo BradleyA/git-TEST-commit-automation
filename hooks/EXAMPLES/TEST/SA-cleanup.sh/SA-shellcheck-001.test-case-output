@@ -1,0 +1,5 @@
+
+In /home/uadmin/github/BradleyA/git-TEST-commit-automation/hooks/EXAMPLES/SA-cleanup.sh line 53:
+for k in $(ls -1 SA-*) ; do
+         ^-- SC2045: Iterating over ls output is fragile. Use globs.
+
