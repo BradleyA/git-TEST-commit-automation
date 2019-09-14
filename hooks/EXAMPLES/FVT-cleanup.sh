@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/FVT-cleanup.sh  2.73.508  2019-09-14T13:41:27.825101-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.72  
+# 	   hooks/EXAMPLES/FVT-cleanup.sh   add new_message Operation finished... 
 # 	hooks/EXAMPLES/FVT-cleanup.sh  2.60.444  2019-09-09T17:28:07.698871-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.59-20-g99e2af3  
 # 	   SA-cleanup.sh FVT-cleanup.sh   initial commit 
 #86# FVT-cleanup.sh - test case cleanup
@@ -47,4 +49,6 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBU
 #  rmdir
 rm -f FVT-option-version-001.expected
 rm -f FVT-*.test-case-output
+
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "INFO" "  Operation finished..." 1>&2 ; fi
 ###
