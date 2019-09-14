@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/TEST/post-commit/FVT-setup.sh  2.70.504  2019-09-13T21:57:22.808941-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.69  
+# 	   hooks/bin/list-git-TEST-cases.sh  testing 
 # 	hooks/TEST/post-commit/FVT-setup.sh  3.492.747  2019-09-01T00:08:59.434147-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.491  
 # 	   copy latest SAST-setup.sh & #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-help-001"          FVT-option-help-001 
 ###  hooks/EXAMPLES/FVT-setup.sh - This script is optional.  It runs before test cases
@@ -38,7 +40,14 @@ if [[ "${DEBUG}" == "1" ]] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAM
 #    Remove output from previous run of test cases
 rm -f FVT-*.test-case-output
 
-REPOSITORY_DIR=${1}
+if [[ ! -z "${1}" ]] ; then  # post-commit must pass REPOSITORY_DIR because post-commit is executed in .git/hooks/ which is not in the repository
+  REPOSITORY_DIR=${1}
+else
+  REPOSITORY_DIR=$(git rev-parse --show-toplevel)  #  not called by post-commit
+  if [[ "${0}" != $(basename "${0}") ]] ; then  #  script must executed in TEST/<COMMIT_FILE_NAME>/ directory
+    cd "$(dirname "${0}")"
+  fi
+fi
 
 #    Uncomment shared TEST cases for TESTing
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-help-001"          FVT-option-help-001
