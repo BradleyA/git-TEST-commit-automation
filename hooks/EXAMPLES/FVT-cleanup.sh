@@ -1,10 +1,4 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/FVT-cleanup.sh  2.74.509  2019-09-14T13:51:21.962750-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.73  
-# 	   hooks/EXAMPLES/FVT-cleanup.sh   update comments 
-# 	hooks/EXAMPLES/FVT-cleanup.sh  2.73.508  2019-09-14T13:41:27.825101-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.72  
-# 	   hooks/EXAMPLES/FVT-cleanup.sh   add new_message Operation finished... 
-# 	hooks/EXAMPLES/FVT-cleanup.sh  2.60.444  2019-09-09T17:28:07.698871-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.59-20-g99e2af3  
-# 	   SA-cleanup.sh FVT-cleanup.sh   initial commit 
 #86# FVT-cleanup.sh - test case cleanup
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.1.160 Copyright
@@ -51,10 +45,19 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBU
 #  unset
 #    Remove directories
 #  rmdir
-#    Remove files
-rm -f FVT-option-version-001.expected
 #    Remove output from previous run of test cases
 rm -f FVT-*.test-case-output
+#    Remove temporary files
+#  rm -f temporary files
+rm -f FVT-option-version-001.expected
+#    Remove linked FVT-* files except FVT-cleanup.sh and FVT-setup.sh
+for k in $(ls -1 FVT-*) ; do
+  if [[ "${k}" != "FVT-cleanup.sh" ]] ; then
+    if [[ "${k}" != "FVT-setup.sh" ]] ; then
+      { [ ! -L "${k}" ] || rm -v "${k}"; }  #  Remove files with symbolic link
+    fi
+  fi
+done
 
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "INFO" "  Operation finished..." 1>&2 ; fi
 ###
