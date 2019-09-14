@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/TEST/list-git-TEST-cases.sh/SA-setup.sh  2.67.496  2019-09-13T11:59:11.490538-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.66-2-g35d6ec8  
-# 	   copied latest version of SA-setup.sh 
+# 	hooks/bin/TEST/list-git-TEST-cases.sh/SA-setup.sh  2.76.511  2019-09-14T14:05:17.720995-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.75  
+# 	   hooks/bin/TEST/list-git-TEST-cases.sh/SA-setup.sh   add new_message Operation finished... ; removed rm -f SA-*.test-case-output 
 # 	hooks/EXAMPLES/SA-setup.sh  2.59.423  2019-09-08T22:15:35.308620-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.58  
 # 	   hooks/EXAMPLES/SA-*   add new_message 
 #86# hooks/EXAMPLES/SA-setup.sh - This script is optional.  It is for 
@@ -49,9 +49,6 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBU
 
 ###  Production standard 10.0 TESTing 
 
-#    Remove output from previous run of test cases
-rm -f SA-*.test-case-output
-
 if [[ ! -z "${1}" ]] ; then  # post-commit must pass REPOSITORY_DIR because post-commit is executed in .git/hooks/ which is not in the repository
   REPOSITORY_DIR=${1}
 else
@@ -77,5 +74,5 @@ ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-775-001"        SA-permis
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-shellcheck-001"            SA-shellcheck-001
 #
 
-if [[ "${DEBUG}" == "1" ]] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation finished." 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Operation finished..." 1>&2 ; fi
 ###
