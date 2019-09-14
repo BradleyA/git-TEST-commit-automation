@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/list-git-TEST-cases.sh  2.71.506  2019-09-13T22:49:30.563650-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.70-1-g64c94fd  
+# 	   #19  hooks/bin/list-git-TEST-cases.sh  rewrite about half  complete 
 # 	hooks/bin/list-git-TEST-cases.sh  2.70.504  2019-09-13T21:57:22.902639-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.69  
 # 	   hooks/bin/list-git-TEST-cases.sh  testing 
 # 	hooks/bin/list-git-TEST-cases.sh  2.69.503  2019-09-13T17:23:43.053898-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.68  
@@ -101,7 +103,6 @@ get_date_stamp() {
 #    Fully qualified domain name FQDN hostname
 LOCALHOST=$(hostname -f)
 
-echo ">>>   VERSION"
 #    Version
 SCRIPT_NAME=$(head -2 "${0}" | awk '{printf $2}')
 SCRIPT_VERSION=$(head -2 "${0}" | awk '{printf $3}')
@@ -144,15 +145,15 @@ while [[ "${#}" -gt 0 ]] ; do
     --help|-help|help|-h|h|-\?)  display_help | more ; exit 0 ;;
     --usage|-usage|usage|-u)  display_usage ; exit 0  ;;
     --version|-version|version|-v)  echo "${SCRIPT_NAME} ${SCRIPT_VERSION}" ; exit 0  ;;
-    -a|--all)    OPTION="a" ; shift ;;
-    -c|--clean)  OPTION="c" ; shift ;;
+    -a|--all)    CLI_OPTION="a" ; shift ;;
+    -c|--clean)  CLI_OPTION="c" ; shift ;;
     -f|--filename)  if [[ "${2}" == "" ]] ; then  display_usage ; new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Argument for ${1} is not found on command line" 1>&2 ; exit 1 ; fi ; FILE_NAME=${2} ; shift 2 ;;
     --hooks)     ALL_TEST_CASES="TRUE" ; shift ;;
-    -n|--none)   OPTION="n" ; shift ;;
+    -n|--none)   CLI_OPTION="n" ; shift ;;
     *)  new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Option, ${1}, entered on the command line is not supported." 1>&2 ; display_usage ; exit 1 ; ;;
   esac
 done
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Variable... OPTION >${OPTION}< FILE_NAME >${FILE_NAME}< ALL_TEST_CASES >${ALL_TEST_CASES}<" 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Variable... CLI_OPTION >${CLI_OPTION}< FILE_NAME >${FILE_NAME}< ALL_TEST_CASES >${ALL_TEST_CASES}<" 1>&2 ; fi
 
 ###
 
@@ -165,36 +166,29 @@ for i in $DIR_LIST ; do
   for j in ${TEST_CASE_DIR_LIST} ; do 
     if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Directory >${j}<" 1>&2 ; fi
 #    if [[ $j == *"hooks"* ]] && [[ "${ALL_TEST_CASES}" == "FALSE" ]] ; then
-      TEST_CASE_DIR_END=$(echo "${j}" | rev | cut -d '/' -f 1 | rev)
-      TEST_CASE_DIR_START="${j//${TEST_CASE_DIR_END}/}"
-      printf "${TEST_CASE_DIR_START}\e[1;33m${TEST_CASE_DIR_END}\033[0m \n"
-      cd "${REPOSITORY_DIR}/${j}"
-  
-echo ">>>  ${LINENO}  <<<>>> `pwd`"
-set -x
-        if [[ "${OPTION}" == "a" ]] && [[ -x "FVT-setup.sh" ]]  ; then (. ./FVT-setup.sh  "${REPOSITORY_DIR}") ; fi
-set +x
-echo ">>>  ${LINENO}  <<<"
-        if [[ "${OPTION}" == "a" ]] && [[ -x "SA-setup.sh"  ]]  ; then (. ./SA-setup.sh   "${REPOSITORY_DIR}") ; fi
-echo ">>>  ${LINENO}  <<<"
-        if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Run FVT-setup.sh and SA-setup.sh" 1>&2 ; fi
-      if [[ "${1}" == "clean" ]]  ; then
-        for k in $(ls -1) ; do
-          { [ ! -L "${k}" ] || rm -v "${k}"; }
-        done
-        if [[ -x "FVT-cleanup.sh" ]]  ; then
-          (. ./FVT-cleanup.sh)
-        fi
-        if [[ -x "/SA-cleanup.sh" ]]  ; then
-          (. ./SA-cleanup.sh)
-        fi
-#      fi
+    TEST_CASE_DIR_END=$(echo "${j}" | rev | cut -d '/' -f 1 | rev)
+    TEST_CASE_DIR_START="${j//${TEST_CASE_DIR_END}/}"
+    printf "${TEST_CASE_DIR_START}\e[1;33m${TEST_CASE_DIR_END}\033[0m \n"
+    cd "${REPOSITORY_DIR}/${j}"
+ 
+    if [[ "${CLI_OPTION}" == "a" ]] && [[ -x "FVT-setup.sh" ]]  ; then  ./FVT-setup.sh  "${REPOSITORY_DIR}" ; fi
+    if [[ "${CLI_OPTION}" == "a" ]] && [[ -x "SA-setup.sh"  ]]  ; then ./SA-setup.sh   "${REPOSITORY_DIR}" ; fi
+    if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Run FVT-setup.sh and SA-setup.sh" 1>&2 ; fi
+    if [[ "${CLI_OPTION}" == "c" ]]  ; then
+      for k in $(ls -1) ; do
+        { [ ! -L "${k}" ] || rm -v "${k}"; }
+      done
+      if [[ -x "FVT-cleanup.sh" ]]  ; then
+        (. ./FVT-cleanup.sh)
+      fi
+      if [[ -x "/SA-cleanup.sh" ]]  ; then
+        (. ./SA-cleanup.sh)
+      fi
+#    fi
+    fi
     cd "${REPOSITORY_DIR}"
     printf "\033[1;32m $(ls -1  "${j}" | grep -v "\." | sed 's/^/\t/')\033[0m \n"
     printf "\033[1;36m $(ls -1  "${j}" | grep "setup.sh" | sed 's/^/\t/')\033[0m\n"
-echo ">>>  ${LINENO}  <<<"
-    fi
-echo ">>>  ${LINENO}  <<<"
   done
 done
 
