@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/SA-cleanup.sh  2.82.524  2019-09-14T23:20:40.228935-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.81  
+# 	   hooks/EXAMPLES/SA-cleanup.sh   typo 
 # 	hooks/EXAMPLES/SA-cleanup.sh  2.80.521  2019-09-14T23:10:02.124068-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.79  
 # 	   hooks/EXAMPLES/SA-cleanup.sh  push to add version 
 #86# SA-cleanup.sh - test case cleanup
@@ -60,5 +62,5 @@ for k in $(ls -1 SA-*) ; do
   fi
 done
 
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "INFO" "  Operation finished..." 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Operation finished..." 1>&2 ; fi
 ###
