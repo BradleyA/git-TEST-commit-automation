@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/SA-cleanup.sh  2.80.521  2019-09-14T23:10:02.124068-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.79  
+# 	   hooks/EXAMPLES/SA-cleanup.sh  push to add version 
 #86# SA-cleanup.sh - test case cleanup
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.1.160 Copyright
@@ -39,7 +41,7 @@ new_message() {  #  $1="${SCRIPT_NAME}"  $2="${LINENO}"  $3="DEBUG INFO ERROR WA
 
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Started..." 1>&2 ; fi
 
-###  Place test case cleanup here
+###  Place test case cleanup here 
 
 #    Remove environment variables
 #  unset DEBUG
