@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/list-git-TEST-cases.sh  2.78.516  2019-09-14T21:17:24.256469-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.77-3-ga4401b8  
-# 	   hooks/bin/list-git-TEST-cases.sh   remove code that removes FVT-cleauup.sh and SA-cleanup 
+# 	hooks/bin/list-git-TEST-cases.sh  2.79.520  2019-09-14T23:07:57.747048-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.78-3-g0a1707b  
+# 	   hooks/bin/list-git-TEST-cases.sh   testing 
 # 	hooks/bin/list-git-TEST-cases.sh  2.71.506  2019-09-13T22:49:30.563650-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.70-1-g64c94fd  
 # 	   #19  hooks/bin/list-git-TEST-cases.sh  rewrite about half  complete 
 # 	hooks/bin/list-git-TEST-cases.sh  2.70.504  2019-09-13T21:57:22.902639-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.69  
@@ -178,16 +178,24 @@ for i in $DIR_LIST ; do
     if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Run FVT-setup.sh and SA-setup.sh" 1>&2 ; fi
     if [[ "${CLI_OPTION}" == "c" ]]  ; then
       if [[ -x "FVT-cleanup.sh" ]]  ; then
+echo ">>> $LINENO <<<"
         (. ./FVT-cleanup.sh)
+echo ">>> $LINENO <<<"
       fi
-      if [[ -x "/SA-cleanup.sh" ]]  ; then
-        (. ./SA-cleanup.sh)
+      if [[ -x "SA-cleanup.sh" ]]  ; then
+echo ">>> $LINENO <<<"
+        ./SA-cleanup.sh
+echo ">>> $LINENO <<<"
       fi
 #    fi
     fi
     cd "${REPOSITORY_DIR}"
+echo ">>> $LINENO <<<"
     printf "\033[1;32m $(ls -1  "${j}" | grep -v "\." | sed 's/^/\t/')\033[0m \n"
+echo ">>> $LINENO <<<"
+    printf "\033[1;36m $(ls -1  "${j}" | grep "cleanup.sh" | sed 's/^/\t/')\033[0m\n"
     printf "\033[1;36m $(ls -1  "${j}" | grep "setup.sh" | sed 's/^/\t/')\033[0m\n"
+echo ">>> $LINENO <<<"
   done
 done
 
