@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/list-git-TEST-cases.sh  2.84.527  2019-09-15T16:54:43.373886-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.83-1-geba31cf  
+# 	   hooks/bin/list-git-TEST-cases.sh  add DEBUG statements 
 # 	hooks/bin/list-git-TEST-cases.sh  2.83.525  2019-09-14T23:25:08.199607-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.82  
 # 	   hooks/bin/list-git-TEST-cases.sh   correct incident with ./FVT-cleanup.sh 
 # 	hooks/bin/list-git-TEST-cases.sh  2.79.520  2019-09-14T23:07:57.747048-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.78-3-g0a1707b  
@@ -26,7 +28,7 @@ if [[ "${DEBUG}" == "4" ]] ; then set -e    ; fi   # Exit command has a non-zero
 BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
 ###  Production standard 7.0 Default variable value
-DEFAULT_ALL_TEST_CASES="FALSE"
+DEFAULT_ALL_TEST_CASES="NO"
 ###  Production standard 8.3.214 --usage
 display_usage() {
 COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')
@@ -83,7 +85,7 @@ echo -e "\tRemove linked TEST cases and run FVT-cleanup.sh & SA-cleanup.sh"
 echo    "   -f, --filename, -f=, --filename=<FILENAME>"
 echo -e "\tPrint all <FILENAME> TEST cases"
 echo    "   --hooks"
-echo -e "\tInclude TEST cases in hooks/ directory"
+echo -e "\tInclude TEST cases in hooks/ directory.  Can be used with -a or -c options."
 echo    "   -n, --none"
 echo -e "\tPrint all files that do NOT have TEST cases"
 ###  Production standard 6.1.177 Architecture tree
@@ -149,10 +151,10 @@ while [[ "${#}" -gt 0 ]] ; do
     --help|-help|help|-h|h|-\?)  display_help | more ; exit 0 ;;
     --usage|-usage|usage|-u)  display_usage ; exit 0  ;;
     --version|-version|version|-v)  echo "${SCRIPT_NAME} ${SCRIPT_VERSION}" ; exit 0  ;;
-    -a|--all)    CLI_OPTION="a" ; shift ;;
-    -c|--clean)  CLI_OPTION="c" ; shift ;;
+    -a|--all)    CLI_OPTION="a" ; shift ;;  # >>> need to add if CLI_OPTION is already set then ERROR
+    -c|--clean)  CLI_OPTION="c" ; shift ;;  # >>> need to add if CLI_OPTION is already set then ERROR
     -f|--filename)  if [[ "${2}" == "" ]] ; then  display_usage ; new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Argument for ${1} is not found on command line" 1>&2 ; exit 1 ; fi ; FILE_NAME=${2} ; shift 2 ;;
-    --hooks)     ALL_TEST_CASES="TRUE" ; shift ;;
+    --hooks)     ALL_TEST_CASES="YES" ; shift ;;
     -n|--none)   CLI_OPTION="n" ; shift ;;
     *)  new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Option, ${1}, entered on the command line is not supported." 1>&2 ; display_usage ; exit 1 ; ;;
   esac
@@ -165,19 +167,22 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBU
 REPOSITORY_DIR=$(git rev-parse --show-toplevel)
 cd "${REPOSITORY_DIR}"
 DIR_LIST=$(find . -type d -name TEST)  #  create list of TEST directories
+DIR_LIST_NOT_TEST=$(find . -type d ! -name TEST)  #  create list of non TEST directories
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  \${DIR_LIST} >${DIR_LIST=}< \${DIR_LIST_NOT_TEST} >${DIR_LIST_NOT_TEST}<" 1>&2 ; fi
 for i in $DIR_LIST ; do
+  if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  TEST directory >${i}<" 1>&2 ; fi
   TEST_CASE_DIR_LIST=$(ls -1d "${i}"/* | cut -c 3-)
   for j in ${TEST_CASE_DIR_LIST} ; do 
     if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Directory >${j}<" 1>&2 ; fi
-#    if [[ $j == *"hooks"* ]] && [[ "${ALL_TEST_CASES}" == "FALSE" ]] ; then
+    if [[ $j == *"hooks"* ]] && [[ "${ALL_TEST_CASES}" == "NO" ]] ; then continue ; fi  #  Skip to the next j in for loop
     TEST_CASE_DIR_END=$(echo "${j}" | rev | cut -d '/' -f 1 | rev)
     TEST_CASE_DIR_START="${j//${TEST_CASE_DIR_END}/}"
     printf "${TEST_CASE_DIR_START}\e[1;33m${TEST_CASE_DIR_END}\033[0m \n"
     cd "${REPOSITORY_DIR}/${j}"
  
+    if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Run FVT-setup.sh and SA-setup.sh" 1>&2 ; fi
     if [[ "${CLI_OPTION}" == "a" ]] && [[ -x "FVT-setup.sh" ]]  ; then  ./FVT-setup.sh  "${REPOSITORY_DIR}" ; fi
     if [[ "${CLI_OPTION}" == "a" ]] && [[ -x "SA-setup.sh"  ]]  ; then ./SA-setup.sh   "${REPOSITORY_DIR}" ; fi
-    if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Run FVT-setup.sh and SA-setup.sh" 1>&2 ; fi
     if [[ "${CLI_OPTION}" == "c" ]]  ; then
       if [[ -x "FVT-cleanup.sh" ]]  ; then
         ./FVT-cleanup.sh
@@ -185,7 +190,6 @@ for i in $DIR_LIST ; do
       if [[ -x "SA-cleanup.sh" ]]  ; then
         ./SA-cleanup.sh
       fi
-#    fi
     fi
     cd "${REPOSITORY_DIR}"
     printf "\033[1;32m $(ls -1  "${j}" | grep -v "\." | sed 's/^/\t/')\033[0m \n"
