@@ -30,10 +30,13 @@ Objective 1) Quick setup with default test cases for any Git repository (in seco
     
 **Configure two default test cases for sample.sh and execute them**   
     
-    mkdir -p TEST/sample.sh     #  Create directories to trigger post-commit to search for test cases for sample.sh
-    cp -p hooks/EXAMPLES/SA-setup.sh TEST/sample.sh  # copy the SA setup file which has two test case links uncommented
-    git add TEST/sample.sh/SA-setup.sh  #  Include test case direcory and SA-setup.sh in Git repository
-    git commit -m 'initial commit' 
+    mkdir -p TEST/sample.sh  #  Create directories to trigger post-commit hook to search for test cases in TEST/sample.sh for sample.sh
+    cd TEST/sample.sh
+    ln -s ../../hooks/EXAMPLES/SA-setup.sh .  #  Link EXAMPLES/SA-setup.sh file which has two test case links uncommented
+    ln -s ../../hooks/EXAMPLES/SA-cleanup.sh .  #  Link EXAMPLES/SA-cleanup.sh
+    git add SA-setup.sh SA-cleanup.sh  #  Include SA-setup.sh and SA-cleanup.sh as tracked files in Git repository
+    git commit -m 'initial commit'
+    cd ../..
 
 <img id="Steps git-TEST-commit-automation-3.gif" src="images/git-TEST-commit-automation-3.gif" >
 
