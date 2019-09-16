@@ -54,7 +54,7 @@ After running 'git add SA-setup.sh SA-cleanup.sh' and 'git commit', Git hook, po
 
 <img id="Steps git-TEST-commit-automation-4.gif" src="images/git-TEST-commit-automation-4.gif" >
 
-Two Static Analysis (SA) test cases were executed with one PASSing and the other ERRORing.  The message from the ERROR, '.../TEST-git-commit/TEST/sample.sh/SA-shellcheck-001.expected was not found.  Unable to compare shellcheck output.'  This test case requires a SA-shellcheck-001.expected file so the test case can compare the expected output to SA-shellcheck-001.test-case-output file.  Create an empty file because we want the expected output from shellcheck to be with no errors.
+Two Static Analysis (SA) test cases were executed with one PASSing and the other ERRORing.  The message from the ERROR, '../TEST/sample.sh/SA-shellcheck-001.expected was not found.  Unable to compare shellcheck output.'  This test case requires a SA-shellcheck-001.expected file so the test case can compare the expected output to SA-shellcheck-001.test-case-output file.  Create an empty file because we want the expected output from shellcheck to be with no errors.
 
 **Create an empty file, TEST/sample.sh/SA-shellcheck-001.expected**
 
@@ -65,7 +65,7 @@ Two Static Analysis (SA) test cases were executed with one PASSing and the other
 
 <img id="Steps git-TEST-commit-automation-5.gif" src="images/git-TEST-commit-automation-5.gif" >
 
-**Make a change to sample.sh and run 'git add' and 'git commit'**
+**Make a change to sample.sh to test the changes made in the sample.sh TEST case directory**
     
     vi sample.sh
     
@@ -77,5 +77,6 @@ Two Static Analysis (SA) test cases were executed with one PASSing and the other
 
 <img id="Steps git-TEST-commit-automation-6.gif" src="images/git-TEST-commit-automation-6.gif" >
 
-Two test cases were run and two test cases have passed.  When you make changes to sample.sh and run Git commit, post-commit will search for test cases to run in TEST/sample.sh/ directory.  To add additional default SA- test case, edit TEST/sample.sh/SA-setup.sh file and remove the starting comment '#'.
+Two test cases were run and two test cases have PASSed.  When you make changes to sample.sh and run Git commit, hook post-commit will search for test cases to run in TEST/sample.sh/ directory.  To use different default SA- test case, remove the symbilic link (rm TEST/sample.sh/SA-setup.sh) and copy SA-setup.sh into the directory (cp -p hooks/EXAMPLES/SA-setup.sh TEST/sample.sh/).  Now you can edit SA-setup.sh with the test case needed for the command.  Once finished use git add and git commit to track TEST/sample.sh/SA-setup.sh changes.  
   
+git-TEST-commit-automation runs when 'git commit -m 'message' <filename>' is executed.  Post-commit searches in the same directory for a TEST/<filename>/ directory.  If found post-commit runs TEST/<filename>/SA-setup.sh and/or TEST/<filename>/FVT-setup.sh then searches for files beginning with SA- of FVT- and runs them.
