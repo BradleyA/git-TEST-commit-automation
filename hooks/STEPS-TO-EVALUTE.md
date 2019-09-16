@@ -77,5 +77,5 @@ Two Static Analysis (SA) test cases were executed with one PASSing and the other
 
 <img id="Steps git-TEST-commit-automation-6.gif" src="images/git-TEST-commit-automation-6.gif" >
 
-Two test cases were run and two test cases have passed.  When you make changes to sample.sh and run Git commit, post-commit will search for test cases to run in TEST/sample.sh/ directory.  To add additional default SA- test case, edit TEST/sample.sh/SA-setup.sh file and remove the starting comment '#'.
+Two test cases were run and two test cases have PASSed.  When you make changes to sample.sh and run Git commit, hook post-commit will search for test cases to run in TEST/sample.sh/ directory.  To use different default SA- test case, remove the symbilic link (rm TEST/sample.sh/SA-setup.sh) and copy SA-setup.sh into the directory (cp -p hooks/EXAMPLES/SA-setup.sh TEST/sample.sh/).  Now you can edit SA-setup.sh with the test case needed for the command.  Once finished use git add and git commit to track TEST/sample.sh/SA-setup.sh changes.  
   
