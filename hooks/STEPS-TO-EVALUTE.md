@@ -54,7 +54,7 @@ After running 'git add SA-setup.sh SA-cleanup.sh' and 'git commit', Git hook, po
 
 <img id="Steps git-TEST-commit-automation-4.gif" src="images/git-TEST-commit-automation-4.gif" >
 
-Two Static Analysis (SA) test cases were executed with one PASSing and the other ERRORing.  The message from the ERROR, '.../TEST-git-commit/TEST/sample.sh/SA-shellcheck-001.expected was not found.  Unable to compare shellcheck output.'  This test case requires a SA-shellcheck-001.expected file so the test case can compare the expected output to SA-shellcheck-001.test-case-output file.  Create an empty file because we want the expected output from shellcheck to be with no errors.
+Two Static Analysis (SA) test cases were executed with one PASSing and the other ERRORing.  The message from the ERROR, '../TEST/sample.sh/SA-shellcheck-001.expected was not found.  Unable to compare shellcheck output.'  This test case requires a SA-shellcheck-001.expected file so the test case can compare the expected output to SA-shellcheck-001.test-case-output file.  Create an empty file because we want the expected output from shellcheck to be with no errors.
 
 **Create an empty file, TEST/sample.sh/SA-shellcheck-001.expected**
 
