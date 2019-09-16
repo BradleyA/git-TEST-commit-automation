@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/SA-setup.sh  2.86.536  2019-09-16T15:19:22.591383-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.85-7-g07ed5d9  
+# 	   hooks/EXAMPLES/SA-setup.sh   added more test case names 
 # 	hooks/EXAMPLES/SA-setup.sh  2.77.512  2019-09-14T14:25:47.131705-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.76  
 # 	   hooks/EXAMPLES/SA-setup.sh   add additional permission test cases 
 # 	hooks/bin/TEST/list-git-TEST-cases.sh/SA-setup.sh  2.76.511  2019-09-14T14:05:17.720995-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.75  
@@ -63,13 +65,15 @@ fi
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-exit-code-error-124-002"   SA-exit-code-error-124-002
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-exit-code-error-2-001"     SA-exit-code-error-2-001
 #
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-600-001"        SA-permission-600-001
+#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-400-001"        SA-permission-400-001
+#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-440-001"        SA-permission-440-001
+#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-444-001"        SA-permission-444-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-640-001"        SA-permission-640-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-644-001"        SA-permission-644-001
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-660-001"        SA-permission-660-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-664-001"        SA-permission-664-001
+#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-600-001"        SA-permission-600-001
+#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-660-001"        SA-permission-660-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-666-001"        SA-permission-666-001
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-700-001"        SA-permission-700-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-750-001"        SA-permission-750-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-755-001"        SA-permission-755-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-700-001"        SA-permission-700-001
@@ -77,10 +81,11 @@ fi
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-775-001"        SA-permission-775-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-777-001"        SA-permission-777-001
 #
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-space-001"      SA-permission-space-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-dir-001"        SA-permission-dir-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-grp-10000-001"  SA-permission-grp-10000-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-own-10000-001"  SA-permission-own-10000-001
+#
+#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-filename-nospace-001"      SA-filename-nospace-001
 #
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-shellcheck-001"            SA-shellcheck-001
 #
