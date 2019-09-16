@@ -65,7 +65,7 @@ Two Static Analysis (SA) test cases were executed with one PASSing and the other
 
 <img id="Steps git-TEST-commit-automation-5.gif" src="images/git-TEST-commit-automation-5.gif" >
 
-**Make a change to sample.sh and run 'git add' and 'git commit'**
+**Make a change to sample.sh to test the changes made in the sample.sh TEST case directory**
     
     vi sample.sh
     
