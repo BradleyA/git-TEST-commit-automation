@@ -1,8 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/uninstall-git-TEST-cases.sh  2.68.502  2019-09-13T15:32:21.586542-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.67-5-gc55308b  
-# 	   hooks/bin/uninstall-git-TEST-cases.sh hooks/bin/setup-git-TEST-cases.sh update for name change from check-git-TEST-cases.sh to list-git-TEST-cases.sh 
-# 	hooks/bin/uninstall-git-TEST-cases.sh  2.61.462  2019-09-10T20:06:29.817892-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.60-17-g46bae0a  
-# 	   close #20  hooks/bin/uninstall-git-TEST-cases.sh   correct incident with not removing TEST directory 
+# 	hooks/bin/uninstall-git-TEST-cases.sh  2.89.545  2019-09-17T09:44:05.096496-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.88  
+# 	   hooks/bin/list-git-TEST-cases.sh hooks/bin/setup-git-TEST-cases.sh hooks/bin/uninstall-git-TEST-cases.sh   updated comments in Version section 
 #86# hooks/bin/uninstall-git-TEST-cases.sh - uninstall git TEST cases in current repository
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.1.160 Copyright
@@ -29,6 +27,9 @@ get_date_stamp() {
 LOCALHOST=$(hostname -f)
 
 #    Version
+#    Assumptions for the next two lines of code:  The second line in this script includes the script name as the second item and
+#    the script version as the third item separated with space(s).  The tool I use is called 'markit'. See example line below:
+#      template/template.sh  3.517.783  2019-09-13T18:20:42.144356-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.516  
 SCRIPT_NAME=$(head -2 "${0}" | awk '{printf $2}')
 SCRIPT_VERSION=$(head -2 "${0}" | awk '{printf $3}')
 

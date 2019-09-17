@@ -1,8 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/list-git-TEST-cases.sh  2.88.544  2019-09-16T22:57:07.251863-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.87-1-g96e5701  
-# 	   #18 #19  hooks/bin/list-git-TEST-cases.sh   added run *-setup.sh when using -f 
-# 	hooks/bin/list-git-TEST-cases.sh  2.87.542  2019-09-16T21:55:37.152510-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.86-5-g677aa24  
-# 	   #18 #19 hooks/bin/list-git-TEST-cases.sh   added -n --none ready for test 
+# 	hooks/bin/list-git-TEST-cases.sh  2.89.545  2019-09-17T09:44:04.817725-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.88  
+# 	   hooks/bin/list-git-TEST-cases.sh hooks/bin/setup-git-TEST-cases.sh hooks/bin/uninstall-git-TEST-cases.sh   updated comments in Version section 
 #86# hooks/bin/list-git-TEST-cases.sh -  search from top of repository to list TEST directory test cases
 #       list-git-TEST-cases.sh all - runs FVT-setup.sh and SA-setup.sh to create symbolic links to EXAMPLES before listing all test cases
 #       list-git-TEST-cases.sh clean - remove symbolic links from TEST/<command>/ directories
@@ -101,6 +99,9 @@ get_date_stamp() {
 LOCALHOST=$(hostname -f)
 
 #    Version
+#    Assumptions for the next two lines of code:  The second line in this script includes the script name as the second item and
+#    the script version as the third item separated with space(s).  The tool I use is called 'markit'. See example line below:
+#      template/template.sh  3.517.783  2019-09-13T18:20:42.144356-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.516  
 SCRIPT_NAME=$(head -2 "${0}" | awk '{printf $2}')
 SCRIPT_VERSION=$(head -2 "${0}" | awk '{printf $3}')
 

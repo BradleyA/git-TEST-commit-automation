@@ -1,12 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/setup-git-TEST-cases.sh  2.68.502  2019-09-13T15:32:21.489353-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.67-5-gc55308b  
-# 	   hooks/bin/uninstall-git-TEST-cases.sh hooks/bin/setup-git-TEST-cases.sh update for name change from check-git-TEST-cases.sh to list-git-TEST-cases.sh 
-# 	hooks/bin/setup-git-TEST-cases.sh  2.45.370  2019-09-05T20:28:25.205673-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.44  
-# 	   #1 #2 #3 #14  added #86# 
-# 	hooks/bin/setup-git-TEST-cases.sh  2.30.312  2019-09-02T15:24:16.403824-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.29-1-g22ca97d  
-# 	   hooks/bin/setup-git-TEST-cases.sh   change design from mv to tar so not to loose test cases added that are not in repository 
-# 	hooks/bin/setup-git-TEST-cases.sh  2.29.310  2019-09-02T13:35:03.394915-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.28  
-# 	   hooks/bin/setup-git-TEST-cases.sh  change code to support design requirement - download the latest git-TEST-commit-automation/hooks 
+# 	hooks/bin/setup-git-TEST-cases.sh  2.89.545  2019-09-17T09:44:04.981208-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.88  
+# 	   hooks/bin/list-git-TEST-cases.sh hooks/bin/setup-git-TEST-cases.sh hooks/bin/uninstall-git-TEST-cases.sh   updated comments in Version section 
 #86# hooks/bin/setup-git-TEST-cases.sh - setup git TEST cases in current repository
 #    copy commands to /usr/local/bin
 ###  Production standard 3.0 shellcheck
@@ -34,9 +28,24 @@ get_date_stamp() {
 LOCALHOST=$(hostname -f)
 
 #    Version
+#    Assumptions for the next two lines of code:  The second line in this script includes the script name as the second item and
+#    the script version as the third item separated with space(s).  The tool I use is called 'markit'. See example line below:
+#      template/template.sh  3.517.783  2019-09-13T18:20:42.144356-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.516  
+SCRIPT_NAME=$(head -2 "${0}" | awk '{printf $2}')
 SCRIPT_VERSION=$(head -2 "${0}" | awk '{printf $3}')
 
-if [[ "${DEBUG}" == "1" ]] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation started." 1>&2 ; fi
+#    UID and GID
+USER_ID=$(id -u)
+GROUP_ID=$(id -g)
+
+###  Production standard 2.3.512 log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)
+new_message() {  #  $1="${SCRIPT_NAME}"  $2="${LINENO}"  $3="DEBUG INFO ERROR WARN"  $4="message"
+  get_date_stamp
+  echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${1}[$$] ${SCRIPT_VERSION} ${2} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[${3}]${NORMAL}  ${4}"
+}
+
+#    INFO
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "INFO" "  Started..." 1>&2 ; fi
 
 ###
 
@@ -53,7 +62,7 @@ if git -C . rev-parse 2> /dev/null ; then  #  currect directory in a git reposit
     ln -fs ../../hooks/pre-commit  ../.git/hooks/pre-commit
     ln -fs ../../hooks/post-commit ../.git/hooks/post-commit
   else
-    get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  Unable to link ${REPOSITORY_NAME}/hooks/{pre-commit,post-commit} to ${REPOSITORY_NAME}/.git/hooks/{pre-commit,post-commit} because {pre-commit,post-commit} is NOT found in current directory ($(pwd)) or does not have execute permission." 1>&2
+    new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Unable to link ${REPOSITORY_NAME}/hooks/{pre-commit,post-commit} to ${REPOSITORY_NAME}/.git/hooks/{pre-commit,post-commit} because {pre-commit,post-commit} is NOT found in current directory ($(pwd)) or does not have execute permission." 1>&2
     exit 2
   fi
   if [[ -x  "bin/list-git-TEST-cases.sh" ]] && [[ -x bin/setup-git-TEST-cases.sh ]]  && [[ -x bin/uninstall-git-TEST-cases.sh ]] && [[ -w /usr/local/bin ]]  ; then
@@ -61,12 +70,12 @@ if git -C . rev-parse 2> /dev/null ; then  #  currect directory in a git reposit
     cp -f -p bin/setup-git-TEST-cases.sh      /usr/local/bin/setup-git-TEST-cases.sh
     cp -f -p bin/uninstall-git-TEST-cases.sh  /usr/local/bin/uninstall-git-TEST-cases.sh
   else
-    get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  Unable to link ${REPOSITORY_NAME}/hooks/bin/{list-git-TEST-cases.sh,setup-git-TEST-cases.sh,uninstall-git-TEST-cases.sh} to /usr/local/bin because list-git-TEST-cases.sh or setup-git-TEST-cases.sh or uninstall-git-TEST-cases.sh is NOT found or does not have execute permission or /usr/local/bin is not writable." 1>&2
+    new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Unable to link ${REPOSITORY_NAME}/hooks/bin/{list-git-TEST-cases.sh,setup-git-TEST-cases.sh,uninstall-git-TEST-cases.sh} to /usr/local/bin because list-git-TEST-cases.sh or setup-git-TEST-cases.sh or uninstall-git-TEST-cases.sh is NOT found or does not have execute permission or /usr/local/bin is not writable." 1>&2
     exit 2
   fi
 else
   EXIT_CODE=${?}
-  get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[ERROR]${NORMAL}  The current directory, ($(pwd)), is Not a git repository (or any of the parent directories)." 1>&2
+    new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  The current directory, ($(pwd)), is Not a git repository (or any of the parent directories)." 1>&2
   exit ${EXIT_CODE}
 fi
 
@@ -80,5 +89,5 @@ hooks/bin/list-git-TEST-cases.sh clean
 
 # >>>  consider adding a user hint and include link to README.md  . . .  to answer that question, what now (WTF)  . . .  shit I forgot, hadn't done this in six months, quick!  . . . . . .
 
-if [[ "${DEBUG}" == "1" ]] ; then get_date_stamp ; echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${0}[$$] ${SCRIPT_VERSION} ${LINENO} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[DEBUG]${NORMAL}  Operation finished." 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "INFO" "  Operation finished..." 1>&2 ; fi
 ###
