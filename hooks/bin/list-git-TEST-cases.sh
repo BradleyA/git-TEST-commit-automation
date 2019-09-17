@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/list-git-TEST-cases.sh  2.88.544  2019-09-16T22:57:07.251863-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.87-1-g96e5701  
+# 	   #18 #19  hooks/bin/list-git-TEST-cases.sh   added run *-setup.sh when using -f 
 # 	hooks/bin/list-git-TEST-cases.sh  2.87.542  2019-09-16T21:55:37.152510-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.86-5-g677aa24  
 # 	   #18 #19 hooks/bin/list-git-TEST-cases.sh   added -n --none ready for test 
 #86# hooks/bin/list-git-TEST-cases.sh -  search from top of repository to list TEST directory test cases
@@ -169,9 +171,15 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBU
 REPOSITORY_DIR=$(git rev-parse --show-toplevel)
 cd "${REPOSITORY_DIR}"
 if [[ "${CLI_OPTION}" == "f" ]]  ; then
+  cd $(find . -type d -name "${FILE_NAME}")
+  if [[ -x "FVT-setup.sh" ]]  ; then ./FVT-setup.sh ; fi
+  if [[ -x "SA-setup.sh"  ]]  ; then ./SA-setup.sh  ; fi
+  cd "${REPOSITORY_DIR}"
   if [[ "${ALL_TEST_CASES}" == "YES" ]] ; then
+    echo    ">>> words go here, add later . . . .  find anywhere"
     find . -print | grep --color=auto "${FILE_NAME}"
   else
+    echo    ">>> words go here, add later . . . . f not found try using --hooks option find anywhere NOT in /hooks"
     find . -print | grep -v 'hooks/' | grep --color=auto "${FILE_NAME}"
   fi
 else
