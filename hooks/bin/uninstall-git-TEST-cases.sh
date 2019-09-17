@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/uninstall-git-TEST-cases.sh  2.89.545  2019-09-17T09:44:05.096496-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.88  
-# 	   hooks/bin/list-git-TEST-cases.sh hooks/bin/setup-git-TEST-cases.sh hooks/bin/uninstall-git-TEST-cases.sh   updated comments in Version section 
+# 	hooks/bin/uninstall-git-TEST-cases.sh  2.91.549  2019-09-17T10:37:02.269995-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.90-2-g3db91b5  
+# 	   #3 #18 #19   hooks/bin/git-TEST-cases.sh hooks/bin/setup-git-TEST-cases.sh hooks/bin/uninstall-git-TEST-cases.sh    rename list-git-TEST-cases.sh  to  git-TEST-cases.sh 
 #86# hooks/bin/uninstall-git-TEST-cases.sh - uninstall git TEST cases in current repository
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.1.160 Copyright
@@ -93,7 +93,7 @@ if git -C . rev-parse 2> /dev/null ; then  #  currect directory in a git reposit
 #
   rm -f  .git/hooks/pre-commit
   rm -f  .git/hooks/post-commit
-  rm -f  /usr/local/bin/list-git-TEST-cases.sh
+  rm -f  /usr/local/bin/git-TEST-cases.sh
   rm -f  /usr/local/bin/setup-git-TEST-cases.sh
   rm -f  /usr/local/bin/uninstall-git-TEST-cases.sh
   mv "${TMP_FILE_1}.tar" .  #  #20   place the tar file in the repository top directory not /tmp

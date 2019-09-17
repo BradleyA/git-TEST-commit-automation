@@ -1,9 +1,9 @@
 #!/bin/bash
-# 	hooks/bin/list-git-TEST-cases.sh  2.89.545  2019-09-17T09:44:04.817725-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.88  
-# 	   hooks/bin/list-git-TEST-cases.sh hooks/bin/setup-git-TEST-cases.sh hooks/bin/uninstall-git-TEST-cases.sh   updated comments in Version section 
-#86# hooks/bin/list-git-TEST-cases.sh -  search from top of repository to list TEST directory test cases
-#       list-git-TEST-cases.sh all - runs FVT-setup.sh and SA-setup.sh to create symbolic links to EXAMPLES before listing all test cases
-#       list-git-TEST-cases.sh clean - remove symbolic links from TEST/<command>/ directories
+# 	hooks/bin/git-TEST-cases.sh  2.91.549  2019-09-17T10:37:02.050751-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.90-2-g3db91b5  
+# 	   #3 #18 #19   hooks/bin/git-TEST-cases.sh hooks/bin/setup-git-TEST-cases.sh hooks/bin/uninstall-git-TEST-cases.sh    rename list-git-TEST-cases.sh  to  git-TEST-cases.sh 
+#86# hooks/bin/git-TEST-cases.sh -  search from top of repository to list TEST directory test cases
+#       git-TEST-cases.sh all - runs FVT-setup.sh and SA-setup.sh to create symbolic links to EXAMPLES before listing all test cases
+#       git-TEST-cases.sh clean - remove symbolic links from TEST/<command>/ directories
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.1.160 Copyright
 #    Copyright (c) 2019 Bradley Allen
@@ -132,7 +132,7 @@ if [[ "${ALL_TEST_CASES}" == "" ]] ; then ALL_TEST_CASES=${DEFAULT_ALL_TEST_CASE
 ###
 
 ###  Production standard 9.3.513 Parse CLI options and arguments
-#	hooks/bin/list-git-TEST-cases.sh - add option to not show TEST cases for hooks/
+#	hooks/bin/git-TEST-cases.sh - add option to not show TEST cases for hooks/
 #	-a --all          1) Print all files with test cases exclude hooks/ (create links)
 #       -c --clean        2) Remove linked TEST cases and run FVT-cleanup.sh & SA-cleanup.sh
 #	-f --filename -f= --filename=  3) Print all <FILENAME> TEST cases and files
