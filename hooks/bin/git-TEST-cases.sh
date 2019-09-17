@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/git-TEST-cases.sh  2.93.552  2019-09-17T11:20:41.129205-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.92-1-g916f760  
+# 	   #19   hooks/bin/git-TEST-cases.sh   updated new_message 'Only one of these option -a, --all, -c, --clean, -n, or -none can be selected.' 
 # 	hooks/bin/git-TEST-cases.sh  2.92.550  2019-09-17T10:54:54.644826-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.91  
 # 	   close #3   hooks/bin/git-TEST-cases.sh 
 #86# hooks/bin/git-TEST-cases.sh -  search from top of repository to list TEST directory test cases
@@ -145,12 +147,12 @@ while [[ "${#}" -gt 0 ]] ; do
     --usage|-usage|usage|-u)  display_usage ; exit 0  ;;
     --version|-version|version|-v)  echo "${SCRIPT_NAME} ${SCRIPT_VERSION}" ; exit 0  ;;
     -a|--all)   if [[ "${CLI_OPTION}" != "" ]] ; then
-        new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Only one of these option -a, --all, -c, --clean, --none, or -n can be selected." 1>&2 ; exit 1
+        new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Only one of these option -a, --all, -c, --clean, -n, or --none can be selected." 1>&2 ; exit 1
       else
         CLI_OPTION="a" ; shift
       fi ;;
     -c|--clean) if [[ "${CLI_OPTION}" != "" ]] ; then
-        new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Only one of these option -a, --all, -c, --clean, --none, or -n can be selected." 1>&2 ; exit 1
+        new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Only one of these option -a, --all, -c, --clean, -n, or -none can be selected." 1>&2 ; exit 1
       else
         CLI_OPTION="c" ; shift 
       fi ;;
@@ -159,7 +161,7 @@ while [[ "${#}" -gt 0 ]] ; do
       fi ; FILE_NAME=${2} ; shift 2 ;;
     --hooks|-hooks) ALL_TEST_CASES="YES" ; shift ;;
     -n|--none) if [[ "${CLI_OPTION}" != "" ]] ; then
-        new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Only one of these option -a, --all, -c, --clean, --none, or -n can be selected." 1>&2 ; exit 1
+        new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Only one of these option -a, --all, -c, --clean, -n, or -none can be selected." 1>&2 ; exit 1
       else
         CLI_OPTION="n" ; shift 
       fi ;;
