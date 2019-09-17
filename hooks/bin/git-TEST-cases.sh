@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  2.91.549  2019-09-17T10:37:02.050751-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.90-2-g3db91b5  
-# 	   #3 #18 #19   hooks/bin/git-TEST-cases.sh hooks/bin/setup-git-TEST-cases.sh hooks/bin/uninstall-git-TEST-cases.sh    rename list-git-TEST-cases.sh  to  git-TEST-cases.sh 
+# 	hooks/bin/git-TEST-cases.sh  2.92.550  2019-09-17T10:54:54.644826-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.91  
+# 	   close #3   hooks/bin/git-TEST-cases.sh 
 #86# hooks/bin/git-TEST-cases.sh -  search from top of repository to list TEST directory test cases
 #       git-TEST-cases.sh all - runs FVT-setup.sh and SA-setup.sh to create symbolic links to EXAMPLES before listing all test cases
 #       git-TEST-cases.sh clean - remove symbolic links from TEST/<command>/ directories

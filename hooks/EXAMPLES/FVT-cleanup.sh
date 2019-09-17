@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/FVT-cleanup.sh  2.92.550  2019-09-17T10:54:54.487436-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.91  
+# 	   close #3   hooks/bin/git-TEST-cases.sh 
 # 	hooks/EXAMPLES/FVT-cleanup.sh  2.81.523  2019-09-14T23:16:43.457843-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.80-1-g8745c24  
 # 	   hooks/EXAMPLES/FVT-cleanup.sh   push to add version 
 #86# FVT-cleanup.sh - test case cleanup
@@ -52,6 +54,8 @@ rm -f FVT-*.test-case-output
 #    Remove temporary files
 #  rm -f temporary files
 rm -f FVT-option-version-001.expected
+rm -f FVT-option-version-002.expected
+rm -f FVT-option-version-003.expected
 #    Remove linked FVT-* files except FVT-cleanup.sh and FVT-setup.sh
 for k in $(ls -1 FVT-*) ; do
   if [[ "${k}" != "FVT-cleanup.sh" ]] ; then
