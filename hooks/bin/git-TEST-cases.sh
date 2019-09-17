@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  2.93.552  2019-09-17T11:20:41.129205-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.92-1-g916f760  
-# 	   #19   hooks/bin/git-TEST-cases.sh   updated new_message 'Only one of these option -a, --all, -c, --clean, -n, or -none can be selected.' 
+# 	hooks/bin/git-TEST-cases.sh  2.94.553  2019-09-17T12:16:59.374340-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.93  
+# 	   close #18 close #19  hooks/bin/git-TEST-cases.sh   done with testing ready for production 
 # 	hooks/bin/git-TEST-cases.sh  2.92.550  2019-09-17T10:54:54.644826-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.91  
 # 	   close #3   hooks/bin/git-TEST-cases.sh 
 #86# hooks/bin/git-TEST-cases.sh -  search from top of repository to list TEST directory test cases
@@ -133,7 +133,7 @@ if [[ "${ALL_TEST_CASES}" == "" ]] ; then ALL_TEST_CASES=${DEFAULT_ALL_TEST_CASE
 
 ###
 
-###  Production standard 9.3.513 Parse CLI options and arguments
+###  Production standard 9.3.513 Parse CLI options and arguments #19
 #	hooks/bin/git-TEST-cases.sh - add option to not show TEST cases for hooks/
 #	-a --all          1) Print all files with test cases exclude hooks/ (create links)
 #       -c --clean        2) Remove linked TEST cases and run FVT-cleanup.sh & SA-cleanup.sh
@@ -160,7 +160,7 @@ while [[ "${#}" -gt 0 ]] ; do
         display_usage ; new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Argument for ${1} is not found on command line" 1>&2 ; exit 1
       fi ; FILE_NAME=${2} ; shift 2 ;;
     --hooks|-hooks) ALL_TEST_CASES="YES" ; shift ;;
-    -n|--none) if [[ "${CLI_OPTION}" != "" ]] ; then
+    -n|--none) if [[ "${CLI_OPTION}" != "" ]] ; then  #  #18
         new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Only one of these option -a, --all, -c, --clean, -n, or -none can be selected." 1>&2 ; exit 1
       else
         CLI_OPTION="n" ; shift 
@@ -179,14 +179,14 @@ if [[ "${CLI_OPTION}" == "f" ]]  ; then
   if [[ -x "SA-setup.sh"  ]]  ; then ./SA-setup.sh  ; fi
   cd "${REPOSITORY_DIR}"
   if [[ "${ALL_TEST_CASES}" == "YES" ]] ; then
-    echo    ">>> words go here, add later . . . .  find anywhere"
     find . -print | grep --color=auto "${FILE_NAME}"
+    echo    ">>> words go here, add later . . maybe new_message . .  find anywhere"
   else
-    echo    ">>> words go here, add later . . . . f not found try using --hooks option find anywhere NOT in /hooks"
     find . -print | grep -v 'hooks/' | grep --color=auto "${FILE_NAME}"
+    echo    ">>> words go here, add later . . maybe new_message . . file not found try using --hooks option find anywhere NOT in /hooks"
   fi
 else
-  if [[ "${CLI_OPTION}" == "n" ]] ; then
+  if [[ "${CLI_OPTION}" == "n" ]] ; then  #  #18
     TMP_GITALLFILES=$(mktemp /tmp/GITALLFILESXXXXXX)  #  create temporary file for all files in repository
     TMP_GITALLFILES_NOTESTDIR=$(mktemp /tmp/GITALLFILES_NOTESTDIRXXXXXX)  #  create temporary file for all files in repository that have a /TEST/<filename>/ directory
     if [[ "${ALL_TEST_CASES}" == "YES" ]] ; then
