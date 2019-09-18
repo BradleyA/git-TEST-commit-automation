@@ -1,5 +1,7 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  2.95.554  2019-09-17T23:42:00.695393-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.94  
+# 	hooks/bin/git-TEST-cases.sh  2.97.556  2019-09-18T00:04:02.014729-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.96  
+# 	   #23   hooks/bin/git-TEST-cases.sh   testing SA-shellcheck-001 
+# 	hooks/bin/git-TEST-cases.sh  2.95.554  2019-09-17T23:42:00.695393-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.94 
 # 	   #23   hooks/EXAMPLES/SA-shellcheck-001   draft changes evaluate design 
 # 	hooks/bin/git-TEST-cases.sh  2.94.553  2019-09-17T12:16:59.374340-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.93  
 # 	   close #18 close #19  hooks/bin/git-TEST-cases.sh   done with testing ready for production 
