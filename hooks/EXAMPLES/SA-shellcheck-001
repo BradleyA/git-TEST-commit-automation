@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/EXAMPLES/SA-shellcheck-001  2.96.555  2019-09-17T23:53:41.841054-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.95  
+#	   hooks/EXAMPLES/SA-shellcheck-001   testing 
 #	hooks/EXAMPLES/SA-shellcheck-001  2.95.554  2019-09-17T23:42:00.521177-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.94  
 #	   #23   hooks/EXAMPLES/SA-shellcheck-001   draft changes evaluate design 
 #	hooks/EXAMPLES/SA-shellcheck-001  2.94.553  2019-09-17T12:16:59.237567-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.93  
@@ -83,7 +85,6 @@ else
   echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - Test script ERROR - ${BOLD}ERROR - ERROR${NORMAL}"
   exit 2
 fi
-{
 echo "${BOLD}Test case --->${NORMAL} ${0} ${1} 124 - Test script logic ERROR - ${BOLD}ERROR - ERROR${NORMAL}"
 exit 124
 ###
