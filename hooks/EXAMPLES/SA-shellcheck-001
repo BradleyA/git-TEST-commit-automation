@@ -1,10 +1,8 @@
 #!/bin/bash
+#	hooks/EXAMPLES/SA-shellcheck-001  2.95.554  2019-09-17T23:42:00.521177-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.94  
+#	   #23   hooks/EXAMPLES/SA-shellcheck-001   draft changes evaluate design 
 #	hooks/EXAMPLES/SA-shellcheck-001  2.94.553  2019-09-17T12:16:59.237567-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.93  
 #	   close #18 close #19  hooks/bin/git-TEST-cases.sh   done with testing ready for production 
-#	hooks/EXAMPLES/SA-shellcheck-001  2.65.489  2019-09-13T09:46:25.137946-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.64-18-ga5bfb20  
-#	   hooks/EXAMPLES/SA-shellcheck-001 added comment about SA-shellcheck-001.expected file is REQUIRED in the test directory. 
-#	hooks/EXAMPLES/SA-shellcheck-001  2.59.423  2019-09-08T22:15:43.170194-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.58  
-#	   hooks/EXAMPLES/SA-*   add new_message 
 #86# hooks/EXAMPLES/SA-shellcheck-001 - test case
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.1.160 Copyright
@@ -61,6 +59,13 @@ fi
 #>>>  shellcheck "${./temp-file}" > "${0}".test-case-output  #  analyse code for potential errors
 #>>>  diff "${0}".expected "${0}".test-case-output >/dev/null 2>&1
 
+TMP_FILE_1=$(mktemp)  #  create temporary file
+cp "${1}" "${TMP_FILE_1}"
+sed -i '/#86#/,$!d'  "${TMP_FILE_1}"
+shellcheck "${TMP_FILE_1}" > "${0}".test-case-output  #  analyse code for potential errors
+diff "${0}".expected "${0}".test-case-output >/dev/null 2>&1
+
+
 shellcheck "${1}" > "${0}".test-case-output  #  analyse code for potential errors
 
 diff "${0}".expected "${0}".test-case-output >/dev/null 2>&1
@@ -78,7 +83,7 @@ else
   echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - Test script ERROR - ${BOLD}ERROR - ERROR${NORMAL}"
   exit 2
 fi
-
+{
 echo "${BOLD}Test case --->${NORMAL} ${0} ${1} 124 - Test script logic ERROR - ${BOLD}ERROR - ERROR${NORMAL}"
 exit 124
 ###

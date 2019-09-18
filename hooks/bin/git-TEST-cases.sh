@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/git-TEST-cases.sh  2.95.554  2019-09-17T23:42:00.695393-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.94  
+# 	   #23   hooks/EXAMPLES/SA-shellcheck-001   draft changes evaluate design 
 # 	hooks/bin/git-TEST-cases.sh  2.94.553  2019-09-17T12:16:59.374340-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.93  
 # 	   close #18 close #19  hooks/bin/git-TEST-cases.sh   done with testing ready for production 
 # 	hooks/bin/git-TEST-cases.sh  2.92.550  2019-09-17T10:54:54.644826-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.91  
@@ -174,7 +176,7 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBU
 REPOSITORY_DIR=$(git rev-parse --show-toplevel)
 cd "${REPOSITORY_DIR}"
 if [[ "${CLI_OPTION}" == "f" ]]  ; then
-  cd $(find . -type d -name "${FILE_NAME}")
+  cd $(find . -type d -name "${FILE_NAME}")  #  >>>  need to add ERROR to this exit 1
   if [[ -x "FVT-setup.sh" ]]  ; then ./FVT-setup.sh ; fi
   if [[ -x "SA-setup.sh"  ]]  ; then ./SA-setup.sh  ; fi
   cd "${REPOSITORY_DIR}"
