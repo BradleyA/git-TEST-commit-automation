@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/setup-git-TEST-cases.sh  2.105.575  2019-09-19T11:07:10.459922-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.104-10-g8d7d94a  
+# 	   hooks/bin/setup-git-TEST-cases.sh  testing 
 # 	hooks/bin/setup-git-TEST-cases.sh  2.104.564  2019-09-19T10:16:19.842399-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.103  
 # 	   hooks/bin/setup-git-TEST-cases.sh   formating change 
 # 	hooks/bin/setup-git-TEST-cases.sh  2.103.563  2019-09-19T09:54:22.646662-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.102  
@@ -82,12 +84,9 @@ else
   new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  The current directory, $(pwd), is Not a git repository or any of the parent directories." 1>&2
   exit ${EXIT_CODE}
 fi
-set -x
 cd "$(git rev-parse --show-toplevel || echo '.')"  #  change to top git repository directory
 hooks/bin/git-TEST-cases.sh --clean
-set +x
-#    . . .
-#    git add hooks
+#    git add hooks  #  these steps would be my default most of the time but I would prefer to enter this manually until it is determined this is default .. reasons are sometime I would like to just test the code
 #    git commit -m 'install latest git-TEST-commit-automation/hooks'
 #    git-TEST-cases.sh clean
 #    git push
