@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/setup-git-TEST-cases.sh  2.104.564  2019-09-19T10:16:19.842399-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.103  
+# 	   hooks/bin/setup-git-TEST-cases.sh   formating change 
 # 	hooks/bin/setup-git-TEST-cases.sh  2.103.563  2019-09-19T09:54:22.646662-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.102  
 # 	   #2   hooks/bin/setup-git-TEST-cases.sh  testing 
 #86# hooks/bin/setup-git-TEST-cases.sh - setup git TEST cases in current repository
@@ -77,12 +79,13 @@ if git -C . rev-parse 2> /dev/null ; then  #  currect directory in a git reposit
   fi
 else
   EXIT_CODE=${?}
-    new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  The current directory, $(pwd), is Not a git repository or any of the parent directories." 1>&2
+  new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  The current directory, $(pwd), is Not a git repository or any of the parent directories." 1>&2
   exit ${EXIT_CODE}
 fi
-
+set -x
 cd "$(git rev-parse --show-toplevel || echo '.')"  #  change to top git repository directory
 hooks/bin/git-TEST-cases.sh --clean
+set +x
 #    . . .
 #    git add hooks
 #    git commit -m 'install latest git-TEST-commit-automation/hooks'
