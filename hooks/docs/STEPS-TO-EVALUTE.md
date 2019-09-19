@@ -2,8 +2,8 @@
 
 **Start a new Git repository to test git-TEST-commit-automation solution**
 
-    mkdir TEST-git-commit       #  Create a directory for a Git repository
-    cd TEST-git-commit
+    mkdir git-TEST-commit       #  Create a directory for a Git repository
+    cd git-TEST-commit
     git init .                  #  Create an empty Git repository
     vi sample.sh                #  Write a shell script
     
