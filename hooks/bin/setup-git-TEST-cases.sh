@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/setup-git-TEST-cases.sh  2.91.549  2019-09-17T10:37:02.183383-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.90-2-g3db91b5  
-# 	   #3 #18 #19   hooks/bin/git-TEST-cases.sh hooks/bin/setup-git-TEST-cases.sh hooks/bin/uninstall-git-TEST-cases.sh    rename list-git-TEST-cases.sh  to  git-TEST-cases.sh 
+# 	hooks/bin/setup-git-TEST-cases.sh  2.103.563  2019-09-19T09:54:22.646662-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.102  
+# 	   #2   hooks/bin/setup-git-TEST-cases.sh  testing 
 #86# hooks/bin/setup-git-TEST-cases.sh - setup git TEST cases in current repository
 #    copy commands to /usr/local/bin
 ###  Production standard 3.0 shellcheck
@@ -45,7 +45,7 @@ new_message() {  #  $1="${SCRIPT_NAME}"  $2="${LINENO}"  $3="DEBUG INFO ERROR WA
 }
 
 #    INFO
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "INFO" "  Started..." 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Started..." 1>&2 ; fi
 
 ###
 
@@ -59,6 +59,7 @@ if git -C . rev-parse 2> /dev/null ; then  #  currect directory in a git reposit
   rm -rf  BradleyA-git-TEST-commit-automation-*
   cd hooks
   if [[ -x "post-commit" ]] && [[ -x "pre-commit" ]]  ; then  # do files exist and execute permission
+    if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Link pre-commit and post-commit" 1>&2 ; fi
     ln -fs ../../hooks/pre-commit  ../.git/hooks/pre-commit
     ln -fs ../../hooks/post-commit ../.git/hooks/post-commit
   else
@@ -66,7 +67,8 @@ if git -C . rev-parse 2> /dev/null ; then  #  currect directory in a git reposit
     exit 2
   fi
   if [[ -x  "bin/git-TEST-cases.sh" ]] && [[ -x bin/setup-git-TEST-cases.sh ]]  && [[ -x bin/uninstall-git-TEST-cases.sh ]] && [[ -w /usr/local/bin ]]  ; then
-    cp -f -p bin/git-TEST-cases.sh       /usr/local/bin/git-TEST-cases.sh
+    if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Copy git-TEST-cases.sh, setup-git-TEST-cases.sh, & uninstall-git-TEST-cases.sh to /usr/local/bin" 1>&2 ; fi
+    cp -f -p bin/git-TEST-cases.sh            /usr/local/bin/git-TEST-cases.sh
     cp -f -p bin/setup-git-TEST-cases.sh      /usr/local/bin/setup-git-TEST-cases.sh
     cp -f -p bin/uninstall-git-TEST-cases.sh  /usr/local/bin/uninstall-git-TEST-cases.sh
   else
@@ -75,12 +77,12 @@ if git -C . rev-parse 2> /dev/null ; then  #  currect directory in a git reposit
   fi
 else
   EXIT_CODE=${?}
-    new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  The current directory, ($(pwd)), is Not a git repository (or any of the parent directories)." 1>&2
+    new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  The current directory, $(pwd), is Not a git repository or any of the parent directories." 1>&2
   exit ${EXIT_CODE}
 fi
 
 cd "$(git rev-parse --show-toplevel || echo '.')"  #  change to top git repository directory
-hooks/bin/git-TEST-cases.sh clean
+hooks/bin/git-TEST-cases.sh --clean
 #    . . .
 #    git add hooks
 #    git commit -m 'install latest git-TEST-commit-automation/hooks'
@@ -89,5 +91,5 @@ hooks/bin/git-TEST-cases.sh clean
 
 # >>>  consider adding a user hint and include link to README.md  . . .  to answer that question, what now (WTF)  . . .  shit I forgot, hadn't done this in six months, quick!  . . . . . .
 
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "INFO" "  Operation finished..." 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Operation finished..." 1>&2 ; fi
 ###
