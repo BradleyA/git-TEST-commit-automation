@@ -64,4 +64,4 @@ To use different default SA- test case, remove the symbilic link (rm TEST/sample
   
 git-TEST-commit-automation runs when "git commit -m 'message' <filename>" is executed.  Post-commit searches in the same directory for a TEST/\<filename>/ directory.  If found post-commit runs TEST/\<filename>/SA-setup.sh and/or TEST/\<filename>/FVT-setup.sh then searches for files beginning with SA- of FVT- and runs them.
 
-**ADD NOTE HERE ABOUT FVY **
+**ADD NOTE HERE ABOUT FVT**
