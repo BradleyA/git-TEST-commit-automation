@@ -2,7 +2,7 @@
 
 **Start a new Git repository to test git-TEST-commit-automation solution**
 
-    mkdir git-TEST-commit       #  Create a directory for a Git repository
+    mkdir -p git-TEST-commit    #  Create a directory for a Git repository
     cd git-TEST-commit
     git init .                  #  Create an empty Git repository
     vi sample.sh                #  Write a shell script
@@ -15,7 +15,7 @@
     git add sample.sh
     git commit -m 'initial commit' sample.sh
 
-<img id="Steps git-TEST-commit-automation-1.gif" src="images/git-TEST-commit-automation-1.gif" >
+<img id="Steps git-TEST-commit-automation-1.gif" src="images/docs/git-TEST-commit-automation-1.gif" >
     
 **Download and execute setup-git-TEST-cases.sh to setup git-TEST-commit-automation solution**
 This will download git-TEST-commit-automation files into a Git repository top directoy named hooks.  It will create two symbolic links for .git/hooks/pre-commit and .git/hooks/post-commit to hooks/pre-commit and hooks/post-commit.  It will also copy three files, list-git-TEST-cases.sh, setup-git-TEST-cases.sh and uninstall-git-TEST-cases.sh to /usr/local/bin.
