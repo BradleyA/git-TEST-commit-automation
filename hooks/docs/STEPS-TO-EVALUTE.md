@@ -26,7 +26,7 @@ Objective 1) Quick setup with default test cases for any Git repository (in seco
     ./setup-git-TEST-cases.sh   #  setup git-TEST-commit-automation in hooks directory and .git/hooks directory
     rm setup-git-TEST-cases.sh  #  remove setup-git-TEST-cases.sh and setup is complete
     
-<img id="Steps git-TEST-commit-automation-2.gif" src="images/git-TEST-commit-automation-2.gif" >
+<img id="Steps git-TEST-commit-automation-2.gif" src="../images/git-TEST-commit-automation-2.gif" >
     
 **Configure two default test cases for sample.sh and execute them**   
     
