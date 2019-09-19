@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/SA-setup.sh  2.108.598  2019-09-19T16:49:19.825724-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.107-7-gae522d0  
+# 	   upgrade Version section 
 # 	hooks/EXAMPLES/SA-setup.sh  2.86.536  2019-09-16T15:19:22.591383-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.85-7-g07ed5d9  
 # 	   hooks/EXAMPLES/SA-setup.sh   added more test case names 
 # 	hooks/EXAMPLES/SA-setup.sh  2.77.512  2019-09-14T14:25:47.131705-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.76  
@@ -34,8 +36,13 @@ get_date_stamp() {
 LOCALHOST=$(hostname -f)
 
 #    Version
+#    Assumptions for the next two lines of code:  The second line in this script includes the script path & name as the second item and
+#    the script version as the third item separated with space(s).  The tool I use is called 'markit'. See example line below:
+#       template/template.sh  3.517.783  2019-09-13T18:20:42.144356-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.516  
 SCRIPT_NAME=$(head -2 "${0}" | awk '{printf $2}')
 SCRIPT_VERSION=$(head -2 "${0}" | awk '{printf $3}')
+if [[ "${SCRIPT_NAME}" == "" ]] ; then SCRIPT_NAME="${0}" ; fi
+if [[ "${SCRIPT_VERSION}" == "" ]] ; then SCRIPT_VERSION="v?.?" ; fi
 
 #    UID and GID
 USER_ID=$(id -u)
