@@ -38,7 +38,7 @@ Objective 1) Quick setup with default test cases for any Git repository (in seco
     git commit -m 'initial commit'
     cd ../..
 
-<img id="Steps git-TEST-commit-automation-3.gif" src="images/git-TEST-commit-automation-3.gif" >
+<img id="Steps git-TEST-commit-automation-3.gif" src="../images/git-TEST-commit-automation-3.gif" >
 
 After running 'git add SA-setup.sh SA-cleanup.sh' and 'git commit', Git hook, post-commit, triggered a search for test cases in TEST/sample.sh/TEST/SA-setup.sh/ and TEST/sample.sh/TEST/SA-cleanup.sh/ directories to test SA-setup.sh and SA-cleanup.sh.  Since the directories were not found two INFOrmation massages were displayed '...No test case directory found in TEST/sample.sh/TEST/SA-setup.sh'.  These messages can be ignored because SA-setup.sh and SA-cleanup.sh do have test directories in a different location, hooks/EXAMPLES/TEST/SA-setup.sh/ and hooks/EXAMPLES/TEST/SA-cleanup.sh/.  The reason we recieved these messages is because we committed two files which triggered hook post-commit. 
 
