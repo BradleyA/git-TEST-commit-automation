@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/SA-setup.sh  2.110.610  2019-09-20T12:06:58.822411-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.109-3-g749625b  
+# 	   #25   hooks/EXAMPLES/SA-setup.sh   remove SA-filename-nospace-001 test case 
 # 	hooks/EXAMPLES/SA-setup.sh  2.108.598  2019-09-19T16:49:19.825724-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.107-7-gae522d0  
 # 	   upgrade Version section 
 # 	hooks/EXAMPLES/SA-setup.sh  2.86.536  2019-09-16T15:19:22.591383-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.85-7-g07ed5d9  
@@ -91,8 +93,6 @@ ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-775-001"        SA-permis
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-dir-001"        SA-permission-dir-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-grp-10000-001"  SA-permission-grp-10000-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-own-10000-001"  SA-permission-own-10000-001
-#
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-filename-nospace-001"      SA-filename-nospace-001
 #
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-shellcheck-001"            SA-shellcheck-001
 #
