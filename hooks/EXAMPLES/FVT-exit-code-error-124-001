@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/EXAMPLES/FVT-exit-code-error-124-001  2.109.606  2019-09-20T11:14:59.071655-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.108-7-g0df0229  
+#	   hooks/EXAMPLES/FVT-exit-code-error-   updated and added some FVT-exit-code test cases 
 #	hooks/EXAMPLES/FVT-exit-code-error-124-001  2.108.598  2019-09-19T16:47:53.251507-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.107-7-gae522d0  
 #	   upgrade Version section 
 #	hooks/EXAMPLES/FVT-exit-code-error-124-001  2.58.422  2019-09-08T22:02:16.583495-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.57-4-gd88b681  
@@ -61,6 +63,6 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBU
 
 ###     Place test case here
 
-echo "${BOLD}Test case --->${NORMAL} ${0} ${1} 124 - Test script logic ERROR - ${BOLD}ERROR - ERROR${NORMAL}"
+echo "${BOLD}Test case --->${NORMAL} ${0} ${1} 124 - exit code 124: Test script logic ERROR - ${BOLD}ERROR - ERROR${NORMAL}"
 exit 124
 ###
