@@ -1,12 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/setup-git-TEST-cases.sh  2.108.598  2019-09-19T16:49:31.199539-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.107-7-gae522d0  
-# 	   upgrade Version section 
-# 	hooks/bin/setup-git-TEST-cases.sh  2.105.575  2019-09-19T11:07:10.459922-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.104-10-g8d7d94a  
-# 	   hooks/bin/setup-git-TEST-cases.sh  testing 
-# 	hooks/bin/setup-git-TEST-cases.sh  2.104.564  2019-09-19T10:16:19.842399-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.103  
-# 	   hooks/bin/setup-git-TEST-cases.sh   formating change 
-# 	hooks/bin/setup-git-TEST-cases.sh  2.103.563  2019-09-19T09:54:22.646662-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.102  
-# 	   #2   hooks/bin/setup-git-TEST-cases.sh  testing 
+# 	hooks/bin/setup-git-TEST-cases.sh  2.117.621  2019-09-20T22:02:03.774879-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.116-1-g58bd437  
+# 	   close #2   hooks/bin/setup-git-TEST-cases.sh  met all four objectives:w 
 #86# hooks/bin/setup-git-TEST-cases.sh - setup git TEST cases in current repository
 #    copy commands to /usr/local/bin
 ###  Production standard 3.0 shellcheck
@@ -74,14 +68,13 @@ if git -C . rev-parse 2> /dev/null ; then  #  currect directory in a git reposit
     new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Unable to link ${REPOSITORY_NAME}/hooks/{pre-commit,post-commit} to ${REPOSITORY_NAME}/.git/hooks/{pre-commit,post-commit} because {pre-commit,post-commit} is NOT found in current directory ($(pwd)) or does not have execute permission." 1>&2
     exit 2
   fi
-  if [[ -x  "bin/git-TEST-cases.sh" ]] && [[ -x bin/setup-git-TEST-cases.sh ]]  && [[ -x bin/uninstall-git-TEST-cases.sh ]] && [[ -w /usr/local/bin ]]  ; then
+  if [[ -x "bin/git-TEST-cases.sh" ]] && [[ -x bin/setup-git-TEST-cases.sh ]]  && [[ -x bin/uninstall-git-TEST-cases.sh ]] && [[ -w /usr/local/bin ]]  ; then
     if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Copy git-TEST-cases.sh, setup-git-TEST-cases.sh, & uninstall-git-TEST-cases.sh to /usr/local/bin" 1>&2 ; fi
     cp -f -p bin/git-TEST-cases.sh            /usr/local/bin/git-TEST-cases.sh
     cp -f -p bin/setup-git-TEST-cases.sh      /usr/local/bin/setup-git-TEST-cases.sh
     cp -f -p bin/uninstall-git-TEST-cases.sh  /usr/local/bin/uninstall-git-TEST-cases.sh
   else
-    new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Unable to link ${REPOSITORY_NAME}/hooks/bin/{git-TEST-cases.sh,setup-git-TEST-cases.sh,uninstall-git-TEST-cases.sh} to /usr/local/bin because git-TEST-cases.sh or setup-git-TEST-cases.sh or uninstall-git-TEST-cases.sh is NOT found or does not have execute permission or /usr/local/bin is not writable." 1>&2
-    exit 2
+    new_message "${SCRIPT_NAME}" "${LINENO}" "WARN" "  Copy ${REPOSITORY_NAME}/hooks/bin/{git-TEST-cases.sh,setup-git-TEST-cases.sh,uninstall-git-TEST-cases.sh} to /usr/local/bin because git-TEST-cases.sh or setup-git-TEST-cases.sh or uninstall-git-TEST-cases.sh is NOT found or does not have execute permission or /usr/local/bin is not writable." 1>&2
   fi
 else
   EXIT_CODE=${?}
@@ -89,11 +82,11 @@ else
   exit ${EXIT_CODE}
 fi
 cd "$(git rev-parse --show-toplevel || echo '.')"  #  change to top git repository directory
-hooks/bin/git-TEST-cases.sh --clean
-#    git add hooks  #  these steps would be my default most of the time but I would prefer to enter this manually until it is determined this is default .. reasons are sometime I would like to just test the code
+git-TEST-cases.sh --clean --hooks
+
+# >>>    git add hooks  #  these steps would be my default most of the time but I would prefer to enter this manually until it is determined this is default .. reasons are sometime I would like to just test the code  ---- sometimes want to get latest test cases
 #    git commit -m 'install latest git-TEST-commit-automation/hooks'
-#    git-TEST-cases.sh clean
-#    git push
+#    git push   #28
 
 # >>>  consider adding a user hint and include link to README.md  . . .  to answer that question, what now (WTF)  . . .  shit I forgot, hadn't done this in six months, quick!  . . . . . .
 
