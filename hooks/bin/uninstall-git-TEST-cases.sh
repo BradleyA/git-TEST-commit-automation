@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/uninstall-git-TEST-cases.sh  2.108.598  2019-09-19T16:49:31.294796-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.107-7-gae522d0  
-# 	   upgrade Version section 
+# 	hooks/bin/uninstall-git-TEST-cases.sh  2.115.616  2019-09-20T20:24:59.499282-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.114  
+# 	   close #15   hooks/bin/uninstall-git-TEST-cases.sh   added message about location of tmp backup of all test cases 
 #86# hooks/bin/uninstall-git-TEST-cases.sh - uninstall git TEST cases in current repository
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.1.160 Copyright
@@ -52,7 +52,7 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "INFO
 
 if git -C . rev-parse 2> /dev/null ; then  #  currect directory in a git repository
   cd "$(git rev-parse --show-toplevel || echo '.')"  #  change to top git repository directory 
-  #    Tar copy of ./hooks into /tmp after a day should auto delete . . . someday I will want this back and  quick!
+  #    Tar copy of ./hooks into /tmp after a day should auto delete . . . someday I will want this back and  quick! where is it ?
   TMP_FILE_1=$(mktemp)    #  create temporary file
   TMP_FILE_2=$(mktemp)    #  create temporary file
   TMP_FILE_3=$(mktemp)    #  create temporary file
@@ -63,9 +63,10 @@ if git -C . rev-parse 2> /dev/null ; then  #  currect directory in a git reposit
   if [[ -d hooks ]] ; then 
     find ./hooks  >  "${TMP_FILE_3}"  #  ALL files and directories under hooks
   fi
+  #    Backup TEST directories, subdirectories, and files
   tar -rf "${TMP_FILE_1}.tar" --files-from "${TMP_FILE_2}" --files-from "${TMP_FILE_3}"
 
-#    Remove TEST directories, subdirectories, and files not under hooks directory
+  #    Remove TEST directories, subdirectories, and files not under hooks directory
   sort -r "${TMP_FILE_2}" > "${TMP_FILE_2s}"  #  remove files before directories
   while read -r name ; do
     if git ls-files --error-unmatch "$name" 2> /dev/null ; then
@@ -79,7 +80,7 @@ if git -C . rev-parse 2> /dev/null ; then  #  currect directory in a git reposit
     fi
   done <  "${TMP_FILE_2s}"
 
-#    Remove hooks/ directory, subdirectories, and files
+  #    Remove hooks/ directory, subdirectories, and files
   sort -r "${TMP_FILE_3}" > "${TMP_FILE_3s}"  # remove files before directories
   while read -r name ; do
     if git ls-files --error-unmatch "${name}" 2> /dev/null ; then
@@ -92,7 +93,7 @@ if git -C . rev-parse 2> /dev/null ; then  #  currect directory in a git reposit
       fi 
     fi
   done <  "${TMP_FILE_3s}"
-#
+  #
   rm -f  .git/hooks/pre-commit
   rm -f  .git/hooks/post-commit
   rm -f  /usr/local/bin/git-TEST-cases.sh
@@ -100,16 +101,16 @@ if git -C . rev-parse 2> /dev/null ; then  #  currect directory in a git reposit
   rm -f  /usr/local/bin/uninstall-git-TEST-cases.sh
   mv "${TMP_FILE_1}.tar" .  #  #20   place the tar file in the repository top directory not /tmp
   git commit -m 'remove git-TEST-commit-automation  hooks recursively'
-#  git push
-#
+  #>>>  need a ticket to add an options for git push with environment variable
+  #>>>  git push
+  #
 else
   EXIT_CODE=${?}
   new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  The current directory, ($(pwd)), is Not a git repository (or any of the parent directories)." 1>&2
   exit ${EXIT_CODE}
 fi
 
-# >>>  consider adding a user hint and include link to README.md  . . .  to answer that question, what now (WTF)  . . .  I forgot, hadn't done this in six months, quick!  . . .  is there a backup?  where?  . . .  are all the files and directories gone?  yep!
-# >>>  A copy of the files can be found in "${TMP_FILE_1}.tar" for les than 24 hours  . . .   I don't know when
+echo    "    A copy of the files can be found in "${TMP_FILE_1}.tar" until your system clears /tmp." #  #15
 
 #		
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "INFO" "  Operation finished..." 1>&2 ; fi
