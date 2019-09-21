@@ -1,5 +1,7 @@
 ## Steps to uninstall git-TEST-commit-automation solution
 
+After completing Steps to evaluate git-TEST-commit-automation solution
+
 **Start a new Git repository to test git-TEST-commit-automation solution**
 
     mkdir -p git-TEST-commit    #  Create a directory for a Git repository
@@ -19,5 +21,5 @@
     
 **Download and execute setup-git-TEST-cases.sh to setup git-TEST-commit-automation solution**
 
-
+Steps to evaluate git-TEST-commit-automation solution
 say something other than rm -rf 
