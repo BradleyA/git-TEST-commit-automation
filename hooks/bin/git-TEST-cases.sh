@@ -1,12 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  2.108.598  2019-09-19T16:49:31.101025-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.107-7-gae522d0  
-# 	   upgrade Version section 
-# 	hooks/bin/git-TEST-cases.sh  2.98.557  2019-09-18T00:09:09.657008-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.97  
-# 	   #23   hooks/bin/git-TEST-cases.sh   testing SA-shellcheck 
-# 	hooks/bin/git-TEST-cases.sh  2.97.556  2019-09-18T00:04:02.014729-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.96 
-# 	   #23   hooks/bin/git-TEST-cases.sh   testing SA-shellcheck-001 
-# 	hooks/bin/git-TEST-cases.sh  2.95.554  2019-09-17T23:42:00.695393-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.94 
-# 	   #23   hooks/EXAMPLES/SA-shellcheck-001   draft changes evaluate design 
+# 	hooks/bin/git-TEST-cases.sh  2.112.613  2019-09-20T19:29:27.300829-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.111-1-g7eba63e  
+# 	   close #22   hooks/bin/git-TEST-cases.sh   updated your hint, usage, options in display_help #21 
 # 	hooks/bin/git-TEST-cases.sh  2.94.553  2019-09-17T12:16:59.374340-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.93  
 # 	   close #18 close #19  hooks/bin/git-TEST-cases.sh   done with testing ready for production 
 # 	hooks/bin/git-TEST-cases.sh  2.92.550  2019-09-17T10:54:54.644826-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.91  
@@ -32,10 +26,11 @@ DEFAULT_ALL_TEST_CASES="NO"
 ###  Production standard 8.3.214 --usage
 display_usage() {
 COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')
-echo -e "\n${NORMAL}${COMMAND_NAME}\n   search from top of repository to list TEST directory test cases"
+echo -e "\n${NORMAL}${COMMAND_NAME}\n   list files in TEST case directories"
 echo -e "\n${BOLD}USAGE${NORMAL}"
-echo    "   ${COMMAND_NAME} [-a | --all | -c | --clean | -n | --none] [--hooks]"
-echo -e "                   [-f <GIT_PATH>/<FILE_NAME> | --filename <GIT_PATH>/<FILE_NAME>]\n"
+echo    "   ${COMMAND_NAME} [-a | --all | -c | --clean | -n | --none | -f <FILE_NAME>"
+echo    "                   | --filename <FILE_NAME>]"
+echo -e "                   [--hooks]\n"
 echo    "   ${COMMAND_NAME} [--help | -help | help | -h | h | -?]"
 echo    "   ${COMMAND_NAME} [--usage | -usage | -u]"
 echo    "   ${COMMAND_NAME} [--version | -version | -v]"
@@ -79,15 +74,22 @@ echo    "   ALL_TEST_CASES  Include hooks/ directory (default ${DEFAULT_ALL_TEST
 echo -e "\n${BOLD}OPTIONS${NORMAL}"
 echo -e "Order of precedence: CLI options, environment variable, default code.\n"
 echo    "   -a, --all"
-echo -e "\tPrint all files with test cases exclude hooks/"
+echo -e "\tPrint all test case files after running FVT-setup.sh and SA-setup.sh"
+echo -e "\texcluding hooks/ directory unless --hooks option is used."
 echo    "   -c, --clean"
-echo -e "\tRemove linked TEST cases and run FVT-cleanup.sh & SA-cleanup.sh"
-echo    "   -f, --filename, -f=, --filename=<FILENAME>"
-echo -e "\tPrint all <FILENAME> TEST cases"
+echo -e "\tRun FVT-cleanup.sh & SA-cleanup.sh to remove linked TEST cases and"
+echo -e "\ttest files and directories excluding hooks/ directory unless --hooks"
+echo -e "\toption is used."
+echo    "   -f <FILENAME>, --filename <FILENAME>"
+echo -e "\tPrint all test case files for <FILENAME> after running FVT-setup.sh"
+echo -e "\tand SA-setup.sh excluding hooks/ directory unless --hooks option is used."
 echo    "   --hooks"
-echo -e "\tInclude TEST cases in hooks/ directory.  Can be used with -a or -c options."
+echo -e "\tInclude files and test cases in hooks/ directory.  This option can"
+echo -e "\tbe used with one of these options -a, -c, -n, or -f.  It can be set"
+echo -e "\tby using the environment variable, ALL_TEST_CASES."
 echo    "   -n, --none"
-echo -e "\tPrint all files that do NOT have TEST cases"
+echo -e "\tPrint all files that do NOT have TEST cases except hooks/ directory"
+echo -e "\tunless --hooks option is used."
 ###  Production standard 6.1.177 Architecture tree
 echo -e "\n${BOLD}ARCHITECTURE TREE${NORMAL}"  # STORAGE & CERTIFICATION
 
@@ -157,21 +159,26 @@ while [[ "${#}" -gt 0 ]] ; do
     --usage|-usage|usage|-u)  display_usage ; exit 0  ;;
     --version|-version|version|-v)  echo "${SCRIPT_NAME} ${SCRIPT_VERSION}" ; exit 0  ;;
     -a|--all)   if [[ "${CLI_OPTION}" != "" ]] ; then
-        new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Only one of these option -a, --all, -c, --clean, -n, or --none can be selected." 1>&2 ; exit 1
+        new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Only one of these option -a, --all, -c, --clean, -f, --filename, -n, or --none can be selected." 1>&2 ; exit 1
       else
         CLI_OPTION="a" ; shift
       fi ;;
     -c|--clean) if [[ "${CLI_OPTION}" != "" ]] ; then
-        new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Only one of these option -a, --all, -c, --clean, -n, or -none can be selected." 1>&2 ; exit 1
+        new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Only one of these option -a, --all, -c, --clean, -f, --filename, -n, or --none can be selected." 1>&2 ; exit 1
       else
         CLI_OPTION="c" ; shift 
       fi ;;
-    -f|--filename) CLI_OPTION="f" ; if [[ "${2}" == "" ]] ; then
-        display_usage ; new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Argument for ${1} is not found on command line" 1>&2 ; exit 1
-      fi ; FILE_NAME=${2} ; shift 2 ;;
+    -f|--filename) if [[ "${CLI_OPTION}" != "" ]] ; then
+        new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Only one of these option -a, --all, -c, --clean, -f, --filename, -n, or --none can be selected." 1>&2 ; exit 1
+      else
+        CLI_OPTION="f" ; if [[ "${2}" == "" ]] ; then
+          display_usage ; new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Argument for ${1} is not found on command line" 1>&2 ; exit 1
+        fi
+        FILE_NAME=${2} ; shift 2
+      fi ;;
     --hooks|-hooks) ALL_TEST_CASES="YES" ; shift ;;
     -n|--none) if [[ "${CLI_OPTION}" != "" ]] ; then  #  #18
-        new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Only one of these option -a, --all, -c, --clean, -n, or -none can be selected." 1>&2 ; exit 1
+        new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Only one of these option -a, --all, -c, --clean, -f, --filename, -n, or --none can be selected." 1>&2 ; exit 1
       else
         CLI_OPTION="n" ; shift 
       fi ;;
@@ -184,16 +191,17 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBU
 REPOSITORY_DIR=$(git rev-parse --show-toplevel)
 cd "${REPOSITORY_DIR}"
 if [[ "${CLI_OPTION}" == "f" ]]  ; then
-  cd $(find . -type d -name "${FILE_NAME}")  #  >>>  need to add ERROR to this exit 1
+  if [[ "${FILE_NAME}" =~ "/" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Filename ${FILE_NAME}, contains '/'" 1>&2 ; exit 1 ; fi
+  cd $(find . -type d -name "${FILE_NAME}")
   if [[ -x "FVT-setup.sh" ]]  ; then ./FVT-setup.sh ; fi
   if [[ -x "SA-setup.sh"  ]]  ; then ./SA-setup.sh  ; fi
   cd "${REPOSITORY_DIR}"
   if [[ "${ALL_TEST_CASES}" == "YES" ]] ; then
+    echo "${NORMAL}    INFO:  If file not found, check spelling." 1>&2
     find . -print | grep --color=auto "${FILE_NAME}"
-    echo    ">>> words go here, add later . . maybe new_message . .  find anywhere"
   else
+    echo "${NORMAL}    INFO:  If file not found, check spelling or including ${BOLD}--hooks${NORMAL} option." 1>&2
     find . -print | grep -v 'hooks/' | grep --color=auto "${FILE_NAME}"
-    echo    ">>> words go here, add later . . maybe new_message . . file not found try using --hooks option find anywhere NOT in /hooks"
   fi
 else
   if [[ "${CLI_OPTION}" == "n" ]] ; then  #  #18
