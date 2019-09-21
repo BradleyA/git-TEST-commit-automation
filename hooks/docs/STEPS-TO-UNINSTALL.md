@@ -8,7 +8,7 @@
 
 <img id="Steps git-TEST-commit-automation-2-1.gif" src="../images/git-TEST-commit-automation-2-1.gif" >
 
-The uninstall-git-TEST-cases.sh creates a tar file (tmp.\*.tar) of all the files that were removed in the top directory of the Git repository.  Either move the tar backup to another location or just delete the archive.
+The uninstall-git-TEST-cases.sh creates a tar file (tmp.\*.tar) of all the files that were removed in the top directory of the Git repository.  Either move the tar file to another location or just delete the tar file.
 
     rm tmp.*.tar
 
