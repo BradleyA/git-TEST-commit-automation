@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  2.121.625  2019-09-21T12:58:28.294603-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.120  
-# 	   #29    hooks/bin/git-TEST-cases.sh  ready for testing 
+# 	hooks/bin/git-TEST-cases.sh  2.122.626  2019-09-21T15:39:47.409524-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.121  
+# 	   close #29   hooks/bin/git-TEST-cases.sh   add option --add - Add default test case directory (TEST/<FILE_NAME>/) and files SA-setup.sh, SA-cleanup.sh, SA-shellcheck-001.expected 
 # 	hooks/bin/git-TEST-cases.sh  2.112.613  2019-09-20T19:29:27.300829-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.111-1-g7eba63e  
 # 	   close #22   hooks/bin/git-TEST-cases.sh   updated your hint, usage, options in display_help #21 
 # 	hooks/bin/git-TEST-cases.sh  2.94.553  2019-09-17T12:16:59.374340-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.93  
@@ -174,7 +174,7 @@ while [[ "${#}" -gt 0 ]] ; do
       else
         CLI_OPTION="a" ; shift
       fi ;;
-    --add) DEFAULT_ADD_TEST_CASE="YES" ;;  #  #29
+    --add) DEFAULT_ADD_TEST_CASE="YES" ; shift ;;  #  #29
     -c|--clean) if [[ "${CLI_OPTION}" != "" ]] ; then
         new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Only one of these option -a, --all, -c, --clean, -f, --filename, -n, or --none can be selected." 1>&2 ; exit 1
       else
@@ -203,19 +203,24 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBU
 REPOSITORY_DIR=$(git rev-parse --show-toplevel)
 cd "${REPOSITORY_DIR}"
 if [[ "${CLI_OPTION}" == "f" ]]  ; then
-  if [[ "${FILE_NAME}" =~ "/" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Filename ${FILE_NAME}, contains '/'" 1>&2 ; exit 1 ; fi
+  if [[ "${FILE_NAME}" =~ / ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Filename ${FILE_NAME}, contains '/'" 1>&2 ; exit 1 ; fi
   if [[ "${DEFAULT_ADD_TEST_CASE}" == "YES" ]] ; then  #  #29  --add default SA files
     TMP1=$(find . -type f -name "${FILE_NAME}")
+    if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Directory with FILE_NAME >${TMP1}< FILE_NAME >${FILE_NAME}<" 1>&2 ; fi
     if [[ "${TMP1}" == "" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Filename ${FILE_NAME}, NOT found" 1>&2 ; exit 1 ; fi
-    cd $(dirname "${TMP}")  #  change to directory with ${FILE_NAME}
+    DIR_COUNT=$(awk -F'/' '{print NF-2}' <<< $TMP1)
+    cd "$(dirname "${TMP1}")"  #  change to directory with ${FILE_NAME}
     mkdir -p TEST/"${FILE_NAME}"/
-    cd TEST/"${FILE_NAME}"/
-    ln -s ../../hooks/EXAMPLES/SA-setup.sh .
-    ln -s ../../hooks/EXAMPLES/SA-cleanup.sh .
-    touch SA-shellcheck-001.expected
-    cd ../..
+    EXAMPLE_DIR="../../hooks/EXAMPLES"
+    if [[ ${DIR_COUNT} != 0 ]] ; then
+      while [[ ${DIR_COUNT} != 0 ]] ; do DIR_COUNT=$((DIR_COUNT - 1)) ; EXAMPLE_DIR="../${EXAMPLE_DIR}" ; done
+    fi
+    if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  EXAMPLE_DIR >${EXAMPLE_DIR}<" 1>&2 ; fi
+    ln -sf "${EXAMPLE_DIR}/SA-setup.sh"   "TEST/${FILE_NAME}/SA-setup.sh"
+    ln -sf "${EXAMPLE_DIR}/SA-cleanup.sh" "TEST/${FILE_NAME}/SA-cleanup.sh"
+    touch "TEST/${FILE_NAME}/SA-shellcheck-001.expected"
   fi  #  #29
-  cd $(find . -type d -name "${FILE_NAME}")
+  cd "$(find . -type d -name "${FILE_NAME}")"
   if [[ -x "FVT-setup.sh" ]]  ; then ./FVT-setup.sh ; fi
   if [[ -x "SA-setup.sh"  ]]  ; then ./SA-setup.sh  ; fi
   cd "${REPOSITORY_DIR}"
