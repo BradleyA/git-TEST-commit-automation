@@ -30,19 +30,13 @@ Objective 1) **Quick setup with default test cases for any Git repository (in se
 
 Objective 1)  **Done, installed in seconds**
     
-**Configure two default test cases for sample.sh and execute them**   
+**Configure two default test cases for sample.sh**   
     
-    mkdir -p TEST/sample.sh  #  Create directories to trigger post-commit hook to search for test cases in TEST/sample.sh for sample.sh
-    cd TEST/sample.sh
-    ln -s ../../hooks/EXAMPLES/SA-setup.sh .  #  Link EXAMPLES/SA-setup.sh file which has two test case links uncommented
-    ln -s ../../hooks/EXAMPLES/SA-cleanup.sh .  #  Link EXAMPLES/SA-cleanup.sh
-    git add SA-setup.sh SA-cleanup.sh  #  Include SA-setup.sh and SA-cleanup.sh as tracked files in Git repository
+    git-TEST-cases.sh --filename sample.sh --add
+    git add TEST/sample.sh
     git commit -m 'initial commit'
-    cd ../..
 
 <img id="Steps git-TEST-commit-automation-3.gif" src="../images/git-TEST-commit-automation-3.gif" >
-
-After running 'git add SA-setup.sh SA-cleanup.sh' and 'git commit', Git hook, post-commit, triggered a search for test cases in TEST/sample.sh/TEST/SA-setup.sh/ and TEST/sample.sh/TEST/SA-cleanup.sh/ directories to test SA-setup.sh and SA-cleanup.sh.  Since the directories were not found two INFOrmation massages were displayed '...No test case directory found in TEST/sample.sh/TEST/SA-setup.sh'.  These messages can be ignored because SA-setup.sh and SA-cleanup.sh do have test directories in a different location, hooks/EXAMPLES/TEST/SA-setup.sh/ and hooks/EXAMPLES/TEST/SA-cleanup.sh/.  The reason we recieved these messages is because we committed two files which triggered hook post-commit to search for TEST directory relative to the file being commited.
 
 **Make a change to sample.sh and run 'git add' and 'git commit'**
     
