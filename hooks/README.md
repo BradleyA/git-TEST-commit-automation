@@ -13,18 +13,18 @@ Scripts to assist running something, and checking something, then reporting some
 #### Objectives:
 1) Quick setup with default test cases for any Git repository (in seconds)
 2) Quick uninstall on any Git repository (in seconds)
-3) Quick check of test case depth for a file (option -f) and all files for any Git repository (option -a) (in seconds) 
-4) Quick reduction of untracked TEST case files (option -c) (in seconds)
-5) Quick upgrade of default test cases and test case code fixes (in seconds)
-6) Quick setup and configuration of FVT and SA test cases in (in seconds)
+3) Quick check of test case depth for a file (option -f) and all files for any Git repository (option -a)
+4) Quick setup of default SA- test cases for a file
+5) Quick upgrade of default test cases with test case code fixes
+6) Quick reduction of untracked TEST case files (option -c)
 
 #### Future Objectives 
 
 - <COMMIT_FILE_NAME>.test-case-input - Add support   #12
 - Design for quick test case git branch merge (include steps)
-- Quick test branch merge from test team's custom test cases without merge conflicts (include steps)
+- Quick test case branch merge from test team's custom test cases without merge conflicts (include steps)
   - challenge is SA-setup.sh & FVT-setup.sh could be changed by development and test teams 
-- Quick backup of all test cases in repository (\<FILE-NAME>.tar) (code is currently in uninstall) (option: backup)
+- Quick backup of all test cases in repository (\<FILE-NAME>.tar) (code is in uninstall-) (option: --backup --restore)
 - Include support for custom test cases or intergration with other test or CI solutions 
 - Support several types of files (support additional test case types (FVT,SA)
 	
@@ -201,8 +201,8 @@ add branch marge what ever
 ](https://github.com/BradleyA/)    [<img src="hooks/images/linkedin.png" style="max-width:100%;" >](https://www.linkedin.com/in/bradleyhallen)
 
 #### System OS script tested
- * Ubuntu 14.04.3 LTS
- * CoreOS 723.3.0
+ * Ubuntu 16.04.6 LTS (GNU/Linux 4.4.38-v7+ armv7l)
+ * Ubuntu 14.04.6 LTS (GNU/Linux 4.4.0-148-generic x86_64)
 
 #### Design Principles
  * Have a simple setup process and a minimal learning curve
