@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  2.118.622  2019-09-20T23:14:29.035558-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.117  
-# 	   #29   hooks/bin/git-TEST-cases.sh   first ruff draft 
+# 	hooks/bin/git-TEST-cases.sh  2.121.625  2019-09-21T12:58:28.294603-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.120  
+# 	   #29    hooks/bin/git-TEST-cases.sh  ready for testing 
 # 	hooks/bin/git-TEST-cases.sh  2.112.613  2019-09-20T19:29:27.300829-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.111-1-g7eba63e  
 # 	   close #22   hooks/bin/git-TEST-cases.sh   updated your hint, usage, options in display_help #21 
 # 	hooks/bin/git-TEST-cases.sh  2.94.553  2019-09-17T12:16:59.374340-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.93  
@@ -25,6 +25,7 @@ BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
 ###  Production standard 7.0 Default variable value
 DEFAULT_ALL_TEST_CASES="NO"
+DEFAULT_ADD_TEST_CASE="NO"
 ###  Production standard 8.3.214 --usage
 display_usage() {
 COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')
@@ -173,9 +174,7 @@ while [[ "${#}" -gt 0 ]] ; do
       else
         CLI_OPTION="a" ; shift
       fi ;;
-
-    --add) ;; #  #29
-
+    --add) DEFAULT_ADD_TEST_CASE="YES" ;;  #  #29
     -c|--clean) if [[ "${CLI_OPTION}" != "" ]] ; then
         new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Only one of these option -a, --all, -c, --clean, -f, --filename, -n, or --none can be selected." 1>&2 ; exit 1
       else
@@ -205,20 +204,17 @@ REPOSITORY_DIR=$(git rev-parse --show-toplevel)
 cd "${REPOSITORY_DIR}"
 if [[ "${CLI_OPTION}" == "f" ]]  ; then
   if [[ "${FILE_NAME}" =~ "/" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Filename ${FILE_NAME}, contains '/'" 1>&2 ; exit 1 ; fi
-
-  #  #29  --add - add default SA files
-  # if [[ --add ]] ; then
-#      cd $(dirname $(find . -type f -name "${FILE_NAME}"))  #  all kind of issues with this is the file at the top of the tree or not
-#      mkdir -p TEST/"${FILE_NAME}"/
-#      cd TEST/"${FILE_NAME}"/
-#      ln -s ../../hooks/EXAMPLES/SA-setup.sh .
-#      ln -s ../../hooks/EXAMPLES/SA-cleanup.sh .
-#      touch SA-shellcheck-001.expected
-#      cd ../..
-#   else
-#     printf error something
-#   fi  #  #29
-
+  if [[ "${DEFAULT_ADD_TEST_CASE}" == "YES" ]] ; then  #  #29  --add default SA files
+    TMP1=$(find . -type f -name "${FILE_NAME}")
+    if [[ "${TMP1}" == "" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Filename ${FILE_NAME}, NOT found" 1>&2 ; exit 1 ; fi
+    cd $(dirname "${TMP}")  #  change to directory with ${FILE_NAME}
+    mkdir -p TEST/"${FILE_NAME}"/
+    cd TEST/"${FILE_NAME}"/
+    ln -s ../../hooks/EXAMPLES/SA-setup.sh .
+    ln -s ../../hooks/EXAMPLES/SA-cleanup.sh .
+    touch SA-shellcheck-001.expected
+    cd ../..
+  fi  #  #29
   cd $(find . -type d -name "${FILE_NAME}")
   if [[ -x "FVT-setup.sh" ]]  ; then ./FVT-setup.sh ; fi
   if [[ -x "SA-setup.sh"  ]]  ; then ./SA-setup.sh  ; fi
