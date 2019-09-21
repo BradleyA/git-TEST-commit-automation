@@ -201,8 +201,8 @@ add branch marge what ever
 ](https://github.com/BradleyA/)    [<img src="hooks/images/linkedin.png" style="max-width:100%;" >](https://www.linkedin.com/in/bradleyhallen)
 
 #### System OS script tested
- * Ubuntu 14.04.3 LTS
- * CoreOS 723.3.0
+ * Ubuntu 16.04.6 LTS (GNU/Linux 4.4.38-v7+ armv7l)
+ * Ubuntu 14.04.6 LTS (GNU/Linux 4.4.0-148-generic x86_64)
 
 #### Design Principles
  * Have a simple setup process and a minimal learning curve
