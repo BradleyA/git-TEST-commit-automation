@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/uninstall-git-TEST-cases.sh  2.116.619  2019-09-20T20:28:09.519874-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.115-2-g5c5aeaa  
+# 	   #15   hooks/bin/uninstall-git-TEST-cases.sh  corrected typo in message 
 # 	hooks/bin/uninstall-git-TEST-cases.sh  2.115.616  2019-09-20T20:24:59.499282-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.114  
 # 	   close #15   hooks/bin/uninstall-git-TEST-cases.sh   added message about location of tmp backup of all test cases 
 #86# hooks/bin/uninstall-git-TEST-cases.sh - uninstall git TEST cases in current repository
@@ -110,7 +112,7 @@ else
   exit ${EXIT_CODE}
 fi
 
-echo    "    A copy of the files can be found in "${TMP_FILE_1}.tar" until your system clears /tmp." #  #15
+echo    "    A copy of files can be found in ${TMP_FILE_1}.tar until your system clears /tmp." #  #15
 
 #		
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "INFO" "  Operation finished..." 1>&2 ; fi
