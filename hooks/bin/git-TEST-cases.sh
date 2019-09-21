@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/git-TEST-cases.sh  2.118.622  2019-09-20T23:14:29.035558-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.117  
+# 	   #29   hooks/bin/git-TEST-cases.sh   first ruff draft 
 # 	hooks/bin/git-TEST-cases.sh  2.112.613  2019-09-20T19:29:27.300829-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.111-1-g7eba63e  
 # 	   close #22   hooks/bin/git-TEST-cases.sh   updated your hint, usage, options in display_help #21 
 # 	hooks/bin/git-TEST-cases.sh  2.94.553  2019-09-17T12:16:59.374340-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.93  
@@ -30,6 +32,7 @@ echo -e "\n${NORMAL}${COMMAND_NAME}\n   list files in TEST case directories"
 echo -e "\n${BOLD}USAGE${NORMAL}"
 echo    "   ${COMMAND_NAME} [-a | --all | -c | --clean | -n | --none | -f <FILE_NAME>"
 echo    "                   | --filename <FILE_NAME>]"
+echo    "                   [--filename <FILE_NAME> --add]"
 echo -e "                   [--hooks]\n"
 echo    "   ${COMMAND_NAME} [--help | -help | help | -h | h | -?]"
 echo    "   ${COMMAND_NAME} [--usage | -usage | -u]"
@@ -80,9 +83,13 @@ echo    "   -c, --clean"
 echo -e "\tRun FVT-cleanup.sh & SA-cleanup.sh to remove linked TEST cases and"
 echo -e "\ttest files and directories excluding hooks/ directory unless --hooks"
 echo -e "\toption is used."
-echo    "   -f <FILENAME>, --filename <FILENAME>"
-echo -e "\tPrint all test case files for <FILENAME> after running FVT-setup.sh"
-echo -e "\tand SA-setup.sh excluding hooks/ directory unless --hooks option is used."
+echo    "   -f <FILE_NAME>, --filename <FILE_NAME>"
+echo -e "\tPrint all test case files for <FILE_NAME> after running FVT-setup.sh"
+echo -e "\tand SA-setup.sh excluding hooks/ directory unless --hooks option is used."  #  #29  --add option add default test cases
+echo    "        --add"
+echo -e "\t     Add default test case directory (TEST/<FILE_NAME>/) and files"
+echo -e "\t     SA-setup.sh, SA-cleanup.sh, & SA-shellcheck-001.expected to"
+echo -e "\t     -f <FILE_NAME>."
 echo    "   --hooks"
 echo -e "\tInclude files and test cases in hooks/ directory.  This option can"
 echo -e "\tbe used with one of these options -a, -c, -n, or -f.  It can be set"
@@ -96,7 +103,9 @@ echo -e "\n${BOLD}ARCHITECTURE TREE${NORMAL}"  # STORAGE & CERTIFICATION
 echo -e "\n${BOLD}DOCUMENTATION${NORMAL}"
 echo    "   https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md"
 echo -e "\n${BOLD}EXAMPLES${NORMAL}"
-echo -e "   <<your code examples description goes here>>\n\t${BOLD}${COMMAND_NAME} <<code example goes here>>${NORMAL}"
+echo -e "   List files in TEST case directories including hooks/ directory\n\t${BOLD}${COMMAND_NAME} --hooks${NORMAL}"
+echo -e "   <<your code examples description goes here>>\n\t${BOLD}${COMMAND_NAME}${NORMAL}"
+echo -e "   <<your code examples description goes here>>\n\t${BOLD}${COMMAND_NAME}${NORMAL}"
 echo -e "   <<your code examples description goes here>>\n\t${BOLD}${COMMAND_NAME}${NORMAL}"
 }
 
@@ -149,7 +158,8 @@ if [[ "${ALL_TEST_CASES}" == "" ]] ; then ALL_TEST_CASES=${DEFAULT_ALL_TEST_CASE
 #	hooks/bin/git-TEST-cases.sh - add option to not show TEST cases for hooks/
 #	-a --all          1) Print all files with test cases exclude hooks/ (create links)
 #       -c --clean        2) Remove linked TEST cases and run FVT-cleanup.sh & SA-cleanup.sh
-#	-f --filename -f= --filename=  3) Print all <FILENAME> TEST cases and files
+#	-f --filename -f= --filename=  3) Print all <FILE_NAME> TEST cases and files
+#           --add         add default test cases to -f <FILE_NAME>
 #	--hooks           4) Include TEST cases in hooks/ directory (can be used with -a or -c or -n)
 #	-n --none         5) Print all files that do NOT have TEST/<FILE_NAME>/ directory #18
 
@@ -163,6 +173,9 @@ while [[ "${#}" -gt 0 ]] ; do
       else
         CLI_OPTION="a" ; shift
       fi ;;
+
+    --add) ;; #  #29
+
     -c|--clean) if [[ "${CLI_OPTION}" != "" ]] ; then
         new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Only one of these option -a, --all, -c, --clean, -f, --filename, -n, or --none can be selected." 1>&2 ; exit 1
       else
@@ -192,6 +205,20 @@ REPOSITORY_DIR=$(git rev-parse --show-toplevel)
 cd "${REPOSITORY_DIR}"
 if [[ "${CLI_OPTION}" == "f" ]]  ; then
   if [[ "${FILE_NAME}" =~ "/" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Filename ${FILE_NAME}, contains '/'" 1>&2 ; exit 1 ; fi
+
+  #  #29  --add - add default SA files
+  # if [[ --add ]] ; then
+#      cd $(dirname $(find . -type f -name "${FILE_NAME}"))  #  all kind of issues with this is the file at the top of the tree or not
+#      mkdir -p TEST/"${FILE_NAME}"/
+#      cd TEST/"${FILE_NAME}"/
+#      ln -s ../../hooks/EXAMPLES/SA-setup.sh .
+#      ln -s ../../hooks/EXAMPLES/SA-cleanup.sh .
+#      touch SA-shellcheck-001.expected
+#      cd ../..
+#   else
+#     printf error something
+#   fi  #  #29
+
   cd $(find . -type d -name "${FILE_NAME}")
   if [[ -x "FVT-setup.sh" ]]  ; then ./FVT-setup.sh ; fi
   if [[ -x "SA-setup.sh"  ]]  ; then ./SA-setup.sh  ; fi
