@@ -4,16 +4,12 @@
 
 
     cd git-TEST-commit          #  Change directory into Git repository, git-TEST-commit
-    
-    
-    
-    chmod 775 sample.sh
-    git add sample.sh
-    git commit -m 'initial commit' sample.sh
+    uninstall-git-TEST-cases.sh    
 
-<img id="Steps git-TEST-commit-automation-1.gif" src="../images/git-TEST-commit-automation-1.gif" >
-    
-**Download and execute setup-git-TEST-cases.sh to setup git-TEST-commit-automation solution**
+<img id="Steps git-TEST-commit-automation-2-1.gif" src="../images/git-TEST-commit-automation-2-1.gif" >
 
-Steps to evaluate git-TEST-commit-automation solution
-say something other than rm -rf 
+The uninstall-git-TEST-cases.sh creates a tar file (tmp.\*.tar) of all the files that were removed in the top directory of the Git repository.  Either move the tar file to another location or just delete the tar file.
+
+    rm tmp.*.tar
+
+**That is it!**
