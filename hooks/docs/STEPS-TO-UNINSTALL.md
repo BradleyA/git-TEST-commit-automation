@@ -11,7 +11,7 @@
     git add sample.sh
     git commit -m 'initial commit' sample.sh
 
-<img id="Steps git-TEST-commit-automation-1.gif" src="../images/git-TEST-commit-automation-1.gif" >
+<img id="Steps git-TEST-commit-automation-2-1.gif" src="../images/git-TEST-commit-automation-2-1.gif" >
     
 **Download and execute setup-git-TEST-cases.sh to setup git-TEST-commit-automation solution**
 
