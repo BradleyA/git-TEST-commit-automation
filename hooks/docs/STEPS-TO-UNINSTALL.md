@@ -4,12 +4,7 @@
 
 
     cd git-TEST-commit          #  Change directory into Git repository, git-TEST-commit
-    
-    
-    
-    chmod 775 sample.sh
-    git add sample.sh
-    git commit -m 'initial commit' sample.sh
+    uninstall-git-TEST-cases.sh    
 
 <img id="Steps git-TEST-commit-automation-2-1.gif" src="../images/git-TEST-commit-automation-2-1.gif" >
     
