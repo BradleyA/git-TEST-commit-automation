@@ -1,6 +1,8 @@
 #!/bin/bash
+# 	hooks/bin/setup-git-TEST-cases.sh  2.119.623  2019-09-21T07:55:55.886534-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.118  
+# 	   hooks/bin/setup-git-TEST-cases.sh  testing 
 # 	hooks/bin/setup-git-TEST-cases.sh  2.117.621  2019-09-20T22:02:03.774879-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.116-1-g58bd437  
-# 	   close #2   hooks/bin/setup-git-TEST-cases.sh  met all four objectives:w 
+# 	   close #2   hooks/bin/setup-git-TEST-cases.sh  met all four objectives
 #86# hooks/bin/setup-git-TEST-cases.sh - setup git TEST cases in current repository
 #    copy commands to /usr/local/bin
 ###  Production standard 3.0 shellcheck
@@ -81,8 +83,8 @@ else
   new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  The current directory, $(pwd), is Not a git repository or any of the parent directories." 1>&2
   exit ${EXIT_CODE}
 fi
-cd "$(git rev-parse --show-toplevel || echo '.')"  #  change to top git repository directory
-git-TEST-cases.sh --clean --hooks
+#	cd "$(git rev-parse --show-toplevel || echo '.')"  #  change to top git repository directory
+#	git-TEST-cases.sh --clean --hooks
 
 # >>>    git add hooks  #  these steps would be my default most of the time but I would prefer to enter this manually until it is determined this is default .. reasons are sometime I would like to just test the code  ---- sometimes want to get latest test cases
 #    git commit -m 'install latest git-TEST-commit-automation/hooks'
