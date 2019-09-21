@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/setup-git-TEST-cases.sh  2.119.623  2019-09-21T07:55:55.886534-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.118  
-# 	   hooks/bin/setup-git-TEST-cases.sh  testing 
+# 	hooks/bin/setup-git-TEST-cases.sh  2.120.624  2019-09-21T11:07:01.734932-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.119  
+# 	   close #14    hooks/bin/setup-git-TEST-cases.sh    removed git-TEST-cases.sh --clean --hooks and added user hint to next step 
 # 	hooks/bin/setup-git-TEST-cases.sh  2.117.621  2019-09-20T22:02:03.774879-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.116-1-g58bd437  
 # 	   close #2   hooks/bin/setup-git-TEST-cases.sh  met all four objectives
 #86# hooks/bin/setup-git-TEST-cases.sh - setup git TEST cases in current repository
@@ -83,14 +83,19 @@ else
   new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  The current directory, $(pwd), is Not a git repository or any of the parent directories." 1>&2
   exit ${EXIT_CODE}
 fi
+
+#>>>  other than create output and change the status of all test case directories
+#>>>  I do not understand the value of running the following two lines, thus comment out next two lines
 #	cd "$(git rev-parse --show-toplevel || echo '.')"  #  change to top git repository directory
 #	git-TEST-cases.sh --clean --hooks
 
 # >>>    git add hooks  #  these steps would be my default most of the time but I would prefer to enter this manually until it is determined this is default .. reasons are sometime I would like to just test the code  ---- sometimes want to get latest test cases
 #    git commit -m 'install latest git-TEST-commit-automation/hooks'
 #    git push   #28
+#>>>
 
 # >>>  consider adding a user hint and include link to README.md  . . .  to answer that question, what now (WTF)  . . .  shit I forgot, hadn't done this in six months, quick!  . . . . . .
 
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Operation finished..." 1>&2 ; fi
+echo -e "    For more information:\n    https://github.com/BradleyA/git-TEST-commit-automation#steps-to-evaluate-git-test-commit-automation-solution\n"
+new_message "${SCRIPT_NAME}" "${LINENO}" "INFO" "  Operation finished..." 1>&2
 ###
