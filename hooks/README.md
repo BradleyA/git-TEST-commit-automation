@@ -15,15 +15,15 @@ Scripts to assist running something, and checking something, then reporting some
 2) Quick uninstall on any Git repository (in seconds)
 3) Quick check of test case depth for a file (option -f) and all files for any Git repository (option -a) (in seconds) 
 4) Quick reduction of untracked TEST case files (option -c) (in seconds)
+5) Quick upgrade of default test cases and test case code fixes (in seconds)
+6) Quick setup and configuration of FVT and SA test cases in (in seconds)
 
 #### Future Objectives 
 
 - <COMMIT_FILE_NAME>.test-case-input - Add support   #12
 - Design for quick test case git branch merge (include steps)
-- Quick upgrade of default test cases with test case code fixes (include steps, first test completed with setup-git-TEST-cases.sh)
 - Quick test branch merge from test team's custom test cases without merge conflicts (include steps)
   - challenge is SA-setup.sh & FVT-setup.sh could be changed by development and test teams 
-- Quick setup and configuration of FVT and SA test cases in \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/{FVT-setup.sh, SA-setup.sh, FVT-cleanup.sh, SA-cleanup.sh} (create-TEST-structure-for-git-file <git file> . . . )
 - Quick backup of all test cases in repository (\<FILE-NAME>.tar) (code is currently in uninstall) (option: backup)
 - Include support for custom test cases or intergration with other test or CI solutions 
 - Support several types of files (support additional test case types (FVT,SA)
