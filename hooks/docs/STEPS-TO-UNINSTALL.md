@@ -8,7 +8,4 @@
 
 <img id="Steps git-TEST-commit-automation-2-1.gif" src="../images/git-TEST-commit-automation-2-1.gif" >
     
-**Download and execute setup-git-TEST-cases.sh to setup git-TEST-commit-automation solution**
-
-Steps to evaluate git-TEST-commit-automation solution
-say something other than rm -rf 
+**That is it!**
