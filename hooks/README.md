@@ -13,8 +13,8 @@ Scripts to assist running something, and checking something, then reporting some
 #### Objectives:
 1) Quick setup with default test cases for any Git repository (in seconds)
 2) Quick uninstall on any Git repository (in seconds)
-3) Quick check of test case depth for each file TESTed for any Git repository (in seconds) (option: all)
-4) Quick reduction of untracked TEST case files (in seconds) (option: clean)
+3) Quick check of test case depth for a file (option -f) and all files for any Git repository (option -a) (in seconds) 
+4) Quick reduction of untracked TEST case files (option -c) (in seconds)
 
 #### Future Objectives 
 
