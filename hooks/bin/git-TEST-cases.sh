@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/git-TEST-cases.sh  2.123.627  2019-09-21T16:28:12.054505-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.122  
+# 	   hooks/bin/git-TEST-cases.sh  cleanup some code 
 # 	hooks/bin/git-TEST-cases.sh  2.122.626  2019-09-21T15:39:47.409524-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.121  
 # 	   close #29   hooks/bin/git-TEST-cases.sh   add option --add - Add default test case directory (TEST/<FILE_NAME>/) and files SA-setup.sh, SA-cleanup.sh, SA-shellcheck-001.expected 
 # 	hooks/bin/git-TEST-cases.sh  2.112.613  2019-09-20T19:29:27.300829-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.111-1-g7eba63e  
@@ -156,14 +158,6 @@ if [[ "${ALL_TEST_CASES}" == "" ]] ; then ALL_TEST_CASES=${DEFAULT_ALL_TEST_CASE
 ###
 
 ###  Production standard 9.3.513 Parse CLI options and arguments #19
-#	hooks/bin/git-TEST-cases.sh - add option to not show TEST cases for hooks/
-#	-a --all          1) Print all files with test cases exclude hooks/ (create links)
-#       -c --clean        2) Remove linked TEST cases and run FVT-cleanup.sh & SA-cleanup.sh
-#	-f --filename -f= --filename=  3) Print all <FILE_NAME> TEST cases and files
-#           --add         add default test cases to -f <FILE_NAME>
-#	--hooks           4) Include TEST cases in hooks/ directory (can be used with -a or -c or -n)
-#	-n --none         5) Print all files that do NOT have TEST/<FILE_NAME>/ directory #18
-
 while [[ "${#}" -gt 0 ]] ; do
   case "${1}" in
     --help|-help|help|-h|h|-\?)  display_help | more ; exit 0 ;;
@@ -233,17 +227,18 @@ if [[ "${CLI_OPTION}" == "f" ]]  ; then
   fi
 else
   if [[ "${CLI_OPTION}" == "n" ]] ; then  #  #18
-    TMP_GITALLFILES=$(mktemp /tmp/GITALLFILESXXXXXX)  #  create temporary file for all files in repository
-    TMP_GITALLFILES_NOTESTDIR=$(mktemp /tmp/GITALLFILES_NOTESTDIRXXXXXX)  #  create temporary file for all files in repository that have a /TEST/<filename>/ directory
+    TMP_GITALLFILES=$(mktemp /tmp/GITALLFILESXXXXXX)                      #  create temporary file for all files in repository
+    TMP_GITALLFILES_NO_TESTDIR=$(mktemp /tmp/GITALLFILES_NOTESTDIRXXXXXX)  #  create temporary file for all files in repository that have a /TEST/<filename>/ directory
     if [[ "${ALL_TEST_CASES}" == "YES" ]] ; then
       find . -type f | grep -v './\.git/*\|./*/images/*\|./*/TEST/*\|./*.md' | sed 's!.*/!!' > "${TMP_GITALLFILES}"
-      find . -type d -name TEST -exec ls -1 {} \; > "${TMP_GITALLFILES_NOTESTDIR}"
-      cat "${TMP_GITALLFILES}"  "${TMP_GITALLFILES_NOTESTDIR}" | sort | uniq -u
+      find . -type d -name TEST -exec ls -1 {} \; > "${TMP_GITALLFILES_NO_TESTDIR}"
+      cat "${TMP_GITALLFILES}"  "${TMP_GITALLFILES_NO_TESTDIR}" | sort | uniq -u
     else
       find . -type f | grep -v './\.git/*\|./*/images/*\|./*/TEST/*\|./*.md\|hooks/' | sed 's!.*/!!' > "${TMP_GITALLFILES}"
-      find . -path ./hooks -prune -o -type d -name TEST -exec ls -1 {} \; > "${TMP_GITALLFILES_NOTESTDIR}"
-      cat "${TMP_GITALLFILES}"  "${TMP_GITALLFILES_NOTESTDIR}" | sort | uniq -u
+      find . -path ./hooks -prune -o -type d -name TEST -exec ls -1 {} \; > "${TMP_GITALLFILES_NO_TESTDIR}"
+      cat "${TMP_GITALLFILES}"  "${TMP_GITALLFILES_NO_TESTDIR}" | sort | uniq -u
     fi
+    rm ${TMP_GITALLFILES} ${TMP_GITALLFILES_NO_TESTDIR}
   else
     DIR_LIST=$(find . -type d -name TEST)  #  create list of TEST directories
     if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  \${DIR_LIST} >${DIR_LIST=}<" 1>&2 ; fi
@@ -261,12 +256,8 @@ else
         if [[ "${CLI_OPTION}" == "a" ]] && [[ -x "FVT-setup.sh" ]]  ; then ./FVT-setup.sh  "${REPOSITORY_DIR}" ; fi
         if [[ "${CLI_OPTION}" == "a" ]] && [[ -x "SA-setup.sh"  ]]  ; then ./SA-setup.sh   "${REPOSITORY_DIR}" ; fi
         if [[ "${CLI_OPTION}" == "c" ]]  ; then
-          if [[ -x "FVT-cleanup.sh" ]]  ; then
-            ./FVT-cleanup.sh
-          fi
-          if [[ -x "SA-cleanup.sh" ]]  ; then
-            ./SA-cleanup.sh
-          fi
+          if [[ -x "FVT-cleanup.sh" ]]  ; then ./FVT-cleanup.sh ; fi
+          if [[ -x "SA-cleanup.sh"  ]]  ; then ./SA-cleanup.sh  ; fi
         fi
         cd "${REPOSITORY_DIR}"
         printf "\033[1;32m $(ls -1  "${j}" | grep -v "\." | sed 's/^/\t/')\033[0m \n"
@@ -276,6 +267,6 @@ else
     done
   fi
 fi
-#
+
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "INFO" "  Operation finished..." 1>&2 ; fi
 ###
