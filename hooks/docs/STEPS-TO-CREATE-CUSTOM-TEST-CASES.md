@@ -3,9 +3,8 @@
 **To create custom test cases**
     
     xxxxxx
-    
 
-<img id="Steps git-TEST-commit-automation-4-1.gif" src="../images/git-TEST-commit-automation-4-1.gif" >
+<img id="Steps git-TEST-commit-automation-5-1.gif" src="../images/git-TEST-commit-automation-5-1.gif" >
 Create Custom Test Cases
 
 ## Create Custom Test Cases
