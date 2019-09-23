@@ -15,6 +15,6 @@
 
 <img id="Steps git-TEST-commit-automation-3-1.gif" src="../images/git-TEST-commit-automation-3-1.gif" >
 
-Two Static Analysis (SA) test cases were executed on sample.sh with both PASSing.  When you make changes to sample.sh and run Git commit, hook post-commit will search for test cases to run in TEST/sample.sh/ directory.
+Two Static Analysis (SA) test cases were found on sample.sh.
 
 **That is it!**
