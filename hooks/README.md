@@ -32,7 +32,7 @@ Scripts to assist running something, and checking something, then reporting some
 
 #### [Steps to uninstall git-TEST-commit-automation solution](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/STEPS-TO-UNINSTALL.md)
 
-#### [Steps to check test case depth for a file](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/XXXX.md)
+#### [Steps to check test case depth for a file](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/STEPS-TO-CHECK-DEPTH.md)
 
 #### [Steps to reduce untracked TEST case files](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/SSS.md)
 
