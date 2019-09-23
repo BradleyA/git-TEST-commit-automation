@@ -51,15 +51,6 @@ https://help.github.com/en/articles/syncing-a-fork
 
 **setup an environment for all tests to be run, creating directories for output, setting environment variables ... include clean section to remove and unset environment variables**
 
-Append the following lines into your test case:
-
-
-#### Quick setup to test this solution
-- fork or clone
-- edit test script to test
-- create TEST/\<COMMIT_FILE_NAME>/ directory
-- copy hooks/EXAMPLES/SA-setup.sh TEST/\<COMMIT_FILE_NAME>/SA-setup.sh  
-
 Note: 
 edit  all SA-setup.sh:
 
