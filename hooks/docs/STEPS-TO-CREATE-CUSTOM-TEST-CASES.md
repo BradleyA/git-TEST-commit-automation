@@ -1,6 +1,6 @@
 ## Steps to create custom test cases for a file
    
-**Use '--filename test.sh --add' to add default SA- Steps to create custom test cases**
+**To create custom test cases**
     
     xxxxxx
     
