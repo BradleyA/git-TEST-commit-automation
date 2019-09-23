@@ -37,7 +37,7 @@ Scripts to assist running something, and checking something, then reporting some
 
 #### [Steps to create custom test cases for git-TEST-commit-automation solution](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/STEPS-TO-CUSTON-TEST-CASES.md)
   
-
+**Start editing from here:  These notes are cut and paste of information and make some since once I finsh design**
 
 **Funciotnal Verification (FVT)** is defined as the process of verifying that the design meets its specification from a functional perspective. ... Functional verification establishes that the design under test (DUT) implements the functionality of the specification correctly.
 
@@ -45,16 +45,6 @@ Scripts to assist running something, and checking something, then reporting some
 	
 Place the expected results from the test case into a file with the same test case name but add '.expected' ('dot'expected).  Pipe the output from the test case into a file with the same name but add '.test-case-output'. 
 
-**Start editing from here:  These notes are cut and paste of information and make some since once I finsh design**
- 
-https://help.github.com/en/articles/syncing-a-fork
-
-**setup an environment for all tests to be run, creating directories for output, setting environment variables ... include clean section to remove and unset environment variables**
-
-Note: 
-edit  all SA-setup.sh:
-
-    find ./hooks/ -type f -name SA-setup.sh -exec vi {} \;
 
 ====>>>  Moved from above
 
@@ -80,7 +70,6 @@ After entering the above command, Git runs any Git hooks found in \<REPOSITORY-N
 **hooks directory**  The hooks directory was created because I wanted to modify the GitHub hooks and track changes per repository.  Include hooks/ in repostory because .git/hooks is not pushed and hooks change and these changes need to be tracked in a Git repository. (need to retest)
 **Note**   I found out about hooks and need to remember and add to the README why I added a hooks directory in the repository so the hooks can be managed by the repository . . .Hooks are per-repository and are not designed to be pushed but can be pushed. Similarly, the repo config isn't pushed either, nor is anything in .git/info , or a number of other things. Pushing and pulling only exchanges branches/tags and commit objects (and anything reachable from a commit, e.g. trees, blobs** Add something about creating a symbolic link from ../.git/hooks to this hooks directory that are managed in this repository using markit. 
 
-====>>>
 
 [BradleyA/git-TEST-commit-automation] hooks/bin/setup-git-TEST-cases.sh - setup git TEST cases in current repository (#2)
 after setup-git-TEST-cases.sh is run some additions steps are needed
@@ -89,12 +78,6 @@ git add hooks - if you want to include the tools in your repository remembering 
 
 git add hooks
 git commit -m 'install git-TEST-commit-automation'
-
-====>>>
-
-You can turn a folder within a Git repository into a brand new repository.    **find that doc I printed to complete this section
-
-add branch marge what ever 
 
  #### Author
 [<img id="twitter" src="hooks/images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">
