@@ -1,10 +1,8 @@
-## Steps to setup default SA- test cases for a file
+## Steps to create custom test cases for a file
    
-**Use '--filename test.sh --add' to add default SA- test cases for test.sh**
+**Use '--filename test.sh --add' to add default SA- Steps to create custom test cases**
     
-    cp sample.sh test.sh
-    git add test.sh
-    git-TEST-cases.sh --filename test.sh --add
+    xxxxxx
     
 
 <img id="Steps git-TEST-commit-automation-4-1.gif" src="../images/git-TEST-commit-automation-4-1.gif" >
