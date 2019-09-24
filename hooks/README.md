@@ -67,6 +67,12 @@ After entering the above command, Git runs any Git hooks found in \<REPOSITORY-N
 - Run \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/SA-<TEST_CASE>
 - Loop through \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/FVT-<TEST_CASE>
     - Run \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/FVT-<TEST_CASE>
+
+**git-TEST-cases.sh** - search from top of repository to list TEST directory test cases and manage test cases
+
+**setup-git-TEST-cases.sh** - setup git TEST cases in current repository
+
+**uninstall-git-TEST-cases.sh** - uninstall git TEST cases in current repository
   
 **PASS** or **FAIL** or **ERROR**, some methed will notify someone of the results. (not sure which method is going to work for me and you? . . . stdout, logs-scrape, tables, email, twitter, slack, tall a friand, etc.)
  
