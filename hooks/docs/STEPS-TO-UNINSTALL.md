@@ -1,4 +1,4 @@
-## Steps to uninstall git-TEST-commit-automation solution
+## Uninstall git-TEST-commit-automation solution
 
 **After completing: Steps to evaluate git-TEST-commit-automation solution** git-TEST-commit-automation
 
