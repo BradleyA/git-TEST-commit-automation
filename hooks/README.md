@@ -28,6 +28,8 @@ git-TEST-commit-automation runs pre-commit and post-commit when "git commit -m '
 - Quick backup of all test cases in repository (\<FILE-NAME>.tar) (code is in uninstall-) (option: --backup --restore)
 - Include support for custom test cases or intergration with other test or CI solutions 
 - Support several types of files (support additional test case types (FVT,SA)
+
+#### Quick Start
 	
 #### [Install/evaluate git-TEST-commit-automation solution](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/STEPS-TO-EVALUTE.md)
 
@@ -40,6 +42,7 @@ git-TEST-commit-automation runs pre-commit and post-commit when "git commit -m '
 #### [Create custom test cases for git-TEST-commit-automation solution](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/STEPS-TO-CUSTON-TEST-CASES.md)
   
 **Start editing from here:  These notes are cut and paste of information and make some since once I finsh design**
+
 
 **pre-commit** - Creates \<REPOSITORY>/hooks/COMMIT_FILE_LIST with a list of \<REPOSITORY-PATH>/\<FILE> being committed.
 
