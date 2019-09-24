@@ -15,6 +15,6 @@
 
 <img id="Steps git-TEST-commit-automation-3-1.gif" src="../images/git-TEST-commit-automation-3-1.gif" >
 
-Two Static Analysis (SA) test cases were found on sample.sh.
+Two Static Analysis (SA) test cases were found for sample.sh.
 
 **That is it!**
