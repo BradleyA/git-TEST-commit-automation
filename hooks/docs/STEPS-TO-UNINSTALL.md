@@ -12,3 +12,5 @@ The uninstall-git-TEST-cases.sh creates a tar file (tmp.\*.tar) of all the files
     rm tmp.*.tar
 
 **That is it!**
+
+#### [Back to README](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks#uninstall-git-test-commit-automation-solution)
