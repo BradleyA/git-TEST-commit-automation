@@ -25,7 +25,7 @@ Scripts to assist running something, and checking something, then reporting some
 - Include support for custom test cases or intergration with other test or CI solutions 
 - Support several types of files (support additional test case types (FVT,SA)
 	
-#### [Install git-TEST-commit-automation solution](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/STEPS-TO-EVALUTE.md)
+#### [Install/evaluate git-TEST-commit-automation solution](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/STEPS-TO-EVALUTE.md)
 
 #### [Uninstall git-TEST-commit-automation solution](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/STEPS-TO-UNINSTALL.md)
 
