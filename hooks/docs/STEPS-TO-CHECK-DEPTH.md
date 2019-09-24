@@ -1,4 +1,4 @@
-## Steps to check test case depth for a file
+## View test case depth for a file
    
 **Use --filename sample.sh to see what type of test cases are for sample.sh**
     
