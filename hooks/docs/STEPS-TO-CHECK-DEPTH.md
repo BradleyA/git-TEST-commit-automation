@@ -20,3 +20,5 @@ After completing: Install git-TEST-commit-automation solution enter the followin
 Two Static Analysis (SA) test cases were found for sample.sh.
 
 **That is it!**
+
+#### [Back to README](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks#view-test-case-depth-for-a-file)
