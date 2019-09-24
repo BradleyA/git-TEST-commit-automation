@@ -31,7 +31,7 @@ Scripts to assist running something, and checking something, then reporting some
 
 #### [View test case depth for a file](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/STEPS-TO-CHECK-DEPTH.md)
 
-#### [Setup default SA- test cases for a file](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/STEPS-TO-CHECK-DEPTH.md)
+#### [Setup default SA- test cases for a file](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/STEPS-TO-SETUP-DEFAULT-SA-TEST-CASES.md)
 
 #### [Xreate custom test cases for git-TEST-commit-automation solution](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/STEPS-TO-CUSTON-TEST-CASES.md)
   
