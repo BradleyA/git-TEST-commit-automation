@@ -1,4 +1,5 @@
-## Steps to evaluate git-TEST-commit-automation solution
+## Install git-TEST-commit-automation solution
+Steps to evaluate git-TEST-commit-automation solution
 
 **Start a new Git repository to test git-TEST-commit-automation solution**
 
