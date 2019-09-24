@@ -58,5 +58,3 @@ Two Static Analysis (SA) test cases were executed on sample.sh with both PASSing
 To use different default SA- test case, remove the symbilic link (rm TEST/sample.sh/SA-setup.sh) and copy SA-setup.sh into the directory (cp -p hooks/EXAMPLES/SA-setup.sh TEST/sample.sh/).  Now you can edit SA-setup.sh with the test case needed for the command.  Once finished use git add and git commit to track TEST/sample.sh/SA-setup.sh changes.  
   
 git-TEST-commit-automation runs when "git commit -m 'message' <filename>" is executed.  Post-commit searches in the same directory for a TEST/\<filename>/ directory.  If found post-commit runs TEST/\<filename>/SA-setup.sh and/or TEST/\<filename>/FVT-setup.sh then searches for files beginning with SA- of FVT- and runs them.
-
-**ADD NOTE HERE ABOUT FVT**
