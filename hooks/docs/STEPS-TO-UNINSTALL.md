@@ -1,6 +1,6 @@
 ## Steps to uninstall git-TEST-commit-automation solution
 
-**After completing: Steps to evaluate git-TEST-commit-automation solution**
+**After completing: Steps to evaluate git-TEST-commit-automation solution** git-TEST-commit-automation
 
 
     cd git-TEST-commit          #  Change directory into Git repository, git-TEST-commit
