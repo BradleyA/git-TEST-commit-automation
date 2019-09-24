@@ -1,4 +1,6 @@
 ## View test case depth for a file
+
+After completing: Install git-TEST-commit-automation solution enter the following command to view test case depth for sample.sh.
    
 **Use --filename sample.sh to see what type of test cases are for sample.sh**
     
