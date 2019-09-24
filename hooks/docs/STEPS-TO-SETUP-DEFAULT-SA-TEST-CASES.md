@@ -5,6 +5,7 @@
     cp sample.sh test.sh
     git add test.sh
     git-TEST-cases.sh --filename test.sh --add
+    git-TEST-cases.sh -a
     
 
 <img id="Steps git-TEST-commit-automation-4-1.gif" src="../images/git-TEST-commit-automation-4-1.gif" >
