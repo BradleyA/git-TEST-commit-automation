@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/git-TEST-cases.sh  2.126.682  2019-09-24T11:52:29.145448-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.125-2-g7e14649  
+# 	   hooks/bin/git-TEST-cases.sh    include path with file name that does not have test cases 
 # 	hooks/bin/git-TEST-cases.sh  2.125.679  2019-09-23T22:28:30.202269-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.124-36-ga1cdec2  
 # 	   hooks/bin/git-TEST-cases.sh   correct incident when TEST directory exists but no file directories 
 # 	hooks/bin/git-TEST-cases.sh  2.122.626  2019-09-21T15:39:47.409524-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.121  
@@ -227,18 +229,22 @@ if [[ "${CLI_OPTION}" == "f" ]]  ; then
   fi
 else
   if [[ "${CLI_OPTION}" == "n" ]] ; then  #  #18
-    TMP_GITALLFILES=$(mktemp /tmp/GITALLFILESXXXXXX)                      #  create temporary file for all files in repository
+    TMP_GITALLFILES=$(mktemp /tmp/GITALLFILESXXXXXX)                       #  create temporary file for all files in repository
     TMP_GITALLFILES_NO_TESTDIR=$(mktemp /tmp/GITALLFILES_NOTESTDIRXXXXXX)  #  create temporary file for all files in repository that have a /TEST/<filename>/ directory
+    TMP_GITALL_TEST_CASE_LIST=$(mktemp /tmp/GIT_TEST_CASE_LISTXXXXXX)      #  create temporary file for all files in repository that do have test cases
     if [[ "${ALL_TEST_CASES}" == "YES" ]] ; then
       find . -type f | grep -v './\.git/*\|./*/images/*\|./*/TEST/*\|./*.md' | sed 's!.*/!!' > "${TMP_GITALLFILES}"
       find . -type d -name TEST -exec ls -1 {} \; > "${TMP_GITALLFILES_NO_TESTDIR}"
-      cat "${TMP_GITALLFILES}"  "${TMP_GITALLFILES_NO_TESTDIR}" | sort | uniq -u
+      TMP_GITALL_TEST_CASE_LIST=$(cat "${TMP_GITALLFILES}"  "${TMP_GITALLFILES_NO_TESTDIR}" | sort | uniq -u)
     else
       find . -type f | grep -v './\.git/*\|./*/images/*\|./*/TEST/*\|./*.md\|hooks/' | sed 's!.*/!!' > "${TMP_GITALLFILES}"
       find . -path ./hooks -prune -o -type d -name TEST -exec ls -1 {} \; > "${TMP_GITALLFILES_NO_TESTDIR}"
-      cat "${TMP_GITALLFILES}"  "${TMP_GITALLFILES_NO_TESTDIR}" | sort | uniq -u
+      TMP_GITALL_TEST_CASE_LIST=$(cat "${TMP_GITALLFILES}"  "${TMP_GITALLFILES_NO_TESTDIR}" | sort | uniq -u)
     fi
-    rm ${TMP_GITALLFILES} ${TMP_GITALLFILES_NO_TESTDIR}
+    for l in ${TMP_GITALL_TEST_CASE_LIST} ; do
+      find . -name "${l}"
+    done
+    rm /tmp/GITALL*
   else
     DIR_LIST=$(find . -type d -name TEST)  #  create list of TEST directories
     if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  \${DIR_LIST} >${DIR_LIST=}<" 1>&2 ; fi
