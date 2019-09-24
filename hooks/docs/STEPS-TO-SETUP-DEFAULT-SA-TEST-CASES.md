@@ -15,3 +15,6 @@ Two Static Analysis (SA) test cases were added to test.sh.  Entering git-TEST-ca
 **That is it!**
 
 xxxx
+
+
+#### [Back to README](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks#setup-default-sa--test-cases-for-a-new-file)
