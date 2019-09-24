@@ -1,6 +1,6 @@
 ## Steps to check test case depth for a file
    
-**Use --filename sample.sh to see the test cases for sample.sh**
+**Use --filename sample.sh to see what type of test cases are for sample.sh**
     
     git-TEST-cases.sh --filename sample.sh
     INFO:  If file not found, check spelling or including --hooks option.
