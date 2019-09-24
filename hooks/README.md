@@ -7,6 +7,10 @@
 #### Strategy:
 Scripts to assist running something, and checking something, then reporting something; when you commit something. 
 
+#### About
+
+git-TEST-commit-automation runs pre-commit and post-commit when "git commit -m 'message' " is executed. Pre-commit creates a file (${REPOSITORY_DIR}/hooks/COMMIT_FILE_LIST) which incluses files being commited. Post-commit searches in the same directory as the commited filename for a TEST/<filename>/ directory. If found post-commit runs TEST/<filename>/SA-setup.sh and/or TEST/<filename>/FVT-setup.sh then searches for files beginning with SA- of FVT- and runs them.
+
 #### Objectives:
 1) Quick setup with default test cases for any Git repository (in seconds)
 2) Quick uninstall on any Git repository (in seconds)
@@ -37,8 +41,6 @@ Scripts to assist running something, and checking something, then reporting some
   
 **Start editing from here:  These notes are cut and paste of information and make some since once I finsh design**
   
-git-TEST-commit-automation runs pre-commit and post-commit when "git commit -m 'message' <filename>" is executed.  Pre-commit creates a file (${REPOSITORY_DIR}/hooks/COMMIT_FILE_LIST) which incluses files being commited.  Post-commit searches in the same directory as the commited filename for a TEST/\<filename>/ directory.  If found post-commit runs TEST/\<filename>/SA-setup.sh and/or TEST/\<filename>/FVT-setup.sh then searches for files beginning with SA- of FVT- and runs them.
-
 #### Types of Test Cases
 
 **Funciotnal Verification (FVT)** is defined as the process of verifying that the design meets its specification from a functional perspective. ... Functional verification establishes that the design under test (DUT) implements the functionality of the specification correctly.
