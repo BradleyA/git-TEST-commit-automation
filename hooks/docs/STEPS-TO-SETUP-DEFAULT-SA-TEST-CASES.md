@@ -1,4 +1,4 @@
-## Steps to setup default SA- test cases for a file
+## Setup default SA- test cases for a file
    
 **Use '--filename test.sh --add' to add default SA- test cases for test.sh**
     
