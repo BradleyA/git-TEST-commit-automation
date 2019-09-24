@@ -1,6 +1,6 @@
 ## Uninstall git-TEST-commit-automation solution
 
-After completing: **Install git-TEST-commit-automation solution** enter the following commandn to uninstall git-TEST-commit-automation.
+After completing: **Install git-TEST-commit-automation solution** enter the following command to uninstall git-TEST-commit-automation.
 
     cd git-TEST-commit          #  Change directory into Git repository, git-TEST-commit
     uninstall-git-TEST-cases.sh    
