@@ -36,6 +36,8 @@ Scripts to assist running something, and checking something, then reporting some
 #### [Create custom test cases for git-TEST-commit-automation solution](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/STEPS-TO-CUSTON-TEST-CASES.md)
   
 **Start editing from here:  These notes are cut and paste of information and make some since once I finsh design**
+  
+git-TEST-commit-automation runs pre-commit and post-commit when "git commit -m 'message' <filename>" is executed.  Pre-commit creates a file (${REPOSITORY_DIR}/hooks/COMMIT_FILE_LIST) which incluses files being commited.  Post-commit searches in the same directory as the commited filename for a TEST/\<filename>/ directory.  If found post-commit runs TEST/\<filename>/SA-setup.sh and/or TEST/\<filename>/FVT-setup.sh then searches for files beginning with SA- of FVT- and runs them.
 
 #### Types of Test Cases
 
