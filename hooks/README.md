@@ -9,7 +9,7 @@ Scripts to assist running something, and checking something, then reporting some
 
 #### About
 
-git-TEST-commit-automation runs pre-commit and post-commit when "git commit -m 'message' " is executed. Pre-commit creates a file (${REPOSITORY_DIR}/hooks/COMMIT_FILE_LIST) which incluses files being commited. Post-commit searches in the same directory as the commited filename for a TEST/<filename>/ directory. If found post-commit runs TEST/<filename>/SA-setup.sh and/or TEST/<filename>/FVT-setup.sh then searches for files beginning with SA- of FVT- and runs them.
+git-TEST-commit-automation runs pre-commit and post-commit when "git commit -m 'message' " is executed. Pre-commit creates a file (${REPOSITORY_DIR}/hooks/COMMIT_FILE_LIST) which incluses files being commited. Post-commit searches in the same directory as the commited filename for a TEST/\<filename>/ directory. If found post-commit runs TEST/<filename>/SA-setup.sh and/or TEST/<filename>/FVT-setup.sh then searches for files beginning with SA- of FVT- and runs them.
 
 #### Objectives:
 1) Quick setup with default test cases for any Git repository (in seconds)
