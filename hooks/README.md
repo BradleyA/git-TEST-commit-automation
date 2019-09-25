@@ -9,7 +9,11 @@ Scripts to assist running something, and checking something, then reporting some
 
 #### About
 
-git-TEST-commit-automation runs pre-commit and post-commit when "git commit -m 'message' " is executed. Pre-commit creates a file (${REPOSITORY_DIR}/hooks/COMMIT_FILE_LIST) which incluses files being commited. Post-commit searches in the same directory as the commited filename for a TEST/\<filename>/ directory. If found post-commit runs TEST/\<filename>/SA-setup.sh and/or TEST/\<filename>/FVT-setup.sh then searches for files beginning with SA- of FVT- and runs them.
+git-TEST-commit-automation runs pre-commit and post-commit hooks when "git commit -m 'message' " is executed. Pre-commit creates a file (${REPOSITORY_DIR}/hooks/COMMIT_FILE_LIST) which includes files being commited. Post-commit searches in the same directory as the commited filename for a TEST/\<filename>/ directory. If found post-commit runs TEST/\<filename>/SA-setup.sh and/or TEST/\<filename>/FVT-setup.sh then searches for files beginning with SA- of FVT- and runs them.
+
+TL;DR - Why did I create git-TEST-commit-automation when there are so many open software and enterprise level testing solutions available.  I needed something that would run some basic SA and FVT bash tests while doing Git commit.  I needed a solution that would inform, not impede code development.  I needed something that would encourage 'git commit -m 'xxx' to a Git repository, not exit 1 status code if there are any code incidents.  I needed a solution that I could store test cases with the code. I need something a solution that I could add and remove without effecting the code.
+
+TL;DR - During code design I do not care if my code is perfect only if it runs and begins to solve some part of a bigger solution.  During design I may throw out dozens to hundreds of lines of code.  It did not matter if that code was perfect, it is in the trash now.  As I fine tune a design I am more interested in getting the code perfect and using open software and enterprise level solution to help get it pollish and secure.
 
 #### Objectives:
 1) Quick setup with default test cases for any Git repository (in seconds)
@@ -29,7 +33,7 @@ git-TEST-commit-automation runs pre-commit and post-commit when "git commit -m '
 
 #### [Setup default SA- test cases for a new file](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/STEPS-TO-SETUP-DEFAULT-SA-TEST-CASES.md)
 
-#### [Create custom test cases for a file](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/STEPS-TO-CUSTON-TEST-CASES.md)
+#### [Create custom test cases for a file](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/STEPS-TO-CREATE-TEST-CASES.md)
   
 **Start editing from here:  These notes are cut and paste of information and make some since once I finsh design**
 #### Description
@@ -42,7 +46,7 @@ git-TEST-commit-automation runs pre-commit and post-commit when "git commit -m '
 - Loop through and run \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE>/SA-<TEST_CASE> and/or FVT-<TEST_CASE>
 - Report output as **PASS** or **FAIL** or **ERROR**, through stdout 
       . . . some methed will notify someone of the results. (not sure which method is going to work for me and you? 
-      . . . stdout, logs-scrape, tables, email, twitter, slack, tall a friand, etc.)
+      . . . stdout, logs-scrape, tables, email, twitter, slack, call a friand, etc.)
  
 **git-TEST-cases.sh** - search from top of repository to list TEST directory test cases and manage test cases
 
@@ -55,6 +59,11 @@ git-TEST-commit-automation runs pre-commit and post-commit when "git commit -m '
 **Funciotnal Verification (FVT)** is defined as the process of verifying that the design meets its specification from a functional perspective. ... Functional verification establishes that the design under test (DUT) implements the functionality of the specification correctly.
 
 **Static Analysis (SA)** is the examination of code prior to the program’s execution SA is code analysis, syntax, permission, code inspection, code review, etc.
+
+#### ARCHITECTURE TREE
+
+    /usr/local/bin/                           <-- <BIN_DIR>
+    ├── <CLUSTER>/                            <-- <CLUSTER>
 
 **hooks directory**  The hooks directory was created because I wanted to modify the GitHub hooks and track changes per repository.  Include hooks/ in repostory because .git/hooks is not pushed and hooks change and these changes need to be tracked in a Git repository. (need to retest)
 

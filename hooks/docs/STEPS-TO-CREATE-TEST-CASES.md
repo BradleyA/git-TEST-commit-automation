@@ -2,7 +2,8 @@
    
 **Use '--filename test.sh --add' to add default SA- test cases for test.sh**
     
-    cp sample.sh test.sh
+    XXXX xxxx XX x x 
+    . . . something here soon .. . . cp sample.sh test.sh
     git add test.sh
     git-TEST-cases.sh --filename test.sh --add
     git-TEST-cases.sh -a
@@ -17,4 +18,4 @@ Two Static Analysis (SA) test cases were added to test.sh.  Entering git-TEST-ca
 xxxx
 
 
-#### [Back to README](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks#setup-default-sa--test-cases-for-a-new-file)
+#### [Back to README](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#create-custom-test-cases-for-a-file)
