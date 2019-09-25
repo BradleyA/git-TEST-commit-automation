@@ -59,7 +59,7 @@ Two Static Analysis (SA) test cases were executed on sample.sh with both PASSing
 
 **That is it!**
 
-**NOTE:**  To use a different SA- test case other than the default test cases, remove the symbilic link (rm TEST/sample.sh/SA-setup.sh) and copy SA-setup.sh into the directory (cp -p hooks/EXAMPLES/SA-setup.sh TEST/sample.sh/).  Edit SA-setup.sh with custom test cases needed for a command.  Place the custom test cases in the same directory as the edited SA-setup.sh.  Once finished use git add and git commit to have the test case changes tracked (TEST/sample.sh/SA-setup.sh).  
+**NOTE:**  To use a different SA- test case other than the default test cases, remove the symbilic link (rm TEST/sample.sh/SA-setup.sh) and copy SA-setup.sh into the directory (cp -p hooks/EXAMPLES/SA-setup.sh TEST/sample.sh/).  Edit SA-setup.sh with custom test cases needed for a Git commit file.  Place the custom test cases in the same directory as the edited SA-setup.sh.  Once finished use git add and git commit to have the test case changes tracked (TEST/sample.sh/SA-setup.sh).  
 
 
 #### [Back to README](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks#installevaluate-git-test-commit-automation-solution)
