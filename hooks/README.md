@@ -13,13 +13,11 @@ git-TEST-commit-automation runs pre-commit and post-commit when "git commit -m '
 
 #### Objectives:
 1) Quick setup with default test cases for any Git repository (in seconds)
-2) Quick uninstall on any Git repository (in seconds)
+2) Quick uninstall on any Git repository
 3) Quick check of test case depth for a file (option -f) and all files for any Git repository (option -a)
 4) Quick setup of default SA- test cases for a file (git-TEST-cases.sh --filename sample.sh --add)
 5) Quick upgrade of default test cases with test case code fixes (setup-git-TEST-cases.sh)
 6) Quick reduction of untracked TEST case files (option -c)
-
-
 
 #### Quick Start
 	
@@ -31,7 +29,7 @@ git-TEST-commit-automation runs pre-commit and post-commit when "git commit -m '
 
 #### [Setup default SA- test cases for a new file](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/STEPS-TO-SETUP-DEFAULT-SA-TEST-CASES.md)
 
-#### [Create custom test cases for git-TEST-commit-automation solution](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/STEPS-TO-CUSTON-TEST-CASES.md)
+#### [Create custom test cases for a file](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/STEPS-TO-CUSTON-TEST-CASES.md)
   
 **Start editing from here:  These notes are cut and paste of information and make some since once I finsh design**
 #### Description
@@ -48,6 +46,10 @@ git-TEST-commit-automation runs pre-commit and post-commit when "git commit -m '
 - Run \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/SA-<TEST_CASE>
 - Loop through \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/FVT-<TEST_CASE>
     - Run \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/FVT-<TEST_CASE>
+
+    **PASS** or **FAIL** or **ERROR**, some methed will notify someone of the results. (not sure which method is going to work for me and you? . . . stdout, logs-scrape, tables, email, twitter, slack, tall a friand, etc.)
+ 
+    **hooks directory**  The hooks directory was created because I wanted to modify the GitHub hooks and track changes per repository.  Include hooks/ in repostory because .git/hooks is not pushed and hooks change and these changes need to be tracked in a Git repository. (need to retest)
 
 **git-TEST-cases.sh** - search from top of repository to list TEST directory test cases and manage test cases
 
@@ -69,9 +71,7 @@ Place the expected results from the test case into a file with the same test cas
 
 After entering the above command, Git runs any Git hooks found in \<REPOSITORY-NAME>/.git/hooks/ directory.  Git hooks are scripts that Git executes before and/or after events. Two local Git hooks are included with git-TEST-commit-automation. 
   
-**PASS** or **FAIL** or **ERROR**, some methed will notify someone of the results. (not sure which method is going to work for me and you? . . . stdout, logs-scrape, tables, email, twitter, slack, tall a friand, etc.)
- 
-**hooks directory**  The hooks directory was created because I wanted to modify the GitHub hooks and track changes per repository.  Include hooks/ in repostory because .git/hooks is not pushed and hooks change and these changes need to be tracked in a Git repository. (need to retest)
+
 
 **Note**   I found out about hooks and need to remember and add to the README why I added a hooks directory in the repository so the hooks can be managed by the repository . . .Hooks are per-repository and are not designed to be pushed but can be pushed. Similarly, the repo config isn't pushed either, nor is anything in .git/info , or a number of other things. Pushing and pulling only exchanges branches/tags and commit objects (and anything reachable from a commit, e.g. trees, blobs** Add something about creating a symbolic link from ../.git/hooks to this hooks directory that are managed in this repository using markit. 
 
@@ -84,7 +84,6 @@ After entering the above command, Git runs any Git hooks found in \<REPOSITORY-N
 - Quick backup of all test cases in repository (\<FILE-NAME>.tar) (code is in uninstall-) (option: --backup --restore)
 - Include support for custom test cases or intergration with other test or CI solutions 
 - Support several types of files (support additional test case types (FVT,SA)
-
 
  #### Author
 [<img id="twitter" src="hooks/images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">
