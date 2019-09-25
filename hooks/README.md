@@ -19,15 +19,7 @@ git-TEST-commit-automation runs pre-commit and post-commit when "git commit -m '
 5) Quick upgrade of default test cases with test case code fixes (setup-git-TEST-cases.sh)
 6) Quick reduction of untracked TEST case files (option -c)
 
-#### Future Objectives 
 
-- <COMMIT_FILE_NAME>.test-case-input - Add support   #12
-- Design for quick test case git branch merge (include steps)
-- Quick test case branch merge from test team's custom test cases without merge conflicts (include steps)
-  - challenge is SA-setup.sh & FVT-setup.sh could be changed by development and test teams 
-- Quick backup of all test cases in repository (\<FILE-NAME>.tar) (code is in uninstall-) (option: --backup --restore)
-- Include support for custom test cases or intergration with other test or CI solutions 
-- Support several types of files (support additional test case types (FVT,SA)
 
 #### Quick Start
 	
@@ -82,6 +74,17 @@ After entering the above command, Git runs any Git hooks found in \<REPOSITORY-N
 **hooks directory**  The hooks directory was created because I wanted to modify the GitHub hooks and track changes per repository.  Include hooks/ in repostory because .git/hooks is not pushed and hooks change and these changes need to be tracked in a Git repository. (need to retest)
 
 **Note**   I found out about hooks and need to remember and add to the README why I added a hooks directory in the repository so the hooks can be managed by the repository . . .Hooks are per-repository and are not designed to be pushed but can be pushed. Similarly, the repo config isn't pushed either, nor is anything in .git/info , or a number of other things. Pushing and pulling only exchanges branches/tags and commit objects (and anything reachable from a commit, e.g. trees, blobs** Add something about creating a symbolic link from ../.git/hooks to this hooks directory that are managed in this repository using markit. 
+
+#### Future Objectives 
+
+- <COMMIT_FILE_NAME>.test-case-input - Add support   #12
+- Design for quick test case git branch merge (include steps)
+- Quick test case branch merge from test team's custom test cases without merge conflicts (include steps)
+  - challenge is SA-setup.sh & FVT-setup.sh could be changed by development and test teams 
+- Quick backup of all test cases in repository (\<FILE-NAME>.tar) (code is in uninstall-) (option: --backup --restore)
+- Include support for custom test cases or intergration with other test or CI solutions 
+- Support several types of files (support additional test case types (FVT,SA)
+
 
  #### Author
 [<img id="twitter" src="hooks/images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">
