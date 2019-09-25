@@ -42,7 +42,7 @@ git-TEST-commit-automation runs pre-commit and post-commit when "git commit -m '
 - Loop through and run \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE>/SA-<TEST_CASE> and/or FVT-<TEST_CASE>
 - Report output as **PASS** or **FAIL** or **ERROR**, through stdout 
       . . . some methed will notify someone of the results. (not sure which method is going to work for me and you? 
-      . . . stdout, logs-scrape, tables, email, twitter, slack, tall a friand, etc.)
+      . . . stdout, logs-scrape, tables, email, twitter, slack, call a friand, etc.)
  
 **git-TEST-cases.sh** - search from top of repository to list TEST directory test cases and manage test cases
 
