@@ -1,6 +1,8 @@
 ## View test case depth for a file
 
-After completing: Install git-TEST-commit-automation solution enter the following command to view test case depth for sample.sh.
+Objective 3)  **Quick check of test case depth for a file (option -f) and all files for any Git repository (option -a)**
+
+After completing: **Install git-TEST-commit-automation solution** enter the following command to view test case depth for sample.sh.
    
 **Use --filename sample.sh to see what type of test cases are for sample.sh**
     
@@ -18,6 +20,8 @@ After completing: Install git-TEST-commit-automation solution enter the followin
 <img id="Steps git-TEST-commit-automation-3-1.gif" src="../images/git-TEST-commit-automation-3-1.gif" >
 
 Two Static Analysis (SA) test cases were found for sample.sh.
+
+Objective 3) Done, depth check in seconds
 
 **That is it!**
 
