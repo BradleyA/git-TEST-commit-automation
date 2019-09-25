@@ -37,10 +37,8 @@ git-TEST-commit-automation runs pre-commit and post-commit when "git commit -m '
 **pre-commit** - Creates \<REPOSITORY>/hooks/COMMIT_FILE_LIST with a list of \<REPOSITORY-PATH>/\<FILE> being committed.
 
 **post-commit** 
-- run test cases for files found in \COMMIT_FILE_LIST
 - Loop through and run committed files found in \<REPOSITORY>/hooks/**COMMIT_FILE_LIST**
-- Check if COMMIT_FILE has a 'TEST' directory
-- Create links to EXAMPLES/\<TEST_CASE> and \<TEST_CASE>.expected and other test case files (FVT-setup.sh, SA-setup.sh)
+- if COMMIT_FILE has a 'TEST' directory run FVT-setup.sh and/or SA-setup.sh
 - Create list of test cases found in \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/ directory (files starting with SA-, FVT-)
 - Loop through \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/SA-<TEST_CASE>
 - Run \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE_NAME>/SA-<TEST_CASE>
