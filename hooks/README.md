@@ -63,7 +63,10 @@ TL;DR - During code design I do not care if my code is perfect only if it runs a
 #### ARCHITECTURE TREE
 
     /usr/local/bin/                           <-- <BIN_DIR>
-    ├── <CLUSTER>/                            <-- <CLUSTER>
+    ├── git-TEST-cases.sh
+    ├── setup-git-TEST-cases.sh
+    ├── uninstall-git-TEST-cases.sh>
+
 
 **hooks directory**  The hooks directory was created because I wanted to modify the GitHub hooks and track changes per repository.  Include hooks/ in repostory because .git/hooks is not pushed and hooks change and these changes need to be tracked in a Git repository. (need to retest)
 
