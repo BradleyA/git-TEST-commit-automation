@@ -30,6 +30,8 @@ This will download git-TEST-commit-automation files into a Git repository top di
 <img id="Steps git-TEST-commit-automation-2.gif" src="../images/git-TEST-commit-automation-2.gif" >
 
 Objective 1)  **Done, installed in seconds**
+
+Objective 4)  **Quick setup of default SA- test cases for a file (git-TEST-cases.sh --filename sample.sh --add)**
     
 **Configure two default test cases for sample.sh**   
     
@@ -38,6 +40,8 @@ Objective 1)  **Done, installed in seconds**
     git commit -m 'initial commit'
 
 <img id="Steps git-TEST-commit-automation-3.gif" src="../images/git-TEST-commit-automation-3.gif" >
+
+Objective 4)  **Done, in seconds**
 
 **Make a change to sample.sh and run 'git add' and 'git commit'**
     
