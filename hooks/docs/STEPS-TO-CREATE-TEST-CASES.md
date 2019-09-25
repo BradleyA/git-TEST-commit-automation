@@ -8,7 +8,8 @@ To use a different SA- test case other than the default test cases, remove the s
                                           #  comment SA-permission-775-001
     git add TEST/sample.sh/SA-setup.sh
     git commit -m 'created custom SA-setup.sh w/ SA-permission-775-001 removed SA-permission-750-001'
-    
+    vi sample.sh
+         
 
 <img id="Steps git-TEST-commit-automation-5-1.gif" src="../images/git-TEST-commit-automation-5-1.gif" >
 
