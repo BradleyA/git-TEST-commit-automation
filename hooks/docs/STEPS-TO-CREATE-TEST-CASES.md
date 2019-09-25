@@ -1,5 +1,7 @@
-## Setup default SA- test cases for a new file
-   
+## Create custom test cases for a file
+
+Objective 5)  **Quick upgrade of default test cases with test case code fixes (setup-git-TEST-cases.sh)**
+
 **Use '--filename test.sh --add' to add default SA- test cases for test.sh**
     
     XXXX xxxx XX x x 
