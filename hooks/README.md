@@ -42,7 +42,7 @@ git-TEST-commit-automation runs pre-commit and post-commit when "git commit -m '
 #### [Create custom test cases for git-TEST-commit-automation solution](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/STEPS-TO-CUSTON-TEST-CASES.md)
   
 **Start editing from here:  These notes are cut and paste of information and make some since once I finsh design**
-
+#### Description
 
 **pre-commit** - Creates \<REPOSITORY>/hooks/COMMIT_FILE_LIST with a list of \<REPOSITORY-PATH>/\<FILE> being committed.
 
