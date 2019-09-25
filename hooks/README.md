@@ -40,10 +40,10 @@ git-TEST-commit-automation runs pre-commit and post-commit when "git commit -m '
 - Loop through committed files found in \<REPOSITORY>/hooks/**COMMIT_FILE_LIST**
 - if COMMIT_FILE has a '\<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE>/' directory run FVT-setup.sh and/or SA-setup.sh
 - Loop through and run \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE>/SA-<TEST_CASE> and/or FVT-<TEST_CASE>
-- Report output as **PASS** or **FAIL** or **ERROR**, some methed will notify someone of the results. (not sure which method is going to work for me and you? . . . stdout, logs-scrape, tables, email, twitter, slack, tall a friand, etc.)
+- Report output as **PASS** or **FAIL** or **ERROR**, through stdout 
+      . . . some methed will notify someone of the results. (not sure which method is going to work for me and you? 
+      . . . stdout, logs-scrape, tables, email, twitter, slack, tall a friand, etc.)
  
-
-
 **git-TEST-cases.sh** - search from top of repository to list TEST directory test cases and manage test cases
 
 **setup-git-TEST-cases.sh** - setup git TEST cases in current repository
@@ -66,8 +66,6 @@ Place the expected results from the test case into a file with the same test cas
 
 After entering the above command, Git runs any Git hooks found in \<REPOSITORY-NAME>/.git/hooks/ directory.  Git hooks are scripts that Git executes before and/or after events. Two local Git hooks are included with git-TEST-commit-automation. 
   
-
-
 **Note**   I found out about hooks and need to remember and add to the README why I added a hooks directory in the repository so the hooks can be managed by the repository . . .Hooks are per-repository and are not designed to be pushed but can be pushed. Similarly, the repo config isn't pushed either, nor is anything in .git/info , or a number of other things. Pushing and pulling only exchanges branches/tags and commit objects (and anything reachable from a commit, e.g. trees, blobs** Add something about creating a symbolic link from ../.git/hooks to this hooks directory that are managed in this repository using markit. 
 
 #### Future Objectives 
