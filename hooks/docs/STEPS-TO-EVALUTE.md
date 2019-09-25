@@ -18,7 +18,7 @@ Steps to evaluate git-TEST-commit-automation solution
 
 <img id="Steps git-TEST-commit-automation-1.gif" src="../images/git-TEST-commit-automation-1.gif" >
     
-Objective 1) **Quick setup with default test cases for any Git repository (in seconds)**
+Objective 1) **Install git-TEST-commit-automation solution (in seconds)**
 
 **Download and execute setup-git-TEST-cases.sh to setup git-TEST-commit-automation solution**
 This will download git-TEST-commit-automation files into a Git repository top directoy named **hooks**.  It will create two symbolic links for .git/hooks/pre-commit and .git/hooks/post-commit to hooks/pre-commit and hooks/post-commit.  It will also copy three files, git-TEST-cases.sh, setup-git-TEST-cases.sh and uninstall-git-TEST-cases.sh to /usr/local/bin.
