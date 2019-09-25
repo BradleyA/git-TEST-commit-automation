@@ -21,7 +21,7 @@ After completing: **Install git-TEST-commit-automation solution** enter the foll
 
 Two Static Analysis (SA) test cases were found for sample.sh.
 
-Objective 3) Done, depth check in seconds
+Objective 3) **Done, depth check in seconds**
 
 **That is it!**
 
