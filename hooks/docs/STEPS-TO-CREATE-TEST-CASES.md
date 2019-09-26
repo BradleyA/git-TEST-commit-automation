@@ -10,7 +10,8 @@ To use a different SA- test case other than the default test cases, remove the s
     git commit -m 'created custom SA-setup.sh w/ SA-permission-775-001 removed SA-permission-750-001'
     vi sample.sh                          #  append echo    "Change after SA-setup.sh"
     git add sample.sh
-    git commit -m 'added 
+    git commit -m 'added after SA-setup.sh'
+    
     
     
     
