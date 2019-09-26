@@ -11,7 +11,7 @@ Scripts to assist running something, and checking something, then reporting some
 
 git-TEST-commit-automation runs pre-commit and post-commit hooks when "git commit -m 'message' " is executed. Pre-commit creates a file (${REPOSITORY_DIR}/hooks/COMMIT_FILE_LIST) which includes files being commited. Post-commit searches in the same directory as the commited filename for a TEST/\<filename>/ directory. If found post-commit runs TEST/\<filename>/SA-setup.sh and/or TEST/\<filename>/FVT-setup.sh then searches for files beginning with SA- of FVT- and runs them.
 
-TL;DR - Why did I create git-TEST-commit-automation when there are so many open software and enterprise level testing solutions available.  I needed something that would run some basic SA and FVT tests with a short learning run way.  I needed a solution that would inform, not impede code development.  I needed something that would encourage 'git commit -m 'xxx', not exit 1 if there are any code incidents.  I needed a solution that I could store test cases with the code. I needed a solution that I could setup and uninstall without effecting the code. 
+TL;DR - Why did I create git-TEST-commit-automation when there are so many open software and enterprise level testing solutions available.  I needed something that would run some basic SA and FVT tests with minimal learning curve.  I needed a solution that would inform, not impede code development.  I needed something that would encourage 'git commit -m 'xxx', not exit 1 if there are any code incidents.  I needed a solution that I could store test cases with the code. I needed a solution that I could setup and uninstall without effecting the code. 
 
 TL;DR - During code design, I do not care if my code is perfect.  I only care if it runs and begins to solve some part of a bigger solution.  During code design I may throw out dozens to hundreds of lines of code.  It did not matter if that code was perfect, it is trash now.  As I fine tune a design I am more interested in getting the code perfect and using open software and enterprise level solution to help get it pollish and secure.
 
@@ -87,8 +87,7 @@ After entering the above command, Git runs any Git hooks found in \<REPOSITORY-N
 - Quick test case branch merge from test team's custom test cases without merge conflicts (include steps)
   - challenge is SA-setup.sh & FVT-setup.sh could be changed by development and test teams 
 - Quick backup of all test cases in repository (\<FILE-NAME>.tar) (code is in uninstall-) (option: --backup --restore)
-- Include support for custom test cases or intergration with other test or CI solutions 
-- Support several types of files (support additional test case types (FVT,SA)
+- Include support for other test or CI solutions ... Scan for Credentials, BATS, Travis CI, ...
 
  #### Author
 [<img id="twitter" src="hooks/images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">
