@@ -38,7 +38,7 @@ TL;DR - During code design, I do not care if my code is perfect.  I only care if
   
 #### Description
 
-**pre-commit** - Creates \<REPOSITORY>/hooks/COMMIT_FILE_LIST with a list of \<REPOSITORY-PATH>/\<FILE> being committed.
+**pre-commit** - Creates \<REPOSITORY>/hooks/**COMMIT_FILE_LIST** with a list of \<REPOSITORY-PATH>/\<FILE> being committed.
 
 **post-commit** 
 - Loop through committed files found in \<REPOSITORY>/hooks/**COMMIT_FILE_LIST**
