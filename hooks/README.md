@@ -33,9 +33,9 @@ TL;DR - During code design, I do not care if my code is perfect.  I only care if
 
 #### [Setup default SA- test cases for a new file](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/STEPS-TO-SETUP-DEFAULT-SA-TEST-CASES.md)
 
+**Start editing from here:  These notes are cut and paste of information and make some since once I finsh design**
 #### [Create custom test cases for a file](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/STEPS-TO-CREATE-TEST-CASES.md)
   
-**Start editing from here:  These notes are cut and paste of information and make some since once I finsh design**
 #### Description
 
 **pre-commit** - Creates \<REPOSITORY>/hooks/COMMIT_FILE_LIST with a list of \<REPOSITORY-PATH>/\<FILE> being committed.
