@@ -11,6 +11,10 @@ To use a different SA- test case other than the default test cases, remove the s
     vi sample.sh                          #  append echo    "Change after SA-setup.sh"
     git add sample.sh
     git commit -m 'added after SA-setup.sh'
+    #  one test case FAILed and one has PASSed
+    chmod 750 sample.sh                   #  change file permission 750
+    ./TEST/sample.sh/SA-permission-750-001 ./sample.sh  #  run test case on sample.sh
+    
     
     
     
