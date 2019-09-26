@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/git-TEST-cases.sh  2.128.772  2019-09-26T14:33:28.816143-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.127-43-gcae80b9  
+# 	   hooks/bin/git-TEST-cases.sh   formating change to usage 
 # 	hooks/bin/git-TEST-cases.sh  2.126.682  2019-09-24T11:52:29.145448-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.125-2-g7e14649  
 # 	   hooks/bin/git-TEST-cases.sh    include path with file name that does not have test cases 
 # 	hooks/bin/git-TEST-cases.sh  2.125.679  2019-09-23T22:28:30.202269-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.124-36-ga1cdec2  
@@ -36,9 +38,9 @@ COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')
 echo -e "\n${NORMAL}${COMMAND_NAME}\n   list files in TEST case directories"
 echo -e "\n${BOLD}USAGE${NORMAL}"
 echo    "   ${COMMAND_NAME} [-a | --all | -c | --clean | -n | --none | -f <FILE_NAME>"
-echo    "                   | --filename <FILE_NAME>]"
-echo    "                   [--filename <FILE_NAME> --add]"
-echo -e "                   [--hooks]\n"
+echo    "                    | --filename <FILE_NAME>]"
+echo    "                   [--hooks]"
+echo -e "                   [--filename <FILE_NAME> --add]\n"
 echo    "   ${COMMAND_NAME} [--help | -help | help | -h | h | -?]"
 echo    "   ${COMMAND_NAME} [--usage | -usage | -u]"
 echo    "   ${COMMAND_NAME} [--version | -version | -v]"
