@@ -19,7 +19,7 @@ TL;DR - During code design, I do not care if my code is perfect.  I only care if
 1) Quick setup with default test cases for any Git repository (in seconds)
 2) Quick uninstall on any Git repository
 3) Quick check of test case depth for a file (option -f) and all files for any Git repository (option -a)
-4) Quick setup of default SA- test cases for a file (git-TEST-cases.sh --filename sample.sh --add)
+4) Quick setup of default SA- test cases for a file (options --filename sample.sh --add)
 5) Quick upgrade of default test cases and git-TEST-commit-automation (setup-git-TEST-cases.sh)
 6) Quick reduction of untracked TEST case files (option -c)
 
