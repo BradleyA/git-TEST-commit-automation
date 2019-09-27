@@ -65,7 +65,7 @@ TL;DR - During code design, focus is on how to solve parts of a bigger solution.
     /usr/local/bin/                           <-- <BIN_DIR>
     ├── git-TEST-cases.sh
     ├── setup-git-TEST-cases.sh
-    ├── uninstall-git-TEST-cases.sh>
+    └── uninstall-git-TEST-cases.sh>
 
 
 **hooks directory**  The hooks directory was created because I wanted to modify the GitHub hooks and track changes per repository.  Include hooks/ in repostory because .git/hooks is not pushed and hooks change and these changes need to be tracked in a Git repository. (need to retest)
