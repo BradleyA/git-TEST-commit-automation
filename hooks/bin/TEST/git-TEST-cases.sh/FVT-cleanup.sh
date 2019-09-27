@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/TEST/git-TEST-cases.sh/FVT-cleanup.sh  2.133.779  2019-09-26T21:10:19.219920-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.132-1-g91c4dee  
+# 	   hooks/bin/TEST/git-TEST-cases.sh/FVT-cleanup.sh  rm FVT-option-c-002.expected FVT-option-c-001.expected 
 # 	hooks/bin/TEST/git-TEST-cases.sh/FVT-cleanup.sh  2.132.777  2019-09-26T20:27:59.431245-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.131-1-g2bc39b3  
 # 	   hooks/bin/TEST/git-TEST-cases.sh/FVT-cleanup.sh  first custom edit 
 # 	hooks/EXAMPLES/FVT-cleanup.sh  2.108.598  2019-09-19T16:47:48.371636-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.107-7-gae522d0  
@@ -67,6 +69,8 @@ rm -f FVT-option-version-002.expected
 rm -f FVT-option-version-003.expected
 rm -f FVT-option-a-001.expected
 rm -f FVT-option-a-002.expected
+rm -f FVT-option-c-001.expected
+rm -f FVT-option-c-002.expected
 #    Remove linked FVT-* files except FVT-cleanup.sh and FVT-setup.sh
 for k in $(ls -1 FVT-*) ; do
   if [[ "${k}" != "FVT-cleanup.sh" ]] ; then
