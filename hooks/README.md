@@ -1,4 +1,4 @@
-# git-TEST-commit-automation  [![Stable Release](https://img.shields.io/badge/Release-2.59-blue.svg)](https://github.com/BradleyA/git-TEST-commit-automation/releases/tag/2.59)    [![GitHub commits](https://img.shields.io/github/commits-since/BradleyA/git-TEST-commit-automation/2.59.svg)](https://github.com/BradleyA/git-TEST-commit-automation/commits/)
+# git-TEST-commit-automation  [![Stable Release](https://img.shields.io/badge/Release-2.135-blue.svg)](https://github.com/BradleyA/git-TEST-commit-automation/releases/tag/2.135)    [![GitHub commits](https://img.shields.io/github/commits-since/BradleyA/git-TEST-commit-automation/2.135.svg)](https://github.com/BradleyA/git-TEST-commit-automation/commits/)
 
 **In development** ...(8/2019 - 9/2019)   **In test** ...............(9/7/2019 - )
  
