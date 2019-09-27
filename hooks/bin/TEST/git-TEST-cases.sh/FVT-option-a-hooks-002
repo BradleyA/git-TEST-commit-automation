@@ -1,7 +1,7 @@
 #!/bin/bash
-#	hooks/bin/TEST/git-TEST-cases.sh/FVT-option-a-option-hooks-002  2.131.775  2019-09-26T19:59:00.223006-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.130  
-#	   hooks/bin/TEST/git-TEST-cases.sh/FVT-option-a-option-hooks-001 hooks/bin/TEST/git-TEST-cases.sh/FVT-option-a-option-hooks-002   added custom test cases 
-#86# hooks/EXAMPLES/FVT-option-a-option-hooks-002 - test case
+#	hooks/bin/TEST/git-TEST-cases.sh/FVT-option-a-hooks-002  2.135.781  2019-09-26T21:50:18.647955-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.134  
+#	   update comment with correct script name 
+#86# hooks/EXAMPLES/FVT-option-a-hooks-002 - test case
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.1.160 Copyright
 #    Copyright (c) 2019 Bradley Allen
