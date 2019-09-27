@@ -1,14 +1,6 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/SA-setup.sh  2.110.610  2019-09-20T12:06:58.822411-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.109-3-g749625b  
-# 	   #25   hooks/EXAMPLES/SA-setup.sh   remove SA-filename-nospace-001 test case 
-# 	hooks/EXAMPLES/SA-setup.sh  2.108.598  2019-09-19T16:49:19.825724-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.107-7-gae522d0  
-# 	   upgrade Version section 
-# 	hooks/EXAMPLES/SA-setup.sh  2.86.536  2019-09-16T15:19:22.591383-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.85-7-g07ed5d9  
-# 	   hooks/EXAMPLES/SA-setup.sh   added more test case names 
-# 	hooks/EXAMPLES/SA-setup.sh  2.77.512  2019-09-14T14:25:47.131705-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.76  
-# 	   hooks/EXAMPLES/SA-setup.sh   add additional permission test cases 
-# 	hooks/bin/TEST/list-git-TEST-cases.sh/SA-setup.sh  2.76.511  2019-09-14T14:05:17.720995-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.75  
-# 	   hooks/bin/TEST/list-git-TEST-cases.sh/SA-setup.sh   add new_message Operation finished... ; removed rm -f SA-*.test-case-output 
+# 	hooks/EXAMPLES/SA-setup.sh  2.138.787  2019-09-27T12:34:20.801732-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.137  
+# 	   close #34    EXAMPLES/SA-* FVT-*   added NO -x ${1} exit ERROR 126 
 #86# hooks/EXAMPLES/SA-setup.sh - This script is optional.  It is for 
 #    'Production standard 10.0 TESTing' test cases.  Copy it to TEST/<file_name>/.
 #    If SA-setup.sh is found in TEST/<file_name>/ post-commit executes it.
@@ -57,6 +49,13 @@ new_message() {  #  $1="${SCRIPT_NAME}"  $2="${LINENO}"  $3="DEBUG INFO ERROR WA
 }
 
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Started..." 1>&2 ; fi
+
+if [[ ! -x ${1} ]] ; then  #  #34  Command invoked does not exist or cannot execute
+  RETURN_CODE=126
+  new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "${RETURN_CODE} - File, ${1}, does not exist or have execute permission" 1>&2
+  echo "${BOLD}Test case --->${NORMAL} ${0} ${1} 126 - File, ${1}, does not exist or have execute permission - ${BOLD}ERROR - ERROR${NORMAL}"
+  exit "${RETURN_CODE}"
+fi
 
 ###  Production standard 10.0 TESTing 
 

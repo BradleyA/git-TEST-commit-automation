@@ -1,12 +1,6 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/FVT-setup.sh  2.109.606  2019-09-20T11:15:06.194140-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.108-7-g0df0229  
-# 	   hooks/EXAMPLES/FVT-exit-code-error-   updated and added some FVT-exit-code test cases 
-# 	hooks/EXAMPLES/FVT-setup.sh  2.108.598  2019-09-19T16:48:42.851725-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.107-7-gae522d0  
-# 	   upgrade Version section 
-# 	hooks/EXAMPLES/FVT-setup.sh  2.78.517  2019-09-14T21:47:49.803431-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.78  
-# 	   hooks/EXAMPLES/FVT-setup.sh   uncomment to be new default all option -help, usage, version 
-# 	hooks/EXAMPLES/FVT-setup.sh  2.58.422  2019-09-08T22:02:56.907318-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.57-4-gd88b681  
-# 	   hooks/EXAMPLES/FVT-*   upgrade Production standard 1.3.496 DEBUG variable ; add new_message 
+# 	hooks/EXAMPLES/FVT-setup.sh  2.138.787  2019-09-27T12:33:27.430817-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.137  
+# 	   close #34    EXAMPLES/SA-* FVT-*   added NO -x ${1} exit ERROR 126 
 #86# hooks/EXAMPLES/FVT-setup.sh - This script is optional.  It is for
 #    'Production standard 10.0 TESTing' test cases.  Copy it to TEST/<file_name>/.
 #    If FVT-setup.sh is found in TEST/<file_name>/ post-commit executes it.
@@ -55,6 +49,13 @@ new_message() {  #  $1="${SCRIPT_NAME}"  $2="${LINENO}"  $3="DEBUG INFO ERROR WA
 }
 
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Started..." 1>&2 ; fi
+
+if [[ ! -x ${1} ]] ; then  #  #34  Command invoked does not exist or cannot execute
+  RETURN_CODE=126
+  new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "${RETURN_CODE} - File, ${1}, does not exist or have execute permission" 1>&2
+  echo "${BOLD}Test case --->${NORMAL} ${0} ${1} 126 - File, ${1}, does not exist or have execute permission - ${BOLD}ERROR - ERROR${NORMAL}"
+  exit "${RETURN_CODE}"
+fi
 
 ###  Production standard 10.0 TESTing
 

@@ -1,10 +1,6 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/FVT-cleanup.sh  2.108.598  2019-09-19T16:47:48.371636-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.107-7-gae522d0  
-# 	   upgrade Version section 
-# 	hooks/EXAMPLES/FVT-cleanup.sh  2.92.550  2019-09-17T10:54:54.487436-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.91  
-# 	   close #3   hooks/bin/git-TEST-cases.sh 
-# 	hooks/EXAMPLES/FVT-cleanup.sh  2.81.523  2019-09-14T23:16:43.457843-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.80-1-g8745c24  
-# 	   hooks/EXAMPLES/FVT-cleanup.sh   push to add version 
+# 	hooks/EXAMPLES/FVT-cleanup.sh  2.138.787  2019-09-27T12:32:39.021844-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.137  
+# 	   close #34    EXAMPLES/SA-* FVT-*   added NO -x ${1} exit ERROR 126 
 #86# FVT-cleanup.sh - test case cleanup
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.1.160 Copyright
@@ -49,6 +45,13 @@ new_message() {  #  $1="${SCRIPT_NAME}"  $2="${LINENO}"  $3="DEBUG INFO ERROR WA
 }
 
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Started..." 1>&2 ; fi
+
+if [[ ! -x ${1} ]] ; then  #  #34  Command invoked does not exist or cannot execute
+  RETURN_CODE=126
+  new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "${RETURN_CODE} - File, ${1}, does not exist or have execute permission" 1>&2
+  echo "${BOLD}Test case --->${NORMAL} ${0} ${1} 126 - File, ${1}, does not exist or have execute permission - ${BOLD}ERROR - ERROR${NORMAL}"
+  exit "${RETURN_CODE}"
+fi
 
 ###  Place test case cleanup here 
 
