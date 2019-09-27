@@ -1,10 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  2.128.772  2019-09-26T14:33:28.816143-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.127-43-gcae80b9  
-# 	   hooks/bin/git-TEST-cases.sh   formating change to usage 
-# 	hooks/bin/git-TEST-cases.sh  2.126.682  2019-09-24T11:52:29.145448-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.125-2-g7e14649  
-# 	   hooks/bin/git-TEST-cases.sh    include path with file name that does not have test cases 
-# 	hooks/bin/git-TEST-cases.sh  2.125.679  2019-09-23T22:28:30.202269-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.124-36-ga1cdec2  
-# 	   hooks/bin/git-TEST-cases.sh   correct incident when TEST directory exists but no file directories 
+# 	hooks/bin/git-TEST-cases.sh  2.139.788  2019-09-27T17:14:37.458389-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.138  
+# 	   remove #34 for is command 
 # 	hooks/bin/git-TEST-cases.sh  2.122.626  2019-09-21T15:39:47.409524-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.121  
 # 	   close #29   hooks/bin/git-TEST-cases.sh   add option --add - Add default test case directory (TEST/<FILE_NAME>/) and files SA-setup.sh, SA-cleanup.sh, SA-shellcheck-001.expected 
 # 	hooks/bin/git-TEST-cases.sh  2.112.613  2019-09-20T19:29:27.300829-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.111-1-g7eba63e  

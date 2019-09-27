@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/FVT-cleanup.sh  2.139.788  2019-09-27T17:14:36.981131-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.138  
+# 	   remove #34 for is command 
 # 	hooks/EXAMPLES/FVT-cleanup.sh  2.138.787  2019-09-27T12:32:39.021844-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.137  
 # 	   close #34    EXAMPLES/SA-* FVT-*   added NO -x ${1} exit ERROR 126 
 #86# FVT-cleanup.sh - test case cleanup
@@ -45,13 +47,6 @@ new_message() {  #  $1="${SCRIPT_NAME}"  $2="${LINENO}"  $3="DEBUG INFO ERROR WA
 }
 
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Started..." 1>&2 ; fi
-
-if [[ ! -x ${1} ]] ; then  #  #34  Command invoked does not exist or cannot execute
-  RETURN_CODE=126
-  new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "${RETURN_CODE} - File, ${1}, does not exist or have execute permission" 1>&2
-  echo "${BOLD}Test case --->${NORMAL} ${0} ${1} 126 - File, ${1}, does not exist or have execute permission - ${BOLD}ERROR - ERROR${NORMAL}"
-  exit "${RETURN_CODE}"
-fi
 
 ###  Place test case cleanup here 
 
