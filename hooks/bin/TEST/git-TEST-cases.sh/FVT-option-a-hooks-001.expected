@@ -252,13 +252,14 @@ hooks/EXAMPLES/TEST/[1;33mSA-type-tar-V7-001[0m
 [1;36m 	SA-cleanup.sh[0m
 [1;36m 	SA-setup.sh[0m
 hooks/bin/TEST/[1;33mgit-TEST-cases.sh[0m 
-[1;32m 	bob
-	FVT-option-a-001
+[1;32m 	FVT-option-a-001
 	FVT-option-a-002
 	FVT-option-add-001
 	FVT-option-a-option-hooks-001
 	FVT-option-a-option-hooks-002
 	FVT-option-c-001
+	FVT-option-c-002
+	FVT-option-c-option-hooks-001
 	FVT-option-f-001
 	FVT-option-help-001
 	FVT-option-help-002
