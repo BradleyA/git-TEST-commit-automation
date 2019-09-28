@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  2.145.796  2019-09-27T19:24:19.402217-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.144  
-# 	   hooks/bin/git-TEST-cases.sh  test links from root or top of repository 
+# 	hooks/bin/git-TEST-cases.sh  2.146.797  2019-09-27T19:27:41.313323-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.145  
+# 	   testing 
 # 	hooks/bin/git-TEST-cases.sh  2.122.626  2019-09-21T15:39:47.409524-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.121  
 # 	   close #29   hooks/bin/git-TEST-cases.sh   add option --add - Add default test case directory (TEST/<FILE_NAME>/) and files SA-setup.sh, SA-cleanup.sh, SA-shellcheck-001.expected 
 # 	hooks/bin/git-TEST-cases.sh  2.112.613  2019-09-20T19:29:27.300829-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.111-1-g7eba63e  
