@@ -21,5 +21,7 @@ Objective 4) **Done, in seconds**
 Don't forget to commit these changes to your Git repository.
 
     git commit -m 'initial commit'
+    git status
+    ls -l
 
 #### [Back to README](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks#setup-default-sa--test-cases-for-a-new-file)
