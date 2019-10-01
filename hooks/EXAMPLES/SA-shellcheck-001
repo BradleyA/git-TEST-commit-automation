@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/EXAMPLES/SA-shellcheck-001  2.159.814  2019-10-01T11:38:03.522714-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.158  
+#	   hooks/EXAMPLES/SA-shellcheck-001  #35  testing 
 #	hooks/EXAMPLES/SA-shellcheck-001  2.158.813  2019-10-01T11:31:39.854238-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.157  
 #	   #35     testing 
 #	hooks/EXAMPLES/SA-shellcheck-001  2.157.812  2019-10-01T11:27:16.233647-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.156  
@@ -72,21 +74,21 @@ if [[ ! -e "${0}.expected" ]] ; then
 fi
 
 if [[ -s ${1} ]] ; then  #  file size is greater than zero
-  TMP_FILE_1=$(mktemp /tmp/${SCRIPT_NAME}-1-XXX)  #  create temporary file in /tmp
-  TMP_FILE_2=$(mktemp /tmp/${SCRIPT_NAME}-2-XXX)  #  create temporary file in /tmp
+  TMP_FILE_1=$(mktemp /tmp/${SCRIPT_NAME##*/}-1-XXX)  #  create temporary file in /tmp
+  TMP_FILE_2=$(mktemp /tmp/${SCRIPT_NAME##*/}-2-XXX)  #  create temporary file in /tmp
   head -1 "${1}" > "${TMP_FILE_1}"  #  copy the first line 
 #  TMP1=$(head -c 1 "${TMP_FILE_1}")  # first character on first line in file which is assumed as the file's comment character
   cp "${1}" "${TMP_FILE_2}"  #  make a copy of file
   TMP2=$(awk '$1~/^[^#]/{print NR; exit}' "${TMP_FILE_2}")  #  Locate line number of first line without comment
   tail -n+"${TMP2}"  "${TMP_FILE_2}" >> "${TMP_FILE_1}"
 #  rm -f "${TMP_FILE_2}"
-  mkdir -p "${SCRIPT_NAME}-tmp"
-  cd "${SCRIPT_NAME}-tmp"
+  mkdir -p "${SCRIPT_NAME}##*/-tmp"
+  cd "${SCRIPT_NAME##*/}-tmp"
   cp "${TMP_FILE_1}" ${0}
 #  rm -f "${TMP_FILE_1}"
   shellcheck "${0}" > ../"${0}".test-case-output  #  analyse code for potential errors
   cd ..
-  rm -rf "${SCRIPT_NAME}-tmp"
+  rm -rf "${SCRIPT_NAME##*/}-tmp"
   diff "${0}".expected "${0}".test-case-output >/dev/null 2>&1
   RETURN_CODE=${?}
 else
