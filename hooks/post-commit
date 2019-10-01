@@ -1,12 +1,6 @@
 #!/bin/bash
-#	hooks/post-commit  2.168.823  2019-10-01T13:24:41.259922-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.167  
-#	   hooks/post-commit   #37   added color 
-#	hooks/post-commit  2.155.810  2019-09-30T22:48:11.774442-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.154  
-#	   hooks/post-commit hooks/EXAMPLES/SA-permission-775-001   adding color 
-#	hooks/post-commit  2.75.510  2019-09-14T13:59:11.146082-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.74  
-#	   hooks/post-commit   add SA-cleanup.sh & FVT-cleanup.sh 
-#	hooks/post-commit  2.64.470  2019-09-11T18:13:28.459614-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.63-3-g2799c59  
-#	   post-commit pre-commit   added Production standard 1.3.496 DEBUG variable and  new_message 
+#	hooks/post-commit  2.169.825  2019-10-01T13:30:07.420036-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.168-1-g1a2fd13  
+#	   hooks/post-commit   #37   added color and testing color 
 ###  hooks/post-commit - Create production standard TESTing using .git/hooks #26 
 #  post-commit - (git hook) run test cases if found
 #      Loop through committed files found in COMMIT_FILE_LIST
