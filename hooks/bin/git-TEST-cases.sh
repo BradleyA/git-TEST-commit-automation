@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  2.172.829  2019-10-01T16:10:45.895476-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.171-1-gaa87018  
-# 	   hooks/bin/git-TEST-cases.sh   #37 testing color 
+# 	hooks/bin/git-TEST-cases.sh  2.173.830  2019-10-01T16:40:59.849545-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.172  
+# 	   #37   testing color 
 # 	hooks/bin/git-TEST-cases.sh  2.122.626  2019-09-21T15:39:47.409524-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.121  
 # 	   close #29   hooks/bin/git-TEST-cases.sh   add option --add - Add default test case directory (TEST/<FILE_NAME>/) and files SA-setup.sh, SA-cleanup.sh, SA-shellcheck-001.expected 
 # 	hooks/bin/git-TEST-cases.sh  2.112.613  2019-09-20T19:29:27.300829-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.111-1-g7eba63e  

@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/bin/TEST/git-TEST-cases.sh/FVT-option-a-001  2.173.830  2019-10-01T16:40:56.047122-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.172  
+#	   #37   testing color 
 #	hooks/bin/TEST/git-TEST-cases.sh/FVT-option-a-001  2.138.787  2019-09-27T12:34:33.041756-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.137  
 #	   close #34    EXAMPLES/SA-* FVT-*   added NO -x ${1} exit ERROR 126 
 #	hooks/bin/TEST/git-TEST-cases.sh/FVT-option-a-001  2.129.773  2019-09-26T18:47:54.164890-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.128  
@@ -17,6 +19,10 @@ if [[ "${DEBUG}" == "4" ]] ; then set -e    ; fi   # Exit command has a non-zero
 #
 BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
+RED=$(tput    setaf 1)
+GREEN=$(tput  setaf 2)
+YELLOW=$(tput setaf 3)
+CYAN=$(tput   setaf 6)
 #    Date and time function ISO 8601
 get_date_stamp() {
   DATE_STAMP=$(date +%Y-%m-%dT%H:%M:%S.%6N%:z)
@@ -51,7 +57,7 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBU
 if [[ ! -x ${1} ]] ; then  #  #34  Command invoked does not exist or cannot execute
   RETURN_CODE=126
   new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "${RETURN_CODE} - File, ${1}, does not exist or have execute permission" 1>&2
-  echo "${BOLD}Test case --->${NORMAL} ${0} ${1} 126 - File, ${1}, does not exist or have execute permission - ${BOLD}ERROR - ERROR${NORMAL}"
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} 126 - File, ${1}, does not exist or have execute permission - ${BOLD}${CYAN}ERROR - ERROR${NORMAL}"
   exit "${RETURN_CODE}"
 fi
 
@@ -71,17 +77,17 @@ else
 fi
 
 if [[ "${RETURN_CODE}" -eq 0 ]] ; then
-  echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - No difference with expected output - ${BOLD}PASS - PASS${NORMAL}"
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - No difference with expected output - ${BOLD}${GREEN}PASS - PASS${NORMAL}"
   cat "${0}".test-case-output
   exit 0
 elif [[ ${RETURN_CODE} -eq 1 ]] ; then
-  echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - Differences with expected output - ${BOLD}FAIL - FAIL${NORMAL}"
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - Differences with expected output - ${BOLD}${RED}FAIL - FAIL${NORMAL}"
   diff -y "${0}".expected "${0}".test-case-output
   exit 1
 else
-  echo "${BOLD}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - Test script ERROR - ${BOLD}ERROR - ERROR${NORMAL}"
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - Test script ERROR - ${BOLD}${CYAN}ERROR - ERROR${NORMAL}"
   exit 2
 fi
-echo "${BOLD}Test case --->${NORMAL} ${0} ${1} 124 - Test script logic ERROR - ${BOLD}ERROR - ERROR${NORMAL}"
+echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} 124 - Test script logic ERROR - ${BOLD}${CYAN}ERROR - ERROR${NORMAL}"
 exit 124
 ###
