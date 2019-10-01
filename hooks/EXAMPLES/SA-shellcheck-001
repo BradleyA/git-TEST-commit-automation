@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/EXAMPLES/SA-shellcheck-001  2.151.803  2019-09-30T22:25:19.972318-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.150  
+#	   testing color to see if value 
 #	hooks/EXAMPLES/SA-shellcheck-001  2.150.802  2019-09-27T21:00:34.703661-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.149  
 #	   testing again #35 
 #      hooks/EXAMPLES/SA-shellcheck-001  2.149.801  2019-09-27T20:53:35.472115-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.148-1-g3863365  
@@ -73,14 +75,12 @@ if [[ -s ${1} ]] ; then  #  file size is greater than zero
   cp "${1}" "${TMP_FILE_2}"  #  make a copy of file
   TMP2=$(awk '$1~/^[^#]/{print NR; exit}' "${TMP_FILE_2}")  #  Locate line number of first line without comment
   tail -n+"${TMP2}"  "${TMP_FILE_2}" >> "${TMP_FILE_1}"
-  rm -f "${TMP_FILE_2}"
-  mkdir -p SA-shellcheck-001-tmp
-  cd SA-shellcheck-001-tmp
-set -x
-  cp "${TMP_FILE_1}" ${0}
-ls -l ${0} ../${0}
-  shellcheck "${0}" > ../"${0}".test-case-output  #  analyse code for potential errors
-  cd ..
+#  rm -f "${TMP_FILE_2}"
+#  mkdir -p SA-shellcheck-001-tmp
+#  cd SA-shellcheck-001-tmp
+#  cp "${TMP_FILE_1}" ${0}
+#  shellcheck "${0}" > ../"${0}".test-case-output  #  analyse code for potential errors
+#  cd ..
 #  rm -rf SA-shellcheck-001-tmp
 #  rm -f "${TMP_FILE_1}"
   diff "${0}".expected "${0}".test-case-output >/dev/null 2>&1
