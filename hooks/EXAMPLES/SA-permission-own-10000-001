@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/EXAMPLES/SA-permission-own-10000-001  2.167.822  2019-10-01T13:06:52.161917-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.166  
+#	   #37   added color to output 
 #	hooks/EXAMPLES/SA-permission-own-10000-001  2.138.787  2019-09-27T12:34:20.690475-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.137  
 #	   close #34    EXAMPLES/SA-* FVT-*   added NO -x ${1} exit ERROR 126 
 #86# SA-permission-grp-10000-001 - test case
@@ -49,7 +51,7 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBU
 if [[ ! -x ${1} ]] ; then  #  #34  Command invoked does not exist or cannot execute
   RETURN_CODE=126
   new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "${RETURN_CODE} - File, ${1}, does not exist or have execute permission" 1>&2
-  echo "${BOLD}Test case --->${NORMAL} ${0} ${1} 126 - File, ${1}, does not exist or have execute permission - ${BOLD}ERROR - ERROR${NORMAL}"
+  echo "${BOLD}Test case --->${NORMAL} ${0} ${1} 126 - File, ${1}, does not exist or have execute permission - ${BOLD}${CYAN}ERROR - ERROR${NORMAL}"
   exit "${RETURN_CODE}"
 fi
 
@@ -63,13 +65,13 @@ FILE_USER_ID_NUM=$(stat -Lc %u "${1}")
 
 #    Verify file owner
 if [[ "${FILE_USER_ID_NUM}" == "${USER_ID_NUM}" ]] ; then
-  echo "${BOLD}Test case --->${NORMAL} ${0} ${1} 0 - file permission: check owner: ${FILE_USER_ID_NUM} - ${BOLD}PASS - PASS${NORMAL}"
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} 0 - file permission: check owner: ${FILE_USER_ID_NUM} - ${BOLD}${GREEN}PASS - PASS${NORMAL}"
   exit 0
 else
-  echo "${BOLD}Test case --->${NORMAL} ${0} ${1} 1 - file permission: check owner: ${FILE_USER_ID_NUM} - ${BOLD}FAIL - FAIL${NORMAL}"
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} 1 - file permission: check owner: ${FILE_USER_ID_NUM} - ${BOLD}${RED}FAIL - FAIL${NORMAL}"
   exit 1
 fi
 
-echo "${BOLD}Test case --->${NORMAL} ${0} ${1} 124 - Test script logic ERROR - ${BOLD}ERROR - ERROR${NORMAL}"
+echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} 124 - Test script logic ERROR - ${BOLD}${CYAN}ERROR - ERROR${NORMAL}"
 exit 124
 ###
