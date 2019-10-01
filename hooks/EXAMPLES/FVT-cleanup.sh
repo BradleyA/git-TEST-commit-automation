@@ -1,8 +1,6 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/FVT-cleanup.sh  2.139.788  2019-09-27T17:14:36.981131-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.138  
-# 	   remove #34 for is command 
-# 	hooks/EXAMPLES/FVT-cleanup.sh  2.138.787  2019-09-27T12:32:39.021844-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.137  
-# 	   close #34    EXAMPLES/SA-* FVT-*   added NO -x ${1} exit ERROR 126 
+# 	hooks/EXAMPLES/FVT-cleanup.sh  2.171.827  2019-10-01T14:42:47.677311-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.170  
+# 	   #37    added color in output 
 #86# FVT-cleanup.sh - test case cleanup
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.1.160 Copyright
