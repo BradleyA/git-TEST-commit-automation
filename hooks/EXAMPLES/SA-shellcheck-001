@@ -1,10 +1,6 @@
 #!/bin/bash
-#	hooks/EXAMPLES/SA-shellcheck-001  2.159.814  2019-10-01T11:38:03.522714-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.158  
-#	   hooks/EXAMPLES/SA-shellcheck-001  #35  testing 
-#	hooks/EXAMPLES/SA-shellcheck-001  2.158.813  2019-10-01T11:31:39.854238-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.157  
-#	   #35     testing 
-#	hooks/EXAMPLES/SA-shellcheck-001  2.157.812  2019-10-01T11:27:16.233647-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.156  
-#	   #35 testing 
+#	hooks/EXAMPLES/SA-shellcheck-001  2.160.815  2019-10-01T11:50:16.135541-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.159  
+#	   hooks/EXAMPLES/SA-shellcheck-001  testing #34 
 #      hooks/EXAMPLES/SA-shellcheck-001  2.149.801  2019-09-27T20:53:35.472115-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.148-1-g3863365  
 #         close #35   hooks/EXAMPLES/SA-shellcheck-001   thought this was fixed earlier today NOT  now it is hope :-) 
 #86# hooks/EXAMPLES/SA-shellcheck-001 - test case
@@ -84,9 +80,9 @@ if [[ -s ${1} ]] ; then  #  file size is greater than zero
 #  rm -f "${TMP_FILE_2}"
   mkdir -p "${SCRIPT_NAME}##*/-tmp"
   cd "${SCRIPT_NAME##*/}-tmp"
-  cp "${TMP_FILE_1}" ${0}
+  cp "${TMP_FILE_1}" ${0##*/}
 #  rm -f "${TMP_FILE_1}"
-  shellcheck "${0}" > ../"${0}".test-case-output  #  analyse code for potential errors
+  shellcheck "${0}" > ../"${0##*/}".test-case-output  #  analyse code for potential errors
   cd ..
   rm -rf "${SCRIPT_NAME##*/}-tmp"
   diff "${0}".expected "${0}".test-case-output >/dev/null 2>&1
