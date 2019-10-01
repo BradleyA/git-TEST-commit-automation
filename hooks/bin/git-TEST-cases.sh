@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  2.173.830  2019-10-01T16:40:59.849545-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.172  
-# 	   #37   testing color 
+# 	hooks/bin/git-TEST-cases.sh  2.174.831  2019-10-01T16:59:32.348104-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.173  
+# 	   hooks/bin/git-TEST-cases.sh   #37   add color 
 # 	hooks/bin/git-TEST-cases.sh  2.122.626  2019-09-21T15:39:47.409524-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.121  
 # 	   close #29   hooks/bin/git-TEST-cases.sh   add option --add - Add default test case directory (TEST/<FILE_NAME>/) and files SA-setup.sh, SA-cleanup.sh, SA-shellcheck-001.expected 
 # 	hooks/bin/git-TEST-cases.sh  2.112.613  2019-09-20T19:29:27.300829-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.111-1-g7eba63e  
@@ -258,8 +258,7 @@ else
         if [[ $j == *"hooks"* ]] && [[ "${ALL_TEST_CASES}" == "NO" ]] ; then continue ; fi  #  Skip to the next j in for loop
         TEST_CASE_DIR_END=$(echo "${j}" | rev | cut -d '/' -f 1 | rev)
         TEST_CASE_DIR_START="${j//${TEST_CASE_DIR_END}/}"
-        printf "${TEST_CASE_DIR_START}\e[1;33m${TEST_CASE_DIR_END}\033[0m \n"
-        printf "${TEST_CASE_DIR_START}${YELLOW}${TEST_CASE_DIR_END}${NORMAL}\n"
+        printf "${TEST_CASE_DIR_START}${BOLD}${YELLOW}${TEST_CASE_DIR_END}${NORMAL}\n"
         cd "${REPOSITORY_DIR}/${j}"
         if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Run FVT-setup.sh and SA-setup.sh if -a or --all" 1>&2 ; fi
         if [[ "${CLI_OPTION}" == "a" ]] && [[ -x "FVT-setup.sh" ]]  ; then ./FVT-setup.sh  "${REPOSITORY_DIR}" ; fi
@@ -269,12 +268,9 @@ else
           if [[ -x "SA-cleanup.sh"  ]]  ; then ./SA-cleanup.sh  ; fi
         fi
         cd "${REPOSITORY_DIR}"
-        printf "\033[1;32m $(ls -1  "${j}" | grep -v "\." | sed 's/^/\t/')\033[0m \n"
-        printf "${GREEN} $(ls -1  "${j}" | grep -v "\." | sed 's/^/\t/')${NORMAL}\n"
-        printf "\033[1;36m $(ls -1  "${j}" | grep "cleanup.sh" | sed 's/^/\t/')\033[0m\n"
-        printf "${CYAN} $(ls -1  "${j}" | grep "cleanup.sh" | sed 's/^/\t/')${NORMAL}\n"
-        printf "\033[1;36m $(ls -1  "${j}" | grep "setup.sh" | sed 's/^/\t/')\033[0m\n"
-        printf "${CYAN} $(ls -1  "${j}" | grep "setup.sh" | sed 's/^/\t/')${NORMAL}\n"
+        printf "${BOLD}${GREEN} $(ls -1  "${j}" | grep -v "\." | sed 's/^/\t/')${NORMAL}\n"
+        printf "${BOLD}${CYAN} $(ls -1  "${j}" | grep "cleanup.sh" | sed 's/^/\t/')${NORMAL}\n"
+        printf "${BOLD}${CYAN} $(ls -1  "${j}" | grep "setup.sh" | sed 's/^/\t/')${NORMAL}\n"
       done
     done
   fi
