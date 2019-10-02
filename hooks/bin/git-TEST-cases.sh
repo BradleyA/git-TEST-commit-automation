@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/git-TEST-cases.sh  2.184.842  2019-10-01T21:34:10.231290-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.183  
+# 	   hooks/bin/git-TEST-cases.sh   test 
 # 	hooks/bin/git-TEST-cases.sh  2.183.841  2019-10-01T21:20:07.177571-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.182  
 # 	   test with  hooks/bin/git-TEST-cases.sh 
 # 	hooks/bin/git-TEST-cases.sh  2.182.840  2019-10-01T21:14:02.735796-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.181  
@@ -204,7 +206,9 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBU
 pwd
 echo "><><><>< pwd"
 REPOSITORY_DIR=$(git rev-parse --show-toplevel)
+echo "><><><>< pwd"
 cd "${REPOSITORY_DIR}"
+echo "><><><>< pwd"
 if [[ "${CLI_OPTION}" == "f" ]]  ; then
   if [[ "${FILE_NAME}" =~ / ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Filename ${FILE_NAME}, contains '/'" 1>&2 ; exit 1 ; fi
   if [[ "${DEFAULT_ADD_TEST_CASE}" == "YES" ]] ; then  #  #29  --add default SA files
