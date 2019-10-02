@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/git-TEST-cases.sh  2.183.841  2019-10-01T21:20:07.177571-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.182  
+# 	   test with  hooks/bin/git-TEST-cases.sh 
 # 	hooks/bin/git-TEST-cases.sh  2.182.840  2019-10-01T21:14:02.735796-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.181  
 # 	   test 
 # 	hooks/bin/git-TEST-cases.sh  2.180.838  2019-10-01T17:27:25.003223-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.179  
@@ -200,6 +202,7 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBU
 
 ###  Production standard 10.0 TESTing
 pwd
+echo "><><><>< pwd"
 REPOSITORY_DIR=$(git rev-parse --show-toplevel)
 cd "${REPOSITORY_DIR}"
 if [[ "${CLI_OPTION}" == "f" ]]  ; then
