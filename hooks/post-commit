@@ -1,7 +1,5 @@
 #!/bin/bash
-#	hooks/post-commit  2.188.846  2019-10-02T11:53:35.732142-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.187  
-#	   hooks/post-commit    remove test cases after running them #38 
-#	hooks/post-commit  2.187.845  2019-10-02T11:48:21.578438-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.186  
+#	hooks/post-commit  2.189.848  2019-10-02T11:56:08.878935-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.188-1-g67bac7b  
 #	   hooks/post-commit    remove test cases after running them #38 
 ###  hooks/post-commit - Create production standard TESTing using .git/hooks #26 
 #  post-commit - (git hook) run test cases if found
