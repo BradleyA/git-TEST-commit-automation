@@ -1,6 +1,4 @@
 
-#	hooks/TEST/post-commit/SA-shellcheck-001.expected  2.191.850  2019-10-02T12:08:12.583742-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.190  
-#	   test incident   cp: '/home/uadmin/github/BradleyA/git-TEST-commit-automation/hooks/TEST/post-commit/SA-shellcheck-001.test-case-output' and '../SA-shellcheck-001.test-case-output' are the same file 
 In SA-shellcheck-001 line 82:
     SA_TEST_CASES=$(ls -1 | grep "^SA" | grep -v "\.")
                     ^-- SC2010: Don't use ls | grep. Use a glob or a for loop with a condition to allow non-alphanumeric filenames.
@@ -20,5 +18,3 @@ In SA-shellcheck-001 line 125:
     NO_TEST_CASES=$(ls -1 | grep "^FVT" | grep -v "\." -c)
                     ^-- SC2010: Don't use ls | grep. Use a glob or a for loop with a condition to allow non-alphanumeric filenames.
 
-foo
-foo
