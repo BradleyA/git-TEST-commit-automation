@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/SA-cleanup.sh  2.192.851  2019-10-02T12:14:57.960077-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.191  
+# 	   hooks/EXAMPLES/SA-shellcheck-001   incident with cp changed to cp -f 
 # 	hooks/EXAMPLES/SA-cleanup.sh  2.139.788  2019-09-27T17:14:37.216397-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.138  
 # 	   remove #34 for is command 
 # 	hooks/EXAMPLES/SA-cleanup.sh  2.138.787  2019-09-27T12:33:27.537389-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.137  
@@ -53,7 +55,7 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBU
 #    Remove environment variables
 #  unset DEBUG
 #    Remove directories
-#  rmdir
+rm -rf tmp
 #    Remove output from previous run of test cases
 rm -f SA-*.test-case-output
 #    Remove temporary files
