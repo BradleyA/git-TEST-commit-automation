@@ -1,11 +1,5 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  2.184.842  2019-10-01T21:34:10.231290-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.183  
-# 	   hooks/bin/git-TEST-cases.sh   test 
-# 	hooks/bin/git-TEST-cases.sh  2.183.841  2019-10-01T21:20:07.177571-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.182  
-# 	   test with  hooks/bin/git-TEST-cases.sh 
-# 	hooks/bin/git-TEST-cases.sh  2.182.840  2019-10-01T21:14:02.735796-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.181  
-# 	   test 
-# 	hooks/bin/git-TEST-cases.sh  2.180.838  2019-10-01T17:27:25.003223-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.179  
+# 	hooks/bin/git-TEST-cases.sh  2.185.843  2019-10-01T21:47:23.836868-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.184  
 # 	   hooks/bin/git-TEST-cases.sh    testing #35 #37 
 # 	hooks/bin/git-TEST-cases.sh  2.122.626  2019-09-21T15:39:47.409524-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.121  
 # 	   close #29   hooks/bin/git-TEST-cases.sh   add option --add - Add default test case directory (TEST/<FILE_NAME>/) and files SA-setup.sh, SA-cleanup.sh, SA-shellcheck-001.expected 
@@ -203,12 +197,8 @@ done
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Variable... CLI_OPTION >${CLI_OPTION}< FILE_NAME >${FILE_NAME}< ALL_TEST_CASES >${ALL_TEST_CASES}<" 1>&2 ; fi
 
 ###  Production standard 10.0 TESTing
-pwd
-echo "><><><>< pwd"
 REPOSITORY_DIR=$(git rev-parse --show-toplevel)
-echo "><><><>< pwd"
 cd "${REPOSITORY_DIR}"
-echo "><><><>< pwd"
 if [[ "${CLI_OPTION}" == "f" ]]  ; then
   if [[ "${FILE_NAME}" =~ / ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Filename ${FILE_NAME}, contains '/'" 1>&2 ; exit 1 ; fi
   if [[ "${DEFAULT_ADD_TEST_CASE}" == "YES" ]] ; then  #  #29  --add default SA files
