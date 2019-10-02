@@ -1,5 +1,7 @@
 #!/bin/bash
-#	hooks/post-commit  2.190.849  2019-10-02T12:04:34.527536-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.189  
+#	hooks/post-commit  2.191.850  2019-10-02T12:08:21.329886-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.190  
+#	   test incident   cp: '/home/uadmin/github/BradleyA/git-TEST-commit-automation/hooks/TEST/post-commit/SA-shellcheck-001.test-case-output' and '../SA-shellcheck-001.test-case-output' are the same file 
+#	hooks/post-commit  2.190.849  2019-10-02T12:04:34.527536-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.189
 #	   close #38   hooks/post-commit   remove test cases after running if all test cases PASS 
 ###  hooks/post-commit - Create production standard TESTing using .git/hooks #26 
 #  post-commit - (git hook) run test cases if found
