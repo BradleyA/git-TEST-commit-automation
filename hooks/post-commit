@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  2.194.853  2019-10-02T12:27:44.600548-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.193  
+#	   testing 
 #	hooks/post-commit  2.193.852  2019-10-02T12:23:56.638595-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.192  
 #	   testing 
 #	hooks/post-commit  2.191.850  2019-10-02T12:08:21.329886-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.190  
@@ -93,6 +95,7 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
     ###  SA (Static Analysis)
     #    run SA-cleanup.sh if found
 set -x
+ls -la
     if [[ -s "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-cleanup.sh" ]] ; then
       "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-cleanup.sh" "${REPOSITORY_DIR}"
     fi
@@ -101,6 +104,7 @@ set -x
       "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-setup.sh" "${REPOSITORY_DIR}"
     fi
 set +x
+ls -la
     #    Create list of test cases
     SA_TEST_CASES=$(ls -1 | grep "^SA" | grep -v "\.")
     if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" " \${SA_TEST_CASES} >${SA_TEST_CASES}<" 1>&2 ; fi
