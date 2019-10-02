@@ -87,12 +87,6 @@ if [[ -s ${1} ]] ; then  #  file size is greater than zero
   cp "${TMP_FILE_1}" SA-shellcheck-001
   rm -f "${TMP_FILE_1}"
   shellcheck SA-shellcheck-001 > "${0}".test-case-output  #  analyse code for potential errors
-echo ">>>   >>>   >>>   >>>"
-pwd
-ls -la
-echo ">>>   >>>   >>>   >>>"
-ls -la ..
-  cp "${0}".test-case-output ..
   cd ..
   diff "${0}".expected "${0}".test-case-output >/dev/null 2>&1
   RETURN_CODE=${?}
