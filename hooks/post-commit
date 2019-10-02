@@ -1,6 +1,6 @@
 #!/bin/bash
-#	hooks/post-commit  2.189.848  2019-10-02T11:56:08.878935-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.188-1-g67bac7b  
-#	   hooks/post-commit    remove test cases after running them #38 
+#	hooks/post-commit  2.190.849  2019-10-02T12:04:34.527536-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.189  
+#	   close #38   hooks/post-commit   remove test cases after running if all test cases PASS 
 ###  hooks/post-commit - Create production standard TESTing using .git/hooks #26 
 #  post-commit - (git hook) run test cases if found
 #      Loop through committed files found in COMMIT_FILE_LIST
@@ -121,7 +121,7 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
       fi
     done
     #    run SA-cleanup.sh if found
-    if [[ -s "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-cleanup.sh" ]] && [[ ${NO_TEST_CASES_FAIL} == 0 ]]; then
+    if [[ -s "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-cleanup.sh" ]] && [[ ${NO_TEST_CASES_FAIL} == 0 ]] && [[ ${NO_TEST_CASES_ERROR} == 0 ]] ; then
       "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-cleanup.sh" "${REPOSITORY_DIR}"
     fi
     echo -e "\n     SA: ${BOLD}${YELLOW}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases = ${BOLD}${NO_TEST_CASES}${NORMAL}\n   Number of test cases pass = ${BOLD}${GREEN}${NO_TEST_CASES_PASS}${NORMAL}\n   Number of test cases fail = ${BOLD}${RED}${NO_TEST_CASES_FAIL}${NORMAL}\n   Number of test cases error = ${BOLD}${CYAN}${NO_TEST_CASES_ERROR}${NORMAL}"
@@ -162,7 +162,7 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
       fi
     done
     #    run FVT-cleanup.sh if found
-    if [[ -s "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/FVT-cleanup.sh" ]] ; then
+    if [[ -s "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/FVT-cleanup.sh" ]] && [[ ${NO_TEST_CASES_FAIL} == 0 ]] && [[ ${NO_TEST_CASES_ERROR} == 0 ]] ; then
       "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/FVT-cleanup.sh" "${REPOSITORY_DIR}"
     fi
     echo -e "\n     FVT: ${BOLD}${YELLOW}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases = ${BOLD}${NO_TEST_CASES}${NORMAL}\n   Number of test cases pass = ${BOLD}${GREEN}${NO_TEST_CASES_PASS}${NORMAL}\n   Number of test cases fail = ${BOLD}${RED}${NO_TEST_CASES_FAIL}${NORMAL}\n   Number of test cases error = ${BOLD}${CYAN}${NO_TEST_CASES_ERROR}${NORMAL}"
