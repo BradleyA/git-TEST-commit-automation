@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/FVT-cleanup.sh  2.171.827  2019-10-01T14:42:47.677311-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.170  
-# 	   #37    added color in output 
+# 	hooks/EXAMPLES/FVT-cleanup.sh  2.200.862  2019-10-02T16:58:22.194307-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.199  
+# 	   hooks/EXAMPLES/FVT-cleanup.sh    remove -v option for rm 
 #86# FVT-cleanup.sh - test case cleanup
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.1.160 Copyright
@@ -63,7 +63,7 @@ rm -f FVT-option-version-003.expected
 for k in $(ls -1 FVT-*) ; do
   if [[ "${k}" != "FVT-cleanup.sh" ]] ; then
     if [[ "${k}" != "FVT-setup.sh" ]] ; then
-      { [ ! -L "${k}" ] || rm -v "${k}"; }  #  Remove files with symbolic link
+      { [ ! -L "${k}" ] || rm "${k}"; }  #  Remove files with symbolic link
     fi
   fi
 done
