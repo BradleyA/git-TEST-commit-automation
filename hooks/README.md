@@ -85,9 +85,23 @@ After entering the above command, Git runs any Git hooks found in \<REPOSITORY-N
 - <COMMIT_FILE_NAME>.test-case-input - Add support   #12
 - Design for quick test case git branch merge (include steps)
 - Quick test case branch merge from test team's custom test cases without merge conflicts (include steps)
+
+      git remote --verbose
+      git remote add origin https://github.com/BradleyA/git-TEST-commit.git
+      git remote --verbose
+      git push -u origin master
+
+      git-TEST-cases.sh -c --hooks
+
+      git branch -a
+      git branch git-TEST-commit-#1
+
+      git push origin git-TEST-commit-#1
+      git branch -a
+    
   - challenge is SA-setup.sh & FVT-setup.sh could be changed by development and test teams 
-- Quick backup of all test cases in repository (\<FILE-NAME>.tar) (code is in uninstall-) (option: --backup --restore)
-- Include support for other test or CI solutions ... Scan for Credentials, BATS, Travis CI, ...
+  - Quick backup of all test cases in repository (\<FILE-NAME>.tar) (code is in uninstall-) (option: --backup --restore)
+  - Include support for other test or CI solutions ... Scan for Credentials, BATS, Travis CI, ...
 
  #### Author
 [<img id="twitter" src="hooks/images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">
