@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/TEST/git-TEST-cases.sh/FVT-cleanup.sh  2.202.881  2019-10-04T16:38:13.484777-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.201  
+# 	   hooks/bin/TEST/git-TEST-cases.sh/FVT-cleanup.sh   remove -v option for rm 
 # 	hooks/bin/TEST/git-TEST-cases.sh/FVT-cleanup.sh  2.133.779  2019-09-26T21:10:19.219920-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.132-1-g91c4dee  
 # 	   hooks/bin/TEST/git-TEST-cases.sh/FVT-cleanup.sh  rm FVT-option-c-002.expected FVT-option-c-001.expected 
 # 	hooks/bin/TEST/git-TEST-cases.sh/FVT-cleanup.sh  2.132.777  2019-09-26T20:27:59.431245-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.131-1-g2bc39b3  
@@ -75,7 +77,7 @@ rm -f FVT-option-c-002.expected
 for k in $(ls -1 FVT-*) ; do
   if [[ "${k}" != "FVT-cleanup.sh" ]] ; then
     if [[ "${k}" != "FVT-setup.sh" ]] ; then
-      { [ ! -L "${k}" ] || rm -v "${k}"; }  #  Remove files with symbolic link
+      { [ ! -L "${k}" ] || rm "${k}"; }  #  Remove files with symbolic link
     fi
   fi
 done
