@@ -48,7 +48,7 @@ TL;DR - During code design, focus is on how to solve parts of a bigger solution.
       . . . some methed will notify someone of the results. (not sure which method is going to work for me and you? 
       . . . stdout, logs-scrape, tables, email, twitter, slack, call a friand, etc.)
  
-**git-TEST-cases.sh** - list and manage TEST cases in current repository
+**git-TEST-cases.sh** - list and manage files in TEST case directories in current repository
 
 **setup-git-TEST-cases.sh** - setup git-TEST-commit-automation in top directory of current repository
 
