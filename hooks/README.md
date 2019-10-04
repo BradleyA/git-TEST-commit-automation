@@ -98,6 +98,18 @@ After entering the above command, Git runs any Git hooks found in \<REPOSITORY-N
 
       git push origin git-TEST-commit-#1
       git branch -a
+      
+      #  create a branch
+      git pull                      #  get latest pushed commits
+      git checkout -b development   #  create development branch
+      git push --set-upstream origin development   #  create github development branch upstream (github)
+        #  or
+      git push -u origin development
+        #  write code in development branch
+        #  create README on github master branch
+      git pull origin master        #  pull chnages to master bransh to development bransh
+        #  write code in development branch
+      	
     
   - challenge is SA-setup.sh & FVT-setup.sh could be changed by development and test teams 
   - Quick backup of all test cases in repository (\<FILE-NAME>.tar) (code is in uninstall-) (option: --backup --restore)
