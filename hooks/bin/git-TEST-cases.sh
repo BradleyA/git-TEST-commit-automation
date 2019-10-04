@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/git-TEST-cases.sh  2.201.880  2019-10-04T16:30:30.883149-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.200-17-g1efed2b  
+# 	   close #21   hooks/bin/git-TEST-cases.sh   finish display_help 
 # 	hooks/bin/git-TEST-cases.sh  2.185.843  2019-10-01T21:47:23.836868-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.184  
 # 	   hooks/bin/git-TEST-cases.sh    testing #35 #37 
 # 	hooks/bin/git-TEST-cases.sh  2.122.626  2019-09-21T15:39:47.409524-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.121  
@@ -34,12 +36,12 @@ DEFAULT_ADD_TEST_CASE="NO"
 ###  Production standard 8.3.214 --usage
 display_usage() {
 COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')
-echo -e "\n${NORMAL}${COMMAND_NAME}\n   list files in TEST case directories"
+echo -e "\n${NORMAL}${COMMAND_NAME}\n   lists and manages files in TEST case directories"
 echo -e "\n${BOLD}USAGE${NORMAL}"
 echo    "   ${COMMAND_NAME} [-a | --all | -c | --clean | -n | --none | -f <FILE_NAME>"
 echo    "                    | --filename <FILE_NAME>]"
-echo    "                   [--hooks]"
-echo -e "                   [--filename <FILE_NAME> --add]\n"
+echo    "                     [--hooks]"
+echo -e "                     [--filename <FILE_NAME> --add]\n"
 echo    "   ${COMMAND_NAME} [--help | -help | help | -h | h | -?]"
 echo    "   ${COMMAND_NAME} [--usage | -usage | -u]"
 echo    "   ${COMMAND_NAME} [--version | -version | -v]"
@@ -49,11 +51,12 @@ display_help() {
 display_usage
 #    Displaying help DESCRIPTION in English en_US.UTF-8
 echo -e "\n${BOLD}DESCRIPTION${NORMAL}"
-echo    "<your help goes here>"
-echo    ">>> NEED TO COMPLETE THIS SOON, ONCE I KNOW HOW IT IS GOING TO WORK :-) <<<    |"
-
-echo -e "\n<<Paragraph two>>"
-
+echo    "${COMMAND_NAME} is a bash script that lists and manages files in TEST"
+echo    "case directories in the current Git repository.  It supports adding (-a) and"
+echo    "removing (-c) symbolic links to default test cases found in the EXAMPLES"
+echo    "directory.  It supports locating (-n) which files in a Git repository do not"
+echo    "have test cases.  It support listing (--filename) the test cases for a file in"
+echo    "a Git repository.  It support adding (--add) default SA test cases for a file."
 ###  Production standard 1.3.516 DEBUG variable
 echo -e "\nThe DEBUG environment variable can be set to '', '0', '1', '2', '3', or '4'."
 echo    "The setting '' or '0' will turn off all DEBUG messages during execution of this"
