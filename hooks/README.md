@@ -13,7 +13,7 @@ git-TEST-commit-automation runs pre-commit and post-commit hooks when "git commi
 
 TL;DR - Why did I create git-TEST-commit-automation when there are so many great open software and enterprise level testing solutions available.  I needed something that would run some basic SA and FVT tests with minimal learning curve.  A solution that would inform, not impede code development.  That would encourage 'git commit -m 'message', not exit 1 if there is any code incident.  A solution that allows basic test cases to be included with code in a Git repository.  A solution that could be setup and uninstall without effecting the code being developed.
 
-TL;DR - During code design, focus is on how to solve parts of a bigger solution.  During design one may throw out a couple to dozens of lines of code.  It does not matter that the code didn't meet every test to the point of stopping design and development.  As a design matures it is increasingly important to have code PASS tests and made available to additional testing with open software and enterprise level solution to help get it pollish and secure.
+TL;DR - During code design, a software developer's focus is on how to solve parts of a bigger solution.  A developer may throw out a couple to dozens of lines of code.  It did not matter that those lines of code did or didn't meet every test requirement.  As a design matures it is increasingly important to have code PASS tests.  At that time the code can be made available to additional testing with open software and enterprise level testing solutions to help get it polished and secure.
 
 #### Objectives:
 1) Quick setup with default test cases for any Git repository (in seconds)
