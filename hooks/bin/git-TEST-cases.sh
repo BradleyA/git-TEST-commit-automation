@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/git-TEST-cases.sh  2.203.883  2019-10-04T16:44:11.823322-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.202-1-gc957c0b  
+# 	   hooks/bin/git-TEST-cases.sh   updated display_help 
 # 	hooks/bin/git-TEST-cases.sh  2.201.880  2019-10-04T16:30:30.883149-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.200-17-g1efed2b  
 # 	   close #21   hooks/bin/git-TEST-cases.sh   finish display_help 
 # 	hooks/bin/git-TEST-cases.sh  2.185.843  2019-10-01T21:47:23.836868-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.184  
@@ -55,8 +57,9 @@ echo    "${COMMAND_NAME} is a bash script that lists and manages files in TEST"
 echo    "case directories in the current Git repository.  It supports adding (-a) and"
 echo    "removing (-c) symbolic links to default test cases found in the EXAMPLES"
 echo    "directory.  It supports locating (-n) which files in a Git repository do not"
-echo    "have test cases.  It support listing (--filename) the test cases for a file in"
-echo    "a Git repository.  It support adding (--add) default SA test cases for a file."
+echo    "have test cases.  It supports listing (--filename) the test cases for a file in"
+echo    "a Git repository.  It supports adding (--add) default SA test cases for a file."
+echo    "a Git repository."
 ###  Production standard 1.3.516 DEBUG variable
 echo -e "\nThe DEBUG environment variable can be set to '', '0', '1', '2', '3', or '4'."
 echo    "The setting '' or '0' will turn off all DEBUG messages during execution of this"
