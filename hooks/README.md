@@ -48,11 +48,11 @@ TL;DR - During code design, focus is on how to solve parts of a bigger solution.
       . . . some methed will notify someone of the results. (not sure which method is going to work for me and you? 
       . . . stdout, logs-scrape, tables, email, twitter, slack, call a friand, etc.)
  
-**git-TEST-cases.sh** - search from top of repository to list TEST directory test cases and manage test cases
+**git-TEST-cases.sh** - list and manage TEST cases in current repository
 
-**setup-git-TEST-cases.sh** - setup git TEST cases in current repository
+**setup-git-TEST-cases.sh** - setup git-TEST-commit-automation in top directory of current repository
 
-**uninstall-git-TEST-cases.sh** - uninstall git TEST cases in current repository
+**uninstall-git-TEST-cases.sh** - uninstall git-TEST-commit-automation in current repository
 
 #### Types of Test Cases
 
