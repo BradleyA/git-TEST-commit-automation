@@ -1,28 +1,30 @@
 ---
 name: Bug report
-about: Report incident with test case
+about: Report incident
 title: ''
 labels: 'bug'
 assignees: 'Bradley Allen'
 
 ---
 
-**Describe the bug**
-A brief clear and concise description of what the bug is.
+**Describe the incident**
+A clear and concise description of what the incident is.
 
-**To Reproduce**
+**To reproduce the incident**
 Steps to reproduce the behavior:
 1. Go to '...'
 2. Click on '....'
 3. Scroll down to '....'
-4. See error
 
-**Expected behavior**
+**Actual results**
 A clear and concise description of what you expected to happen.
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Version [e.g. 2.199.861]
+**Expected results**
+A clear and concise description of what you expected to happen.
+
+**Version:**
+ - OS: [e.g. Ubuntu 16.04.6 (lsb_release -a)]
+ - Command: [e.g. hooks/post-commit  2.199.861]
 
 **Screenshots**
-If applicable, add screenshots to help explain your problem.
+If applicable, add screenshots to help explain your incident.
