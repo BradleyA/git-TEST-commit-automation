@@ -17,7 +17,6 @@ Steps to reproduce the behavior:
 3. Scroll down to '....'
 
 **Actual results**
-A clear and concise description of what you expected to happen.
 
 **Expected results**
 A clear and concise description of what you expected to happen.
