@@ -1,7 +1,7 @@
 ---
 name: Incident report
 about: Report incident you are having
-title: ''
+title: '[use command name] - incident'
 labels: 'bug'
 assignees: 'Bradley Allen'
 
