@@ -1,6 +1,6 @@
 ---
-name: Bug report
-about: Report incident
+name: Incident report
+about: Report incident you are having
 title: ''
 labels: 'bug'
 assignees: 'Bradley Allen'
