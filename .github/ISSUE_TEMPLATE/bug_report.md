@@ -7,7 +7,8 @@ assignees: 'Bradley Allen'
 
 ---
 
-**Describe the incident**
+**Describe the incident:**
+
 A clear and concise description of what the incident is.
 
 **To reproduce the incident**
