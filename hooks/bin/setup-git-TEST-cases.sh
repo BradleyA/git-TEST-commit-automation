@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/setup-git-TEST-cases.sh  2.205.900  2019-10-09T21:23:23.251203-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.205-13-g9e8b43b  
+# 	   hooks/bin/setup-git-TEST-cases.sh   added color 
 # 	hooks/bin/setup-git-TEST-cases.sh  2.120.624  2019-09-21T11:07:01.734932-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.119  
 # 	   close #14    hooks/bin/setup-git-TEST-cases.sh    removed git-TEST-cases.sh --clean --hooks and added user hint to next step 
 # 	hooks/bin/setup-git-TEST-cases.sh  2.117.621  2019-09-20T22:02:03.774879-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.116-1-g58bd437  
@@ -18,6 +20,7 @@ if [[ "${DEBUG}" == "4" ]] ; then set -e    ; fi   # Exit command has a non-zero
 #
 BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
+YELLOW=$(tput setaf 3)
 
 #    Date and time function ISO 8601
 get_date_stamp() {
@@ -67,7 +70,7 @@ if git -C . rev-parse 2> /dev/null ; then  #  currect directory in a git reposit
     ln -fs ../../hooks/pre-commit  ../.git/hooks/pre-commit
     ln -fs ../../hooks/post-commit ../.git/hooks/post-commit
   else
-    new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Unable to link ${REPOSITORY_NAME}/hooks/{pre-commit,post-commit} to ${REPOSITORY_NAME}/.git/hooks/{pre-commit,post-commit} because {pre-commit,post-commit} is NOT found in current directory ($(pwd)) or does not have execute permission." 1>&2
+    new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  ${BOLD}Unable to link ${YELLOW}${REPOSITORY_NAME}/hooks/{pre-commit,post-commit}${NORMAL}${BOLD} to ${REPOSITORY_NAME}/.git/hooks/{pre-commit,post-commit} because {pre-commit,post-commit} is NOT found in current directory ($(pwd)) or does not have execute permission.${NORMAL}" 1>&2
     exit 2
   fi
   if [[ -x "bin/git-TEST-cases.sh" ]] && [[ -x bin/setup-git-TEST-cases.sh ]]  && [[ -x bin/uninstall-git-TEST-cases.sh ]] && [[ -w /usr/local/bin ]]  ; then
@@ -80,7 +83,7 @@ if git -C . rev-parse 2> /dev/null ; then  #  currect directory in a git reposit
   fi
 else
   EXIT_CODE=${?}
-  new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  The current directory, $(pwd), is Not a git repository or any of the parent directories." 1>&2
+  new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  The current directory, ${BOLD}${YELLOW}$(pwd)${NORMAL}, is Not a git repository or any of the parent directories." 1>&2
   exit ${EXIT_CODE}
 fi
 
@@ -96,6 +99,6 @@ fi
 
 # >>>  consider adding a user hint and include link to README.md  . . .  to answer that question, what now (WTF)  . . .  shit I forgot, hadn't done this in six months, quick!  . . . . . .
 
-echo -e "    For more information:\n    https://github.com/BradleyA/git-TEST-commit-automation#steps-to-evaluate-git-test-commit-automation-solution\n"
+echo -e "    For more information:\n${BOLD}${YELLOW}    https://github.com/BradleyA/git-TEST-commit-automation#steps-to-evaluate-git-test-commit-automation-solution\n${NORMAL}"
 new_message "${SCRIPT_NAME}" "${LINENO}" "INFO" "  Operation finished..." 1>&2
 ###
