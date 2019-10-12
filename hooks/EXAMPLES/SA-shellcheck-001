@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/EXAMPLES/SA-shellcheck-001  2.207.902  2019-10-12T09:29:37.900113-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.206  
+#	   hooks/EXAMPLES/SA-shellcheck-001   continue to make changes to this SA-shellcheck-001 #35 
 #	hooks/EXAMPLES/SA-shellcheck-001  2.206.901  2019-10-12T08:21:34.731611-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.205-14-g94bc313  
 #	   hooks/EXAMPLES/SA-shellcheck-001   fixing this again  #35 
 #86# hooks/EXAMPLES/SA-shellcheck-001 - test case
@@ -78,12 +80,12 @@ if [[ -s ${1} ]] ; then  #  file size is greater than zero
   rm -f "${TMP_FILE_2}"
   mkdir -p tmp
   cd tmp || exit  #  shellcheck SC2103 requires || exit crap
-  cp "${TMP_FILE_1}" SA-shellcheck-001
+  cp "${TMP_FILE_1}" tmp.file
   rm -f "${TMP_FILE_1}"
-  shellcheck SA-shellcheck-001 > "${0}".test-case-output  #  analyse code for potential errors
-  cp "${0}".test-case-output ..
+  shellcheck tmp.file > SA-shellcheck-001.test-case-output  #  analyse code for potential errors
+  cp SA-shellcheck-001.test-case-output ..
   cd ..
-  diff "${0}".expected "${0}".test-case-output >/dev/null 2>&1
+  diff SA-shellcheck-001.expected SA-shellcheck-001.test-case-output >/dev/null 2>&1
   RETURN_CODE=${?}
 else
   new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  File, ${0}, is empty" 1>&2
@@ -96,7 +98,7 @@ if [[ "${RETURN_CODE}" -eq 0 ]] ; then
   exit 0
 elif [[ ${RETURN_CODE} -eq 1 ]] ; then
   echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - Differences with expected output - ${BOLD}${RED}FAIL - FAIL${NORMAL}"
-  diff "${0}".expected "${0}".test-case-output
+  diff SA-shellcheck-001.expected SA-shellcheck-001.test-case-output
   exit 1
 else 
   echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - Test script ERROR - ${BOLD}${CYAN}ERROR - ERROR${NORMAL}"
