@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/git-TEST-cases.sh  2.210.907  2019-10-12T17:03:10.071096-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.209-1-g2049da8  
+# 	   hooks/bin/git-TEST-cases.sh   working on removing SA & FVT linked test cases 
 # 	hooks/bin/git-TEST-cases.sh  2.208.904  2019-10-12T16:36:32.359495-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.207-1-ga99b68e  
 # 	   close #40    git-TEST-cases.sh   - add git add & commit when creating default test case 
 # 	hooks/bin/git-TEST-cases.sh  2.203.883  2019-10-04T16:44:11.823322-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.202-1-gc957c0b  
@@ -238,6 +240,7 @@ if [[ "${CLI_OPTION}" == "f" ]]  ; then
     echo "${NORMAL}    INFO:  If file not found, check spelling or including ${BOLD}--hooks${NORMAL} option." 1>&2
     find . -print | grep -v 'hooks/' | grep --color=auto "${FILE_NAME}"
   fi
+  cd "$(find . -type d -name "${FILE_NAME}")"
   if [[ -x "FVT-cleanup.sh" ]]  ; then ./FVT-cleanup.sh ; fi
   if [[ -x "SA-cleanup.sh"  ]]  ; then ./SA-cleanup.sh  ; fi
 else
