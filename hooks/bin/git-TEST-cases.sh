@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/git-TEST-cases.sh  2.208.904  2019-10-12T16:36:32.359495-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.207-1-ga99b68e  
+# 	   close #40    git-TEST-cases.sh   - add git add & commit when creating default test case 
 # 	hooks/bin/git-TEST-cases.sh  2.203.883  2019-10-04T16:44:11.823322-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.202-1-gc957c0b  
 # 	   hooks/bin/git-TEST-cases.sh   updated display_help 
 # 	hooks/bin/git-TEST-cases.sh  2.201.880  2019-10-04T16:30:30.883149-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.200-17-g1efed2b  
@@ -222,6 +224,8 @@ if [[ "${CLI_OPTION}" == "f" ]]  ; then
     ln -sf "${EXAMPLE_DIR}/SA-setup.sh"   "TEST/${FILE_NAME}/SA-setup.sh"
     ln -sf "${EXAMPLE_DIR}/SA-cleanup.sh" "TEST/${FILE_NAME}/SA-cleanup.sh"
     touch "TEST/${FILE_NAME}/SA-shellcheck-001.expected"
+    git add "TEST/${FILE_NAME}/SA-shellcheck-001.expected" "TEST/${FILE_NAME}/SA-setup.sh" "TEST/${FILE_NAME}/SA-cleanup.sh"
+    git commit -m 'initial commit' "TEST/${FILE_NAME}/SA-shellcheck-001.expected" "TEST/${FILE_NAME}/SA-setup.sh" "TEST/${FILE_NAME}/SA-cleanup.sh"
   fi  #  #29
   cd "$(find . -type d -name "${FILE_NAME}")"
   if [[ -x "FVT-setup.sh" ]]  ; then ./FVT-setup.sh ; fi
@@ -234,6 +238,8 @@ if [[ "${CLI_OPTION}" == "f" ]]  ; then
     echo "${NORMAL}    INFO:  If file not found, check spelling or including ${BOLD}--hooks${NORMAL} option." 1>&2
     find . -print | grep -v 'hooks/' | grep --color=auto "${FILE_NAME}"
   fi
+  if [[ -x "FVT-cleanup.sh" ]]  ; then ./FVT-cleanup.sh ; fi
+  if [[ -x "SA-cleanup.sh"  ]]  ; then ./SA-cleanup.sh  ; fi
 else
   if [[ "${CLI_OPTION}" == "n" ]] ; then  #  #18
     TMP_GITALLFILES=$(mktemp /tmp/GITALLFILESXXXXXX)                       #  create temporary file for all files in repository
