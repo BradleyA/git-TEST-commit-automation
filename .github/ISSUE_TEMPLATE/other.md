@@ -1,7 +1,7 @@
 ---
 name: Other
 about: Miscellaneous
-title: ''
+title: "[enter command] - [enter brief description]"
 labels: ''
 assignees: BradleyA
 
