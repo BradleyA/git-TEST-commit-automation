@@ -7,6 +7,6 @@ Unique   clones:  |       5       |       2       |       23      |       10  | 
 Total clones: 114
 ###### Updated: 2019-12-24
 
-[Return to README](https://github.com/BradleyA/user-files/blob/master/README.md#traffic)
+[Return to README](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks#traffic)
 
 **Note**  Data collection stopped between 10/14 & 12/23
