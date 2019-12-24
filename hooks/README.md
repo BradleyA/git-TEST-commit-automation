@@ -118,7 +118,7 @@ After entering the above command, Git runs any Git hooks found in \<REPOSITORY-N
 #### Traffic
 
  * <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=114&color=blue">  [Clones Table](images/clone.table.md)
- * <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=1004&color=blue">  [Views Table](images/view.table.md)
+ * <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=1538&color=blue">  [Views Table](images/view.table.md)
  
 **Note**  Data collection stopped between 10/14 & 12/23
 
