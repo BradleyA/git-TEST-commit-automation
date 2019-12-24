@@ -115,7 +115,14 @@ After entering the above command, Git runs any Git hooks found in \<REPOSITORY-N
   - Quick backup of all test cases in repository (\<FILE-NAME>.tar) (code is in uninstall-) (option: --backup --restore)
   - Include support for other test or CI solutions ... Scan for Credentials, BATS, Travis CI, ...
 
- #### Author
+#### Traffic
+
+ * <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=143&color=blue">  [Clones Table](images/clone.table.md)
+ * <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=1004&color=blue">  [Views Table](images/view.table.md)
+ 
+**Note**  Data collection stopped between 10/14 & 12/23
+
+#### Author
 [<img id="twitter" src="hooks/images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">
 ](https://twitter.com/bradleyaustintx/)   [<img id="github" src="hooks/images/github.png" width="50" a="https://github.com/BradleyA/">
 ](https://github.com/BradleyA/)    [<img src="hooks/images/linkedin.png" style="max-width:100%;" >](https://www.linkedin.com/in/bradleyhallen)
