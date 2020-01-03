@@ -3,6 +3,10 @@
 #### Strategy:
 Scripts to assist running something, and checking something, then reporting something; when you commit something.
 
+    git commit -m 'latest changes' <COMMIT_FILE_NAME>
+
+After entering the above command, Git runs any Git hooks found in \<REPOSITORY-NAME>/.git/hooks/ directory.  Git hooks are scripts that Git executes before and/or after events. Two local Git hooks are included with git-TEST-commit-automation. 
+
 #### About
 
 git-TEST-commit-automation runs pre-commit and post-commit hooks when "git commit -m 'message' " is executed. Pre-commit creates a file (${REPOSITORY_DIR}/hooks/COMMIT_FILE_LIST) which includes files being commited. Post-commit searches in the same directory as the commited filename for a TEST/\<filename>/ directory. If found post-commit runs TEST/\<filename>/SA-setup.sh and/or TEST/\<filename>/FVT-setup.sh then searches for files beginning with SA- of FVT- and runs them.
@@ -29,7 +33,6 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 
 #### [Setup default SA- test cases for a new file](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/STEPS-TO-SETUP-DEFAULT-SA-TEST-CASES.md)
 
-**Start editing from here:  These notes are cut and paste of information and make some since once I finsh design**
 #### [Create custom test cases for a file](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/STEPS-TO-CREATE-TEST-CASES.md)
   
 #### Description
@@ -50,7 +53,7 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 
 **uninstall-git-TEST-cases.sh** - uninstall git-TEST-commit-automation in current repository
 
-#### Test Cases Types
+#### Test Cases
 
 **Funciotnal Verification (FVT)** is defined as the process of verifying that the design meets its specification from a functional perspective. ... Functional verification establishes that the design under test (DUT) implements the functionality of the specification correctly.
 
@@ -67,7 +70,7 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 
 Place the expected results from the test case into a file with the same test case name but add '.expected' ('dot'expected).  Pipe the output from the test case into a file with the same name but add '.test-case-output'. 
 
-    . . . /<git_repository_name>/hooks
+    . . . /<REPOSITORY-NAME>/hooks
     ├── bin/
     │   ├── git-TEST-cases.sh
     │   ├── setup-git-TEST-cases.sh
@@ -164,33 +167,7 @@ Place the expected results from the test case into a file with the same test cas
     │   │   │   ├── SA-cleanup.sh -> ../../SA-cleanup.sh
     │   │   │   ├── SA-setup.sh -> ../../SA-setup.sh
     │   │   │   └── SA-shellcheck-001.expected
-    . . .
-    │   └── tmp-test-tar-files/
-    │       ├── name-that-file-bzip2
-    │       ├── name-that-file-compress
-    │       ├── name-that-file-default
-    │       ├── name-that-file-format-gnu
-    │       ├── name-that-file-format-oldgnu
-    │       ├── name-that-file-format-pax
-    │       ├── name-that-file-format-posix
-    │       ├── name-that-file-format-ustar
-    │       ├── name-that-file-format-v7
-    │       ├── name-that-file-gunzip
-    │       ├── name-that-file-gzip
-    │       ├── name-that-file-j
-    │       ├── name-that-file-J
-    │       ├── name-that-file-lzip
-    │       ├── name-that-file-lzma
-    │       ├── name-that-file-lzop
-    │       ├── name-that-file-old-archive
-    │       ├── name-that-file-portability
-    │       ├── name-that-file-posix
-    │       ├── name-that-file-txt
-    │       ├── name-that-file-uncompress
-    │       ├── name-that-file-ungzip
-    │       ├── name-that-file-xz
-    │       ├── name-that-file-z
-    │       └── name-that-file-Z
+    │ . . . . . .
     ├── images/
     │   ├── github.png
     │   ├── git-TEST-commit-automation-1.gif
@@ -215,20 +192,11 @@ Place the expected results from the test case into a file with the same test cas
             ├── SA-setup.sh -> ../../EXAMPLES/SA-setup.sh
             └── SA-shellcheck-001.expected
 
-
-                                              
-    
-
-
 ====>>>  Moved from above
 
 **In development** ...(8/2019 - 9/2019)   **In test** ...............(9/7/2019 - )
  
 **WARNING**: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
-
-    git commit -m 'latest changes' <COMMIT_FILE_NAME>
-
-After entering the above command, Git runs any Git hooks found in \<REPOSITORY-NAME>/.git/hooks/ directory.  Git hooks are scripts that Git executes before and/or after events. Two local Git hooks are included with git-TEST-commit-automation. 
   
 **Note**   I found out about hooks and need to remember and add to the README why I added a hooks directory in the repository so the hooks can be managed by the repository . . .Hooks are per-repository and are not designed to be pushed but can be pushed. Similarly, the repo config isn't pushed either, nor is anything in .git/info , or a number of other things. Pushing and pulling only exchanges branches/tags and commit objects (and anything reachable from a commit, e.g. trees, blobs** Add something about creating a symbolic link from ../.git/hooks to this hooks directory that are managed in this repository using markit. 
 

@@ -14,11 +14,7 @@ To use a different SA- test case other than the default test cases, remove the s
     #  one test case FAILed and one has PASSed
     chmod 750 sample.sh                   #  change file permission 750
     ./TEST/sample.sh/SA-permission-750-001 ./sample.sh  #  run test case on sample.sh
-    
-    
-    
-    
-    
+
 
 <img id="Steps git-TEST-commit-automation-5-1.gif" src="../images/git-TEST-commit-automation-5-1.gif" >
 
