@@ -62,9 +62,8 @@ TL;DR - During code design, a software developer's focus is on how to solve part
     ├── git-TEST-cases.sh
     ├── setup-git-TEST-cases.sh
     └── uninstall-git-TEST-cases.sh>
-    ../<githu
     
-    /hooks
+    . . . /<git_repository_name>/hooks
     ├── bin/
     │   ├── git-TEST-cases.sh
     │   ├── setup-git-TEST-cases.sh
