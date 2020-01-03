@@ -164,33 +164,7 @@ Place the expected results from the test case into a file with the same test cas
     │   │   │   ├── SA-cleanup.sh -> ../../SA-cleanup.sh
     │   │   │   ├── SA-setup.sh -> ../../SA-setup.sh
     │   │   │   └── SA-shellcheck-001.expected
-    . . .
-    │   └── tmp-test-tar-files/
-    │       ├── name-that-file-bzip2
-    │       ├── name-that-file-compress
-    │       ├── name-that-file-default
-    │       ├── name-that-file-format-gnu
-    │       ├── name-that-file-format-oldgnu
-    │       ├── name-that-file-format-pax
-    │       ├── name-that-file-format-posix
-    │       ├── name-that-file-format-ustar
-    │       ├── name-that-file-format-v7
-    │       ├── name-that-file-gunzip
-    │       ├── name-that-file-gzip
-    │       ├── name-that-file-j
-    │       ├── name-that-file-J
-    │       ├── name-that-file-lzip
-    │       ├── name-that-file-lzma
-    │       ├── name-that-file-lzop
-    │       ├── name-that-file-old-archive
-    │       ├── name-that-file-portability
-    │       ├── name-that-file-posix
-    │       ├── name-that-file-txt
-    │       ├── name-that-file-uncompress
-    │       ├── name-that-file-ungzip
-    │       ├── name-that-file-xz
-    │       ├── name-that-file-z
-    │       └── name-that-file-Z
+    │ . . . . . .
     ├── images/
     │   ├── github.png
     │   ├── git-TEST-commit-automation-1.gif
