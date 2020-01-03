@@ -62,7 +62,11 @@ TL;DR - During code design, a software developer's focus is on how to solve part
     ├── git-TEST-cases.sh
     ├── setup-git-TEST-cases.sh
     └── uninstall-git-TEST-cases.sh>
-    
+
+**hooks directory**  The hooks directory was created because I wanted to modify the GitHub hooks and track changes per repository.  Include hooks/ in repostory because .git/hooks is not pushed and hooks change and these changes need to be tracked in a Git repository. (need to retest)
+
+Place the expected results from the test case into a file with the same test case name but add '.expected' ('dot'expected).  Pipe the output from the test case into a file with the same name but add '.test-case-output'. 
+
     . . . /<git_repository_name>/hooks
     ├── bin/
     │   ├── git-TEST-cases.sh
@@ -215,10 +219,6 @@ TL;DR - During code design, a software developer's focus is on how to solve part
                                               
     
 
-
-**hooks directory**  The hooks directory was created because I wanted to modify the GitHub hooks and track changes per repository.  Include hooks/ in repostory because .git/hooks is not pushed and hooks change and these changes need to be tracked in a Git repository. (need to retest)
-
-Place the expected results from the test case into a file with the same test case name but add '.expected' ('dot'expected).  Pipe the output from the test case into a file with the same name but add '.test-case-output'. 
 
 ====>>>  Moved from above
 
