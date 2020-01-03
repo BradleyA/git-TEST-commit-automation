@@ -33,7 +33,6 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 
 #### [Setup default SA- test cases for a new file](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/STEPS-TO-SETUP-DEFAULT-SA-TEST-CASES.md)
 
-**Start editing from here:  These notes are cut and paste of information and make some since once I finsh design**
 #### [Create custom test cases for a file](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/STEPS-TO-CREATE-TEST-CASES.md)
   
 #### Description
@@ -54,7 +53,7 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 
 **uninstall-git-TEST-cases.sh** - uninstall git-TEST-commit-automation in current repository
 
-#### Test Cases Types
+#### Test Cases
 
 **Funciotnal Verification (FVT)** is defined as the process of verifying that the design meets its specification from a functional perspective. ... Functional verification establishes that the design under test (DUT) implements the functionality of the specification correctly.
 
