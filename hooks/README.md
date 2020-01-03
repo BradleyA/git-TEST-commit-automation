@@ -9,7 +9,7 @@ After entering the above command, Git runs any Git hooks found in \<REPOSITORY-N
 
 #### About
 
-git-TEST-commit-automation runs pre-commit and post-commit hooks when "git commit -m 'message' " is executed. Pre-commit creates a file (${REPOSITORY_DIR}/hooks/COMMIT_FILE_LIST) which includes files being commited. Post-commit searches in the same directory as the commited filename for a TEST/\<filename>/ directory. If found post-commit runs TEST/\<filename>/SA-setup.sh and/or TEST/\<filename>/FVT-setup.sh then searches for files beginning with SA- of FVT- and runs them.
+git-TEST-commit-automation runs pre-commit and post-commit hooks when "git commit -m 'message' " is executed. Pre-commit creates a file (${REPOSITORY-NAME}/hooks/COMMIT_FILE_LIST) which includes files being commited. Post-commit searches in the same directory as the commited filename for a TEST/\<filename>/ directory. If found post-commit runs TEST/\<filename>/SA-setup.sh and/or TEST/\<filename>/FVT-setup.sh then searches for files beginning with SA- of FVT- and runs them.
 
 TL;DR - Why did I create git-TEST-commit-automation when there are so many great open software and enterprise level testing solutions available.  I needed something that would run some basic SA and FVT tests with minimal learning curve.  A solution that would inform, not impede code development.  That would encourage 'git commit -m 'message', not exit 1 if there is any code incident.  A solution that allows basic test cases to be included with code in a Git repository.  A solution that could be setup and uninstall without effecting the code being developed.  A solution that would support adding other test solutions to this solution with minimal changes.
 
@@ -37,12 +37,12 @@ TL;DR - During code design, a software developer's focus is on how to solve part
   
 #### Description
 
-**pre-commit** - Creates \<REPOSITORY>/hooks/**COMMIT_FILE_LIST** with a list of \<REPOSITORY-PATH>/\<FILE> being committed.
+**pre-commit** - Creates \<REPOSITORY-NAME>/hooks/**COMMIT_FILE_LIST** with a list of \<REPOSITORY-NAME>/\<FILE> being committed.
 
 **post-commit** 
-- Loop through committed files found in \<REPOSITORY>/hooks/**COMMIT_FILE_LIST**
-- if COMMIT_FILE has a '\<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE>/' directory run FVT-setup.sh and/or SA-setup.sh
-- Loop through and run \<REPOSITORY>/\<PATH>/TEST/\<COMMIT_FILE>/SA-<TEST_CASE> and/or FVT-<TEST_CASE>
+- Loop through committed files found in \<REPOSITORY-NAME>/hooks/**COMMIT_FILE_LIST**
+- if COMMIT_FILE has a '\<REPOSITORY-NAME>/\<PATH>/TEST/\<COMMIT_FILE>/' directory run FVT-setup.sh and/or SA-setup.sh
+- Loop through and run \<REPOSITORY-NAME>/\<PATH>/TEST/\<COMMIT_FILE>/SA-<TEST_CASE> and/or FVT-<TEST_CASE>
 - Report output as **PASS** or **FAIL** or **ERROR**, through stdout 
       . . . some methed will notify someone of the results. (not sure which method is going to work for me and you? 
       . . . stdout, logs-scrape, tables, email, twitter, slack, call a friand, etc.)
@@ -53,7 +53,7 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 
 **uninstall-git-TEST-cases.sh** - uninstall git-TEST-commit-automation in current repository
 
-#### Test Cases
+#### Test Case Types
 
 **Funciotnal Verification (FVT)** is defined as the process of verifying that the design meets its specification from a functional perspective. ... Functional verification establishes that the design under test (DUT) implements the functionality of the specification correctly.
 
@@ -66,7 +66,7 @@ TL;DR - During code design, a software developer's focus is on how to solve part
     ├── setup-git-TEST-cases.sh
     └── uninstall-git-TEST-cases.sh>
 
-**hooks directory**  The hooks directory was created because I wanted to modify the GitHub hooks and track changes per repository.  Include hooks/ in repostory because .git/hooks is not pushed and hooks change and these changes need to be tracked in a Git repository.
+**hooks directory**  The hooks directory was created because I wanted to modify the GitHub hooks and track changes per repository.  Include hooks/ in repostory because .git/hooks is not pushed and hooks change and these changes need to be tracked in a Git repository.  A symbolic link from \<REPOSITORY-NAME>/.git/hooks to this hooks directory that are managed in this repository using [markit](https://github.com/BradleyA/markit/blob/master/README.md). 
 
 Place the expected results from the test case into a file with the same test case name but add '.expected' ('dot'expected).  Pipe the output from the test case into a file with the same name but add '.test-case-output'. 
 
@@ -192,15 +192,9 @@ Place the expected results from the test case into a file with the same test cas
             ├── SA-setup.sh -> ../../EXAMPLES/SA-setup.sh
             └── SA-shellcheck-001.expected
 
-====>>>  Moved from above
-
-**In development** ...(8/2019 - 9/2019)   **In test** ...............(9/7/2019 - )
- 
-**WARNING**: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
-  
-**Note**   I found out about hooks and need to remember and add to the README why I added a hooks directory in the repository so the hooks can be managed by the repository . . .Hooks are per-repository and are not designed to be pushed but can be pushed. Similarly, the repo config isn't pushed either, nor is anything in .git/info , or a number of other things. Pushing and pulling only exchanges branches/tags and commit objects (and anything reachable from a commit, e.g. trees, blobs** Add something about creating a symbolic link from ../.git/hooks to this hooks directory that are managed in this repository using markit. 
-
 #### Future Objectives 
+
+**WARNING**: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
 
 - <COMMIT_FILE_NAME>.test-case-input - Add support   #12
 - Design for quick test case git branch merge (include steps)
