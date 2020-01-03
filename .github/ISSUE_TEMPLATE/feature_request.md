@@ -1,9 +1,9 @@
 ---
 name: Feature request
 about: Suggest an idea for this project
-title: ''
-labels: ''
-assignees: ''
+title: Feature request - [enter brief description]
+labels: new command/service
+assignees: BradleyA
 
 ---
 
