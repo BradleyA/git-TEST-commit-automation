@@ -71,7 +71,7 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 
 Place the expected results from the test case into a file with the same test case name but add '.expected' ('dot'expected).  Pipe the output from the test case into a file with the same name but add '.test-case-output'. 
 
-    . . . /<git_repository_name>/hooks
+    . . . /<REPOSITORY-NAME>/hooks
     ├── bin/
     │   ├── git-TEST-cases.sh
     │   ├── setup-git-TEST-cases.sh
