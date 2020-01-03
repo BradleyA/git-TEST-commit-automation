@@ -1,9 +1,5 @@
 # git-TEST-commit-automation  [![Stable Release](https://img.shields.io/badge/Release-2.200-blue.svg)](https://github.com/BradleyA/git-TEST-commit-automation/releases/tag/2.200)    [![GitHub commits](https://img.shields.io/github/commits-since/BradleyA/git-TEST-commit-automation/2.200.svg)](https://github.com/BradleyA/git-TEST-commit-automation/commits/)
 
-**In development** ...(8/2019 - 9/2019)   **In test** ...............(9/7/2019 - )
- 
-**WARNING**: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
-
 #### Strategy:
 Scripts to assist running something, and checking something, then reporting something; when you commit something.
 
@@ -73,6 +69,10 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 Place the expected results from the test case into a file with the same test case name but add '.expected' ('dot'expected).  Pipe the output from the test case into a file with the same name but add '.test-case-output'. 
 
 ====>>>  Moved from above
+
+**In development** ...(8/2019 - 9/2019)   **In test** ...............(9/7/2019 - )
+ 
+**WARNING**: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
 
     git commit -m 'latest changes' <COMMIT_FILE_NAME>
 
