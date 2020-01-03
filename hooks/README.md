@@ -50,7 +50,7 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 
 **uninstall-git-TEST-cases.sh** - uninstall git-TEST-commit-automation in current repository
 
-#### Types of Test Cases
+#### Test Cases Types
 
 **Funciotnal Verification (FVT)** is defined as the process of verifying that the design meets its specification from a functional perspective. ... Functional verification establishes that the design under test (DUT) implements the functionality of the specification correctly.
 
