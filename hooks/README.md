@@ -66,7 +66,7 @@ TL;DR - During code design, a software developer's focus is on how to solve part
     ├── setup-git-TEST-cases.sh
     └── uninstall-git-TEST-cases.sh>
 
-**hooks directory**  The hooks directory was created because I wanted to modify the GitHub hooks and track changes per repository.  Include hooks/ in repostory because .git/hooks is not pushed and hooks change and these changes need to be tracked in a Git repository.
+**hooks directory**  The hooks directory was created because I wanted to modify the GitHub hooks and track changes per repository.  Include hooks/ in repostory because .git/hooks is not pushed and hooks change and these changes need to be tracked in a Git repository.  A symbolic link from \<REPOSITORY-NAME>/.git/hooks to this hooks directory that are managed in this repository using [markit](https://github.com/BradleyA/markit/blob/master/README.md). 
 
 Place the expected results from the test case into a file with the same test case name but add '.expected' ('dot'expected).  Pipe the output from the test case into a file with the same name but add '.test-case-output'. 
 
@@ -192,15 +192,9 @@ Place the expected results from the test case into a file with the same test cas
             ├── SA-setup.sh -> ../../EXAMPLES/SA-setup.sh
             └── SA-shellcheck-001.expected
 
-====>>>  Moved from above
-
-**In development** ...(8/2019 - 9/2019)   **In test** ...............(9/7/2019 - )
- 
-**WARNING**: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
-  
-**Note**   I found out about hooks and need to remember and add to the README why I added a hooks directory in the repository so the hooks can be managed by the repository . . .Hooks are per-repository and are not designed to be pushed but can be pushed. Similarly, the repo config isn't pushed either, nor is anything in .git/info , or a number of other things. Pushing and pulling only exchanges branches/tags and commit objects (and anything reachable from a commit, e.g. trees, blobs** Add something about creating a symbolic link from ../.git/hooks to this hooks directory that are managed in this repository using markit. 
-
 #### Future Objectives 
+
+**WARNING**: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
 
 - <COMMIT_FILE_NAME>.test-case-input - Add support   #12
 - Design for quick test case git branch merge (include steps)
