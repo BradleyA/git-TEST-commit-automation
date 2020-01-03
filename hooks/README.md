@@ -64,12 +64,12 @@ TL;DR - During code design, a software developer's focus is on how to solve part
     └── uninstall-git-TEST-cases.sh>
     ../<githu
     
-        hooks
-    ├── bin
+    /hooks
+    ├── bin/
     │   ├── git-TEST-cases.sh
     │   ├── setup-git-TEST-cases.sh
-    │   ├── TEST
-    │   │   ├── git-TEST-cases.sh
+    │   ├── TEST/
+    │   │   ├── git-TEST-cases.sh/
     │   │   │   ├── FVT-cleanup.sh
     │   │   │   ├── FVT-option-a-001
     │   │   │   ├── FVT-option-a-002
@@ -85,24 +85,25 @@ TL;DR - During code design, a software developer's focus is on how to solve part
     │   │   │   ├── SA-cleanup.sh -> ../../../EXAMPLES/SA-cleanup.sh
     │   │   │   ├── SA-setup.sh -> ../../../EXAMPLES/SA-setup.sh
     │   │   │   └── SA-shellcheck-001.expected
-    │   │   ├── setup-git-TEST-cases.sh
+    │   │   ├── setup-git-TEST-cases.sh/
     │   │   │   ├── SA-cleanup.sh -> ../../../EXAMPLES/SA-cleanup.sh
     │   │   │   ├── SA-setup.sh -> ../../../EXAMPLES/SA-setup.sh
     │   │   │   └── SA-shellcheck-001.expected
-    │   │   └── uninstall-git-TEST-cases.sh
+    │   │   └── uninstall-git-TEST-cases.sh/
     │   │       ├── SA-cleanup.sh -> ../../../EXAMPLES/SA-cleanup.sh
     │   │       ├── SA-setup.sh -> ../../../EXAMPLES/SA-setup.sh
     │   │       └── SA-shellcheck-001.expected
     │   └── uninstall-git-TEST-cases.sh
-    ├── docs
+    ├── docs/
     │   ├── STEPS-TO-CHECK-DEPTH.md
     │   ├── STEPS-TO-CREATE-CUSTOM-TEST-CASES.md
     │   ├── STEPS-TO-CREATE-TEST-CASES.md
     │   ├── STEPS-TO-EVALUTE.md
     │   ├── STEPS-TO-SETUP-DEFAULT-SA-TEST-CASES.md
     │   └── STEPS-TO-UNINSTALL.md
-    ├── EXAMPLES
-    │   ├── FVT-cleanup.sh    │   ├── FVT-exit-code-error-0-001
+    ├── EXAMPLES/
+    │   ├── FVT-cleanup.sh
+    │   ├── FVT-exit-code-error-0-001
     │   ├── FVT-exit-code-error-1-001
     │   ├── FVT-exit-code-error-124-001
     │   ├── FVT-exit-code-error-124-002
@@ -155,26 +156,13 @@ TL;DR - During code design, a software developer's focus is on how to solve part
     │   ├── SA-type-tar-POSIX-archive-GNU-001
     │   ├── SA-type-tar-V7-001
     │   ├── SA-type-tar-XZ-001
-    │   ├── TEST
-    │   │   ├── FVT-cleanup.sh
+    │   ├── TEST/
+    │   │   ├── FVT-cleanup.sh/
     │   │   │   ├── SA-cleanup.sh -> ../../SA-cleanup.sh
     │   │   │   ├── SA-setup.sh -> ../../SA-setup.sh
     │   │   │   └── SA-shellcheck-001.expected
-    │   │   ├── FVT-exit-code-error-1-001
-    │   │   │   ├── SA-cleanup.sh -> ../../SA-cleanup.sh
-    │   │   │   ├── SA-setup.sh -> ../../SA-setup.sh
-    │   │   │   └── SA-shellcheck-001.expected
-    │   │   ├── FVT-exit-code-error-124-001
-    │   │   │   ├── SA-cleanup.sh -> ../../SA-cleanup.sh
-    │   │   │   ├── SA-setup.sh -> ../../SA-setup.sh
-    │   │   │   └── SA-shellcheck-001.expected
-
-
-
-
-
     . . .
-        │   └── tmp-test-tar-files
+    │   └── tmp-test-tar-files/
     │       ├── name-that-file-bzip2
     │       ├── name-that-file-compress
     │       ├── name-that-file-default
@@ -200,7 +188,7 @@ TL;DR - During code design, a software developer's focus is on how to solve part
     │       ├── name-that-file-xz
     │       ├── name-that-file-z
     │       └── name-that-file-Z
-    ├── images
+    ├── images/
     │   ├── github.png
     │   ├── git-TEST-commit-automation-1.gif
     │   ├── git-TEST-commit-automation-2-1.gif
@@ -214,12 +202,12 @@ TL;DR - During code design, a software developer's focus is on how to solve part
     ├── post-commit
     ├── pre-commit
     ├── README.md
-    └── TEST
-        ├── post-commit
+    └── TEST/
+        ├── post-commit/
         │   ├── SA-cleanup.sh -> ../../EXAMPLES/SA-cleanup.sh
         │   ├── SA-setup.sh -> ../../EXAMPLES/SA-setup.sh
         │   └── SA-shellcheck-001.expected
-        └── pre-commit
+        └── pre-commit/
             ├── SA-cleanup.sh -> ../../EXAMPLES/SA-cleanup.sh
             ├── SA-setup.sh -> ../../EXAMPLES/SA-setup.sh
             └── SA-shellcheck-001.expected
