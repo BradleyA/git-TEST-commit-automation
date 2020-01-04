@@ -41,7 +41,7 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 
 **post-commit** 
 - Loop through committed files found in \<REPOSITORY-NAME>/hooks/**COMMIT_FILE_LIST**
-- if COMMIT_FILE has a '\<REPOSITORY-NAME>/\<PATH>/TEST/\<COMMIT_FILE>/' directory run FVT-setup.sh and/or SA-setup.sh
+- if COMMIT_FILE has a \<REPOSITORY-NAME>/\<PATH>/TEST/\<COMMIT_FILE>/' directory run FVT-setup.sh and/or SA-setup.sh
 - Loop through and run \<REPOSITORY-NAME>/\<PATH>/TEST/\<COMMIT_FILE>/SA-<TEST_CASE> and/or FVT-<TEST_CASE>
 - Report output as **PASS** or **FAIL** or **ERROR**, through stdout 
       . . . some methed will notify someone of the results. (not sure which method is going to work for me and you? 
