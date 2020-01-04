@@ -1,13 +1,13 @@
 # git-TEST-commit-automation  [![Stable Release](https://img.shields.io/badge/Release-2.200-blue.svg)](https://github.com/BradleyA/git-TEST-commit-automation/releases/tag/2.200)    [![GitHub commits](https://img.shields.io/github/commits-since/BradleyA/git-TEST-commit-automation/2.200.svg)](https://github.com/BradleyA/git-TEST-commit-automation/commits/)
 
-#### Strategy:
+## Strategy
 Scripts to assist running something, and checking something, then reporting something; when you commit something.
 
     git commit -m 'latest changes' <COMMIT_FILE_NAME>
 
 After entering the above command, Git runs any Git hooks found in \<REPOSITORY-NAME>/.git/hooks/ directory.  Git hooks are scripts that Git executes before and/or after events. Two local Git hooks are included with git-TEST-commit-automation. 
 
-#### About
+## About
 
 git-TEST-commit-automation runs pre-commit and post-commit hooks when "git commit -m 'message' " is executed. Pre-commit creates a file (${REPOSITORY-NAME}/hooks/COMMIT_FILE_LIST) which includes files being commited. Post-commit searches in the same directory as the commited filename for a TEST/\<filename>/ directory. If found post-commit runs TEST/\<filename>/SA-setup.sh and/or TEST/\<filename>/FVT-setup.sh then searches for files beginning with SA- of FVT- and runs them.
 
@@ -15,7 +15,7 @@ TL;DR - Why did I create git-TEST-commit-automation when there are so many great
 
 TL;DR - During code design, a software developer's focus is on how to solve parts of a bigger solution.  A developer may throw out a couple to dozens of lines of code.  It did not matter that those lines of code did or didn't meet every test requirement.  As a design matures it is increasingly important to have code PASS tests.  It is also important for a developer to design SA and FVT test cases for their new code.  At that time their code is ready for additional testing with open software and enterprise level solutions.
 
-#### Objectives:
+## Objectives
 1) Quick setup with default test cases for any Git repository (in seconds)
 2) Quick uninstall on any Git repository
 3) Quick check of test case depth for a file (option -f) and all files for any Git repository (option -a)
@@ -23,7 +23,7 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 5) Quick upgrade of default test cases and git-TEST-commit-automation commands (setup-git-TEST-cases.sh)
 6) Quick reduction of untracked TEST case files (option -c)
 
-#### Quick Start
+## Quick Start
 	
 #### [Install/evaluate git-TEST-commit-automation solution](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/STEPS-TO-EVALUTE.md)
 
@@ -35,7 +35,7 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 
 #### [Create custom test cases for a file](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/STEPS-TO-CREATE-TEST-CASES.md)
   
-#### Description
+## Description
 
 **pre-commit** - Creates \<REPOSITORY-NAME>/hooks/**COMMIT_FILE_LIST** with a list of \<REPOSITORY-NAME>/\<FILE> being committed.
 
@@ -53,7 +53,7 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 
 **uninstall-git-TEST-cases.sh** - uninstall git-TEST-commit-automation in current repository
 
-#### Test Case Types
+## Test Case Types
 
 **Funciotnal Verification (FVT)** is defined as the process of verifying that the design meets its specification from a functional perspective. ... Functional verification establishes that the design under test (DUT) implements the functionality of the specification correctly.
 
