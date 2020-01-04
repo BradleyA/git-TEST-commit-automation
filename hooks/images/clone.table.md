@@ -9,4 +9,4 @@ Total clones: 114
 
 [Return to README](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks#traffic)
 
-**Note**  Data collection stopped between 10/14 & 12/23
+**Note**  Data collection stopped between 10/14 & 12/9
