@@ -230,7 +230,7 @@ Place the expected results from the test case into a file with the same test cas
   - Include support for other test or CI solutions ... Scan for Credentials, BATS, Travis CI, ...
 
 #### Traffic
- * <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=118&color=blue">  [Clones Table](images/clone.table.md)
+ * <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=118&color=blue">  [Clones Table](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/images/clone.table.md)
  * <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=1654&color=blue">  [Views Table](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/images/view.table.md)
 
 #### Author
