@@ -235,8 +235,8 @@ Place the expected results from the test case into a file with the same test cas
 
 #### Author
 [<img id="twitter" src="https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">
-](https://twitter.com/bradleyaustintx/)   [<img id="github" src="hooks/images/github.png" width="50" a="https://github.com/BradleyA/">
-](https://github.com/BradleyA/)    [<img src="hooks/images/linkedin.png" style="max-width:100%;" >](https://www.linkedin.com/in/bradleyhallen)
+](https://twitter.com/bradleyaustintx/)   [<img id="github" src="https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/images/github.png" width="50" a="https://github.com/BradleyA/">
+](https://github.com/BradleyA/)    [<img src="https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/images/linkedin.png" style="max-width:100%;" >](https://www.linkedin.com/in/bradleyhallen)
 
 #### System OS script tested
  * Ubuntu 16.04.6 LTS (GNU/Linux 4.4.38-v7+ armv7l)
