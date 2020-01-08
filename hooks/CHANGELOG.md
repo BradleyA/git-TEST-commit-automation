@@ -10,7 +10,7 @@
 #### Release Name Production-2
 #### Release Date 
 
-Scripts to assist running something, and checking something, then reporting something; when you commit something.
+Create scripts to assist running something, and checking something, then reporting something; when you commit something.
 
 ### Features
 * close #1  hooks/bin/list-git-TEST-cases.sh Rename SAST to SA for Static Analysis #1 
