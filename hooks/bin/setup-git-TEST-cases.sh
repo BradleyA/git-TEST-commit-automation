@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/setup-git-TEST-cases.sh  2.205.900  2019-10-09T21:23:23.251203-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.205-13-g9e8b43b  
-# 	   hooks/bin/setup-git-TEST-cases.sh   added color 
+# 	hooks/bin/setup-git-TEST-cases.sh  2.211.959  2020-01-08T22:52:15.658906-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.210-51-g81a9994  
+# 	   hooks/bin/git-TEST-cases.sh hooks/bin/setup-git-TEST-cases.sh hooks/bin/uninstall-git-TEST-cases.sh   Production-2 
 # 	hooks/bin/setup-git-TEST-cases.sh  2.120.624  2019-09-21T11:07:01.734932-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.119  
 # 	   close #14    hooks/bin/setup-git-TEST-cases.sh    removed git-TEST-cases.sh --clean --hooks and added user hint to next step 
 # 	hooks/bin/setup-git-TEST-cases.sh  2.117.621  2019-09-20T22:02:03.774879-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.116-1-g58bd437  
