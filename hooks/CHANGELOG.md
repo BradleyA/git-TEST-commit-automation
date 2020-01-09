@@ -7,7 +7,7 @@
 ### Issues
 
 ## Version 2.211
-#### Release Name Production-2
+#### Release Name Beta-2
 #### Release Date 
 
 Create scripts to assist running something, and checking something, then reporting something; when you commit something.
@@ -41,9 +41,6 @@ Create scripts to assist running something, and checking something, then reporti
 * close #37 hooks/bin/EXAMPLES/SA-* FVT-* - add color to all test cases #37 
 * close #38 hooks/post-commit - remove test cases after running them #38 
 * close $40 hooks/bin/git-TEST-cases.sh - add git add & commit when creating default test case #40
-  
-### Issues
-no issues because this is new design
 
 ### Misc
 
