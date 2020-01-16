@@ -1,0 +1,11 @@
+
+(B[mgit-TEST-cases.sh
+   lists and manages files in TEST case directories
+
+[1mUSAGE(B[m
+   git-TEST-cases.sh [-a | --all | -c | --clean | -n | --none | -f <FILE_NAME> | --filename <FILE_NAME>] [--hooks]
+                     [--filename <FILE_NAME> --add]
+
+   git-TEST-cases.sh [--help | -help | help | -h | h | -?]
+   git-TEST-cases.sh [--usage | -usage | -u]
+   git-TEST-cases.sh [--version | -version | -v]
