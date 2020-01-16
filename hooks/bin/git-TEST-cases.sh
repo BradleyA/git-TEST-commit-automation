@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/git-TEST-cases.sh  2.216.975  2020-01-16T17:05:58.072965-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.215  
+# 	   hooks/bin/git-TEST-cases.sh   correct usage text formating 
 # 	hooks/bin/git-TEST-cases.sh  2.211.959  2020-01-08T22:52:15.469894-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.210-51-g81a9994  
 # 	   hooks/bin/git-TEST-cases.sh hooks/bin/setup-git-TEST-cases.sh hooks/bin/uninstall-git-TEST-cases.sh   Production-2 
 # 	hooks/bin/git-TEST-cases.sh  2.208.904  2019-10-12T16:36:32.359495-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.207-1-ga99b68e  
@@ -42,9 +44,7 @@ display_usage() {
 COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')
 echo -e "\n${NORMAL}${COMMAND_NAME}\n   lists and manages files in TEST case directories"
 echo -e "\n${BOLD}USAGE${NORMAL}"
-echo    "   ${COMMAND_NAME} [-a | --all | -c | --clean | -n | --none | -f <FILE_NAME>"
-echo    "                    | --filename <FILE_NAME>]"
-echo    "                     [--hooks]"
+echo    "   ${COMMAND_NAME} [-a | --all | -c | --clean | -n | --none | -f <FILE_NAME> | --filename <FILE_NAME>] [--hooks]"
 echo -e "                     [--filename <FILE_NAME> --add]\n"
 echo    "   ${COMMAND_NAME} [--help | -help | help | -h | h | -?]"
 echo    "   ${COMMAND_NAME} [--usage | -usage | -u]"
