@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/TEST/git-TEST-cases.sh/FVT-cleanup.sh  2.218.980  2020-01-16T21:19:52.945152-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.217  
+# 	   hooks/bin/TEST/git-TEST-cases.sh/FVT-cleanup.sh   Remove FVT-test-case.expected that has a size of zero  #36 
 # 	hooks/bin/TEST/git-TEST-cases.sh/FVT-cleanup.sh  2.217.979  2020-01-16T20:05:35.763558-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.216-3-g4aace7e  
 # 	   testing 
 # 	hooks/bin/TEST/git-TEST-cases.sh/FVT-cleanup.sh  2.202.881  2019-10-04T16:38:13.484777-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.201  
@@ -79,9 +81,14 @@ rm -f FVT-*.test-case-output
 for k in $(ls -1 FVT-*) ; do
   if [[ "${k}" != "FVT-cleanup.sh" ]] ; then
     if [[ "${k}" != "FVT-setup.sh" ]] ; then
-      { [ ! -L "${k}" ] || rm "${k}"; }  #  Remove files with symbolic link
-#	      { [ ! -s "${k}.expected" ] || rm "${k}"; }  #  Remove FVT-test-case.expected that has a size of zero
-      if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  ${k} >${k}<" 1>&2 ; fi
+      { [[ ! -L "${k}" ]] || rm "${k}"; }  #  Remove files with symbolic link
+      if [[ ! -s "${k}" ]] ; then  #  Remove FVT-test-case.expected that has a size of zero
+        if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Empty file ${k}" 1>&2 ; fi
+        if [[ "${k##*.}" == "expected" ]] ; then
+          if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  File ${k} has expected extension >${k##*.}<" 1>&2 ; fi
+          rm "${k}"
+        fi
+      fi
     fi
   fi
 done
