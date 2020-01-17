@@ -1,10 +1,6 @@
 #!/bin/bash
-#	hooks/bin/TEST/git-TEST-cases.sh/FVT-option-filename-003  2.219.981  2020-01-16T22:12:12.251282-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.218  
-#	   hooks/bin/TEST/git-TEST-cases.sh/FVT-option-filename-003   testing 
-#	hooks/bin/TEST/git-TEST-cases.sh/FVT-option-filename-003  2.217.979  2020-01-16T20:05:48.538064-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.216-3-g4aace7e  
-#	   testing 
-#	hooks/bin/TEST/git-TEST-cases.sh/FVT-option-add-001  2.213.971  2020-01-16T15:18:05.265305-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.212  
-#	   hooks/bin/TEST/git-TEST-cases.sh/FVT-option-add-001 hooks/bin/TEST/git-TEST-cases.sh/FVT-option-a-001 hooks/bin/TEST/git-TEST-cases.sh/FVT-option-a-002   Production standard 5.3.550 Copyright, Production standard 1.3.550 DEBUG variable, ###  Production standard 2.3.529 log format 
+#	hooks/bin/TEST/git-TEST-cases.sh/FVT-option-filename-003  2.220.982  2020-01-16T22:18:55.261419-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.219  
+#	   hooks/bin/TEST/git-TEST-cases.sh/FVT-option-filename-003  finally working , now remove standard output from terminal 
 #86# hooks/bin/TEST/git-TEST-cases.sh/FVT-option-add-001  - test case
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.3.550 Copyright                                                  # 3.550
@@ -69,17 +65,18 @@ fi
 #  output is blank: no files w/o hooks
 touch "${0}.expected"
 
-set -x
-"${1}" -f test/test 2>&1 | cut -d ']' -f 3 | tee "${0}".test-case-output  
+"${1}" -f test/test 2>&1 | cut -d ']' -f 3 | tee "${0}".test-case-output  #  pipe ERROR message into "${0}".test-case-output
 
 if [[ -s ${1} ]] ; then  #  file size is greater than zero
-  grep "contains '/'" "${0}".test-case-output >/dev/null 2>&1
+  diff "${0}".expected "${0}".test-case-output >/dev/null 2>&1
+
+#	  grep "contains '/'" "${0}".test-case-output >/dev/null 2>&1
+
   RETURN_CODE=${?}
 else
   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  File, ${1}, does not exist or is empty" 1>&2
   RETURN_CODE=2
 fi
-set +x
 
 if [[ "${RETURN_CODE}" -eq 0 ]] ; then
   echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - No difference with expected output - ${BOLD}${GREEN}PASS - PASS${NORMAL}"
