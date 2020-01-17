@@ -1,9 +1,7 @@
 #!/bin/bash
-#	hooks/bin/TEST/git-TEST-cases.sh/FVT-option-filename-004  2.217.979  2020-01-16T20:05:50.750048-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.216-3-g4aace7e  
-#	   testing 
-#	hooks/bin/TEST/git-TEST-cases.sh/FVT-option-add-001  2.213.971  2020-01-16T15:18:05.265305-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.212  
-#	   hooks/bin/TEST/git-TEST-cases.sh/FVT-option-add-001 hooks/bin/TEST/git-TEST-cases.sh/FVT-option-a-001 hooks/bin/TEST/git-TEST-cases.sh/FVT-option-a-002   Production standard 5.3.550 Copyright, Production standard 1.3.550 DEBUG variable, ###  Production standard 2.3.529 log format 
-#86# hooks/bin/TEST/git-TEST-cases.sh/FVT-option-add-001  - test case
+#	hooks/bin/TEST/git-TEST-cases.sh/FVT-option-filename-004  2.222.986  2020-01-16T22:45:33.394428-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.221-1-ga74641d  
+#	   custom test cases for FVT options #36 
+#86# hooks/bin/TEST/git-TEST-cases.sh/FVT-option-filename-004  -  custom test case
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.3.550 Copyright                                                  # 3.550
 #    Copyright (c) 2020 Bradley Allen                                                       # 3.550
@@ -67,7 +65,7 @@ fi
 #  output is blank: no files w/o hooks
 touch "${0}.expected"
 
-"${1}" --filename > "${0}".test-case-output  
+"${1}" --filename test/test 2>&1 | cut -d ']' -f 3 >"${0}".test-case-output  #  pipe [ERROR] message into "${0}".test-case-output
 
 if [[ -s ${1} ]] ; then  #  file size is greater than zero
   diff "${0}".expected "${0}".test-case-output >/dev/null 2>&1
