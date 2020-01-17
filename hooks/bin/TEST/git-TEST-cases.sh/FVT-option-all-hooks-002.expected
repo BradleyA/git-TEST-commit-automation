@@ -1,0 +1,301 @@
+hooks/TEST/[1m[33mpost-commit(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/TEST/[1m[33mpre-commit(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mFVT-cleanup.sh(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mFVT-exit-code-error-1-001(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mFVT-exit-code-error-124-001(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mFVT-exit-code-error-124-002(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mFVT-exit-code-error-126-001(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mFVT-exit-code-error-127-001(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mFVT-exit-code-error-128-001(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mFVT-exit-code-error-130-001(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mFVT-exit-code-error-2-001(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mFVT-option-help-001(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mFVT-option-help-002(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mFVT-option-help-003(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mFVT-option-help-004(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mFVT-option-help-005(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mFVT-option-help-006(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mFVT-option-usage-001(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mFVT-option-usage-002(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mFVT-option-usage-003(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mFVT-option-version-001(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mFVT-option-version-002(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mFVT-option-version-003(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mFVT-setup.sh(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mGIT-VARIABLES-EXAMPLES.sh(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mSA-cleanup.sh(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mSA-exit-code-error-124-001(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mSA-exit-code-error-124-002(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mSA-exit-code-error-2-001(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mSA-permission-400-001(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mSA-permission-440-001(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mSA-permission-444-001(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mSA-permission-600-001(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mSA-permission-640-001(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mSA-permission-644-001(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mSA-permission-660-001(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mSA-permission-664-001(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mSA-permission-666-001(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mSA-permission-700-001(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mSA-permission-750-001(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mSA-permission-755-001(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mSA-permission-770-001(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mSA-permission-775-001(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mSA-permission-777-001(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mSA-permission-dir-001(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mSA-permission-grp-10000-001(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mSA-permission-own-10000-001(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mSA-setup.sh(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mSA-shellcheck-001(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/EXAMPLES/TEST/[1m[33mSA-type-tar-V7-001(B[m
+[1m[32m 	name-that-file-format-v7
+	name-that-file-old-archive
+	name-that-file-portability
+	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/bin/TEST/[1m[33mgit-TEST-cases.sh(B[m
+[1m[32m 	FVT-option-add-001
+	FVT-option-all-001
+	FVT-option-all-002
+	FVT-option-all-hooks-001
+	FVT-option-all-hooks-002
+	FVT-option-clean-001
+	FVT-option-clean-002
+	FVT-option-clean-hooks-001
+	FVT-option-clean-hooks-002
+	FVT-option-clean-hooks-003
+	FVT-option-clean-hooks-004
+	FVT-option-filename-001
+	FVT-option-filename-002
+	FVT-option-filename-003
+	FVT-option-filename-004
+	FVT-option-filename-005
+	FVT-option-filename-006
+	FVT-option-filename-hooks-001
+	FVT-option-help-001
+	FVT-option-help-002
+	FVT-option-help-003
+	FVT-option-help-004
+	FVT-option-help-005
+	FVT-option-help-006
+	FVT-option-n-001
+	FVT-option-usage-001
+	FVT-option-usage-002
+	FVT-option-usage-003
+	FVT-option-version-001
+	FVT-option-version-002
+	FVT-option-version-003
+	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	FVT-cleanup.sh
+	SA-cleanup.sh(B[m
+[1m[36m 	FVT-setup.sh
+	SA-setup.sh(B[m
+hooks/bin/TEST/[1m[33msetup-git-TEST-cases.sh(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
+hooks/bin/TEST/[1m[33muninstall-git-TEST-cases.sh(B[m
+[1m[32m 	SA-permission-775-001
+	SA-shellcheck-001(B[m
+[1m[36m 	SA-cleanup.sh(B[m
+[1m[36m 	SA-setup.sh(B[m
