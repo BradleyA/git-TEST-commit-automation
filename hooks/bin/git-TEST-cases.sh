@@ -1,23 +1,13 @@
 #!/bin/bash
+# 	hooks/bin/git-TEST-cases.sh  2.227.995  2020-01-18T12:39:36.442920-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.226  
+# 	   hooks/bin/git-TEST-cases.sh   removed display_usage from ERROR while working on FVT-option-filename-001  custom test cases for FVT options #36 
 # 	hooks/bin/git-TEST-cases.sh  2.216.975  2020-01-16T17:05:58.072965-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.215  
 # 	   hooks/bin/git-TEST-cases.sh   correct usage text formating 
-# 	hooks/bin/git-TEST-cases.sh  2.211.959  2020-01-08T22:52:15.469894-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.210-51-g81a9994  
-# 	   hooks/bin/git-TEST-cases.sh hooks/bin/setup-git-TEST-cases.sh hooks/bin/uninstall-git-TEST-cases.sh   Production-2 
 # 	hooks/bin/git-TEST-cases.sh  2.208.904  2019-10-12T16:36:32.359495-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.207-1-ga99b68e  
 # 	   close #40    git-TEST-cases.sh   - add git add & commit when creating default test case 
-# 	hooks/bin/git-TEST-cases.sh  2.203.883  2019-10-04T16:44:11.823322-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.202-1-gc957c0b  
-# 	   hooks/bin/git-TEST-cases.sh   updated display_help 
-# 	hooks/bin/git-TEST-cases.sh  2.185.843  2019-10-01T21:47:23.836868-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.184  
-# 	   hooks/bin/git-TEST-cases.sh    testing #35 #37 
 # 	hooks/bin/git-TEST-cases.sh  2.122.626  2019-09-21T15:39:47.409524-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.121  
 # 	   close #29   hooks/bin/git-TEST-cases.sh   add option --add - Add default test case directory (TEST/<FILE_NAME>/) and files SA-setup.sh, SA-cleanup.sh, SA-shellcheck-001.expected 
-# 	hooks/bin/git-TEST-cases.sh  2.112.613  2019-09-20T19:29:27.300829-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.111-1-g7eba63e  
-# 	   close #22   hooks/bin/git-TEST-cases.sh   updated your hint, usage, options in display_help #21 
-# 	hooks/bin/git-TEST-cases.sh  2.94.553  2019-09-17T12:16:59.374340-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.93  
-# 	   close #18 close #19  hooks/bin/git-TEST-cases.sh   done with testing ready for production 
-# 	hooks/bin/git-TEST-cases.sh  2.92.550  2019-09-17T10:54:54.644826-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.91  
-# 	   close #3   hooks/bin/git-TEST-cases.sh 
-#86# hooks/bin/git-TEST-cases.sh -  search from top of repository to list TEST directory test cases
+#86# hooks/bin/git-TEST-cases.sh  -  lists and manages files in TEST case directories
 #       git-TEST-cases.sh all - runs FVT-setup.sh and SA-setup.sh to create symbolic links to EXAMPLES before listing all test cases
 #       git-TEST-cases.sh clean - remove symbolic links from TEST/<command>/ directories
 ###  Production standard 3.0 shellcheck
@@ -189,7 +179,7 @@ while [[ "${#}" -gt 0 ]] ; do
         new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Only one of these option -a, --all, -c, --clean, -f, --filename, -n, or --none can be selected." 1>&2 ; exit 1
       else
         CLI_OPTION="f" ; if [[ "${2}" == "" ]] ; then
-          display_usage ; new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Argument for ${1} is not found on command line" 1>&2 ; exit 1
+          new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Argument for ${1} is not found on command line" 1>&2 ; exit 1
         fi
         FILE_NAME=${2} ; shift 2
       fi ;;
