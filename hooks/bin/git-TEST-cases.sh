@@ -1,10 +1,8 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  2.228.996  2020-01-18T13:56:43.412913-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.227  
-# 	   FVT-option-   change Test script ERROR 
+# 	hooks/bin/git-TEST-cases.sh  2.229.999  2020-01-18T14:37:18.034977-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.228-2-g4b33cee  
+# 	   hooks/bin/git-TEST-cases.sh   debug -f|--filename) #36 
 # 	hooks/bin/git-TEST-cases.sh  2.227.995  2020-01-18T12:39:36.442920-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.226  
 # 	   hooks/bin/git-TEST-cases.sh   removed display_usage from ERROR while working on FVT-option-filename-001  custom test cases for FVT options #36 
-# 	hooks/bin/git-TEST-cases.sh  2.216.975  2020-01-16T17:05:58.072965-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.215  
-# 	   hooks/bin/git-TEST-cases.sh   correct usage text formating 
 # 	hooks/bin/git-TEST-cases.sh  2.208.904  2019-10-12T16:36:32.359495-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.207-1-ga99b68e  
 # 	   close #40    git-TEST-cases.sh   - add git add & commit when creating default test case 
 # 	hooks/bin/git-TEST-cases.sh  2.122.626  2019-09-21T15:39:47.409524-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.121  
@@ -177,21 +175,23 @@ while [[ "${#}" -gt 0 ]] ; do
       else
         CLI_OPTION="c" ; shift 
       fi ;;
-    -f|--filename) if [[ "${CLI_OPTION}" != "" ]] ; then  # >>>  I think I need to add an if for when the FILE_NAME is missing because it is an option starting with '-'
+    -f|--filename) if [[ "${CLI_OPTION}" != "" ]] ; then
         new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Only one of these option -a, --all, -c, --clean, -f, --filename, -n, or --none can be selected." 1>&2 ; exit 1
       else
-        CLI_OPTION="f" ; if [[ "${2}" == "" ]] ; then  # >>>  I think I need to add an if for when the FILE_NAME is missing because it is an option starting with '-'
-          new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Argument for ${1} is not found on command line" 1>&2 ; exit 1
-        fi  # >>>  I think I need to add an if for when the FILE_NAME is missing because it is an option starting with '-'
-        FILE_NAME=${2} ; shift 2  # >>>  I think I need to add an if for when the FILE_NAME is missing because it is an option starting with '-'
-      fi ;;  # >>>  I think I need to add an if for when the FILE_NAME is missing because it is an option starting with '-'
+        CLI_OPTION="f"
+        #    Check if FILE_NAME is missing
+        if [[ "${2}" == "" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Argument for ${1} is not found on command line" 1>&2 ; exit 1 ; fi
+        #    Check if option (-) is next not FILE_NAME
+        if [[ ${2:0:1} == "-" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Argument for ${1} is not found on command line" 1>&2 ; exit 1 ; fi
+        FILE_NAME=${2} ; shift 2
+      fi ;;
     --hooks|-hooks) ALL_TEST_CASES="YES" ; shift ;;
     -n|--none) if [[ "${CLI_OPTION}" != "" ]] ; then  #  #18
         new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Only one of these option -a, --all, -c, --clean, -f, --filename, -n, or --none can be selected." 1>&2 ; exit 1
       else
         CLI_OPTION="n" ; shift 
       fi ;;
-    *)  new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Option, ${1}, entered on the command line is not supported." 1>&2 ; display_usage ; exit 1 ; ;;
+    *)  new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Option, ${1}, entered on the command line is not supported." 1>&2 ; exit 1 ; ;;
   esac
 done
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Variable... CLI_OPTION >${CLI_OPTION}< FILE_NAME >${FILE_NAME}< ALL_TEST_CASES >${ALL_TEST_CASES}<" 1>&2 ; fi
