@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/bin/TEST/git-TEST-cases.sh/FVT-option-filename-001  2.226.994  2020-01-18T12:27:28.171139-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.225  
+#	   hooks/bin/TEST/git-TEST-cases.sh/FVT-option-filename-001   testing custom test cases for FVT options #36 
 #	hooks/bin/TEST/git-TEST-cases.sh/FVT-option-filename-001  2.222.986  2020-01-16T22:45:27.037078-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.221-1-ga74641d  
 #	   custom test cases for FVT options #36 
 #86# hooks/bin/TEST/git-TEST-cases.sh/FVT-option-filename-001  -  custom test case
@@ -65,7 +67,8 @@ fi
 #  output is blank: no files w/o hooks
 touch "${0}.expected"
 
-"${1}" -f > "${0}".test-case-output  
+#	"${1}" -f > "${0}".test-case-output
+"${1}" -f 2>&1 | tee "${0}".test-case-output
 
 if [[ -s ${1} ]] ; then  #  file size is greater than zero
   diff "${0}".expected "${0}".test-case-output >/dev/null 2>&1
