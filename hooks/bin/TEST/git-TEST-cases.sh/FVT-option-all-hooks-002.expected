@@ -270,13 +270,25 @@ hooks/bin/TEST/[1m[33mgit-TEST-cases.sh(B[m
 	FVT-option-filename-005
 	FVT-option-filename-006
 	FVT-option-filename-hooks-001
+	FVT-option-filename-hooks-002
+	FVT-option-filename-hooks-003
+	FVT-option-filename-hooks-004
+	FVT-option-filename-hooks-005
+	FVT-option-filename-hooks-006
+	FVT-option-filename-hooks-007
+	FVT-option-filename-hooks-008
+	FVT-option-filename-hooks-009
+	FVT-option-filename-hooks-010
+	FVT-option-filename-hooks-011
+	FVT-option-filename-hooks-012
 	FVT-option-help-001
 	FVT-option-help-002
 	FVT-option-help-003
 	FVT-option-help-004
 	FVT-option-help-005
 	FVT-option-help-006
-	FVT-option-n-001
+	FVT-option-none-001
+	FVT-option-none-002
 	FVT-option-usage-001
 	FVT-option-usage-002
 	FVT-option-usage-003
