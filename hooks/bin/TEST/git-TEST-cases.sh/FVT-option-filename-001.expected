@@ -1,11 +1,3 @@
-
-(B[mgit-TEST-cases.sh
-   lists and manages files in TEST case directories
-
-[1mUSAGE(B[m
-   git-TEST-cases.sh [-a | --all | -c | --clean | -n | --none | -f <FILE_NAME> | --filename <FILE_NAME>] [--hooks]
-                     [--filename <FILE_NAME> --add]
-
-   git-TEST-cases.sh [--help | -help | help | -h | h | -?]
-   git-TEST-cases.sh [--usage | -usage | -u]
-   git-TEST-cases.sh [--version | -version | -v]
+(B[m    Argument for -f is not found on command line
+#	hooks/bin/TEST/git-TEST-cases.sh/FVT-option-filename-001.expected  2.228.996  2020-01-18T13:56:24.990543-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.227  
+#	   FVT-option-   change Test script ERROR 

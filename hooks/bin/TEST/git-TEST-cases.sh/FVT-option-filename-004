@@ -1,6 +1,6 @@
 #!/bin/bash
-#	hooks/bin/TEST/git-TEST-cases.sh/FVT-option-filename-004  2.222.986  2020-01-16T22:45:33.394428-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.221-1-ga74641d  
-#	   custom test cases for FVT options #36 
+#	hooks/bin/TEST/git-TEST-cases.sh/FVT-option-filename-004  2.228.996  2020-01-18T13:56:35.255714-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.227  
+#	   FVT-option-   change Test script ERROR 
 #86# hooks/bin/TEST/git-TEST-cases.sh/FVT-option-filename-004  -  custom test case
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.3.550 Copyright                                                  # 3.550
@@ -56,7 +56,7 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}
 if [[ ! -x ${1} ]] ; then  #  Command invoked does not exist or cannot execute
   RETURN_CODE=126
   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${RETURN_CODE} - File, ${1}, does not exist or have execute permission" 1>&2
-  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} 126 - File, ${1}, does not exist or have execute permission - ${BOLD}${CYAN}ERROR - ERROR${NORMAL}"
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} 126 - File, ${1}, does not exist or have execute permission - ${BOLD}${RED}ERROR${CYAN} - ERROR${NORMAL}"
   exit "${RETURN_CODE}"
 fi
 
@@ -77,16 +77,16 @@ fi
 
 if [[ "${RETURN_CODE}" -eq 0 ]] ; then
   echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - No difference with expected output - ${BOLD}${GREEN}PASS - PASS${NORMAL}"
-  cat "${0}".test-case-output
+  if [[ "${DEBUG}" == "1" ]] ; then cat "${0}".test-case-output 1>&2 ; fi
   exit 0
 elif [[ ${RETURN_CODE} -eq 1 ]] ; then
   echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - Differences with expected output - ${BOLD}${RED}FAIL - FAIL${NORMAL}"
   diff -y "${0}".expected "${0}".test-case-output
   exit 1
 else
-  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - Test script ERROR - ${BOLD}${CYAN}ERROR - ERROR${NORMAL}"
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - Test script ERROR - ${BOLD}${RED}ERROR${CYAN} - ERROR${NORMAL}"
   exit 2
 fi
-echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} 124 - Test script logic ERROR - ${BOLD}${CYAN}ERROR - ERROR${NORMAL}"
+echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} 124 - Test script logic ERROR - ${BOLD}${RED}ERROR${CYAN} - ERROR${NORMAL}"
 exit 124
 ###

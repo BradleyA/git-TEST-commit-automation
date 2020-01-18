@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/git-TEST-cases.sh  2.228.996  2020-01-18T13:56:43.412913-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.227  
+# 	   FVT-option-   change Test script ERROR 
 # 	hooks/bin/git-TEST-cases.sh  2.227.995  2020-01-18T12:39:36.442920-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.226  
 # 	   hooks/bin/git-TEST-cases.sh   removed display_usage from ERROR while working on FVT-option-filename-001  custom test cases for FVT options #36 
 # 	hooks/bin/git-TEST-cases.sh  2.216.975  2020-01-16T17:05:58.072965-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.215  
@@ -175,14 +177,14 @@ while [[ "${#}" -gt 0 ]] ; do
       else
         CLI_OPTION="c" ; shift 
       fi ;;
-    -f|--filename) if [[ "${CLI_OPTION}" != "" ]] ; then
+    -f|--filename) if [[ "${CLI_OPTION}" != "" ]] ; then  # >>>  I think I need to add an if for when the FILE_NAME is missing because it is an option starting with '-'
         new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Only one of these option -a, --all, -c, --clean, -f, --filename, -n, or --none can be selected." 1>&2 ; exit 1
       else
-        CLI_OPTION="f" ; if [[ "${2}" == "" ]] ; then
+        CLI_OPTION="f" ; if [[ "${2}" == "" ]] ; then  # >>>  I think I need to add an if for when the FILE_NAME is missing because it is an option starting with '-'
           new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Argument for ${1} is not found on command line" 1>&2 ; exit 1
-        fi
-        FILE_NAME=${2} ; shift 2
-      fi ;;
+        fi  # >>>  I think I need to add an if for when the FILE_NAME is missing because it is an option starting with '-'
+        FILE_NAME=${2} ; shift 2  # >>>  I think I need to add an if for when the FILE_NAME is missing because it is an option starting with '-'
+      fi ;;  # >>>  I think I need to add an if for when the FILE_NAME is missing because it is an option starting with '-'
     --hooks|-hooks) ALL_TEST_CASES="YES" ; shift ;;
     -n|--none) if [[ "${CLI_OPTION}" != "" ]] ; then  #  #18
         new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  Only one of these option -a, --all, -c, --clean, -f, --filename, -n, or --none can be selected." 1>&2 ; exit 1
