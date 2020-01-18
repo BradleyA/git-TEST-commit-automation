@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  2.247.1034  2020-01-18T16:30:34.728182-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.246  
-# 	   debug #36 
+# 	hooks/bin/git-TEST-cases.sh  2.248.1035  2020-01-18T16:32:05.473741-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.247  
+# 	   debug 
 # 	hooks/bin/git-TEST-cases.sh  2.227.995  2020-01-18T12:39:36.442920-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.226  
 # 	   hooks/bin/git-TEST-cases.sh   removed display_usage from ERROR while working on FVT-option-filename-001  custom test cases for FVT options #36 
 # 	hooks/bin/git-TEST-cases.sh  2.208.904  2019-10-12T16:36:32.359495-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.207-1-ga99b68e  
