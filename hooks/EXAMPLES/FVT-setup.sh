@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/FVT-setup.sh  2.256.1045  2020-01-19T09:40:05.737925-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.255  
+# 	   hooks/EXAMPLES/FVT-option-usage-00{1,2,3,4}   Production standard 5.3.555 Copyright, Production standard 1.3.550 DEBUG variable, ###  Production standard 2.3.529 log format 
 # 	hooks/EXAMPLES/FVT-setup.sh  2.139.788  2019-09-27T17:14:37.088285-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.138  
 # 	   remove #34 for is command 
 # 	hooks/EXAMPLES/FVT-setup.sh  2.138.787  2019-09-27T12:33:27.430817-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.137  
@@ -82,6 +84,7 @@ ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-help-006"          FVT-optio
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-usage-001"         FVT-option-usage-001
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-usage-002"         FVT-option-usage-002
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-usage-003"         FVT-option-usage-003
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-usage-004"         FVT-option-usage-004
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-version-001"       FVT-option-version-001
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-version-002"       FVT-option-version-002
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-version-003"       FVT-option-version-003
