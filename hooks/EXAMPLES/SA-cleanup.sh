@@ -1,5 +1,7 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/SA-cleanup.sh  2.263.1053  2020-01-19T11:28:04.981423-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.262-1-gbd566e8  
+# 	hooks/EXAMPLES/SA-cleanup.sh  2.264.1055  2020-01-19T11:30:08.104069-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.263-1-gaab55e2  
+# 	   hooks/EXAMPLES/SA-cleanup.sh   test changes to output 
+# 	hooks/EXAMPLES/SA-cleanup.sh  2.263.1053  2020-01-19T11:28:04.981423-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.262-1-gbd566e8
 # 	   hooks/EXAMPLES/SA-cleanup.sh   Production standard 5.3.555 Copyright, Production standard 1.3.550 DEBUG variable, ###  Production standard 2.3.529 log format 
 # 	hooks/EXAMPLES/SA-cleanup.sh  2.192.851  2019-10-02T12:14:57.960077-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.191  
 # 	   hooks/EXAMPLES/SA-shellcheck-001   incident with cp changed to cp -f 
