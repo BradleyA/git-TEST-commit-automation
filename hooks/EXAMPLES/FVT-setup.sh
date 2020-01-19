@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/FVT-setup.sh  2.259.1048  2020-01-19T09:52:55.189370-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.258  
+# 	   hooks/EXAMPLES/FVT-setup.sh   corrected incidents from SA-shellcheck-001 
 # 	hooks/EXAMPLES/FVT-setup.sh  2.258.1047  2020-01-19T09:50:49.987834-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.257  
 # 	   hooks/EXAMPLES/FVT-setup.sh   Production standard 5.3.555 Copyright, Production standard 1.3.550 DEBUG variable, ###  Production standard 2.3.529 log format:w 
 # 	hooks/EXAMPLES/FVT-setup.sh  2.138.787  2019-09-27T12:33:27.430817-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.137  
@@ -23,10 +25,7 @@ if [[ "${DEBUG}" == "5" ]] ; then set -e -o pipefail ; fi   # Exit immediately i
 #
 BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
-RED=$(tput    setaf 1)
-GREEN=$(tput  setaf 2)
 YELLOW=$(tput setaf 3)
-CYAN=$(tput   setaf 6)
 WHITE=$(tput  setaf 7)
 
 #    Date and time function ISO 8601
