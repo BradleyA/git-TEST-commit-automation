@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/FVT-setup.sh  2.265.1056  2020-01-19T11:39:22.202269-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.264  
+# 	   hooks/EXAMPLES/FVT-setup.sh   added test cases 
 # 	hooks/EXAMPLES/FVT-setup.sh  2.259.1048  2020-01-19T09:52:55.189370-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.258  
 # 	   hooks/EXAMPLES/FVT-setup.sh   corrected incidents from SA-shellcheck-001 
 # 	hooks/EXAMPLES/FVT-setup.sh  2.258.1047  2020-01-19T09:50:49.987834-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.257  
@@ -71,6 +73,7 @@ else
 fi
 
 #    Uncomment shared TEST cases for TESTing
+#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-exit-code-error-0-001     FVT-exit-code-error-1-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-exit-code-error-1-001     FVT-exit-code-error-1-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-exit-code-error-2-001"    FVT-exit-code-error-2-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-exit-code-error-124-001"  FVT-exit-code-error-124-001
@@ -93,6 +96,7 @@ ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-usage-004"         FVT-optio
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-version-001"       FVT-option-version-001
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-version-002"       FVT-option-version-002
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-version-003"       FVT-option-version-003
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-version-004"       FVT-option-version-004
 #
 
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Operation finished..." 1>&2 ; fi
