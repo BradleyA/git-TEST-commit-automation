@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/git-TEST-cases.sh  2.271.1069  2020-01-21T15:02:14.982224-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.270-1-g01cdcc2  
+# 	   FVT-cleanup.sh   Production standard 5.3.559 Copyright and correct an incident found during testing 
 # 	hooks/bin/git-TEST-cases.sh  2.270.1067  2020-01-20T23:20:44.631099-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.269  
 # 	   hooks/bin/git-TEST-cases.sh   Production standard 5.3.559 Copyright, Production standard 1.3.550 DEBUG variable, Production standard 0.3.550 --help, Production standard 2.3.529 log format, Production standard 9.3.558 Parse CLI options and arguments 
 # 	hooks/bin/git-TEST-cases.sh  2.208.904  2019-10-12T16:36:32.359495-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.207-1-ga99b68e  
@@ -23,8 +25,6 @@ NORMAL=$(tput -Txterm sgr0)
 RED=$(tput    setaf 1)
 GREEN=$(tput  setaf 2)
 YELLOW=$(tput setaf 3)
-BLUE=$(tput   setaf 4)
-PURPLE=$(tput setaf 5)
 CYAN=$(tput   setaf 6)
 WHITE=$(tput  setaf 7)
 

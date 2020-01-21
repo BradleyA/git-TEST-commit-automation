@@ -1,13 +1,13 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/FVT-cleanup.sh  2.262.1051  2020-01-19T11:18:42.388706-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.261  
-# 	   hooks/EXAMPLES/FVT-cleanup.sh   Production standard 5.3.555 Copyright, Production standard 1.3.550 DEBUG variable, ###  Production standard 2.3.529 log format 
-# 	hooks/EXAMPLES/FVT-cleanup.sh  2.200.862  2019-10-02T16:58:22.194307-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.199  
-# 	   hooks/EXAMPLES/FVT-cleanup.sh    remove -v option for rm 
-#86# hooks/EXAMPLES/FVT-cleanup.sh  -  test case cleanup
+# 	hooks/EXAMPLES/FVT-cleanup.sh  2.271.1069  2020-01-21T15:02:14.598141-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.270-1-g01cdcc2  
+# 	   FVT-cleanup.sh   Production standard 5.3.559 Copyright and correct an incident found during testing 
+# 	hooks/bin/TEST/git-TEST-cases.sh/FVT-cleanup.sh  2.269.1066  2020-01-20T12:55:38.659739-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.268  
+# 	   hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh hooks/bin/TEST/git-TEST-cases.sh/FVT-cleanup.sh   copy FVT- scripts to customize 
+#86# hooks/bin/TEST/git-TEST-cases.sh/FVT-cleanup.sh  -  test case cleanup
 ###  Production standard 3.0 shellcheck
-###  Production standard 5.3.555 Copyright                                    # 3.555
-#    Copyright (c) 2020 Bradley Allen                                         # 3.555
-#    MIT License is online in the repository as a file named LICENSE          # 3.555
+###  Production standard 5.3.559 Copyright                                    # 3.559
+#    Copyright (c) 2020 Bradley Allen                                                # 3.555
+#    MIT License is online in the repository as a file named LICENSE"         # 3.559
 ###  Production standard 1.3.550 DEBUG variable                                             # 3.550
 #    Order of precedence: environment variable, default code
 if [[ "${DEBUG}" == ""  ]] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
@@ -54,13 +54,6 @@ new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
 #    INFO
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2 ; fi
 
-if [[ ! -x ${1} ]] ; then  #  Command invoked does not exist or cannot execute
-  RETURN_CODE=126
-  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${RETURN_CODE} - File, ${1}, does not exist or have execute permission" 1>&2
-  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} 126 - File, ${1}, does not exist or have execute permission - ${BOLD}${RED}ERROR${CYAN} - ERROR${NORMAL}"
-  exit "${RETURN_CODE}"
-fi
-
 ###  Place test case cleanup here 
 
 #    Remove environment variables
@@ -71,9 +64,10 @@ fi
 rm -f FVT-*.test-case-output
 #    Remove temporary files
 #  rm -f temporary files
-rm -f FVT-option-version-001.expected
-rm -f FVT-option-version-002.expected
-rm -f FVT-option-version-003.expected
+rm -f FVT-option-version-001.expected  # This file is created when running the test case
+rm -f FVT-option-version-002.expected  # This file is created when running the test case
+rm -f FVT-option-version-003.expected  # This file is created when running the test case
+rm -f FVT-option-version-003.expected  # This file is created when running the test case
 #    Remove linked FVT-* files except FVT-cleanup.sh and FVT-setup.sh
 for k in $(ls -1 FVT-*) ; do
   if [[ "${k}" != "FVT-cleanup.sh" ]] ; then
