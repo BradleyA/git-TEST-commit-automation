@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/SA-cleanup.sh  2.274.1074  2020-01-21T15:46:13.358676-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.273  
+# 	   hooks/EXAMPLES/SA-cleanup.sh   correct comment typo 
 # 	hooks/EXAMPLES/SA-cleanup.sh  2.272.1072  2020-01-21T15:24:20.635910-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.271-2-gaeeaa5a  
 # 	   hooks/EXAMPLES/FVT-cleanup.sh hooks/EXAMPLES/SA-cleanup.sh  correct incidents found with shellcheck 
 # 	hooks/EXAMPLES/SA-cleanup.sh  2.264.1055  2020-01-19T11:30:08.104069-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.263-1-gaab55e2  
@@ -73,7 +75,7 @@ for k in $(ls -1 SA-*) ; do
   if [[ "${k}" != "SA-cleanup.sh" ]] ; then
     if [[ "${k}" != "SA-setup.sh" ]] ; then
       { [[ ! -L "${k}" ]] || rm "${k}"; }  #  Remove files with symbolic link
-      if [[ ! -s "${k}" ]] ; then  #  Remove FVT-test-case.expected that has a size of zero
+      if [[ ! -s "${k}" ]] ; then  #  Remove SA-test-case.expected that has a size of zero
         if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Empty file ${k}" 1>&2 ; fi
         if [[ "${k##*.}" == "expected" ]] ; then
           if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  File ${k} has expected extension >${k##*.}<" 1>&2 ; fi
