@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/SA-cleanup.sh  2.272.1072  2020-01-21T15:24:20.635910-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.271-2-gaeeaa5a  
+# 	   hooks/EXAMPLES/FVT-cleanup.sh hooks/EXAMPLES/SA-cleanup.sh  correct incidents found with shellcheck 
 # 	hooks/EXAMPLES/SA-cleanup.sh  2.264.1055  2020-01-19T11:30:08.104069-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.263-1-gaab55e2  
 # 	   hooks/EXAMPLES/SA-cleanup.sh   test changes to output 
 # 	hooks/EXAMPLES/SA-cleanup.sh  2.263.1053  2020-01-19T11:28:04.981423-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.262-1-gbd566e8
@@ -22,9 +24,7 @@ if [[ "${DEBUG}" == "5" ]] ; then set -e -o pipefail ; fi   # Exit immediately i
 #
 BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
-RED=$(tput    setaf 1)
 YELLOW=$(tput setaf 3)
-CYAN=$(tput   setaf 6)
 WHITE=$(tput  setaf 7)
 
 #    Date and time function ISO 8601
@@ -57,13 +57,6 @@ new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
 
 #    INFO
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2 ; fi
-
-if [[ ! -x ${1} ]] ; then  #  Command invoked does not exist or cannot execute
-  RETURN_CODE=126
-  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${RETURN_CODE} - File, ${1}, does not exist or have execute permission" 1>&2
-  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} 126 - File, ${1}, does not exist or have execute permission - ${BOLD}${RED}ERROR${CYAN} - ERROR${NORMAL}"
-  exit "${RETURN_CODE}"
-fi
 
 ###  Place test case cleanup here 
 

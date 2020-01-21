@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/FVT-cleanup.sh  2.272.1072  2020-01-21T15:24:20.447135-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.271-2-gaeeaa5a  
+# 	   hooks/EXAMPLES/FVT-cleanup.sh hooks/EXAMPLES/SA-cleanup.sh  correct incidents found with shellcheck 
 # 	hooks/EXAMPLES/FVT-cleanup.sh  2.271.1069  2020-01-21T15:02:14.598141-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.270-1-g01cdcc2  
 # 	   FVT-cleanup.sh   Production standard 5.3.559 Copyright and correct an incident found during testing 
 # 	hooks/bin/TEST/git-TEST-cases.sh/FVT-cleanup.sh  2.269.1066  2020-01-20T12:55:38.659739-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.268  
@@ -18,9 +20,7 @@ if [[ "${DEBUG}" == "5" ]] ; then set -e -o pipefail ; fi   # Exit immediately i
 #
 BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
-RED=$(tput    setaf 1)
 YELLOW=$(tput setaf 3)
-CYAN=$(tput   setaf 6)
 WHITE=$(tput  setaf 7)
 
 #    Date and time function ISO 8601
