@@ -1,8 +1,8 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/GIT-VARIABLES-EXAMPLES.sh  2.275.1075  2020-01-21T15:52:58.251718-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.274  
+# 	   hooks/EXAMPLES/GIT-VARIABLES-EXAMPLES.sh   test changes 
 # 	hooks/EXAMPLES/GIT-VARIABLES-EXAMPLES.sh  2.273.1073  2020-01-21T15:32:17.263779-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.272  
 # 	   hooks/EXAMPLES/GIT-VARIABLES-EXAMPLES.sh   Production standard 5.3.559 Copyright 
-# 	hooks/EXAMPLES/GIT-VARIABLES-EXAMPLES.sh  3.486.741  2019-08-31T21:21:03.826987-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.485  
-# 	   hooks/EXAMPLES/GIT-VARIABLES-EXAMPLES.sh   typo 
 ###  I use this file to help debug hooks during development
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.3.559 Copyright                                    # 3.559
