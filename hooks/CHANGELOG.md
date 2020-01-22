@@ -6,20 +6,25 @@
 
 Brief description
 
-### Features
+### Feature Changed
 * git-TEST-commit-automation/hooks/EXAMPLES/FVT-*
   * Production standard 5.3.559 Copyright
   * Production standard 1.3.550 DEBUG variable,
   * Production standard 2.3.529 log format
-* git-TEST-commit-automation/hooks/bin/{git-TEST-cases.sh, setup-git-TEST-cases.sh, uninstall-git-TEST-cases.sh}
+* git-TEST-commit-automation/hooks/bin/git-TEST-cases.sh
   * Production standard 0.3.550 --help
-  * Production standard 1.3.550 DEBUG variable,
+  * Production standard 1.3.550 DEBUG variable
   * Production standard 2.3.529 log format
   * Production standard 4.3.550 Documentation Language
   * Production standard 5.3.559 Copyright
-  * Production standard 6.3.547  Architecture tree
+  * Production standard 6.3.547 Architecture tree
   * Production standard 8.3.541 --usage
   * Production standard 9.3.558 Parse CLI options and arguments
+  * Production standard 10.0    TESTing
+* git-TEST-commit-automation/hooks/bin/{setup-git-TEST-cases.sh, uninstall-git-TEST-cases.sh}
+  * Production standard 1.3.550 DEBUG variable
+  * Production standard 2.3.529 log format
+  * Production standard 5.3.559 Copyright
 
 ### Issues
 ### Misc
