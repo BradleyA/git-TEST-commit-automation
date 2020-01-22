@@ -78,6 +78,7 @@ Brief description
     * FVT-option-none-hooks-004
     * FVT-option-usage-004
     * FVT-option-version-004
+* update git-TEST-commit-automation/hooks/README
 
 ### Issues
 * #36 git-TEST-commit-automation/hooks/bin/EXAMPLES/ - custom test cases for FVT options
