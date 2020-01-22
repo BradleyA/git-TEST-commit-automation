@@ -6,7 +6,7 @@
 
 Brief description
 
-### Feature Changed
+### Feature Changes
 * git-TEST-commit-automation/hooks/EXAMPLES/FVT-*
   * Production standard 5.3.559 Copyright
   * Production standard 1.3.550 DEBUG variable,
@@ -25,6 +25,10 @@ Brief description
   * Production standard 1.3.550 DEBUG variable
   * Production standard 2.3.529 log format
   * Production standard 5.3.559 Copyright
+* git-TEST-commit-automation/hooks/EXAMPLES/FVT-cleanup.sh
+  * Remove FVT-test-case.expected that has a size of zero
+* git-TEST-commit-automation/hooks/EXAMPLES/SA-cleanup.sh
+  * Remove SA-test-case.expected that has a size of zero
 
 ### Issues
 * #36 hooks/bin/EXAMPLES/TEST/ - custom test cases for FVT options
