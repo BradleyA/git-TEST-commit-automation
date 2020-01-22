@@ -1,7 +1,7 @@
 # Changelog
 
 ## Version  {Next Version}
-#### Release Name  {unreleased alpha beta prerelease latest}
+#### Release Name  Beta-3
 #### Release Date 
 
 Brief description
