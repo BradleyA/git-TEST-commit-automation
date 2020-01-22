@@ -1,13 +1,13 @@
 #!/bin/bash
+#	hooks/EXAMPLES/FVT-option-clean-hooks-002  2.276.1076  2020-01-21T19:12:11.356174-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.275  
+#	   FVT-*    Production standard 5.3.559 Copyright 
 #	hooks/bin/TEST/git-TEST-cases.sh/FVT-option-clean-hooks-002  2.251.1040  2020-01-18T17:23:11.110480-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.250  
 #	   cleanup for #36 
-#	hooks/bin/TEST/git-TEST-cases.sh/FVT-option-clean-hooks-002  2.228.996  2020-01-18T13:56:08.832140-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.227  
-#	   FVT-option-   change Test script ERROR 
 #86# hooks/bin/TEST/git-TEST-cases.sh/FVT-option-clean-hooks-002  -  custom test case
 ###  Production standard 3.0 shellcheck
-###  Production standard 5.3.550 Copyright                                                  # 3.550
-#    Copyright (c) 2020 Bradley Allen                                                       # 3.550
-#    MIT License is online  https://github.com/BradleyA/user-files/blob/master/LICENSE      # 3.550
+###  Production standard 5.3.559 Copyright                                    # 3.559
+#    Copyright (c) 2020 Bradley Allen                                                # 3.555
+#    MIT License is online in the repository as a file named LICENSE"         # 3.559
 ###  Production standard 1.3.550 DEBUG variable                                             # 3.550
 #    Order of precedence: environment variable, default code
 if [[ "${DEBUG}" == ""  ]] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)

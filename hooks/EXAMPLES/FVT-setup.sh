@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/FVT-setup.sh  2.276.1076  2020-01-21T19:14:19.604461-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.275  
+# 	   FVT-*    Production standard 5.3.559 Copyright 
 # 	hooks/EXAMPLES/FVT-setup.sh  2.268.1065  2020-01-20T09:38:47.880404-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.267-1-gb19da99  
 # 	   hooks/EXAMPLES/FVT-setup.sh    added test cases from TEST/git-TEST-cases.sh to EXAMPLES for FVT 
 # 	hooks/EXAMPLES/FVT-setup.sh  2.258.1047  2020-01-19T09:50:49.987834-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.257  
@@ -12,9 +14,9 @@
 #    to design specification.
 ###
 ###  Production standard 3.0 shellcheck
-###  Production standard 5.3.555 Copyright                                    # 3.555
-#    Copyright (c) 2020 Bradley Allen                                         # 3.555
-#    MIT License is online in the repository as a file named LICENSE          # 3.555
+###  Production standard 5.3.559 Copyright                                    # 3.559
+#    Copyright (c) 2020 Bradley Allen                                                # 3.555
+#    MIT License is online in the repository as a file named LICENSE"         # 3.559
 ###  Production standard 1.3.550 DEBUG variable                                             # 3.550
 #    Order of precedence: environment variable, default code
 if [[ "${DEBUG}" == ""  ]] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
