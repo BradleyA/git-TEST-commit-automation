@@ -29,9 +29,13 @@ Brief description
   * Remove FVT-test-case.expected that has a size of zero
 * git-TEST-commit-automation/hooks/EXAMPLES/SA-cleanup.sh
   * Remove SA-test-case.expected that has a size of zero
+  * 
+* git-TEST-commit-automation/hooks/bin/EXAMPLES
+  * added the follow test cases
+    * git-TEST-commit-automation/hooks/EXAMPLES
 
 ### Issues
-* #36 hooks/bin/EXAMPLES/TEST/ - custom test cases for FVT options
+* #36 git-TEST-commit-automation/hooks/bin/EXAMPLES/ - custom test cases for FVT options
 ### Misc
 
 ## Version 2.211.959
