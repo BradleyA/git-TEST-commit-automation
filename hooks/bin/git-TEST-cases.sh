@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  2.277.1129  2020-01-21T23:05:34.136474-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.276-52-g58b4660  
-# 	   hooks/bin/git-TEST-cases.sh   add color to two lines 
+# 	hooks/bin/git-TEST-cases.sh  2.284.1154  2020-01-22T15:48:04.929637-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.283-16-gae66d16  
+# 	   hooks/bin/git-TEST-cases.sh   testing -n --none options 
 # 	hooks/bin/git-TEST-cases.sh  2.271.1069  2020-01-21T15:02:14.982224-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.270-1-g01cdcc2  
 # 	   FVT-cleanup.sh   Production standard 5.3.559 Copyright and correct an incident found during testing 
 # 	hooks/bin/git-TEST-cases.sh  2.270.1067  2020-01-20T23:20:44.631099-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.269  
