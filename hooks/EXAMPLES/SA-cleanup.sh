@@ -1,21 +1,15 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/SA-cleanup.sh  2.274.1074  2020-01-21T15:46:13.358676-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.273  
-# 	   hooks/EXAMPLES/SA-cleanup.sh   correct comment typo 
-# 	hooks/EXAMPLES/SA-cleanup.sh  2.272.1072  2020-01-21T15:24:20.635910-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.271-2-gaeeaa5a  
-# 	   hooks/EXAMPLES/FVT-cleanup.sh hooks/EXAMPLES/SA-cleanup.sh  correct incidents found with shellcheck 
-# 	hooks/EXAMPLES/SA-cleanup.sh  2.264.1055  2020-01-19T11:30:08.104069-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.263-1-gaab55e2  
-# 	   hooks/EXAMPLES/SA-cleanup.sh   test changes to output 
+# 	hooks/EXAMPLES/SA-cleanup.sh  2.278.1131  2020-01-21T23:18:45.120811-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.277-1-gcf15b0c  
+# 	   hooks/EXAMPLES/SA-cleanup.sh   Production standard 5.3.559 Copyright 
 # 	hooks/EXAMPLES/SA-cleanup.sh  2.263.1053  2020-01-19T11:28:04.981423-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.262-1-gbd566e8
 # 	   hooks/EXAMPLES/SA-cleanup.sh   Production standard 5.3.555 Copyright, Production standard 1.3.550 DEBUG variable, ###  Production standard 2.3.529 log format 
-# 	hooks/EXAMPLES/SA-cleanup.sh  2.192.851  2019-10-02T12:14:57.960077-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.191  
-# 	   hooks/EXAMPLES/SA-shellcheck-001   incident with cp changed to cp -f 
 # 	hooks/EXAMPLES/SA-cleanup.sh  2.138.787  2019-09-27T12:33:27.537389-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.137  
 # 	   close #34    EXAMPLES/SA-* FVT-*   added NO -x ${1} exit ERROR 126 
 #86# hooks/EXAMPLES/SA-cleanup.sh  -  test case cleanup
 ###  Production standard 3.0 shellcheck
-###  Production standard 5.3.555 Copyright                                    # 3.555
-#    Copyright (c) 2020 Bradley Allen                                         # 3.555
-#    MIT License is online in the repository as a file named LICENSE          # 3.555
+###  Production standard 5.3.559 Copyright                                    # 3.559
+#    Copyright (c) 2020 Bradley Allen                                                # 3.555
+#    MIT License is online in the repository as a file named LICENSE"         # 3.559
 ###  Production standard 1.3.550 DEBUG variable                                             # 3.550
 #    Order of precedence: environment variable, default code
 if [[ "${DEBUG}" == ""  ]] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
