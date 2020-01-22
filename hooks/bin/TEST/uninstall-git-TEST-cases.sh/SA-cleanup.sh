@@ -1,1 +1,1 @@
-../../../EXAMPLES/SA-cleanup.sh
+../../../../hooks/EXAMPLES/SA-cleanup.sh

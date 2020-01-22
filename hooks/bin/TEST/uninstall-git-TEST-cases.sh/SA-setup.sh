@@ -1,1 +1,1 @@
-../../../EXAMPLES/SA-setup.sh
+../../../../hooks/EXAMPLES/SA-setup.sh
