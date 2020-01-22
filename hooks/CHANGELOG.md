@@ -1,10 +1,16 @@
 # Changelog
 
-## {Next Version}
+## Version  
+#### Release Name  {unreleased alpha beta prerelease latest}
+#### Release Date 
 
-### Misc
+Brief description
 
+### Features Added
+### Features Changed
+### Features Deprecations
 ### Issues
+### Misc
 
 ## Version 2.211.959
 #### Release Name Beta-2
@@ -44,4 +50,14 @@ Create scripts to assist running something, and checking something, then reporti
 
 ### Misc
 
+## Version  
+#### Release Name  {unreleased alpha beta prerelease latest}
+#### Release Date 
 
+Brief description
+
+### Features Added
+### Features Changed
+### Features Deprecations
+### Issues
+### Misc
