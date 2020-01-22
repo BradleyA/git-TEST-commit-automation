@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/git-TEST-cases.sh  2.277.1129  2020-01-21T23:05:34.136474-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.276-52-g58b4660  
+# 	   hooks/bin/git-TEST-cases.sh   add color to two lines 
 # 	hooks/bin/git-TEST-cases.sh  2.271.1069  2020-01-21T15:02:14.982224-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.270-1-g01cdcc2  
 # 	   FVT-cleanup.sh   Production standard 5.3.559 Copyright and correct an incident found during testing 
 # 	hooks/bin/git-TEST-cases.sh  2.270.1067  2020-01-20T23:20:44.631099-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.269  
@@ -260,10 +262,10 @@ if [[ "${CLI_OPTION}" == "f" ]]  ; then
   if [[ -x "SA-setup.sh"  ]]  ; then ./SA-setup.sh  ; fi
   cd "${REPOSITORY_DIR}"
   if [[ "${ALL_TEST_CASES}" == "YES" ]] ; then
-    echo "${NORMAL}    INFO:  If file not found, check spelling." 1>&2
+    echo "${BOLD}${YELLOW}    INFO:  If file not found, check spelling.${NORMAL}" 1>&2
     find . -print | grep --color=auto "${FILE_NAME}"
   else
-    echo "${NORMAL}    INFO:  If file not found, check spelling or including ${BOLD}--hooks${NORMAL} option." 1>&2
+    echo "${BOLD}${YELLOW}    INFO:  If file not found, check spelling or including ${BOLD}--hooks${NORMAL} option.${NORMAL}" 1>&2
     find . -print | grep -v 'hooks/' | grep --color=auto "${FILE_NAME}"
   fi
   cd "$(find . -type d -name "${FILE_NAME}")"
