@@ -6,9 +6,10 @@
 
 Brief description
 
-### Features Added
-### Features Changed
-### Features Deprecations
+### Features
+* git-TEST-commit-automation/*
+
+
 ### Issues
 ### Misc
 
