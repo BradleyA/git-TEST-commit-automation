@@ -29,7 +29,6 @@ Brief description
   * Remove FVT-test-case.expected that has a size of zero
 * git-TEST-commit-automation/hooks/EXAMPLES/SA-cleanup.sh
   * Remove SA-test-case.expected that has a size of zero
-  * 
 * git-TEST-commit-automation/hooks/bin/EXAMPLES
   * added the follow test cases
     * FVT-exit-code-error-0-001
