@@ -1,26 +1,25 @@
 #!/bin/bash
-# 	hooks/bin/setup-git-TEST-cases.sh  2.211.959  2020-01-08T22:52:15.658906-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.210-51-g81a9994  
-# 	   hooks/bin/git-TEST-cases.sh hooks/bin/setup-git-TEST-cases.sh hooks/bin/uninstall-git-TEST-cases.sh   Production-2 
-# 	hooks/bin/setup-git-TEST-cases.sh  2.120.624  2019-09-21T11:07:01.734932-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.119  
-# 	   close #14    hooks/bin/setup-git-TEST-cases.sh    removed git-TEST-cases.sh --clean --hooks and added user hint to next step 
+# 	hooks/bin/setup-git-TEST-cases.sh  2.281.1134  2020-01-22T11:42:58.546653-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.280  
+# 	   hooks/bin/setup-git-TEST-cases.sh   Production standard 5.3.559 Copyright, Production standard 1.3.550 DEBUG variable,  Production standard 2.3.529 log format 
 # 	hooks/bin/setup-git-TEST-cases.sh  2.117.621  2019-09-20T22:02:03.774879-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.116-1-g58bd437  
 # 	   close #2   hooks/bin/setup-git-TEST-cases.sh  met all four objectives
-#86# hooks/bin/setup-git-TEST-cases.sh - setup git TEST cases in current repository
-#    copy commands to /usr/local/bin
+#86# hooks/bin/setup-git-TEST-cases.sh  -  setup git TEST cases in current repository
 ###  Production standard 3.0 shellcheck
-###  Production standard 5.1.160 Copyright
-#    Copyright (c) 2019 Bradley Allen
-#    MIT License is in the online DOCUMENTATION, DOCUMENTATION URL defined below.
-###  Production standard 1.3.496 DEBUG variable
+###  Production standard 5.3.559 Copyright                                    # 3.559
+#    Copyright (c) 2020 Bradley Allen                                                # 3.555
+#    MIT License is online in the repository as a file named LICENSE"         # 3.559
+###  Production standard 1.3.550 DEBUG variable                                             # 3.550
 #    Order of precedence: environment variable, default code
 if [[ "${DEBUG}" == ""  ]] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
 if [[ "${DEBUG}" == "2" ]] ; then set -x    ; fi   # Print trace of simple commands before they are executed
 if [[ "${DEBUG}" == "3" ]] ; then set -v    ; fi   # Print shell input lines as they are read
-if [[ "${DEBUG}" == "4" ]] ; then set -e    ; fi   # Exit command has a non-zero exit status
+if [[ "${DEBUG}" == "4" ]] ; then set -e    ; fi   # Exit immediately if non-zero exit status
+if [[ "${DEBUG}" == "5" ]] ; then set -e -o pipefail ; fi   # Exit immediately if non-zero exit status and exit if any command in a pipeline errors
 #
 BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
 YELLOW=$(tput setaf 3)
+WHITE=$(tput  setaf 7)
 
 #    Date and time function ISO 8601
 get_date_stamp() {
@@ -36,23 +35,22 @@ LOCALHOST=$(hostname -f)
 #    Assumptions for the next two lines of code:  The second line in this script includes the script path & name as the second item and
 #    the script version as the third item separated with space(s).  The tool I use is called 'markit'. See example line below:
 #       template/template.sh  3.517.783  2019-09-13T18:20:42.144356-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.516  
-SCRIPT_NAME=$(head -2 "${0}" | awk '{printf $2}')
+SCRIPT_NAME=$(head -2 "${0}" | awk '{printf $2}')  #  Different from ${COMMAND_NAME}=$(echo "${0}" | sed 's/^.*\///'), SCRIPT_NAME = includes Git repository directory and can be used any where in script (for dev, test teams)
 SCRIPT_VERSION=$(head -2 "${0}" | awk '{printf $3}')
 if [[ "${SCRIPT_NAME}" == "" ]] ; then SCRIPT_NAME="${0}" ; fi
 if [[ "${SCRIPT_VERSION}" == "" ]] ; then SCRIPT_VERSION="v?.?" ; fi
 
-#    UID and GID
-USER_ID=$(id -u)
+#    GID
 GROUP_ID=$(id -g)
 
-###  Production standard 2.3.512 log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)
-new_message() {  #  $1="${SCRIPT_NAME}"  $2="${LINENO}"  $3="DEBUG INFO ERROR WARN"  $4="message"
+###  Production standard 2.3.529 log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)
+new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
   get_date_stamp
-  echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${1}[$$] ${SCRIPT_VERSION} ${2} ${USER} ${USER_ID}:${GROUP_ID} ${BOLD}[${3}]${NORMAL}  ${4}"
+  echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${SCRIPT_NAME}[$$] ${SCRIPT_VERSION} ${1} ${USER} ${UID}:${GROUP_ID} ${BOLD}[${2}]${NORMAL}  ${3}"
 }
 
 #    INFO
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Started..." 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2 ; fi
 
 ###
 
@@ -66,24 +64,24 @@ if git -C . rev-parse 2> /dev/null ; then  #  currect directory in a git reposit
   rm -rf  BradleyA-git-TEST-commit-automation-*
   cd hooks
   if [[ -x "post-commit" ]] && [[ -x "pre-commit" ]]  ; then  # do files exist and execute permission
-    if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Link pre-commit and post-commit" 1>&2 ; fi
+    if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Link pre-commit and post-commit" 1>&2 ; fi
     ln -fs ../../hooks/pre-commit  ../.git/hooks/pre-commit
     ln -fs ../../hooks/post-commit ../.git/hooks/post-commit
   else
-    new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  ${BOLD}Unable to link ${YELLOW}${REPOSITORY_NAME}/hooks/{pre-commit,post-commit}${NORMAL}${BOLD} to ${REPOSITORY_NAME}/.git/hooks/{pre-commit,post-commit} because {pre-commit,post-commit} is NOT found in current directory ($(pwd)) or does not have execute permission.${NORMAL}" 1>&2
+    new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${BOLD}Unable to link ${YELLOW}${REPOSITORY_NAME}/hooks/{pre-commit,post-commit}${NORMAL}${BOLD} to ${REPOSITORY_NAME}/.git/hooks/{pre-commit,post-commit} because {pre-commit,post-commit} is NOT found in current directory ($(pwd)) or does not have execute permission.${NORMAL}" 1>&2
     exit 2
   fi
   if [[ -x "bin/git-TEST-cases.sh" ]] && [[ -x bin/setup-git-TEST-cases.sh ]]  && [[ -x bin/uninstall-git-TEST-cases.sh ]] && [[ -w /usr/local/bin ]]  ; then
-    if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Copy git-TEST-cases.sh, setup-git-TEST-cases.sh, & uninstall-git-TEST-cases.sh to /usr/local/bin" 1>&2 ; fi
+    if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Copy git-TEST-cases.sh, setup-git-TEST-cases.sh, & uninstall-git-TEST-cases.sh to /usr/local/bin" 1>&2 ; fi
     cp -f -p bin/git-TEST-cases.sh            /usr/local/bin/git-TEST-cases.sh
     cp -f -p bin/setup-git-TEST-cases.sh      /usr/local/bin/setup-git-TEST-cases.sh
     cp -f -p bin/uninstall-git-TEST-cases.sh  /usr/local/bin/uninstall-git-TEST-cases.sh
   else
-    new_message "${SCRIPT_NAME}" "${LINENO}" "WARN" "  Copy ${REPOSITORY_NAME}/hooks/bin/{git-TEST-cases.sh,setup-git-TEST-cases.sh,uninstall-git-TEST-cases.sh} to /usr/local/bin because git-TEST-cases.sh or setup-git-TEST-cases.sh or uninstall-git-TEST-cases.sh is NOT found or does not have execute permission or /usr/local/bin is not writable." 1>&2
+    new_message "${LINENO}" "${YELLOW}WARN${WHITE}" "  Copy ${REPOSITORY_NAME}/hooks/bin/{git-TEST-cases.sh,setup-git-TEST-cases.sh,uninstall-git-TEST-cases.sh} to /usr/local/bin because git-TEST-cases.sh or setup-git-TEST-cases.sh or uninstall-git-TEST-cases.sh is NOT found or does not have execute permission or /usr/local/bin is not writable." 1>&2
   fi
 else
   EXIT_CODE=${?}
-  new_message "${SCRIPT_NAME}" "${LINENO}" "ERROR" "  The current directory, ${BOLD}${YELLOW}$(pwd)${NORMAL}, is Not a git repository or any of the parent directories." 1>&2
+  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  The current directory, ${BOLD}${YELLOW}$(pwd)${NORMAL}, is Not a git repository or any of the parent directories." 1>&2
   exit ${EXIT_CODE}
 fi
 
@@ -100,5 +98,5 @@ fi
 # >>>  consider adding a user hint and include link to README.md  . . .  to answer that question, what now (WTF)  . . .  shit I forgot, hadn't done this in six months, quick!  . . . . . .
 
 echo -e "    For more information:\n${BOLD}${YELLOW}    https://github.com/BradleyA/git-TEST-commit-automation#steps-to-evaluate-git-test-commit-automation-solution\n${NORMAL}"
-new_message "${SCRIPT_NAME}" "${LINENO}" "INFO" "  Operation finished..." 1>&2
+new_message "${LINENO}" "INFO" "  Operation finished..." 1>&2
 ###
