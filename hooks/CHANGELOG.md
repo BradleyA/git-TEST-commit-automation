@@ -4,7 +4,7 @@
 #### Release Name  Beta-3
 #### Release Date 
 
-Brief description
+Create custom FVT- test cases to test the options used by git-TEST-cases.sh
 
 ### Feature Changes
 * git-TEST-commit-automation/hooks/EXAMPLES/FVT-*
