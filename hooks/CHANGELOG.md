@@ -1,14 +1,91 @@
 # Changelog
 
-## {Next Version}
+## Version  {Next Version}
+#### Release Name  Beta-3
+#### Release Date 
 
-### Misc
+Create custom FVT- test cases to test the options used by git-TEST-cases.sh
+
+### Feature Changes
+* git-TEST-commit-automation/hooks/EXAMPLES/FVT-*
+  * Production standard 5.3.559 Copyright
+  * Production standard 1.3.550 DEBUG variable,
+  * Production standard 2.3.529 log format
+* git-TEST-commit-automation/hooks/bin/git-TEST-cases.sh
+  * Production standard 0.3.550 --help
+  * Production standard 1.3.550 DEBUG variable
+  * Production standard 2.3.529 log format
+  * Production standard 4.3.550 Documentation Language
+  * Production standard 5.3.559 Copyright
+  * Production standard 6.3.547 Architecture tree
+  * Production standard 8.3.541 --usage
+  * Production standard 9.3.558 Parse CLI options and arguments
+  * Production standard 10.0    TESTing
+* git-TEST-commit-automation/hooks/bin/{setup-git-TEST-cases.sh, uninstall-git-TEST-cases.sh}
+  * Production standard 1.3.550 DEBUG variable
+  * Production standard 2.3.529 log format
+  * Production standard 5.3.559 Copyright
+* git-TEST-commit-automation/hooks/EXAMPLES/FVT-cleanup.sh
+  * Remove FVT-test-case.expected that has a size of zero
+* git-TEST-commit-automation/hooks/EXAMPLES/SA-cleanup.sh
+  * Remove SA-test-case.expected that has a size of zero
+* git-TEST-commit-automation/hooks/bin/EXAMPLES
+  * added the following test cases
+    * FVT-exit-code-error-0-001
+    * FVT-exit-code-error-1-001
+    * FVT-exit-code-error-124-001
+    * FVT-exit-code-error-124-002
+    * FVT-exit-code-error-126-001
+    * FVT-exit-code-error-127-001
+    * FVT-exit-code-error-128-001
+    * FVT-exit-code-error-130-001
+    * FVT-exit-code-error-2-001
+    * FVT-option-add-001
+    * FVT-option-all-001
+    * FVT-option-all-002
+    * FVT-option-all-hooks-001
+    * FVT-option-all-hooks-002
+    * FVT-option-clean-001
+    * FVT-option-clean-002
+    * FVT-option-clean-hooks-001
+    * FVT-option-clean-hooks-002
+    * FVT-option-clean-hooks-003
+    * FVT-option-clean-hooks-004
+    * FVT-option-filename-001
+    * FVT-option-filename-002
+    * FVT-option-filename-003
+    * FVT-option-filename-004
+    * FVT-option-filename-005
+    * FVT-option-filename-006
+    * FVT-option-filename-hooks-001
+    * FVT-option-filename-hooks-002
+    * FVT-option-filename-hooks-003
+    * FVT-option-filename-hooks-004
+    * FVT-option-filename-hooks-005
+    * FVT-option-filename-hooks-006
+    * FVT-option-filename-hooks-007
+    * FVT-option-filename-hooks-008
+    * FVT-option-filename-hooks-009
+    * FVT-option-filename-hooks-010
+    * FVT-option-filename-hooks-011
+    * FVT-option-filename-hooks-012
+    * FVT-option-none-001
+    * FVT-option-none-002
+    * FVT-option-none-hooks-001
+    * FVT-option-none-hooks-002
+    * FVT-option-none-hooks-003
+    * FVT-option-none-hooks-004
+    * FVT-option-usage-004
+    * FVT-option-version-004
+* update git-TEST-commit-automation/hooks/README
 
 ### Issues
+* #36 git-TEST-commit-automation/hooks/bin/EXAMPLES/ - custom test cases for FVT options
+### Misc
 
-## Version 2.211
+## Version 2.211.959
 #### Release Name Beta-2
-#### Release Date 
+#### Release Date  2020-01-08T22:52:15.469894-06:00 (CST)
 
 Create scripts to assist running something, and checking something, then reporting something; when you commit something.
 
@@ -44,4 +121,14 @@ Create scripts to assist running something, and checking something, then reporti
 
 ### Misc
 
+## Version  {Next Version}  
+#### Release Name  {unreleased alpha beta prerelease latest}
+#### Release Date 
 
+Brief description
+
+### Features Added
+### Features Changed
+### Features Deprecations
+### Issues
+### Misc
