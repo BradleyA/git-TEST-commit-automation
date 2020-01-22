@@ -32,7 +32,52 @@ Brief description
   * 
 * git-TEST-commit-automation/hooks/bin/EXAMPLES
   * added the follow test cases
-    * git-TEST-commit-automation/hooks/EXAMPLES
+    * FVT-exit-code-error-0-001
+    * FVT-exit-code-error-1-001
+    * FVT-exit-code-error-124-001
+    * FVT-exit-code-error-124-002
+    * FVT-exit-code-error-126-001
+    * FVT-exit-code-error-127-001
+    * FVT-exit-code-error-128-001
+    * FVT-exit-code-error-130-001
+    * FVT-exit-code-error-2-001
+    * FVT-option-add-001
+    * FVT-option-all-001
+    * FVT-option-all-002
+    * FVT-option-all-hooks-001
+    * FVT-option-all-hooks-002
+    * FVT-option-clean-001
+    * FVT-option-clean-002
+    * FVT-option-clean-hooks-001
+    * FVT-option-clean-hooks-002
+    * FVT-option-clean-hooks-003
+    * FVT-option-clean-hooks-004
+    * FVT-option-filename-001
+    * FVT-option-filename-002
+    * FVT-option-filename-003
+    * FVT-option-filename-004
+    * FVT-option-filename-005
+    * FVT-option-filename-006
+    * FVT-option-filename-hooks-001
+    * FVT-option-filename-hooks-002
+    * FVT-option-filename-hooks-003
+    * FVT-option-filename-hooks-004
+    * FVT-option-filename-hooks-005
+    * FVT-option-filename-hooks-006
+    * FVT-option-filename-hooks-007
+    * FVT-option-filename-hooks-008
+    * FVT-option-filename-hooks-009
+    * FVT-option-filename-hooks-010
+    * FVT-option-filename-hooks-011
+    * FVT-option-filename-hooks-012
+    * FVT-option-none-001
+    * FVT-option-none-002
+    * FVT-option-none-hooks-001
+    * FVT-option-none-hooks-002
+    * FVT-option-none-hooks-003
+    * FVT-option-none-hooks-004
+    * FVT-option-usage-004
+    * FVT-option-version-004
 
 ### Issues
 * #36 git-TEST-commit-automation/hooks/bin/EXAMPLES/ - custom test cases for FVT options
