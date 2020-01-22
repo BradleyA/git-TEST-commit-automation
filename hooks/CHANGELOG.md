@@ -1,6 +1,6 @@
 # Changelog
 
-## Version  
+## Version  {Next Version}
 #### Release Name  {unreleased alpha beta prerelease latest}
 #### Release Date 
 
@@ -50,7 +50,7 @@ Create scripts to assist running something, and checking something, then reporti
 
 ### Misc
 
-## Version  
+## Version  {Next Version}  
 #### Release Name  {unreleased alpha beta prerelease latest}
 #### Release Date 
 
