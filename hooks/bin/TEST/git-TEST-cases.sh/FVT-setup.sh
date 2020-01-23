@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh  2.294.1169  2020-01-23T15:33:48.408464-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.293  
-# 	   hooks/EXAMPLES/FVT-option-none-hooks-001   copy changes from hooks/EXAMPLES/FVT-option-none-001 to hooks/EXAMPLES/FVT-option-none-hooks-001 and move file creation in to hooks directory 
+# 	hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh  2.295.1170  2020-01-23T15:41:43.934472-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.294  
+# 	   hooks/EXAMPLES/FVT-option-none-hooks-002   copy changes from hooks/EXAMPLES/FVT-option-none-hooks-001 to hooks/EXAMPLES/FVT-option-none-hooks-002 and move file creation in to hooks directory 
 # 	hooks/EXAMPLES/FVT-setup.sh  2.276.1076  2020-01-21T19:14:19.604461-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.275  
 # 	   FVT-*    Production standard 5.3.559 Copyright 
 # 	hooks/EXAMPLES/FVT-setup.sh  2.258.1047  2020-01-19T09:50:49.987834-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.257  
@@ -140,13 +140,9 @@ ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-help-006"	FVT-option-help-00
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-none-001"	FVT-option-none-001
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-none-002"	FVT-option-none-002
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-none-hooks-001"	FVT-option-none-hooks-001
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-none-hooks-001.expected"	FVT-option-none-hooks-001.expected
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-none-hooks-002"	FVT-option-none-hooks-002
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-none-hooks-002.expected"	FVT-option-none-hooks-002.expected
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-none-hooks-002"	FVT-option-none-hooks-002
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-none-hooks-003"	FVT-option-none-hooks-003
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-none-hooks-003.expected"	FVT-option-none-hooks-003.expected
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-none-hooks-004"	FVT-option-none-hooks-004
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-none-hooks-004.expected"	FVT-option-none-hooks-004.expected
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-usage-001"	FVT-option-usage-001
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-usage-002"	FVT-option-usage-002
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-usage-003"	FVT-option-usage-003
