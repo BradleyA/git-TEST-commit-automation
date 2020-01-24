@@ -1,5 +1,5 @@
 #!/bin/bash
-#	hooks/post-commit  2.326.1204  2020-01-23T23:05:37.269601-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.325  
+#	hooks/post-commit  2.327.1205  2020-01-23T23:09:02.601026-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.326  
 #	   hooks/post-commit   add color to ${COMMIT_FILE_NAME} 
 #	hooks/post-commit  2.315.1191  2020-01-23T21:45:32.976571-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.314  
 #	   hooks/post-commit   export REPOSITORY_DIR so test scripts can use it 
@@ -85,7 +85,7 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
   if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  \${COMMIT_PATH_FILE_NAME} >${COMMIT_PATH_FILE_NAME}< \${COMMIT_FILE_NAME} >${COMMIT_FILE_NAME}< \${COMMIT_PATH} >${COMMIT_PATH}< \${COMMIT_PATH}TEST/\${COMMIT_FILE_NAME} >${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}<" 1>&2 ; fi
   #    Check if COMMIT_FILE has a 'TEST' directory
   if [[ -d "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}" ]] ; then
-    new_message "${SCRIPT_NAME}" "${LINENO}" "${YELLOW}INFO${NORMAL}" "  Test case directory found ${COMMIT_PATH}TEST/${YELLOW}${COMMIT_FILE_NAME}${NORMAL}, for ${GIT_AUTHOR_NAME} (${USER})." 1>&2
+    new_message "${SCRIPT_NAME}" "${LINENO}" "${YELLOW}INFO${NORMAL}" "  Test case directory found ${COMMIT_PATH}TEST/${GREEN}${COMMIT_FILE_NAME}${NORMAL}, for ${GIT_AUTHOR_NAME} (${USER})." 1>&2
     cd "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}"
 
     ###  SA (Static Analysis)
@@ -170,7 +170,7 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
     echo -e "\n     FVT: ${BOLD}${YELLOW}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases = ${BOLD}${NO_TEST_CASES}${NORMAL}\n   Number of test cases pass = ${BOLD}${GREEN}${NO_TEST_CASES_PASS}${NORMAL}\n   Number of test cases fail = ${BOLD}${RED}${NO_TEST_CASES_FAIL}${NORMAL}\n   Number of test cases error = ${BOLD}${CYAN}${NO_TEST_CASES_ERROR}${NORMAL}"
     echo  "${TEST_CASES_ERROR_EXIT_CODE}" | tr ' ' '\n' | grep '[^[:blank:]]' | sort | uniq -c | sort -k 2 -n  #  List error exit codes and how many of each exit code
   else
-    new_message "${SCRIPT_NAME}" "${LINENO}" "${YELLOW}INFO${NORMAL}" "  No test case directory found ${COMMIT_PATH}TEST/${YELLOW}${COMMIT_FILE_NAME}${NORMAL}, for ${GIT_AUTHOR_NAME}."
+    new_message "${SCRIPT_NAME}" "${LINENO}" "${YELLOW}INFO${NORMAL}" "  ${RED}No${NORMAL} test case directory found ${COMMIT_PATH}TEST/${YELLOW}${COMMIT_FILE_NAME}${NORMAL}, for ${GIT_AUTHOR_NAME}."
   fi
 done
 if [[ "${DEBUG}" == "0" ]] ; then  rm "${REPOSITORY_DIR}"/hooks/COMMIT_FILE_LIST ; fi #  Remove COMMIT_FILE_LIST if NOT in DEBUG
