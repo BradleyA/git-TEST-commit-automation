@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/EXAMPLES/FVT-option-none-001  2.316.1192  2020-01-23T21:51:04.409071-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.315  
+#	   testing -none 
 #	hooks/EXAMPLES/FVT-option-none-001  2.313.1189  2020-01-23T20:44:14.461549-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.312  
 #	   testing --none 
 #	hooks/EXAMPLES/FVT-option-none-001  2.293.1168  2020-01-23T15:10:50.928192-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.292-1-g1084d0c  
@@ -73,7 +75,7 @@ fi
 ###  Place test case here
 
 #    Create a file that does not have test cases and is not in the hooks directory
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  REPOSITORY_DIR >${REPOSITORY_DIR}<" 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  -->  it should be set from post-commit <--  REPOSITORY_DIR >${REPOSITORY_DIR}<" 1>&2 ; fi
 set -x
 pwd
 REPOSITORY_DIR=$(git -C . rev-parse --show-toplevel)
