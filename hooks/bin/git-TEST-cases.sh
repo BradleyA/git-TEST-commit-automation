@@ -1,8 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  2.310.1186  2020-01-23T19:52:23.661276-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.309  
-# 	   testing 
-# 	hooks/bin/git-TEST-cases.sh  2.309.1185  2020-01-23T17:26:56.973835-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.308  
-# 	   testing -n 
+# 	hooks/bin/git-TEST-cases.sh  2.312.1188  2020-01-23T20:19:38.771698-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.311  
+# 	   testing -none 
 # 	hooks/bin/git-TEST-cases.sh  2.271.1069  2020-01-21T15:02:14.982224-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.270-1-g01cdcc2
 # 	   FVT-cleanup.sh   Production standard 5.3.559 Copyright and correct an incident found during testing 
 # 	hooks/bin/git-TEST-cases.sh  2.270.1067  2020-01-20T23:20:44.631099-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.269  
