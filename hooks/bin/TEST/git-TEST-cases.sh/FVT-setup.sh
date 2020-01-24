@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh  2.340.1223  2020-01-24T14:57:27.135925-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.339  
+# 	   testing options #36 
 # 	hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh  2.339.1222  2020-01-24T14:56:06.771382-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.338  
 # 	   testing options #36 
 # 	hooks/EXAMPLES/FVT-setup.sh  2.276.1076  2020-01-21T19:14:19.604461-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.275  
@@ -82,7 +84,7 @@ fi
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-exit-code-error-128-001"	FVT-exit-code-error-128-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-exit-code-error-130-001"	FVT-exit-code-error-130-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-exit-code-error-2-001"	FVT-exit-code-error-2-001
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-add-001"	FVT-option-add-001
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-add-001"	FVT-option-add-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-all-001"	FVT-option-all-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-all-002"	FVT-option-all-002
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-all-hooks-001"	FVT-option-all-hooks-001
