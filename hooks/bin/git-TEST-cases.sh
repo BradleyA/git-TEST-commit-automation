@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/git-TEST-cases.sh  2.322.1198  2020-01-23T22:28:00.064420-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.321  
+# 	   testing -none 
 # 	hooks/bin/git-TEST-cases.sh  2.321.1197  2020-01-23T22:18:55.951151-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.320  
 # 	   testing -none 
 # 	hooks/bin/git-TEST-cases.sh  2.271.1069  2020-01-21T15:02:14.982224-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.270-1-g01cdcc2
@@ -235,7 +237,8 @@ done
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable... CLI_OPTION >${CLI_OPTION}< FILE_NAME >${FILE_NAME}< ALL_TEST_CASES >${ALL_TEST_CASES}<" 1>&2 ; fi
 
 ###  Production standard 10.0 TESTing
-export REPOSITORY_DIR=$(git rev-parse --show-toplevel)  #  export REPOSITORY_DIR so test scripts can use it
+#	REPOSITORY_DIR=$(git rev-parse --show-toplevel)  #  export REPOSITORY_DIR so test scripts can use it
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  ${BOLD}${YELLOW}REPOSITORY_DIR  >${REPOSITORY_DIR}<${NORMAL}" 1>&2 ; fi
 cd "${REPOSITORY_DIR}"
 if [[ "${CLI_OPTION}" == "f" ]]  ; then
   if [[ "${FILE_NAME}" =~ / ]] ; then new_message "${LINENO}" "ERROR" "  Filename ${FILE_NAME}, contains '/'" 1>&2 ; exit 1 ; fi

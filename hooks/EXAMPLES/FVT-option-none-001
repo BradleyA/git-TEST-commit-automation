@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/EXAMPLES/FVT-option-none-001  2.322.1198  2020-01-23T22:27:59.839334-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.321  
+#	   testing -none 
 #	hooks/EXAMPLES/FVT-option-none-001  2.320.1196  2020-01-23T22:17:45.156144-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.319  
 #	   testing -none 
 #	hooks/EXAMPLES/FVT-option-none-001  2.276.1076  2020-01-21T19:13:41.952067-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.275  
@@ -73,7 +75,7 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}
 "${1}" -n 2>&1 | cut -d ']' -f 3 >"${0}".test-case-output  #  pipe [] message into "${0}".test-case-output
 
 #    Remove test file
-rm   "${REPOSITORY_DIR}"/+tmp."${COMMAND_NAME}"
+#	rm   "${REPOSITORY_DIR}"/+tmp."${COMMAND_NAME}"
 
 if [[ -s ${1} ]] ; then  #  file size is greater than zero
   grep "+tmp.${COMMAND_NAME}" "${0}".test-case-output >/dev/null 2>&1
