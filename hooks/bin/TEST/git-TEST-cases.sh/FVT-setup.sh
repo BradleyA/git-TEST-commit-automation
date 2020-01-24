@@ -1,14 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh  2.323.1201  2020-01-23T22:41:04.914918-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.323  
-# 	   hooks/EXAMPLES/FVT-option-none-00[1,2}   Testing -n --none 
-# 	hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh  2.313.1189  2020-01-23T20:44:14.675215-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.312  
-# 	   testing --none 
-# 	hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh  2.312.1188  2020-01-23T20:19:38.553573-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.311  
-# 	   testing -none 
-# 	hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh  2.311.1187  2020-01-23T20:16:45.728547-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.310  
-# 	   hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh  commented out --none option test cases until 001 is test case is working 
-# 	hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh  2.295.1170  2020-01-23T15:41:43.934472-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.294  
-# 	   hooks/EXAMPLES/FVT-option-none-hooks-002   copy changes from hooks/EXAMPLES/FVT-option-none-hooks-001 to hooks/EXAMPLES/FVT-option-none-hooks-002 and move file creation in to hooks directory 
+# 	hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh  2.329.1208  2020-01-23T23:22:24.264671-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.328-1-gbb4815b  
+# 	   testing -n --hooks 
 # 	hooks/EXAMPLES/FVT-setup.sh  2.276.1076  2020-01-21T19:14:19.604461-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.275  
 # 	   FVT-*    Production standard 5.3.559 Copyright 
 # 	hooks/EXAMPLES/FVT-setup.sh  2.258.1047  2020-01-19T09:50:49.987834-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.257  
@@ -147,7 +139,7 @@ fi
 ##	ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-help-006"	FVT-option-help-006
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-none-001"	FVT-option-none-001
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-none-002"	FVT-option-none-002
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-none-hooks-001"	FVT-option-none-hooks-001
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-none-hooks-001"	FVT-option-none-hooks-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-none-hooks-002"	FVT-option-none-hooks-002
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-none-hooks-003"	FVT-option-none-hooks-003
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-none-hooks-004"	FVT-option-none-hooks-004
