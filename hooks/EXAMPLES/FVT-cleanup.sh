@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/FVT-cleanup.sh  2.337.1220  2020-01-24T14:40:12.354182-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.336  
+# 	   testing new options 
 # 	hooks/EXAMPLES/FVT-cleanup.sh  2.272.1072  2020-01-21T15:24:20.447135-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.271-2-gaeeaa5a  
 # 	   hooks/EXAMPLES/FVT-cleanup.sh hooks/EXAMPLES/SA-cleanup.sh  correct incidents found with shellcheck 
 # 	hooks/EXAMPLES/FVT-cleanup.sh  2.271.1069  2020-01-21T15:02:14.598141-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.270-1-g01cdcc2  
@@ -67,7 +69,7 @@ rm -f FVT-*.test-case-output
 rm -f FVT-option-version-001.expected  # This file is created when running the test case
 rm -f FVT-option-version-002.expected  # This file is created when running the test case
 rm -f FVT-option-version-003.expected  # This file is created when running the test case
-rm -f FVT-option-version-003.expected  # This file is created when running the test case
+rm -f FVT-option-version-004.expected  # This file is created when running the test case
 #    Remove linked FVT-* files except FVT-cleanup.sh and FVT-setup.sh
 for k in $(ls -1 FVT-*) ; do
   if [[ "${k}" != "FVT-cleanup.sh" ]] ; then
