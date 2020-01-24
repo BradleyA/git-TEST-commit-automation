@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/EXAMPLES/FVT-option-none-hooks-001  2.310.1186  2020-01-23T19:52:23.481439-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.309  
+#	   testing 
 #	hooks/EXAMPLES/FVT-option-none-hooks-001  2.294.1169  2020-01-23T15:33:48.169128-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.293  
 #	   hooks/EXAMPLES/FVT-option-none-hooks-001   copy changes from hooks/EXAMPLES/FVT-option-none-001 to hooks/EXAMPLES/FVT-option-none-hooks-001 and move file creation in to hooks directory 
 #86# hooks/bin/TEST/git-TEST-cases.sh/FVT-option-none-hooks-001  -  custom test case
@@ -62,8 +64,11 @@ fi
 
 ###  Place test case here
 
-#    Create a file that does not have test cases and is in the hooks directory
+echo "->  before    >${REPOSITORY_DIR}<"
 REPOSITORY_DIR=$(git rev-parse --show-toplevel)
+echo "->  before    >${REPOSITORY_DIR}<"
+
+#    Create a file that does not have test cases and is in the hooks directory
 COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')
 touch "${REPOSITORY_DIR}"/hooks/+tmp."${COMMAND_NAME}"
 

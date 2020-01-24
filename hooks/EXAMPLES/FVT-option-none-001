@@ -1,13 +1,5 @@
 #!/bin/bash
-#	hooks/EXAMPLES/FVT-option-none-001  2.308.1184  2020-01-23T17:26:07.797289-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.307  
-#	   testing -none 
-#	hooks/EXAMPLES/FVT-option-none-001  2.306.1182  2020-01-23T17:22:13.791302-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.305  
-#	   testing 
-#	hooks/EXAMPLES/FVT-option-none-001  2.304.1180  2020-01-23T17:17:33.810686-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.303  
-#	   testing 
-#	hooks/EXAMPLES/FVT-option-none-001  2.302.1178  2020-01-23T17:06:12.905364-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.301-1-geab6ac4  
-#	   testing 
-#	hooks/EXAMPLES/FVT-option-none-001  2.301.1176  2020-01-23T17:02:52.454281-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.300  
+#	hooks/EXAMPLES/FVT-option-none-001  2.310.1186  2020-01-23T19:52:20.354458-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.309  
 #	   testing 
 #	hooks/EXAMPLES/FVT-option-none-001  2.299.1174  2020-01-23T16:50:42.527541-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.298  
 #	   testing option-none 
@@ -89,8 +81,8 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}
 set -x
 pwd
 echo ">>>>>>>>>>>> >>>>>>>>> >>>>>>>>>>>>> what is environment variable >${PWD}<"
-git -C ${PWD} rev-parse --show-toplevel
-REPOSITORY_DIR=$(git -C ${PWD} rev-parse --show-toplevel)
+git -C . rev-parse --show-toplevel
+REPOSITORY_DIR=$(git -C . rev-parse --show-toplevel)
 COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  REPOSITORY_DIR >${REPOSITORY_DIR}<  COMMAND_NAME >${COMMAND_NAME}<  $(pwd)" 1>&2 ; fi
 set +x

@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/git-TEST-cases.sh  2.310.1186  2020-01-23T19:52:23.661276-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.309  
+# 	   testing 
 # 	hooks/bin/git-TEST-cases.sh  2.309.1185  2020-01-23T17:26:56.973835-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.308  
 # 	   testing -n 
 # 	hooks/bin/git-TEST-cases.sh  2.271.1069  2020-01-21T15:02:14.982224-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.270-1-g01cdcc2
@@ -235,7 +237,7 @@ done
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable... CLI_OPTION >${CLI_OPTION}< FILE_NAME >${FILE_NAME}< ALL_TEST_CASES >${ALL_TEST_CASES}<" 1>&2 ; fi
 
 ###  Production standard 10.0 TESTing
-REPOSITORY_DIR=$(git rev-parse --show-toplevel)
+export REPOSITORY_DIR=$(git rev-parse --show-toplevel)  #  export REPOSITORY_DIR so test scripts can use it
 cd "${REPOSITORY_DIR}"
 if [[ "${CLI_OPTION}" == "f" ]]  ; then
   if [[ "${FILE_NAME}" =~ / ]] ; then new_message "${LINENO}" "ERROR" "  Filename ${FILE_NAME}, contains '/'" 1>&2 ; exit 1 ; fi
