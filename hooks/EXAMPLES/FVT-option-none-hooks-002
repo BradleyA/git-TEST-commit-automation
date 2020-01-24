@@ -1,7 +1,9 @@
 #!/bin/bash
-#	hooks/EXAMPLES/FVT-option-none-hooks-002  2.295.1170  2020-01-23T15:41:43.715201-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.294  
-#	   hooks/EXAMPLES/FVT-option-none-hooks-002   copy changes from hooks/EXAMPLES/FVT-option-none-hooks-001 to hooks/EXAMPLES/FVT-option-none-hooks-002 and move file creation in to hooks directory 
-#86# hooks/bin/TEST/git-TEST-cases.sh/FVT-option-none-hooks-002  -  custom test case
+#	hooks/EXAMPLES/FVT-option-none-hooks-002  2.334.1214  2020-01-23T23:52:11.530503-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.333-1-g7c75b5e  
+#	   testing -n -hooks 
+#	hooks/EXAMPLES/FVT-option-none-001  2.276.1076  2020-01-21T19:13:41.952067-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.275  
+#	   FVT-*    Production standard 5.3.559 Copyright 
+#86# hooks/bin/TEST/git-TEST-cases.sh/FVT-option-none-001  -  custom test case
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.3.559 Copyright                                    # 3.559
 #    Copyright (c) 2020 Bradley Allen                                                # 3.555
@@ -63,9 +65,10 @@ fi
 ###  Place test case here
 
 #    Create a file that does not have test cases and is in the hooks directory
-REPOSITORY_DIR=$(git rev-parse --show-toplevel)
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  REPOSITORY_DIR is exported in post-commit script >${REPOSITORY_DIR}<" 1>&2 ; fi
 COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')
 touch "${REPOSITORY_DIR}"/hooks/+tmp."${COMMAND_NAME}"
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  COMMAND_NAME >${COMMAND_NAME}<  ${REPOSITORY_DIR}/+tmp.${COMMAND_NAME}" 1>&2 ; fi
 
 "${1}" -n -hooks 2>&1 | cut -d ']' -f 3 >"${0}".test-case-output  #  pipe [] message into "${0}".test-case-output
 
@@ -73,7 +76,7 @@ touch "${REPOSITORY_DIR}"/hooks/+tmp."${COMMAND_NAME}"
 rm   "${REPOSITORY_DIR}"/hooks/+tmp."${COMMAND_NAME}"
 
 if [[ -s ${1} ]] ; then  #  file size is greater than zero
-  grep "hooks/+tmp.${COMMAND_NAME}" "${0}".test-case-output >/dev/null 2>&1
+  grep "+tmp.${COMMAND_NAME}" "${0}".test-case-output >/dev/null 2>&1
   RETURN_CODE=${?}
   if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Return code >${RETURN_CODE}<  from grep +tmp.${COMMAND_NAME} ${0}.test-case-output" 1>&2 ; fi
 else
