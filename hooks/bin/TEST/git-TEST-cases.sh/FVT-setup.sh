@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh  2.323.1201  2020-01-23T22:41:04.914918-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.323  
+# 	   hooks/EXAMPLES/FVT-option-none-00[1,2}   Testing -n --none 
 # 	hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh  2.313.1189  2020-01-23T20:44:14.675215-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.312  
 # 	   testing --none 
 # 	hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh  2.312.1188  2020-01-23T20:19:38.553573-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.311  
@@ -144,7 +146,7 @@ fi
 ##	ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-help-005"	FVT-option-help-005
 ##	ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-help-006"	FVT-option-help-006
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-none-001"	FVT-option-none-001
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-none-002"	FVT-option-none-002
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-none-002"	FVT-option-none-002
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-none-hooks-001"	FVT-option-none-hooks-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-none-hooks-002"	FVT-option-none-hooks-002
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-none-hooks-003"	FVT-option-none-hooks-003

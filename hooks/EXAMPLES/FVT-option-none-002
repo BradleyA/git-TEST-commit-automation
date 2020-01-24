@@ -1,7 +1,9 @@
 #!/bin/bash
-#	hooks/EXAMPLES/FVT-option-none-002  2.293.1168  2020-01-23T15:10:53.820366-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.292-1-g1084d0c  
-#	   hooks/EXAMPLES/FVT-option-none-00?   copy changes from hooks/EXAMPLES/FVT-option-none-001 to hooks/EXAMPLES/FVT-option-none-002 
-#86# hooks/bin/TEST/git-TEST-cases.sh/FVT-option-none-002  -  custom test case
+#	hooks/EXAMPLES/FVT-option-none-002  2.323.1201  2020-01-23T22:41:04.749187-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.323  
+#	   hooks/EXAMPLES/FVT-option-none-00[1,2}   Testing -n --none 
+#	hooks/EXAMPLES/FVT-option-none-001  2.276.1076  2020-01-21T19:13:41.952067-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.275  
+#	   FVT-*    Production standard 5.3.559 Copyright 
+#86# hooks/bin/TEST/git-TEST-cases.sh/FVT-option-none-001  -  custom test case
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.3.559 Copyright                                    # 3.559
 #    Copyright (c) 2020 Bradley Allen                                                # 3.555
@@ -63,14 +65,15 @@ fi
 ###  Place test case here
 
 #    Create a file that does not have test cases and is not in the hooks directory
-REPOSITORY_DIR=$(git rev-parse --show-toplevel)
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  REPOSITORY_DIR is exported in post-commit script >${REPOSITORY_DIR}<" 1>&2 ; fi
 COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')
 touch "${REPOSITORY_DIR}"/+tmp."${COMMAND_NAME}"
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  COMMAND_NAME >${COMMAND_NAME}<  ${REPOSITORY_DIR}/+tmp.${COMMAND_NAME}" 1>&2 ; fi
 
 "${1}" --none 2>&1 | cut -d ']' -f 3 >"${0}".test-case-output  #  pipe [] message into "${0}".test-case-output
 
 #    Remove test file
-rm   "${REPOSITORY_DIR}"/+tmp."${COMMAND_NAME}"
+#	rm   "${REPOSITORY_DIR}"/+tmp."${COMMAND_NAME}"
 
 if [[ -s ${1} ]] ; then  #  file size is greater than zero
   grep "+tmp.${COMMAND_NAME}" "${0}".test-case-output >/dev/null 2>&1
