@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh  2.335.1218  2020-01-24T12:31:19.473486-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.333-5-g6ae85ae  
+# 	   recieved:  fatal: tag '2.334' already exists 
 # 	hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh  2.334.1216  2020-01-24T00:00:28.914900-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.333-3-g105b5ba  
 # 	   testing --none --hooks 
 # 	hooks/EXAMPLES/FVT-setup.sh  2.276.1076  2020-01-21T19:14:19.604461-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.275  
@@ -148,8 +150,8 @@ ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-none-hooks-004"	FVT-option-n
 ##	ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-usage-003"	FVT-option-usage-003
 ##	ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-usage-004"	FVT-option-usage-004
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-version-001"	FVT-option-version-001
-##	ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-version-002"	FVT-option-version-002
-##	ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-version-003"	FVT-option-version-003
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-version-002"	FVT-option-version-002
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-version-003"	FVT-option-version-003
 ##	ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-version-004"	FVT-option-version-004
 
 #
