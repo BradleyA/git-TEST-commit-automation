@@ -1,7 +1,5 @@
 #!/bin/bash
-#	hooks/EXAMPLES/SA-permission-775-001  2.248.1234  2020-01-25T15:03:02.977706-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.347  
-#	   testing test case short names 
-#	hooks/EXAMPLES/SA-permission-775-001  2.347.1233  2020-01-25T15:00:21.056320-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.346  
+#	hooks/EXAMPLES/SA-permission-775-001  2.353.1240  2020-01-25T15:39:22.143719-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.352  
 #	   testing test case short names 
 #	hooks/EXAMPLES/SA-permission-775-001  2.138.787  2019-09-27T12:34:13.482459-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.137  
 #	   close #34    EXAMPLES/SA-* FVT-*   added NO -x ${1} exit ERROR 126 
@@ -55,10 +53,16 @@ new_message() {  #  $1="${SCRIPT_NAME}"  $2="${LINENO}"  $3="DEBUG INFO ERROR WA
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Started..." 1>&2 ; fi
 
 echo "/SA-permission-775-001>   REPOSITORY_DIR_COUNT >>>>>${REPOSITORY_DIR_COUNT}"
-TEST_CASE=$(echo ${0} | cut -d'/' -f"${REPOSITORY_DIR_COUNT}"-)
-FILE_NAME=$(echo ${1} | cut -d'/' -f"${REPOSITORY_DIR_COUNT}"-)
-echo "/SA-permission-775-001>   TEST_CASE  >>>>>${TEST_CASE}"
-echo "/SA-permission-775-001>   FILE_NAME  >>>>>${FILE_NAME}"
+TEST_CASE_TMP=$(echo ${0} | cut -d'/' -f"${REPOSITORY_DIR_COUNT}"-)
+FILE_NAME_TMP=$(echo ${1} | cut -d'/' -f"${REPOSITORY_DIR_COUNT}"-)
+echo "SA-permission-775-001>   TEST_CASE_TMP  >>>>>${TEST_CASE_TMP}"
+echo "SA-permission-775-001>   FILE_NAME_TMP  >>>>>${FILE_NAME_TMP}"
+TEST_CASE=$(dirname -- "${TEST_CASE_TMP}" ; echo "${YELLOW}" ; basename -- "${TEST_CASE_TMP}" ; echo "${WHITE}" )
+echo "SA-permission-775-001>   TEST_CASE  >>>>>${TEST_CASE}"
+TEST_CASE=$(echo ${TEST_CASE}${YELLOW} )
+TEST_CASE=$(echo ${TEST_CASE}${YELLOW} )
+echo "SA-permission-775-001>   TEST_CASE  >>>>>${TEST_CASE}"
+echo "SA-permission-775-001>   FILE_NAME  >>>>>${FILE_NAME}"
 
 if [[ ! -x ${1} ]] ; then  #  #34  Command invoked does not exist or cannot execute
   RETURN_CODE=126
