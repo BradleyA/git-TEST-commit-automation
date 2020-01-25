@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/git-TEST-cases.sh  2.344.1227  2020-01-24T23:38:56.052993-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.343  
+# 	   hooks/bin/git-TEST-cases.sh testing 
 # 	hooks/bin/git-TEST-cases.sh  2.343.1226  2020-01-24T23:28:21.285114-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.342  
 # 	   hooks/bin/git-TEST-cases.sh  debug REPOSITORY_DIR 
 # 	hooks/bin/git-TEST-cases.sh  2.342.1225  2020-01-24T20:59:53.478623-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.341  
@@ -238,11 +240,11 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable...
 
 ###  Production standard 10.0 TESTing
 
-DEBUG=1
-echo  " > > > > > > > > REPOSITORY_DIR >${REPOSITORY_DIR}<"
+echo  " 1 > > > > > > > REPOSITORY_DIR >${REPOSITORY_DIR}<"
+#	REPOSITORY_DIR=$(git rev-parse --show-toplevel)  #  export REPOSITORY_DIR so test scripts can use it
+echo  " 2 > > > > > > > REPOSITORY_DIR >${REPOSITORY_DIR}<"
 
-REPOSITORY_DIR=$(git rev-parse --show-toplevel)  #  export REPOSITORY_DIR so test scripts can use it
-echo  " > > > > > > > > REPOSITORY_DIR >${REPOSITORY_DIR}<"
+DEBUG=1
 
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  ${BOLD}${YELLOW}REPOSITORY_DIR  >${REPOSITORY_DIR}<${NORMAL}" 1>&2 ; fi
 cd "${REPOSITORY_DIR}"
