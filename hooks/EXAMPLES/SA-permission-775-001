@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/EXAMPLES/SA-permission-775-001  2.356.1243  2020-01-25T16:02:59.422555-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.355  
+#	   testing test case short names 
 #	hooks/EXAMPLES/SA-permission-775-001  2.355.1242  2020-01-25T15:58:27.034172-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.354  
 #	   # 
 #	hooks/EXAMPLES/SA-permission-775-001  2.354.1241  2020-01-25T15:51:07.318444-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.353  
@@ -59,8 +61,8 @@ TEST_CASE_TMP=$(echo ${0} | cut -d'/' -f"${REPOSITORY_DIR_COUNT}"-)
 FILE_NAME_TMP=$(echo ${1} | cut -d'/' -f"${REPOSITORY_DIR_COUNT}"-)
 echo "2 SA-permission-775-001>   TEST_CASE_TMP        >>>>>${TEST_CASE_TMP}"
 echo "3 SA-permission-775-001>   FILE_NAME_TMP        >>>>>${FILE_NAME_TMP}"
-TEST_CASE=$(dirname -- "${TEST_CASE_TMP}" ; echo "${YELLOW}" ; basename -- "${TEST_CASE_TMP}" ; echo "${WHITE}" )
-echo "4 SA-permission-775-001>   TEST_CASE        >>>>>${TEST_CASE}"
+TEST_CASE=$(dirname -- "${TEST_CASE_TMP}" ; echo -n "/${YELLOW}" ; basename -- "${TEST_CASE_TMP}" ; echo -n "${WHITE}" )
+echo "4 SA-permission-775-001>   TEST_CASE            >>>>>${TEST_CASE}"
 #	TEST_CASE=$(echo ${TEST_CASE}${YELLOW} )
 #	TEST_CASE=$(echo ${TEST_CASE}${YELLOW} )
 #	echo "SA-permission-775-001>   TEST_CASE  >>>>>${TEST_CASE}"
