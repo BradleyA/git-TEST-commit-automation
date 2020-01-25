@@ -1,8 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  2.344.1227  2020-01-24T23:38:56.052993-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.343  
-# 	   hooks/bin/git-TEST-cases.sh testing 
-# 	hooks/bin/git-TEST-cases.sh  2.343.1226  2020-01-24T23:28:21.285114-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.342  
-# 	   hooks/bin/git-TEST-cases.sh  debug REPOSITORY_DIR 
+# 	hooks/bin/git-TEST-cases.sh  2.345.1230  2020-01-25T00:11:16.775391-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.344-2-g3242884  
+# 	   hooks/bin/git-TEST-cases.sh  continue testing option test cases tomorrow 
 # 	hooks/bin/git-TEST-cases.sh  2.342.1225  2020-01-24T20:59:53.478623-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.341  
 # 	   hooks/bin/git-TEST-cases.sh   Production standard 9.3.562 Parse CLI options and arguments 
 # 	hooks/bin/git-TEST-cases.sh  2.271.1069  2020-01-21T15:02:14.982224-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.270-1-g01cdcc2
@@ -240,12 +238,6 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable...
 
 ###  Production standard 10.0 TESTing
 
-echo  " 1 > > > > > > > REPOSITORY_DIR >${REPOSITORY_DIR}<"
-#	REPOSITORY_DIR=$(git rev-parse --show-toplevel)  #  export REPOSITORY_DIR so test scripts can use it
-echo  " 2 > > > > > > > REPOSITORY_DIR >${REPOSITORY_DIR}<"
-
-DEBUG=1
-
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  ${BOLD}${YELLOW}REPOSITORY_DIR  >${REPOSITORY_DIR}<${NORMAL}" 1>&2 ; fi
 cd "${REPOSITORY_DIR}"
 if [[ "${CLI_OPTION}" == "f" ]]  ; then
@@ -314,7 +306,6 @@ else
         TEST_CASE_DIR_END=$(echo "${j}" | rev | cut -d '/' -f 1 | rev)
         TEST_CASE_DIR_START="${j//${TEST_CASE_DIR_END}/}"
         printf "${TEST_CASE_DIR_START}${BOLD}${YELLOW}${TEST_CASE_DIR_END}${NORMAL}\n"
-        cd "${REPOSITORY_DIR}/${j}"
         if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Run FVT-setup.sh and SA-setup.sh if -a or --all" 1>&2 ; fi
         if [[ "${CLI_OPTION}" == "a" ]] && [[ -x "FVT-setup.sh" ]]  ; then ./FVT-setup.sh  "${REPOSITORY_DIR}" ; fi
         if [[ "${CLI_OPTION}" == "a" ]] && [[ -x "SA-setup.sh"  ]]  ; then ./SA-setup.sh   "${REPOSITORY_DIR}" ; fi
