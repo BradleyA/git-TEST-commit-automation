@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  2.341.1224  2020-01-24T16:01:53.247419-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.340  
-# 	   test options 
+# 	hooks/bin/git-TEST-cases.sh  2.342.1225  2020-01-24T20:59:53.478623-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.341  
+# 	   hooks/bin/git-TEST-cases.sh   Production standard 9.3.562 Parse CLI options and arguments 
 # 	hooks/bin/git-TEST-cases.sh  2.271.1069  2020-01-21T15:02:14.982224-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.270-1-g01cdcc2
 # 	   FVT-cleanup.sh   Production standard 5.3.559 Copyright and correct an incident found during testing 
 # 	hooks/bin/git-TEST-cases.sh  2.270.1067  2020-01-20T23:20:44.631099-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.269  
@@ -196,40 +196,40 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Name_of_com
 #    Order of precedence: CLI argument, environment variable, default code
 if [[ "${ALL_TEST_CASES}" == "" ]] ; then ALL_TEST_CASES=${DEFAULT_ALL_TEST_CASES} ; fi
 
-###  Production standard 9.3.558 Parse CLI options and arguments #19
+###  Production standard 9.3.562 Parse CLI options and arguments
 while [[ "${#}" -gt 0 ]] ; do
   case "${1}" in
     --help|-help|help|-h|h|-\?)  display_help | more ; exit 0 ;;
     --usage|-usage|usage|-u)  display_usage ; exit 0  ;;
     --version|-version|version|-v)  echo "${SCRIPT_NAME} ${SCRIPT_VERSION}" ; exit 0  ;;
     -a|--all)   if [[ "${CLI_OPTION}" != "" ]] ; then
-        new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Only one of these option -a, --all, -c, --clean, -f, --filename, -n, or --none can be selected." 1>&2 ; exit 1
+        echo -e "\n${BOLD}    Only one of these option -a, --all, -c, --clean, -f, --filename, -n, or --none can be selected.${NORMAL}\n" ; exit 1
       else
         CLI_OPTION="a" ; shift
       fi ;;
     --add) DEFAULT_ADD_TEST_CASE="YES" ; shift ;;  #  #29
     -c|--clean) if [[ "${CLI_OPTION}" != "" ]] ; then
-        new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Only one of these option -a, --all, -c, --clean, -f, --filename, -n, or --none can be selected." 1>&2 ; exit 1
+        echo -e "\n${BOLD}    Only one of these option -a, --all, -c, --clean, -f, --filename, -n, or --none can be selected.${NORMAL}\n" ; exit 1
       else
         CLI_OPTION="c" ; shift 
       fi ;;
     -f|--filename) if [[ "${CLI_OPTION}" != "" ]] ; then
-        new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Only one of these option -a, --all, -c, --clean, -f, --filename, -n, or --none can be selected." 1>&2 ; exit 1
+        echo -e "\n${BOLD}    Only one of these option -a, --all, -c, --clean, -f, --filename, -n, or --none can be selected.${NORMAL}\n" ; exit 1
       else
         CLI_OPTION="f"
         #    Check if FILE_NAME is missing
-        if [[ "${2}" == "" ]] ; then new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Argument for ${1} is not found on command line" 1>&2 ; exit 1 ; fi
+        if [[ "${2}" == "" ]]    ; then echo -e "\n${BOLD}    Argument for ${1} is not found on command line\n" ; exit 1 ; fi
         #    Check if option (-) is next not FILE_NAME
-        if [[ ${2:0:1} == "-" ]] ; then new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Argument for ${1} is not found on command line" 1>&2 ; exit 1 ; fi
+        if [[ ${2:0:1} == "-" ]] ; then echo -e "\n${BOLD}    Argument for ${1} is not found on command line\n" ; exit 1 ; fi
         FILE_NAME=${2} ; shift 2
       fi ;;
     --hooks|-hooks) ALL_TEST_CASES="YES" ; shift ;;
     -n|--none) if [[ "${CLI_OPTION}" != "" ]] ; then  #  #18
-        new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Only one of these option -a, --all, -c, --clean, -f, --filename, -n, or --none can be selected." 1>&2 ; exit 1
+        echo -e "\n${BOLD}    Only one of these option -a, --all, -c, --clean, -f, --filename, -n, or --none can be selected.${NORMAL}\n" ; exit 1
       else
         CLI_OPTION="n" ; shift 
       fi ;;
-    *)  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Option, ${BOLD}${YELLOW}${1}${NORMAL}, entered on the command line is not supported." 1>&2 ; exit 1 ; ;;
+    *)  echo -e "\n${BOLD}    Option, ${YELLOW}${1}${WHITE}, is not supported.  Try  ${YELLOW}${COMMAND_NAME} --usage${NORMAL}\n" ; exit 1 ; ;;
   esac
 done
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable... CLI_OPTION >${CLI_OPTION}< FILE_NAME >${FILE_NAME}< ALL_TEST_CASES >${ALL_TEST_CASES}<" 1>&2 ; fi
@@ -243,7 +243,7 @@ if [[ "${CLI_OPTION}" == "f" ]]  ; then
   if [[ "${DEFAULT_ADD_TEST_CASE}" == "YES" ]] ; then  #  #29  --add default SA files
     TMP1=$(find . -type f -name "${FILE_NAME}")
     if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Directory with FILE_NAME >${TMP1}< FILE_NAME >${FILE_NAME}<" 1>&2 ; fi
-    if [[ "${TMP1}" == "" ]] ; then new_message "${LINENO}" "ERROR" "  Filename ${FILE_NAME}, NOT found" 1>&2 ; exit 1 ; fi
+    if [[ "${TMP1}" == "" ]] ; then echo -e "${BOLD}${YELLOW}\n    INFO:  ${WHITE}Filename ${YELLOW}${FILE_NAME}${WHITE}, NOT found.  Check spelling of filename\n    or try  ${YELLOW}${COMMAND_NAME} --help${NORMAL}" 1>&2 ; exit 1 ; fi
     DIR_COUNT=$(awk -F'/' '{print NF-2}' <<< $TMP1)
     cd "$(dirname "${TMP1}")"  #  change to directory with ${FILE_NAME}
     mkdir -p TEST/"${FILE_NAME}"/
@@ -263,10 +263,10 @@ if [[ "${CLI_OPTION}" == "f" ]]  ; then
   if [[ -x "SA-setup.sh"  ]]  ; then ./SA-setup.sh  ; fi
   cd "${REPOSITORY_DIR}"
   if [[ "${ALL_TEST_CASES}" == "YES" ]] ; then
-    echo "${BOLD}${YELLOW}    INFO:  If file not found, check spelling.${NORMAL}" 1>&2
+    echo -e "${BOLD}${YELLOW}\n    INFO:  ${WHITE}If filename is not found.  Check spelling of filename\n    or try  ${YELLOW}${COMMAND_NAME} --help${NORMAL}\n" 1>&2
     find . -print | grep --color=auto "${FILE_NAME}"
   else
-    echo "${BOLD}${YELLOW}    INFO:  If file not found, check spelling or including --hooks option.${NORMAL}" 1>&2
+    echo -e "${BOLD}${YELLOW}\n    INFO:  ${WHITE}If filename is not found.  Check spelling of filename\n    or try  ${YELLOW}${COMMAND_NAME} --filename <FILE_NAME> --hooks\n    ${WHITE}or try  ${YELLOW}${COMMAND_NAME} --help${NORMAL}\n" 1>&2
     find . -print | grep -v 'hooks/' | grep --color=auto "${FILE_NAME}"
   fi
   cd "$(find . -type d -name "${FILE_NAME}")"
@@ -291,6 +291,9 @@ else
     done
     rm /tmp/GITALL*
   else
+
+DEBUG=1
+
     DIR_LIST=$(find . -type d -name TEST)  #  create list of TEST directories
     if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  \${DIR_LIST} >${DIR_LIST=}<" 1>&2 ; fi
     for i in $DIR_LIST ; do
