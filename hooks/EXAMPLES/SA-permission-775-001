@@ -1,6 +1,6 @@
 #!/bin/bash
-#	hooks/EXAMPLES/SA-permission-775-001  2.362.1249  2020-01-25T16:47:41.711795-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.361  
-#	   test case short names for PASS 
+#	hooks/EXAMPLES/SA-permission-775-001  2.364.1251  2020-01-25T17:01:48.733824-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.363  
+#	   Use short test case name 
 #	hooks/EXAMPLES/SA-permission-775-001  2.138.787  2019-09-27T12:34:13.482459-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.137  
 #	   close #34    EXAMPLES/SA-* FVT-*   added NO -x ${1} exit ERROR 126 
 #86#  hooks/EXAMPLES/hooks/EXAMPLES/SA-permission-775-001 - test case
