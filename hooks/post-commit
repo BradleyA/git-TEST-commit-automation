@@ -1,9 +1,5 @@
 #!/bin/bash
-#	hooks/post-commit  2.351.1238  2020-01-25T15:12:57.624285-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.350  
-#	   testing test case short names 
-#	hooks/post-commit  2.350.1237  2020-01-25T15:11:32.138181-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.349  
-#	   testing test case short names 
-#	hooks/post-commit  2.349.1236  2020-01-25T15:09:32.502770-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.348  
+#	hooks/post-commit  2.352.1239  2020-01-25T15:20:53.009194-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.351  
 #	   testing test case short names 
 #	hooks/post-commit  2.328.1206  2020-01-23T23:13:49.393804-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.327  
 #	   hooks/post-commit   export REPOSITORY_DIR so test scripts can use it 
@@ -70,13 +66,12 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "INFO
 
 REPOSITORY_DIR=$(git rev-parse --show-toplevel)
 export REPOSITORY_DIR  #  export REPOSITORY_DIR so test scripts can use it
-echo "post-commit>   REPOSITORY_DIR >>>>>${REPOSITORY_DIR}"
-set -x
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  REPOSITORY_DIR  >${REPOSITORY_DIR}<" 1>&2 ; fi
 REPOSITORY_DIR_COUNT=$(awk -F"/" '{print NF-1}' <<< "${REPOSITORY_DIR}")  #
 REPOSITORY_DIR_COUNT=$((REPOSITORY_DIR_COUNT+1))
 export REPOSITORY_DIR_COUNT  #  export number of directories + 1
-echo "post-commit>   REPOSITORY_DIR_COUNT >>>>>${REPOSITORY_DIR_COUNT}"
-set +x
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  REPOSITORY_DIR_COUNT  >${REPOSITORY_DIR_COUNT}<" 1>&2 ; fi
+
 if [[ ! -r "${REPOSITORY_DIR}/hooks/COMMIT_FILE_LIST" ]] ; then echo "COMMIT_FILE_LIST is created by pre-commit (git hook) and is required input for this script." ; exit 1 ; fi
 COMMIT_FILE_LIST=$(cat "${REPOSITORY_DIR}"/hooks/COMMIT_FILE_LIST)
 
