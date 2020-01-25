@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/EXAMPLES/FVT-option-help-003  2.367.1254  2020-01-25T17:28:33.011239-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.366  
+#	   Use short test case name 
 #	hooks/EXAMPLES/FVT-option-help-003  2.366.1253  2020-01-25T17:21:25.616284-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.365  
 #	   Use short test case name 
 #	hooks/EXAMPLES/FVT-option-help-003  2.276.1076  2020-01-21T19:13:26.593261-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.275  
@@ -84,7 +86,6 @@ if grep -q 'USAGE' "${0}".test-case-output ; then
   if grep -q 'DESCRIPTION' "${0}".test-case-output  ; then
     if grep -q 'DOCUMENTATION' "${0}".test-case-output  ; then
       echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${TEST_CASE} ${FILE_NAME} 0 - USAGE DESCRIPTION DOCUMENTATION found in output - ${BOLD}${GREEN}PASS - PASS${NORMAL}"
-      echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} 0 - USAGE DESCRIPTION DOCUMENTATION found in output ${BOLD}${GREEN}PASS - PASS${NORMAL}"
       exit 0
     else
       echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} 1 - DOCUMENTATION not found in output - ${BOLD}${RED}FAIL - FAIL${NORMAL}"
