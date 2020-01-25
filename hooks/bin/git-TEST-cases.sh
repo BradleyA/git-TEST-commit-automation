@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/git-TEST-cases.sh  2.343.1226  2020-01-24T23:28:21.285114-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.342  
+# 	   hooks/bin/git-TEST-cases.sh  debug REPOSITORY_DIR 
 # 	hooks/bin/git-TEST-cases.sh  2.342.1225  2020-01-24T20:59:53.478623-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.341  
 # 	   hooks/bin/git-TEST-cases.sh   Production standard 9.3.562 Parse CLI options and arguments 
 # 	hooks/bin/git-TEST-cases.sh  2.271.1069  2020-01-21T15:02:14.982224-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.270-1-g01cdcc2
@@ -235,11 +237,18 @@ done
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable... CLI_OPTION >${CLI_OPTION}< FILE_NAME >${FILE_NAME}< ALL_TEST_CASES >${ALL_TEST_CASES}<" 1>&2 ; fi
 
 ###  Production standard 10.0 TESTing
-#	REPOSITORY_DIR=$(git rev-parse --show-toplevel)  #  export REPOSITORY_DIR so test scripts can use it
+
+DEBUG=1
+echo  " > > > > > > > > REPOSITORY_DIR >${REPOSITORY_DIR}<"
+
+REPOSITORY_DIR=$(git rev-parse --show-toplevel)  #  export REPOSITORY_DIR so test scripts can use it
+echo  " > > > > > > > > REPOSITORY_DIR >${REPOSITORY_DIR}<"
+
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  ${BOLD}${YELLOW}REPOSITORY_DIR  >${REPOSITORY_DIR}<${NORMAL}" 1>&2 ; fi
 cd "${REPOSITORY_DIR}"
 if [[ "${CLI_OPTION}" == "f" ]]  ; then
-  if [[ "${FILE_NAME}" =~ / ]] ; then new_message "${LINENO}" "ERROR" "  Filename ${FILE_NAME}, contains '/'" 1>&2 ; exit 1 ; fi
+  if [[ "${FILE_NAME}" =~ / ]] ; then new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Filename ${FILE_NAME}, contains '/'" 1>&2 ; exit 1 ; fi
+
   if [[ "${DEFAULT_ADD_TEST_CASE}" == "YES" ]] ; then  #  #29  --add default SA files
     TMP1=$(find . -type f -name "${FILE_NAME}")
     if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Directory with FILE_NAME >${TMP1}< FILE_NAME >${FILE_NAME}<" 1>&2 ; fi
@@ -291,9 +300,6 @@ else
     done
     rm /tmp/GITALL*
   else
-
-DEBUG=1
-
     DIR_LIST=$(find . -type d -name TEST)  #  create list of TEST directories
     if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  \${DIR_LIST} >${DIR_LIST=}<" 1>&2 ; fi
     for i in $DIR_LIST ; do
