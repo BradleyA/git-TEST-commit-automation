@@ -1,20 +1,20 @@
 
-In SA-shellcheck-001 line 83:
+In SA-shellcheck-001 line 92:
     SA_TEST_CASES=$(ls -1 | grep "^SA" | grep -v "\.")
                     ^-- SC2010: Don't use ls | grep. Use a glob or a for loop with a condition to allow non-alphanumeric filenames.
 
 
-In SA-shellcheck-001 line 85:
+In SA-shellcheck-001 line 94:
     NO_TEST_CASES=$(ls -1 | grep "^SA" | grep -v "\." -c)
                     ^-- SC2010: Don't use ls | grep. Use a glob or a for loop with a condition to allow non-alphanumeric filenames.
 
 
-In SA-shellcheck-001 line 124:
+In SA-shellcheck-001 line 133:
     FVT_TEST_CASES=$(ls -1 | grep "^FVT" | grep -v "\.")
                      ^-- SC2010: Don't use ls | grep. Use a glob or a for loop with a condition to allow non-alphanumeric filenames.
 
 
-In SA-shellcheck-001 line 126:
+In SA-shellcheck-001 line 135:
     NO_TEST_CASES=$(ls -1 | grep "^FVT" | grep -v "\." -c)
                     ^-- SC2010: Don't use ls | grep. Use a glob or a for loop with a condition to allow non-alphanumeric filenames.
 
