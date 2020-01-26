@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/EXAMPLES/FVT-option-version-003  2.370.1257  2020-01-25T20:00:27.970230-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.369  
+#	   Use short test case name 
 #	hooks/EXAMPLES/FVT-option-version-003  2.276.1076  2020-01-21T19:14:15.180346-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.275  
 #	   FVT-*    Production standard 5.3.559 Copyright 
 #	hooks/EXAMPLES/FVT-option-version-003  2.261.1050  2020-01-19T10:23:30.394383-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.260  
@@ -57,6 +59,17 @@ new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
 #    INFO
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2 ; fi
 
+###
+
+TEST_CASE_TMP_1=$(echo "${0}" | cut -d'/' -f"${REPOSITORY_DIR_COUNT}"-)
+TEST_CASE_TMP_2=$(dirname -- "${TEST_CASE_TMP_1}")
+TEST_CASE_TMP_3=$(basename -- "${TEST_CASE_TMP_1}")
+TEST_CASE="${TEST_CASE_TMP_2}/${BOLD}${YELLOW}${TEST_CASE_TMP_3}${NORMAL}"
+FILE_NAME_TMP_1=$(echo "${1}" | cut -d'/' -f"${REPOSITORY_DIR_COUNT}"-)
+FILE_NAME_TMP_2=$(dirname -- "${FILE_NAME_TMP_1}")
+FILE_NAME_TMP_3=$(basename -- "${FILE_NAME_TMP_1}")
+FILE_NAME="${FILE_NAME_TMP_2}/${BOLD}${YELLOW}${FILE_NAME_TMP_3}${NORMAL}"
+
 if [[ ! -x ${1} ]] ; then  #  Command invoked does not exist or cannot execute
   RETURN_CODE=126
   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${RETURN_CODE} - File, ${1}, does not exist or have execute permission" 1>&2
@@ -77,7 +90,7 @@ echo "${TEST_NAME} ${TEST_VERSION=}" > "${0}.expected"
 diff "${0}".expected "${0}".test-case-output >/dev/null 2>&1
 RETURN_CODE=${?}
 if [[ "${RETURN_CODE}" -eq 0 ]] ; then
-  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} 0 - No difference with expected output - ${BOLD}${GREEN}PASS - PASS${NORMAL}"
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${TEST_CASE} ${FILE_NAME} 0 - No difference with expected output - ${BOLD}${GREEN}PASS - PASS${NORMAL}"
   exit 0
 elif [[ "${RETURN_CODE}" -eq 1 ]] ; then
   echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} 1 - Differences with expected output - ${BOLD}${RED}FAIL - FAIL${NORMAL}"
