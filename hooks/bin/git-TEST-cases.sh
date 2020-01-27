@@ -1,10 +1,8 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  2.414.1303  2020-01-27T11:26:16.557663-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.413  
-# 	   Use short test case name 
+# 	hooks/bin/git-TEST-cases.sh  2.416.1305  2020-01-27T12:25:23.934292-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.415  
+# 	   hooks/bin/git-TEST-cases.sh   adding setting REPOSITORY_DIR if not already set 
 # 	hooks/bin/git-TEST-cases.sh  2.342.1225  2020-01-24T20:59:53.478623-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.341  
 # 	   hooks/bin/git-TEST-cases.sh   Production standard 9.3.562 Parse CLI options and arguments 
-# 	hooks/bin/git-TEST-cases.sh  2.271.1069  2020-01-21T15:02:14.982224-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.270-1-g01cdcc2
-# 	   FVT-cleanup.sh   Production standard 5.3.559 Copyright and correct an incident found during testing 
 # 	hooks/bin/git-TEST-cases.sh  2.270.1067  2020-01-20T23:20:44.631099-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.269  
 # 	   hooks/bin/git-TEST-cases.sh   Production standard 5.3.559 Copyright, Production standard 1.3.550 DEBUG variable, Production standard 0.3.550 --help, Production standard 2.3.529 log format, Production standard 9.3.558 Parse CLI options and arguments 
 # 	hooks/bin/git-TEST-cases.sh  2.208.904  2019-10-12T16:36:32.359495-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.207-1-ga99b68e  
@@ -239,6 +237,10 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable...
 ###  Production standard 10.0 TESTing
 
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  ${BOLD}${YELLOW}REPOSITORY_DIR  >${REPOSITORY_DIR}<${NORMAL}" 1>&2 ; fi
+
+if [[ "${REPOSITORY_DIR}" == ""  ]] ; then
+  REPOSITORY_DIR=$(git rev-parse --show-toplevel) || { new_message "${LINENO}" "${RED}ERROR${WHITE}" "  git-TEST-cases.sh: Not a git repository (or any of the parent directories)" 1>&2 ; exit 1 ; } 
+fi
 cd "${REPOSITORY_DIR}"
 if [[ "${CLI_OPTION}" == "f" ]]  ; then
   if [[ "${FILE_NAME}" =~ / ]] ; then new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Filename ${FILE_NAME}, contains '/'" 1>&2 ; exit 1 ; fi
