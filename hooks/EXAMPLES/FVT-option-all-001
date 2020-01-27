@@ -1,5 +1,5 @@
 #!/bin/bash
-#	hooks/EXAMPLES/FVT-option-all-001  2.393.1282  2020-01-26T20:39:42.251779-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.392  
+#	hooks/EXAMPLES/FVT-option-all-001  2.394.1283  2020-01-26T20:46:03.472817-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.393  
 #	   Use short test case name 
 #	hooks/EXAMPLES/FVT-option-all-001  2.276.1076  2020-01-21T19:11:52.657338-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.275  
 #	   FVT-*    Production standard 5.3.559 Copyright 
@@ -83,7 +83,7 @@ ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/SA-cleanup.sh   "${REPOSITORY_DIR}"/
 touch    "${REPOSITORY_DIR}"/+tmp_DIR_"${COMMAND_NAME}"/+tmp_CMD_"${COMMAND_NAME}"
 echo     "#!/bin/bash" >> "${REPOSITORY_DIR}"/+tmp_DIR_"${COMMAND_NAME}"/+tmp_CMD_"${COMMAND_NAME}"
 #    Remove test files
-rm -r "${REPOSITORY_DIR}"/+tmp_DIR_"${COMMAND_NAME}"
+#	rm -r "${REPOSITORY_DIR}"/+tmp_DIR_"${COMMAND_NAME}"
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  COMMAND_NAME >${COMMAND_NAME}<  ${REPOSITORY_DIR}/+tmp.${COMMAND_NAME}" 1>&2 ; fi
 
 "${1}" -a >"${0}".test-case-output 2>&1
