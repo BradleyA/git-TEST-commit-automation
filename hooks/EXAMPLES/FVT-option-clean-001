@@ -1,5 +1,5 @@
 #!/bin/bash
-#	hooks/EXAMPLES/FVT-option-clean-001  2.408.1297  2020-01-26T21:58:49.242678-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.407  
+#	hooks/EXAMPLES/FVT-option-clean-001  2.409.1298  2020-01-26T22:15:51.431706-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.408  
 #	   Use short test case name 
 #86# hooks/bin/TEST/git-TEST-cases.sh/FVT-option-clean-001  -  custom test case
 ###  Production standard 3.0 shellcheck
@@ -72,12 +72,26 @@ fi
 
 ###  Place test case here
 
+#    Create a directory that includes a file that does have test cases and is not in the hooks directory
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  REPOSITORY_DIR is exported in post-commit script >${REPOSITORY_DIR}<" 1>&2 ; fi
+COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')
+mkdir -p "${REPOSITORY_DIR}"/+tmp_DIR_"${COMMAND_NAME}"/TEST/+tmp_CMD_"${COMMAND_NAME}"
+ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/SA-setup.sh   "${REPOSITORY_DIR}"/+tmp_DIR_"${COMMAND_NAME}"/TEST/+tmp_CMD_"${COMMAND_NAME}"/SA-setup.sh
+ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/SA-cleanup.sh   "${REPOSITORY_DIR}"/+tmp_DIR_"${COMMAND_NAME}"/TEST/+tmp_CMD_"${COMMAND_NAME}"/SA-cleanup.sh
+ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/SA-cleanup.sh   "${REPOSITORY_DIR}"/+tmp_DIR_"${COMMAND_NAME}"/TEST/+tmp_CMD_"${COMMAND_NAME}"/SA-permission-775-001
+ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/SA-cleanup.sh   "${REPOSITORY_DIR}"/+tmp_DIR_"${COMMAND_NAME}"/TEST/+tmp_CMD_"${COMMAND_NAME}"/SA-shellcheck-001
+touch    "${REPOSITORY_DIR}"/+tmp_DIR_"${COMMAND_NAME}"/+tmp_CMD_"${COMMAND_NAME}"
+echo     "#!/bin/bash" >> "${REPOSITORY_DIR}"/+tmp_DIR_"${COMMAND_NAME}"/+tmp_CMD_"${COMMAND_NAME}"
+set -x
+FILE_COUNT=$(ls -1 "${REPOSITORY_DIR}"/+tmp_DIR_"${COMMAND_NAME}"/TEST/+tmp_CMD_"${COMMAND_NAME}" | wc -l)
+"${0}.expected"="${FILE_COUNT}"
+echo "\${FILE_COUNT}   >${FILE_COUNT}<"
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  COMMAND_NAME >${COMMAND_NAME}<  ${REPOSITORY_DIR}/+tmp.${COMMAND_NAME}" 1>&2 ; fi
+
 #  output is blank: no files w/o hooks
 touch "${0}.expected"
 
-set -x
 "${1}" -c 2>&1 | cut -d ']' -f 3 >"${0}".test-case-output  #  pipe [] message into "${0}".test-case-output
-"${1}" -c
 
 if [[ -s ${1} ]] ; then  #  file size is greater than zero
   diff "${0}".expected "${0}".test-case-output >/dev/null 2>&1
@@ -86,7 +100,10 @@ else
   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  File, ${1}, does not exist or is empty" 1>&2
   RETURN_CODE=2
 fi
-set +x
+
+# >>>	remove after debug
+exit
+
 
 if [[ "${RETURN_CODE}" -eq 0 ]] ; then
   echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${TEST_CASE} ${FILE_NAME} ${RETURN_CODE} - No difference with expected output - ${BOLD}${GREEN}PASS - PASS${NORMAL}"
