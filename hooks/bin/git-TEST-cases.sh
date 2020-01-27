@@ -1,5 +1,5 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  2.382.1271  2020-01-26T08:32:43.415186-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.381  
+# 	hooks/bin/git-TEST-cases.sh  2.383.1272  2020-01-26T18:47:29.614370-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.382  
 # 	   Use short test case name 
 # 	hooks/bin/git-TEST-cases.sh  2.342.1225  2020-01-24T20:59:53.478623-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.341  
 # 	   hooks/bin/git-TEST-cases.sh   Production standard 9.3.562 Parse CLI options and arguments 
@@ -35,6 +35,16 @@ WHITE=$(tput  setaf 7)
 ###  Production standard 7.0 Default variable value
 DEFAULT_ALL_TEST_CASES="NO"
 DEFAULT_ADD_TEST_CASE="NO"
+
+
+# >>>  remove after testing
+
+# >>>   REMOVE after testing because it is not needed with hooks
+REPOSITORY_DIR="/home/uadmin/github/BradleyA/git-TEST-commit-automation"
+REPOSITORY_DIR_COUNT="6"
+# >>>
+
+# >>>	remove after testing TEST Remove
 
 ###  Production standard 8.3.541 --usage
 COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')                                               # 3.541
