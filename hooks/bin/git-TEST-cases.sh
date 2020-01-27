@@ -1,5 +1,5 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  2.403.1292  2020-01-26T21:39:21.193696-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.402  
+# 	hooks/bin/git-TEST-cases.sh  2.404.1293  2020-01-26T21:43:27.772621-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.403  
 # 	   Use short test case name 
 # 	hooks/bin/git-TEST-cases.sh  2.342.1225  2020-01-24T20:59:53.478623-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.341  
 # 	   hooks/bin/git-TEST-cases.sh   Production standard 9.3.562 Parse CLI options and arguments 
