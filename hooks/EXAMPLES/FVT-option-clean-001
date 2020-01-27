@@ -1,5 +1,5 @@
 #!/bin/bash
-#	hooks/EXAMPLES/FVT-option-clean-001  2.409.1298  2020-01-26T22:15:51.431706-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.408  
+#	hooks/EXAMPLES/FVT-option-clean-001  2.410.1299  2020-01-26T22:25:41.361263-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.409  
 #	   Use short test case name 
 #86# hooks/bin/TEST/git-TEST-cases.sh/FVT-option-clean-001  -  custom test case
 ###  Production standard 3.0 shellcheck
@@ -82,19 +82,12 @@ ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/SA-cleanup.sh   "${REPOSITORY_DIR}"/
 ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/SA-cleanup.sh   "${REPOSITORY_DIR}"/+tmp_DIR_"${COMMAND_NAME}"/TEST/+tmp_CMD_"${COMMAND_NAME}"/SA-shellcheck-001
 touch    "${REPOSITORY_DIR}"/+tmp_DIR_"${COMMAND_NAME}"/+tmp_CMD_"${COMMAND_NAME}"
 echo     "#!/bin/bash" >> "${REPOSITORY_DIR}"/+tmp_DIR_"${COMMAND_NAME}"/+tmp_CMD_"${COMMAND_NAME}"
-set -x
-FILE_COUNT=$(ls -1 "${REPOSITORY_DIR}"/+tmp_DIR_"${COMMAND_NAME}"/TEST/+tmp_CMD_"${COMMAND_NAME}" | wc -l)
-"${0}.expected"="${FILE_COUNT}"
-echo "\${FILE_COUNT}   >${FILE_COUNT}<"
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  COMMAND_NAME >${COMMAND_NAME}<  ${REPOSITORY_DIR}/+tmp.${COMMAND_NAME}" 1>&2 ; fi
 
-#  output is blank: no files w/o hooks
-touch "${0}.expected"
+"${1}" -c >"${0}".test-case-output 2>&1
+FILE_COUNT=$(ls -1 "${REPOSITORY_DIR}"/+tmp_DIR_"${COMMAND_NAME}"/TEST/+tmp_CMD_"${COMMAND_NAME}" | wc -l)
 
-"${1}" -c 2>&1 | cut -d ']' -f 3 >"${0}".test-case-output  #  pipe [] message into "${0}".test-case-output
-
-if [[ -s ${1} ]] ; then  #  file size is greater than zero
-  diff "${0}".expected "${0}".test-case-output >/dev/null 2>&1
+if [[ -s ${1} ]] && [[ "${FILE_COUNT}" == "2"  ]] ; then  #  file size is greater than zero
   RETURN_CODE=${?}
 else
   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  File, ${1}, does not exist or is empty" 1>&2
