@@ -1,5 +1,5 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/FVT-cleanup.sh  2.417.1306  2020-01-27T13:27:54.464170-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.416  
+# 	hooks/EXAMPLES/FVT-cleanup.sh  2.421.1310  2020-01-27T13:45:06.035091-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.420  
 # 	   Use short test case name 
 # 	hooks/EXAMPLES/FVT-cleanup.sh  2.272.1072  2020-01-21T15:24:20.447135-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.271-2-gaeeaa5a  
 # 	   hooks/EXAMPLES/FVT-cleanup.sh hooks/EXAMPLES/SA-cleanup.sh  correct incidents found with shellcheck 
@@ -63,7 +63,7 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}
 #    Remove directories
 #  rmdir
 #    Remove output from previous run of test cases
-rm -f FVT-*.test-case-output
+#	rm -f FVT-*.test-case-output
 #    Remove temporary files
 #  rm -f temporary files
 rm -f FVT-option-version-001.expected  # This file is created when running the test case
