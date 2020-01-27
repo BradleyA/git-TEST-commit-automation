@@ -1,5 +1,5 @@
 #!/bin/bash
-# 	hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh  2.389.1278  2020-01-26T19:55:15.949749-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.388  
+# 	hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh  2.403.1292  2020-01-26T21:39:21.015316-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.402  
 # 	   Use short test case name 
 # 	hooks/EXAMPLES/FVT-setup.sh  2.276.1076  2020-01-21T19:14:19.604461-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.275  
 # 	   FVT-*    Production standard 5.3.559 Copyright 
@@ -85,7 +85,7 @@ fi
 #	ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-add-001"	FVT-option-add-001
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-all-001"	FVT-option-all-001
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-all-002"	FVT-option-all-002
-#	ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-all-hooks-001"	FVT-option-all-hooks-001
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-all-hooks-001"	FVT-option-all-hooks-001
 #	ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-all-hooks-001.expected"	FVT-option-all-hooks-001.expected
 #	ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-all-hooks-002"	FVT-option-all-hooks-002
 #	ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-all-hooks-002.expected"	FVT-option-all-hooks-002.expected
