@@ -1,5 +1,5 @@
 #!/bin/bash
-#	hooks/EXAMPLES/SA-shellcheck-001  2.391.1280  2020-01-26T20:11:28.632185-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.390  
+#	hooks/EXAMPLES/SA-shellcheck-001  2.393.1282  2020-01-26T20:39:55.586929-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.392  
 #	   Use short test case name 
 #	hooks/EXAMPLES/SA-shellcheck-001  2.372.1260  2020-01-25T21:29:27.714249-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.371-1-gfc4ba1f  
 #	   Production standard 5.3.559 Copyright  Production standard 1.3.550 DEBUG variable  Production standard 2.3.529 log format 
@@ -62,7 +62,6 @@ TEST_CASE_TMP_2=$(dirname -- "${TEST_CASE_TMP_1}")
 TEST_CASE_TMP_3=$(basename -- "${TEST_CASE_TMP_1}")
 TEST_CASE="${TEST_CASE_TMP_2}/${BOLD}${YELLOW}${TEST_CASE_TMP_3}${NORMAL}"
 FILE_NAME_TMP_1=$(echo "${1}" | cut -d'/' -f"${REPOSITORY_DIR_COUNT}"-)
-#       FILE_NAME_TMP_2=$(dirname -- "${FILE_NAME_TMP_1}")
 FILE_NAME_TMP_3=$(basename -- "${FILE_NAME_TMP_1}")
 FILE_NAME="${BOLD}${YELLOW}${FILE_NAME_TMP_3}${NORMAL}"
 
