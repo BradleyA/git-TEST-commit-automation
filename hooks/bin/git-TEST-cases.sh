@@ -1,5 +1,7 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  2.416.1305  2020-01-27T12:25:23.934292-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.415  
+# 	hooks/bin/git-TEST-cases.sh  2.417.1306  2020-01-27T13:27:54.648434-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.416  
+# 	   Use short test case name 
+# 	hooks/bin/git-TEST-cases.sh  2.416.1305  2020-01-27T12:25:23.934292-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.415
 # 	   hooks/bin/git-TEST-cases.sh   adding setting REPOSITORY_DIR if not already set 
 # 	hooks/bin/git-TEST-cases.sh  2.342.1225  2020-01-24T20:59:53.478623-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.341  
 # 	   hooks/bin/git-TEST-cases.sh   Production standard 9.3.562 Parse CLI options and arguments 
@@ -8,8 +10,8 @@
 # 	hooks/bin/git-TEST-cases.sh  2.208.904  2019-10-12T16:36:32.359495-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.207-1-ga99b68e  
 # 	   close #40    git-TEST-cases.sh   - add git add & commit when creating default test case 
 #86# hooks/bin/git-TEST-cases.sh  -  lists and manages files in TEST case directories
-#       git-TEST-cases.sh all - runs FVT-setup.sh and SA-setup.sh to create symbolic links to EXAMPLES before listing all test cases
-#       git-TEST-cases.sh clean - remove symbolic links from TEST/<command>/ directories
+#       git-TEST-cases.sh --all   -  runs FVT-setup.sh and SA-setup.sh to create symbolic links to EXAMPLES before listing all test cases
+#       git-TEST-cases.sh --clean -  remove symbolic links from TEST/<command>/ directories
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.3.559 Copyright                                    # 3.559
 #    Copyright (c) 2020 Bradley Allen                                                # 3.555
