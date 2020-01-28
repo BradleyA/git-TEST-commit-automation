@@ -1,8 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  2.433.1324  2020-01-27T23:55:50.024210-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.432  
-# 	   Use short test case name 
-# 	hooks/bin/git-TEST-cases.sh  2.416.1305  2020-01-27T12:25:23.934292-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.415
-# 	   hooks/bin/git-TEST-cases.sh   adding setting REPOSITORY_DIR if not already set 
+# 	hooks/bin/git-TEST-cases.sh  2.435.1326  2020-01-28T10:11:57.566271-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.434  
+# 	   hooks/bin/git-TEST-cases.sh   Set REPOSITORY_DIR if not already set, exit if NOT a git repository (or any of the parent directories) close #42 
 # 	hooks/bin/git-TEST-cases.sh  2.342.1225  2020-01-24T20:59:53.478623-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.341 
 # 	   hooks/bin/git-TEST-cases.sh   Production standard 9.3.562 Parse CLI options and arguments 
 # 	hooks/bin/git-TEST-cases.sh  2.270.1067  2020-01-20T23:20:44.631099-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.269  
@@ -239,10 +237,10 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable...
 
 ###  Production standard 10.0 TESTing
 
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  ${BOLD}${YELLOW}REPOSITORY_DIR  >${REPOSITORY_DIR}<${NORMAL}" 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  ${BOLD}${YELLOW}REPOSITORY_DIR   >${REPOSITORY_DIR}<${NORMAL}" 1>&2 ; fi
 
-if [[ "${REPOSITORY_DIR}" == ""  ]] ; then
-  REPOSITORY_DIR=$(git rev-parse --show-toplevel) || { new_message "${LINENO}" "${RED}ERROR${WHITE}" "  git-TEST-cases.sh: Not a git repository (or any of the parent directories)" 1>&2 ; exit 1 ; } 
+if [[ "${REPOSITORY_DIR}" == "" ]] ; then
+  REPOSITORY_DIR=$(git rev-parse --show-toplevel) || { new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Not a git repository (or any of the parent directories)" 1>&2 ; exit 1 ; } 
 fi
 cd "${REPOSITORY_DIR}"
 if [[ "${CLI_OPTION}" == "f" ]]  ; then
