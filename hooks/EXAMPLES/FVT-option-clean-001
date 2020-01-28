@@ -1,5 +1,5 @@
 #!/bin/bash
-#	hooks/EXAMPLES/FVT-option-clean-001  2.421.1310  2020-01-27T13:45:10.604774-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.420  
+#	hooks/EXAMPLES/FVT-option-clean-001  2.423.1313  2020-01-27T21:36:51.167357-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.422-1-ge2e7483  
 #	   Use short test case name 
 #86# hooks/bin/TEST/git-TEST-cases.sh/FVT-option-clean-001  -  custom test case
 ###  Production standard 3.0 shellcheck
@@ -85,7 +85,7 @@ echo     "#!/bin/bash" >> "${REPOSITORY_DIR}"/+tmp_DIR_"${COMMAND_NAME}"/+tmp_CM
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  COMMAND_NAME >${COMMAND_NAME}<  ${REPOSITORY_DIR}/+tmp.${COMMAND_NAME}" 1>&2 ; fi
 
 ls -1 "${REPOSITORY_DIR}"/+tmp_DIR_"${COMMAND_NAME}"/TEST/+tmp_CMD_"${COMMAND_NAME}"
-echo "THis is before -c"
+echo -e ">>>	This is before -c\n"
 "${1}" -c >"${0}".test-case-output 2>&1
 
 set -x
