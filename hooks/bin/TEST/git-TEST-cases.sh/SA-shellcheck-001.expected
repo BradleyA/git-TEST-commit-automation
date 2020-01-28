@@ -4,24 +4,24 @@ In SA-shellcheck-001 line 287:
                            ^-- SC2012: Use find instead of ls to better handle non-alphanumeric filenames.
 
 
-In SA-shellcheck-001 line 293:
+In SA-shellcheck-001 line 296:
         printf "${TEST_CASE_DIR_START}${BOLD}${YELLOW}${TEST_CASE_DIR_END}${NORMAL}\n"
                ^-- SC2059: Don't use variables in the printf format string. Use printf "..%s.." "$foo".
 
 
-In SA-shellcheck-001 line 302:
+In SA-shellcheck-001 line 313:
         printf "${BOLD}${GREEN} $(ls -1  "${j}" | grep -v "\." | sed 's/^/\t/')${NORMAL}\n"
                ^-- SC2059: Don't use variables in the printf format string. Use printf "..%s.." "$foo".
                                   ^-- SC2010: Don't use ls | grep. Use a glob or a for loop with a condition to allow non-alphanumeric filenames.
 
 
-In SA-shellcheck-001 line 303:
+In SA-shellcheck-001 line 314:
         printf "${BOLD}${CYAN} $(ls -1  "${j}" | grep "cleanup.sh" | sed 's/^/\t/')${NORMAL}\n"
                ^-- SC2059: Don't use variables in the printf format string. Use printf "..%s.." "$foo".
                                  ^-- SC2010: Don't use ls | grep. Use a glob or a for loop with a condition to allow non-alphanumeric filenames.
 
 
-In SA-shellcheck-001 line 304:
+In SA-shellcheck-001 line 315:
         printf "${BOLD}${CYAN} $(ls -1  "${j}" | grep "setup.sh" | sed 's/^/\t/')${NORMAL}\n"
                ^-- SC2059: Don't use variables in the printf format string. Use printf "..%s.." "$foo".
                                  ^-- SC2010: Don't use ls | grep. Use a glob or a for loop with a condition to allow non-alphanumeric filenames.
