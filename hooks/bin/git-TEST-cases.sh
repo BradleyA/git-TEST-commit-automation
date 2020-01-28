@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/git-TEST-cases.sh  2.426.1317  2020-01-27T21:49:10.615060-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.425  
+# 	   Use short test case name 
 # 	hooks/bin/git-TEST-cases.sh  2.425.1316  2020-01-27T21:46:00.401484-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.424  
 # 	   Use short test case name 
 # 	hooks/bin/git-TEST-cases.sh  2.416.1305  2020-01-27T12:25:23.934292-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.415
@@ -236,11 +238,14 @@ while [[ "${#}" -gt 0 ]] ; do
 done
 
 
+echo -e "   git-TEST-cases.sh:      <<<"
 DEBUG=1
 
 
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable... CLI_OPTION >${CLI_OPTION}< FILE_NAME >${FILE_NAME}< ALL_TEST_CASES >${ALL_TEST_CASES}<" 1>&2 ; fi
 
+
+echo -e "   git-TEST-cases.sh:      <<<"
 DEBUG=0
 
 
