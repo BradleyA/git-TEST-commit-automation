@@ -1,5 +1,5 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  2.432.1323  2020-01-27T23:45:16.249962-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.431  
+# 	hooks/bin/git-TEST-cases.sh  2.433.1324  2020-01-27T23:55:50.024210-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.432  
 # 	   Use short test case name 
 # 	hooks/bin/git-TEST-cases.sh  2.416.1305  2020-01-27T12:25:23.934292-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.415
 # 	   hooks/bin/git-TEST-cases.sh   adding setting REPOSITORY_DIR if not already set 

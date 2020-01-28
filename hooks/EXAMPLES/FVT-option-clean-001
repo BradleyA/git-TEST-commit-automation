@@ -1,7 +1,5 @@
 #!/bin/bash
-#	hooks/EXAMPLES/FVT-option-clean-001  2.432.1323  2020-01-27T23:45:16.043012-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.431  
-#	   Use short test case name 
-#	hooks/EXAMPLES/FVT-option-clean-001  2.430.1321  2020-01-27T23:17:32.972122-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.429  
+#	hooks/EXAMPLES/FVT-option-clean-001  2.433.1324  2020-01-27T23:55:49.788247-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.432  
 #	   Use short test case name 
 #86# hooks/bin/TEST/git-TEST-cases.sh/FVT-option-clean-001  -  custom test case
 ###  Production standard 3.0 shellcheck
@@ -89,9 +87,10 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}
 "${1}" -c >"${0}".test-case-output 2>&1
 
 FILE_COUNT=$(ls -1 "${REPOSITORY_DIR}"/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}" | wc -l)
+rm -r  "${REPOSITORY_DIR}"/tmp_DIR_"${COMMAND_NAME}"  #  Remove test case files in ${REPOSITORY_DIR}/tmp_DIR_${COMMAND_NAME}
 
 if [[ -s ${1} ]] ; then  #  file size is greater than zero
-  if [[ "${FILE_COUNT}" == 2 ]] ; then  #  Directory had 4 file, --c/-clean then 2 test cases are removed
+  if [[ "${FILE_COUNT}" == 2 ]] ; then  #  Directory had 4 files, --c/-clean then 2 test cases setup and cleanup are not removed
     RETURN_CODE=0
   else
     RETURN_CODE=1
