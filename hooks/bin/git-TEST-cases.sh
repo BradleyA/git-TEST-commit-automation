@@ -1,8 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  2.426.1317  2020-01-27T21:49:10.615060-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.425  
-# 	   Use short test case name 
-# 	hooks/bin/git-TEST-cases.sh  2.425.1316  2020-01-27T21:46:00.401484-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.424  
-# 	   Use short test case name 
+# 	hooks/bin/git-TEST-cases.sh  2.427.1318  2020-01-27T22:45:05.705434-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.426  
+# 	   debug --clean 
 # 	hooks/bin/git-TEST-cases.sh  2.416.1305  2020-01-27T12:25:23.934292-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.415
 # 	   hooks/bin/git-TEST-cases.sh   adding setting REPOSITORY_DIR if not already set 
 # 	hooks/bin/git-TEST-cases.sh  2.342.1225  2020-01-24T20:59:53.478623-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.341  
@@ -238,7 +236,7 @@ while [[ "${#}" -gt 0 ]] ; do
 done
 
 
-echo -e "   git-TEST-cases.sh:      <<<"
+echo -e "   git-TEST-cases.sh:      >>>"
 DEBUG=1
 
 
@@ -319,33 +317,41 @@ else
       if [[ ! $(ls -1A "${i}") ]] ; then continue ; fi  #  Skip no test case in directoy 
       TEST_CASE_DIR_LIST=$(ls -1d "${i}"/* | cut -c 3-)
       for j in ${TEST_CASE_DIR_LIST} ; do 
-
-DEBUG=1
-
         if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Directory >${j}<" 1>&2 ; fi
         if [[ $j == *"hooks"* ]] && [[ "${ALL_TEST_CASES}" == "NO" ]] ; then continue ; fi  #  Skip to the next j in for loop
+
+
+echo -e "   git-TEST-cases.sh:      >>>"
+DEBUG=1
+
         TEST_CASE_DIR_END=$(echo "${j}" | rev | cut -d '/' -f 1 | rev)
         TEST_CASE_DIR_START="${j//${TEST_CASE_DIR_END}/}"
         printf "${TEST_CASE_DIR_START}${BOLD}${YELLOW}${TEST_CASE_DIR_END}${NORMAL}\n"
         if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Run FVT-setup.sh and SA-setup.sh if -a or --all" 1>&2 ; fi
-        if [[ "${CLI_OPTION}" == "a" ]] && [[ -x "FVT-setup.sh" ]]  ; then ./FVT-setup.sh  "${REPOSITORY_DIR}" ; fi
-        if [[ "${CLI_OPTION}" == "a" ]] && [[ -x "SA-setup.sh"  ]]  ; then ./SA-setup.sh   "${REPOSITORY_DIR}" ; fi
+
+
+echo -e "\n>>>	IS this working $(pwd) $(ls -l) <<<\n>>>>>>${j}<<<<<<<"
+ls -l "${j}/FVT-cleanup.sh" 
+set -x
+
+#	        if [[ "${CLI_OPTION}" == "a" ]] && [[ -x "FVT-setup.sh" ]]  ; then ./FVT-setup.sh  "${REPOSITORY_DIR}" ; fi
+#	        if [[ "${CLI_OPTION}" == "a" ]] && [[ -x "SA-setup.sh"  ]]  ; then ./SA-setup.sh   "${REPOSITORY_DIR}" ; fi
         if [[ "${CLI_OPTION}" == "c" ]]  ; then
-
-
-echo -e "\n>>>	IS this working $(pwd) $(ls -l) <<<<<<<<<<"
-
-
-
-          if [[ -x "FVT-cleanup.sh" ]]  ; then ./FVT-cleanup.sh ; fi
-          if [[ -x "SA-cleanup.sh"  ]]  ; then ./SA-cleanup.sh  ; fi
-DEBUG=0
-
+          if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Run FVT-cleanup.sh and SA-cleanup.sh if -c or --clean" 1>&2 ; fi
+          if [[ -e "${j}/FVT-cleanup.sh" ]]  ; then ${j}/FVT-cleanup.sh ; fi
+          if [[ -e "${j}/SA-cleanup.sh"  ]]  ; then ${j}/SA-cleanup.sh  ; fi
         fi
         cd "${REPOSITORY_DIR}"
         printf "${BOLD}${GREEN} $(ls -1  "${j}" | grep -v "\." | sed 's/^/\t/')${NORMAL}\n"
         printf "${BOLD}${CYAN} $(ls -1  "${j}" | grep "cleanup.sh" | sed 's/^/\t/')${NORMAL}\n"
         printf "${BOLD}${CYAN} $(ls -1  "${j}" | grep "setup.sh" | sed 's/^/\t/')${NORMAL}\n"
+
+set +x
+
+echo -e "   git-TEST-cases.sh:      <<<"
+DEBUG=0
+
+
       done
     done
   fi
