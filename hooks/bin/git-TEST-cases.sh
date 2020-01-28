@@ -1,5 +1,7 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  2.435.1326  2020-01-28T10:11:57.566271-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.434  
+# 	hooks/bin/git-TEST-cases.sh  2.436.1328  2020-01-28T10:27:16.474598-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.435-1-g267af17  
+# 	   hooks/EXAMPLES/FVT-option-clean-002   copy hooks/EXAMPLES/FVT-option-clean-001  to  hooks/EXAMPLES/FVT-option-clean-002 
+# 	hooks/bin/git-TEST-cases.sh  2.435.1326  2020-01-28T10:11:57.566271-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.434 
 # 	   hooks/bin/git-TEST-cases.sh   Set REPOSITORY_DIR if not already set, exit if NOT a git repository (or any of the parent directories) close #42 
 # 	hooks/bin/git-TEST-cases.sh  2.342.1225  2020-01-24T20:59:53.478623-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.341 
 # 	   hooks/bin/git-TEST-cases.sh   Production standard 9.3.562 Parse CLI options and arguments 

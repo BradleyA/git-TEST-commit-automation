@@ -1,12 +1,10 @@
 #!/bin/bash
-# 	hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh  2.413.1302  2020-01-26T23:09:35.222072-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.412  
-# 	   Use short test case name 
+# 	hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh  2.436.1328  2020-01-28T10:27:16.263708-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.435-1-g267af17  
+# 	   hooks/EXAMPLES/FVT-option-clean-002   copy hooks/EXAMPLES/FVT-option-clean-001  to  hooks/EXAMPLES/FVT-option-clean-002 
 # 	hooks/EXAMPLES/FVT-setup.sh  2.276.1076  2020-01-21T19:14:19.604461-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.275  
 # 	   FVT-*    Production standard 5.3.559 Copyright 
 # 	hooks/EXAMPLES/FVT-setup.sh  2.258.1047  2020-01-19T09:50:49.987834-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.257  
 # 	   hooks/EXAMPLES/FVT-setup.sh   Production standard 5.3.555 Copyright, Production standard 1.3.550 DEBUG variable, ###  Production standard 2.3.529 log format:w 
-# 	hooks/EXAMPLES/FVT-setup.sh  2.138.787  2019-09-27T12:33:27.430817-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.137  
-# 	   close #34    EXAMPLES/SA-* FVT-*   added NO -x ${1} exit ERROR 126 
 #86# hooks/EXAMPLES/FVT-setup.sh  -  This test script is optional.  It is for
 #    'Production standard 10.0 TESTing' test cases.  Copy it to TEST/<file_name>/.
 #    If FVT-setup.sh is found in TEST/<file_name>/ post-commit executes it.
@@ -88,7 +86,7 @@ ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-all-002"	FVT-option-all-002
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-all-hooks-001"	FVT-option-all-hooks-001
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-all-hooks-002"	FVT-option-all-hooks-002
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-clean-001"	FVT-option-clean-001
-#	ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-clean-002"	FVT-option-clean-002
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-clean-002"	FVT-option-clean-002
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-clean-hooks-001"	FVT-option-clean-hooks-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-clean-hooks-002"	FVT-option-clean-hooks-002
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-clean-hooks-003"	FVT-option-clean-hooks-003
