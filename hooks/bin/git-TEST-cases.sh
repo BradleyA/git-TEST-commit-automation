@@ -1,9 +1,9 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  2.428.1319  2020-01-27T23:04:42.693871-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.427  
+# 	hooks/bin/git-TEST-cases.sh  2.429.1320  2020-01-27T23:13:59.339050-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.428  
 # 	   Use short test case name 
 # 	hooks/bin/git-TEST-cases.sh  2.416.1305  2020-01-27T12:25:23.934292-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.415
 # 	   hooks/bin/git-TEST-cases.sh   adding setting REPOSITORY_DIR if not already set 
-# 	hooks/bin/git-TEST-cases.sh  2.342.1225  2020-01-24T20:59:53.478623-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.341  
+# 	hooks/bin/git-TEST-cases.sh  2.342.1225  2020-01-24T20:59:53.478623-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.341 
 # 	   hooks/bin/git-TEST-cases.sh   Production standard 9.3.562 Parse CLI options and arguments 
 # 	hooks/bin/git-TEST-cases.sh  2.270.1067  2020-01-20T23:20:44.631099-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.269  
 # 	   hooks/bin/git-TEST-cases.sh   Production standard 5.3.559 Copyright, Production standard 1.3.550 DEBUG variable, Production standard 0.3.550 --help, Production standard 2.3.529 log format, Production standard 9.3.558 Parse CLI options and arguments 

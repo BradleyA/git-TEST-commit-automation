@@ -1,6 +1,6 @@
 #!/bin/bash
-"	hooks/EXAMPLES/FVT-option-clean-001  2.427.1318  2020-01-27T22:45:05.459535-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.426  
-"	   debug --clean 
+#	hooks/EXAMPLES/FVT-option-clean-001  2.429.1320  2020-01-27T23:13:59.115100-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.428  
+#	   Use short test case name 
 #86# hooks/bin/TEST/git-TEST-cases.sh/FVT-option-clean-001  -  custom test case
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.3.559 Copyright                                    # 3.559
