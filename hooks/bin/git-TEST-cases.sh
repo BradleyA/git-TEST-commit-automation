@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  2.427.1318  2020-01-27T22:45:05.705434-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.426  
-# 	   debug --clean 
+# 	hooks/bin/git-TEST-cases.sh  2.428.1319  2020-01-27T23:04:42.693871-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.427  
+# 	   Use short test case name 
 # 	hooks/bin/git-TEST-cases.sh  2.416.1305  2020-01-27T12:25:23.934292-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.415
 # 	   hooks/bin/git-TEST-cases.sh   adding setting REPOSITORY_DIR if not already set 
 # 	hooks/bin/git-TEST-cases.sh  2.342.1225  2020-01-24T20:59:53.478623-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.341  
@@ -235,18 +235,7 @@ while [[ "${#}" -gt 0 ]] ; do
   esac
 done
 
-
-echo -e "   git-TEST-cases.sh:      >>>"
-DEBUG=1
-
-
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable... CLI_OPTION >${CLI_OPTION}< FILE_NAME >${FILE_NAME}< ALL_TEST_CASES >${ALL_TEST_CASES}<" 1>&2 ; fi
-
-
-echo -e "   git-TEST-cases.sh:      <<<"
-DEBUG=0
-
-
 
 ###  Production standard 10.0 TESTing
 
@@ -330,16 +319,16 @@ DEBUG=1
         if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Run FVT-setup.sh and SA-setup.sh if -a or --all" 1>&2 ; fi
 
 
-echo -e "\n>>>	IS this working $(pwd) $(ls -l) <<<\n>>>>>>${j}<<<<<<<"
-ls -l "${j}/FVT-cleanup.sh" 
+echo -e "\n>>>	IS this working $(pwd) $(ls -l) <<<\n>>>>>>${j}<<<<<<<\n>>>>>>CLI_OPTION ${CLI_OPTION}<<<<<<<"
+ls -l "${j}" 
 set -x
 
 #	        if [[ "${CLI_OPTION}" == "a" ]] && [[ -x "FVT-setup.sh" ]]  ; then ./FVT-setup.sh  "${REPOSITORY_DIR}" ; fi
 #	        if [[ "${CLI_OPTION}" == "a" ]] && [[ -x "SA-setup.sh"  ]]  ; then ./SA-setup.sh   "${REPOSITORY_DIR}" ; fi
         if [[ "${CLI_OPTION}" == "c" ]]  ; then
           if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Run FVT-cleanup.sh and SA-cleanup.sh if -c or --clean" 1>&2 ; fi
-          if [[ -e "${j}/FVT-cleanup.sh" ]]  ; then ${j}/FVT-cleanup.sh ; fi
-          if [[ -e "${j}/SA-cleanup.sh"  ]]  ; then ${j}/SA-cleanup.sh  ; fi
+          if [[ -e "${j}/FVT-cleanup.sh" ]]  ; then $(cd "${j}" ; ./FVT-cleanup.sh) ; fi
+          if [[ -e "${j}/SA-cleanup.sh"  ]]  ; then $(cd "${j}" ; ./SA-cleanup.sh ) ; fi
         fi
         cd "${REPOSITORY_DIR}"
         printf "${BOLD}${GREEN} $(ls -1  "${j}" | grep -v "\." | sed 's/^/\t/')${NORMAL}\n"
