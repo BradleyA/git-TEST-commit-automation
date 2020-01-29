@@ -1,6 +1,4 @@
 #!/bin/bash
-# 	hooks/bin/setup-git-TEST-cases.sh  2.440.1332  2020-01-28T23:04:20.331800-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.439  
-# 	   hooks/bin/setup-git-TEST-cases.sh   Added users hint what they just did 
 # 	hooks/bin/setup-git-TEST-cases.sh  2.281.1134  2020-01-22T11:42:58.546653-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.280  
 # 	   hooks/bin/setup-git-TEST-cases.sh   Production standard 5.3.559 Copyright, Production standard 1.3.550 DEBUG variable,  Production standard 2.3.529 log format 
 # 	hooks/bin/setup-git-TEST-cases.sh  2.117.621  2019-09-20T22:02:03.774879-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.116-1-g58bd437  
@@ -109,7 +107,7 @@ fi
 #>>>
 
 #    Answer that question, what now (WTF)  . . .  shit I forgot what this does, hadn't done this in six months, quick what is the answer!
-echo -e "    ${BOLD}For more information:
+echo -e "    ${BOLD}For more information:"
 echo    "    ${YELLOW}https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/docs/STEPS-TO-EVALUTE.md#installevaluate-git-test-commit-automation-solution \n"
 echo    "    setup-git-TEST-cases.sh has installed or upgraded git-TEST-commit-automation"
 echo    "    in the current repository.  The following commands git-TEST-cases.sh,"
