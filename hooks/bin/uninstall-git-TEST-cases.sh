@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/uninstall-git-TEST-cases.sh  2.443.1337  2020-01-29T11:21:10.587150-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.442-2-g61001a8  
+# 	   hooks/bin/uninstall-git-TEST-cases.sh   added No --help section 
 # 	hooks/bin/uninstall-git-TEST-cases.sh  2.282.1135  2020-01-22T11:55:42.740309-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.281  
 # 	   hooks/bin/uninstall-git-TEST-cases.sh    Production standard 5.3.559 Copyright, Production standard 1.3.550 DEBUG variable,  Production standard 2.3.529 log format 
 # 	hooks/bin/uninstall-git-TEST-cases.sh  2.124.642  2019-09-21T18:04:40.873567-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.123-14-gda8ab89
@@ -54,6 +56,14 @@ new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
 
 #    INFO
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2 ; fi
+
+#    No --help
+if [[ "${1}" != "" ]] ; then
+  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${SCRIPT_NAME} does not support arguements." 1>&2
+  #    User Hint
+  echo -e "    For more information:\n${BOLD}${YELLOW}    https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks#git-test-commit-automation------\n${NORMAL}"
+  exit 1
+fi
 
 ###
 
