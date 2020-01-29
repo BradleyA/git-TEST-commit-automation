@@ -107,8 +107,8 @@ fi
 #>>>
 
 #    Answer that question, what now (WTF)  . . .  shit I forgot what this does, hadn't done this in six months, quick what is the answer!
-echo -e "    ${BOLD}For more information:"
-echo    "    ${YELLOW}https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/docs/STEPS-TO-EVALUTE.md#installevaluate-git-test-commit-automation-solution \n"
+echo -e "    ${BOLD}For more information:${YELLOW}"
+echo    "    https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/docs/STEPS-TO-EVALUTE.md#installevaluate-git-test-commit-automation-solution"
 echo    "    setup-git-TEST-cases.sh has installed or upgraded git-TEST-commit-automation"
 echo    "    in the current repository.  The following commands git-TEST-cases.sh,"
 echo    "    setup-git-TEST-cases.sh, and uninstall-git-TEST-cases.sh have been copied"
