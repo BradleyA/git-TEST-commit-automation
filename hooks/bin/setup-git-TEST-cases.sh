@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/setup-git-TEST-cases.sh  2.437.1329  2020-01-28T18:23:40.967692-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.436  
+# 	   hooks/bin/setup-git-TEST-cases.sh   Added users hint what they just did 
 # 	hooks/bin/setup-git-TEST-cases.sh  2.415.1304  2020-01-27T11:35:37.804528-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.414  
 # 	   hooks/bin/setup-git-TEST-cases.sh   correct URL for more information  Install 
 # 	hooks/bin/setup-git-TEST-cases.sh  2.281.1134  2020-01-22T11:42:58.546653-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.280  
@@ -89,16 +91,23 @@ fi
 
 #>>>  other than create output and change the status of all test case directories
 #>>>  I do not understand the value of running the following two lines, thus comment out next two lines
+#>>>  because the download should already have been cleaned before pushed to the remote git repository
 #	cd "$(git rev-parse --show-toplevel || echo '.')"  #  change to top git repository directory
 #	git-TEST-cases.sh --clean --hooks
 
-# >>>    git add hooks  #  these steps would be my default most of the time but I would prefer to enter this manually until it is determined this is default .. reasons are sometime I would like to just test the code  ---- sometimes want to get latest test cases
+#>>>  git add hooks  #  These steps would be my default most of the time
+#>>>  but I would prefer to enter this manually until it is determined;
+#>>>  this IS the default .. reasons are sometime I would like to just test the code
+#>>>    ---- sometimes want to get latest test cases
 #    git commit -m 'install latest git-TEST-commit-automation/hooks'
 #    git push   #28
 #>>>
 
-# >>>  consider adding a user hint and include link to README.md  . . .  to answer that question, what now (WTF)  . . .  shit I forgot, hadn't done this in six months, quick!  . . . . . .
+#    Answer that question, what now (WTF)  . . .  shit I forgot what this does, hadn't done this in six months, quick!
+echo -e "    For more information:\n${BOLD}${YELLOW}    https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/docs/STEPS-TO-EVALUTE.md#installevaluate-git-test-commit-automation-solution \n${NORMAL}"
+echo -e "    Setup of git-TEST-commit-automation in current repository is complete.  The\n    following commands git-TEST-cases.sh, setup-git-TEST-cases.sh, and"
+echo -e "    uninstall-git-TEST-cases.sh have been copied to /usr/local/bin.  THe latest\n    test script have been update with the latest test scipts."
 
-echo -e "    For more information:\n${BOLD}${YELLOW}    https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/docs/STEPS-TO-EVALUTE.md \n${NORMAL}"
+#
 new_message "${LINENO}" "INFO" "  Operation finished..." 1>&2
 ###
