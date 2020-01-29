@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/SA-cleanup.sh  2.445.1339  2020-01-29T12:37:11.044716-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.444  
+# 	   hooks/EXAMPLES/SA-*   added No --help or any options 
 # 	hooks/EXAMPLES/SA-cleanup.sh  2.278.1131  2020-01-21T23:18:45.120811-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.277-1-gcf15b0c  
 # 	   hooks/EXAMPLES/SA-cleanup.sh   Production standard 5.3.559 Copyright 
 # 	hooks/EXAMPLES/SA-cleanup.sh  2.263.1053  2020-01-19T11:28:04.981423-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.262-1-gbd566e8
@@ -20,6 +22,7 @@ if [[ "${DEBUG}" == "5" ]] ; then set -e -o pipefail ; fi   # Exit immediately i
 #
 BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
+RED=$(tput    setaf 1)
 YELLOW=$(tput setaf 3)
 WHITE=$(tput  setaf 7)
 
@@ -53,6 +56,14 @@ new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
 
 #    INFO
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2 ; fi
+
+#    No --help or any options
+if [[ "${1}" != "" ]] ; then
+  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${SCRIPT_NAME} does not support arguements." 1>&2
+  #    User Hint
+  echo -e "    For more information:\n${BOLD}${YELLOW}    https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks#git-test-commit-automation------${NORMAL}"
+  exit 1
+fi
 
 ###  Place test case cleanup here 
 
