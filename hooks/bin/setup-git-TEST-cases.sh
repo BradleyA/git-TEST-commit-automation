@@ -1,8 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/setup-git-TEST-cases.sh  2.437.1329  2020-01-28T18:23:40.967692-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.436  
+# 	hooks/bin/setup-git-TEST-cases.sh  2.438.1330  2020-01-28T22:39:17.358361-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.437  
 # 	   hooks/bin/setup-git-TEST-cases.sh   Added users hint what they just did 
-# 	hooks/bin/setup-git-TEST-cases.sh  2.415.1304  2020-01-27T11:35:37.804528-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.414  
-# 	   hooks/bin/setup-git-TEST-cases.sh   correct URL for more information  Install 
 # 	hooks/bin/setup-git-TEST-cases.sh  2.281.1134  2020-01-22T11:42:58.546653-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.280  
 # 	   hooks/bin/setup-git-TEST-cases.sh   Production standard 5.3.559 Copyright, Production standard 1.3.550 DEBUG variable,  Production standard 2.3.529 log format 
 # 	hooks/bin/setup-git-TEST-cases.sh  2.117.621  2019-09-20T22:02:03.774879-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.116-1-g58bd437  
@@ -58,6 +56,13 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}
 
 ###
 
+#    No --help
+if [[ "${1}" != "" ]] ; then
+  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${SCRIPT_NAME} does not support arguements." 1>&2
+  echo -e "    For more information:\n${BOLD}${YELLOW}    https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/docs/STEPS-TO-EVALUTE.md#installevaluate-git-test-commit-automation-solution \n${NORMAL}"
+  exit 1
+fi
+
 if git -C . rev-parse 2> /dev/null ; then  #  currect directory in a git repository
   cd "$(git rev-parse --show-toplevel || echo '.')"  #  change to top git repository directory 
   REPOSITORY_NAME=$(git rev-parse --show-toplevel | rev | cut -d / -f 1 | rev)
@@ -104,9 +109,9 @@ fi
 #>>>
 
 #    Answer that question, what now (WTF)  . . .  shit I forgot what this does, hadn't done this in six months, quick!
-echo -e "    For more information:\n${BOLD}${YELLOW}    https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/docs/STEPS-TO-EVALUTE.md#installevaluate-git-test-commit-automation-solution \n${NORMAL}"
+echo -e "    For more information:\n${BOLD}${YELLOW}    https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/docs/STEPS-TO-EVALUTE.md#installevaluate-git-test-commit-automation-solution \n"
 echo -e "    Setup of git-TEST-commit-automation in current repository is complete.  The\n    following commands git-TEST-cases.sh, setup-git-TEST-cases.sh, and"
-echo -e "    uninstall-git-TEST-cases.sh have been copied to /usr/local/bin.  THe latest\n    test script have been update with the latest test scipts."
+echo -e "    uninstall-git-TEST-cases.sh have been copied to /usr/local/bin.  THe latest\n    test script have been update with the latest test scipts.${NORMAL}"
 
 #
 new_message "${LINENO}" "INFO" "  Operation finished..." 1>&2
