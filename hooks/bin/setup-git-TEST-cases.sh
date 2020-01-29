@@ -1,5 +1,5 @@
 #!/bin/bash
-# 	hooks/bin/setup-git-TEST-cases.sh  2.439.1331  2020-01-28T22:54:23.484390-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.438  
+# 	hooks/bin/setup-git-TEST-cases.sh  2.440.1332  2020-01-28T23:04:20.331800-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.439  
 # 	   hooks/bin/setup-git-TEST-cases.sh   Added users hint what they just did 
 # 	hooks/bin/setup-git-TEST-cases.sh  2.281.1134  2020-01-22T11:42:58.546653-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.280  
 # 	   hooks/bin/setup-git-TEST-cases.sh   Production standard 5.3.559 Copyright, Production standard 1.3.550 DEBUG variable,  Production standard 2.3.529 log format 
@@ -108,14 +108,15 @@ fi
 #    git push   #28
 #>>>
 
-#    Answer that question, what now (WTF)  . . .  shit I forgot what this does, hadn't done this in six months, quick!
-echo -e "    For more information:\n${BOLD}${YELLOW}    https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/docs/STEPS-TO-EVALUTE.md#installevaluate-git-test-commit-automation-solution \n"
-echo -e "    setup-git-TEST-cases.sh has installed or upgraded git-TEST-commit-automation"
+#    Answer that question, what now (WTF)  . . .  shit I forgot what this does, hadn't done this in six months, quick what is the answer!
+echo -e "    ${BOLD}For more information:
+echo    "    ${YELLOW}https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/docs/STEPS-TO-EVALUTE.md#installevaluate-git-test-commit-automation-solution \n"
+echo    "    setup-git-TEST-cases.sh has installed or upgraded git-TEST-commit-automation"
 echo    "    in the current repository.  The following commands git-TEST-cases.sh,"
 echo    "    setup-git-TEST-cases.sh, and uninstall-git-TEST-cases.sh have been copied"
-echo    "    to /usr/local/bin.  The latest test scripts have been update with the"
-echo    "    latest test scipts.  git-TEST-commit-automation runs pre-commit and"
-echo    "    post-commit hooks when git commit -m 'message' is executed.${NORMAL}"
+echo    "    to /usr/local/bin.  Test scripts have been update with the latest test"
+echo    "    scipts from the remote git repository.  git-TEST-commit-automation runs"
+echo    "    pre-commit & post-commit hooks when git commit -m 'message' is executed.${NORMAL}"
 
 #
 new_message "${LINENO}" "INFO" "  Operation finished..." 1>&2
