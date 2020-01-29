@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/setup-git-TEST-cases.sh  2.444.1338  2020-01-29T11:43:01.700129-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.443  
+# 	   hooks/bin/setup-git-TEST-cases.sh   typo 
 # 	hooks/bin/setup-git-TEST-cases.sh  2.281.1134  2020-01-22T11:42:58.546653-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.280  
 # 	   hooks/bin/setup-git-TEST-cases.sh   Production standard 5.3.559 Copyright, Production standard 1.3.550 DEBUG variable,  Production standard 2.3.529 log format 
 # 	hooks/bin/setup-git-TEST-cases.sh  2.117.621  2019-09-20T22:02:03.774879-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.116-1-g58bd437  
@@ -112,7 +114,7 @@ echo    "    https://github.com/BradleyA/git-TEST-commit-automation/blob/master/
 echo    "    setup-git-TEST-cases.sh has installed or upgraded git-TEST-commit-automation"
 echo    "    in the current repository.  The following commands git-TEST-cases.sh,"
 echo    "    setup-git-TEST-cases.sh, and uninstall-git-TEST-cases.sh have been copied"
-echo    "    to /usr/local/bin.  Test scripts have been update with the latest test"
+echo    "    to /usr/local/bin.  Test scripts have been updated with the latest test"
 echo    "    scipts from the remote git repository.  git-TEST-commit-automation runs"
 echo    "    pre-commit & post-commit hooks when git commit -m 'message' is executed.${NORMAL}"
 
