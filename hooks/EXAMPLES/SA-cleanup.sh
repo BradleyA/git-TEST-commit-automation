@@ -1,7 +1,5 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/SA-cleanup.sh  2.446.1340  2020-01-30T14:17:19.861288-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.445  
-# 	   hooks/EXAMPLES/SA-*   added This script does not support -* or help or usage or version 
-# 	hooks/EXAMPLES/SA-cleanup.sh  2.446.1340  2020-01-30T14:05:22.809235-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.445  
+# 	hooks/EXAMPLES/SA-cleanup.sh  2.447.1341  2020-01-30T15:06:24.076693-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.446  
 # 	   hooks/EXAMPLES/SA-*   added This script does not support -* or help or usage or version 
 # 	hooks/EXAMPLES/SA-cleanup.sh  2.278.1131  2020-01-21T23:18:45.120811-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.277-1-gcf15b0c  
 # 	   hooks/EXAMPLES/SA-cleanup.sh   Production standard 5.3.559 Copyright 
@@ -60,7 +58,7 @@ new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2 ; fi
 
 #    This script does not support -* or help or usage or version
-if [[ "${1}" == \-* ]] || [[ "${1}" == "help" ]] || [[ "${1}" == "usage" ]] || [[ "${1}" == "version" ]]  ; then
+if [[ "${1}" == -* ]] || [[ "${1}" == "help" ]] || [[ "${1}" == "usage" ]] || [[ "${1}" == "version" ]]  ; then
   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Option, ${YELLOW}${1}${WHITE}, is not supported with ${SCRIPT_NAME}." 1>&2
   #    User Hint
   echo -e "    For more information:\n${BOLD}${YELLOW}    https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks#git-test-commit-automation------${NORMAL}"

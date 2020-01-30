@@ -1,5 +1,5 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/SA-setup.sh  2.446.1340  2020-01-30T14:18:16.722885-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.445  
+# 	hooks/EXAMPLES/SA-setup.sh  2.447.1341  2020-01-30T15:07:20.126233-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.446  
 # 	   hooks/EXAMPLES/SA-*   added This script does not support -* or help or usage or version 
 # 	hooks/EXAMPLES/SA-setup.sh  2.372.1260  2020-01-25T21:29:22.738881-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.371-1-gfc4ba1f  
 # 	   Production standard 5.3.559 Copyright  Production standard 1.3.550 DEBUG variable  Production standard 2.3.529 log format 
@@ -23,9 +23,7 @@ if [[ "${DEBUG}" == "5" ]] ; then set -e -o pipefail ; fi   # Exit immediately i
 BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
 RED=$(tput    setaf 1)
-GREEN=$(tput  setaf 2)
 YELLOW=$(tput setaf 3)
-CYAN=$(tput   setaf 6)
 WHITE=$(tput  setaf 7)
 
 #    Date and time function ISO 8601
@@ -60,7 +58,7 @@ new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2 ; fi
 
 #    This script does not support -* or help or usage or version
-if [[ "${1}" == \-* ]] || [[ "${1}" == "help" ]] || [[ "${1}" == "usage" ]] || [[ "${1}" == "version" ]]  ; then
+if [[ "${1}" == -* ]] || [[ "${1}" == "help" ]] || [[ "${1}" == "usage" ]] || [[ "${1}" == "version" ]]  ; then
   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Option, ${YELLOW}${1}${WHITE}, is not supported with ${SCRIPT_NAME}." 1>&2
   #    User Hint
   echo -e "    For more information:\n${BOLD}${YELLOW}    https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks#git-test-commit-automation------${NORMAL}"
