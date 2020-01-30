@@ -1,8 +1,8 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/FVT-cleanup.sh  2.448.1343  2020-01-30T15:48:37.268184-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.447-1-g2544b53  
+# 	   hooks/EXAMPLES/FVT-*   added This script does not support -* or help or usage or version 
 # 	hooks/EXAMPLES/FVT-cleanup.sh  2.434.1325  2020-01-28T00:01:36.028965-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.433  
 # 	   Use short test case name 
-# 	hooks/EXAMPLES/FVT-cleanup.sh  2.272.1072  2020-01-21T15:24:20.447135-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.271-2-gaeeaa5a  
-# 	   hooks/EXAMPLES/FVT-cleanup.sh hooks/EXAMPLES/SA-cleanup.sh  correct incidents found with shellcheck 
 # 	hooks/EXAMPLES/FVT-cleanup.sh  2.271.1069  2020-01-21T15:02:14.598141-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.270-1-g01cdcc2  
 # 	   FVT-cleanup.sh   Production standard 5.3.559 Copyright and correct an incident found during testing 
 # 	hooks/bin/TEST/git-TEST-cases.sh/FVT-cleanup.sh  2.269.1066  2020-01-20T12:55:38.659739-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.268  
@@ -22,6 +22,7 @@ if [[ "${DEBUG}" == "5" ]] ; then set -e -o pipefail ; fi   # Exit immediately i
 #
 BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
+RED=$(tput    setaf 1)
 YELLOW=$(tput setaf 3)
 WHITE=$(tput  setaf 7)
 
@@ -55,6 +56,14 @@ new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
 
 #    INFO
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2 ; fi
+
+#    This script does not support -* or help or usage or version
+if [[ "${1}" == -* ]] || [[ "${1}" == "help" ]] || [[ "${1}" == "usage" ]] || [[ "${1}" == "version" ]]  ; then
+  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Option, ${YELLOW}${1}${WHITE}, is not supported with ${SCRIPT_NAME}." 1>&2
+  #    User Hint
+  echo -e "    For more information:\n${BOLD}${YELLOW}    https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks#git-test-commit-automation------${NORMAL}"
+  exit 1
+fi
 
 ###  Place test case cleanup here 
 
