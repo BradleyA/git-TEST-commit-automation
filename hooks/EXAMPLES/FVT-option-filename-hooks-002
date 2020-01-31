@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/EXAMPLES/FVT-option-filename-hooks-002  2.454.1357  2020-01-30T21:49:21.888665-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.453-5-g03b67b7  
+#	   hooks/EXAMPLES/FVT-option-filename-*   Use short test case name   added This script does not support -* or help or usage or version 
 #	hooks/EXAMPLES/FVT-option-filename-hooks-002  2.276.1076  2020-01-21T19:12:47.726723-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.275  
 #	   FVT-*    Production standard 5.3.559 Copyright 
 #	hooks/bin/TEST/git-TEST-cases.sh/FVT-option-filename-hooks-002  2.232.1004  2020-01-18T14:53:10.690366-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.231  
@@ -55,10 +57,28 @@ new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
 #    INFO
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2 ; fi
 
+#    This script does not support -* or help or usage or version
+if [[ "${1}" == -* ]] || [[ "${1}" == "help" ]] || [[ "${1}" == "usage" ]] || [[ "${1}" == "version" ]]  ; then
+  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Option, ${YELLOW}${1}${WHITE}, is not supported with ${SCRIPT_NAME}." 1>&2
+  #    User Hint
+  echo -e "    For more information:\n${BOLD}${YELLOW}    https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks#git-test-commit-automation------${NORMAL}"
+  exit 1
+fi
+
+###
+
+TEST_CASE_TMP_1=$(echo "${0}" | cut -d'/' -f"${REPOSITORY_DIR_COUNT}"-)
+TEST_CASE_TMP_2=$(dirname -- "${TEST_CASE_TMP_1}")
+TEST_CASE_TMP_3=$(basename -- "${TEST_CASE_TMP_1}")
+TEST_CASE="${TEST_CASE_TMP_2}/${BOLD}${YELLOW}${TEST_CASE_TMP_3}${NORMAL}"
+FILE_NAME_TMP_1=$(echo "${1}" | cut -d'/' -f"${REPOSITORY_DIR_COUNT}"-)
+FILE_NAME_TMP_3=$(basename -- "${FILE_NAME_TMP_1}")
+FILE_NAME="${BOLD}${YELLOW}${FILE_NAME_TMP_3}${NORMAL}"
+
 if [[ ! -x ${1} ]] ; then  #  Command invoked does not exist or cannot execute
   RETURN_CODE=126
   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${RETURN_CODE} - File, ${1}, does not exist or have execute permission" 1>&2
-  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} 126 - File, ${1}, does not exist or have execute permission - ${BOLD}${RED}ERROR${CYAN} - ERROR${NORMAL}"
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${FILE_NAME} 126 - File, ${FILE_NAME}, does not exist or have execute permission - ${BOLD}${RED}ERROR${CYAN} - ERROR${NORMAL}"
   exit "${RETURN_CODE}"
 fi
 
@@ -78,17 +98,17 @@ else
 fi
 
 if [[ "${RETURN_CODE}" -eq 0 ]] ; then
-  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - No difference with expected output - ${BOLD}${GREEN}PASS - PASS${NORMAL}"
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${TEST_CASE} ${FILE_NAME} 0 - No difference with expected output - ${BOLD}${GREEN}PASS - PASS${NORMAL}"
   if [[ "${DEBUG}" == "1" ]] ; then cat "${0}".test-case-output 1>&2 ; fi
   exit 0
 elif [[ ${RETURN_CODE} -eq 1 ]] ; then
-  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - Differences with expected output - ${BOLD}${RED}FAIL - FAIL${NORMAL}"
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${FILE_NAME} 1 - Differences with expected output - ${BOLD}${RED}FAIL - FAIL${NORMAL}"
   diff -y "${0}".expected "${0}".test-case-output
   exit 1
 else
-  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} ${RETURN_CODE} - Test script ERROR - ${BOLD}${RED}ERROR${CYAN} - ERROR${NORMAL}"
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${FILE_NAME} 2 - Test script ERROR - ${BOLD}${RED}ERROR${CYAN} - ERROR${NORMAL}"
   exit 2
 fi
-echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} 124 - Test script logic ERROR - ${BOLD}${RED}ERROR${CYAN} - ERROR${NORMAL}"
+echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${FILE_NAME} 124 - Test script logic ERROR - ${BOLD}${RED}ERROR${CYAN} - ERROR${NORMAL}"
 exit 124
 ###
