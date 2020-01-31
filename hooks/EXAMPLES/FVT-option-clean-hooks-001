@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/EXAMPLES/FVT-option-clean-hooks-001  2.453.1351  2020-01-30T20:58:56.329147-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.452-2-g38c9e8d  
+#	   hooks/EXAMPLES/FVT-option-clean-hooks-00?   Use short test case name   added This script does not support -* or help or usage or version 
 #	hooks/EXAMPLES/FVT-option-clean-hooks-001  2.441.1333  2020-01-28T23:29:38.752802-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.440  
 #	   hooks/EXAMPLES/FVT-option-clean-hooks-001   copy FVT-option-clean-001  to  FVT-option-clean-hooks-001 
 #86# hooks/bin/TEST/git-TEST-cases.sh/FVT-option-clean-hooks-001  -  custom test case
@@ -53,6 +55,14 @@ new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
 #    INFO
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2 ; fi
 
+#    This script does not support -* or help or usage or version
+if [[ "${1}" == -* ]] || [[ "${1}" == "help" ]] || [[ "${1}" == "usage" ]] || [[ "${1}" == "version" ]]  ; then
+  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Option, ${YELLOW}${1}${WHITE}, is not supported with ${SCRIPT_NAME}." 1>&2
+  #    User Hint
+  echo -e "    For more information:\n${BOLD}${YELLOW}    https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks#git-test-commit-automation------${NORMAL}"
+  exit 1
+fi
+
 ###
 
 TEST_CASE_TMP_1=$(echo "${0}" | cut -d'/' -f"${REPOSITORY_DIR_COUNT}"-)
@@ -101,7 +111,7 @@ else
 fi
 
 if [[ "${RETURN_CODE}" -eq 0 ]] ; then
-  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${TEST_CASE} ${FILE_NAME} ${RETURN_CODE} - No difference with expected output - ${BOLD}${GREEN}PASS - PASS${NORMAL}"
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${TEST_CASE} ${FILE_NAME} 0 - No difference with expected output - ${BOLD}${GREEN}PASS - PASS${NORMAL}"
   if [[ "${DEBUG}" == "1" ]] ; then cat "${0}".test-case-output 1>&2 ; fi
   exit 0
 elif [[ ${RETURN_CODE} -eq 1 ]] ; then
