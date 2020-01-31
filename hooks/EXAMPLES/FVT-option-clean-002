@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/EXAMPLES/FVT-option-clean-002  2.452.1348  2020-01-30T20:18:34.375468-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.451  
+#	   hooks/EXAMPLES/FVT-option-clean-00?   added This script does not support -* or help or usage or version 
 #	hooks/EXAMPLES/FVT-option-clean-002  2.436.1328  2020-01-28T10:27:15.968309-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.435-1-g267af17  
 #	   hooks/EXAMPLES/FVT-option-clean-002   copy hooks/EXAMPLES/FVT-option-clean-001  to  hooks/EXAMPLES/FVT-option-clean-002 
 #86# hooks/bin/TEST/git-TEST-cases.sh/FVT-option-clean-002  -  custom test case
@@ -52,6 +54,14 @@ new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
 
 #    INFO
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2 ; fi
+
+#    This script does not support -* or help or usage or version
+if [[ "${1}" == -* ]] || [[ "${1}" == "help" ]] || [[ "${1}" == "usage" ]] || [[ "${1}" == "version" ]]  ; then
+  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Option, ${YELLOW}${1}${WHITE}, is not supported with ${SCRIPT_NAME}." 1>&2
+  #    User Hint
+  echo -e "    For more information:\n${BOLD}${YELLOW}    https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks#git-test-commit-automation------${NORMAL}"
+  exit 1
+fi
 
 ###
 
