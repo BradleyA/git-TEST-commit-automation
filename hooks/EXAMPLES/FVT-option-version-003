@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/EXAMPLES/FVT-option-version-003  2.487.1407  2020-02-01T10:01:10.003556-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.486  
+#	   hooks/EXAMPLES/FVT-option-version-001-004   update user message for PASS and FAIL 
 #	hooks/EXAMPLES/FVT-option-version-003  2.459.1363  2020-01-30T22:39:34.483709-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.458  
 #	   hooks/EXAMPLES/FVT-option-version-00   added This script does not support -* or help or usage or version 
 #	hooks/EXAMPLES/FVT-option-version-003  2.370.1257  2020-01-25T20:00:27.970230-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.369  
@@ -89,9 +91,9 @@ fi
 ###  Place test case here
 
 TEST_VERSION=$(head -2 "${1}" | awk '{printf $3}')
-if [[ -z "${TEST_VERSION}" ]] ; then echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} 1 - Test script setup FAIL: TEST_VERSION is zero length - ${BOLD}${RED}FAIL - FAIL${NORMAL}" ; exit 1 ; fi
+if [[ -z "${TEST_VERSION}" ]] ; then echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${FILE_NAME} 1 - Test script setup FAIL: TEST_VERSION is zero length - ${BOLD}${RED}FAIL - FAIL${NORMAL}" ; exit 1 ; fi
 TEST_NAME=$(head -2 "${1}" | awk '{printf $2}')
-if [[ -z "${TEST_NAME}" ]] ; then echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${1} 1 - Test script setup FAIL: TEST_NAME is zero length - ${BOLD}${RED}FAIL - FAIL${NORMAL}" ; exit 1 ; fi
+if [[ -z "${TEST_NAME}" ]] ; then echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${FILE_NAME} 1 - Test script setup FAIL: TEST_NAME is zero length - ${BOLD}${RED}FAIL - FAIL${NORMAL}" ; exit 1 ; fi
 echo "${TEST_NAME} ${TEST_VERSION=}" > "${0}.expected"
 
 "${1}" version >"${0}".test-case-output 2>&1
@@ -99,10 +101,10 @@ echo "${TEST_NAME} ${TEST_VERSION=}" > "${0}.expected"
 diff "${0}".expected "${0}".test-case-output >/dev/null 2>&1
 RETURN_CODE=${?}
 if [[ "${RETURN_CODE}" -eq 0 ]] ; then
-  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${TEST_CASE} ${FILE_NAME} 0 - No difference with expected output - ${BOLD}${GREEN}PASS - PASS${NORMAL}"
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${TEST_CASE} ${FILE_NAME} 0 - Version output matches version on second line - ${BOLD}${GREEN}PASS - PASS${NORMAL}"
   exit 0
 elif [[ "${RETURN_CODE}" -eq 1 ]] ; then
-  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${FILE_NAME} 1 - Differences with expected output - ${BOLD}${RED}FAIL - FAIL${NORMAL}"
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${FILE_NAME} 1 - Version output does NOT match version on second line - ${BOLD}${RED}FAIL - FAIL${NORMAL}"
   diff -y "${0}".expected "${0}".test-case-output
   exit 1
 else
