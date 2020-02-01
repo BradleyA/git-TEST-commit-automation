@@ -1,9 +1,5 @@
 #!/bin/bash
-# 	hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh  2.494.1422  2020-02-01T13:10:38.674563-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.493-3-g69669dd  
-# 	   testing 
-# 	hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh  2.493.1418  2020-02-01T12:36:48.389766-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.492-3-gc4332d0  
-# 	   testing 
-# 	hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh  2.492.1414  2020-02-01T11:50:54.127276-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.491  
+# 	hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh  2.496.1428  2020-02-01T15:47:10.880489-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.495  
 # 	   testing 
 # 	hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh  2.441.1333  2020-01-28T23:29:38.984356-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.440  
 # 	   hooks/EXAMPLES/FVT-option-clean-hooks-001   copy FVT-option-clean-001  to  FVT-option-clean-hooks-001 
