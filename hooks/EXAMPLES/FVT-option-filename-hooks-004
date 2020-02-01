@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/EXAMPLES/FVT-option-filename-hooks-004  2.493.1418  2020-02-01T12:36:46.107315-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.492-3-gc4332d0  
+#	   testing 
 #	hooks/EXAMPLES/FVT-option-filename-hooks-004  2.454.1357  2020-01-30T21:49:27.248759-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.453-5-g03b67b7  
 #	   hooks/EXAMPLES/FVT-option-filename-*   Use short test case name   added This script does not support -* or help or usage or version 
 #	hooks/EXAMPLES/FVT-option-filename-hooks-004  2.276.1076  2020-01-21T19:12:53.426834-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.275  
@@ -98,11 +100,11 @@ else
 fi
 
 if [[ "${RETURN_CODE}" -eq 0 ]] ; then
-  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${TEST_CASE} ${FILE_NAME} 0 - No difference with expected output - ${BOLD}${GREEN}PASS - PASS${NORMAL}"
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${TEST_CASE} ${FILE_NAME} 0 - Message for user matches expected output - ${BOLD}${GREEN}PASS - PASS${NORMAL}"
   if [[ "${DEBUG}" == "1" ]] ; then cat "${0}".test-case-output 1>&2 ; fi
   exit 0
 elif [[ ${RETURN_CODE} -eq 1 ]] ; then
-  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${FILE_NAME} 1 - Differences with expected output - ${BOLD}${RED}FAIL - FAIL${NORMAL}"
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${FILE_NAME} 1 - Message for user does NOT match expected output - ${BOLD}${RED}FAIL - FAIL${NORMAL}"
   diff -y "${0}".expected "${0}".test-case-output
   exit 1
 else
