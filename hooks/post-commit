@@ -1,6 +1,6 @@
 #!/bin/bash
-#	hooks/post-commit  2.477.1387  2020-01-31T21:00:11.176229-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.476  
-#	   hooks/post-commit   changed color 
+#	hooks/post-commit  2.480.1390  2020-01-31T21:07:33.221788-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.479  
+#	   hooks/post-commit   changed color of output 
 #	hooks/post-commit  2.392.1281  2020-01-26T20:15:52.651945-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.391  
 #	   Use short test case name 
 #	hooks/post-commit  2.380.1269  2020-01-26T08:22:10.465746-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.379  
@@ -186,7 +186,7 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
     echo -e "\n     FVT: ${BOLD}${YELLOW}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases = ${BOLD}${NO_TEST_CASES}${NORMAL}\n   Number of test cases pass = ${BOLD}${GREEN}${NO_TEST_CASES_PASS}${NORMAL}\n   Number of test cases fail = ${BOLD}${RED}${NO_TEST_CASES_FAIL}${NORMAL}\n   Number of test cases error = ${BOLD}${CYAN}${NO_TEST_CASES_ERROR}${NORMAL}"
     echo  "${TEST_CASES_ERROR_EXIT_CODE}" | tr ' ' '\n' | grep '[^[:blank:]]' | sort | uniq -c | sort -k 2 -n  #  List error exit codes and how many of each exit code
   else
-    echo "[${BOLD}${YELLOW}INFO${NORMAL}]         ${BOLD}${RED}No${NORMAL} test case directory found ${COMMIT_PATH}TEST/${CYAN}${COMMIT_FILE_NAME}${NORMAL}, for ${GIT_AUTHOR_NAME}."
+    echo "[${BOLD}${YELLOW}INFO${NORMAL}]         ${BOLD}${RED}No${NORMAL} test case directory found ${COMMIT_PATH}TEST/${BOLD}${CYAN}${COMMIT_FILE_NAME}${NORMAL}, for ${GIT_AUTHOR_NAME}."
   fi
 done
 if [[ "${DEBUG}" == "0" ]] ; then  rm "${REPOSITORY_DIR}"/hooks/COMMIT_FILE_LIST ; fi #  Remove COMMIT_FILE_LIST if NOT in DEBUG
