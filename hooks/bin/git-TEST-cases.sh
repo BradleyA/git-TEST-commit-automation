@@ -1,5 +1,5 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  2.494.1422  2020-02-01T13:10:38.907163-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.493-3-g69669dd  
+# 	hooks/bin/git-TEST-cases.sh  2.495.1427  2020-02-01T13:33:46.602239-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.494-4-g9616a45  
 # 	   testing 
 # 	hooks/bin/git-TEST-cases.sh  2.489.1409  2020-02-01T10:14:36.146530-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.488 
 # 	   hooks/EXAMPLES/FVT-option-filename-001-006   Updated user message 
