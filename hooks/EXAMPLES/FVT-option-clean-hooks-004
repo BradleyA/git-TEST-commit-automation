@@ -1,11 +1,13 @@
 #!/bin/bash
-#	hooks/EXAMPLES/FVT-option-clean-hooks-004  2.453.1351  2020-01-30T20:59:03.595075-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.452-2-g38c9e8d  
+#	hooks/EXAMPLES/FVT-option-clean-hooks-004  2.497.1429  2020-02-01T15:59:07.715119-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.496  
+#	   testing 
+#	hooks/EXAMPLES/FVT-option-clean-hooks-001  2.496.1428  2020-02-01T15:47:10.640423-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.495  
+#	   testing 
+#	hooks/EXAMPLES/FVT-option-clean-hooks-001  2.453.1351  2020-01-30T20:58:56.329147-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.452-2-g38c9e8d  
 #	   hooks/EXAMPLES/FVT-option-clean-hooks-00?   Use short test case name   added This script does not support -* or help or usage or version 
-#	hooks/EXAMPLES/FVT-option-clean-hooks-004  2.276.1076  2020-01-21T19:12:17.445783-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.275  
-#	   FVT-*    Production standard 5.3.559 Copyright 
-#	hooks/bin/TEST/git-TEST-cases.sh/FVT-option-clean-hooks-004  2.251.1040  2020-01-18T17:23:15.843090-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.250  
-#	   cleanup for #36 
-#86# hooks/bin/TEST/git-TEST-cases.sh/FVT-option-clean-hooks-004  -  custom test case
+#	hooks/EXAMPLES/FVT-option-clean-hooks-001  2.441.1333  2020-01-28T23:29:38.752802-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.440  
+#	   hooks/EXAMPLES/FVT-option-clean-hooks-001   copy FVT-option-clean-001  to  FVT-option-clean-hooks-001 
+#86# hooks/bin/TEST/git-TEST-cases.sh/FVT-option-clean-hooks-001  -  custom test case
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.3.559 Copyright                                    # 3.559
 #    Copyright (c) 2020 Bradley Allen                                                # 3.555
@@ -83,26 +85,54 @@ if [[ ! -x ${1} ]] ; then  #  Command invoked does not exist or cannot execute
 fi
 
 ###  Place test case here
- 
-#  output is blank: no files w/o hooks
-touch "${0}.expected"
 
-"${1}" --clean -hooks 2>&1 | cut -d ']' -f 3 >"${0}".test-case-output  #  pipe [] message into "${0}".test-case-output
+#    Create a directory that IS in the hooks directory and includes a file that DOES have EXAMPLES and custom test cases, and test case setup and cleanup scripts with one begin custom
+#    Test case types are custom and EXAMPLES test cases.  Other files are test case setup and cleanup scripts with one begin custom and custom script
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  REPOSITORY_DIR is exported in post-commit script >${REPOSITORY_DIR}<" 1>&2 ; fi
+COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')
+mkdir -p "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"
+ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/SA-setup.sh             "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/SA-setup.sh
+ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/SA-cleanup.sh           "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/SA-cleanup.sh
+ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/SA-permission-775-001   "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/SA-permission-775-001
+ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/SA-shellcheck-001       "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/SA-shellcheck-001
+echo     "#!/bin/bash" > "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/FVT-setup.sh
+ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/FVT-cleanup.sh          "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/FVT-cleanup.sh
+ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/FVT-option-help-001     "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/FVT-option-help-001
+ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/FVT-option-version-001  "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/FVT-option-version-001
+echo     "#!/bin/bash" > "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/SA-custom-test-case-001
+echo     "#!/bin/bash" > "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/FVT-custom-test-case-001
+echo     "#!/bin/bash" > "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/tmp_CMD_"${COMMAND_NAME}"
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  COMMAND_NAME >${COMMAND_NAME}<  ${REPOSITORY_DIR}/tmp.${COMMAND_NAME}" 1>&2 ; fi
+
+"${1}" --clean -hooks >"${0}".test-case-output 2>&1
+
+#    Test if the test cases have been removed/cleaned, leaving FVT-cleanup.sh, SA-cleanup.sh, FVT-setup.sh, and SA-setup.sh,
+FILE_COUNT=$(ls -1 "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}" | wc -l)
+if [[ "${DEBUG}" == "0" ]] ; then  #  Don't remove when in DEBUG modes
+  rm -r  "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"  #  Remove test case files in ${REPOSITORY_DIR}/hooks/tmp_DIR_${COMMAND_NAME}
+fi
+
+#    MUST restore deleted test cases because git-TEST-cases.sh -c --hooks , just deleted them
+if [[ -x "FVT-setup.sh" ]]  ; then ./FVT-setup.sh ; fi
+if [[ -x "SA-setup.sh"  ]]  ; then ./SA-setup.sh  ; fi
 
 if [[ -s ${1} ]] ; then  #  file size is greater than zero
-  diff "${0}".expected "${0}".test-case-output >/dev/null 2>&1
-  RETURN_CODE=${?}
+  if [[ "${FILE_COUNT}" == 7 ]] ; then  #  Directory had 11 files (11-4=7), --c/-clean then removed/cleaned all EXAMPLES test cases.  Setup, cleanup, and custom are not removed
+    RETURN_CODE=0
+  else
+    RETURN_CODE=1
+  fi
 else
   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  File, ${1}, does not exist or is empty" 1>&2
   RETURN_CODE=2
 fi
 
 if [[ "${RETURN_CODE}" -eq 0 ]] ; then
-  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${TEST_CASE} ${FILE_NAME} 0 - No difference with expected output - ${BOLD}${GREEN}PASS - PASS${NORMAL}"
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${TEST_CASE} ${FILE_NAME} 0 - Message for user matches expected output - ${BOLD}${GREEN}PASS - PASS${NORMAL}"
   if [[ "${DEBUG}" == "1" ]] ; then cat "${0}".test-case-output 1>&2 ; fi
   exit 0
 elif [[ ${RETURN_CODE} -eq 1 ]] ; then
-  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${FILE_NAME} 1 - Differences with expected output - ${BOLD}${RED}FAIL - FAIL${NORMAL}"
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${FILE_NAME} 1 - Message for user does NOT match expected output - ${BOLD}${RED}FAIL - FAIL${NORMAL}"
   diff -y "${0}".expected "${0}".test-case-output
   exit 1
 else
