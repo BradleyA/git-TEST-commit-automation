@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/EXAMPLES/FVT-option-clean-001  2.490.1410  2020-02-01T10:24:57.683955-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.489  
+#	   hooks/EXAMPLES/FVT-option-clean-001-002   corrected code to prevent future incidents 
 #	hooks/EXAMPLES/FVT-option-clean-001  2.452.1348  2020-01-30T20:18:31.904153-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.451  
 #	   hooks/EXAMPLES/FVT-option-clean-00?   added This script does not support -* or help or usage or version 
 #	hooks/EXAMPLES/FVT-option-clean-001  2.433.1324  2020-01-27T23:55:49.788247-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.432  
@@ -86,10 +88,10 @@ fi
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  REPOSITORY_DIR is exported in post-commit script >${REPOSITORY_DIR}<" 1>&2 ; fi
 COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')
 mkdir -p "${REPOSITORY_DIR}"/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"
-ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/SA-setup.sh   "${REPOSITORY_DIR}"/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/SA-setup.sh
-ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/SA-cleanup.sh   "${REPOSITORY_DIR}"/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/SA-cleanup.sh
-ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/SA-cleanup.sh   "${REPOSITORY_DIR}"/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/SA-permission-775-001
-ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/SA-cleanup.sh   "${REPOSITORY_DIR}"/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/SA-shellcheck-001
+ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/SA-setup.sh            "${REPOSITORY_DIR}"/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/SA-setup.sh
+ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/SA-cleanup.sh          "${REPOSITORY_DIR}"/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/SA-cleanup.sh
+ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/SA-permission-775-001  "${REPOSITORY_DIR}"/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/SA-permission-775-001
+ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/SA-shellcheck-001      "${REPOSITORY_DIR}"/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/SA-shellcheck-001
 touch    "${REPOSITORY_DIR}"/tmp_DIR_"${COMMAND_NAME}"/tmp_CMD_"${COMMAND_NAME}"
 echo     "#!/bin/bash" >> "${REPOSITORY_DIR}"/tmp_DIR_"${COMMAND_NAME}"/tmp_CMD_"${COMMAND_NAME}"
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  COMMAND_NAME >${COMMAND_NAME}<  ${REPOSITORY_DIR}/tmp.${COMMAND_NAME}" 1>&2 ; fi
