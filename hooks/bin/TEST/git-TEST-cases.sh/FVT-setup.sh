@@ -1,15 +1,5 @@
 #!/bin/bash
-# 	hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh  2.475.1385  2020-01-31T20:53:55.669661-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.474  
-# 	   testing 
-# 	hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh  2.473.1383  2020-01-31T20:47:34.961908-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.472  
-# 	   testing 
-# 	hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh  2.471.1381  2020-01-31T20:43:53.970798-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.470  
-# 	   testing 
-# 	hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh  2.469.1379  2020-01-31T20:40:40.618915-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.468  
-# 	   testing 
-# 	hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh  2.467.1377  2020-01-31T20:34:23.050827-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.466  
-# 	   testing 
-# 	hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh  2.466.1376  2020-01-31T20:19:34.799469-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.465  
+# 	hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh  2.476.1386  2020-01-31T20:55:08.001674-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.475  
 # 	   testing 
 # 	hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh  2.441.1333  2020-01-28T23:29:38.984356-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.440  
 # 	   hooks/EXAMPLES/FVT-option-clean-hooks-001   copy FVT-option-clean-001  to  FVT-option-clean-hooks-001 
