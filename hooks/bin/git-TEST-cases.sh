@@ -1,5 +1,5 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  2.470.1380  2020-01-31T20:41:58.303369-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.469  
+# 	hooks/bin/git-TEST-cases.sh  2.472.1382  2020-01-31T20:45:02.782386-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.471  
 # 	   testing 
 # 	hooks/bin/git-TEST-cases.sh  2.435.1326  2020-01-28T10:11:57.566271-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.434 
 # 	   hooks/bin/git-TEST-cases.sh   Set REPOSITORY_DIR if not already set, exit if NOT a git repository (or any of the parent directories) close #42 
