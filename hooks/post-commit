@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  2.508.1441  2020-02-02T14:24:16.816205-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.507  
+#	   testing 
 #	hooks/post-commit  2.507.1440  2020-02-02T14:20:45.013296-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.506  
 #	   testing 
 #	hooks/post-commit  2.505.1438  2020-02-02T13:55:29.708028-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.504  
@@ -142,15 +144,10 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
         TEST_CASES_ERROR_EXIT_CODE="${TEST_CASES_ERROR_EXIT_CODE}${EXIT_CODE} "
       fi
     done
-# >>>	remove after DEBUG
-set -x
     #    run SA-cleanup.sh if found
     if [[ -s "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-cleanup.sh" ]] && [[ ${NO_TEST_CASES_FAIL} == 0 ]] && [[ ${NO_TEST_CASES_ERROR} == 0 ]] ; then
       "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-cleanup.sh" "${REPOSITORY_DIR}"
-ls -l SA-*
     fi
-set +x
-# >>>	remove after DEBUG
     echo -e "\n     SA: ${BOLD}${YELLOW}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases = ${BOLD}${NO_TEST_CASES}${NORMAL}\n   Number of test cases pass = ${BOLD}${GREEN}${NO_TEST_CASES_PASS}${NORMAL}\n   Number of test cases fail = ${BOLD}${RED}${NO_TEST_CASES_FAIL}${NORMAL}\n   Number of test cases error = ${BOLD}${CYAN}${NO_TEST_CASES_ERROR}${NORMAL}"
     echo  "${TEST_CASES_ERROR_EXIT_CODE}" | tr ' ' '\n' | grep '[^[:blank:]]' | sort | uniq -c | sort -k 2 -n  #  List error exit codes and how many of each exit code
 
