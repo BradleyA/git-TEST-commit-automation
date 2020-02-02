@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/EXAMPLES/FVT-option-none-hooks-002  2.502.1434  2020-02-02T11:39:50.639553-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.501  
+#	   hooks/EXAMPLES/FVT-option-none-*   remove '+' from temp file names for testing 
 #	hooks/EXAMPLES/FVT-option-none-hooks-002  2.457.1359  2020-01-30T22:22:32.194562-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.456  
 #	   hooks/EXAMPLES/FVT-option-none-*   added This script does not support -* or help or usage or version 
 #	hooks/EXAMPLES/FVT-option-none-hooks-002  2.377.1266  2020-01-25T22:20:10.757846-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.376  
@@ -85,18 +87,18 @@ fi
 #    Create a file that does not have test cases and is in the hooks directory
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  REPOSITORY_DIR is exported in post-commit script >${REPOSITORY_DIR}<" 1>&2 ; fi
 COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')
-touch "${REPOSITORY_DIR}"/hooks/+tmp."${COMMAND_NAME}"
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  COMMAND_NAME >${COMMAND_NAME}<  ${REPOSITORY_DIR}/+tmp.${COMMAND_NAME}" 1>&2 ; fi
+touch "${REPOSITORY_DIR}"/hooks/tmp."${COMMAND_NAME}"
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  COMMAND_NAME >${COMMAND_NAME}<  ${REPOSITORY_DIR}/tmp.${COMMAND_NAME}" 1>&2 ; fi
 
 "${1}" -n -hooks 2>&1 | cut -d ']' -f 3 >"${0}".test-case-output  #  pipe [] message into "${0}".test-case-output
 
 #    Remove test file
-rm   "${REPOSITORY_DIR}"/hooks/+tmp."${COMMAND_NAME}"
+rm   "${REPOSITORY_DIR}"/hooks/tmp."${COMMAND_NAME}"
 
 if [[ -s ${1} ]] ; then  #  file size is greater than zero
-  grep "+tmp.${COMMAND_NAME}" "${0}".test-case-output >/dev/null 2>&1
+  grep "tmp.${COMMAND_NAME}" "${0}".test-case-output >/dev/null 2>&1
   RETURN_CODE=${?}
-  if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Return code >${RETURN_CODE}<  from grep +tmp.${COMMAND_NAME} ${0}.test-case-output" 1>&2 ; fi
+  if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Return code >${RETURN_CODE}<  from grep tmp.${COMMAND_NAME} ${0}.test-case-output" 1>&2 ; fi
 else
   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  File, ${1}, does not exist or is empty" 1>&2
   RETURN_CODE=2
