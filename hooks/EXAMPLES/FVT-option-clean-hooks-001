@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/EXAMPLES/FVT-option-clean-hooks-001  2.501.1433  2020-02-02T11:11:05.901022-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.500  
+#	   hooks/EXAMPLES/FVT-option-clean-hooks-001  add issue number #47 
 #	hooks/EXAMPLES/FVT-option-clean-hooks-001  2.500.1432  2020-02-01T17:23:29.283192-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.499  
 #	   hooks/EXAMPLES/FVT-option-clean-hooks-001-004   May not be able to create a test case without creating a new a new git repository  #47 
 #	hooks/EXAMPLES/FVT-option-clean-hooks-001  2.453.1351  2020-01-30T20:58:56.329147-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.452-2-g38c9e8d  
@@ -116,14 +118,14 @@ if [[ "${DEBUG}" == "0" ]] ; then  #  Don't remove when in DEBUG modes
   rm -r  "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"  #  Remove test case files in ${REPOSITORY_DIR}/hooks/tmp_DIR_${COMMAND_NAME}
 fi
 
-#    MUST restore deleted test cases because git-TEST-cases.sh -c --hooks , just deleted them
-# >>>	remove after debuggiing
+#    MUST restore deleted test cases because git-TEST-cases.sh -c --hooks , just deleted them  #47
+# >>>	remove after debuggiing  #47
 echo ">>> May not be able to create a test case without creating a new a new git repository to test these options  	<<<"
 echo ">>> becasue these options remove/clean all test cases that are not custom or setup or cleanup scripts   	<<<"
 echo ">>> in the git repository . . .    	<<<"
 pwd
 echo ">>>	<<<"
-# >>>	remove after debuggiing
+# >>>	remove after debuggiing  #47
 ##	echo     "#!/bin/bash" > "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/FVT-setup.sh
 ##	if [[ -x "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/FVT-setup.sh ]]  ; then ./FVT-setup.sh ; fi
 ##	if [[ -x "SA-setup.sh"  ]]  ; then ./SA-setup.sh  ; fi
