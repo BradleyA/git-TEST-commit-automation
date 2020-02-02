@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/git-TEST-cases.sh  2.503.1435  2020-02-02T12:09:47.452725-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.502  
+# 	   hooks/bin/git-TEST-cases.sh   dieplay_help text formatting changes 
 # 	hooks/bin/git-TEST-cases.sh  2.500.1432  2020-02-01T17:23:29.755912-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.499  
 # 	   hooks/EXAMPLES/FVT-option-clean-hooks-001-004   May not be able to create a test case without creating a new a new git repository  #47 
 # 	hooks/bin/git-TEST-cases.sh  2.489.1409  2020-02-01T10:14:36.146530-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.488 
@@ -105,10 +107,10 @@ echo -e "\ttest files and directories excluding hooks/ directory unless --hooks"
 echo -e "\toption is used.\n"
 echo    "   -f <FILE_NAME>, --filename <FILE_NAME>"
 echo -e "\tPrint all test case files for <FILE_NAME> after running FVT-setup.sh"
-echo -e "\tand SA-setup.sh excluding hooks/ directory unless --hooks option is used.\n"
+echo -e "\tand SA-setup.sh excluding hooks directory unless --hooks option is used.\n"
 echo    "        --add" #  #29  --add option add default test cases
-echo -e "\t     Create default test case directory (TEST/<FILE_NAME>/) for <FILE_NAME>"
-echo -e "\t     and install scripts SA-setup.sh, SA-cleanup.sh, and"
+echo -e "\t     Create default test case directory (TEST/<FILE_NAME>/) for"
+echo -e "\t     <FILE_NAME> and install scripts SA-setup.sh, SA-cleanup.sh, and"
 echo -e "\t     SA-shellcheck-001.expected.\n"
 echo    "   --hooks, -hooks"
 echo -e "\tInclude files and test cases in hooks/ directory.  This option can"
@@ -116,7 +118,7 @@ echo -e "\tbe used with one of these options -a, -c, -n, or -f.  It can be set"
 echo -e "\tby using the environment variable, ALL_TEST_CASES.\n"
 echo    "   -n, --none"
 echo -e "\tPrint all files that do NOT have TEST cases except hooks/ directory"
-echo -e "\tunless --hooks option is used.\n"
+echo -e "\tunless --hooks option is used."
 
 ###  Production standard 6.3.547  Architecture tree
 echo -e "\n${BOLD}ARCHITECTURE TREE${NORMAL}"  # STORAGE & CERTIFICATION
@@ -143,8 +145,9 @@ echo -e "   Setup default SA- test cases for file sample.sh without test cases\n
 echo -e "   Check test case depth for file sample.sh (option -f)\n\t${BOLD}${COMMAND_NAME} -f sample.sh${NORMAL}\n"        # 3.550
 
 echo -e "\n${BOLD}SEE ALSO${NORMAL}"                                                        # 3.550
-echo    "   setup-git-TEST-cases.sh (https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#description)"  # 3.550
-echo    "   uninstall-git-TEST-cases.sh (https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#description)"  # 3.550
+echo    "   ${BOLD}setup-git-TEST-cases.sh${NORMAL}  (https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#description)"  # 3.550
+echo    "   ${BOLD}uninstall-git-TEST-cases.sh${NORMAL}  (https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#description)"  # 3.550
+echo    "   ${BOLD}markit${NORMAL}  (https://github.com/BradleyA/markit/blob/master/README.md#markit------)"  # 3.550
 
 echo -e "\n${BOLD}AUTHOR${NORMAL}"                                                          # 3.550
 echo    "   ${COMMAND_NAME} was written by Bradley Allen <allen.bradley@ymail.com>"         # 3.550
