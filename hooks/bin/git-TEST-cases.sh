@@ -1,10 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  2.503.1435  2020-02-02T12:09:47.452725-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.502  
-# 	   hooks/bin/git-TEST-cases.sh   dieplay_help text formatting changes 
-# 	hooks/bin/git-TEST-cases.sh  2.500.1432  2020-02-01T17:23:29.755912-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.499  
-# 	   hooks/EXAMPLES/FVT-option-clean-hooks-001-004   May not be able to create a test case without creating a new a new git repository  #47 
-# 	hooks/bin/git-TEST-cases.sh  2.489.1409  2020-02-01T10:14:36.146530-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.488 
-# 	   hooks/EXAMPLES/FVT-option-filename-001-006   Updated user message 
+# 	hooks/bin/git-TEST-cases.sh  2.504.1437  2020-02-02T13:37:33.964488-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.503-1-g0f3b0c7  
+# 	   hooks/bin/git-TEST-cases.sh   testing 
 # 	hooks/bin/git-TEST-cases.sh  2.435.1326  2020-01-28T10:11:57.566271-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.434 
 # 	   hooks/bin/git-TEST-cases.sh   Set REPOSITORY_DIR if not already set, exit if NOT a git repository (or any of the parent directories) close #42 
 # 	hooks/bin/git-TEST-cases.sh  2.342.1225  2020-01-24T20:59:53.478623-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.341 
