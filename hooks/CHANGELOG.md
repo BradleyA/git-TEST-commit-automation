@@ -57,7 +57,7 @@ Create custom FVT- test cases to test the options used by git-TEST-cases.sh
 * git-TEST-commit-automation/hooks/EXAMPLES/SA-cleanup.sh
   * Remove SA-test-case.expected that has a size of zero
 * git-TEST-commit-automation/hooks/bin/EXAMPLES
-  * added the following test cases
+  * close #36 added the following test cases
     * FVT-exit-code-error-0-001
     * FVT-exit-code-error-1-001
     * FVT-exit-code-error-124-001
