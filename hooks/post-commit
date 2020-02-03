@@ -1,14 +1,6 @@
 #!/bin/bash
-#	hooks/post-commit  2.508.1441  2020-02-02T14:24:16.816205-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.507  
-#	   testing 
-#	hooks/post-commit  2.507.1440  2020-02-02T14:20:45.013296-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.506  
-#	   testing 
-#	hooks/post-commit  2.505.1438  2020-02-02T13:55:29.708028-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.504  
-#	   testing 
-#	hooks/post-commit  2.480.1390  2020-01-31T21:07:33.221788-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.479  
-#	   hooks/post-commit   changed color of output 
-#	hooks/post-commit  2.392.1281  2020-01-26T20:15:52.651945-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.391  
-#	   Use short test case name 
+#	hooks/post-commit  2.517.1458  2020-02-03T11:19:34.481331-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.516  
+#	   testing SA-cleanup 
 #	hooks/post-commit  2.380.1269  2020-01-26T08:22:10.465746-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.379  
 #	   hooks/post-commit   Use short test case name 
 #	hooks/post-commit  2.373.1261  2020-01-25T21:40:56.673970-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.372  
@@ -112,9 +104,13 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
 
     ###  SA (Static Analysis)
     #    run SA-cleanup.sh if found
+# >>>	DEBUG  remove this
+set -x
     if [[ -s "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-cleanup.sh" ]] ; then
       "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-cleanup.sh" "${REPOSITORY_DIR}"
     fi
+set +x
+# >>>	DEBUG  remove this
     #    run SA-setup.sh if found
     if [[ -s "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-setup.sh" ]] ; then
       "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-setup.sh" "${REPOSITORY_DIR}"
@@ -145,9 +141,13 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
       fi
     done
     #    run SA-cleanup.sh if found
+# >>>	DEBUG  remove this
+set -x
     if [[ -s "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-cleanup.sh" ]] && [[ ${NO_TEST_CASES_FAIL} == 0 ]] && [[ ${NO_TEST_CASES_ERROR} == 0 ]] ; then
       "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-cleanup.sh" "${REPOSITORY_DIR}"
     fi
+set +x
+# >>>	DEBUG  remove this
     echo -e "\n     SA: ${BOLD}${YELLOW}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases = ${BOLD}${NO_TEST_CASES}${NORMAL}\n   Number of test cases pass = ${BOLD}${GREEN}${NO_TEST_CASES_PASS}${NORMAL}\n   Number of test cases fail = ${BOLD}${RED}${NO_TEST_CASES_FAIL}${NORMAL}\n   Number of test cases error = ${BOLD}${CYAN}${NO_TEST_CASES_ERROR}${NORMAL}"
     echo  "${TEST_CASES_ERROR_EXIT_CODE}" | tr ' ' '\n' | grep '[^[:blank:]]' | sort | uniq -c | sort -k 2 -n  #  List error exit codes and how many of each exit code
 
