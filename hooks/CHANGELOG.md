@@ -10,9 +10,10 @@ Brief description
 ### Features Changed
 ### Features Deprecations
 ### Issues
-* #8  hooks/EXAMPLES/SA-permission-txt-001 - add #8  
+* #8  hooks/EXAMPLES/SA-permission-txt-001 - add test case
 * #27 hooks/bin/uninstall-git-TEST-cases.sh - add option & environment variable for git push
 * #28 hooks/bin/setup-git-TEST-cases.sh - add option & environment variable for git push
+* #43 hooks/EXAMPLES/SA-??? test with git-secrets, git-hound, and truffleHog
 * #44 hooks/post-commit - if test case not found error message
 
 ### Misc
