@@ -1,8 +1,6 @@
 #!/bin/bash
-#	hooks/EXAMPLES/FVT-option-clean-001  2.514.1454  2020-02-03T11:07:07.282073-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.513  
-#	   testing 
-#	hooks/EXAMPLES/FVT-option-clean-001  2.513.1453  2020-02-03T10:59:30.648982-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.512-1-gfbe53ea  
-#	   testing 
+#	hooks/EXAMPLES/FVT-option-clean-001  2.526.1469  2020-02-03T15:12:43.634569-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.525  
+#	   hooks/EXAMPLES/FVT-option-clean-001   corrected shellcheck test case incident 
 #	hooks/EXAMPLES/FVT-option-clean-001  2.509.1442  2020-02-03T10:11:57.338554-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.508  
 #	   hooks/EXAMPLES/FVT-option-*   Increase the depth in these test cases 
 #	hooks/EXAMPLES/FVT-option-clean-001  2.452.1348  2020-01-30T20:18:31.904153-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.451  
