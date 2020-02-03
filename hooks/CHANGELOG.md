@@ -1,5 +1,21 @@
 # Changelog
 
+## Version  {Next Version ?????????????}  
+#### Release Name  Beta-4
+#### Release Date ?????????????
+
+Brief description
+
+### Features Added
+### Features Changed
+### Features Deprecations
+### Issues
+* #27 hooks/bin/uninstall-git-TEST-cases.sh - add option & environment variable for git push
+* #28 hooks/bin/setup-git-TEST-cases.sh - add option & environment variable for git push
+* #44 hooks/post-commit - if test case not found error message
+
+### Misc
+
 ## Version  {Next Version}
 #### Release Name  Beta-3
 #### Release Date  ?????????????
