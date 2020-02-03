@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/EXAMPLES/FVT-option-clean-001  2.512.1451  2020-02-03T10:48:53.052459-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.511  
+#	   testing 
 #	hooks/EXAMPLES/FVT-option-clean-001  2.509.1442  2020-02-03T10:11:57.338554-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.508  
 #	   hooks/EXAMPLES/FVT-option-*   Increase the depth in these test cases 
 #	hooks/EXAMPLES/FVT-option-clean-001  2.452.1348  2020-01-30T20:18:31.904153-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.451  
@@ -84,6 +86,11 @@ fi
 
 ###  Place test case here
 
+
+# >>> remove after DEBUG
+DEBUG=1
+# >>> remove after DEBUG
+
 #    Create a directory that IS NOT in the hooks directory and includes a file that DOES have EXAMPLES and custom test cases, and test case setup and cleanup scripts with one begin custom
 #    Test case types are custom and EXAMPLES test cases.  Other files are test case setup and cleanup scripts with one begin custom
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  REPOSITORY_DIR is exported in post-commit script >${REPOSITORY_DIR}<" 1>&2 ; fi
@@ -109,7 +116,7 @@ FILE_COUNT=$(ls -1 "${REPOSITORY_DIR}"/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"$
 rm -r  "${REPOSITORY_DIR}"/tmp_DIR_"${COMMAND_NAME}"  #  Remove test case files in ${REPOSITORY_DIR}/tmp_DIR_${COMMAND_NAME}
 
 if [[ -s ${1} ]] ; then  #  file size is greater than zero
-  if [[ "${FILE_COUNT}" == 2 ]] ; then  #  Directory had 4 files, --c/-clean then 2 test cases setup and cleanup are not removed
+  if [[ "${FILE_COUNT}" == 7 ]] ; then  #  Directory had 4 files, --c/-clean then 2 test cases setup and cleanup are not removed
     RETURN_CODE=0
   else
     RETURN_CODE=1
@@ -118,6 +125,11 @@ else
   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  File, ${1}, does not exist or is empty" 1>&2
   RETURN_CODE=2
 fi
+
+
+# >>> remove after DEBUG
+DEBUG=1
+# >>> remove after DEBUG
 
 if [[ "${RETURN_CODE}" -eq 0 ]] ; then
   echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${TEST_CASE} ${FILE_NAME} 0 - No difference with expected output - ${BOLD}${GREEN}PASS - PASS${NORMAL}"
