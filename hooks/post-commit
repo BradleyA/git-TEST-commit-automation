@@ -1,9 +1,5 @@
 #!/bin/bash
-#	hooks/post-commit  2.522.1464  2020-02-03T14:36:09.349335-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.521  
-#	   testing 
-#	hooks/post-commit  2.521.1463  2020-02-03T13:51:31.156795-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.520  
-#	   testing 
-#	hooks/post-commit  2.520.1462  2020-02-03T11:33:54.254473-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.519  
+#	hooks/post-commit  2.523.1465  2020-02-03T14:51:49.029743-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.522  
 #	   testing 
 #	hooks/post-commit  2.380.1269  2020-01-26T08:22:10.465746-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.379  
 #	   hooks/post-commit   Use short test case name 
@@ -123,7 +119,7 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
     NO_TEST_CASES_FAIL=0
     NO_TEST_CASES_ERROR=0
     TEST_CASES_ERROR_EXIT_CODE=""
-    RUN_SA_CLEANUP=0  #  run SA-cleanup.sh again (0=no, 1=yes)
+    RUN_SA_CLEANUP=0  #  run SA-cleanup.sh again (0=no, 1=yes)  #36
     #    Loop through test cases
     for SA_TEST_CASE in ${SA_TEST_CASES} ; do
       #    Run SA_TEST_CASE(s)
@@ -142,16 +138,10 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
       fi
     done
     #    run SA-cleanup.sh if found
-# >>>	DEBUG  remove this
-set -x
-pwd
     if [[ -s "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-cleanup.sh" ]] && [[ ${NO_TEST_CASES_FAIL} == 0 ]] && [[ ${NO_TEST_CASES_ERROR} == 0 ]] ; then
       "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-cleanup.sh" "${REPOSITORY_DIR}"
-      RUN_SA_CLEANUP=1  #  run SA-cleanup.sh again (0=no, 1=yes)
+      RUN_SA_CLEANUP=1  #  run SA-cleanup.sh again (0=no, 1=yes)  #36
     fi
-ls -l SA-*
-set +x
-# >>>	DEBUG  remove this
     echo -e "\n     SA: ${BOLD}${YELLOW}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases = ${BOLD}${NO_TEST_CASES}${NORMAL}\n   Number of test cases pass = ${BOLD}${GREEN}${NO_TEST_CASES_PASS}${NORMAL}\n   Number of test cases fail = ${BOLD}${RED}${NO_TEST_CASES_FAIL}${NORMAL}\n   Number of test cases error = ${BOLD}${CYAN}${NO_TEST_CASES_ERROR}${NORMAL}"
     echo  "${TEST_CASES_ERROR_EXIT_CODE}" | tr ' ' '\n' | grep '[^[:blank:]]' | sort | uniq -c | sort -k 2 -n  #  List error exit codes and how many of each exit code
 
@@ -188,11 +178,6 @@ set +x
         NO_TEST_CASES_ERROR=$((NO_TEST_CASES_ERROR+1))
         TEST_CASES_ERROR_EXIT_CODE="${TEST_CASES_ERROR_EXIT_CODE}${EXIT_CODE} "
       fi
-
-# >>>	DEBUG  remove this
-ls -l SA-*
-# >>>	DEBUG  remove this
-
     done
     #    run FVT-cleanup.sh if found
     if [[ -s "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/FVT-cleanup.sh" ]] && [[ ${NO_TEST_CASES_FAIL} == 0 ]] && [[ ${NO_TEST_CASES_ERROR} == 0 ]] ; then
@@ -200,7 +185,7 @@ ls -l SA-*
     fi
     echo -e "\n     FVT: ${BOLD}${YELLOW}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases = ${BOLD}${NO_TEST_CASES}${NORMAL}\n   Number of test cases pass = ${BOLD}${GREEN}${NO_TEST_CASES_PASS}${NORMAL}\n   Number of test cases fail = ${BOLD}${RED}${NO_TEST_CASES_FAIL}${NORMAL}\n   Number of test cases error = ${BOLD}${CYAN}${NO_TEST_CASES_ERROR}${NORMAL}"
     echo  "${TEST_CASES_ERROR_EXIT_CODE}" | tr ' ' '\n' | grep '[^[:blank:]]' | sort | uniq -c | sort -k 2 -n  #  List error exit codes and how many of each exit code
-    if [[ -s "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-cleanup.sh" ]] && [[ ${RUN_SA_CLEANUP} == 1 ]] ; then #  run SA-cleanup.sh again (0=no, 1=yes)
+    if [[ -s "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-cleanup.sh" ]] && [[ ${RUN_SA_CLEANUP} == 1 ]] ; then #  run SA-cleanup.sh again (0=no, 1=yes)  #36
       "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-cleanup.sh" "${REPOSITORY_DIR}"
     fi
   else
