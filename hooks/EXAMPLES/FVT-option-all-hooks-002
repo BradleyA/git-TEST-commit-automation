@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/EXAMPLES/FVT-option-all-hooks-002  2.509.1442  2020-02-03T10:11:55.172347-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.508  
+#	   hooks/EXAMPLES/FVT-option-*   Increase the depth in these test cases 
 #	hooks/EXAMPLES/FVT-option-all-hooks-002  2.450.1346  2020-01-30T19:33:29.574512-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.449  
 #	   hooks/EXAMPLES/FVT-option-a*   added This script does not support -* or help or usage or version 
 #	hooks/EXAMPLES/FVT-option-all-hooks-002  2.405.1294  2020-01-26T21:46:46.038094-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.404  
@@ -82,23 +84,32 @@ fi
 
 ###  Place test case here
 
-#    Create a directory that includes a file that does have test cases and IS in the hooks directory
+#    Create a directory that IS in the hooks directory and includes a file that DOES have EXAMPLES and custom test cases, and test case setup and cleanup scripts with one begin custom
+#    Test case types are custom and EXAMPLES test cases.  Other files are test case setup and cleanup scripts with one begin custom
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  REPOSITORY_DIR is exported in post-commit script >${REPOSITORY_DIR}<" 1>&2 ; fi
 COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')
-mkdir -p "${REPOSITORY_DIR}"/hooks/+tmp_DIR_"${COMMAND_NAME}"/TEST/+tmp_CMD_"${COMMAND_NAME}"
-ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/SA-setup.sh   "${REPOSITORY_DIR}"/hooks/+tmp_DIR_"${COMMAND_NAME}"/TEST/+tmp_CMD_"${COMMAND_NAME}"/SA-setup.sh
-ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/SA-cleanup.sh   "${REPOSITORY_DIR}"/hooks/+tmp_DIR_"${COMMAND_NAME}"/TEST/+tmp_CMD_"${COMMAND_NAME}"/SA-cleanup.sh
-touch    "${REPOSITORY_DIR}"/hooks/+tmp_DIR_"${COMMAND_NAME}"/+tmp_CMD_"${COMMAND_NAME}"
-echo     "#!/bin/bash" >> "${REPOSITORY_DIR}"/hooks/+tmp_DIR_"${COMMAND_NAME}"/+tmp_CMD_"${COMMAND_NAME}"
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  COMMAND_NAME >${COMMAND_NAME}<  ${REPOSITORY_DIR}/hooks/+tmp_CMD_${COMMAND_NAME}" 1>&2 ; fi
+mkdir -p "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"
+ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/SA-setup.sh             "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/SA-setup.sh
+ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/SA-cleanup.sh           "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/SA-cleanup.sh
+ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/SA-permission-775-001   "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/SA-permission-775-001
+ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/SA-shellcheck-001       "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/SA-shellcheck-001
+echo     "#!/bin/bash" >                                            "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/FVT-setup.sh
+ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/FVT-cleanup.sh          "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/FVT-cleanup.sh
+ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/FVT-option-help-001     "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/FVT-option-help-001
+ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/FVT-option-version-001  "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/FVT-option-version-001
+echo     "#!/bin/bash" >                                            "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/SA-custom-test-case-001
+echo     "#!/bin/bash" >                                            "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/FVT-custom-test-case-001
+#    Create custom file
+echo     "#!/bin/bash" >                                            "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/tmp_CMD_"${COMMAND_NAME}"
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  COMMAND_NAME >${COMMAND_NAME}<  ${REPOSITORY_DIR}/hooks/tmp_DIR_${COMMAND_NAME}/tmp_CMD_${COMMAND_NAME}" 1>&2 ; fi
 
 "${1}" --all --hooks >"${0}".test-case-output 2>&1
 
 #    Remove test files
-rm -r "${REPOSITORY_DIR}/hooks/+tmp_DIR_${COMMAND_NAME}"
+rm -r "${REPOSITORY_DIR}/hooks/tmp_DIR_${COMMAND_NAME}"
 
 if [[ -s ${1} ]] ; then  #  file size is greater than zero
-  grep "hooks/+tmp_DIR_${COMMAND_NAME}"  "${0}".test-case-output >/dev/null 2>&1
+  grep "hooks/tmp_DIR_${COMMAND_NAME}"  "${0}".test-case-output >/dev/null 2>&1
   RETURN_CODE=${?}
 else
   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  File, ${1}, does not exist or is empty" 1>&2

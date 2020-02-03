@@ -1,10 +1,8 @@
 #!/bin/bash
-#	hooks/EXAMPLES/FVT-option-clean-002  2.490.1410  2020-02-01T10:24:59.202705-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.489  
-#	   hooks/EXAMPLES/FVT-option-clean-001-002   corrected code to prevent future incidents 
+#	hooks/EXAMPLES/FVT-option-clean-002  2.509.1442  2020-02-03T10:11:59.298928-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.508  
+#	   hooks/EXAMPLES/FVT-option-*   Increase the depth in these test cases 
 #	hooks/EXAMPLES/FVT-option-clean-002  2.452.1348  2020-01-30T20:18:34.375468-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.451  
 #	   hooks/EXAMPLES/FVT-option-clean-00?   added This script does not support -* or help or usage or version 
-#	hooks/EXAMPLES/FVT-option-clean-002  2.436.1328  2020-01-28T10:27:15.968309-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.435-1-g267af17  
-#	   hooks/EXAMPLES/FVT-option-clean-002   copy hooks/EXAMPLES/FVT-option-clean-001  to  hooks/EXAMPLES/FVT-option-clean-002 
 #86# hooks/bin/TEST/git-TEST-cases.sh/FVT-option-clean-002  -  custom test case
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.3.559 Copyright                                    # 3.559
@@ -84,17 +82,24 @@ fi
 
 ###  Place test case here
 
-#    Create a directory that includes a file that does have test cases and is not in the hooks directory
+#    Create a directory that IS NOT in the hooks directory and includes a file that DOES have EXAMPLES and custom test cases, and test case setup and cleanup scripts with one begin custom
+#    Test case types are custom and EXAMPLES test cases.  Other files are test case setup and cleanup scripts with one begin custom
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  REPOSITORY_DIR is exported in post-commit script >${REPOSITORY_DIR}<" 1>&2 ; fi
 COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')
 mkdir -p "${REPOSITORY_DIR}"/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"
-ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/SA-setup.sh            "${REPOSITORY_DIR}"/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/SA-setup.sh
-ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/SA-cleanup.sh          "${REPOSITORY_DIR}"/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/SA-cleanup.sh
-ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/SA-permission-775-001  "${REPOSITORY_DIR}"/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/SA-permission-775-001
-ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/SA-shellcheck-001      "${REPOSITORY_DIR}"/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/SA-shellcheck-001
-touch    "${REPOSITORY_DIR}"/tmp_DIR_"${COMMAND_NAME}"/tmp_CMD_"${COMMAND_NAME}"
-echo     "#!/bin/bash" >> "${REPOSITORY_DIR}"/tmp_DIR_"${COMMAND_NAME}"/tmp_CMD_"${COMMAND_NAME}"
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  COMMAND_NAME >${COMMAND_NAME}<  ${REPOSITORY_DIR}/tmp.${COMMAND_NAME}" 1>&2 ; fi
+ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/SA-setup.sh             "${REPOSITORY_DIR}"/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/SA-setup.sh
+ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/SA-cleanup.sh           "${REPOSITORY_DIR}"/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/SA-cleanup.sh
+ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/SA-permission-775-001   "${REPOSITORY_DIR}"/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/SA-permission-775-001
+ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/SA-shellcheck-001       "${REPOSITORY_DIR}"/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/SA-shellcheck-001
+echo     "#!/bin/bash" >                                            "${REPOSITORY_DIR}"/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/FVT-setup.sh
+ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/FVT-cleanup.sh          "${REPOSITORY_DIR}"/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/FVT-cleanup.sh
+ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/FVT-option-help-001     "${REPOSITORY_DIR}"/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/FVT-option-help-001
+ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/FVT-option-version-001  "${REPOSITORY_DIR}"/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/FVT-option-version-001
+echo     "#!/bin/bash" >                                            "${REPOSITORY_DIR}"/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/SA-custom-test-case-001
+echo     "#!/bin/bash" >                                            "${REPOSITORY_DIR}"/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/FVT-custom-test-case-001
+#    Create custom file
+echo     "#!/bin/bash" >                                            "${REPOSITORY_DIR}"/tmp_DIR_"${COMMAND_NAME}"/tmp_CMD_"${COMMAND_NAME}"
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  COMMAND_NAME >${COMMAND_NAME}<  ${REPOSITORY_DIR}/tmp_DIR_${COMMAND_NAME}/TEST/tmp_CMD_${COMMAND_NAME}" 1>&2 ; fi
 
 "${1}" --clean >"${0}".test-case-output 2>&1
 
