@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  2.521.1463  2020-02-03T13:51:31.156795-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.520  
+#	   testing 
 #	hooks/post-commit  2.520.1462  2020-02-03T11:33:54.254473-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.519  
 #	   testing 
 #	hooks/post-commit  2.380.1269  2020-01-26T08:22:10.465746-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.379  
@@ -188,6 +190,11 @@ set +x
         NO_TEST_CASES_ERROR=$((NO_TEST_CASES_ERROR+1))
         TEST_CASES_ERROR_EXIT_CODE="${TEST_CASES_ERROR_EXIT_CODE}${EXIT_CODE} "
       fi
+
+# >>>	DEBUG  remove this
+ls -l SA-*
+# >>>	DEBUG  remove this
+
     done
     #    run FVT-cleanup.sh if found
     if [[ -s "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/FVT-cleanup.sh" ]] && [[ ${NO_TEST_CASES_FAIL} == 0 ]] && [[ ${NO_TEST_CASES_ERROR} == 0 ]] ; then
