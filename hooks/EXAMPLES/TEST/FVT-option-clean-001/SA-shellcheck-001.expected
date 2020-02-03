@@ -1,5 +1,5 @@
 
-In SA-shellcheck-001 line 88:
+In SA-shellcheck-001 line 95:
 FILE_COUNT=$(ls -1 "${REPOSITORY_DIR}"/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}" | wc -l)
              ^-- SC2012: Use find instead of ls to better handle non-alphanumeric filenames.
 
