@@ -90,7 +90,10 @@ Create custom FVT- test cases to test the options used by git-TEST-cases.sh
 
 ### Issues
 * #36 git-TEST-commit-automation/hooks/bin/EXAMPLES/ - custom test cases for FVT options
-* #42 hooks/bin/git-TEST-cases.sh - command should have exit if not in git repository #42
+* #42 hooks/bin/git-TEST-cases.sh - command should have exit if not in git repository
+* #45 hooks/EXAMPLES/FVT-option-filename-hooks-001-012 - finsh test
+* #46 hooks/EXAMPLES/FVT-option-filename-005-6 - finish testing with git-TEST-cases.sh
+
 ### Misc
 
 ## Version 2.211.959
