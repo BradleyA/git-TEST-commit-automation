@@ -1,5 +1,5 @@
 #!/bin/bash
-#	hooks/post-commit  2.519.1461  2020-02-03T11:30:45.666852-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.518-1-g070c468  
+#	hooks/post-commit  2.520.1462  2020-02-03T11:33:54.254473-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.519  
 #	   testing 
 #	hooks/post-commit  2.380.1269  2020-01-26T08:22:10.465746-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.379  
 #	   hooks/post-commit   Use short test case name 
@@ -106,9 +106,11 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
     #    run SA-cleanup.sh if found
 # >>>	DEBUG  remove this
 set -x
+pwd
     if [[ -s "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-cleanup.sh" ]] ; then
       "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-cleanup.sh" "${REPOSITORY_DIR}"
     fi
+ls -l SA-*
 set +x
 # >>>	DEBUG  remove this
     #    run SA-setup.sh if found
@@ -143,9 +145,11 @@ set +x
     #    run SA-cleanup.sh if found
 # >>>	DEBUG  remove this
 set -x
+pwd
     if [[ -s "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-cleanup.sh" ]] && [[ ${NO_TEST_CASES_FAIL} == 0 ]] && [[ ${NO_TEST_CASES_ERROR} == 0 ]] ; then
       "${REPOSITORY_DIR}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-cleanup.sh" "${REPOSITORY_DIR}"
     fi
+ls -l SA-*
 set +x
 # >>>	DEBUG  remove this
     echo -e "\n     SA: ${BOLD}${YELLOW}${COMMIT_FILE_NAME}${NORMAL}\n   Number of test cases = ${BOLD}${NO_TEST_CASES}${NORMAL}\n   Number of test cases pass = ${BOLD}${GREEN}${NO_TEST_CASES_PASS}${NORMAL}\n   Number of test cases fail = ${BOLD}${RED}${NO_TEST_CASES_FAIL}${NORMAL}\n   Number of test cases error = ${BOLD}${CYAN}${NO_TEST_CASES_ERROR}${NORMAL}"
