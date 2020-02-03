@@ -11,6 +11,12 @@ Create custom FVT- test cases to test the options used by git-TEST-cases.sh
   * Production standard 5.3.559 Copyright
   * Production standard 1.3.550 DEBUG variable,
   * Production standard 2.3.529 log format
+  * Added user hint that script does not support -* or help or usage or version
+* git-TEST-commit-automation/hooks/EXAMPLES/SA-*
+  * Production standard 5.3.559 Copyright
+  * Production standard 1.3.550 DEBUG variable,
+  * Production standard 2.3.529 log format
+  * Added user hint that script does not support -* or help or usage or version
 * git-TEST-commit-automation/hooks/bin/git-TEST-cases.sh
   * Production standard 0.3.550 --help
   * Production standard 1.3.550 DEBUG variable
@@ -19,7 +25,7 @@ Create custom FVT- test cases to test the options used by git-TEST-cases.sh
   * Production standard 5.3.559 Copyright
   * Production standard 6.3.547 Architecture tree
   * Production standard 8.3.541 --usage
-  * Production standard 9.3.558 Parse CLI options and arguments
+  * Production standard 9.3.562 Parse CLI options and arguments
   * Production standard 10.0    TESTing
 * git-TEST-commit-automation/hooks/bin/{setup-git-TEST-cases.sh, uninstall-git-TEST-cases.sh}
   * Production standard 1.3.550 DEBUG variable
