@@ -10,6 +10,7 @@ Brief description
 ### Features Changed
 ### Features Deprecations
 ### Issues
+* #8  hooks/EXAMPLES/SA-permission-txt-001 - add #8  
 * #27 hooks/bin/uninstall-git-TEST-cases.sh - add option & environment variable for git push
 * #28 hooks/bin/setup-git-TEST-cases.sh - add option & environment variable for git push
 * #44 hooks/post-commit - if test case not found error message
