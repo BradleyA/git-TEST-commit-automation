@@ -29,7 +29,7 @@ Create custom FVT- test cases to test the options used by git-TEST-cases.sh
   * Production standard 8.3.541 --usage
   * Production standard 9.3.562 Parse CLI options and arguments
   * Production standard 10.0    TESTing
-  * Set REPOSITORY_DIR if not already set, exit if NOT a git repository (or any of the parent directories) close #42
+  * Set REPOSITORY_DIR, exit if NOT a git repository close #42
 * git-TEST-commit-automation/hooks/bin/{setup-git-TEST-cases.sh, uninstall-git-TEST-cases.sh}
   * Production standard 1.3.550 DEBUG variable
   * Production standard 2.3.529 log format
@@ -90,6 +90,7 @@ Create custom FVT- test cases to test the options used by git-TEST-cases.sh
 
 ### Issues
 * #36 git-TEST-commit-automation/hooks/bin/EXAMPLES/ - custom test cases for FVT options
+* #42 hooks/bin/git-TEST-cases.sh - command should have exit if not in git repository #42
 ### Misc
 
 ## Version 2.211.959
