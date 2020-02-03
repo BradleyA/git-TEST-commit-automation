@@ -47,7 +47,7 @@ Create custom FVT- test cases to test the options used by git-TEST-cases.sh
   * Production standard 8.3.541 --usage
   * Production standard 9.3.562 Parse CLI options and arguments
   * Production standard 10.0    TESTing
-  * Set REPOSITORY_DIR, exit if NOT a git repository close #42
+  * close #42 Set REPOSITORY_DIR, exit if NOT a git repository
 * git-TEST-commit-automation/hooks/bin/{setup-git-TEST-cases.sh, uninstall-git-TEST-cases.sh}
   * Production standard 1.3.550 DEBUG variable
   * Production standard 2.3.529 log format
