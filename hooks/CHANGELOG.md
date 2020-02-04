@@ -1,34 +1,12 @@
 # Changelog
 
-## Version  {Next Version}
-#### Release Name  Beta-3
-#### Release Date  ?????????????
+## Version  {Next Version 3.2.?????}  
+#### Release Name  Beta-4
+#### Release Date ?????????????
 
-Create custom FVT- test cases to test the options used by git-TEST-cases.sh
+Brief description
 
-### Feature Changes
-* git-TEST-commit-automation/hooks/EXAMPLES/FVT-*
-  * Production standard 5.3.559 Copyright
-  * Production standard 1.3.550 DEBUG variable,
-  * Production standard 2.3.529 log format
-* git-TEST-commit-automation/hooks/bin/git-TEST-cases.sh
-  * Production standard 0.3.550 --help
-  * Production standard 1.3.550 DEBUG variable
-  * Production standard 2.3.529 log format
-  * Production standard 4.3.550 Documentation Language
-  * Production standard 5.3.559 Copyright
-  * Production standard 6.3.547 Architecture tree
-  * Production standard 8.3.541 --usage
-  * Production standard 9.3.558 Parse CLI options and arguments
-  * Production standard 10.0    TESTing
-* git-TEST-commit-automation/hooks/bin/{setup-git-TEST-cases.sh, uninstall-git-TEST-cases.sh}
-  * Production standard 1.3.550 DEBUG variable
-  * Production standard 2.3.529 log format
-  * Production standard 5.3.559 Copyright
-* git-TEST-commit-automation/hooks/EXAMPLES/FVT-cleanup.sh
-  * Remove FVT-test-case.expected that has a size of zero
-* git-TEST-commit-automation/hooks/EXAMPLES/SA-cleanup.sh
-  * Remove SA-test-case.expected that has a size of zero
+### Features Added
 * git-TEST-commit-automation/hooks/bin/EXAMPLES
   * added the following test cases
     * FVT-exit-code-error-0-001
@@ -40,6 +18,31 @@ Create custom FVT- test cases to test the options used by git-TEST-cases.sh
     * FVT-exit-code-error-128-001
     * FVT-exit-code-error-130-001
     * FVT-exit-code-error-2-001
+    * FVT-option-clean-hooks-001
+    * FVT-option-clean-hooks-002
+    * FVT-option-clean-hooks-003
+    * FVT-option-clean-hooks-004
+
+### Features Changes
+### Features Deprecations
+### Issues
+* #8  hooks/EXAMPLES/SA-permission-txt-001 - add test case
+* #27 hooks/bin/uninstall-git-TEST-cases.sh - add option & environment variable for git push
+* #28 hooks/bin/setup-git-TEST-cases.sh - add option & environment variable for git push
+* #43 hooks/EXAMPLES/SA-??? test with git-secrets, git-hound, and truffleHog
+* #44 hooks/post-commit - if test case not found error message
+
+### Misc
+
+## Version  {Next Version 3.1.????}
+#### Release Name  Beta-3
+#### Release Date  ?????????????
+
+Create custom FVT- test cases to test the options used by git-TEST-cases.sh
+
+### Features Added
+* git-TEST-commit-automation/hooks/bin/EXAMPLES
+  * close #36 added the following test cases
     * FVT-option-add-001
     * FVT-option-all-001
     * FVT-option-all-002
@@ -47,10 +50,6 @@ Create custom FVT- test cases to test the options used by git-TEST-cases.sh
     * FVT-option-all-hooks-002
     * FVT-option-clean-001
     * FVT-option-clean-002
-    * FVT-option-clean-hooks-001
-    * FVT-option-clean-hooks-002
-    * FVT-option-clean-hooks-003
-    * FVT-option-clean-hooks-004
     * FVT-option-filename-001
     * FVT-option-filename-002
     * FVT-option-filename-003
@@ -77,10 +76,52 @@ Create custom FVT- test cases to test the options used by git-TEST-cases.sh
     * FVT-option-none-hooks-004
     * FVT-option-usage-004
     * FVT-option-version-004
-* update git-TEST-commit-automation/hooks/README
+* git-TEST-commit-automation/hooks/EXAMPLES/FVT-*
+  * Added user hint that script does not support -* or help or usage or version
+* git-TEST-commit-automation/hooks/EXAMPLES/SA-*
+  * Added user hint that script does not support -* or help or usage or version
+* git-TEST-commit-automation/hooks/bin/{setup-git-TEST-cases.sh, uninstall-git-TEST-cases.sh}
+  * Added user hint that script does not support -* or help or usage or version
+* git-TEST-commit-automation/hooks/EXAMPLES/FVT-cleanup.sh
+  * Remove FVT-test-case.expected that has a size of zero
+* git-TEST-commit-automation/hooks/EXAMPLES/SA-cleanup.sh
+  * Remove SA-test-case.expected that has a size of zero
+
+### Feature Changes
+* git-TEST-commit-automation/hooks/EXAMPLES/FVT-*
+  * Production standard 5.3.559 Copyright
+  * Production standard 1.3.550 DEBUG variable,
+  * Production standard 2.3.529 log format
+  * Shorten text length user messages for PASS and FAIL
+* git-TEST-commit-automation/hooks/EXAMPLES/SA-*
+  * Production standard 5.3.559 Copyright
+  * Production standard 1.3.550 DEBUG variable,
+  * Production standard 2.3.529 log format
+  * Shorten text length user messages for PASS and FAIL
+* git-TEST-commit-automation/hooks/bin/git-TEST-cases.sh
+  * Production standard 0.3.550 --help
+  * Production standard 1.3.550 DEBUG variable
+  * Production standard 2.3.529 log format
+  * Production standard 4.3.550 Documentation Language
+  * Production standard 5.3.559 Copyright
+  * Production standard 6.3.547 Architecture tree
+  * Production standard 8.3.541 --usage
+  * Production standard 9.3.562 Parse CLI options and arguments
+  * Production standard 10.0    TESTing
+  * close #42 Set REPOSITORY_DIR, exit if NOT a git repository
+* git-TEST-commit-automation/hooks/bin/{setup-git-TEST-cases.sh, uninstall-git-TEST-cases.sh}
+  * Production standard 1.3.550 DEBUG variable
+  * Production standard 2.3.529 log format
+  * Production standard 5.3.559 Copyright
+* git-TEST-commit-automation/hooks/README
+  * Update
 
 ### Issues
-* #36 git-TEST-commit-automation/hooks/bin/EXAMPLES/ - custom test cases for FVT options
+* close #36 git-TEST-commit-automation/hooks/bin/EXAMPLES/ - custom test cases for FVT options
+* close #42 hooks/bin/git-TEST-cases.sh - command should have exit if not in git repository
+* close #45 hooks/EXAMPLES/FVT-option-filename-hooks-001-012 - finsh test
+* clone #46 hooks/EXAMPLES/FVT-option-filename-005-6 - finish testing with git-TEST-cases.sh
+
 ### Misc
 
 ## Version 2.211.959
@@ -121,14 +162,14 @@ Create scripts to assist running something, and checking something, then reporti
 
 ### Misc
 
-## Version  {Next Version}  
+## Version  {Next Version  X.X.????}  
 #### Release Name  {unreleased alpha beta prerelease latest}
-#### Release Date 
+#### Release Date ?????????????
 
 Brief description
 
 ### Features Added
-### Features Changed
+### Features Changes
 ### Features Deprecations
 ### Issues
 ### Misc
