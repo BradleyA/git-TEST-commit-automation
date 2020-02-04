@@ -18,6 +18,10 @@ Brief description
     * FVT-exit-code-error-128-001
     * FVT-exit-code-error-130-001
     * FVT-exit-code-error-2-001
+    * FVT-option-clean-hooks-001
+    * FVT-option-clean-hooks-002
+    * FVT-option-clean-hooks-003
+    * FVT-option-clean-hooks-004
 
 ### Features Changes
 ### Features Deprecations
@@ -70,15 +74,6 @@ Create custom FVT- test cases to test the options used by git-TEST-cases.sh
   * Remove SA-test-case.expected that has a size of zero
 * git-TEST-commit-automation/hooks/bin/EXAMPLES
   * close #36 added the following test cases
-    * FVT-exit-code-error-0-001
-    * FVT-exit-code-error-1-001
-    * FVT-exit-code-error-124-001
-    * FVT-exit-code-error-124-002
-    * FVT-exit-code-error-126-001
-    * FVT-exit-code-error-127-001
-    * FVT-exit-code-error-128-001
-    * FVT-exit-code-error-130-001
-    * FVT-exit-code-error-2-001
     * FVT-option-add-001
     * FVT-option-all-001
     * FVT-option-all-002
@@ -86,10 +81,7 @@ Create custom FVT- test cases to test the options used by git-TEST-cases.sh
     * FVT-option-all-hooks-002
     * FVT-option-clean-001
     * FVT-option-clean-002
-    * FVT-option-clean-hooks-001
-    * FVT-option-clean-hooks-002
-    * FVT-option-clean-hooks-003
-    * FVT-option-clean-hooks-004
+
     * FVT-option-filename-001
     * FVT-option-filename-002
     * FVT-option-filename-003
