@@ -7,6 +7,18 @@
 Brief description
 
 ### Features Added
+* git-TEST-commit-automation/hooks/bin/EXAMPLES
+  * #  added the following test cases
+    * FVT-exit-code-error-0-001
+    * FVT-exit-code-error-1-001
+    * FVT-exit-code-error-124-001
+    * FVT-exit-code-error-124-002
+    * FVT-exit-code-error-126-001
+    * FVT-exit-code-error-127-001
+    * FVT-exit-code-error-128-001
+    * FVT-exit-code-error-130-001
+    * FVT-exit-code-error-2-001
+
 ### Features Changes
 ### Features Deprecations
 ### Issues
