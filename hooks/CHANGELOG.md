@@ -8,7 +8,7 @@ Brief description
 
 ### Features Added
 * git-TEST-commit-automation/hooks/bin/EXAMPLES
-  *   added the following test cases
+  * added the following test cases
     * FVT-exit-code-error-0-001
     * FVT-exit-code-error-1-001
     * FVT-exit-code-error-124-001
