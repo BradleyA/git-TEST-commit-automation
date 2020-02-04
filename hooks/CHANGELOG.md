@@ -40,6 +40,43 @@ Brief description
 
 Create custom FVT- test cases to test the options used by git-TEST-cases.sh
 
+### Features Added
+* git-TEST-commit-automation/hooks/bin/EXAMPLES
+  * close #36 added the following test cases
+    * FVT-option-add-001
+    * FVT-option-all-001
+    * FVT-option-all-002
+    * FVT-option-all-hooks-001
+    * FVT-option-all-hooks-002
+    * FVT-option-clean-001
+    * FVT-option-clean-002
+    * FVT-option-filename-001
+    * FVT-option-filename-002
+    * FVT-option-filename-003
+    * FVT-option-filename-004
+    * FVT-option-filename-005
+    * FVT-option-filename-006
+    * FVT-option-filename-hooks-001
+    * FVT-option-filename-hooks-002
+    * FVT-option-filename-hooks-003
+    * FVT-option-filename-hooks-004
+    * FVT-option-filename-hooks-005
+    * FVT-option-filename-hooks-006
+    * FVT-option-filename-hooks-007
+    * FVT-option-filename-hooks-008
+    * FVT-option-filename-hooks-009
+    * FVT-option-filename-hooks-010
+    * FVT-option-filename-hooks-011
+    * FVT-option-filename-hooks-012
+    * FVT-option-none-001
+    * FVT-option-none-002
+    * FVT-option-none-hooks-001
+    * FVT-option-none-hooks-002
+    * FVT-option-none-hooks-003
+    * FVT-option-none-hooks-004
+    * FVT-option-usage-004
+    * FVT-option-version-004
+
 ### Feature Changes
 * git-TEST-commit-automation/hooks/EXAMPLES/FVT-*
   * Production standard 5.3.559 Copyright
@@ -72,42 +109,6 @@ Create custom FVT- test cases to test the options used by git-TEST-cases.sh
   * Remove FVT-test-case.expected that has a size of zero
 * git-TEST-commit-automation/hooks/EXAMPLES/SA-cleanup.sh
   * Remove SA-test-case.expected that has a size of zero
-* git-TEST-commit-automation/hooks/bin/EXAMPLES
-  * close #36 added the following test cases
-    * FVT-option-add-001
-    * FVT-option-all-001
-    * FVT-option-all-002
-    * FVT-option-all-hooks-001
-    * FVT-option-all-hooks-002
-    * FVT-option-clean-001
-    * FVT-option-clean-002
-
-    * FVT-option-filename-001
-    * FVT-option-filename-002
-    * FVT-option-filename-003
-    * FVT-option-filename-004
-    * FVT-option-filename-005
-    * FVT-option-filename-006
-    * FVT-option-filename-hooks-001
-    * FVT-option-filename-hooks-002
-    * FVT-option-filename-hooks-003
-    * FVT-option-filename-hooks-004
-    * FVT-option-filename-hooks-005
-    * FVT-option-filename-hooks-006
-    * FVT-option-filename-hooks-007
-    * FVT-option-filename-hooks-008
-    * FVT-option-filename-hooks-009
-    * FVT-option-filename-hooks-010
-    * FVT-option-filename-hooks-011
-    * FVT-option-filename-hooks-012
-    * FVT-option-none-001
-    * FVT-option-none-002
-    * FVT-option-none-hooks-001
-    * FVT-option-none-hooks-002
-    * FVT-option-none-hooks-003
-    * FVT-option-none-hooks-004
-    * FVT-option-usage-004
-    * FVT-option-version-004
 * update git-TEST-commit-automation/hooks/README
 
 ### Issues
