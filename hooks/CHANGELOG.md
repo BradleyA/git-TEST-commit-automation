@@ -76,6 +76,17 @@ Create custom FVT- test cases to test the options used by git-TEST-cases.sh
     * FVT-option-none-hooks-004
     * FVT-option-usage-004
     * FVT-option-version-004
+### Feature Changes
+* git-TEST-commit-automation/hooks/EXAMPLES/FVT-*
+  * Added user hint that script does not support -* or help or usage or version
+* git-TEST-commit-automation/hooks/EXAMPLES/SA-*
+  * Added user hint that script does not support -* or help or usage or version
+* git-TEST-commit-automation/hooks/bin/{setup-git-TEST-cases.sh, uninstall-git-TEST-cases.sh}
+  * Added user hint that script does not support -* or help or usage or version
+* git-TEST-commit-automation/hooks/EXAMPLES/FVT-cleanup.sh
+  * Remove FVT-test-case.expected that has a size of zero
+* git-TEST-commit-automation/hooks/EXAMPLES/SA-cleanup.sh
+  * Remove SA-test-case.expected that has a size of zero
 
 ### Feature Changes
 * git-TEST-commit-automation/hooks/EXAMPLES/FVT-*
