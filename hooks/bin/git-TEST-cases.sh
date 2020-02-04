@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  3.1.1.1492  2020-02-03T22:58:57.875468-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.527-21-g4424b2b  
-# 	   Beta-3 
+# 	hooks/bin/git-TEST-cases.sh  3.1.2.1494  2020-02-03T23:24:09.832614-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.1-1-g16879e3  
+# 	   hooks/bin/git-TEST-cases.sh   close #36   Beta-3 
 # 	hooks/bin/git-TEST-cases.sh  2.525.1468  2020-02-03T15:05:29.296666-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.524 
 # 	   hooks/bin/git-TEST-cases.sh   added additional SA-cleanup.sh near the end of the script because when testing git-TEST-cases.sh some of the FVT test case caused SA-setup.sh to be run 
 # 	hooks/bin/git-TEST-cases.sh  2.435.1326  2020-01-28T10:11:57.566271-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.434 
