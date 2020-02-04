@@ -1,6 +1,6 @@
 # Changelog
 
-## Version  {Next Version 3.2.?????????????}  
+## Version  {Next Version 3.2.?????}  
 #### Release Name  Beta-4
 #### Release Date ?????????????
 
@@ -34,7 +34,7 @@ Brief description
 
 ### Misc
 
-## Version  {Next Version 3.1.?????????????}
+## Version  {Next Version 3.1.????}
 #### Release Name  Beta-3
 #### Release Date  ?????????????
 
@@ -105,17 +105,19 @@ Create custom FVT- test cases to test the options used by git-TEST-cases.sh
   * Production standard 1.3.550 DEBUG variable
   * Production standard 2.3.529 log format
   * Production standard 5.3.559 Copyright
+  * Added user hint that script does not support -* or help or usage or version
 * git-TEST-commit-automation/hooks/EXAMPLES/FVT-cleanup.sh
   * Remove FVT-test-case.expected that has a size of zero
 * git-TEST-commit-automation/hooks/EXAMPLES/SA-cleanup.sh
   * Remove SA-test-case.expected that has a size of zero
-* update git-TEST-commit-automation/hooks/README
+* git-TEST-commit-automation/hooks/README
+  * Update
 
 ### Issues
-* #36 git-TEST-commit-automation/hooks/bin/EXAMPLES/ - custom test cases for FVT options
-* #42 hooks/bin/git-TEST-cases.sh - command should have exit if not in git repository
-* #45 hooks/EXAMPLES/FVT-option-filename-hooks-001-012 - finsh test
-* #46 hooks/EXAMPLES/FVT-option-filename-005-6 - finish testing with git-TEST-cases.sh
+* close #36 git-TEST-commit-automation/hooks/bin/EXAMPLES/ - custom test cases for FVT options
+* close #42 hooks/bin/git-TEST-cases.sh - command should have exit if not in git repository
+* close #45 hooks/EXAMPLES/FVT-option-filename-hooks-001-012 - finsh test
+* clone #46 hooks/EXAMPLES/FVT-option-filename-005-6 - finish testing with git-TEST-cases.sh
 
 ### Misc
 
