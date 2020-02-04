@@ -34,9 +34,9 @@ Brief description
 
 ### Misc
 
-## Version  {Next Version 3.1.????}
+## Version 3.1.1.1492
 #### Release Name  Beta-3
-#### Release Date  ?????????????
+#### Release Date  2020-02-03T22:58:57.875468-06:00 (CST)
 
 Create custom FVT- test cases to test the options used by git-TEST-cases.sh
 
