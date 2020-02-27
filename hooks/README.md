@@ -20,6 +20,7 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 
  * Rquirements:
    * Linux
+   * git
    * Internet access to GitHub
 
 #### If you like this repository, select in the upper-right corner, star, thank you.
