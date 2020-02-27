@@ -1,21 +1,25 @@
 # git-TEST-commit-automation  [![Stable Release](https://img.shields.io/badge/Release-3.1.1-blue.svg)](https://github.com/BradleyA/git-TEST-commit-automation/releases/tag/3.1.1)    [![GitHub commits](https://img.shields.io/github/commits-since/BradleyA/git-TEST-commit-automation/3.1.1.svg)](https://github.com/BradleyA/git-TEST-commit-automation/commits/)
 
-## Strategy
+## Goal
 Scripts to assist running something, and checking something, then reporting something; when you commit something.
 
+## Description
+
+After entering this command, Git runs any Git hooks found in \<REPOSITORY-NAME>/.git/hooks/ directory.  Git hooks are scripts that Git executes before and/or after events. Two local Git hooks are included with git-TEST-commit-automation.
+
     git commit -m 'latest changes' <COMMIT_FILE_NAME>
-
-After entering the above command, Git runs any Git hooks found in \<REPOSITORY-NAME>/.git/hooks/ directory.  Git hooks are scripts that Git executes before and/or after events. Two local Git hooks are included with git-TEST-commit-automation.
-
-#### If you like this repository, select in the upper-right corner, star, thank you.
-
-## About
 
 git-TEST-commit-automation runs pre-commit and post-commit hooks when "git commit -m 'message' " is executed. Pre-commit creates a file (${REPOSITORY-NAME}/hooks/COMMIT_FILE_LIST) which includes files being commited. Post-commit searches in the same directory as the commited filename for a TEST/\<filename>/ directory. If found post-commit runs TEST/\<filename>/SA-setup.sh and/or TEST/\<filename>/FVT-setup.sh then searches for files beginning with SA- of FVT- and runs them.
 
 TL;DR - Why did I create git-TEST-commit-automation when there are so many great open software and enterprise level testing solutions available.  I needed something that would run some basic Static Analysis Tests (SA) and Funciotnal Verification Tests (FVT) with minimal learning curve.  A solution that would inform, not impede code development.  That would encourage 'git commit -m 'message', not exit 1 if there is any code incident.  A solution that allows basic test cases to be included with code in a Git repository.  A solution that could be setup and uninstall without effecting the code being developed.  A solution that would support adding other test solutions to this solution with minimal changes.
 
 TL;DR - During code design, a software developer's focus is on how to solve parts of a bigger solution.  A developer may throw out a couple to dozens of lines of code.  It did not matter that those lines of code did or didn't meet every test requirement.  As a design matures it is increasingly important to have code PASS tests.  It is also important for a developer to design SA and FVT test cases for their new code.  At that time their code is ready for additional testing using open software and enterprise level testing solutions.
+
+*  Rquirements:
+    * Linux
+    * Internet access to GitHub
+
+#### If you like this repository, select in the upper-right corner, star, thank you.
 
 ## Objectives
 1) Quick setup with default test cases for any Git repository (in seconds)
