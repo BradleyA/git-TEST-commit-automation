@@ -1,4 +1,7 @@
-# git-TEST-commit-automation  [![Stable Release](https://img.shields.io/badge/Release-3.1.1-blue.svg)](https://github.com/BradleyA/git-TEST-commit-automation/releases/tag/3.1.1)    [![GitHub commits](https://img.shields.io/github/commits-since/BradleyA/git-TEST-commit-automation/3.1.1.svg)](https://github.com/BradleyA/git-TEST-commit-automation/commits/)
+# git-TEST-commit-automation
+[![Stable Release](https://img.shields.io/badge/Release-3.1.1-blue.svg)](https://github.com/BradleyA/git-TEST-commit-automation/releases/tag/3.1.1)
+[![GitHub commits](https://img.shields.io/github/commits-since/BradleyA/git-TEST-commit-automation/3.1.1.svg)](https://github.com/BradleyA/git-TEST-commit-automation/commits/)
+[![MIT License](http://img.shields.io/badge/License-MIT-red.png)](hooks/LICENSE)
 
 ## Goal
 Scripts to assist running something, and checking something, then reporting something; when you commit something.
