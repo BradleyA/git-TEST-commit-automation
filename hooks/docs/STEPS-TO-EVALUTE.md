@@ -16,7 +16,7 @@ Steps to evaluate git-TEST-commit-automation solution
     git add sample.sh
     git commit -m 'initial commit' sample.sh
 
-[Connect to GitHub and create git-TEST-commit repository](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)
+[Connect to GitHub and create a Public repository named git-TEST-commit](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)
 
 <img id="Steps git-TEST-commit-automation-1.gif" src="../images/git-TEST-commit-automation-1.gif" >
     
