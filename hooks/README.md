@@ -5,7 +5,7 @@ Scripts to assist running something, and checking something, then reporting some
 
 ## Description
 
-After entering this command, Git runs any Git hooks found in \<REPOSITORY-NAME>/.git/hooks/ directory.  Git hooks are scripts that Git executes before and/or after events. Two local Git hooks are included with git-TEST-commit-automation.
+After entering the following command, Git runs any Git hooks found in \<REPOSITORY-NAME>/.git/hooks/ directory.  Git hooks are scripts that Git executes before and/or after events. Two local Git hooks are included with git-TEST-commit-automation.
 
     git commit -m 'latest changes' <COMMIT_FILE_NAME>
 
@@ -15,9 +15,9 @@ TL;DR - Why did I create git-TEST-commit-automation when there are so many great
 
 TL;DR - During code design, a software developer's focus is on how to solve parts of a bigger solution.  A developer may throw out a couple to dozens of lines of code.  It did not matter that those lines of code did or didn't meet every test requirement.  As a design matures it is increasingly important to have code PASS tests.  It is also important for a developer to design SA and FVT test cases for their new code.  At that time their code is ready for additional testing using open software and enterprise level testing solutions.
 
-*  Rquirements:
-    * Linux
-    * Internet access to GitHub
+ * Rquirements:
+   * Linux
+   * Internet access to GitHub
 
 #### If you like this repository, select in the upper-right corner, star, thank you.
 
