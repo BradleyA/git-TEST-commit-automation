@@ -1,0 +1,77 @@
+#!/bin/bash
+# 	hooks/bin/set-env-for-manual-test.sh  3.1.3.1506  2020-03-02T16:21:19.976219-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.2-11-g8f37075  
+# 	   hooks/bin/set-env-for-manual-test.sh   testing manual script to set REPOSITORY_DIR and REPOSITORY_DIR_COUNT environment variables 
+#86# hooks/bin/set-env-for-manual-test.sh
+#    Run this script when manually testing test cases 
+#    This script sets REPOSITORY_DIR and REPOSITORY_DIR_COUNT environment variables which are normally set when poet-commit is run
+#    This is required because post-commit is has not run before manually testing a test case
+###    
+###  Production standard 3.0 shellcheck
+###  Production standard 5.3.559 Copyright                                    # 3.559
+#    Copyright (c) 2020 Bradley Allen                                                # 3.555
+#    MIT License is online in the repository as a file named LICENSE"         # 3.559
+###  Production standard 1.3.550 DEBUG variable                                             # 3.550
+#    Order of precedence: environment variable, default code
+if [[ "${DEBUG}" == ""  ]] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
+if [[ "${DEBUG}" == "2" ]] ; then set -x    ; fi   # Print trace of simple commands before they are executed
+if [[ "${DEBUG}" == "3" ]] ; then set -v    ; fi   # Print shell input lines as they are read
+if [[ "${DEBUG}" == "4" ]] ; then set -e    ; fi   # Exit immediately if non-zero exit status
+if [[ "${DEBUG}" == "5" ]] ; then set -e -o pipefail ; fi   # Exit immediately if non-zero exit status and exit if any command in a pipeline errors
+#
+BOLD=$(tput -Txterm bold)
+NORMAL=$(tput -Txterm sgr0)
+RED=$(tput    setaf 1)
+YELLOW=$(tput setaf 3)
+WHITE=$(tput  setaf 7)
+
+#    Date and time function ISO 8601
+get_date_stamp() {
+  DATE_STAMP=$(date +%Y-%m-%dT%H:%M:%S.%6N%:z)
+  TEMP=$(date +%Z)
+  DATE_STAMP="${DATE_STAMP} (${TEMP})"
+}
+
+#    Fully qualified domain name FQDN hostname
+LOCALHOST=$(hostname -f)
+
+#    Version
+#    Assumptions for the next two lines of code:  The second line in this script includes the script path & name as the second item and
+#    the script version as the third item separated with space(s).  The tool I use is called 'markit'. See example line below:
+#       template/template.sh  3.517.783  2019-09-13T18:20:42.144356-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.516  
+SCRIPT_NAME=$(head -2 "${0}" | awk '{printf $2}')  #  Different from ${COMMAND_NAME}=$(echo "${0}" | sed 's/^.*\///'), SCRIPT_NAME = includes Git repository directory and can be used any where in script (for dev, test teams)
+SCRIPT_VERSION=$(head -2 "${0}" | awk '{printf $3}')
+if [[ "${SCRIPT_NAME}" == "" ]] ; then SCRIPT_NAME="${0}" ; fi
+if [[ "${SCRIPT_VERSION}" == "" ]] ; then SCRIPT_VERSION="v?.?" ; fi
+
+#    GID
+GROUP_ID=$(id -g)
+
+###  Production standard 2.3.529 log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)
+new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
+  get_date_stamp
+  echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${SCRIPT_NAME}[$$] ${SCRIPT_VERSION} ${1} ${USER} ${UID}:${GROUP_ID} ${BOLD}[${2}]${NORMAL}  ${3}"
+}
+
+#    INFO
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2 ; fi
+
+#    This script does not support -* or help or usage or version
+if [[ "${1}" == -* ]] || [[ "${1}" == "help" ]] || [[ "${1}" == "usage" ]] || [[ "${1}" == "version" ]]  ; then
+  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Option, ${YELLOW}${1}${WHITE}, is not supported with ${SCRIPT_NAME}." 1>&2
+  #    User Hint
+  echo -e "    For more information:\n${BOLD}${YELLOW}    https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks#git-test-commit-automation------${NORMAL}"
+  exit 1
+fi
+
+###
+
+REPOSITORY_DIR=$(git rev-parse --show-toplevel)
+export REPOSITORY_DIR  #  export REPOSITORY_DIR so test scripts can use it
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  export REPOSITORY_DIR  >${REPOSITORY_DIR}<" 1>&2 ; fi
+REPOSITORY_DIR_COUNT=$(awk -F"/" '{print NF-1}' <<< "${REPOSITORY_DIR}")  #
+REPOSITORY_DIR_COUNT=$((REPOSITORY_DIR_COUNT+1))
+export REPOSITORY_DIR_COUNT  #  export number of directories + 1
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  export REPOSITORY_DIR_COUNT  >${REPOSITORY_DIR_COUNT}<" 1>&2 ; fi
+
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Operation finished..." 1>&2 ; fi
+###
