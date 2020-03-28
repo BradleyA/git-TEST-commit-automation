@@ -76,7 +76,7 @@ TL;DR - During code design, a software developer's focus is on how to solve part
     ├── setup-git-TEST-cases.sh
     └── uninstall-git-TEST-cases.sh>
 
-**hooks directory**  The hooks directory was created because I wanted to modify the GitHub hooks and track changes per repository.  Include hooks/ in repostory because .git/hooks is not pushed and hooks change and these changes need to be tracked in a Git repository.  A symbolic link from \<REPOSITORY-NAME>/.git/hooks to this hooks directory that are managed in this repository using [markit](https://github.com/BradleyA/markit/blob/master/README.md). 
+**hooks directory**  The \<REPOSITORY-NAME>/hooks directory was created for two reasons.  1) all git-TEST-commit-automation files are in one location to allow for quick removal without effecting other \<REPOSITORY-NAME>/ files.  2) the default \<REPOSITORY-NAME>/.git/hooks/files are not tracked and I wanted to track changes.  A symbolic link from \<REPOSITORY-NAME>/.git/hooks to this \<REPOSITORY-NAME>/hooks directory that are managed in this repository using [markit](https://github.com/BradleyA/markit/blob/master/README.md). 
 
 Place the expected results from the test case into a file with the same test case name but add '.expected' ('dot'expected).  Pipe the output from the test case into a file with the same name but add '.test-case-output'. 
 
