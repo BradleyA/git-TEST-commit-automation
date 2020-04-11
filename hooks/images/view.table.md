@@ -17,6 +17,6 @@ Unique  vistors:  |  1  |   1   |   2   |   1   |   1  |   1  |  1  |  3  |  2
 Total views: 1884
 ###### Updated: 2020-01-16
 
-[Return to README](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks#traffic)
+[Return to README](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks#git-TEST-commit-automation)
 
 **Note**  Data collection stopped between 10/14 & 12/9
