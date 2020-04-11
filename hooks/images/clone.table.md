@@ -16,6 +16,6 @@ Unique   clones:  |   5     |   2    |  23    |   10  |  7    |  2    |    2  | 
 Total clones: 132
 ###### Updated: 2020-01-16
 
-[Return to README](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks#traffic)
+[Return to README](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks#git-TEST-commit-automation)
 
 **Note**  Data collection stopped between 10/14 & 12/9
