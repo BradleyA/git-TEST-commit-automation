@@ -2,6 +2,8 @@
 [![Stable Release](https://img.shields.io/badge/Release-3.1.1-blue.svg)](https://github.com/BradleyA/git-TEST-commit-automation/releases/tag/3.1.1)
 [![GitHub commits](https://img.shields.io/github/commits-since/BradleyA/git-TEST-commit-automation/3.1.1.svg)](https://github.com/BradleyA/git-TEST-commit-automation/commits/)
 [![MIT License](http://img.shields.io/badge/License-MIT-red.png)](LICENSE)
+[<img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=180&color=blue">](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/images/clone.table.md)
+[<img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=2477&color=blue">](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/images/view.table.md)
 
 ## Goal
 Scripts to assist running something, and checking something, then reporting something; when you commit something.
@@ -238,10 +240,6 @@ Place the expected results from the test case into a file with the same test cas
   - challenge is SA-setup.sh & FVT-setup.sh could be changed by development and test teams 
   - Quick backup of all test cases in repository (\<FILE-NAME>.tar) (code is in uninstall-) (option: --backup --restore)
   - Include support for other test or CI solutions ... Scan for Credentials, BATS, Travis CI, ...
-
-#### Traffic
- * <img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=180&color=blue">  [Clones Table](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/images/clone.table.md)
- * <img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=2477&color=blue">  [Views Table](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/images/view.table.md)
 
 #### Author
 [<img id="twitter" src="https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">
