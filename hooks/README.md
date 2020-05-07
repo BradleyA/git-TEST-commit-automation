@@ -2,7 +2,7 @@
 [![Stable Release](https://img.shields.io/badge/Release-3.1.1-blue.svg)](https://github.com/BradleyA/git-TEST-commit-automation/releases/tag/3.1.1)
 [![GitHub commits](https://img.shields.io/github/commits-since/BradleyA/git-TEST-commit-automation/3.1.1.svg)](https://github.com/BradleyA/git-TEST-commit-automation/commits/)
 [![MIT License](http://img.shields.io/badge/License-MIT-red.png)](LICENSE)
-[<img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=180&color=blue">](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/images/clone.table.md)
+[<img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=257&color=blue">](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/images/clone.table.md)
 [<img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=2477&color=blue">](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/images/view.table.md)
 
 ## Goal
