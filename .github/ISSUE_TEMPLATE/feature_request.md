@@ -8,23 +8,19 @@ assignees: BradleyA
 ---
 
 **Tell us about your request** 
-A clear and concise description of what you want to happen or the change you would like to see. Ex. I'm always frustrated when:
+A clear and concise description of what you want to happen or the change you would like to see.  Use a use case to describe how a person would actually use your request to accomplish a goal.
 
     -> 
 
-**Describe the solution you'd like**
+**Describe how your request could work**
 
 *  Steps to describe solution:
    1. Go to ->
    2. Enter/Click on ->
    3. Select/Scroll-Down to ->
 
-* A clear and concise description of what you want to happen.
-
-      -> 
-
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+**Are you currently working around the issue?**
+A clear and concise description of any alternative solutions or features you've considered or are using today.
 
     -> 
 
