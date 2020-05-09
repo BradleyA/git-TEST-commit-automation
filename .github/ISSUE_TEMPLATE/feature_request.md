@@ -7,24 +7,24 @@ assignees: BradleyA
 
 ---
 
-**Tell us about your request:** 
+**Tell us about your feature request:** 
 A clear and concise description of what you want to happen or the change you would like to see.  Use a use case to describe how a person would actually use your request to accomplish a goal.
 
     -> 
 
-**Describe how your request could work**
+**Describe how your feature request could work:**
 
 *  Steps to describe solution:
    1. Go to ->
    2. Enter/Click on ->
    3. Select/Scroll-Down to ->
 
-**Are you currently working around the issue?**
+**How are you currently working without your feature request?**
 A clear and concise description of any alternative solutions or features you've considered or are using today.
 
     -> 
 
-**Additional context**
+**Additional information about your feature request:**
 Add any other context or screenshots about the feature request here.
 
     -> 
