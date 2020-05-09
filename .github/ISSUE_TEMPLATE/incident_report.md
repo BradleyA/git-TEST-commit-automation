@@ -13,13 +13,13 @@ A clear and concise description, 'what is your incident?'
     -> 
 
 **To reproduce your incident:**
-Steps to reproduce the behavior:
+Steps to reproduce your incident:
    1. Go to -> 
    2. Enter/Click on -> 
    3. Select/Scroll-Down to -> 
 
 **Actual results:**
-If applicable, add screenshots to help explain your results.
+If applicable, add screenshots to help explain your incident.
 
     -> 
 
