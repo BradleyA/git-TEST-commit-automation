@@ -8,7 +8,7 @@ assignees: BradleyA
 ---
 
 **Tell us about your feature request:** 
-A clear and concise description of what you want to happen or the change you would like to see.  Use a use case to describe how a person would actually use your request to accomplish a goal.
+A clear and concise description of what you want to happen or the change you would like to see.  Use a use case to describe how a person would actually use your request to accomplish a goal. Thank you.
 
     -> 
 
