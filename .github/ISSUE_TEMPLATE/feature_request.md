@@ -15,17 +15,12 @@ A clear and concise description of what you want to happen or the change you wou
 **Describe how your feature request could work:**
 
 *  Steps to describe solution:
-   1. Go to ->
-   2. Enter/Click on ->
-   3. Select/Scroll-Down to ->
+   1. Go to -> 
+   2. Enter/Click on -> 
+   3. Select/Scroll-Down to -> 
 
 **How are you currently working without your feature request?**
 A clear and concise description of any alternative solutions or features you've considered or are using today.
-
-    -> 
-
-**Additional information about your feature request:**
-Add any other context or screenshots about the feature request here.
 
     -> 
 
