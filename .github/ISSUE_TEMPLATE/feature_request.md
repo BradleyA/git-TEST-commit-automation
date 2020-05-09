@@ -13,8 +13,7 @@ A clear and concise description of what you want to happen or the change you wou
     -> 
 
 **Describe how your feature request could work:**
-
-*  Steps to describe solution:
+Steps to feature request.
    1. Go to -> 
    2. Enter/Click on -> 
    3. Select/Scroll-Down to -> 
