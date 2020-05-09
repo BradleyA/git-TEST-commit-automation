@@ -2,7 +2,7 @@
 name: Feature Request
 about: Suggest an idea for this repository, Thank you
 title: "Feature Request --> [enter command if available] - [enter brief description]"
-labels: new command/service
+labels: new command/service,needs investigation
 assignees: BradleyA
 
 ---
