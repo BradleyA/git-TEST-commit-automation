@@ -19,12 +19,12 @@ Steps to demonstrate your feature request.
    3. Select/Scroll-Down to -> 
 
 **How are you currently working without your feature request?**
-A clear and concise description of any alternative solutions or features you've considered or are using today.
+A description of any alternative solutions or features you've considered or are using today.
 
     -> 
 
 **Version:**
- - OS ( lsb_release -a; Ubuntu 14.04  Ubuntu 16.04  Ubuntu 20.04 )
+ - OS ( lsb_release -a ; Ubuntu 14.04  Ubuntu 16.04  Ubuntu 20.04 )
  
        -> 
  
