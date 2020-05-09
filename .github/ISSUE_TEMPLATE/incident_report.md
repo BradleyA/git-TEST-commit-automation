@@ -2,7 +2,7 @@
 name: Incident Report
 about: Report incident you are having
 title: "Incident Report - [enter command causing incident] - [enter brief description]"
-labels: bug
+labels: bug,needs investigation
 assignees: BradleyA
 
 ---
