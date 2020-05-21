@@ -163,7 +163,7 @@ Create scripts to assist running something, and checking something, then reporti
 ### Misc
 
 
-## EXAMPLE: Next Version Under Construction {Version  X.X.????}  <img id="Construction" src="../images/construction-icon.gif" width="120">
+## EXAMPLE: Next Version Under Construction {Version  X.X.????}  <img id="Construction" src="images/construction-icon.gif" width="120">
 # EXAMPLE: Latest Release -->  Version  X.X.????
 #### Release Name  {unreleased rc-# alpha-# beta prerelease latest}
 #### Release Date  ????
