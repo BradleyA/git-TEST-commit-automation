@@ -1,10 +1,13 @@
-# Changelog
+**Notes:** Use the following example to guide you to; How to download an earlier release.
 
-## Version  {Next Version 3.2.?????}  
+    git clone https://github.com/BradleyA/<REPOSITORY>.git --branch 2.42
+
+## EXAMPLE: Next Version Under Construction {Version  3.2.????}  <img id="Construction" src="images/construction-icon.gif" width="120">
 #### Release Name  Beta-4
-#### Release Date ?????????????
-
-Brief description
+#### Release Date  ????
+* Brief description
+* sub-repository
+  * Brief description
 
 ### Features Added
 * git-TEST-commit-automation/hooks/bin/EXAMPLES
@@ -26,19 +29,20 @@ Brief description
 ### Features Changes
 ### Features Deprecations
 ### Issues
-* #8  hooks/EXAMPLES/SA-permission-txt-001 - add test case
-* #27 hooks/bin/uninstall-git-TEST-cases.sh - add option & environment variable for git push
-* #28 hooks/bin/setup-git-TEST-cases.sh - add option & environment variable for git push
-* #43 hooks/EXAMPLES/SA-??? test with git-secrets, git-hound, and truffleHog
-* #44 hooks/post-commit - if test case not found error message
+* close #8  hooks/EXAMPLES/SA-permission-txt-001 - add test case
+* close #27 hooks/bin/uninstall-git-TEST-cases.sh - add option & environment variable for git push
+* close #28 hooks/bin/setup-git-TEST-cases.sh - add option & environment variable for git push
+* close #43 hooks/EXAMPLES/SA-??? test with git-secrets, git-hound, and truffleHog
+* close #44 hooks/post-commit - if test case not found error message
 
 ### Misc
+
 
 ## Version 3.1.1.1492
 #### Release Name  Beta-3
 #### Release Date  2020-02-03T22:58:57.875468-06:00 (CST)
 
-Create custom FVT- test cases to test the options used by git-TEST-cases.sh
+* Create custom FVT- test cases to test the options used by git-TEST-cases.sh
 
 ### Features Added
 * git-TEST-commit-automation/hooks/bin/EXAMPLES
@@ -122,13 +126,11 @@ Create custom FVT- test cases to test the options used by git-TEST-cases.sh
 * close #45 hooks/EXAMPLES/FVT-option-filename-hooks-001-012 - finsh test
 * clone #46 hooks/EXAMPLES/FVT-option-filename-005-6 - finish testing with git-TEST-cases.sh
 
-### Misc
-
 ## Version 2.211.959
 #### Release Name Beta-2
 #### Release Date  2020-01-08T22:52:15.469894-06:00 (CST)
 
-Create scripts to assist running something, and checking something, then reporting something; when you commit something.
+* Create scripts to assist running something, and checking something, then reporting something; when you commit something.
 
 ### Features
 * close #1  hooks/bin/list-git-TEST-cases.sh Rename SAST to SA for Static Analysis #1 
@@ -159,8 +161,6 @@ Create scripts to assist running something, and checking something, then reporti
 * close #37 hooks/bin/EXAMPLES/SA-* FVT-* - add color to all test cases #37 
 * close #38 hooks/post-commit - remove test cases after running them #38 
 * close $40 hooks/bin/git-TEST-cases.sh - add git add & commit when creating default test case #40
-
-### Misc
 
 
 ## EXAMPLE: Next Version Under Construction {Version  X.X.????}  <img id="Construction" src="images/construction-icon.gif" width="120">
