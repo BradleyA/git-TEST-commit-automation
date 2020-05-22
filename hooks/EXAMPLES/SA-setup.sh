@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/SA-setup.sh  3.1.7.1553  2020-05-21T21:42:34.602922-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.6-1-g77e45af  
+# 	   hooks/EXAMPLES/SA-setup.sh -->   upgrade Production standards #49  
 # 	hooks/EXAMPLES/SA-setup.sh  2.447.1341  2020-01-30T15:07:20.126233-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.446  
 # 	   hooks/EXAMPLES/SA-*   added This script does not support -* or help or usage or version 
 # 	hooks/EXAMPLES/SA-setup.sh  2.372.1260  2020-01-25T21:29:22.738881-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.371-1-gfc4ba1f  
@@ -21,9 +23,12 @@ if [[ "${DEBUG}" == "4" ]] ; then set -e    ; fi   # Exit immediately if non-zer
 if [[ "${DEBUG}" == "5" ]] ; then set -e -o pipefail ; fi   # Exit immediately if non-zero exit status and exit if any command in a pipeline errors
 #
 BOLD=$(tput -Txterm bold)
+UNDERLINE=$(tput -Txterm sgr 0 1)  # 0.3.583
 NORMAL=$(tput -Txterm sgr0)
 RED=$(tput    setaf 1)
 YELLOW=$(tput setaf 3)
+BLUE=$(tput   setaf 4)
+PURPLE=$(tput setaf 5)
 WHITE=$(tput  setaf 7)
 
 #    Date and time function ISO 8601
@@ -48,10 +53,10 @@ if [[ "${SCRIPT_VERSION}" == "" ]] ; then SCRIPT_VERSION="v?.?" ; fi
 #    GID
 GROUP_ID=$(id -g)
 
-###  Production standard 2.3.529 log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)
+###  Production standard 2.3.578 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)
 new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
   get_date_stamp
-  echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${SCRIPT_NAME}[$$] ${SCRIPT_VERSION} ${1} ${USER} ${UID}:${GROUP_ID} ${BOLD}[${2}]${NORMAL}  ${3}"
+  echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${SCRIPT_NAME}[$$] ${BOLD}${BLUE}${SCRIPT_VERSION} ${PURPLE}${1}${NORMAL} ${USER} ${UID}:${GROUP_ID} ${BOLD}[${2}]${NORMAL}  ${3}"
 }
 
 #    INFO
@@ -61,7 +66,7 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}
 if [[ "${1}" == -* ]] || [[ "${1}" == "help" ]] || [[ "${1}" == "usage" ]] || [[ "${1}" == "version" ]]  ; then
   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Option, ${YELLOW}${1}${WHITE}, is not supported with ${SCRIPT_NAME}." 1>&2
   #    User Hint
-  echo -e "    For more information:\n${BOLD}${YELLOW}    https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks#git-test-commit-automation------${NORMAL}"
+  echo -e "    For more information:\n${BOLD}${YELLOW}    ${UNDERLINE}https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks#git-test-commit-automation------${NORMAL}"
   exit 1
 fi
 
