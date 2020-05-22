@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/SA-cleanup.sh  3.1.10.1556  2020-05-21T22:31:02.922230-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.9  
+# 	   hooks/EXAMPLES/SA-cleanup.sh hooks/EXAMPLES/SA-exit-code-error-124-002 hooks/EXAMPLES/SA-exit-code-error-2-001 hooks/EXAMPLES/SA-setup.sh -->   upgrade Production standards #49  
 # 	hooks/EXAMPLES/SA-cleanup.sh  3.1.6.1551  2020-05-21T21:27:33.147323-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.5-42-g58ba3b2  
 # 	   hooks/EXAMPLES/SA-cleanup.sh -->   upgrade Production standards #49  
 # 	hooks/EXAMPLES/SA-cleanup.sh  2.447.1341  2020-01-30T15:06:24.076693-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.446  
@@ -86,9 +88,9 @@ for k in $(ls -1 SA-*) ; do
     if [[ "${k}" != "SA-setup.sh" ]] ; then
       { [[ ! -L "${k}" ]] || rm "${k}"; }  #  Remove files with symbolic link
       if [[ ! -s "${k}" ]] ; then  #  Remove SA-test-case.expected that has a size of zero
-        if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Empty file ${k}" 1>&2 ; fi
+        if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Empty file ${k}" 1>&2 ; fi
         if [[ "${k##*.}" == "expected" ]] ; then
-          if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  File ${k} has expected extension >${k##*.}<" 1>&2 ; fi
+          if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  File ${k} has expected extension >${k##*.}<" 1>&2 ; fi
           rm "${k}"
         fi
       fi

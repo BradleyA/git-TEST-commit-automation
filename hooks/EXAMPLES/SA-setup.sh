@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/SA-setup.sh  3.1.10.1556  2020-05-21T22:31:11.895107-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.9  
+# 	   hooks/EXAMPLES/SA-cleanup.sh hooks/EXAMPLES/SA-exit-code-error-124-002 hooks/EXAMPLES/SA-exit-code-error-2-001 hooks/EXAMPLES/SA-setup.sh -->   upgrade Production standards #49  
 # 	hooks/EXAMPLES/SA-setup.sh  3.1.7.1553  2020-05-21T21:42:34.602922-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.6-1-g77e45af  
 # 	   hooks/EXAMPLES/SA-setup.sh -->   upgrade Production standards #49  
 # 	hooks/EXAMPLES/SA-setup.sh  2.447.1341  2020-01-30T15:07:20.126233-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.446  
@@ -60,7 +62,7 @@ new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
 }
 
 #    INFO
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2 ; fi  #  2.3.578
 
 #    This script does not support -* or help or usage or version
 if [[ "${1}" == -* ]] || [[ "${1}" == "help" ]] || [[ "${1}" == "usage" ]] || [[ "${1}" == "version" ]]  ; then
@@ -109,5 +111,5 @@ ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-775-001"        SA-permis
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-shellcheck-001"            SA-shellcheck-001
 #
 
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${SCRIPT_NAME}" "${LINENO}" "DEBUG" "  Operation finished..." 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Operation finished..." 1>&2 ; fi
 ###
