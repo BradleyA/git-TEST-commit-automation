@@ -67,9 +67,9 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 
 ## Test Case Types
 
-**Funciotnal Verification Test (FVT)** is defined as the process of verifying that the design meets its specification from a functional perspective. ... Functional verification establishes that the design under test (DUT) implements the functionality of the specification correctly.
+[**Funciotnal Verification Test (FVT)**](https://en.wikipedia.org/wiki/Functional_testing) is defined as the process of verifying that the design meets its specification from a functional perspective. ... Functional verification establishes that the design under test (DUT) implements the functionality of the specification correctly.
 
-**Static Analysis (SA)** is the examination of code prior to the program’s execution SA is code analysis, syntax, permission, code inspection, code review, etc.
+[**Static Analysis (SA)**](https://en.wikipedia.org/wiki/Static_program_analysis) is the examination of code prior to the program’s execution SA is code analysis, syntax, permission, code inspection, code review, etc.
 
 #### ARCHITECTURE TREE
 
