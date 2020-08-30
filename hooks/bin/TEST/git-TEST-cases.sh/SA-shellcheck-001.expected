@@ -1,47 +1,47 @@
 
-In SA-shellcheck-001 line 289:
+In SA-shellcheck-001 line 296:
       TEST_CASE_DIR_LIST=$(ls -1d "${i}"/* | cut -c 3-)
                            ^-- SC2012: Use find instead of ls to better handle non-alphanumeric filenames.
 
 
-In SA-shellcheck-001 line 295:
+In SA-shellcheck-001 line 302:
         printf "${TEST_CASE_DIR_START}${BOLD}${YELLOW}${TEST_CASE_DIR_END}${NORMAL}\n"
                ^-- SC2059: Don't use variables in the printf format string. Use printf "..%s.." "$foo".
 
 
-In SA-shellcheck-001 line 298:
+In SA-shellcheck-001 line 305:
           if [[ -e "${j}/FVT-setup.sh" ]]    ; then $(cd "${j}" ; ./FVT-setup.sh   "${REPOSITORY_DIR}") ; fi
                                                     ^-- SC2091: Remove surrounding $() to avoid executing output.
 
 
-In SA-shellcheck-001 line 299:
+In SA-shellcheck-001 line 306:
           if [[ -e "${j}/SA-setup.sh"  ]]    ; then $(cd "${j}" ; ./SA-setup.sh    "${REPOSITORY_DIR}") ; fi
                                                     ^-- SC2091: Remove surrounding $() to avoid executing output.
 
 
-In SA-shellcheck-001 line 303:
+In SA-shellcheck-001 line 310:
           if [[ -e "${j}/FVT-cleanup.sh" ]]  ; then $(cd "${j}" ; ./FVT-cleanup.sh "${REPOSITORY_DIR}") ; fi
                                                     ^-- SC2091: Remove surrounding $() to avoid executing output.
 
 
-In SA-shellcheck-001 line 304:
+In SA-shellcheck-001 line 311:
           if [[ -e "${j}/SA-cleanup.sh"  ]]  ; then $(cd "${j}" ; ./SA-cleanup.sh  "${REPOSITORY_DIR}") ; fi
                                                     ^-- SC2091: Remove surrounding $() to avoid executing output.
 
 
-In SA-shellcheck-001 line 307:
+In SA-shellcheck-001 line 314:
         printf "${BOLD}${GREEN} $(ls -1  "${j}" | grep -v "\." | sed 's/^/\t/')${NORMAL}\n"
                ^-- SC2059: Don't use variables in the printf format string. Use printf "..%s.." "$foo".
                                   ^-- SC2010: Don't use ls | grep. Use a glob or a for loop with a condition to allow non-alphanumeric filenames.
 
 
-In SA-shellcheck-001 line 308:
+In SA-shellcheck-001 line 315:
         printf "${BOLD}${CYAN} $(ls -1  "${j}" | grep "cleanup.sh" | sed 's/^/\t/')${NORMAL}\n"
                ^-- SC2059: Don't use variables in the printf format string. Use printf "..%s.." "$foo".
                                  ^-- SC2010: Don't use ls | grep. Use a glob or a for loop with a condition to allow non-alphanumeric filenames.
 
 
-In SA-shellcheck-001 line 309:
+In SA-shellcheck-001 line 316:
         printf "${BOLD}${CYAN} $(ls -1  "${j}" | grep "setup.sh" | sed 's/^/\t/')${NORMAL}\n"
                ^-- SC2059: Don't use variables in the printf format string. Use printf "..%s.." "$foo".
                                  ^-- SC2010: Don't use ls | grep. Use a glob or a for loop with a condition to allow non-alphanumeric filenames.
