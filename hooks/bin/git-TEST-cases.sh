@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/git-TEST-cases.sh  3.1.92.1650  2020-08-29T22:13:53.611478-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.91  
+# 	   hooks/bin/git-TEST-cases.sh -->   Add default options to OPTIONS section  
 # 	hooks/bin/git-TEST-cases.sh  3.1.2.1494  2020-02-03T23:24:09.832614-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.1-1-g16879e3  
 # 	   hooks/bin/git-TEST-cases.sh   close #36   Beta-3 
 # 	hooks/bin/git-TEST-cases.sh  2.525.1468  2020-02-03T15:05:29.296666-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.524 
@@ -95,7 +97,14 @@ echo    "                   more information about the set options, see man bash
 echo    "   ALL_TEST_CASES  Include hooks/ directory (default ${DEFAULT_ALL_TEST_CASES})"
 
 echo -e "\n${BOLD}OPTIONS${NORMAL}"
-echo -e "Order of precedence: CLI options, environment variable, default code.\n"
+echo -e "Order of precedence: CLI options, environment variable, default value.\n"     # 3.572
+echo    "   --help, -help, help, -h, h, -?"                                            # 3.572
+echo -e "\tOn-line brief reference manual\n"                                           # 3.572
+echo    "   --usage, -usage, -u"                                                       # 3.572
+echo -e "\tOn-line command usage\n"                                                    # 3.572
+echo    "   --version, -version, -v"                                                      # 0.3.579
+echo -e "\tOn-line command version\n"                                                  # 3.572
+#
 echo    "   -a, --all"
 echo -e "\tPrint all test case files after running FVT-setup.sh and SA-setup.sh"
 echo -e "\texcluding hooks/ directory unless --hooks option is used.\n"
