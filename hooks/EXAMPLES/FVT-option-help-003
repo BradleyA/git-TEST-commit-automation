@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/EXAMPLES/FVT-option-help-003  3.1.91.1649  2020-08-29T21:46:57.585174-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.90-8-g650ba35  
+#	   hooks/EXAMPLES/FVT-option-help-003 -->   restore missing comment character #  
 #	hooks/EXAMPLES/FVT-option-help-003  3.1.77.1627  2020-05-22T12:26:12.782293-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.76  
 #	   hooks/EXAMPLES/FVT-option-help-003 -->   upgrade Production standards #49  
 #	hooks/EXAMPLES/FVT-option-help-003  2.456.1358  2020-01-30T22:09:28.135000-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.454  
@@ -33,7 +35,7 @@ PURPLE=$(tput setaf 5)
 CYAN=$(tput   setaf 6)
 WHITE=$(tput  setaf 7)
 
-    Date and time function ISO 8601
+#    Date and time function ISO 8601
 get_date_stamp() {
   DATE_STAMP=$(date +%Y-%m-%dT%H:%M:%S.%6N%:z)
   TEMP=$(date +%Z)
