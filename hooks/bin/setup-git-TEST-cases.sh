@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/setup-git-TEST-cases.sh  3.1.94.1653  2020-09-05T08:15:28.202095-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.93  
+# 	   hooks/bin/setup-git-TEST-cases.sh -->   update No --help  
 # 	hooks/bin/setup-git-TEST-cases.sh  2.444.1338  2020-01-29T11:43:01.700129-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.443  
 # 	   hooks/bin/setup-git-TEST-cases.sh   typo 
 # 	hooks/bin/setup-git-TEST-cases.sh  2.281.1134  2020-01-22T11:42:58.546653-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.280  
@@ -19,7 +21,9 @@ if [[ "${DEBUG}" == "4" ]] ; then set -e    ; fi   # Exit immediately if non-zer
 if [[ "${DEBUG}" == "5" ]] ; then set -e -o pipefail ; fi   # Exit immediately if non-zero exit status and exit if any command in a pipeline errors
 #
 BOLD=$(tput -Txterm bold)
+UNDERLINE=$(tput -Txterm sgr 0 1)  # 0.3.583
 NORMAL=$(tput -Txterm sgr0)
+RED=$(tput    setaf 1)
 YELLOW=$(tput setaf 3)
 WHITE=$(tput  setaf 7)
 
@@ -54,14 +58,14 @@ new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
 #    INFO
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2 ; fi
 
-###
-
-#    No --help
+#    No --help  # 0.3.583
 if [[ "${1}" != "" ]] ; then
   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${SCRIPT_NAME} does not support arguements." 1>&2
-  echo -e "    For more information:\n${BOLD}${YELLOW}    https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/docs/STEPS-TO-EVALUTE.md#installevaluate-git-test-commit-automation-solution \n${NORMAL}"
+  echo -e "    For more information:\n${BOLD}${YELLOW}    ${UNDERLINE}https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/docs/STEPS-TO-EVALUTE.md#installevaluate-git-test-commit-automation-solution \n${NORMAL}" # 0.3.583
   exit 1
 fi
+
+###
 
 if git -C . rev-parse 2> /dev/null ; then  #  currect directory in a git repository
   cd "$(git rev-parse --show-toplevel || echo '.')"  #  change to top git repository directory 
