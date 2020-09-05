@@ -1,11 +1,9 @@
 #!/bin/bash
-# 	hooks/bin/set-env-for-manual-test.sh  3.1.5.1508  2020-03-02T16:43:42.194534-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.4  
-# 	   hooks/bin/set-env-for-manual-test.sh   updated commit on command use 
-# 	hooks/bin/set-env-for-manual-test.sh  3.1.4.1507  2020-03-02T16:32:36.424277-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.3  
-# 	   hooks/bin/set-env-for-manual-test.sh   testing manual script to set REPOSITORY_DIR and REPOSITORY_DIR_COUNT environment variables 
+# 	hooks/bin/set-env-for-manual-test.sh  3.1.93.1652  2020-09-05T07:57:20.901435-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.92-1-g500781d  
+# 	   hooks/bin/set-env-for-manual-test.sh -->   correct typo in help comment  
 #86# hooks/bin/set-env-for-manual-test.sh
 #    Run this script when manually testing test cases    . hooks/bin/set-env-for-manual-test.sh  OR    source hooks/bin/set-env-for-manual-test.sh
-#    This script sets REPOSITORY_DIR and REPOSITORY_DIR_COUNT environment variables which are normally set when poet-commit is run
+#    This script sets REPOSITORY_DIR and REPOSITORY_DIR_COUNT environment variables which are normally set when post-commit is run
 #    This is required because post-commit is has not run before manually testing a test case
 ###    
 
