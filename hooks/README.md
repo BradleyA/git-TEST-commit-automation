@@ -52,6 +52,8 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 5) Quick upgrade of default test cases and git-TEST-commit-automation commands (setup-git-TEST-cases.sh)
 6) Quick reduction of untracked TEST case files (option -c)
 
+[Return to top](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#git-TEST-commit-automation)
+
 ## Quick Start Tutorials
 	
 #### [Install/evaluate git-TEST-commit-automation solution](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/STEPS-TO-EVALUTE.md)
@@ -63,7 +65,9 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 #### [Setup default SA- test cases for a new file](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/STEPS-TO-SETUP-DEFAULT-SA-TEST-CASES.md)
 
 #### [Create custom test cases for a file](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/STEPS-TO-CREATE-TEST-CASES.md)
-  
+
+[Return to top](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#git-TEST-commit-automation)
+
 ## Command Descriptions
 
 **pre-commit** - Creates \<REPOSITORY-NAME>/hooks/**COMMIT_FILE_LIST** with a list of \<REPOSITORY-NAME>/\<FILE> being committed.
@@ -82,11 +86,15 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 
 **uninstall-git-TEST-cases.sh** - uninstall git-TEST-commit-automation in current repository
 
+[Return to top](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#git-TEST-commit-automation)
+
 ## Test Case Types
 
 [**Funciotnal Verification Test (FVT)**](https://en.wikipedia.org/wiki/Functional_testing) is defined as the process of verifying that the design meets its specification from a functional perspective. ... Functional verification establishes that the design under test (DUT) implements the functionality of the specification correctly.
 
 [**Static Analysis (SA)**](https://en.wikipedia.org/wiki/Static_program_analysis) is the examination of code prior to the program’s execution SA is code analysis, syntax, permission, code inspection, code review, etc.
+
+[Return to top](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#git-TEST-commit-automation)
 
 #### ARCHITECTURE TREE
 
@@ -221,6 +229,8 @@ Place the expected results from the test case into a file with the same test cas
             ├── SA-setup.sh -> ../../EXAMPLES/SA-setup.sh
             └── SA-shellcheck-001.expected
 
+[Return to top](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#git-TEST-commit-automation)
+
 #### Future Objectives 
 
 **WARNING**: These instructions are incomplete. Consider them as notes quickly drafted on a napkin rather than proper documentation!
@@ -258,17 +268,25 @@ Place the expected results from the test case into a file with the same test cas
   - Quick backup of all test cases in repository (\<FILE-NAME>.tar) (code is in uninstall-) (option: --backup --restore)
   - Include support for other test or CI solutions ... Scan for Credentials, BATS, Travis CI, ...
 
+[Return to top](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#git-TEST-commit-automation)
+
 #### Author
 [<img id="github" src="https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/images/github.png" width="50" a="https://github.com/BradleyA/">](https://github.com/BradleyA/)    [<img src="https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/images/linkedin.png" style="max-width:100%;" >](https://www.linkedin.com/in/bradleyhallen) [<img id="twitter" src="https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">](https://twitter.com/bradleyaustintx/)       <a href="https://twitter.com/intent/follow?screen_name=bradleyaustintx"> <img src="https://img.shields.io/twitter/follow/bradleyaustintx.svg?label=Follow%20@bradleyaustintx" alt="Follow @bradleyaustintx" />    </a>
+
+[Return to top](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#git-TEST-commit-automation)
 
 #### System OS script tested
  * Ubuntu 16.04.6 LTS (GNU/Linux 4.4.38-v7+ armv7l)
  * Ubuntu 14.04.6 LTS (GNU/Linux 4.4.0-148-generic x86_64)
 
+[Return to top](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#git-TEST-commit-automation)
+
 #### Design Principles
  * Have a simple setup process and a minimal learning curve
  * Be usable as non-root
  * Be easy to install and configure
+
+[Return to top](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#git-TEST-commit-automation)
 
 #### License
 MIT License
