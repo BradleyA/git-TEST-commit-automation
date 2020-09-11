@@ -19,7 +19,6 @@
         - [Design Principles](#Design-Principles)
         - [License](#License)
 
-
 ## Goal
 Scripts to assist running something, and checking something, then reporting something; when you commit something.
 
@@ -44,6 +43,14 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 
 [Return to top](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#git-TEST-commit-automation)
 
+## Test Case Types
+
+[**Funciotnal Verification Test (FVT)**](https://en.wikipedia.org/wiki/Functional_testing) is defined as the process of verifying that the design meets its specification from a functional perspective. ... Functional verification establishes that the design under test (DUT) implements the functionality of the specification correctly.
+
+[**Static Analysis (SA)**](https://en.wikipedia.org/wiki/Static_program_analysis) is the examination of code prior to the program’s execution SA is code analysis, syntax, permission, code inspection, code review, etc.
+
+[Return to top](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#git-TEST-commit-automation)
+
 ## Objectives
 1) Quick setup with default test cases for any Git repository (in seconds)
 2) Quick uninstall on any Git repository
@@ -65,14 +72,6 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 #### [Setup default SA- test cases for a new file](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/STEPS-TO-SETUP-DEFAULT-SA-TEST-CASES.md)
 
 #### [Create custom test cases for a file](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/STEPS-TO-CREATE-TEST-CASES.md)
-
-[Return to top](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#git-TEST-commit-automation)
-
-## Test Case Types
-
-[**Funciotnal Verification Test (FVT)**](https://en.wikipedia.org/wiki/Functional_testing) is defined as the process of verifying that the design meets its specification from a functional perspective. ... Functional verification establishes that the design under test (DUT) implements the functionality of the specification correctly.
-
-[**Static Analysis (SA)**](https://en.wikipedia.org/wiki/Static_program_analysis) is the examination of code prior to the program’s execution SA is code analysis, syntax, permission, code inspection, code review, etc.
 
 [Return to top](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#git-TEST-commit-automation)
 
