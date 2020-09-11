@@ -9,8 +9,8 @@
 [<img alt="GitHub Clones" src="https://img.shields.io/static/v1?label=Clones&message=257&color=blueviolet">](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/images/clone.table.md)
 [<img alt="GitHub Views" src="https://img.shields.io/static/v1?label=Views&message=3488&color=blueviolet">](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/images/view.table.md)
 [![Size](https://img.shields.io/github/repo-size/BradleyA/git-TEST-commit-automation.svg)](https://github.com/BradleyA/git-TEST-commit-automation/)
-![Written in Bash](https://img.shields.io/badge/written%20in-bash-19bb19.svg)
-[![MIT License](http://img.shields.io/badge/License-MIT-red.png)](LICENSE)
+![Written in Bash](https://img.shields.io/badge/written%20in-bash-blue.svg)
+[![MIT License](http://img.shields.io/badge/License-MIT-blue.png)](LICENSE)
 
 - [git-TEST-commit-automation](#git-TEST-commit-automation)
     - [Goal](#Goal)
