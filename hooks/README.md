@@ -6,7 +6,7 @@
 [<img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=3488&color=blue">](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/images/view.table.md)
 
 
-- [Kaliber](# git-TEST-commit-automation)
+- [git-TEST-commit-automation](#git-TEST-commit-automation)
 	- [Goal](#Goal)
 	- [Usage](#usage)
 		- [Authentication](#authentication)
