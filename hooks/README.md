@@ -5,12 +5,17 @@
 [<img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=257&color=blue">](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/images/clone.table.md)
 [<img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=3488&color=blue">](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/images/view.table.md)
 
-
 - [git-TEST-commit-automation](#git-TEST-commit-automation)
     - [Goal](#Goal)
     - [Description](#Description)
     - [Objectives](#Objectives)
     - [Quick Start](#Quick-Start)
+    - [Command Descriptions](#Command-Descriptions)
+    - [Quick Start](#Quick-Start)
+    - [Quick Start](#Quick-Start)
+    - [Quick Start](#Quick-Start)
+    - [Quick Start](#Quick-Start)
+
 
 ## Goal
 Scripts to assist running something, and checking something, then reporting something; when you commit something.
@@ -54,7 +59,7 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 
 #### [Create custom test cases for a file](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/STEPS-TO-CREATE-TEST-CASES.md)
   
-## Description
+## Command Descriptions
 
 **pre-commit** - Creates \<REPOSITORY-NAME>/hooks/**COMMIT_FILE_LIST** with a list of \<REPOSITORY-NAME>/\<FILE> being committed.
 
