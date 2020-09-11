@@ -6,11 +6,9 @@
 [![MIT License](http://img.shields.io/badge/License-MIT-red.png)](LICENSE)
 [![Issues](https://img.shields.io/github/issues/BradleyA/git-TEST-commit-automation?color=g)](https://github.com/BradleyA/git-TEST-commit-automation/issues?q=is%3Aopen+is%3Aissue)
 [![GitHub closed issues](https://img.shields.io/github/issues-closed/BradleyA/git-TEST-commit-automation?color=purple)](https://github.com/BradleyA/git-TEST-commit-automation/issues?q=is%3Aclosed+is%3Aissue)
-
 [![Size](https://img.shields.io/github/repo-size/BradleyA/git-TEST-commit-automation.svg)](https://github.com/BradleyA/git-TEST-commit-automation/)
 [<img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=257&color=blue">](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/images/clone.table.md)
 [<img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=3488&color=blue">](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/images/view.table.md)
-
 ![Written in Bash](https://img.shields.io/badge/written%20in-bash-19bb19.svg)
 
 - [git-TEST-commit-automation](#git-TEST-commit-automation)
