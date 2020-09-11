@@ -68,6 +68,14 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 
 [Return to top](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#git-TEST-commit-automation)
 
+## Test Case Types
+
+[**Funciotnal Verification Test (FVT)**](https://en.wikipedia.org/wiki/Functional_testing) is defined as the process of verifying that the design meets its specification from a functional perspective. ... Functional verification establishes that the design under test (DUT) implements the functionality of the specification correctly.
+
+[**Static Analysis (SA)**](https://en.wikipedia.org/wiki/Static_program_analysis) is the examination of code prior to the program’s execution SA is code analysis, syntax, permission, code inspection, code review, etc.
+
+[Return to top](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#git-TEST-commit-automation)
+
 ## Command Descriptions
 
 **pre-commit** - Creates \<REPOSITORY-NAME>/hooks/**COMMIT_FILE_LIST** with a list of \<REPOSITORY-NAME>/\<FILE> being committed.
@@ -85,14 +93,6 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 **setup-git-TEST-cases.sh** - setup git-TEST-commit-automation in top directory of current repository
 
 **uninstall-git-TEST-cases.sh** - uninstall git-TEST-commit-automation in current repository
-
-[Return to top](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#git-TEST-commit-automation)
-
-## Test Case Types
-
-[**Funciotnal Verification Test (FVT)**](https://en.wikipedia.org/wiki/Functional_testing) is defined as the process of verifying that the design meets its specification from a functional perspective. ... Functional verification establishes that the design under test (DUT) implements the functionality of the specification correctly.
-
-[**Static Analysis (SA)**](https://en.wikipedia.org/wiki/Static_program_analysis) is the examination of code prior to the program’s execution SA is code analysis, syntax, permission, code inspection, code review, etc.
 
 [Return to top](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#git-TEST-commit-automation)
 
