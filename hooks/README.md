@@ -42,7 +42,7 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 
 #### If you like this repository, select in the upper-right corner, star, thank you.
 
-[Return to top](https://github.com/BradleyA/git-TEST-commit-automation#git-TEST-commit-automation)
+[Return to top](https://github.com/BradleyA/git-TEST-commit-automation/hooks/README.md#git-TEST-commit-automation)
 
 ## Objectives
 1) Quick setup with default test cases for any Git repository (in seconds)
