@@ -12,9 +12,12 @@
     - [Quick Start Tutorials](#Quick-Start-Tutorials)
     - [Command Descriptions](#Command-Descriptions)
     - [Test Case Types](#Test-Case-Types)
-    - [ARCHITECTURE TREE](#ARCHITECTURE-TREE)
-    - [Quick Start](#Quick-Start)
-    - [Quick Start](#Quick-Start)
+        - [ARCHITECTURE TREE](#ARCHITECTURE-TREE)
+        - [Future Objectives](#Future-Objectives)
+        - [Author](#Author)
+        - [System OS script tested](#System-OS-script-tested)
+        - [Design Principles](#Design-Principles)
+        - [License](#License)
 
 
 ## Goal
