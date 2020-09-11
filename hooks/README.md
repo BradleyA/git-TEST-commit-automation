@@ -3,7 +3,6 @@
 [![GitHub Release Date](https://img.shields.io/github/release-date/BradleyA/git-TEST-commit-automation?color=g)](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/CHANGELOG.md)
 [![GitHub Commits Since](https://img.shields.io/github/commits-since/BradleyA/git-TEST-commit-automation/3.1.1.svg)](https://github.com/BradleyA/git-TEST-commit-automation/commits/)
 [![GitHub Last Commits](https://img.shields.io/github/last-commit/BradleyA/git-TEST-commit-automation.svg)](https://github.com/BradleyA/git-TEST-commit-automation/commits/)
-[![MIT License](http://img.shields.io/badge/License-MIT-red.png)](LICENSE)
 
 [![GitHub Open Issues](https://img.shields.io/github/issues/BradleyA/git-TEST-commit-automation?color=purple)](https://github.com/BradleyA/git-TEST-commit-automation/issues?q=is%3Aopen+is%3Aissue)
 [![GitHub Closed Issues](https://img.shields.io/github/issues-closed/BradleyA/git-TEST-commit-automation?color=purple)](https://github.com/BradleyA/git-TEST-commit-automation/issues?q=is%3Aclosed+is%3Aissue)
@@ -11,6 +10,7 @@
 [<img alt="GitHub Views" src="https://img.shields.io/static/v1?label=Views&message=3488&color=blueviolet">](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/images/view.table.md)
 [![Size](https://img.shields.io/github/repo-size/BradleyA/git-TEST-commit-automation.svg)](https://github.com/BradleyA/git-TEST-commit-automation/)
 ![Written in Bash](https://img.shields.io/badge/written%20in-bash-19bb19.svg)
+[![MIT License](http://img.shields.io/badge/License-MIT-red.png)](LICENSE)
 
 - [git-TEST-commit-automation](#git-TEST-commit-automation)
     - [Goal](#Goal)
