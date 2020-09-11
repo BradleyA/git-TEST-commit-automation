@@ -9,9 +9,9 @@
     - [Goal](#Goal)
     - [Description](#Description)
     - [Objectives](#Objectives)
-    - [Quick Start](#Quick-Start)
+    - [Quick Start Tutorials](#Quick-Start-Tutorials)
     - [Command Descriptions](#Command-Descriptions)
-    - [Quick Start](#Quick-Start)
+    - [Test Case Types](#Test-Case-Types)
     - [Quick Start](#Quick-Start)
     - [Quick Start](#Quick-Start)
     - [Quick Start](#Quick-Start)
@@ -47,7 +47,7 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 5) Quick upgrade of default test cases and git-TEST-commit-automation commands (setup-git-TEST-cases.sh)
 6) Quick reduction of untracked TEST case files (option -c)
 
-## Quick Start
+## Quick Start Tutorials
 	
 #### [Install/evaluate git-TEST-commit-automation solution](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/STEPS-TO-EVALUTE.md)
 
