@@ -5,6 +5,13 @@
 [<img alt="Clones" src="https://img.shields.io/static/v1?label=Clones&message=257&color=blue">](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/images/clone.table.md)
 [<img alt="Views" src="https://img.shields.io/static/v1?label=Views&message=3488&color=blue">](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/images/view.table.md)
 
+
+- [Kaliber](# git-TEST-commit-automation)
+	- [Goal](#Goal)
+	- [Usage](#usage)
+		- [Authentication](#authentication)
+			- [User/password file & handling](#userpassword-file--handling)
+
 ## Goal
 Scripts to assist running something, and checking something, then reporting something; when you commit something.
 
