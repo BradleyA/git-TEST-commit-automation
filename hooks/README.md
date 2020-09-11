@@ -19,6 +19,8 @@
         - [Design Principles](#Design-Principles)
         - [License](#License)
 
+----
+
 ## Goal
 Scripts to assist running something, and checking something, then reporting something; when you commit something.
 
