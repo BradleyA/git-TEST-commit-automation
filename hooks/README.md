@@ -7,10 +7,10 @@
 
 
 - [git-TEST-commit-automation](#git-TEST-commit-automation)
-	- [Goal](#Goal)
-	- [Description](#Description)
-		- [Authentication](#authentication)
-			- [User/password file & handling](#userpassword-file--handling)
+    - [Goal](#Goal)
+    - [Description](#Description)
+    - [Objectives](#Objectives)
+    - [Quick Start](#Quick Start)
 
 ## Goal
 Scripts to assist running something, and checking something, then reporting something; when you commit something.
