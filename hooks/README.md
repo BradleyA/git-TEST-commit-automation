@@ -8,7 +8,7 @@
 
 - [git-TEST-commit-automation](#git-TEST-commit-automation)
 	- [Goal](#Goal)
-	- [Usage](#usage)
+	- [Description](#Description)
 		- [Authentication](#authentication)
 			- [User/password file & handling](#userpassword-file--handling)
 
