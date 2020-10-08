@@ -43,10 +43,6 @@ TL;DR - Why did I create git-TEST-commit-automation when there are so many great
 
 TL;DR - During code design, a software developer's focus is on how to solve parts of a bigger solution.  A developer may throw out a couple to dozens of lines of code.  It did not matter that those lines of code did or didn't meet every test requirement.  As a design matures it is increasingly important to have code PASS tests.  It is also important for a developer to design SA and FVT test cases for their new code.  At that time their code is ready for additional testing using open software and enterprise level testing solutions.
 
- * Rquirements:
-   * Linux
-   * git
-   * Internet access to GitHub
 
 #### If you like this repository, select in the upper-right corner, star, thank you.
 
@@ -277,6 +273,12 @@ Place the expected results from the test case into a file with the same test cas
   - Include support for other test or CI solutions ... Scan for Credentials, BATS, Travis CI, ...
 
 [Return to top](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#git-TEST-commit-automation)
+
+
+ * Rquirements:
+   * Linux
+   * git
+   * Internet access to GitHub
 
 #### Author
 [<img id="github" src="https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/images/github.png" width="50" a="https://github.com/BradleyA/">](https://github.com/BradleyA/)    [<img src="https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/images/linkedin.png" style="max-width:100%;" >](https://www.linkedin.com/in/bradleyhallen) [<img id="twitter" src="https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">](https://twitter.com/bradleyaustintx/)       <a href="https://twitter.com/intent/follow?screen_name=bradleyaustintx"> <img src="https://img.shields.io/twitter/follow/bradleyaustintx.svg?label=Follow%20@bradleyaustintx" alt="Follow @bradleyaustintx" />    </a>
