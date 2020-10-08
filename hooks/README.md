@@ -12,14 +12,7 @@
 ![Language Bash](https://img.shields.io/badge/%20Language-bash-blue.svg)
 [![MIT License](http://img.shields.io/badge/License-MIT-blue.png)](LICENSE)
 
-----
-
-## Goal
-Scripts to assist running something, and checking something, then reporting something; when you commit something.
-
-Bash script that runs test scripts, and checking something, then reporting something; when you commit something
-
-Git Verion Control information into files and pushes them to GitHub, Bitbucket, and/or GitLab.
+Bash scripts to assist running something, and checking something, then reporting something; when you commit something.
 
 - [Description](#Description)
 - [Test Case Types](#Test-Case-Types)
