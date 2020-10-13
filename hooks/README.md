@@ -14,7 +14,11 @@
 
 Bash scripts to assist running something, and checking something, then reporting something; when you commit something.
 
-- [Description](#Description)
+<details>
+<summary>Table of content</summary>
+
+## Table of content
+   * [Description](#Description)
 - [Test Case Types](#Test-Case-Types)
 - [Objectives](#Objectives)
 - [Quick Start Tutorials](#Quick-Start-Tutorials)
@@ -25,6 +29,8 @@ Bash scripts to assist running something, and checking something, then reporting
     - [System OS script tested](#System-OS-script-tested)
     - [Design Principles](#Design-Principles)
     - [License](#License)
+
+</details>
 
 ----
 
