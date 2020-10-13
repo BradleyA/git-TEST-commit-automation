@@ -18,7 +18,7 @@ Bash scripts to assist running something, and checking something, then reporting
 <summary>Table of content</summary>
 
 ## Table of content
-   * [Description](#Description)
+- [Description](#Description)
 - [Test Case Types](#Test-Case-Types)
 - [Objectives](#Objectives)
 - [Quick Start Tutorials](#Quick-Start-Tutorials)
