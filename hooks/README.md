@@ -17,8 +17,6 @@ Bash scripts to assist running something, and checking something, then reporting
 
 #### If you like this repository, select in the upper-right corner, [![GitHub stars](https://img.shields.io/github/stars/BradleyA/git-TEST-commit-automation.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/BradleyA/git-TEST-commit-automation/stargazers/), thank you.
 
-----
-
 <details>
 <summary>Table of content</summary>
 
