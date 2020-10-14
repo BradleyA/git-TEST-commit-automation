@@ -49,9 +49,6 @@ TL;DR - Why did I create git-TEST-commit-automation when there are so many great
 
 TL;DR - During code design, a software developer's focus is on how to solve parts of a bigger solution.  A developer may throw out a couple to dozens of lines of code.  It did not matter that those lines of code did or didn't meet every test requirement.  As a design matures it is increasingly important to have code PASS tests.  It is also important for a developer to design SA and FVT test cases for their new code.  At that time their code is ready for additional testing using open software and enterprise level testing solutions.
 
-
-#### If you like this repository, select in the upper-right corner, star, thank you.
-
 [Return to top](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#git-TEST-commit-automation)
 
 ## Test Case Types
