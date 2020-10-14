@@ -12,6 +12,7 @@
 ![Language Bash](https://img.shields.io/badge/%20Language-bash-blue.svg)
 [![MIT License](http://img.shields.io/badge/License-MIT-blue.png)](LICENSE)
 
+## Goal
 Bash scripts to assist running something, and checking something, then reporting something; when you commit something.
 
 <details>
@@ -33,9 +34,6 @@ Bash scripts to assist running something, and checking something, then reporting
 </details>
 
 ----
-
-## Goal
-Scripts to assist running something, and checking something, then reporting something; when you commit something.
 
 ## Description
 
