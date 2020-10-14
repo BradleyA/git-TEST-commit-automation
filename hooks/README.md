@@ -15,6 +15,8 @@
 ## Goal
 Bash scripts to assist running something, and checking something, then reporting something; when you commit something.
 
+----
+
 <details>
 <summary>Table of content</summary>
 
