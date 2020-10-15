@@ -10,7 +10,6 @@ After completing: **Install git-TEST-commit-automation solution** enter the foll
     INFO:  If file not found, check spelling or including --hooks option.
     ./sample.sh
     ./TEST/sample.sh
-    ./TEST/sample.sh/SA-shellcheck-001.test-case-output
     ./TEST/sample.sh/SA-shellcheck-001
     ./TEST/sample.sh/SA-permission-775-001
     ./TEST/sample.sh/SA-cleanup.sh
