@@ -29,6 +29,7 @@ Assist running something, and checking something, then reporting something; when
 - [ARCHITECTURE TREE](#ARCHITECTURE-TREE)
 - [Future Objectives](#Future-Objectives)
 ----
+- [Contribute](#Contribute)
 - [Author](#Author)
 - [Tested OS](#Tested-OS)
 - [Design Principles](#Design-Principles)
