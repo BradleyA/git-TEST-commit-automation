@@ -26,12 +26,13 @@ Assist running something, and checking something, then reporting something; when
 - [Objectives](#Objectives)
 - [Quick Start Tutorials](#Quick-Start-Tutorials)
 - [Command Descriptions](#Command-Descriptions)
-    - [ARCHITECTURE TREE](#ARCHITECTURE-TREE)
-    - [Future Objectives](#Future-Objectives)
-    - [Author](#Author)
-    - [System OS script tested](#System-OS-script-tested)
-    - [Design Principles](#Design-Principles)
-    - [License](#License)
+- [ARCHITECTURE TREE](#ARCHITECTURE-TREE)
+- [Future Objectives](#Future-Objectives)
+----
+- [Author](#Author)
+- [System OS script tested](#System-OS-script-tested)
+- [Design Principles](#Design-Principles)
+- [License](#License)
 
 </details>
 
@@ -282,6 +283,13 @@ Place the expected results from the test case into a file with the same test cas
    * Linux
    * git
    * Internet access to GitHub
+   
+----
+
+#### Contribute
+Please do contribute!  Issues and pull requests are welcome.  Thank you for your help improving software.
+
+[Return to top](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#git-TEST-commit-automation)
 
 #### Author
 [<img id="github" src="https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/images/github.png" width="50" a="https://github.com/BradleyA/">](https://github.com/BradleyA/)    [<img src="https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/images/linkedin.png" style="max-width:100%;" >](https://www.linkedin.com/in/bradleyhallen) [<img id="twitter" src="https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/images/twitter.png" width="50" a="twitter.com/bradleyaustintx/">](https://twitter.com/bradleyaustintx/)       <a href="https://twitter.com/intent/follow?screen_name=bradleyaustintx"> <img src="https://img.shields.io/twitter/follow/bradleyaustintx.svg?label=Follow%20@bradleyaustintx" alt="Follow @bradleyaustintx" />    </a>          [![GitHub followers](https://img.shields.io/github/followers/BradleyA.svg?style=social&label=Follow&maxAge=2592000)](https://github.com/BradleyA?tab=followers)
