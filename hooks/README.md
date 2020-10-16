@@ -30,7 +30,7 @@ Assist running something, and checking something, then reporting something; when
 - [Future Objectives](#Future-Objectives)
 ----
 - [Author](#Author)
-- [System OS script tested](#System-OS-script-tested)
+- [Tested OS](#Tested-OS)
 - [Design Principles](#Design-Principles)
 - [License](#License)
 
