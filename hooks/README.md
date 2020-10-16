@@ -289,8 +289,10 @@ Place the expected results from the test case into a file with the same test cas
 [Return to top](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#git-TEST-commit-automation)
 
 #### System OS script tested
- * Ubuntu 16.04.6 LTS (GNU/Linux 4.4.38-v7+ armv7l)
- * Ubuntu 14.04.6 LTS (GNU/Linux 4.4.0-148-generic x86_64)
+ * Raspbian GNU/Linux 10 (buster)
+ * Ubuntu 14.04.3 LTS (amd64,armv7l)
+ * Ubuntu 16.04.7 LTS (amd64,armv7l)
+ * Ubuntu 18.04.5 LTS (amd64,armv7l)
 
 [Return to top](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#git-TEST-commit-automation)
 
