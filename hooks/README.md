@@ -271,14 +271,12 @@ Place the expected results from the test case into a file with the same test cas
         #  create README on github master branch
       git pull origin master        #  pull chnages to master bransh to development bransh
         #  write code in development branch
-      	
-    
+ 
   - challenge is SA-setup.sh & FVT-setup.sh could be changed by development and test teams 
   - Quick backup of all test cases in repository (\<FILE-NAME>.tar) (code is in uninstall-) (option: --backup --restore)
   - Include support for other test or CI solutions ... Scan for Credentials, BATS, Travis CI, ...
 
 [Return to top](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#git-TEST-commit-automation)
-
 
  * Rquirements:
    * Linux
