@@ -296,7 +296,7 @@ Please do contribute!  Issues and pull requests are welcome.  Thank you for your
 
 [Return to top](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#git-TEST-commit-automation)
 
-#### System OS script tested
+#### Tested OS
  * Raspbian GNU/Linux 10 (buster)
  * Ubuntu 14.04.3 LTS (amd64,armv7l)
  * Ubuntu 16.04.7 LTS (amd64,armv7l)
