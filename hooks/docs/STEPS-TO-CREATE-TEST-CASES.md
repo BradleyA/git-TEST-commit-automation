@@ -15,6 +15,11 @@ To use a different SA- test case other than the default test cases, remove the s
     chmod 750 sample.sh                   #  change file permission 750
     ./TEST/sample.sh/SA-permission-750-001 ./sample.sh  #  run test case on sample.sh
 
+**WARNING need to add note about testing manually during custom design, hooks/bin/set-env-for-manual-test.sh **
+    Run this script when manually testing test cases    . hooks/bin/set-env-for-manual-test.sh  OR    source hooks/bin/set-env-for-manual-test.sh
+    This script sets REPOSITORY_DIR and REPOSITORY_DIR_COUNT environment variables which are normally set when post-commit is run
+    This is required because post-commit is has not run before manually testing a test case
+
 
 <img id="Steps git-TEST-commit-automation-5-1.gif" src="../images/git-TEST-commit-automation-5-1.gif" >
 
