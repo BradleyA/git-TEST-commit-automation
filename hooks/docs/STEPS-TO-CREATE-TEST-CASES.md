@@ -18,7 +18,7 @@ To use a different SA- test case other than the default test cases, remove the s
 **WARNING need to add note about testing manually during custom design, hooks/bin/set-env-for-manual-test.sh **
 
 #### hooks/bin/set-env-for-manual-test.sh
- Run this script when manually testing test cases    . hooks/bin/set-env-for-manual-test.sh  OR    source hooks/bin/set-env-for-manual-test.sh
+ Source this script when manually testing test cases: **source hooks/bin/set-env-for-manual-test.sh**
  This script sets REPOSITORY_DIR and REPOSITORY_DIR_COUNT environment variables which are normally set when post-commit is run
  This is required because post-commit is has not run before manually testing a test case
 
