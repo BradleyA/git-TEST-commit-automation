@@ -26,9 +26,9 @@ To use a different SA- test case other than the default test cases, remove the s
 <img id="Steps git-TEST-commit-automation-5-1.gif" src="../images/git-TEST-commit-automation-5-1.gif" >
 
     source hooks/bin/set-env-for-manual-test.sh
-    TEST/find-code.sh/SA-permission-775-001 find-code.sh 
-2020-10-21T16:41:40.568414-05:00 (CDT) five-rpi3b.cptx86.com hooks/EXAMPLES/SA-permission-775-001[8604] 3.1.24.1570 61 uadmin 10000:10000 [INFO]    Started...
-Test case ---> ./ find-code.sh 0 - file permission: check mode 775 - PASS - PASS
+    TEST/find-code.sh/SA-permission-775-001 find-code.sh
+    2020-10-21T16:41:40.568414-05:00 (CDT) five-rpi3b.cptx86.com hooks/EXAMPLES/SA-permission-775-001[8604] 3.1.24.1570 61 uadmin 10000:10000 [INFO]    Started...
+    Test case ---> ./ find-code.sh 0 - file permission: check mode 775 - PASS - PASS
 
 **That is it!**
 
