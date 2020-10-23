@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/EXAMPLES/FVT-option-usage-002  3.1.97.1729  2020-10-23T11:59:42.844916-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.96  
+#	   hooks/EXAMPLES/FVT-option-usage-001 hooks/EXAMPLES/FVT-option-usage-002 hooks/EXAMPLES/FVT-option-usage-003 hooks/EXAMPLES/FVT-option-usage-004 -->   updated hooks/EXAMPLES/FVT-option-usage-00?  
 #	hooks/EXAMPLES/FVT-option-usage-002  3.1.88.1638  2020-05-22T13:10:15.065117-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.87  
 #	   hooks/EXAMPLES/FVT-option-usage-002 -->   upgrade Production standards #49  
 #	hooks/EXAMPLES/FVT-option-usage-002  2.458.1362  2020-01-30T22:33:30.264276-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.457-2-g233c482  
@@ -95,18 +97,18 @@ fi
 if  grep -q 'USAGE' "${0}".test-case-output  ; then
   if  ! grep -q 'DESCRIPTION' "${0}".test-case-output  ; then
     if  ! grep -q 'DOCUMENTATION' "${0}".test-case-output  ; then
-      echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${TEST_CASE} ${FILE_NAME} 0 - USAGE found in output - ${BOLD}${GREEN}PASS - PASS${NORMAL}"
+      echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${TEST_CASE} ${FILE_NAME} 0 - USAGE found in output, ${FVT_TEST_INPUT} - ${BOLD}${GREEN}PASS - PASS${NORMAL}"
       exit 0
     else
-      echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${FILE_NAME} 1 - DOCUMENTATION found in output - ${BOLD}${RED}FAIL - FAIL${NORMAL}"
+      echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${FILE_NAME} 1 - DOCUMENTATION found in output, ${FVT_TEST_INPUT} - ${BOLD}${RED}FAIL - FAIL${NORMAL}"
       exit 1
     fi
   else
-    echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${FILE_NAME} 1 - DESCRIPTION found in output - ${BOLD}${RED}FAIL - FAIL${NORMAL}"
+    echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${FILE_NAME} 1 - DESCRIPTION found in output, ${FVT_TEST_INPUT} - ${BOLD}${RED}FAIL - FAIL${NORMAL}"
     exit 1
   fi
 else
-  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${FILE_NAME} 1 - USAGE not found in output - ${BOLD}${RED}FAIL - FAIL${NORMAL}"
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${FILE_NAME} 1 - USAGE not found in output, ${FVT_TEST_INPUT} - ${BOLD}${RED}FAIL - FAIL${NORMAL}"
   exit 1
 fi
 
