@@ -9,6 +9,11 @@
 #    This is required because post-commit is has not run before manually testing a test case
 ###    
 
+echo -e "\nRun this script before manually testing git-TEST-commit-automation test cases:\n\n\tsource  hooks/bin/set-env-for-manual-test.sh\n"
+echo    "This script sets REPOSITORY_DIR and REPOSITORY_DIR_COUNT environment variables"
+echo    "which are normally set when post-commit is run.  This is required because"
+echo    "post-commit has not run before manually testing a test case."
+
 #    No --help  # 0.3.583
 if [[ "${1}" != "" ]] ; then
   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${SCRIPT_NAME} does not support arguements." 1>&2
