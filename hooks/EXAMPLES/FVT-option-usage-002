@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/EXAMPLES/FVT-option-usage-002  3.1.98.1730  2020-10-23T12:04:11.245607-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.97  
+#	   hooks/EXAMPLES/FVT-option-usage-001 hooks/EXAMPLES/FVT-option-usage-002 hooks/EXAMPLES/FVT-option-usage-003 hooks/EXAMPLES/FVT-option-usage-004 -->   updated FVT_TEST_INPUT  
 #	hooks/EXAMPLES/FVT-option-usage-002  3.1.97.1729  2020-10-23T11:59:42.844916-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.96  
 #	   hooks/EXAMPLES/FVT-option-usage-001 hooks/EXAMPLES/FVT-option-usage-002 hooks/EXAMPLES/FVT-option-usage-003 hooks/EXAMPLES/FVT-option-usage-004 -->   updated hooks/EXAMPLES/FVT-option-usage-00?  
 #	hooks/EXAMPLES/FVT-option-usage-002  3.1.88.1638  2020-05-22T13:10:15.065117-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.87  
@@ -91,7 +93,9 @@ fi
 
 ###  Place test case here
 
-"${1}" -usage >"${0}".test-case-output 2>&1
+FVT_TEST_INPUT="${1} -usage"
+
+eval "${FVT_TEST_INPUT}" >"${0}".test-case-output 2>&1
 
 #    The option is functioning correctly:  if USAGE && NOT DESCRIPTION && DOCUMENTATION appear in "${0}".test-case-output 
 if  grep -q 'USAGE' "${0}".test-case-output  ; then
