@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/EXAMPLES/FVT-option-help-005  3.1.96.1728  2020-10-23T11:51:24.653602-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.95-70-g5111b71  
+#	   hooks/EXAMPLES/FVT-option-help-001 hooks/EXAMPLES/FVT-option-help-002 hooks/EXAMPLES/FVT-option-help-003 hooks/EXAMPLES/FVT-option-help-004 hooks/EXAMPLES/FVT-option-help-005 hooks/EXAMPLES/FVT-option-help-006 -->   updated hooks/EXAMPLES/FVT-option-help-00?  
 #	hooks/EXAMPLES/FVT-option-help-005  3.1.79.1629  2020-05-22T12:31:52.465705-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.78  
 #	   hooks/EXAMPLES/FVT-option-help-005 -->   upgrade Production standards #49  
 #	hooks/EXAMPLES/FVT-option-help-005  2.456.1358  2020-01-30T22:09:32.727386-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.454  
@@ -95,24 +97,26 @@ fi
 
 ###  Place test case here
 
-"${1}" h >"${0}".test-case-output 2>&1
+FVT_TEST_INPUT="${1} h"
+
+eval "${FVT_TEST_INPUT}" >"${0}".test-case-output 2>&1
 
 #    The option is functioning correctly:  if USAGE && DESCRIPTION && DOCUMENTATION appear in "${0}".test-case-output 
 if grep -q 'USAGE' "${0}".test-case-output ; then
   if grep -q 'DESCRIPTION' "${0}".test-case-output  ; then
     if grep -q 'DOCUMENTATION' "${0}".test-case-output  ; then
-      echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${TEST_CASE} ${FILE_NAME} 0 - USAGE DESCRIPTION DOCUMENTATION found in output - ${BOLD}${GREEN}PASS - PASS${NORMAL}"
+      echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${TEST_CASE} ${FILE_NAME} 0 - USAGE DESCRIPTION DOCUMENTATION found in output, ${FVT_TEST_INPUT} - ${BOLD}${GREEN}PASS - PASS${NORMAL}"
       exit 0
     else
-      echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${FILE_NAME} 1 - DOCUMENTATION not found in output - ${BOLD}${RED}FAIL - FAIL${NORMAL}"
+      echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${FILE_NAME} 1 - DOCUMENTATION not found in output, ${FVT_TEST_INPUT} - ${BOLD}${RED}FAIL - FAIL${NORMAL}"
       exit 1
     fi
   else
-    echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${FILE_NAME} 1 - DESCRIPTION not found in output - ${BOLD}${RED}FAIL - FAIL${NORMAL}"
+    echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${FILE_NAME} 1 - DESCRIPTION not found in output, ${FVT_TEST_INPUT} - ${BOLD}${RED}FAIL - FAIL${NORMAL}"
     exit 1
   fi
 else
-  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${FILE_NAME} 1 - USAGE not found in output - ${BOLD}${RED}FAIL - FAIL${NORMAL}"
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${FILE_NAME} 1 - USAGE not found in output, ${FVT_TEST_INPUT} - ${BOLD}${RED}FAIL - FAIL${NORMAL}"
   exit 1
 fi
 
