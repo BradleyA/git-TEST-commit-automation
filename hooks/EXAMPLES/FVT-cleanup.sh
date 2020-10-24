@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/FVT-cleanup.sh  3.1.102.1743  2020-10-24T13:07:39.902398-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.101  
+# 	   hooks/EXAMPLES/FVT-cleanup.sh -->   modify cleanup loop logic to reduce the amount of time required  
 # 	hooks/EXAMPLES/FVT-cleanup.sh  3.1.31.1577  2020-05-22T05:54:31.648111-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.30  
 # 	   hooks/EXAMPLES/FVT-cleanup.sh -->   upgrade Production standards #49  
 # 	hooks/EXAMPLES/FVT-cleanup.sh  2.448.1343  2020-01-30T15:48:37.268184-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.447-1-g2544b53  
@@ -91,13 +93,9 @@ rm -f FVT-option-version-004.expected  # This file is created when running the t
 for k in $(ls -1 FVT-*) ; do
   if [[ "${k}" != "FVT-cleanup.sh" ]] ; then
     if [[ "${k}" != "FVT-setup.sh" ]] ; then
-      { [[ ! -L "${k}" ]] || rm "${k}"; }  #  Remove files with symbolic link
-      if [[ ! -s "${k}" ]] ; then  #  Remove FVT-test-case.expected that has a size of zero
+      if [[ -L "${k}" ]] ; then rm "${k}"  #  Remove files with symbolic link
+      elif [[ -s "${k}" ]] ; then rm "${k}"  #  Remove files that has a size of zero
         if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Empty file ${k}" 1>&2 ; fi
-        if [[ "${k##*.}" == "expected" ]] ; then
-          if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  File ${k} has expected extension >${k##*.}<" 1>&2 ; fi
-          rm "${k}"
-        fi
       fi
     fi
   fi
