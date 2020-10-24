@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/FVT-cleanup.sh  3.1.103.1744  2020-10-24T13:11:23.097810-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.102  
+# 	   hooks/EXAMPLES/FVT-cleanup.sh -->   remove second INFO Started ... line  
 # 	hooks/EXAMPLES/FVT-cleanup.sh  3.1.102.1743  2020-10-24T13:07:39.902398-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.101  
 # 	   hooks/EXAMPLES/FVT-cleanup.sh -->   modify cleanup loop logic to reduce the amount of time required  
 # 	hooks/EXAMPLES/FVT-cleanup.sh  3.1.31.1577  2020-05-22T05:54:31.648111-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.30  
@@ -60,9 +62,6 @@ new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
   get_date_stamp
   echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${SCRIPT_NAME}[$$] ${BOLD}${BLUE}${SCRIPT_VERSION} ${PURPLE}${1}${NORMAL} ${USER} ${UID}:${GROUP_ID} ${BOLD}[${2}]${NORMAL}  ${3}"
 }
-
-#    INFO
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2 ; fi
 
 #    INFO
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2 ; fi
