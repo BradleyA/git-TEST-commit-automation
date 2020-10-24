@@ -1,5 +1,7 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/FVT-setup.sh  3.1.32.1578  2020-05-22T05:59:06.586723-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.31  
+# 	hooks/EXAMPLES/FVT-setup.sh  3.1.100.1741  2020-10-23T22:33:52.995488-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.99-9-ge5bd164  
+# 	   hooks/EXAMPLES/FVT-setup.sh hooks/EXAMPLES/TEST/FVT-option-cluster-001/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-cluster-002/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-cluster-003/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-cluster-004/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-cluster-005/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-cluster-006/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-cluster-007/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-cluster-008/SA-shellcheck-001.expected -->   added cluster  
+# 	hooks/EXAMPLES/FVT-setup.sh  3.1.32.1578  2020-05-22T05:59:06.586723-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.31 
 # 	   hooks/EXAMPLES/FVT-setup.sh -->   upgrade Production standards #49  
 # 	hooks/EXAMPLES/FVT-setup.sh  2.460.1364  2020-01-31T19:15:09.843806-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.459  
 # 	   hooks/EXAMPLES/FVT-setup.sh   added This script does not support -* or help or usage or version 
