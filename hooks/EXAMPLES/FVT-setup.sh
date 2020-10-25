@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/FVT-setup.sh  3.1.107.1759  2020-10-24T22:32:14.709918-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.106-1-g34370be  
+# 	   hooks/EXAMPLES/FVT-setup.sh -->   adding options systems test cases  
 # 	hooks/EXAMPLES/FVT-setup.sh  3.1.106.1757  2020-10-24T15:13:17.244716-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.105-1-g755b078  
 # 	   hooks/EXAMPLES/FVT-setup.sh -->   added link for FVT-option-datadir-00?.expected  
 # 	hooks/EXAMPLES/FVT-setup.sh  3.1.105.1755  2020-10-24T14:47:06.123988-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.104-9-g93a5b73  
@@ -149,6 +151,22 @@ ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-datadir-007"	FVT-option-data
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-datadir-007.expected"	FVT-option-datadir-007.expected
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-datadir-008"	FVT-option-datadir-008
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-datadir-008.expected"	FVT-option-datadir-008.expected
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-systems-001"	FVT-option-systems-001
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-systems-001.expected"	FVT-option-systems-001.expected
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-systems-002"	FVT-option-systems-002
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-systems-002.expected"	FVT-option-systems-002.expected
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-systems-003"	FVT-option-systems-003
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-systems-003.expected"	FVT-option-systems-003.expected
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-systems-004"	FVT-option-systems-004
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-systems-004.expected"	FVT-option-systems-004.expected
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-systems-005"	FVT-option-systems-005
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-systems-005.expected"	FVT-option-systems-006.expected
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-systems-006"	FVT-option-systems-006
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-systems-006.expected"	FVT-option-systems-006.expected
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-systems-007"	FVT-option-systems-007
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-systems-007.expected"	FVT-option-systems-007.expected
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-systems-008"	FVT-option-systems-008
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-systems-008.expected"	FVT-option-systems-008.expected
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-001"	FVT-option-filename-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-001.expected"	FVT-option-filename-001.expected
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-002"	FVT-option-filename-002
