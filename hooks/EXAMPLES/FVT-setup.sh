@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/FVT-setup.sh  3.1.108.1769  2020-10-25T11:11:55.508285-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.107-9-g7d67e50  
+# 	   hooks/EXAMPLES/FVT-setup.sh hooks/EXAMPLES/TEST/FVT-option-systems-002/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-systems-003/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-systems-004/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-systems-005/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-systems-006/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-systems-007/SA-shellcheck-001.expected hooks/EXAMPLES/TEST/FVT-option-systems-008/SA-shellcheck-001.expected -->   updated FVT-setup.sh  
 # 	hooks/EXAMPLES/FVT-setup.sh  3.1.107.1759  2020-10-24T22:32:14.709918-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.106-1-g34370be  
 # 	   hooks/EXAMPLES/FVT-setup.sh -->   adding options systems test cases  
 # 	hooks/EXAMPLES/FVT-setup.sh  3.1.106.1757  2020-10-24T15:13:17.244716-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.105-1-g755b078  
@@ -160,7 +162,7 @@ ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-systems-003.expected"	FVT-op
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-systems-004"	FVT-option-systems-004
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-systems-004.expected"	FVT-option-systems-004.expected
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-systems-005"	FVT-option-systems-005
-ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-systems-005.expected"	FVT-option-systems-006.expected
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-systems-005.expected"	FVT-option-systems-005.expected
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-systems-006"	FVT-option-systems-006
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-systems-006.expected"	FVT-option-systems-006.expected
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-systems-007"	FVT-option-systems-007
