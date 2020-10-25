@@ -1,0 +1,7 @@
+(B[m    Name of systems file, test/test not found or empty.  Creating test/test file and including local host.  Edit /usr/local/data//us-tx-cluster-1//test/test file and add additional hosts that are in the cluster.
+/home/uadmin/github/BradleyA/markit/find-code.sh: line 234: /usr/local/data//us-tx-cluster-1//test/test: No such file or directory
+/home/uadmin/github/BradleyA/markit/find-code.sh: line 235: /usr/local/data//us-tx-cluster-1//test/test: No such file or directory
+/home/uadmin/github/BradleyA/markit/find-code.sh: line 236: /usr/local/data//us-tx-cluster-1//test/test: No such file or directory
+/home/uadmin/github/BradleyA/markit/find-code.sh: line 237: /usr/local/data//us-tx-cluster-1//test/test: No such file or directory
+grep: /usr/local/data//us-tx-cluster-1//test/test: No such file or directory
+(B[m    Operation finished...
