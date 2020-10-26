@@ -73,9 +73,9 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 * Quick upgrade of default test cases and git-TEST-commit-automation commands (setup-git-TEST-cases.sh)
 * Quick reduction of untracked TEST case files (option -c)
 
-</details>
-
 [Return to top](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#git-TEST-commit-automation)
+
+</details>
 
 ## Quick Start Tutorials
 	
