@@ -63,12 +63,17 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 [Return to top](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#git-TEST-commit-automation)
 
 ## Objectives
-1) Quick setup with default test cases for any Git repository (in seconds)
-2) Quick uninstall on any Git repository
-3) Quick check of test case depth for a file (option -f) and all files for any Git repository (option -a)
-4) Quick setup of default SA- test cases for a file (options --filename sample.sh --add)
-5) Quick upgrade of default test cases and git-TEST-commit-automation commands (setup-git-TEST-cases.sh)
-6) Quick reduction of untracked TEST case files (option -c)
+
+<details>
+	
+* Quick setup with default test cases for any Git repository (in seconds)
+* Quick uninstall on any Git repository
+* Quick check of test case depth for a file (option -f) and all files for any Git repository (option -a)
+* Quick setup of default SA- test cases for a file (options --filename sample.sh --add)
+* Quick upgrade of default test cases and git-TEST-commit-automation commands (setup-git-TEST-cases.sh)
+* Quick reduction of untracked TEST case files (option -c)
+
+</details>
 
 [Return to top](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#git-TEST-commit-automation)
 
