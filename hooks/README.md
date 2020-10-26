@@ -19,10 +19,9 @@ Assist running something, and checking something, then reporting something; when
 
 #### If you like this repository, select in the upper-right corner, [![GitHub stars](https://img.shields.io/github/stars/BradleyA/git-TEST-commit-automation.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/BradleyA/git-TEST-commit-automation/stargazers/), thank you.
 
-<details>
-<summary>Table of content</summary>
-
 ## Table of content
+<details>
+
 - [Description](#Description)
 - [Test Case Types](#Test-Case-Types)
 - [Objectives](#Objectives)
@@ -107,17 +106,13 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 
 [Return to top](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#git-TEST-commit-automation)
 
-#### ARCHITECTURE TREE
 
-    /usr/local/bin/                           <-- <BIN_DIR>
-    ├── git-TEST-cases.sh
-    ├── setup-git-TEST-cases.sh
-    └── uninstall-git-TEST-cases.sh>
 
 **hooks directory**  The \<REPOSITORY-NAME>/hooks directory was created for two reasons.  1) all git-TEST-commit-automation files are in one location to allow for quick removal without effecting other \<REPOSITORY-NAME>/ files.  2) the default \<REPOSITORY-NAME>/.git/hooks/files are not tracked and I wanted to track changes.  A symbolic link from \<REPOSITORY-NAME>/.git/hooks to this \<REPOSITORY-NAME>/hooks directory that are managed in this repository using [markit](https://github.com/BradleyA/markit/blob/master/README.md). 
 
 Place the expected results from the test case into a file with the same test case name but add '.expected' ('dot'expected).  Pipe the output from the test case into a file with the same name but add '.test-case-output'. 
 
+<details>
     . . . /<REPOSITORY-NAME>/hooks
     ├── bin/
     │   ├── git-TEST-cases.sh
@@ -239,6 +234,15 @@ Place the expected results from the test case into a file with the same test cas
             ├── SA-cleanup.sh -> ../../EXAMPLES/SA-cleanup.sh
             ├── SA-setup.sh -> ../../EXAMPLES/SA-setup.sh
             └── SA-shellcheck-001.expected
+
+</details>
+
+#### ARCHITECTURE TREE
+
+    /usr/local/bin/                           <-- <BIN_DIR>
+    ├── git-TEST-cases.sh
+    ├── setup-git-TEST-cases.sh
+    └── uninstall-git-TEST-cases.sh>
 
 [Return to top](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#git-TEST-commit-automation)
 
