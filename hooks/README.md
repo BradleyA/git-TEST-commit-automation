@@ -112,7 +112,6 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 
 Place the expected results from the test case into a file with the same test case name but add '.expected' ('dot'expected).  Pipe the output from the test case into a file with the same name but add '.test-case-output'. 
 
-<details>
     . . . /<REPOSITORY-NAME>/hooks
     ├── bin/
     │   ├── git-TEST-cases.sh
@@ -234,8 +233,6 @@ Place the expected results from the test case into a file with the same test cas
             ├── SA-cleanup.sh -> ../../EXAMPLES/SA-cleanup.sh
             ├── SA-setup.sh -> ../../EXAMPLES/SA-setup.sh
             └── SA-shellcheck-001.expected
-
-</details>
 
 #### ARCHITECTURE TREE
 
