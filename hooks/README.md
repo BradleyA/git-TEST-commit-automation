@@ -109,9 +109,14 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 
 **uninstall-git-TEST-cases.sh** - uninstall git-TEST-commit-automation in current repository
 
+#### ARCHITECTURE TREE
+
+    /usr/local/bin/                           <-- <BIN_DIR>
+    ├── git-TEST-cases.sh
+    ├── setup-git-TEST-cases.sh
+    └── uninstall-git-TEST-cases.sh>
+
 [Return to top](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#git-TEST-commit-automation)
-
-
 
 **hooks directory**  The \<REPOSITORY-NAME>/hooks directory was created for two reasons.  1) all git-TEST-commit-automation files are in one location to allow for quick removal without effecting other \<REPOSITORY-NAME>/ files.  2) the default \<REPOSITORY-NAME>/.git/hooks/files are not tracked and I wanted to track changes.  A symbolic link from \<REPOSITORY-NAME>/.git/hooks to this \<REPOSITORY-NAME>/hooks directory that are managed in this repository using [markit](https://github.com/BradleyA/markit/blob/master/README.md). 
 
@@ -238,13 +243,6 @@ Place the expected results from the test case into a file with the same test cas
             ├── SA-cleanup.sh -> ../../EXAMPLES/SA-cleanup.sh
             ├── SA-setup.sh -> ../../EXAMPLES/SA-setup.sh
             └── SA-shellcheck-001.expected
-
-#### ARCHITECTURE TREE
-
-    /usr/local/bin/                           <-- <BIN_DIR>
-    ├── git-TEST-cases.sh
-    ├── setup-git-TEST-cases.sh
-    └── uninstall-git-TEST-cases.sh>
 
 [Return to top](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#git-TEST-commit-automation)
 
