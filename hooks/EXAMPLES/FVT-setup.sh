@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/FVT-setup.sh  3.1.111.1792  2020-10-30T00:10:16.262211-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.110-1-gc6b518a  
+# 	   hooks/EXAMPLES/FVT-setup.sh -->   added FVT-option-filename-007 FVT-option-filename-008  
 # 	hooks/EXAMPLES/FVT-setup.sh  3.1.109.1786  2020-10-28T23:16:49.623016-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.108-16-gc9fcde7  
 # 	   hooks/EXAMPLES/FVT-setup.sh -->   comment out option-system option-datadir option-cluster from default  
 # 	hooks/EXAMPLES/FVT-setup.sh  3.1.108.1769  2020-10-25T11:11:55.508285-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.107-9-g7d67e50  
@@ -183,6 +185,10 @@ fi
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-005.expected"	FVT-option-filename-005.expected
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-006"	FVT-option-filename-006
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-006.expected"	FVT-option-filename-006.expected
+#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-007"	FVT-option-filename-007
+#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-007.expected"	FVT-option-filename-007.expected
+#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-008"	FVT-option-filename-008
+#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-008.expected"	FVT-option-filename-008.expected
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-hooks-001"	FVT-option-filename-hooks-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-hooks-001.expected"	FVT-option-filename-hooks-001.expected
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-filename-hooks-002"	FVT-option-filename-hooks-002
