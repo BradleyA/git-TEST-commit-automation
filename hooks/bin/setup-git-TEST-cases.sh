@@ -1,2 +1,0 @@
-# 	hooks/bin/setup-git-TEST-cases.sh  3.1.113.1794  2020-10-30T15:43:25.630293-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.112  
-# 	   hooks/bin/TEST/setup-git-TEST-cases.sh/SA-cleanup.sh hooks/bin/TEST/setup-git-TEST-cases.sh/SA-setup.sh hooks/bin/setup-git-TEST-cases.sh -->   rename setup-git-TEST-cases.sh to git-TEST-setup-cases.sh  
