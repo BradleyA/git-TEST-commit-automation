@@ -1,9 +1,7 @@
 #!/bin/bash
-#	TEST/find-code.sh/FVT-option-cluster-004  4.1.42.933  2020-10-23T10:42:32.867256-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.41  
-#	   TEST/find-code.sh/FVT-option-cluster-001 TEST/find-code.sh/FVT-option-cluster-002 TEST/find-code.sh/FVT-option-cluster-003 TEST/find-code.sh/FVT-option-cluster-004 -->   update test response  
-#	TEST/find-code.sh/FVT-option-cluster-004  4.1.41.932  2020-10-23T10:23:12.207284-05:00 (CDT)  https://github.com/BradleyA/markit  master  uadmin  five-rpi3b.cptx86.com 4.1.40-1-ge8b760e  
-#	   TEST/find-code.sh/FVT-option-cluster-001 TEST/find-code.sh/FVT-option-cluster-002 TEST/find-code.sh/FVT-option-cluster-003 TEST/find-code.sh/FVT-option-cluster-004 TEST/find-code.sh/FVT-option-cluster-005 TEST/find-code.sh/FVT-option-cluster-006 find-code.sh -->   update PASS response  
-#86# hooks/bin/TEST/git-TEST-cases.sh/FVT-option-cluster-004  -  custom test case
+#	hooks/EXAMPLES/FVT-option-cluster-008  3.1.110.1790  2020-10-30T00:01:03.051276-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.109-3-gc5e46ac  
+#	   hooks/EXAMPLES/FVT-option-cluster-007 hooks/EXAMPLES/FVT-option-cluster-008 hooks/EXAMPLES/FVT-option-filename-001 hooks/EXAMPLES/FVT-option-filename-002 hooks/EXAMPLES/FVT-option-filename-003 hooks/EXAMPLES/FVT-option-filename-004 hooks/EXAMPLES/FVT-option-filename-005 hooks/EXAMPLES/FVT-option-filename-006 -->   added FVT_TEST_INPUT variable  
+#86# hooks/bin/TEST/git-TEST-cases.sh/FVT-option-cluster-008  -  custom test case
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.3.559 Copyright                                    # 3.559
 #    Copyright (c) 2020 Bradley Allen                                                # 3.555
