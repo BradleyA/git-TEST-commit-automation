@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/EXAMPLES/FVT-option-filename-006  3.1.115.1798  2020-10-30T16:16:12.760884-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.114-1-gff79ea7  
+#	   hooks/EXAMPLES/FVT-option-filename-006 -->   added GREEN=$(tput  setaf 2)  
 #	hooks/EXAMPLES/FVT-option-filename-006  3.1.110.1790  2020-10-30T00:01:15.032761-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.109-3-gc5e46ac  
 #	   hooks/EXAMPLES/FVT-option-cluster-007 hooks/EXAMPLES/FVT-option-cluster-008 hooks/EXAMPLES/FVT-option-filename-001 hooks/EXAMPLES/FVT-option-filename-002 hooks/EXAMPLES/FVT-option-filename-003 hooks/EXAMPLES/FVT-option-filename-004 hooks/EXAMPLES/FVT-option-filename-005 hooks/EXAMPLES/FVT-option-filename-006 -->   added FVT_TEST_INPUT variable  
 #	hooks/EXAMPLES/FVT-option-filename-006  3.1.62.1612  2020-05-22T11:41:46.368807-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.61  
@@ -28,6 +30,7 @@ BOLD=$(tput -Txterm bold)
 UNDERLINE=$(tput -Txterm sgr 0 1)  # 0.3.583
 NORMAL=$(tput -Txterm sgr0)
 RED=$(tput    setaf 1)
+GREEN=$(tput  setaf 2)
 YELLOW=$(tput setaf 3)
 BLUE=$(tput   setaf 4)
 PURPLE=$(tput setaf 5)
