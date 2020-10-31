@@ -1,4 +1,5 @@
-# git-TEST-commit-automation
+# git-TEST-commit-automation  [![Generic badge](https://img.shields.io/badge/Status_-Beta--3-red.svg)](https://github.com/BradleyA/git-TEST-commit-automation/releases/tag/3.1.1)
+
 [![GitHub Stable Release](https://img.shields.io/badge/Release-3.1.1-blue.svg)](https://github.com/BradleyA/git-TEST-commit-automation/releases/tag/3.1.1)
 [![GitHub Release Date](https://img.shields.io/github/release-date/BradleyA/git-TEST-commit-automation?color=blue)](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/CHANGELOG.md)
 [![GitHub Commits Since](https://img.shields.io/github/commits-since/BradleyA/git-TEST-commit-automation/3.1.1?color=orange)](https://github.com/BradleyA/git-TEST-commit-automation/commits/)
