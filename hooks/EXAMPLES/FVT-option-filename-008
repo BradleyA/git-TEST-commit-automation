@@ -18,6 +18,7 @@ BOLD=$(tput -Txterm bold)
 UNDERLINE=$(tput -Txterm sgr 0 1)  # 0.3.583
 NORMAL=$(tput -Txterm sgr0)
 RED=$(tput    setaf 1)
+GREEN=$(tput  setaf 2)
 YELLOW=$(tput setaf 3)
 BLUE=$(tput   setaf 4)
 PURPLE=$(tput setaf 5)
