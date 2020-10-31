@@ -5,7 +5,7 @@
 [![GitHub Commits Since](https://img.shields.io/github/commits-since/BradleyA/git-TEST-commit-automation/3.1.1?color=orange)](https://github.com/BradleyA/git-TEST-commit-automation/commits/)
 [![GitHub Last Commits](https://img.shields.io/github/last-commit/BradleyA/git-TEST-commit-automation.svg)](https://github.com/BradleyA/git-TEST-commit-automation/commits/)
 
-[![Open GitHub Issue](https://img.shields.io/badge/Open_new-Incident-brightgreen.svg)](https://github.com/BradleyA/git-TEST-commit-automation/issues/new/choose)
+[![Open GitHub Issue](https://img.shields.io/badge/Open_new-Issue-brightgreen.svg)](https://github.com/BradleyA/git-TEST-commit-automation/issues/new/choose)
 [![GitHub Open Issues](https://img.shields.io/github/issues/BradleyA/git-TEST-commit-automation?color=purple)](https://github.com/BradleyA/git-TEST-commit-automation/issues?q=is%3Aopen+is%3Aissue)
 [![GitHub Closed Issues](https://img.shields.io/github/issues-closed/BradleyA/git-TEST-commit-automation?color=purple)](https://github.com/BradleyA/git-TEST-commit-automation/issues?q=is%3Aclosed+is%3Aissue)
 
