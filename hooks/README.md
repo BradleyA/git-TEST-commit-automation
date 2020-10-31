@@ -1,11 +1,11 @@
 # git-TEST-commit-automation  [![Generic badge](https://img.shields.io/badge/Status_-Beta--3-red.svg)](https://github.com/BradleyA/git-TEST-commit-automation/releases/tag/3.1.1)
 
-[![GitHub Stable Release](https://img.shields.io/badge/Release-3.1.1-blue.svg)](https://github.com/BradleyA/git-TEST-commit-automation/releases/tag/3.1.1)
+[![GitHub Release](https://img.shields.io/badge/Release-3.1.1-blue.svg)](https://github.com/BradleyA/git-TEST-commit-automation/releases/tag/3.1.1)
 [![GitHub Release Date](https://img.shields.io/github/release-date/BradleyA/git-TEST-commit-automation?color=blue)](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/CHANGELOG.md)
 [![GitHub Commits Since](https://img.shields.io/github/commits-since/BradleyA/git-TEST-commit-automation/3.1.1?color=orange)](https://github.com/BradleyA/git-TEST-commit-automation/commits/)
 [![GitHub Last Commits](https://img.shields.io/github/last-commit/BradleyA/git-TEST-commit-automation.svg)](https://github.com/BradleyA/git-TEST-commit-automation/commits/)
 
-[![Open GitHub Issue](https://img.shields.io/badge/Open-Incident-brightgreen.svg)](https://github.com/BradleyA/git-TEST-commit-automation/issues/new/choose)
+[![Open GitHub Issue](https://img.shields.io/badge/Open_new-Incident-brightgreen.svg)](https://github.com/BradleyA/git-TEST-commit-automation/issues/new/choose)
 [![GitHub Open Issues](https://img.shields.io/github/issues/BradleyA/git-TEST-commit-automation?color=purple)](https://github.com/BradleyA/git-TEST-commit-automation/issues?q=is%3Aopen+is%3Aissue)
 [![GitHub Closed Issues](https://img.shields.io/github/issues-closed/BradleyA/git-TEST-commit-automation?color=purple)](https://github.com/BradleyA/git-TEST-commit-automation/issues?q=is%3Aclosed+is%3Aissue)
 
