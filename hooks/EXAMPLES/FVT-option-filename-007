@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/EXAMPLES/FVT-option-filename-007  3.1.117.1804  2020-10-30T22:25:20.303208-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  three-rpi3b.cptx86.com 3.1.116-2-g10c57b3  
+#	   hooks/EXAMPLES/FVT-option-filename-007 -->   correct FVT_TEST_INPUT  
 #	hooks/EXAMPLES/FVT-option-filename-007  3.1.116.1801  2020-10-30T16:24:17.106042-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.115-2-g3f5e9d8  
 #	   hooks/EXAMPLES/FVT-option-filename-007 -->   added GREEN=$(tput  setaf 2)  
 #	hooks/EXAMPLES/FVT-option-filename-007  3.1.112.1793  2020-10-30T15:31:10.021608-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.111  
@@ -88,7 +90,7 @@ touch "${0}.expected"
 
 ###  Place test case here
 
-FVT_TEST_INPUT="${1} --f=test/test"
+FVT_TEST_INPUT="${1} -f=test/test"
 
 eval "${FVT_TEST_INPUT}" 2>&1 | cut -d ']' -f 3 >"${0}".test-case-output  #  pipe [] message into "${0}".test-case-output
 
