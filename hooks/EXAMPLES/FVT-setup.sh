@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/FVT-setup.sh  3.1.120.1814  2020-11-12T13:28:04.220484-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.119-6-g94d18a4  
+# 	   hooks/EXAMPLES/FVT-setup.sh -->   added FVT-option-invalid-00?  
 # 	hooks/EXAMPLES/FVT-setup.sh  3.1.111.1792  2020-10-30T00:10:16.262211-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.110-1-gc6b518a  
 # 	   hooks/EXAMPLES/FVT-setup.sh -->   added FVT-option-filename-007 FVT-option-filename-008  
 # 	hooks/EXAMPLES/FVT-setup.sh  3.1.109.1786  2020-10-28T23:16:49.623016-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.108-16-gc9fcde7  
@@ -219,6 +221,10 @@ ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-help-003"	FVT-option-help-00
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-help-004"	FVT-option-help-004
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-help-005"	FVT-option-help-005
 ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-help-006"	FVT-option-help-006
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-invalid-001"	FVT-option-invalid-001
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-invalid-001.expected"	FVT-option-invalid-001.expected
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-invalid-002"	FVT-option-invalid-002
+ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-invalid-002.expected"	FVT-option-invalid-002.expected
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-none-001"	FVT-option-none-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-none-002"	FVT-option-none-002
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/FVT-option-none-hooks-001"	FVT-option-none-hooks-001
