@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/EXAMPLES/FVT-option-filename-hooks-011  3.1.123.1827  2020-11-13T00:07:32.884303-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.122  
+#	   hooks/EXAMPLES/FVT-option-add-001 hooks/EXAMPLES/FVT-option-all-001 hooks/EXAMPLES/FVT-option-all-002 hooks/EXAMPLES/FVT-option-all-hooks-001 hooks/EXAMPLES/FVT-option-all-hooks-002 hooks/EXAMPLES/FVT-option-clean-001 hooks/EXAMPLES/FVT-option-clean-002 hooks/EXAMPLES/FVT-option-clean-hooks-001 hooks/EXAMPLES/FVT-option-clean-hooks-002 hooks/EXAMPLES/FVT-option-clean-hooks-003 hooks/EXAMPLES/FVT-option-clean-hooks-004 hooks/EXAMPLES/FVT-option-filename-hooks-001 hooks/EXAMPLES/FVT-option-filename-hooks-002 hooks/EXAMPLES/FVT-option-filename-hooks-003 hooks/EXAMPLES/FVT-option-filename-hooks-004 hooks/EXAMPLES/FVT-option-filename-hooks-005 hooks/EXAMPLES/FVT-option-filename-hooks-006 hooks/EXAMPLES/FVT-option-filename-hooks-007 hooks/EXAMPLES/FVT-option-filename-hooks-008 hooks/EXAMPLES/FVT-option-filename-hooks-009 hooks/EXAMPLES/FVT-option-filename-hooks-010 hooks/EXAMPLES/FVT-option-filename-hooks-011 hooks/EXAMPLES/FVT-option-filename-hooks-012 hooks/EXAMPLES/FVT-option-none-001 hooks/EXAMPLES/FVT-option-none-002 hooks/EXAMPLES/FVT-option-none-hooks-001 hooks/EXAMPLES/FVT-option-none-hooks-002 hooks/EXAMPLES/FVT-option-none-hooks-003 hooks/EXAMPLES/FVT-option-none-hooks-004 -->   added FVT_TEST_INPUT  
 #	hooks/EXAMPLES/FVT-option-filename-hooks-011  3.1.73.1623  2020-05-22T12:15:06.037370-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.72  
 #	   hooks/EXAMPLES/FVT-option-filename-hooks-011 -->   upgrade Production standards #49  
 #	hooks/EXAMPLES/FVT-option-filename-hooks-011  2.454.1357  2020-01-30T21:49:52.760033-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.453-5-g03b67b7  
@@ -87,13 +89,15 @@ if [[ ! -x ${1} ]] ; then  #  Command invoked does not exist or cannot execute
   exit "${RETURN_CODE}"
 fi
 
-###  Place test case here
-
-#  output is blank: no files w/o hooks
+#    Create empty file if missing
 touch "${0}.expected"
 
+###  Place test case here
+
 COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')
-"${1}" -f test-"${COMMAND_NAME}" -hooks 2>&1 | cut -d ']' -f 3 >"${0}".test-case-output  #  pipe [] message into "${0}".test-case-output
+FVT_TEST_INPUT="${1} -f test-"${COMMAND_NAME}" -hooks"
+
+eval "${FVT_TEST_INPUT}" 2>&1 | cut -d ']' -f 3 >"${0}".test-case-output  #  pipe [] message into "${0}".test-case-output
 
 if [[ -s ${1} ]] ; then  #  file size is greater than zero
   diff "${0}".expected "${0}".test-case-output >/dev/null 2>&1
@@ -104,11 +108,11 @@ else
 fi
 
 if [[ "${RETURN_CODE}" -eq 0 ]] ; then
-  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${TEST_CASE} ${FILE_NAME} 0 - Message for user matches expected output - ${BOLD}${GREEN}PASS - PASS${NORMAL}"
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${TEST_CASE} ${FILE_NAME} 0 - Message for user matches expected output, ${FVT_TEST_INPUT} - ${BOLD}${GREEN}PASS - PASS${NORMAL}"
   if [[ "${DEBUG}" == "1" ]] ; then cat "${0}".test-case-output 1>&2 ; fi
   exit 0
 elif [[ ${RETURN_CODE} -eq 1 ]] ; then
-  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${FILE_NAME} 1 - Message for user does NOT match expected output - ${BOLD}${RED}FAIL - FAIL${NORMAL}"
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${FILE_NAME} 1 - Message for user does NOT match expected output, ${FVT_TEST_INPUT} - ${BOLD}${RED}FAIL - FAIL${NORMAL}"
   diff -y "${0}".expected "${0}".test-case-output
   exit 1
 else
