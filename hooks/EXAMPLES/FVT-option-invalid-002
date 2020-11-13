@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/EXAMPLES/FVT-option-invalid-002  3.1.122.1826  2020-11-12T21:54:37.390558-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.121-9-g36e9c54  
+#	   hooks/EXAMPLES/FVT-option-invalid-001 hooks/EXAMPLES/FVT-option-invalid-002 -->   update feedback messages  
 #	hooks/EXAMPLES/FVT-option-invalid-002  3.1.121.1816  2020-11-12T13:35:05.548989-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.120-1-g02632a4  
 #	   hooks/EXAMPLES/FVT-option-invalid-001 hooks/EXAMPLES/FVT-option-invalid-002 -->   added invalid option test cases  
 #86# hooks/bin/TEST/git-TEST-cases.sh/FVT-option-invalid-002  -  custom test case
@@ -99,11 +101,11 @@ else
 fi
 
 if [[ "${RETURN_CODE}" -eq 0 ]] ; then
-  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${TEST_CASE} ${FILE_NAME} 0 - Test option with directory argument not found ${FVT_TEST_INPUT} - ${BOLD}${GREEN}PASS - PASS${NORMAL}"
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${TEST_CASE} ${FILE_NAME} 0 - Test invalid option ${FVT_TEST_INPUT} - ${BOLD}${GREEN}PASS - PASS${NORMAL}"
   if [[ "${DEBUG}" == "1" ]] ; then cat "${0}".test-case-output 1>&2 ; fi
   exit 0
 elif [[ ${RETURN_CODE} -eq 1 ]] ; then
-  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${FILE_NAME} 1 - Test option with directory argument not found ${FVT_TEST_INPUT} - ${BOLD}${RED}FAIL - FAIL${NORMAL}"
+  echo "${BOLD}${YELLOW}Test case --->${NORMAL} ${0} ${FILE_NAME} 1 - Test invalid option ${FVT_TEST_INPUT} - ${BOLD}${RED}FAIL - FAIL${NORMAL}"
   diff -y "${0}".expected "${0}".test-case-output
   exit 1
 else
