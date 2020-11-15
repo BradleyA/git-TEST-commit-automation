@@ -123,6 +123,8 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 
 Place the expected results from the test case into a file with the same test case name but add '.expected' ('dot'expected).  Pipe the output from the test case into a file with the same name but add '.test-case-output'. 
 
+#### [ARCHITECTURE_TREE_REPOSITORY](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks/docs/ARCHITECTURE_TREE_REPOSITORY.md)
+
     . . . /<REPOSITORY-NAME>/hooks
     ├── bin/
     │   ├── git-TEST-cases.sh
