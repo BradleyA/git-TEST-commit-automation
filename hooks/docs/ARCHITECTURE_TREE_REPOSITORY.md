@@ -120,4 +120,4 @@
             ├── SA-setup.sh -> ../../EXAMPLES/SA-setup.sh
             └── SA-shellcheck-001.expected
     
-#### [Back to README](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks#architecture-tree)
+#### [Back to README](https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks#git-test-commit-automation--)
