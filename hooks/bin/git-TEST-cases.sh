@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/git-TEST-cases.sh  3.1.130.1843  2020-11-18T15:47:45.471017-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.129  
+# 	   hooks/bin/git-TEST-cases.sh -->   Production standard 9.3.607 Parse CLI options and arguments  
 # 	hooks/bin/git-TEST-cases.sh  3.1.129.1842  2020-11-18T15:26:09.290579-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.128  
 # 	   hooks/bin/git-TEST-cases.sh -->   upgraded to Production standard 9.3.606 Parse CLI options and arguments  
 # 	hooks/bin/git-TEST-cases.sh  3.1.126.1834  2020-11-18T13:46:54.581167-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.125 
@@ -212,7 +214,7 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Name_of_com
 #    Order of precedence: CLI argument, environment variable, default code
 if [[ "${ALL_TEST_CASES}" == "" ]] ; then ALL_TEST_CASES=${DEFAULT_ALL_TEST_CASES} ; fi
 
-###  Production standard 9.3.606 Parse CLI options and arguments
+###  Production standard 9.3.607 Parse CLI options and arguments
 while [[ "${#}" -gt 0 ]] ; do
   case "${1}" in
     --help|-help|help|-h|h|-\?)  display_help | more ; exit 0 ;;
@@ -227,14 +229,14 @@ while [[ "${#}" -gt 0 ]] ; do
     -f|--filename)  if [[ "${CLI_OPTION}" != "" ]] ; then echo -e "\n${BOLD}    Only one of these option -a, --all, -c, --clean, -f, --filename, -n, or --none can be selected.${NORMAL}\n" ; exit 1 # 9.3.596
       else CLI_OPTION="f"
         #    Check if FILE_NAME is missing. # 9.3.558
-        if [[ "${2}" == "" ]]    ; then echo -e "\n${BOLD}    Argument for ${1} is not found on command line\n" ; exit 1 ; fi # 9.3.558   9.3.561  9.3.562
+        if [[ "${2}" == "" ]]    ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi # 9.3.558  9.3.561  9.3.562  9.3.607
         #    Check if option (-) is next not FILE_NAME # 9.3.558
-        if [[ ${2:0:1} == "-" ]] ; then echo -e "\n${BOLD}    Argument for ${1} is not found on command line\n" ; exit 1 ; fi # 9.3.558   9.3.561  9.3.562
+        if [[ ${2:0:1} == "-" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi # 9.3.558  9.3.561  9.3.562  9.3.607
         FILE_NAME=${2} ; shift 2 ; fi ;;  # 9.3.596
     --hooks|-hooks)  ALL_TEST_CASES="YES" ; shift ;;
     -n|--none)  if [[ "${CLI_OPTION}" != "" ]] ; then echo -e "\n${BOLD}    Only one of these option -a, --all, -c, --clean, -f, --filename, -n, or --none can be selected.${NORMAL}\n" ; exit 1 # 18  # 9.3.596
       else CLI_OPTION="n" ; shift ; fi ;; # 9.3.596
-    *)  echo -e "\n${BOLD}    Invalid option, ${YELLOW}${1}${WHITE}, try ${YELLOW}--usage${NORMAL}\n" ; exit 1 ; ;; # 9.3.606
+    *)  echo -e "\n${BOLD}    Invalid option, ${YELLOW}${1}${WHITE}, try ${YELLOW}--usage${NORMAL}\n" ; exit 1 ; ;; # 9.3.607
   esac
 done
 
