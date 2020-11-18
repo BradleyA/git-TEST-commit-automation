@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/git-setup-TEST-cases.sh  3.1.125.1833  2020-11-18T12:53:01.253438-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.124  
+# 	   hooks/bin/git-setup-TEST-cases.sh -->   rename git-TEST-setup-cases.sh -> git-setup-TEST-cases.sh  
 # 	hooks/bin/setup-git-TEST-cases.sh  3.1.94.1653  2020-09-05T08:15:28.202095-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.93  
 # 	   hooks/bin/setup-git-TEST-cases.sh -->   update No --help  
 # 	hooks/bin/setup-git-TEST-cases.sh  2.444.1338  2020-01-29T11:43:01.700129-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.443  
@@ -7,7 +9,7 @@
 # 	   hooks/bin/setup-git-TEST-cases.sh   Production standard 5.3.559 Copyright, Production standard 1.3.550 DEBUG variable,  Production standard 2.3.529 log format 
 # 	hooks/bin/setup-git-TEST-cases.sh  2.117.621  2019-09-20T22:02:03.774879-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.116-1-g58bd437  
 # 	   close #2   hooks/bin/setup-git-TEST-cases.sh  met all four objectives
-#86# hooks/bin/setup-git-TEST-cases.sh  -  setup git TEST cases in current repository
+#86# hooks/bin/git-setup-TEST-cases.sh  -  setup git TEST cases in current repository
 ###  Production standard 3.0 shellcheck
 ###  Production standard 5.3.559 Copyright                                    # 3.559
 #    Copyright (c) 2020 Bradley Allen                                                # 3.555
