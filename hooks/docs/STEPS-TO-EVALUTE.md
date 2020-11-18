@@ -22,13 +22,13 @@ Steps to evaluate git-TEST-commit-automation solution
     
 Objective 1) **Quick setup with default test cases for any Git repository (in seconds)**
 
-**Download and execute setup-git-TEST-cases.sh** to setup git-TEST-commit-automation solution.
+**Download and execute git-setup-TEST-cases.sh** to setup git-TEST-commit-automation solution.
 
-This will download git-TEST-commit-automation files into a Git repository top directoy named **hooks**.  It will create two symbolic links for .git/hooks/pre-commit and .git/hooks/post-commit to hooks/pre-commit and hooks/post-commit.  It will also copy three files, git-TEST-cases.sh, setup-git-TEST-cases.sh and uninstall-git-TEST-cases.sh to /usr/local/bin.
+This will download git-TEST-commit-automation files into a Git repository top directoy named **hooks**.  It will create two symbolic links for .git/hooks/pre-commit and .git/hooks/post-commit to hooks/pre-commit and hooks/post-commit.  It will also copy three files, git-TEST-cases.sh, git-setup-TEST-cases.sh and uninstall-git-TEST-cases.sh to /usr/local/bin.
 
-    curl -L https://api.github.com/repos/BradleyA/git-TEST-commit-automation/tarball | tar -xzf - --wildcards BradleyA-git-TEST-commit-automation-*/hooks/bin/setup-git-TEST-cases.sh ; mv BradleyA-git-TEST-commit-automation-*/hooks/bin/setup-git-TEST-cases.sh . ; rm -r BradleyA-git-TEST-commit-automation-*/
-    ./setup-git-TEST-cases.sh   #  setup git-TEST-commit-automation in hooks directory and .git/hooks directory
-    rm setup-git-TEST-cases.sh  #  remove setup-git-TEST-cases.sh and setup is complete
+    curl -L https://api.github.com/repos/BradleyA/git-TEST-commit-automation/tarball | tar -xzf - --wildcards BradleyA-git-TEST-commit-automation-*/hooks/bin/git-setup-TEST-cases.sh ; mv BradleyA-git-TEST-commit-automation-*/hooks/bin/git-setup-TEST-cases.sh . ; rm -r BradleyA-git-TEST-commit-automation-*/
+    ./git-setup-TEST-cases.sh   #  setup git-TEST-commit-automation in hooks directory and .git/hooks directory
+    rm git-setup-TEST-cases.sh  #  remove git-setup-TEST-cases.sh and setup is complete
     
 <img id="Steps git-TEST-commit-automation-2.gif" src="../images/git-TEST-commit-automation-2.gif" >
 
