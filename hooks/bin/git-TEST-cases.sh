@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/git-TEST-cases.sh  3.1.126.1834  2020-11-18T13:46:54.581167-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.125  
+# 	   hooks/bin/git-TEST-cases.sh hooks/bin/git-setup-TEST-cases.sh hooks/bin/uninstall-git-TEST-cases.sh -->   rename git-TEST-setup-cases.sh -> git-setup-TEST-cases.sh  
 # 	hooks/bin/git-TEST-cases.sh  3.1.92.1650  2020-08-29T22:13:53.611478-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.91  
 # 	   hooks/bin/git-TEST-cases.sh -->   Add default options to OPTIONS section  
 # 	hooks/bin/git-TEST-cases.sh  3.1.2.1494  2020-02-03T23:24:09.832614-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.1-1-g16879e3  
@@ -152,7 +154,7 @@ echo -e "   Setup default SA- test cases for file sample.sh without test cases\n
 echo -e "   Check test case depth for file sample.sh (option -f)\n\t${BOLD}${COMMAND_NAME} -f sample.sh${NORMAL}\n"        # 3.550
 
 echo -e "\n${BOLD}SEE ALSO${NORMAL}"                                                        # 3.550
-echo    "   ${BOLD}setup-git-TEST-cases.sh${NORMAL}  (https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#description)"  # 3.550
+echo    "   ${BOLD}git-setup-TEST-cases.sh${NORMAL}  (https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#description)"  # 3.550
 echo    "   ${BOLD}uninstall-git-TEST-cases.sh${NORMAL}  (https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#description)"  # 3.550
 echo    "   ${BOLD}markit${NORMAL}  (https://github.com/BradleyA/markit/blob/master/README.md#markit------)"  # 3.550
 

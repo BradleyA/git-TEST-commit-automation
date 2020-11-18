@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/uninstall-git-TEST-cases.sh  3.1.126.1834  2020-11-18T13:46:55.038582-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.125  
+# 	   hooks/bin/git-TEST-cases.sh hooks/bin/git-setup-TEST-cases.sh hooks/bin/uninstall-git-TEST-cases.sh -->   rename git-TEST-setup-cases.sh -> git-setup-TEST-cases.sh  
 # 	hooks/bin/uninstall-git-TEST-cases.sh  2.443.1337  2020-01-29T11:21:10.587150-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.442-2-g61001a8  
 # 	   hooks/bin/uninstall-git-TEST-cases.sh   added No --help section 
 # 	hooks/bin/uninstall-git-TEST-cases.sh  2.282.1135  2020-01-22T11:55:42.740309-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.281  
@@ -114,7 +116,7 @@ if git -C . rev-parse 2> /dev/null ; then  #  currect directory in a git reposit
   rm -f  .git/hooks/pre-commit
   rm -f  .git/hooks/post-commit
   rm -f  /usr/local/bin/git-TEST-cases.sh
-  rm -f  /usr/local/bin/setup-git-TEST-cases.sh
+  rm -f  /usr/local/bin/git-setup-TEST-cases.sh
   rm -f  /usr/local/bin/uninstall-git-TEST-cases.sh
   mv "${TMP_FILE_1}.tar" .  #  #20   place the tar file in the repository top directory not /tmp
   git commit -m 'remove git-TEST-commit-automation  hooks recursively'
