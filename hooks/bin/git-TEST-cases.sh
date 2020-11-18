@@ -1,5 +1,7 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  3.1.126.1834  2020-11-18T13:46:54.581167-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.125  
+# 	hooks/bin/git-TEST-cases.sh  3.1.128.1841  2020-11-18T14:58:05.907897-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.127  
+# 	   hooks/bin/git-TEST-cases.sh -->   testing  
+# 	hooks/bin/git-TEST-cases.sh  3.1.126.1834  2020-11-18T13:46:54.581167-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.125 
 # 	   hooks/bin/git-TEST-cases.sh hooks/bin/git-setup-TEST-cases.sh hooks/bin/uninstall-git-TEST-cases.sh -->   rename git-TEST-setup-cases.sh -> git-setup-TEST-cases.sh  
 # 	hooks/bin/git-TEST-cases.sh  3.1.92.1650  2020-08-29T22:13:53.611478-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.91  
 # 	   hooks/bin/git-TEST-cases.sh -->   Add default options to OPTIONS section  
