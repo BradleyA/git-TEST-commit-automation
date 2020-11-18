@@ -71,7 +71,7 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 * Quick uninstall on any Git repository
 * Quick check of test case depth for a file (option -f) and all files for any Git repository (option -a)
 * Quick setup of default SA- test cases for a file (options --filename sample.sh --add)
-* Quick upgrade of default test cases and git-TEST-commit-automation commands (setup-git-TEST-cases.sh)
+* Quick upgrade of default test cases and git-TEST-commit-automation commands (git-setup-TEST-cases.sh)
 * Quick reduction of untracked TEST case files (option -c)
 
 [Return to top](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#git-TEST-commit-automation)
@@ -106,7 +106,7 @@ TL;DR - During code design, a software developer's focus is on how to solve part
  
 **git-TEST-cases.sh** - lists and manages files in TEST case directories in current Git repository
 
-**setup-git-TEST-cases.sh** - setup git-TEST-commit-automation in top directory of current repository
+**git-setup-TEST-cases.sh** - setup git-TEST-commit-automation in top directory of current repository
 
 **uninstall-git-TEST-cases.sh** - uninstall git-TEST-commit-automation in current repository
 
@@ -114,7 +114,7 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 
     /usr/local/bin/                           <-- <BIN_DIR>
     ├── git-TEST-cases.sh
-    ├── setup-git-TEST-cases.sh
+    ├── git-setup-TEST-cases.sh
     └── uninstall-git-TEST-cases.sh>
 
 [Return to top](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#git-TEST-commit-automation)
