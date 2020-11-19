@@ -1,8 +1,8 @@
 #!/bin/bash
+# 	hooks/bin/git-TEST-cases.sh  3.1.133.1849  2020-11-18T22:48:36.351292-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.132-1-gd747882  
+# 	   hooks/bin/git-TEST-cases.sh -->   testing  
 # 	hooks/bin/git-TEST-cases.sh  3.1.132.1847  2020-11-18T22:44:28.728514-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.131  
 # 	   hooks/bin/git-TEST-cases.sh -->   add support for -f=*|--filename=*)  
-# 	hooks/bin/git-TEST-cases.sh  3.1.131.1846  2020-11-18T22:11:27.633496-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.130-2-g6d8a84a  
-# 	   hooks/bin/git-TEST-cases.sh -->   testing  
 # 	hooks/bin/git-TEST-cases.sh  3.1.130.1843  2020-11-18T15:47:45.471017-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.129  
 # 	   hooks/bin/git-TEST-cases.sh -->   Production standard 9.3.607 Parse CLI options and arguments  
 # 	hooks/bin/git-TEST-cases.sh  3.1.129.1842  2020-11-18T15:26:09.290579-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.128  
