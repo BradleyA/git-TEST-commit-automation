@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/git-TEST-cases.sh  3.1.131.1846  2020-11-18T22:11:27.633496-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.130-2-g6d8a84a  
+# 	   hooks/bin/git-TEST-cases.sh -->   testing  
 # 	hooks/bin/git-TEST-cases.sh  3.1.130.1843  2020-11-18T15:47:45.471017-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.129  
 # 	   hooks/bin/git-TEST-cases.sh -->   Production standard 9.3.607 Parse CLI options and arguments  
 # 	hooks/bin/git-TEST-cases.sh  3.1.129.1842  2020-11-18T15:26:09.290579-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.128  
@@ -251,7 +253,8 @@ if [[ "${REPOSITORY_DIR}" == "" ]] ; then
 fi
 cd "${REPOSITORY_DIR}"
 if [[ "${CLI_OPTION}" == "f" ]]  ; then
-  if [[ "${FILE_NAME}" =~ / ]] ; then new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Filename ${FILE_NAME}, contains '/'" 1>&2 ; exit 1 ; fi
+  if [[ "${FILE_NAME}" =~ / ]] ; then new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Filename ${FILE_NAME}, contains '/'" 1>&2 ; exit 1 ; fi # >>> need to update output and determine if -f file can include di
+rectories when file is used several times in a repository
 
   if [[ "${DEFAULT_ADD_TEST_CASE}" == "YES" ]] ; then  #  #29  --add default SA files
     TMP1=$(find . -type f -name "${FILE_NAME}")
