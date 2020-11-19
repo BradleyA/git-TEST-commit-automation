@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/git-TEST-cases.sh  3.1.132.1847  2020-11-18T22:44:28.728514-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.131  
+# 	   hooks/bin/git-TEST-cases.sh -->   add support for -f=*|--filename=*)  
 # 	hooks/bin/git-TEST-cases.sh  3.1.131.1846  2020-11-18T22:11:27.633496-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.130-2-g6d8a84a  
 # 	   hooks/bin/git-TEST-cases.sh -->   testing  
 # 	hooks/bin/git-TEST-cases.sh  3.1.130.1843  2020-11-18T15:47:45.471017-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.129  
@@ -235,6 +237,14 @@ while [[ "${#}" -gt 0 ]] ; do
         #    Check if option (-) is next not FILE_NAME # 9.3.558
         if [[ ${2:0:1} == "-" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi # 9.3.558  9.3.561  9.3.562  9.3.607
         FILE_NAME=${2} ; shift 2 ; fi ;;  # 9.3.596
+    -f=*|--filename=*)  if [[ "${CLI_OPTION}" != "" ]] ; then echo -e "\n${BOLD}    Only one of these option -a, --all, -c, --clean, -f, --filename, -n, or --none can be selected.${NORMAL}\n" ; exit 1  # 9.3.608
+      else CLI_OPTION="f"  # 9.3.608
+        FILE_NAME="${1#*=}"  # 9.3.608
+        #    Check if FILE_NAME is missing.  # 9.3.608
+        if [[ "${FILE_NAME}" == "" ]]    ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi  # 9.3.608
+        #    Check if option (-) is next not FILE_NAME  # 9.3.608
+        if [[ ${FILE_NAME:0:1} == "-" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi  # 9.3.608
+        shift 2 ; fi ;;  # 9.3.608
     --hooks|-hooks)  ALL_TEST_CASES="YES" ; shift ;;
     -n|--none)  if [[ "${CLI_OPTION}" != "" ]] ; then echo -e "\n${BOLD}    Only one of these option -a, --all, -c, --clean, -f, --filename, -n, or --none can be selected.${NORMAL}\n" ; exit 1 # 18  # 9.3.596
       else CLI_OPTION="n" ; shift ; fi ;; # 9.3.596
