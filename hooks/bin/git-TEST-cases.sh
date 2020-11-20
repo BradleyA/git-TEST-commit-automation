@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/git-TEST-cases.sh  3.1.137.1854  2020-11-20T16:36:42.000052-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.136-1-g61c9174  
+# 	   hooks/EXAMPLES/FVT-option-filename-hooks-001 hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh hooks/bin/git-TEST-cases.sh -->   testing FVT-option-filename-hooks-0??  
 # 	hooks/bin/git-TEST-cases.sh  3.1.136.1852  2020-11-20T14:43:17.627322-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.135  
 # 	   hooks/bin/git-TEST-cases.sh -->   testing  
 # 	hooks/bin/git-TEST-cases.sh  3.1.132.1847  2020-11-18T22:44:28.728514-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.131  
@@ -230,18 +232,14 @@ while [[ "${#}" -gt 0 ]] ; do
     --add)  DEFAULT_ADD_TEST_CASE="YES" ; shift ;;  #  #29
     -c|--clean)  if [[ "${CLI_OPTION}" != "" ]] ; then echo -e "\n${BOLD}    Only one of these option -a, --all, -c, --clean, -f, --filename, -n, or --none can be selected.${NORMAL}\n" ; exit 1 # 9.3.596
       else CLI_OPTION="c" ; shift ; fi ;;  # 9.3.596
-## >>>
-    -f|--filename)  echo ">>>${CLI_OPTION}<<<1"  ;   if [[ "${CLI_OPTION}" != "" ]] ; then echo -e "\n${BOLD}    Only one of these option -a, --all, -c, --clean, -f, --filename, -n, or --none can be selected.${NORMAL}\n" ; exit 1 # 9.3.596
-## >>>
+    -f|--filename)  if [[ "${CLI_OPTION}" != "" ]] ; then echo -e "\n${BOLD}    Only one of these option -a, --all, -c, --clean, -f, --filename, -n, or --none can be selected.${NORMAL}\n" ; exit 1 # 9.3.596
       else CLI_OPTION="f"
         #    Check if FILE_NAME is missing. # 9.3.558
         if [[ "${2}" == "" ]]    ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi # 9.3.558  9.3.561  9.3.562  9.3.607
         #    Check if option (-) is next not FILE_NAME # 9.3.558
         if [[ ${2:0:1} == "-" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi # 9.3.558  9.3.561  9.3.562  9.3.607
         FILE_NAME=${2} ; shift 2 ; fi ;;  # 9.3.596
-## >>>
-    -f=*|--filename=*)  echo ">>>${CLI_OPTION}<<<2"  ;    if [[ "${CLI_OPTION}" != "" ]] ; then echo -e "\n${BOLD}    Only one of these option -a, --all, -c, --clean, -f, --filename, -n, or --none can be selected.${NORMAL}\n" ; exit 1  # 9.3.608
-## >>>
+    -f=*|--filename=*)  if [[ "${CLI_OPTION}" != "" ]] ; then echo -e "\n${BOLD}    Only one of these option -a, --all, -c, --clean, -f, --filename, -n, or --none can be selected.${NORMAL}\n" ; exit 1  # 9.3.608
       else CLI_OPTION="f"  # 9.3.608
         FILE_NAME="${1#*=}"  # 9.3.608
         #    Check if FILE_NAME is missing.  # 9.3.608
