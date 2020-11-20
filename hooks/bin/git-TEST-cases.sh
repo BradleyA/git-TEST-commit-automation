@@ -1,5 +1,5 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  3.1.135.1851  2020-11-20T14:32:24.906327-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.134  
+# 	hooks/bin/git-TEST-cases.sh  3.1.136.1852  2020-11-20T14:43:17.627322-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.135  
 # 	   hooks/bin/git-TEST-cases.sh -->   testing  
 # 	hooks/bin/git-TEST-cases.sh  3.1.132.1847  2020-11-18T22:44:28.728514-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.131  
 # 	   hooks/bin/git-TEST-cases.sh -->   add support for -f=*|--filename=*)  
@@ -218,9 +218,6 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Name_of_com
 #    Order of precedence: CLI argument, environment variable, default code
 if [[ "${ALL_TEST_CASES}" == "" ]] ; then ALL_TEST_CASES=${DEFAULT_ALL_TEST_CASES} ; fi
 
-# >>>
-set -x
-# >>>
 ###  Production standard 9.3.607 Parse CLI options and arguments
 while [[ "${#}" -gt 0 ]] ; do
   case "${1}" in
@@ -242,7 +239,9 @@ while [[ "${#}" -gt 0 ]] ; do
         #    Check if option (-) is next not FILE_NAME # 9.3.558
         if [[ ${2:0:1} == "-" ]] ; then echo -e "\n${BOLD}    Argument for ${YELLOW}${1}${WHITE} is not found on command line.${NORMAL}\n" ; exit 1 ; fi # 9.3.558  9.3.561  9.3.562  9.3.607
         FILE_NAME=${2} ; shift 2 ; fi ;;  # 9.3.596
+## >>>
     -f=*|--filename=*)  echo ">>>${CLI_OPTION}<<<2"  ;    if [[ "${CLI_OPTION}" != "" ]] ; then echo -e "\n${BOLD}    Only one of these option -a, --all, -c, --clean, -f, --filename, -n, or --none can be selected.${NORMAL}\n" ; exit 1  # 9.3.608
+## >>>
       else CLI_OPTION="f"  # 9.3.608
         FILE_NAME="${1#*=}"  # 9.3.608
         #    Check if FILE_NAME is missing.  # 9.3.608
