@@ -1,8 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  3.1.137.1854  2020-11-20T16:36:42.000052-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.136-1-g61c9174  
-# 	   hooks/EXAMPLES/FVT-option-filename-hooks-001 hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh hooks/bin/git-TEST-cases.sh -->   testing FVT-option-filename-hooks-0??  
-# 	hooks/bin/git-TEST-cases.sh  3.1.136.1852  2020-11-20T14:43:17.627322-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.135  
-# 	   hooks/bin/git-TEST-cases.sh -->   testing  
+# 	hooks/bin/git-TEST-cases.sh  3.1.138.1856  2020-11-20T20:17:13.696038-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.137-1-g50651db  
+# 	   hooks/EXAMPLES/FVT-option-filename-hooks-003 hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh hooks/bin/git-TEST-cases.sh -->   first code cut for  --filename is used more than once in repository #52  
 # 	hooks/bin/git-TEST-cases.sh  3.1.132.1847  2020-11-18T22:44:28.728514-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.131  
 # 	   hooks/bin/git-TEST-cases.sh -->   add support for -f=*|--filename=*)  
 # 	hooks/bin/git-TEST-cases.sh  3.1.130.1843  2020-11-18T15:47:45.471017-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.129  
@@ -55,8 +53,8 @@ COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')                                   
 display_usage() {
 echo -e "\n${NORMAL}${COMMAND_NAME}\n   lists and manages files in TEST case directories"
 echo -e "\n${BOLD}USAGE${NORMAL}"
-echo    "   ${COMMAND_NAME} [-a | --all | -c | --clean | -n | --none | -f <FILE_NAME> | --filename <FILE_NAME>] [--hooks]"
-echo -e "                     [--filename <FILE_NAME> --add]\n"
+echo    "   ${COMMAND_NAME} [-a | --all | -c | --clean | -n | --none | -f <PATH>/<FILE_NAME> | --filename <PATH>/<FILE_NAME>] [--hooks]"
+echo -e "                     [--filename <PATH>/<FILE_NAME> --add]\n"
 echo    "   ${COMMAND_NAME} [--help | -help | help | -h | h | -?]"
 echo    "   ${COMMAND_NAME} [--usage | -usage | -u]"
 echo    "   ${COMMAND_NAME} [--version | -version | -v]"
@@ -122,8 +120,8 @@ echo    "   -c, --clean"
 echo -e "\tRun FVT-cleanup.sh & SA-cleanup.sh to remove linked TEST cases and"
 echo -e "\ttest files and directories excluding hooks/ directory unless --hooks"
 echo -e "\toption is used.\n"
-echo    "   -f <FILE_NAME>, --filename <FILE_NAME>"
-echo -e "\tPrint all test case files for <FILE_NAME> after running FVT-setup.sh"
+echo    "   -f <PATH>/<FILE_NAME>, --filename <PATH>/<FILE_NAME>"
+echo -e "\tPrint all test case files for <PATH>/<FILE_NAME> after running FVT-setup.sh"
 echo -e "\tand SA-setup.sh excluding hooks directory unless --hooks option is used.\n"
 echo    "        --add" #  #29  --add option add default test cases
 echo -e "\t     Create default test case directory (TEST/<FILE_NAME>/) for"
@@ -264,28 +262,43 @@ if [[ "${REPOSITORY_DIR}" == "" ]] ; then
   REPOSITORY_DIR=$(git rev-parse --show-toplevel) || { new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Not a git repository (or any of the parent directories)" 1>&2 ; exit 1 ; } 
 fi
 cd "${REPOSITORY_DIR}"
-if [[ "${CLI_OPTION}" == "f" ]]  ; then
-  if [[ "${FILE_NAME}" =~ / ]] ; then new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Filename ${FILE_NAME}, contains '/'" 1>&2 ; exit 1 ; fi # >>> need to update output and determine if -f file can include directories when file is used several times in a repository
 
+TMP_FILE_NAME=$(echo "${FILE_NAME}" | sed 's/^.*\///')  # parse file name
+
+if [[ "${CLI_OPTION}" == "f" ]]  ; then
+## >>> #52  if [[ "${FILE_NAME}" =~ / ]] ; then new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Filename ${FILE_NAME}, contains '/'" 1>&2 ; exit 1 ; fi # >>> need to update output and determine if -f file can include directories when file is used several times in a repository
   if [[ "${DEFAULT_ADD_TEST_CASE}" == "YES" ]] ; then  #  #29  --add default SA files
-    TMP1=$(find . -type f -name "${FILE_NAME}")
-    if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Directory with FILE_NAME >${TMP1}< FILE_NAME >${FILE_NAME}<" 1>&2 ; fi
-    if [[ "${TMP1}" == "" ]] ; then echo -e "${BOLD}${YELLOW}\n    INFO:  ${WHITE}Filename ${YELLOW}${FILE_NAME}${WHITE}, NOT found.  Check spelling of filename\n    or try  ${YELLOW}${COMMAND_NAME} --help${NORMAL}" 1>&2 ; exit 1 ; fi
-    DIR_COUNT=$(awk -F'/' '{print NF-2}' <<< $TMP1)
-    cd "$(dirname "${TMP1}")"  #  change to directory with ${FILE_NAME}
-    mkdir -p TEST/"${FILE_NAME}"/
-    EXAMPLE_DIR="../../hooks/EXAMPLES"
-    if [[ ${DIR_COUNT} != 0 ]] ; then
-      while [[ ${DIR_COUNT} != 0 ]] ; do DIR_COUNT=$((DIR_COUNT - 1)) ; EXAMPLE_DIR="../${EXAMPLE_DIR}" ; done
+## >>> #52    TMP1=$(find . -type f -name "${FILE_NAME}")
+## >>> #52    if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Directory with FILE_NAME >${TMP1}< FILE_NAME >${FILE_NAME}<" 1>&2 ; fi
+    if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Directory with file name >${FILE_NAME}<" 1>&2 ; fi
+    #    Check if file exists and has a size greater than zero || if file exists and is readable
+    if [[ ! -s "${FILE_NAME}" ]] || [[ ! -r "${FILE_NAME}" ]] ; then
+      new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${FILE_NAME} file is not found or is empty or is not readable" 1>&2
+      exit 1
     fi
+    if [[ "${FILE_NAME}" != $(basename "${FILE_NAME}") ]] ; then  #  must execute in directory if directory
+      cd "$(dirname "${FILE_NAME}")"
+    fi
+## >>> #52    if [[ "${TMP1}" == "" ]] ; then echo -e "${BOLD}${YELLOW}\n    INFO:  ${WHITE}Filename ${YELLOW}${FILE_NAME}${WHITE}, NOT found.  Check spelling of filename\n    or try  ${YELLOW}${COMMAND_NAME} --help${NORMAL}" 1>&2 ; exit 1 ; fi
+## >>> #52    DIR_COUNT=$(awk -F'/' '{print NF-2}' <<< $TMP1)
+## >>> #52    cd "$(dirname "${TMP1}")"  #  change to directory with ${FILE_NAME}
+    mkdir -p TEST/"${TMP_FILE_NAME}"/
+## >>> #52    EXAMPLE_DIR="../../hooks/EXAMPLES"
+## >>> #52    if [[ ${DIR_COUNT} != 0 ]] ; then
+## >>> #52      while [[ ${DIR_COUNT} != 0 ]] ; do DIR_COUNT=$((DIR_COUNT - 1)) ; EXAMPLE_DIR="../${EXAMPLE_DIR}" ; done
+## >>> #52    fi
     if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  EXAMPLE_DIR >${EXAMPLE_DIR}<" 1>&2 ; fi
-    ln -sf "${EXAMPLE_DIR}/SA-setup.sh"   "TEST/${FILE_NAME}/SA-setup.sh"
-    ln -sf "${EXAMPLE_DIR}/SA-cleanup.sh" "TEST/${FILE_NAME}/SA-cleanup.sh"
-    touch "TEST/${FILE_NAME}/SA-shellcheck-001.expected"
-    git add "TEST/${FILE_NAME}/SA-shellcheck-001.expected" "TEST/${FILE_NAME}/SA-setup.sh" "TEST/${FILE_NAME}/SA-cleanup.sh"
-    git commit -m 'initial commit' "TEST/${FILE_NAME}/SA-shellcheck-001.expected" "TEST/${FILE_NAME}/SA-setup.sh" "TEST/${FILE_NAME}/SA-cleanup.sh"
+    ln -sf "${EXAMPLE_DIR}/SA-setup.sh"   "TEST/${TMP_FILE_NAME}/SA-setup.sh"
+    ln -sf "${EXAMPLE_DIR}/SA-cleanup.sh" "TEST/${TMP_FILE_NAME}/SA-cleanup.sh"
+    touch "TEST/${TMP_FILE_NAME}/SA-shellcheck-001.expected"
+    git add "TEST/${TMP_FILE_NAME}/SA-shellcheck-001.expected" "TEST/${TMP_FILE_NAME}/SA-setup.sh" "TEST/${TMP_FILE_NAME}/SA-cleanup.sh"
+    git commit -m 'initial commit' "TEST/${TMP_FILE_NAME}/SA-shellcheck-001.expected" "TEST/${TMP_FILE_NAME}/SA-setup.sh" "TEST/${TMP_FILE_NAME}/SA-cleanup.sh"
   fi  #  #29
-  cd "$(find . -type d -name "${FILE_NAME}")"
+  if [[ "${FILE_NAME}" != $(basename "${FILE_NAME}") ]] ; then  #  must execute in directory if directory
+    cd "$(dirname "${FILE_NAME}")"
+  fi
+  cd TEST/"${TMP_FILE_NAME}"
+## >>> #52  cd "$(find . -type d -name "${TMP_FILE_NAME}")"
   if [[ -x "FVT-setup.sh" ]]  ; then ./FVT-setup.sh ; fi
   if [[ -x "SA-setup.sh"  ]]  ; then ./SA-setup.sh  ; fi
   cd "${REPOSITORY_DIR}"
@@ -293,12 +306,12 @@ if [[ "${CLI_OPTION}" == "f" ]]  ; then
     echo -e "${BOLD}${YELLOW}\n    INFO:  ${WHITE}If filename is not found.  Check spelling of filename\n    or try  ${YELLOW}${COMMAND_NAME} --help${NORMAL}\n" 1>&2
     find . -print | grep --color=auto "${FILE_NAME}"
   else
-    echo -e "${BOLD}${YELLOW}\n    INFO:  ${WHITE}If filename is not found.  Check spelling of filename\n    or try  ${YELLOW}${COMMAND_NAME} --filename <FILE_NAME> --hooks\n    ${WHITE}or try  ${YELLOW}${COMMAND_NAME} --help${NORMAL}\n" 1>&2
+    echo -e "${BOLD}${YELLOW}\n    INFO:  ${WHITE}If filename is not found.  Check spelling of filename\n    or try  ${YELLOW}${COMMAND_NAME} --filename <PATH>/<FILE_NAME> --hooks\n    ${WHITE}or try  ${YELLOW}${COMMAND_NAME} --help${NORMAL}\n" 1>&2
     find . -print | grep -v 'hooks/' | grep --color=auto "${FILE_NAME}"
   fi
-  cd "$(find . -type d -name "${FILE_NAME}")"
-  if [[ -x "FVT-cleanup.sh" ]]  ; then ./FVT-cleanup.sh ; fi
-  if [[ -x "SA-cleanup.sh"  ]]  ; then ./SA-cleanup.sh  ; fi
+## >>> #52  cd "$(find . -type d -name "${TMP_FILE_NAME}")"
+## >>> #52  if [[ -x "FVT-cleanup.sh" ]]  ; then ./FVT-cleanup.sh ; fi
+## >>> #52  if [[ -x "SA-cleanup.sh"  ]]  ; then ./SA-cleanup.sh  ; fi
 else
   if [[ "${CLI_OPTION}" == "n" ]] ; then  #  #18
     TMP_GITALLFILES=$(mktemp /tmp/GITALLFILESXXXXXX)                       #  create temporary file for all files in repository
