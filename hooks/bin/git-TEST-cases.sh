@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/git-TEST-cases.sh  3.1.139.1857  2020-11-20T21:13:20.322605-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.138  
+# 	   hooks/bin/git-TEST-cases.sh -->   testing #52  
 # 	hooks/bin/git-TEST-cases.sh  3.1.138.1856  2020-11-20T20:17:13.696038-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.137-1-g50651db  
 # 	   hooks/EXAMPLES/FVT-option-filename-hooks-003 hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh hooks/bin/git-TEST-cases.sh -->   first code cut for  --filename is used more than once in repository #52  
 # 	hooks/bin/git-TEST-cases.sh  3.1.132.1847  2020-11-18T22:44:28.728514-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.131  
@@ -263,30 +265,25 @@ if [[ "${REPOSITORY_DIR}" == "" ]] ; then
 fi
 cd "${REPOSITORY_DIR}"
 
-TMP_FILE_NAME=$(echo "${FILE_NAME}" | sed 's/^.*\///')  # parse file name
+TMP_FILE_NAME=$(echo "${FILE_NAME}" | sed 's/^.*\///')  # parse file name if directory included
 
 if [[ "${CLI_OPTION}" == "f" ]]  ; then
-## >>> #52  if [[ "${FILE_NAME}" =~ / ]] ; then new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Filename ${FILE_NAME}, contains '/'" 1>&2 ; exit 1 ; fi # >>> need to update output and determine if -f file can include directories when file is used several times in a repository
+#    Check if file exists and has a size greater than zero || if file exists and is readable
+  if [[ ! -s "${FILE_NAME}" ]] || [[ ! -r "${FILE_NAME}" ]] ; then
+    new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${FILE_NAME} file is not found or is empty or is not readable" 1>&2
+    exit 1
+  fi
+  if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  File name with sub-directory >${FILE_NAME}<" 1>&2 ; fi
   if [[ "${DEFAULT_ADD_TEST_CASE}" == "YES" ]] ; then  #  #29  --add default SA files
-## >>> #52    TMP1=$(find . -type f -name "${FILE_NAME}")
-## >>> #52    if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Directory with FILE_NAME >${TMP1}< FILE_NAME >${FILE_NAME}<" 1>&2 ; fi
-    if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Directory with file name >${FILE_NAME}<" 1>&2 ; fi
-    #    Check if file exists and has a size greater than zero || if file exists and is readable
-    if [[ ! -s "${FILE_NAME}" ]] || [[ ! -r "${FILE_NAME}" ]] ; then
-      new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${FILE_NAME} file is not found or is empty or is not readable" 1>&2
-      exit 1
-    fi
-    if [[ "${FILE_NAME}" != $(basename "${FILE_NAME}") ]] ; then  #  must execute in directory if directory
+    if [[ "${FILE_NAME}" != $(basename "${FILE_NAME}") ]] ; then  #  Is there a sub-directory included
       cd "$(dirname "${FILE_NAME}")"
+      DIR_COUNT=$(awk -F'/' '{print NF-2}' <<< $FILE_NAME)
     fi
-## >>> #52    if [[ "${TMP1}" == "" ]] ; then echo -e "${BOLD}${YELLOW}\n    INFO:  ${WHITE}Filename ${YELLOW}${FILE_NAME}${WHITE}, NOT found.  Check spelling of filename\n    or try  ${YELLOW}${COMMAND_NAME} --help${NORMAL}" 1>&2 ; exit 1 ; fi
-## >>> #52    DIR_COUNT=$(awk -F'/' '{print NF-2}' <<< $TMP1)
-## >>> #52    cd "$(dirname "${TMP1}")"  #  change to directory with ${FILE_NAME}
     mkdir -p TEST/"${TMP_FILE_NAME}"/
-## >>> #52    EXAMPLE_DIR="../../hooks/EXAMPLES"
-## >>> #52    if [[ ${DIR_COUNT} != 0 ]] ; then
-## >>> #52      while [[ ${DIR_COUNT} != 0 ]] ; do DIR_COUNT=$((DIR_COUNT - 1)) ; EXAMPLE_DIR="../${EXAMPLE_DIR}" ; done
-## >>> #52    fi
+    EXAMPLE_DIR="../../hooks/EXAMPLES"
+    if [[ ${DIR_COUNT} != 0 ]] ; then
+      while [[ ${DIR_COUNT} != 0 ]] ; do DIR_COUNT=$((DIR_COUNT - 1)) ; EXAMPLE_DIR="../${EXAMPLE_DIR}" ; done
+    fi
     if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  EXAMPLE_DIR >${EXAMPLE_DIR}<" 1>&2 ; fi
     ln -sf "${EXAMPLE_DIR}/SA-setup.sh"   "TEST/${TMP_FILE_NAME}/SA-setup.sh"
     ln -sf "${EXAMPLE_DIR}/SA-cleanup.sh" "TEST/${TMP_FILE_NAME}/SA-cleanup.sh"
@@ -294,11 +291,10 @@ if [[ "${CLI_OPTION}" == "f" ]]  ; then
     git add "TEST/${TMP_FILE_NAME}/SA-shellcheck-001.expected" "TEST/${TMP_FILE_NAME}/SA-setup.sh" "TEST/${TMP_FILE_NAME}/SA-cleanup.sh"
     git commit -m 'initial commit' "TEST/${TMP_FILE_NAME}/SA-shellcheck-001.expected" "TEST/${TMP_FILE_NAME}/SA-setup.sh" "TEST/${TMP_FILE_NAME}/SA-cleanup.sh"
   fi  #  #29
-  if [[ "${FILE_NAME}" != $(basename "${FILE_NAME}") ]] ; then  #  must execute in directory if directory
+  if [[ "${FILE_NAME}" != $(basename "${FILE_NAME}") ]] ; then  #  Is there a directory included
     cd "$(dirname "${FILE_NAME}")"
   fi
   cd TEST/"${TMP_FILE_NAME}"
-## >>> #52  cd "$(find . -type d -name "${TMP_FILE_NAME}")"
   if [[ -x "FVT-setup.sh" ]]  ; then ./FVT-setup.sh ; fi
   if [[ -x "SA-setup.sh"  ]]  ; then ./SA-setup.sh  ; fi
   cd "${REPOSITORY_DIR}"
@@ -309,9 +305,6 @@ if [[ "${CLI_OPTION}" == "f" ]]  ; then
     echo -e "${BOLD}${YELLOW}\n    INFO:  ${WHITE}If filename is not found.  Check spelling of filename\n    or try  ${YELLOW}${COMMAND_NAME} --filename <PATH>/<FILE_NAME> --hooks\n    ${WHITE}or try  ${YELLOW}${COMMAND_NAME} --help${NORMAL}\n" 1>&2
     find . -print | grep -v 'hooks/' | grep --color=auto "${FILE_NAME}"
   fi
-## >>> #52  cd "$(find . -type d -name "${TMP_FILE_NAME}")"
-## >>> #52  if [[ -x "FVT-cleanup.sh" ]]  ; then ./FVT-cleanup.sh ; fi
-## >>> #52  if [[ -x "SA-cleanup.sh"  ]]  ; then ./SA-cleanup.sh  ; fi
 else
   if [[ "${CLI_OPTION}" == "n" ]] ; then  #  #18
     TMP_GITALLFILES=$(mktemp /tmp/GITALLFILESXXXXXX)                       #  create temporary file for all files in repository
