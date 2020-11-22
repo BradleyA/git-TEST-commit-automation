@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/git-setup-TEST-cases.sh  3.1.143.1868  2020-11-21T22:47:12.034044-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.142-2-g3c7c03b  
+# 	   hooks/bin/git-setup-TEST-cases.sh -->   added git-set-env-for-manual-test.sh  
 # 	hooks/bin/git-setup-TEST-cases.sh  3.1.126.1834  2020-11-18T13:46:54.839190-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.125  
 # 	   hooks/bin/git-TEST-cases.sh hooks/bin/git-setup-TEST-cases.sh hooks/bin/uninstall-git-TEST-cases.sh -->   rename git-TEST-setup-cases.sh -> git-setup-TEST-cases.sh  
 # 	hooks/bin/git-setup-TEST-cases.sh  3.1.125.1833  2020-11-18T12:53:01.253438-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.124  
@@ -86,13 +88,14 @@ if git -C . rev-parse 2> /dev/null ; then  #  currect directory in a git reposit
     new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${BOLD}Unable to link ${YELLOW}${REPOSITORY_NAME}/hooks/{pre-commit,post-commit}${NORMAL}${BOLD} to ${REPOSITORY_NAME}/.git/hooks/{pre-commit,post-commit} because {pre-commit,post-commit} is NOT found in current directory ($(pwd)) or does not have execute permission.${NORMAL}" 1>&2
     exit 2
   fi
-  if [[ -x "bin/git-TEST-cases.sh" ]] && [[ -x bin/git-setup-TEST-cases.sh ]]  && [[ -x bin/uninstall-git-TEST-cases.sh ]] && [[ -w /usr/local/bin ]]  ; then
-    if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Copy git-TEST-cases.sh, git-setup-TEST-cases.sh, & uninstall-git-TEST-cases.sh to /usr/local/bin" 1>&2 ; fi
-    cp -f -p bin/git-TEST-cases.sh            /usr/local/bin/git-TEST-cases.sh
-    cp -f -p bin/git-setup-TEST-cases.sh      /usr/local/bin/git-setup-TEST-cases.sh
-    cp -f -p bin/uninstall-git-TEST-cases.sh  /usr/local/bin/uninstall-git-TEST-cases.sh
+  if [[ -x "bin/git-TEST-cases.sh" ]] && [[ -x bin/git-setup-TEST-cases.sh ]]  && [[ -x bin/git-uninstall-TEST-cases.sh ]]  && [[ -x bin/git-set-env-for-manual-test.sh ]] && [[ -w /usr/local/bin ]] ; then
+    if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Copy git-TEST-cases.sh, git-setup-TEST-cases.sh, git-uninstall-TEST-cases.sh, & git-set-env-for-manual-test.sh to /usr/local/bin" 1>&2 ; fi
+    cp -f -p bin/git-TEST-cases.sh              /usr/local/bin/git-TEST-cases.sh
+    cp -f -p bin/git-setup-TEST-cases.sh        /usr/local/bin/git-setup-TEST-cases.sh
+    cp -f -p bin/git-uninstall-TEST-cases.sh    /usr/local/bin/git-uninstall-TEST-cases.sh
+    cp -f -p bin/git-set-env-for-manual-test.sh /usr/local/bin/git-set-env-for-manual-test.sh
   else
-    new_message "${LINENO}" "${YELLOW}WARN${WHITE}" "  Copy ${REPOSITORY_NAME}/hooks/bin/{git-TEST-cases.sh,git-setup-TEST-cases.sh,uninstall-git-TEST-cases.sh} to /usr/local/bin because git-TEST-cases.sh or git-setup-TEST-cases.sh or uninstall-git-TEST-cases.sh is NOT found or does not have execute permission or /usr/local/bin is not writable." 1>&2
+    new_message "${LINENO}" "${YELLOW}WARN${WHITE}" "  Copy ${REPOSITORY_NAME}/hooks/bin/{git-TEST-cases.sh,git-setup-TEST-cases.sh,git-uninstall-TEST-cases.sh,git-set-env-for-manual-test.sh} to /usr/local/bin because git-TEST-cases.sh or git-setup-TEST-cases.sh or git-uninstall-TEST-cases.sh or git-set-env-for-manual-test.sh is NOT found or does not have execute permission or /usr/local/bin is not writable." 1>&2
   fi
 else
   EXIT_CODE=${?}
@@ -119,10 +122,11 @@ echo -e "    ${BOLD}For more information:${YELLOW}"
 echo    "    https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/docs/STEPS-TO-EVALUTE.md#installevaluate-git-test-commit-automation-solution"
 echo    "    git-setup-TEST-cases.sh has installed or upgraded git-TEST-commit-automation"
 echo    "    in the current repository.  The following commands git-TEST-cases.sh,"
-echo    "    git-setup-TEST-cases.sh, and uninstall-git-TEST-cases.sh have been copied"
-echo    "    to /usr/local/bin.  Test scripts have been updated with the latest test"
-echo    "    scipts from the remote git repository.  git-TEST-commit-automation runs"
-echo    "    pre-commit & post-commit hooks when git commit -m 'message' is executed.${NORMAL}"
+echo    "    git-setup-TEST-cases.sh, git-set-env-for-manual-test.sh, and"
+echo    "    git-uninstall-TEST-cases.sh  have been copied to /usr/local/bin.  Test"
+echo    "    scripts have been updated with the latest test scipts from the remote git"
+echo    "    repository.  git-TEST-commit-automation runs pre-commit & post-commit hooks"
+echo    "    when git commit -m 'message' is executed.${NORMAL}"
 
 #
 new_message "${LINENO}" "INFO" "  Operation finished..." 1>&2
