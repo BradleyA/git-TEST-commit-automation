@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  3.1.142.1865  2020-11-21T21:14:36.492989-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.141  
-# 	   hooks/bin/git-TEST-cases.sh -->   testing #52  
+# 	hooks/bin/git-TEST-cases.sh  3.1.147.1873  2020-11-23T14:55:10.111030-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.146  
+# 	   hooks/bin/git-TEST-cases.sh -->   updated DEBUG statements  
 # 	hooks/bin/git-TEST-cases.sh  3.1.138.1856  2020-11-20T20:17:13.696038-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.137-1-g50651db  
 # 	   hooks/EXAMPLES/FVT-option-filename-hooks-003 hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh hooks/bin/git-TEST-cases.sh -->   first code cut for  --filename is used more than once in repository #52  
 # 	hooks/bin/git-TEST-cases.sh  3.1.132.1847  2020-11-18T22:44:28.728514-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.131  
@@ -258,7 +258,7 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable...
 
 ###  Production standard 10.0 TESTing
 
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  ${BOLD}${YELLOW}REPOSITORY_DIR   >${REPOSITORY_DIR}<${NORMAL}" 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  ${BOLD}${YELLOW}REPOSITORY_DIR >${REPOSITORY_DIR}<${NORMAL}" 1>&2 ; fi
 
 if [[ "${REPOSITORY_DIR}" == "" ]] ; then
   REPOSITORY_DIR=$(git rev-parse --show-toplevel) || { new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Not a git repository (or any of the parent directories)" 1>&2 ; exit 1 ; } 
@@ -278,6 +278,7 @@ if [[ "${CLI_OPTION}" == "f" ]]  ; then
     if [[ "${FILE_NAME}" != $(basename "${FILE_NAME}") ]] ; then  #  Is there a sub-directory included
       cd "$(dirname "${FILE_NAME}")"
       DIR_COUNT=$(awk -F'/' '{print NF-2}' <<< $FILE_NAME)
+      if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  ${BOLD}${YELLOW}DIR_COUNT  >${DIR_COUNT}< FILE_NAME  >${FILE_NAME}<  pwd  >$(pwd)<${NORMAL}" 1>&2 ; fi
     fi
     mkdir -p TEST/"${TMP_FILE_NAME}"/
     EXAMPLE_DIR="../../hooks/EXAMPLES"
