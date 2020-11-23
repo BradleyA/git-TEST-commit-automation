@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/git-set-env-for-manual-test.sh  3.1.146.1872  2020-11-23T14:19:06.837266-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.145  
+# 	   hooks/bin/git-set-env-for-manual-test.sh -->   updated No --help  # 0.3.610 and tested  
 # 	hooks/bin/git-set-env-for-manual-test.sh  3.1.145.1871  2020-11-23T12:42:56.356203-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.144  
 # 	   hooks/bin/git-set-env-for-manual-test.sh -->   add code to support new_message  
 #86# hooks/bin/git-set-env-for-manual-test.sh
@@ -44,10 +46,10 @@ new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
   echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${SCRIPT_NAME}[$$] ${BOLD}${BLUE}${SCRIPT_VERSION} ${PURPLE}${1}${NORMAL} ${USER} ${UID}:${GROUP_ID} ${BOLD}[${2}]${NORMAL}  ${3}"
 }
 
-#    No --help  # 0.3.583
+#    No --help  # 0.3.610
 if [[ "${1}" != "" ]] ; then
   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${SCRIPT_NAME} does not support arguements." 1>&2
-  echo -e "    For more information:\n${BOLD}${YELLOW}    ${UNDERLINE}https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md\n${NORMAL}"  # 0.3.583
+  echo -e "    ${BOLD}For more information:\n    ${UNDERLINE}${BOLD}${YELLOW}https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md\n${NORMAL}"  # 0.3.610
   exit 1
 fi
 
