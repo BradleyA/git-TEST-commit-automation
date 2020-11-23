@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/EXAMPLES/FVT-option-version-004  3.1.144.1870  2020-11-22T22:15:02.965005-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.143-1-g296adbb  
+#	   hooks/EXAMPLES/FVT-option-version-004 -->   testing FVT-option-version-004  
 #	hooks/EXAMPLES/FVT-option-version-004  3.1.99.1731  2020-10-23T12:25:40.102518-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.98  
 #	   hooks/EXAMPLES/FVT-option-version-001 hooks/EXAMPLES/FVT-option-version-002 hooks/EXAMPLES/FVT-option-version-003 hooks/EXAMPLES/FVT-option-version-004 -->   updated ${FVT_TEST_INPUT}  
 #	hooks/EXAMPLES/FVT-option-version-004  3.1.50.1596  2020-05-22T10:06:23.886903-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.49  
@@ -78,9 +80,21 @@ fi
 
 ###
 
+# >>>
+echo ">>> 0"$0
+# >>>
 TEST_CASE_TMP_1=$(echo "${0}" | cut -d'/' -f"${REPOSITORY_DIR_COUNT}"-)
+# >>>
+echo ">>> TEST_CASE_TMP_1"$TEST_CASE_TMP_1
+# >>>
 TEST_CASE_TMP_2=$(dirname -- "${TEST_CASE_TMP_1}")
+# >>>
+echo ">>> TEST_CASE_TMP_2"$TEST_CASE_TMP_2
+# >>>
 TEST_CASE_TMP_3=$(basename -- "${TEST_CASE_TMP_1}")
+# >>>
+echo ">>> TEST_CASE_TMP_3"$TEST_CASE_TMP_3
+# >>>
 TEST_CASE="${TEST_CASE_TMP_2}/${BOLD}${YELLOW}${TEST_CASE_TMP_3}${NORMAL}"
 FILE_NAME_TMP_1=$(echo "${1}" | cut -d'/' -f"${REPOSITORY_DIR_COUNT}"-)
 FILE_NAME_TMP_3=$(basename -- "${FILE_NAME_TMP_1}")
