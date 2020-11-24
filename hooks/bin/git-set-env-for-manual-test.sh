@@ -1,8 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/git-set-env-for-manual-test.sh  3.1.151.1882  2020-11-24T11:00:48.939449-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.150  
-# 	   hooks/bin/git-set-env-for-manual-test.sh hooks/bin/git-setup-TEST-cases.sh -->   typo  
-# 	hooks/bin/git-set-env-for-manual-test.sh  3.1.150.1881  2020-11-24T09:53:29.437845-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.149  
-# 	   hooks/bin/git-set-env-for-manual-test.sh -->   testing  
+# 	hooks/bin/git-set-env-for-manual-test.sh  3.1.152.1883  2020-11-24T12:08:04.065402-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.151  
+# 	   hooks/EXAMPLES/SA-setup.sh hooks/bin/git-set-env-for-manual-test.sh -->   testing  
 #86# hooks/bin/git-set-env-for-manual-test.sh
 #    Run this script when manually testing test cases    . hooks/bin/git-set-env-for-manual-test.sh  OR  source hooks/bin/git-set-env-for-manual-test.sh
 #    This script sets REPOSITORY_DIR and REPOSITORY_DIR_COUNT environment variables which are normally set when post-commit is run
@@ -26,7 +24,7 @@ fi
 echo -e "\nRun this script before manually testing git-TEST-commit-automation test cases:\n\n\t${BOLD}${YELLOW}source  hooks/bin/git-set-env-for-manual-test.sh${NORMAL}\n"
 echo    "This script sets ${BOLD}REPOSITORY_DIR${NORMAL} and ${BOLD}REPOSITORY_DIR_COUNT${NORMAL} environment variables"
 echo    "which are normally set when post-commit is run.  This is required because"
-echo    "post-commit has not run before manually testing a test case."
+echo -e "post-commit has not run before manually testing a test case.${BOLD}"
 
 REPOSITORY_DIR=$(git rev-parse --show-toplevel)
 export REPOSITORY_DIR  #  export REPOSITORY_DIR so test scripts can use it

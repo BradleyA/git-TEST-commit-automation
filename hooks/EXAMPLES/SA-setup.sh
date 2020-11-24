@@ -1,12 +1,8 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/SA-setup.sh  3.1.10.1556  2020-05-21T22:31:11.895107-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.9  
-# 	   hooks/EXAMPLES/SA-cleanup.sh hooks/EXAMPLES/SA-exit-code-error-124-002 hooks/EXAMPLES/SA-exit-code-error-2-001 hooks/EXAMPLES/SA-setup.sh -->   upgrade Production standards #49  
+# 	hooks/EXAMPLES/SA-setup.sh  3.1.152.1883  2020-11-24T12:08:03.816824-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.151  
+# 	   hooks/EXAMPLES/SA-setup.sh hooks/bin/git-set-env-for-manual-test.sh -->   testing  
 # 	hooks/EXAMPLES/SA-setup.sh  3.1.7.1553  2020-05-21T21:42:34.602922-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.6-1-g77e45af  
 # 	   hooks/EXAMPLES/SA-setup.sh -->   upgrade Production standards #49  
-# 	hooks/EXAMPLES/SA-setup.sh  2.447.1341  2020-01-30T15:07:20.126233-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.446  
-# 	   hooks/EXAMPLES/SA-*   added This script does not support -* or help or usage or version 
-# 	hooks/EXAMPLES/SA-setup.sh  2.372.1260  2020-01-25T21:29:22.738881-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.371-1-gfc4ba1f  
-# 	   Production standard 5.3.559 Copyright  Production standard 1.3.550 DEBUG variable  Production standard 2.3.529 log format 
 #86# hooks/EXAMPLES/SA-setup.sh - This script is optional.  It is for 
 #    'Production standard 10.0 TESTing' test cases.  Copy it to TEST/<file_name>/.
 #    If SA-setup.sh is found in TEST/<file_name>/ post-commit executes it.
@@ -74,14 +70,19 @@ fi
 
 ###  Production standard 10.0 TESTing 
 
-if [[ ! -z "${1}" ]] ; then  # post-commit must pass REPOSITORY_DIR because post-commit is executed in .git/hooks/ which is not in the repository
-  REPOSITORY_DIR=${1}
+if [[ ! -z "${1}" ]] ; then  # post-commit must pass REPOSITORY_ABSOLUTE_PATH because post-commit is executed in .git/hooks/ which is not in the repository
+  REPOSITORY_ABSOLUTE_PATH=${1}
 else
-  REPOSITORY_DIR=$(git rev-parse --show-toplevel)  #  not called by post-commit
+  REPOSITORY_ABSOLUTE_PATH=$(git rev-parse --show-toplevel)  #  not called by post-commit
   if [[ "${0}" != $(basename "${0}") ]] ; then  #  script must executed in TEST/<COMMIT_FILE_NAME>/ directory
     cd "$(dirname "${0}")"
   fi
 fi
+
+# >>>
+echo ">>> REPOSITORY_ABSOLUTE_PATH >${REPOSITORY_ABSOLUTE_PATH}<"
+REPOSITORY_RELATIVE_PATH=$(git rev-parse --show-cdup)  #  path of the top-level directory relative to the current directory or AN EMPTY STRING
+echo ">>> REPOSITORY_RELATIVE_PATH >${REPOSITORY_RELATIVE_PATH}<"
 
 #    Uncomment shared TEST cases for command
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-exit-code-error-124-001"   SA-exit-code-error-124-001
@@ -101,7 +102,7 @@ fi
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-755-001"        SA-permission-755-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-700-001"        SA-permission-700-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-770-001"        SA-permission-770-001
-ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-775-001"        SA-permission-775-001
+ln -fs "${REPOSITORY_RELATIVE_PATH}/hooks/EXAMPLES/SA-permission-775-001"        SA-permission-775-001
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-777-001"        SA-permission-777-001
 #
 #  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-dir-001"        SA-permission-dir-001
