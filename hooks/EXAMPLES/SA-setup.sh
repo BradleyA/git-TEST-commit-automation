@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/SA-setup.sh  3.1.165.1896  2020-11-24T15:10:11.147547-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.164  
+# 	   hooks/EXAMPLES/SA-setup.sh -->   testing  
 # 	hooks/EXAMPLES/SA-setup.sh  3.1.164.1895  2020-11-24T15:08:47.252289-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.163  
 # 	   hooks/EXAMPLES/SA-setup.sh -->   testing  
 # 	hooks/EXAMPLES/SA-setup.sh  3.1.163.1894  2020-11-24T14:56:59.424595-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.162  
@@ -91,7 +93,7 @@ echo ">>> >>> REPOSITORY_ABSOLUTE_PATH >${REPOSITORY_ABSOLUTE_PATH}<"
 fi
 
 # >>>
-git status
+$(cd ${REPOSITORY_ABSOLUTE_PATH} ; git status)
 pwd
 echo ">>> >>> >>> REPOSITORY_ABSOLUTE_PATH >${REPOSITORY_ABSOLUTE_PATH}<"
 REPOSITORY_RELATIVE_PATH=$(git rev-parse --show-cdup)  #  path of the top-level directory relative to the current directory or AN EMPTY STRING
