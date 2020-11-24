@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/git-TEST-cases.sh  3.1.148.1879  2020-11-23T23:49:44.013160-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.147-5-gfc5cbe6  
+# 	   hooks/bin/git-TEST-cases.sh -->   testing hooks/bin/git-TEST-cases.sh - --filename is used more than once in repository #52  
 # 	hooks/bin/git-TEST-cases.sh  3.1.147.1873  2020-11-23T14:55:10.111030-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.146  
 # 	   hooks/bin/git-TEST-cases.sh -->   updated DEBUG statements  
 # 	hooks/bin/git-TEST-cases.sh  3.1.138.1856  2020-11-20T20:17:13.696038-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.137-1-g50651db  
@@ -273,21 +275,23 @@ if [[ "${CLI_OPTION}" == "f" ]]  ; then
     new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${FILE_NAME} file is not found or is empty or is not readable" 1>&2
     exit 1
   fi
-  if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  File name with sub-directory >${FILE_NAME}<" 1>&2 ; fi
+  if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  File name with directory path: >${FILE_NAME}<  DEFAULT_ADD_TEST_CASE >${DEFAULT_ADD_TEST_CASE}<" 1>&2 ; fi
   if [[ "${DEFAULT_ADD_TEST_CASE}" == "YES" ]] ; then  #  #29  --add default SA files
     if [[ "${FILE_NAME}" != $(basename "${FILE_NAME}") ]] ; then  #  Is there a sub-directory included
       cd "$(dirname "${FILE_NAME}")"
-      DIR_COUNT=$(awk -F'/' '{print NF-2}' <<< $FILE_NAME)
-      if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  ${BOLD}${YELLOW}DIR_COUNT  >${DIR_COUNT}< FILE_NAME  >${FILE_NAME}<  pwd  >$(pwd)<${NORMAL}" 1>&2 ; fi
+      DIR_COUNT=$(echo "${FILE_NAME}" | grep -o '/' | wc -l)  # count number of '/'
+    else 
+      DIR_COUNT=0  # NO sub-directory included
     fi
+    if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  ${BOLD}${YELLOW}DIR_COUNT  >${DIR_COUNT}< FILE_NAME  >${FILE_NAME}<  pwd  >$(pwd)<${NORMAL}" 1>&2 ; fi
     mkdir -p TEST/"${TMP_FILE_NAME}"/
-    EXAMPLE_DIR="../../hooks/EXAMPLES"
+    EXAMPLES_DIRECTORY="../../hooks/EXAMPLES"
     if [[ ${DIR_COUNT} != 0 ]] ; then
-      while [[ ${DIR_COUNT} != 0 ]] ; do DIR_COUNT=$((DIR_COUNT - 1)) ; EXAMPLE_DIR="../${EXAMPLE_DIR}" ; done
+      while [[ ${DIR_COUNT} != 0 ]] ; do  DIR_COUNT=$((DIR_COUNT - 1)) ; EXAMPLES_DIRECTORY="../${EXAMPLES_DIRECTORY}" ; done
     fi
-    if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  EXAMPLE_DIR >${EXAMPLE_DIR}<" 1>&2 ; fi
-    ln -sf "${EXAMPLE_DIR}/SA-setup.sh"   "TEST/${TMP_FILE_NAME}/SA-setup.sh"
-    ln -sf "${EXAMPLE_DIR}/SA-cleanup.sh" "TEST/${TMP_FILE_NAME}/SA-cleanup.sh"
+    if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  EXAMPLES_DIRECTORY >${EXAMPLES_DIRECTORY}<" 1>&2 ; fi
+    ln -sf "${EXAMPLES_DIRECTORY}/SA-setup.sh"   "TEST/${TMP_FILE_NAME}/SA-setup.sh"
+    ln -sf "${EXAMPLES_DIRECTORY}/SA-cleanup.sh" "TEST/${TMP_FILE_NAME}/SA-cleanup.sh"
     touch "TEST/${TMP_FILE_NAME}/SA-shellcheck-001.expected"
     git add "TEST/${TMP_FILE_NAME}/SA-shellcheck-001.expected" "TEST/${TMP_FILE_NAME}/SA-setup.sh" "TEST/${TMP_FILE_NAME}/SA-cleanup.sh"
     git commit -m 'initial commit' "TEST/${TMP_FILE_NAME}/SA-shellcheck-001.expected" "TEST/${TMP_FILE_NAME}/SA-setup.sh" "TEST/${TMP_FILE_NAME}/SA-cleanup.sh"
