@@ -1,17 +1,5 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/SA-setup.sh  3.1.166.1897  2020-11-24T15:22:11.304838-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.165  
-# 	   hooks/EXAMPLES/SA-setup.sh -->   testing  
-# 	hooks/EXAMPLES/SA-setup.sh  3.1.165.1896  2020-11-24T15:10:11.147547-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.164  
-# 	   hooks/EXAMPLES/SA-setup.sh -->   testing  
-# 	hooks/EXAMPLES/SA-setup.sh  3.1.164.1895  2020-11-24T15:08:47.252289-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.163  
-# 	   hooks/EXAMPLES/SA-setup.sh -->   testing  
-# 	hooks/EXAMPLES/SA-setup.sh  3.1.163.1894  2020-11-24T14:56:59.424595-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.162  
-# 	   hooks/EXAMPLES/SA-setup.sh -->   testing  
-# 	hooks/EXAMPLES/SA-setup.sh  3.1.162.1893  2020-11-24T14:53:32.444454-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.161  
-# 	   hooks/EXAMPLES/SA-setup.sh -->   testing  
-# 	hooks/EXAMPLES/SA-setup.sh  3.1.161.1892  2020-11-24T14:50:19.033729-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.160  
-# 	   hooks/EXAMPLES/SA-setup.sh -->   testing  
-# 	hooks/EXAMPLES/SA-setup.sh  3.1.160.1891  2020-11-24T14:47:43.970868-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.159  
+# 	hooks/EXAMPLES/SA-setup.sh  3.1.167.1898  2020-11-24T15:23:22.950757-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.166  
 # 	   hooks/EXAMPLES/SA-setup.sh -->   testing  
 #86# hooks/EXAMPLES/SA-setup.sh - This script is optional.  It is for 
 #    'Production standard 10.0 TESTing' test cases.  Copy it to TEST/<file_name>/.
@@ -95,7 +83,7 @@ fi
 
 # >>>
 git status --untracked-files=no
-$(cd ${REPOSITORY_ABSOLUTE_PATH} ; git status)
+$(cd ${REPOSITORY_ABSOLUTE_PATH} ; git status --untracked-files=no)
 pwd
 echo ">>> >>> >>> REPOSITORY_ABSOLUTE_PATH >${REPOSITORY_ABSOLUTE_PATH}<"
 REPOSITORY_RELATIVE_PATH=$(git rev-parse --show-cdup)  #  path of the top-level directory relative to the current directory or AN EMPTY STRING
