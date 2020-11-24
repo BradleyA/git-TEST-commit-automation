@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/SA-setup.sh  3.1.164.1895  2020-11-24T15:08:47.252289-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.163  
+# 	   hooks/EXAMPLES/SA-setup.sh -->   testing  
 # 	hooks/EXAMPLES/SA-setup.sh  3.1.163.1894  2020-11-24T14:56:59.424595-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.162  
 # 	   hooks/EXAMPLES/SA-setup.sh -->   testing  
 # 	hooks/EXAMPLES/SA-setup.sh  3.1.162.1893  2020-11-24T14:53:32.444454-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.161  
@@ -74,6 +76,7 @@ fi
 
 ###  Production standard 10.0 TESTing 
 
+git status
 if [[ ! -z "${1}" ]] ; then  # post-commit must pass REPOSITORY_ABSOLUTE_PATH because post-commit is executed in .git/hooks/ which is not in the repository
 pwd
 set -x
@@ -88,6 +91,7 @@ echo ">>> >>> REPOSITORY_ABSOLUTE_PATH >${REPOSITORY_ABSOLUTE_PATH}<"
 fi
 
 # >>>
+git status
 pwd
 echo ">>> >>> >>> REPOSITORY_ABSOLUTE_PATH >${REPOSITORY_ABSOLUTE_PATH}<"
 REPOSITORY_RELATIVE_PATH=$(git rev-parse --show-cdup)  #  path of the top-level directory relative to the current directory or AN EMPTY STRING
