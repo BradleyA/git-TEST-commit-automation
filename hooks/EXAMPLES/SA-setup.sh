@@ -1,8 +1,6 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/SA-setup.sh  3.1.152.1883  2020-11-24T12:08:03.816824-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.151  
-# 	   hooks/EXAMPLES/SA-setup.sh hooks/bin/git-set-env-for-manual-test.sh -->   testing  
-# 	hooks/EXAMPLES/SA-setup.sh  3.1.7.1553  2020-05-21T21:42:34.602922-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.6-1-g77e45af  
-# 	   hooks/EXAMPLES/SA-setup.sh -->   upgrade Production standards #49  
+# 	hooks/EXAMPLES/SA-setup.sh  3.1.153.1884  2020-11-24T12:26:13.835440-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.152  
+# 	   hooks/EXAMPLES/SA-setup.sh hooks/bin/git-set-env-for-manual-test.sh -->   begin testing REPOSITORY_RELATIVE_PATH in hooks/EXAMPLES/SA-setup.sh  
 #86# hooks/EXAMPLES/SA-setup.sh - This script is optional.  It is for 
 #    'Production standard 10.0 TESTing' test cases.  Copy it to TEST/<file_name>/.
 #    If SA-setup.sh is found in TEST/<file_name>/ post-commit executes it.
@@ -85,31 +83,31 @@ REPOSITORY_RELATIVE_PATH=$(git rev-parse --show-cdup)  #  path of the top-level 
 echo ">>> REPOSITORY_RELATIVE_PATH >${REPOSITORY_RELATIVE_PATH}<"
 
 #    Uncomment shared TEST cases for command
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-exit-code-error-124-001"   SA-exit-code-error-124-001
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-exit-code-error-124-002"   SA-exit-code-error-124-002
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-exit-code-error-2-001"     SA-exit-code-error-2-001
+#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-exit-code-error-124-001"   SA-exit-code-error-124-001
+#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-exit-code-error-124-002"   SA-exit-code-error-124-002
+#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-exit-code-error-2-001"     SA-exit-code-error-2-001
 #
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-400-001"        SA-permission-400-001
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-440-001"        SA-permission-440-001
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-444-001"        SA-permission-444-001
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-640-001"        SA-permission-640-001
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-644-001"        SA-permission-644-001
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-664-001"        SA-permission-664-001
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-600-001"        SA-permission-600-001
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-660-001"        SA-permission-660-001
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-666-001"        SA-permission-666-001
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-750-001"        SA-permission-750-001
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-755-001"        SA-permission-755-001
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-700-001"        SA-permission-700-001
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-770-001"        SA-permission-770-001
-ln -fs "${REPOSITORY_RELATIVE_PATH}/hooks/EXAMPLES/SA-permission-775-001"        SA-permission-775-001
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-777-001"        SA-permission-777-001
+#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-400-001"        SA-permission-400-001
+#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-440-001"        SA-permission-440-001
+#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-444-001"        SA-permission-444-001
+#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-640-001"        SA-permission-640-001
+#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-644-001"        SA-permission-644-001
+#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-664-001"        SA-permission-664-001
+#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-600-001"        SA-permission-600-001
+#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-660-001"        SA-permission-660-001
+#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-666-001"        SA-permission-666-001
+#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-750-001"        SA-permission-750-001
+#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-755-001"        SA-permission-755-001
+#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-700-001"        SA-permission-700-001
+#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-770-001"        SA-permission-770-001
+ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-775-001"        SA-permission-775-001
+#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-777-001"        SA-permission-777-001
 #
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-dir-001"        SA-permission-dir-001
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-grp-10000-001"  SA-permission-grp-10000-001
-#  ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-permission-own-10000-001"  SA-permission-own-10000-001
+#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-dir-001"        SA-permission-dir-001
+#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-grp-10000-001"  SA-permission-grp-10000-001
+#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-own-10000-001"  SA-permission-own-10000-001
 #
-ln -fs "${REPOSITORY_DIR}/hooks/EXAMPLES/SA-shellcheck-001"            SA-shellcheck-001
+ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-shellcheck-001"            SA-shellcheck-001
 #
 
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Operation finished..." 1>&2 ; fi
