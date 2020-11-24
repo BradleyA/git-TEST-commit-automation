@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/git-setup-TEST-cases.sh  3.1.143.1868  2020-11-21T22:47:12.034044-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.142-2-g3c7c03b  
-# 	   hooks/bin/git-setup-TEST-cases.sh -->   added git-set-env-for-manual-test.sh  
+# 	hooks/bin/git-setup-TEST-cases.sh  3.1.151.1882  2020-11-24T11:00:49.168803-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.150  
+# 	   hooks/bin/git-set-env-for-manual-test.sh hooks/bin/git-setup-TEST-cases.sh -->   typo  
 # 	hooks/bin/git-setup-TEST-cases.sh  3.1.126.1834  2020-11-18T13:46:54.839190-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.125  
 # 	   hooks/bin/git-TEST-cases.sh hooks/bin/git-setup-TEST-cases.sh hooks/bin/uninstall-git-TEST-cases.sh -->   rename git-TEST-setup-cases.sh -> git-setup-TEST-cases.sh  
 # 	hooks/bin/git-setup-TEST-cases.sh  3.1.125.1833  2020-11-18T12:53:01.253438-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.124  

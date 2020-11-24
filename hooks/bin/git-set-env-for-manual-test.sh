@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/git-set-env-for-manual-test.sh  3.1.151.1882  2020-11-24T11:00:48.939449-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.150  
+# 	   hooks/bin/git-set-env-for-manual-test.sh hooks/bin/git-setup-TEST-cases.sh -->   typo  
 # 	hooks/bin/git-set-env-for-manual-test.sh  3.1.150.1881  2020-11-24T09:53:29.437845-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.149  
 # 	   hooks/bin/git-set-env-for-manual-test.sh -->   testing  
 #86# hooks/bin/git-set-env-for-manual-test.sh
@@ -16,7 +18,7 @@ WHITE=$(tput  setaf 7)
 
 #    No --help  # 0.3.610
 if [[ "${1}" != "" ]] ; then
-  echo    "${LINENO}" "${RED}ERROR${WHITE}" "  Arguements are not supported." 1>&2
+  echo    "${LINENO}" "${RED}ERROR${WHITE}" "  Arguements and options are not supported." 1>&2  # 0.3.610
   echo -e "    ${BOLD}For more information:\n    ${UNDERLINE}${BOLD}${YELLOW}https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md\n${NORMAL}"  # 0.3.610
   exit 1
 fi
