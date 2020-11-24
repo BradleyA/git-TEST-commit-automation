@@ -1,8 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/git-set-env-for-manual-test.sh  3.1.146.1872  2020-11-23T14:19:06.837266-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.145  
-# 	   hooks/bin/git-set-env-for-manual-test.sh -->   updated No --help  # 0.3.610 and tested  
-# 	hooks/bin/git-set-env-for-manual-test.sh  3.1.145.1871  2020-11-23T12:42:56.356203-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.144  
-# 	   hooks/bin/git-set-env-for-manual-test.sh -->   add code to support new_message  
+# 	hooks/bin/git-set-env-for-manual-test.sh  3.1.150.1881  2020-11-24T09:53:29.437845-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.149  
+# 	   hooks/bin/git-set-env-for-manual-test.sh -->   testing  
 #86# hooks/bin/git-set-env-for-manual-test.sh
 #    Run this script when manually testing test cases    . hooks/bin/git-set-env-for-manual-test.sh  OR  source hooks/bin/git-set-env-for-manual-test.sh
 #    This script sets REPOSITORY_DIR and REPOSITORY_DIR_COUNT environment variables which are normally set when post-commit is run
@@ -14,41 +12,11 @@ UNDERLINE=$(tput -Txterm sgr 0 1)  # 0.3.583
 NORMAL=$(tput -Txterm sgr0)
 RED=$(tput    setaf 1)
 YELLOW=$(tput setaf 3)
-BLUE=$(tput   setaf 4)
-PURPLE=$(tput setaf 5)
 WHITE=$(tput  setaf 7)
-
-#    Date and time function ISO 8601
-get_date_stamp() {
-  DATE_STAMP=$(date +%Y-%m-%dT%H:%M:%S.%6N%:z)
-  TEMP=$(date +%Z)
-  DATE_STAMP="${DATE_STAMP} (${TEMP})"
-}
-
-#    Fully qualified domain name FQDN hostname
-LOCALHOST=$(hostname -f)
-
-#    Version
-#    Assumptions for the next two lines of code:  The second line in this script includes the script path & name as the second item and
-#    the script version as the third item separated with space(s).  The tool I use is called 'markit'. See example line below:
-#       template/template.sh  3.517.783  2019-09-13T18:20:42.144356-05:00 (CDT)  https://github.com/BradleyA/user-files.git  uadmin  one-rpi3b.cptx86.com 3.516  
-SCRIPT_NAME=$(head -2 "${0}" | awk '{printf $2}')  #  Different from ${COMMAND_NAME}=$(echo "${0}" | sed 's/^.*\///'), SCRIPT_NAME = includes Git repository directory and can be used anywhere in script (for dev, test teams)
-SCRIPT_VERSION=$(head -2 "${0}" | awk '{printf $3}')
-if [[ "${SCRIPT_NAME}" == "" ]] ; then SCRIPT_NAME="${0}" ; fi
-if [[ "${SCRIPT_VERSION}" == "" ]] ; then SCRIPT_VERSION="v?.?" ; fi
-
-#    GID
-GROUP_ID=$(id -g)
-
-###  Production standard 2.3.578 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)
-new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
-  get_date_stamp
-  echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${SCRIPT_NAME}[$$] ${BOLD}${BLUE}${SCRIPT_VERSION} ${PURPLE}${1}${NORMAL} ${USER} ${UID}:${GROUP_ID} ${BOLD}[${2}]${NORMAL}  ${3}"
-}
 
 #    No --help  # 0.3.610
 if [[ "${1}" != "" ]] ; then
-  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${SCRIPT_NAME} does not support arguements." 1>&2
+  echo    "${LINENO}" "${RED}ERROR${WHITE}" "  Arguements are not supported." 1>&2
   echo -e "    ${BOLD}For more information:\n    ${UNDERLINE}${BOLD}${YELLOW}https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md\n${NORMAL}"  # 0.3.610
   exit 1
 fi
