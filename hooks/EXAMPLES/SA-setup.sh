@@ -1,10 +1,6 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/SA-setup.sh  3.1.158.1889  2020-11-24T12:49:25.761923-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.157  
-# 	   hooks/EXAMPLES/SA-setup.sh hooks/bin/git-set-env-for-manual-test.sh -->   testing  
-# 	hooks/EXAMPLES/SA-setup.sh  3.1.157.1888  2020-11-24T12:44:45.343831-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.156  
-# 	   hooks/EXAMPLES/SA-setup.sh -->   testing  
-# 	hooks/EXAMPLES/SA-setup.sh  3.1.153.1884  2020-11-24T12:26:13.835440-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.152  
-# 	   hooks/EXAMPLES/SA-setup.sh hooks/bin/git-set-env-for-manual-test.sh -->   begin testing REPOSITORY_RELATIVE_PATH in hooks/EXAMPLES/SA-setup.sh  
+# 	hooks/EXAMPLES/SA-setup.sh  3.1.159.1890  2020-11-24T14:38:58.387175-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.158  
+# 	   hooks/EXAMPLES/SA-setup.sh hooks/post-commit -->   testing  
 #86# hooks/EXAMPLES/SA-setup.sh - This script is optional.  It is for 
 #    'Production standard 10.0 TESTing' test cases.  Copy it to TEST/<file_name>/.
 #    If SA-setup.sh is found in TEST/<file_name>/ post-commit executes it.
