@@ -1,5 +1,5 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/SA-setup.sh  3.1.167.1898  2020-11-24T15:23:22.950757-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.166  
+# 	hooks/EXAMPLES/SA-setup.sh  3.1.168.1899  2020-11-24T15:26:23.927019-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.167  
 # 	   hooks/EXAMPLES/SA-setup.sh -->   testing  
 #86# hooks/EXAMPLES/SA-setup.sh - This script is optional.  It is for 
 #    'Production standard 10.0 TESTing' test cases.  Copy it to TEST/<file_name>/.
@@ -84,6 +84,8 @@ fi
 # >>>
 git status --untracked-files=no
 $(cd ${REPOSITORY_ABSOLUTE_PATH} ; git status --untracked-files=no)
+$(cd ${REPOSITORY_ABSOLUTE_PATH}/hooks ; git status --untracked-files=no)
+$(cd ${REPOSITORY_ABSOLUTE_PATH}/hooks/EXAMPLES ; git status --untracked-files=no)
 pwd
 echo ">>> >>> >>> REPOSITORY_ABSOLUTE_PATH >${REPOSITORY_ABSOLUTE_PATH}<"
 REPOSITORY_RELATIVE_PATH=$(git rev-parse --show-cdup)  #  path of the top-level directory relative to the current directory or AN EMPTY STRING
