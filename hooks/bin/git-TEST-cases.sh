@@ -1,5 +1,7 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  3.1.148.1879  2020-11-23T23:49:44.013160-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.147-5-gfc5cbe6  
+# 	hooks/bin/git-TEST-cases.sh  3.1.149.1880  2020-11-23T23:52:09.547603-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.148  
+# 	   hooks/bin/git-TEST-cases.sh -->   testing  
+# 	hooks/bin/git-TEST-cases.sh  3.1.148.1879  2020-11-23T23:49:44.013160-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.147-5-gfc5cbe6 
 # 	   hooks/bin/git-TEST-cases.sh -->   testing hooks/bin/git-TEST-cases.sh - --filename is used more than once in repository #52  
 # 	hooks/bin/git-TEST-cases.sh  3.1.147.1873  2020-11-23T14:55:10.111030-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.146  
 # 	   hooks/bin/git-TEST-cases.sh -->   updated DEBUG statements  
