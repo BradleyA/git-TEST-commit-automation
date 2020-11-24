@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/git-set-env-for-manual-test.sh  3.1.155.1886  2020-11-24T12:36:21.247249-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.154  
-# 	   hooks/bin/git-set-env-for-manual-test.sh -->   testing  
+# 	hooks/bin/git-set-env-for-manual-test.sh  3.1.156.1887  2020-11-24T12:40:20.765570-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.155  
+# 	   hooks/EXAMPLES/SA-setup.sh hooks/bin/git-set-env-for-manual-test.sh -->   testing  
 # 	hooks/bin/git-set-env-for-manual-test.sh  3.1.154.1885  2020-11-24T12:29:52.026865-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.153  
 # 	   hooks/bin/git-set-env-for-manual-test.sh -->   wow not good need to retest  
 # 	hooks/bin/git-set-env-for-manual-test.sh  3.1.153.1884  2020-11-24T12:26:14.068388-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.152 

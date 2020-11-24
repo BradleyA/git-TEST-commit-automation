@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/SA-setup.sh  3.1.156.1887  2020-11-24T12:40:20.520392-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.155  
+# 	   hooks/EXAMPLES/SA-setup.sh hooks/bin/git-set-env-for-manual-test.sh -->   testing  
 # 	hooks/EXAMPLES/SA-setup.sh  3.1.153.1884  2020-11-24T12:26:13.835440-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.152  
 # 	   hooks/EXAMPLES/SA-setup.sh hooks/bin/git-set-env-for-manual-test.sh -->   begin testing REPOSITORY_RELATIVE_PATH in hooks/EXAMPLES/SA-setup.sh  
 #86# hooks/EXAMPLES/SA-setup.sh - This script is optional.  It is for 
@@ -70,17 +72,19 @@ fi
 
 if [[ ! -z "${1}" ]] ; then  # post-commit must pass REPOSITORY_ABSOLUTE_PATH because post-commit is executed in .git/hooks/ which is not in the repository
   REPOSITORY_ABSOLUTE_PATH=${1}
+echo ">>> >>> REPOSITORY_ABSOLUTE_PATH >${REPOSITORY_ABSOLUTE_PATH}<"
 else
   REPOSITORY_ABSOLUTE_PATH=$(git rev-parse --show-toplevel)  #  not called by post-commit
   if [[ "${0}" != $(basename "${0}") ]] ; then  #  script must executed in TEST/<COMMIT_FILE_NAME>/ directory
     cd "$(dirname "${0}")"
   fi
+echo ">>> >>> >>> REPOSITORY_ABSOLUTE_PATH >${REPOSITORY_ABSOLUTE_PATH}<"
 fi
 
 # >>>
-echo ">>> REPOSITORY_ABSOLUTE_PATH >${REPOSITORY_ABSOLUTE_PATH}<"
+echo ">>> >>> >>> >>> REPOSITORY_ABSOLUTE_PATH >${REPOSITORY_ABSOLUTE_PATH}<"
 REPOSITORY_RELATIVE_PATH=$(git rev-parse --show-cdup)  #  path of the top-level directory relative to the current directory or AN EMPTY STRING
-echo ">>> REPOSITORY_RELATIVE_PATH >${REPOSITORY_RELATIVE_PATH}<"
+echo ">>> >>> >>> >>> >>> REPOSITORY_RELATIVE_PATH >${REPOSITORY_RELATIVE_PATH}<"
 
 #    Uncomment shared TEST cases for command
 #  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-exit-code-error-124-001"   SA-exit-code-error-124-001
