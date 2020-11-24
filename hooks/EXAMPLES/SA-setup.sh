@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/SA-setup.sh  3.1.161.1892  2020-11-24T14:50:19.033729-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.160  
+# 	   hooks/EXAMPLES/SA-setup.sh -->   testing  
 # 	hooks/EXAMPLES/SA-setup.sh  3.1.160.1891  2020-11-24T14:47:43.970868-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.159  
 # 	   hooks/EXAMPLES/SA-setup.sh -->   testing  
 #86# hooks/EXAMPLES/SA-setup.sh - This script is optional.  It is for 
@@ -69,6 +71,7 @@ fi
 ###  Production standard 10.0 TESTing 
 
 pwd
+set -x
 if [[ ! -z "${1}" ]] ; then  # post-commit must pass REPOSITORY_ABSOLUTE_PATH because post-commit is executed in .git/hooks/ which is not in the repository
   REPOSITORY_ABSOLUTE_PATH=${1}
 echo ">>> REPOSITORY_ABSOLUTE_PATH >${REPOSITORY_ABSOLUTE_PATH}<"
@@ -80,6 +83,7 @@ else
 echo ">>> >>> REPOSITORY_ABSOLUTE_PATH >${REPOSITORY_ABSOLUTE_PATH}<"
 fi
 
+set +x
 # >>>
 pwd
 echo ">>> >>> >>> REPOSITORY_ABSOLUTE_PATH >${REPOSITORY_ABSOLUTE_PATH}<"
