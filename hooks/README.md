@@ -113,10 +113,10 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 - lists and manages files in TEST case directories in current Git repository
 
 **git-setup-TEST-cases.sh**
-- setup git-TEST-commit-automation in top directory of current repository
+- setup git-TEST-commit-automation in top directory of current Git repository
 
 **uninstall-git-TEST-cases.sh**
-- uninstall git-TEST-commit-automation in current repository
+- uninstall git-TEST-commit-automation in current Git repository
 
 #### ARCHITECTURE TREE
 
