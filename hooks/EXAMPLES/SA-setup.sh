@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/SA-setup.sh  3.1.175.1919  2020-12-01T11:57:32.700680-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.174  
-# 	   hooks/EXAMPLES/SA-setup.sh -->   testing  
+# 	hooks/EXAMPLES/SA-setup.sh  3.1.176.1920  2020-12-01T12:14:20.912749-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.175  
+# 	   hooks/EXAMPLES/SA-setup.sh -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
 #86# hooks/EXAMPLES/SA-setup.sh - This script is optional.  It is for 
 #    'Production standard 10.0 TESTing' test cases.  Copy it to TEST/<file_name>/.
 #    If SA-setup.sh is found in TEST/<file_name>/ post-commit executes it.
@@ -68,17 +68,26 @@ fi
 
 ###  Production standard 10.0 TESTing 
 
-if [[ ! -z "${1}" ]] ; then  # post-commit must pass REPOSITORY_ABSOLUTE_PATH because post-commit is executed in .git/hooks/ which is not in the repository
+# >>>
 pwd
 set -x
+# >>>
+if [[ ! -z "${1}" ]] ; then  # post-commit must pass REPOSITORY_ABSOLUTE_PATH because post-commit is executed in .git/hooks/ which is not in the repository
   REPOSITORY_ABSOLUTE_PATH=${1}
-echo ">>> REPOSITORY_ABSOLUTE_PATH >${REPOSITORY_ABSOLUTE_PATH}<"
 else
+# >>>
+  echo ">>> REPOSITORY_ABSOLUTE_PATH >${REPOSITORY_ABSOLUTE_PATH}<"
+# >>>
   REPOSITORY_ABSOLUTE_PATH=$(git rev-parse --show-toplevel)  #  not called by post-commit
   if [[ "${0}" != $(basename "${0}") ]] ; then  #  script must executed in TEST/<COMMIT_FILE_NAME>/ directory
     cd "$(dirname "${0}")"
+# >>>
+    pwd
+# >>>
   fi
-echo ">>> >>> REPOSITORY_ABSOLUTE_PATH >${REPOSITORY_ABSOLUTE_PATH}<"
+# >>>
+  echo ">>> REPOSITORY_ABSOLUTE_PATH >${REPOSITORY_ABSOLUTE_PATH}<"
+# >>>
 fi
 
 # >>>
