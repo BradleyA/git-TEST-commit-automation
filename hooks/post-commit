@@ -1,6 +1,6 @@
 #!/bin/bash
-#	hooks/post-commit  3.1.171.1902  2020-11-30T21:13:04.199669-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.170  
-#	   hooks/EXAMPLES/SA-setup.sh hooks/post-commit -->   testing  
+#	hooks/post-commit  3.1.172.1903  2020-12-01T11:14:31.312123-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.171  
+#	   hooks/post-commit -->   testing  
 #	hooks/post-commit  2.373.1261  2020-01-25T21:40:56.673970-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.372  
 #	   hooks/post-commit   Production standard 5.3.559 Copyright  Production standard 1.3.550 DEBUG variable  Production standard 2.3.529 log format 
 #	hooks/post-commit  2.328.1206  2020-01-23T23:13:49.393804-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.327  
