@@ -43,9 +43,11 @@ Assist running something, and checking something, then reporting something; when
 
 ## Description
 
-After entering the following command, Git runs any Git hooks found in \<REPOSITORY-NAME>/.git/hooks/ directory.  Git hooks are scripts that Git executes before and/or after events. Two local Git hooks are included with git-TEST-commit-automation (pre-commit, post-commit).
+After entering the following command:
 
     git commit -m 'latest changes' <COMMIT_FILE_NAME>
+    
+Git runs any Git hooks found in \<REPOSITORY-NAME>/.git/hooks/ directory.  Git hooks are scripts that Git executes before and/or after events. Two local Git hooks are included with git-TEST-commit-automation (pre-commit, post-commit).
 
 git-TEST-commit-automation runs pre-commit and post-commit hooks when "git commit -m 'message' " is executed. **pre-commit** creates a file (${REPOSITORY-NAME}/hooks/COMMIT_FILE_LIST) which includes files being commited. **post-commit** searches for a TEST/\<filename>/ directory in the directory where the commited filename is located. If found **post-commit** runs TEST/\<filename>/SA-setup.sh and/or TEST/\<filename>/FVT-setup.sh then searches for files beginning with SA- of FVT- and runs them.
 
