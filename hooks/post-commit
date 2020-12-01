@@ -1,10 +1,6 @@
 #!/bin/bash
-#	hooks/post-commit  3.1.159.1890  2020-11-24T14:39:03.847256-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.158  
+#	hooks/post-commit  3.1.170.1901  2020-11-30T21:04:01.533119-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.169  
 #	   hooks/EXAMPLES/SA-setup.sh hooks/post-commit -->   testing  
-#	hooks/post-commit  2.524.1467  2020-02-03T14:55:07.007752-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.523-1-g9c66e3e  
-#	   hooks/post-commit   corrected shellcheck incident 
-#	hooks/post-commit  2.380.1269  2020-01-26T08:22:10.465746-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.379  
-#	   hooks/post-commit   Use short test case name 
 #	hooks/post-commit  2.373.1261  2020-01-25T21:40:56.673970-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.372  
 #	   hooks/post-commit   Production standard 5.3.559 Copyright  Production standard 1.3.550 DEBUG variable  Production standard 2.3.529 log format 
 #	hooks/post-commit  2.328.1206  2020-01-23T23:13:49.393804-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.327  

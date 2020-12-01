@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/SA-setup.sh  3.1.168.1899  2020-11-24T15:26:23.927019-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.167  
-# 	   hooks/EXAMPLES/SA-setup.sh -->   testing  
+# 	hooks/EXAMPLES/SA-setup.sh  3.1.170.1901  2020-11-30T21:03:55.869353-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.169  
+# 	   hooks/EXAMPLES/SA-setup.sh hooks/post-commit -->   testing  
 #86# hooks/EXAMPLES/SA-setup.sh - This script is optional.  It is for 
 #    'Production standard 10.0 TESTing' test cases.  Copy it to TEST/<file_name>/.
 #    If SA-setup.sh is found in TEST/<file_name>/ post-commit executes it.
