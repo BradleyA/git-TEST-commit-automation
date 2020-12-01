@@ -51,7 +51,7 @@ Git runs any Git hooks found in \<REPOSITORY-NAME>/.git/hooks/ directory.  Git h
 
 **pre-commit** creates a file (${REPOSITORY-NAME}/hooks/COMMIT_FILE_LIST) which includes files being commited. 
 
-**post-commit** searches for a TEST/\<filename>/ sub-directory where the commited filename found in COMMIT_FILE_LIST is located. If the sub-directory is found **post-commit** runs TEST/\<filename>/SA-setup.sh and/or TEST/\<filename>/FVT-setup.sh then searches for files beginning with SA- of FVT- and runs them.
+**post-commit** searches for a TEST/\<filename>/ sub-directory where the commited filename is located. If the sub-directory is found **post-commit** runs TEST/\<filename>/SA-setup.sh and/or TEST/\<filename>/FVT-setup.sh then searches for files beginning with SA- of FVT- and runs them.
 
 TL;DR - Why did I create git-TEST-commit-automation when there are so many great open software and enterprise level testing solutions available.  I needed something that would run some basic Static Analysis Tests (SA) and Funciotnal Verification Tests (FVT) with minimal learning curve.  A solution that would inform, not impede code development.  That would encourage 'git commit -m 'message', not exit 1 if there is any code incident.  A solution that allows basic test cases to be included with code in a Git repository.  A solution that could be setup and uninstall without effecting the code being developed.  A solution that would support adding other test solutions to this solution with minimal changes.
 
