@@ -1,14 +1,8 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/SA-cleanup.sh  3.1.10.1556  2020-05-21T22:31:02.922230-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.9  
-# 	   hooks/EXAMPLES/SA-cleanup.sh hooks/EXAMPLES/SA-exit-code-error-124-002 hooks/EXAMPLES/SA-exit-code-error-2-001 hooks/EXAMPLES/SA-setup.sh -->   upgrade Production standards #49  
+# 	hooks/EXAMPLES/SA-cleanup.sh  3.1.181.1926  2020-12-01T12:58:20.854356-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.180  
+# 	   hooks/EXAMPLES/SA-cleanup.sh hooks/EXAMPLES/TEST/SA-setup.sh/SA-shellcheck-001.expected -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
 # 	hooks/EXAMPLES/SA-cleanup.sh  3.1.6.1551  2020-05-21T21:27:33.147323-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.5-42-g58ba3b2  
 # 	   hooks/EXAMPLES/SA-cleanup.sh -->   upgrade Production standards #49  
-# 	hooks/EXAMPLES/SA-cleanup.sh  2.447.1341  2020-01-30T15:06:24.076693-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.446  
-# 	   hooks/EXAMPLES/SA-*   added This script does not support -* or help or usage or version 
-# 	hooks/EXAMPLES/SA-cleanup.sh  2.278.1131  2020-01-21T23:18:45.120811-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.277-1-gcf15b0c  
-# 	   hooks/EXAMPLES/SA-cleanup.sh   Production standard 5.3.559 Copyright 
-# 	hooks/EXAMPLES/SA-cleanup.sh  2.263.1053  2020-01-19T11:28:04.981423-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.262-1-gbd566e8
-# 	   hooks/EXAMPLES/SA-cleanup.sh   Production standard 5.3.555 Copyright, Production standard 1.3.550 DEBUG variable, ###  Production standard 2.3.529 log format 
 # 	hooks/EXAMPLES/SA-cleanup.sh  2.138.787  2019-09-27T12:33:27.537389-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.137  
 # 	   close #34    EXAMPLES/SA-* FVT-*   added NO -x ${1} exit ERROR 126 
 #86# hooks/EXAMPLES/SA-cleanup.sh  -  test case cleanup
