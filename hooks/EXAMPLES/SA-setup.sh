@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/SA-setup.sh  3.1.179.1923  2020-12-01T12:27:04.487191-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.178  
+# 	   hooks/EXAMPLES/SA-setup.sh -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
 # 	hooks/EXAMPLES/SA-setup.sh  3.1.178.1922  2020-12-01T12:25:38.053876-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.177  
 # 	   hooks/EXAMPLES/SA-setup.sh -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
 #86# hooks/EXAMPLES/SA-setup.sh - This script is optional.  It is for 
@@ -91,11 +93,11 @@ else
 fi
 
 # >>>
-git status --untracked-files=no
-$(cd ${REPOSITORY_ABSOLUTE_PATH} ; git status --untracked-files=no)
-$(cd ${REPOSITORY_ABSOLUTE_PATH}/hooks ; git status --untracked-files=no)
-$(cd ${REPOSITORY_ABSOLUTE_PATH}/hooks/EXAMPLES ; git status --untracked-files=no)
-pwd
+#	git status --untracked-files=no
+#	$(cd ${REPOSITORY_ABSOLUTE_PATH} ; git status --untracked-files=no)
+#	$(cd ${REPOSITORY_ABSOLUTE_PATH}/hooks ; git status --untracked-files=no)
+#	$(cd ${REPOSITORY_ABSOLUTE_PATH}/hooks/EXAMPLES ; git status --untracked-files=no)
+#	pwd
 echo ">>> >>> >>> REPOSITORY_ABSOLUTE_PATH >${REPOSITORY_ABSOLUTE_PATH}<"
 REPOSITORY_RELATIVE_PATH=$(git rev-parse --show-cdup)  #  path of the top-level directory relative to the current directory or AN EMPTY STRING
 set +x
