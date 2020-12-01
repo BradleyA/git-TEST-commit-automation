@@ -43,11 +43,15 @@ Assist running something, and checking something, then reporting something; when
 
 ## Description
 
-After entering the following command, Git runs any Git hooks found in \<REPOSITORY-NAME>/.git/hooks/ directory.  Git hooks are scripts that Git executes before and/or after events. Two local Git hooks are included with git-TEST-commit-automation.
+After entering the following command:
 
     git commit -m 'latest changes' <COMMIT_FILE_NAME>
+    
+Git runs any Git hooks found in \<REPOSITORY-NAME>/.git/hooks/ directory.  Git hooks are scripts that Git executes before and/or after events. Two local Git hooks are included with git-TEST-commit-automation (pre-commit, post-commit).
 
-git-TEST-commit-automation runs pre-commit and post-commit hooks when "git commit -m 'message' " is executed. Pre-commit creates a file (${REPOSITORY-NAME}/hooks/COMMIT_FILE_LIST) which includes files being commited. Post-commit searches in the same directory as the commited filename for a TEST/\<filename>/ directory. If found post-commit runs TEST/\<filename>/SA-setup.sh and/or TEST/\<filename>/FVT-setup.sh then searches for files beginning with SA- of FVT- and runs them.
+**pre-commit** creates a file (${REPOSITORY-NAME}/hooks/COMMIT_FILE_LIST) which includes files being commited. 
+
+**post-commit** searches for a TEST/\<filename>/ sub-directory where the commited filename is located. If the sub-directory is found **post-commit** runs TEST/\<filename>/SA-setup.sh and/or TEST/\<filename>/FVT-setup.sh then searches for files beginning with SA- of FVT- and runs them.
 
 TL;DR - Why did I create git-TEST-commit-automation when there are so many great open software and enterprise level testing solutions available.  I needed something that would run some basic Static Analysis Tests (SA) and Funciotnal Verification Tests (FVT) with minimal learning curve.  A solution that would inform, not impede code development.  That would encourage 'git commit -m 'message', not exit 1 if there is any code incident.  A solution that allows basic test cases to be included with code in a Git repository.  A solution that could be setup and uninstall without effecting the code being developed.  A solution that would support adding other test solutions to this solution with minimal changes.
 
@@ -94,29 +98,37 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 
 ## Command Descriptions
 
-**pre-commit** - Creates \<REPOSITORY-NAME>/hooks/**COMMIT_FILE_LIST** with a list of \<REPOSITORY-NAME>/\<FILE> being committed.
+**pre-commit**
+- Creates \<REPOSITORY-NAME>/hooks/**COMMIT_FILE_LIST** with a list of \<REPOSITORY-NAME>/\<FILE> being committed.
 
-**post-commit** 
+**post-commit**
 - Loop through committed files found in \<REPOSITORY-NAME>/hooks/**COMMIT_FILE_LIST**
 - if COMMIT_FILE has a \<REPOSITORY-NAME>/\<PATH>/TEST/\<COMMIT_FILE>/' directory run FVT-setup.sh and/or SA-setup.sh
 - Loop through and run \<REPOSITORY-NAME>/\<PATH>/TEST/\<COMMIT_FILE>/SA-<TEST_CASE> and/or FVT-<TEST_CASE>
 - Report output as **PASS** or **FAIL** or **ERROR**, through stdout 
       . . . some methed will notify someone of the results. (not sure which method is going to work for me and you? 
       . . . stdout, logs-scrape, tables, email, twitter, slack, call a friand, etc.)
- 
-**git-TEST-cases.sh** - lists and manages files in TEST case directories in current Git repository
 
-**git-setup-TEST-cases.sh** - setup git-TEST-commit-automation in top directory of current repository
+**git-set-env-for-manual-test.sh**
+- ___________________________________________
 
-**uninstall-git-TEST-cases.sh** - uninstall git-TEST-commit-automation in current repository
+**git-setup-TEST-cases.sh**
+- setup and update git-TEST-commit-automation in \<REPOSITORY-NAME>/hooks/ directory of current Git repository
+
+**git-TEST-cases.sh**
+- lists and manages files in TEST/<COMMIT_FILE>/ directories in current Git repository
+
+**git-uninstall-TEST-cases.sh**
+- uninstall git-TEST-commit-automation in \<REPOSITORY-NAME>/hooks/ directory of current Git repository
 
 #### ARCHITECTURE TREE
 
     /usr/local/bin/                           <-- <BIN_DIR>
-    ├── git-TEST-cases.sh
+    ├── git-set-env-for-manual-test.sh
     ├── git-setup-TEST-cases.sh
-    └── uninstall-git-TEST-cases.sh>
-
+    ├── git-TEST-cases.sh
+    └── git-uninstall-TEST-cases.sh
+    
 [Return to top](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#git-TEST-commit-automation)
 
 **hooks directory**  The \<REPOSITORY-NAME>/hooks directory was created for two reasons.  1) all git-TEST-commit-automation files are in one location to allow for quick removal without effecting other \<REPOSITORY-NAME>/ files.  2) the default \<REPOSITORY-NAME>/.git/hooks/files are not tracked and I wanted to track changes.  A symbolic link from \<REPOSITORY-NAME>/.git/hooks to this \<REPOSITORY-NAME>/hooks directory that are managed in this repository using [markit](https://github.com/BradleyA/markit/blob/master/README.md). 
