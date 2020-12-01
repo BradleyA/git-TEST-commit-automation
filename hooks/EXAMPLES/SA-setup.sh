@@ -1,5 +1,5 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/SA-setup.sh  3.1.174.1918  2020-12-01T11:46:06.469097-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.173  
+# 	hooks/EXAMPLES/SA-setup.sh  3.1.175.1919  2020-12-01T11:57:32.700680-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.174  
 # 	   hooks/EXAMPLES/SA-setup.sh -->   testing  
 #86# hooks/EXAMPLES/SA-setup.sh - This script is optional.  It is for 
 #    'Production standard 10.0 TESTing' test cases.  Copy it to TEST/<file_name>/.
@@ -56,9 +56,7 @@ new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
 }
 
 #    INFO
-DEBUG=1
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2 ; fi  #  2.3.578
-DEBUG=0
 
 #    This script does not support -* or help or usage or version
 if [[ "${1}" == -* ]] || [[ "${1}" == "help" ]] || [[ "${1}" == "usage" ]] || [[ "${1}" == "version" ]]  ; then
