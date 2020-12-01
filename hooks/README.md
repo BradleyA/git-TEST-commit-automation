@@ -116,7 +116,7 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 - setup and update git-TEST-commit-automation in \<REPOSITORY-NAME>/hooks/ directory of current Git repository
 
 **uninstall-git-TEST-cases.sh**
-- uninstall git-TEST-commit-automation in current Git repository
+- uninstall git-TEST-commit-automation in \<REPOSITORY-NAME>/hooks/ directory of current Git repository
 
 #### ARCHITECTURE TREE
 
