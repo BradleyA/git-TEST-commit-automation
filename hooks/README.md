@@ -43,7 +43,7 @@ Assist running something, and checking something, then reporting something; when
 
 ## Description
 
-After entering the following command, Git runs any Git hooks found in \<REPOSITORY-NAME>/.git/hooks/ directory.  Git hooks are scripts that Git executes before and/or after events. Two local Git hooks are included with git-TEST-commit-automation.
+After entering the following command, Git runs any Git hooks found in \<REPOSITORY-NAME>/.git/hooks/ directory.  Git hooks are scripts that Git executes before and/or after events. Two local Git hooks are included with git-TEST-commit-automation (pre-commit, post-commit).
 
     git commit -m 'latest changes' <COMMIT_FILE_NAME>
 
