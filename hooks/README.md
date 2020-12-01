@@ -110,10 +110,10 @@ TL;DR - During code design, a software developer's focus is on how to solve part
       . . . stdout, logs-scrape, tables, email, twitter, slack, call a friand, etc.)
  
 **git-TEST-cases.sh**
-- lists and manages files in TEST case directories in current Git repository
+- lists and manages files in TEST/<COMMIT_FILE> directories in current Git repository
 
 **git-setup-TEST-cases.sh**
-- setup git-TEST-commit-automation in top directory of current Git repository
+- setup and update git-TEST-commit-automation in top directory of current Git repository
 
 **uninstall-git-TEST-cases.sh**
 - uninstall git-TEST-commit-automation in current Git repository
