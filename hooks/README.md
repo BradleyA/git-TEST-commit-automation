@@ -98,9 +98,10 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 
 ## Command Descriptions
 
-**pre-commit** - Creates \<REPOSITORY-NAME>/hooks/**COMMIT_FILE_LIST** with a list of \<REPOSITORY-NAME>/\<FILE> being committed.
+**pre-commit**
+- Creates \<REPOSITORY-NAME>/hooks/**COMMIT_FILE_LIST** with a list of \<REPOSITORY-NAME>/\<FILE> being committed.
 
-**post-commit** 
+**post-commit**
 - Loop through committed files found in \<REPOSITORY-NAME>/hooks/**COMMIT_FILE_LIST**
 - if COMMIT_FILE has a \<REPOSITORY-NAME>/\<PATH>/TEST/\<COMMIT_FILE>/' directory run FVT-setup.sh and/or SA-setup.sh
 - Loop through and run \<REPOSITORY-NAME>/\<PATH>/TEST/\<COMMIT_FILE>/SA-<TEST_CASE> and/or FVT-<TEST_CASE>
@@ -108,11 +109,14 @@ TL;DR - During code design, a software developer's focus is on how to solve part
       . . . some methed will notify someone of the results. (not sure which method is going to work for me and you? 
       . . . stdout, logs-scrape, tables, email, twitter, slack, call a friand, etc.)
  
-**git-TEST-cases.sh** - lists and manages files in TEST case directories in current Git repository
+**git-TEST-cases.sh**
+- lists and manages files in TEST case directories in current Git repository
 
-**git-setup-TEST-cases.sh** - setup git-TEST-commit-automation in top directory of current repository
+**git-setup-TEST-cases.sh**
+- setup git-TEST-commit-automation in top directory of current repository
 
-**uninstall-git-TEST-cases.sh** - uninstall git-TEST-commit-automation in current repository
+**uninstall-git-TEST-cases.sh**
+- uninstall git-TEST-commit-automation in current repository
 
 #### ARCHITECTURE TREE
 
