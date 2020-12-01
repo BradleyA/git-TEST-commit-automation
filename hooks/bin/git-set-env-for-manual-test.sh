@@ -1,13 +1,11 @@
 #!/bin/bash
-# 	hooks/bin/git-set-env-for-manual-test.sh  3.1.158.1889  2020-11-24T12:49:25.983247-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.157  
-# 	   hooks/EXAMPLES/SA-setup.sh hooks/bin/git-set-env-for-manual-test.sh -->   testing  
-# 	hooks/bin/git-set-env-for-manual-test.sh  3.1.154.1885  2020-11-24T12:29:52.026865-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.153  
-# 	   hooks/bin/git-set-env-for-manual-test.sh -->   wow not good need to retest  
+# 	hooks/bin/git-set-env-for-manual-test.sh  3.1.173.1917  2020-12-01T11:34:11.696856-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.172-13-g3421e3f  
+# 	   hooks/bin/git-TEST-cases.sh hooks/bin/git-set-env-for-manual-test.sh -->   change REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
 # 	hooks/bin/git-set-env-for-manual-test.sh  3.1.153.1884  2020-11-24T12:26:14.068388-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.152 
 # 	   hooks/EXAMPLES/SA-setup.sh hooks/bin/git-set-env-for-manual-test.sh -->   begin testing REPOSITORY_RELATIVE_PATH in hooks/EXAMPLES/SA-setup.sh  
 #86# hooks/bin/git-set-env-for-manual-test.sh
 #    Run this script when manually testing test cases    . hooks/bin/git-set-env-for-manual-test.sh  OR  source hooks/bin/git-set-env-for-manual-test.sh
-#    This script sets REPOSITORY_DIR and REPOSITORY_DIR_COUNT environment variables which are normally set when post-commit is run
+#    This script sets REPOSITORY_ABSOLUTE_PATH and REPOSITORY_DIR_COUNT environment variables which are normally set when post-commit is run
 #    This is required because post-commit is has not run before manually testing a test case
 ###    
 #
@@ -26,14 +24,14 @@ if [[ "${1}" != "" ]] ; then
 fi
 
 echo -e "\nRun this script before manually testing git-TEST-commit-automation test cases:\n\n\t${BOLD}${YELLOW}source  hooks/bin/git-set-env-for-manual-test.sh${NORMAL}\n"
-echo    "This script sets ${BOLD}REPOSITORY_DIR${NORMAL} and ${BOLD}REPOSITORY_DIR_COUNT${NORMAL} environment variables"
+echo    "This script sets ${BOLD}REPOSITORY_ABSOLUTE_PATH${NORMAL} and ${BOLD}REPOSITORY_DIR_COUNT${NORMAL} environment variables"
 echo    "which are normally set when post-commit is run.  This is required because"
 echo -e "post-commit has not run before manually testing a test case.${BOLD}"
 
-REPOSITORY_DIR=$(git rev-parse --show-toplevel)
-export REPOSITORY_DIR  #  export REPOSITORY_DIR so test scripts can use it
-echo    "  export REPOSITORY_DIR  >${REPOSITORY_DIR}<"
-REPOSITORY_DIR_COUNT=$(awk -F"/" '{print NF-1}' <<< "${REPOSITORY_DIR}")  #
+REPOSITORY_ABSOLUTE_PATH=$(git rev-parse --show-toplevel)
+export REPOSITORY_ABSOLUTE_PATH  #  export REPOSITORY_ABSOLUTE_PATH so test scripts can use it
+echo    "  export REPOSITORY_ABSOLUTE_PATH  >${REPOSITORY_ABSOLUTE_PATH}<"
+REPOSITORY_DIR_COUNT=$(awk -F"/" '{print NF-1}' <<< "${REPOSITORY_ABSOLUTE_PATH}")  #
 REPOSITORY_DIR_COUNT=$((REPOSITORY_DIR_COUNT+1))
 export REPOSITORY_DIR_COUNT  #  export number of directories + 1
 echo    "  export REPOSITORY_DIR_COUNT  >${REPOSITORY_DIR_COUNT}<"

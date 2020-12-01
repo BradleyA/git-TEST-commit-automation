@@ -1,30 +1,18 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  3.1.149.1880  2020-11-23T23:52:09.547603-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.148  
-# 	   hooks/bin/git-TEST-cases.sh -->   testing  
-# 	hooks/bin/git-TEST-cases.sh  3.1.148.1879  2020-11-23T23:49:44.013160-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.147-5-gfc5cbe6 
-# 	   hooks/bin/git-TEST-cases.sh -->   testing hooks/bin/git-TEST-cases.sh - --filename is used more than once in repository #52  
-# 	hooks/bin/git-TEST-cases.sh  3.1.147.1873  2020-11-23T14:55:10.111030-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.146  
-# 	   hooks/bin/git-TEST-cases.sh -->   updated DEBUG statements  
-# 	hooks/bin/git-TEST-cases.sh  3.1.138.1856  2020-11-20T20:17:13.696038-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.137-1-g50651db  
-# 	   hooks/EXAMPLES/FVT-option-filename-hooks-003 hooks/bin/TEST/git-TEST-cases.sh/FVT-setup.sh hooks/bin/git-TEST-cases.sh -->   first code cut for  --filename is used more than once in repository #52  
+# 	hooks/bin/git-TEST-cases.sh  3.1.173.1917  2020-12-01T11:34:11.451800-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.172-13-g3421e3f  
+# 	   hooks/bin/git-TEST-cases.sh hooks/bin/git-set-env-for-manual-test.sh -->   change REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
 # 	hooks/bin/git-TEST-cases.sh  3.1.132.1847  2020-11-18T22:44:28.728514-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.131  
 # 	   hooks/bin/git-TEST-cases.sh -->   add support for -f=*|--filename=*)  
 # 	hooks/bin/git-TEST-cases.sh  3.1.130.1843  2020-11-18T15:47:45.471017-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.129  
 # 	   hooks/bin/git-TEST-cases.sh -->   Production standard 9.3.607 Parse CLI options and arguments  
-# 	hooks/bin/git-TEST-cases.sh  3.1.129.1842  2020-11-18T15:26:09.290579-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.128  
-# 	   hooks/bin/git-TEST-cases.sh -->   upgraded to Production standard 9.3.606 Parse CLI options and arguments  
 # 	hooks/bin/git-TEST-cases.sh  3.1.126.1834  2020-11-18T13:46:54.581167-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.125 
 # 	   hooks/bin/git-TEST-cases.sh hooks/bin/git-setup-TEST-cases.sh hooks/bin/uninstall-git-TEST-cases.sh -->   rename git-TEST-setup-cases.sh -> git-setup-TEST-cases.sh  
-# 	hooks/bin/git-TEST-cases.sh  3.1.92.1650  2020-08-29T22:13:53.611478-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.91  
-# 	   hooks/bin/git-TEST-cases.sh -->   Add default options to OPTIONS section  
 # 	hooks/bin/git-TEST-cases.sh  3.1.2.1494  2020-02-03T23:24:09.832614-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.1-1-g16879e3  
 # 	   hooks/bin/git-TEST-cases.sh   close #36   Beta-3 
 # 	hooks/bin/git-TEST-cases.sh  2.525.1468  2020-02-03T15:05:29.296666-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.524 
 # 	   hooks/bin/git-TEST-cases.sh   added additional SA-cleanup.sh near the end of the script because when testing git-TEST-cases.sh some of the FVT test case caused SA-setup.sh to be run 
 # 	hooks/bin/git-TEST-cases.sh  2.435.1326  2020-01-28T10:11:57.566271-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.434 
-# 	   hooks/bin/git-TEST-cases.sh   Set REPOSITORY_DIR if not already set, exit if NOT a git repository (or any of the parent directories) close #42 
-# 	hooks/bin/git-TEST-cases.sh  2.270.1067  2020-01-20T23:20:44.631099-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.269  
-# 	   hooks/bin/git-TEST-cases.sh   Production standard 5.3.559 Copyright, Production standard 1.3.550 DEBUG variable, Production standard 0.3.550 --help, Production standard 2.3.529 log format, Production standard 9.3.558 Parse CLI options and arguments 
+# 	   hooks/bin/git-TEST-cases.sh   Set REPOSITORY_ABSOLUTE_PATH if not already set, exit if NOT a git repository (or any of the parent directories) close #42 
 # 	hooks/bin/git-TEST-cases.sh  2.208.904  2019-10-12T16:36:32.359495-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.207-1-ga99b68e  
 # 	   close #40    git-TEST-cases.sh   - add git add & commit when creating default test case 
 #86# hooks/bin/git-TEST-cases.sh  -  lists and manages files in TEST case directories
@@ -262,12 +250,12 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable...
 
 ###  Production standard 10.0 TESTing
 
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  ${BOLD}${YELLOW}REPOSITORY_DIR >${REPOSITORY_DIR}<${NORMAL}" 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  ${BOLD}${YELLOW}REPOSITORY_ABSOLUTE_PATH >${REPOSITORY_ABSOLUTE_PATH}<${NORMAL}" 1>&2 ; fi
 
-if [[ "${REPOSITORY_DIR}" == "" ]] ; then
-  REPOSITORY_DIR=$(git rev-parse --show-toplevel) || { new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Not a git repository (or any of the parent directories)" 1>&2 ; exit 1 ; } 
+if [[ "${REPOSITORY_ABSOLUTE_PATH}" == "" ]] ; then
+  REPOSITORY_ABSOLUTE_PATH=$(git rev-parse --show-toplevel) || { new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Not a git repository (or any of the parent directories)" 1>&2 ; exit 1 ; } 
 fi
-cd "${REPOSITORY_DIR}"
+cd "${REPOSITORY_ABSOLUTE_PATH}"
 
 TMP_FILE_NAME=$(echo "${FILE_NAME}" | sed 's/^.*\///')  # parse file name if directory included
 
@@ -304,7 +292,7 @@ if [[ "${CLI_OPTION}" == "f" ]]  ; then
   cd TEST/"${TMP_FILE_NAME}"
   if [[ -x "FVT-setup.sh" ]]  ; then ./FVT-setup.sh ; fi
   if [[ -x "SA-setup.sh"  ]]  ; then ./SA-setup.sh  ; fi
-  cd "${REPOSITORY_DIR}"
+  cd "${REPOSITORY_ABSOLUTE_PATH}"
   if [[ "${ALL_TEST_CASES}" == "YES" ]] ; then
     echo -e "${BOLD}${YELLOW}\n    INFO:  ${WHITE}If filename is not found.  Check spelling of filename\n    or try  ${YELLOW}${COMMAND_NAME} --help${NORMAL}\n" 1>&2
     find . -print | grep --color=auto "${FILE_NAME}"
@@ -345,15 +333,15 @@ else
         printf "${TEST_CASE_DIR_START}${BOLD}${YELLOW}${TEST_CASE_DIR_END}${NORMAL}\n"
         if [[ "${CLI_OPTION}" == "a" ]]  ; then
           if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Run FVT-setup.sh and SA-setup.sh if -a or --all" 1>&2 ; fi
-          if [[ -e "${j}/FVT-setup.sh" ]]    ; then $(cd "${j}" ; ./FVT-setup.sh   "${REPOSITORY_DIR}") ; fi
-          if [[ -e "${j}/SA-setup.sh"  ]]    ; then $(cd "${j}" ; ./SA-setup.sh    "${REPOSITORY_DIR}") ; fi
+          if [[ -e "${j}/FVT-setup.sh" ]]    ; then $(cd "${j}" ; ./FVT-setup.sh   "${REPOSITORY_ABSOLUTE_PATH}") ; fi
+          if [[ -e "${j}/SA-setup.sh"  ]]    ; then $(cd "${j}" ; ./SA-setup.sh    "${REPOSITORY_ABSOLUTE_PATH}") ; fi
         fi
         if [[ "${CLI_OPTION}" == "c" ]]  ; then
           if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Run FVT-cleanup.sh and SA-cleanup.sh if -c or --clean" 1>&2 ; fi
-          if [[ -e "${j}/FVT-cleanup.sh" ]]  ; then $(cd "${j}" ; ./FVT-cleanup.sh "${REPOSITORY_DIR}") ; fi
-          if [[ -e "${j}/SA-cleanup.sh"  ]]  ; then $(cd "${j}" ; ./SA-cleanup.sh  "${REPOSITORY_DIR}") ; fi
+          if [[ -e "${j}/FVT-cleanup.sh" ]]  ; then $(cd "${j}" ; ./FVT-cleanup.sh "${REPOSITORY_ABSOLUTE_PATH}") ; fi
+          if [[ -e "${j}/SA-cleanup.sh"  ]]  ; then $(cd "${j}" ; ./SA-cleanup.sh  "${REPOSITORY_ABSOLUTE_PATH}") ; fi
         fi
-        cd "${REPOSITORY_DIR}"
+        cd "${REPOSITORY_ABSOLUTE_PATH}"
         printf "${BOLD}${GREEN} $(ls -1  "${j}" | grep -v "\." | sed 's/^/\t/')${NORMAL}\n"
         printf "${BOLD}${CYAN} $(ls -1  "${j}" | grep "cleanup.sh" | sed 's/^/\t/')${NORMAL}\n"
         printf "${BOLD}${CYAN} $(ls -1  "${j}" | grep "setup.sh" | sed 's/^/\t/')${NORMAL}\n"
