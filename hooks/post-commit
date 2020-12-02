@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.1.194.1942  2020-12-02T15:26:36.888155-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.193  
+#	   hooks/post-commit -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
 #	hooks/post-commit  3.1.192.1940  2020-12-02T15:00:03.595217-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.191  
 #	   hooks/post-commit -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
 #	hooks/post-commit  3.1.190.1938  2020-12-02T14:29:04.659621-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.189  
@@ -108,16 +110,31 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
   if [[ -d "${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}" ]] ; then
     echo "[${BOLD}${YELLOW}INFO${NORMAL}]         Test case directory found ${COMMIT_PATH}TEST/${BOLD}${GREEN}${COMMIT_FILE_NAME}${NORMAL}, for ${GIT_AUTHOR_NAME} (${USER})." 1>&2
     cd "${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}"
+# >>>
+pwd
+ls -la
+# >>>
+
 
     ###  SA (Static Analysis)
     #    run SA-cleanup.sh if found
     if [[ -s "${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-cleanup.sh" ]] ; then
       "${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-cleanup.sh" "${REPOSITORY_ABSOLUTE_PATH}"
     fi
+# >>>
+pwd
+ls -la
+# >>>
+
     #    run SA-setup.sh if found
     if [[ -s "${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-setup.sh" ]] ; then
       "${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-setup.sh" "${REPOSITORY_ABSOLUTE_PATH}"
     fi
+# >>>
+pwd
+ls -la
+# >>>
+
     #    Create list of test cases
     SA_TEST_CASES=$(ls -1 | grep "^SA" | grep -v "\.")
     if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" " \${SA_TEST_CASES} >${SA_TEST_CASES}<" 1>&2 ; fi
