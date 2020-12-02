@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.1.188.1936  2020-12-02T14:19:31.448337-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.187  
+#	   hooks/post-commit -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
 #	hooks/post-commit  3.1.185.1933  2020-12-02T13:25:02.604427-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.184  
 #	   hooks/post-commit -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
 #	hooks/post-commit  3.1.172.1903  2020-12-01T11:14:31.312123-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.171  
@@ -67,7 +69,6 @@ new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
 #    INFO
 DEBUG=1
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2 ; fi
-DEBUG=0
 
 ###  Production standard 10.0 TESTing 
 
@@ -204,7 +205,6 @@ echo -e "${NORMAL}\n"
 ###  Add code here to run additional post-commit hooks
 
 #
-DEBUG=1
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Operation finished." 1>&2 ; fi
 DEBUG=0
 ###
