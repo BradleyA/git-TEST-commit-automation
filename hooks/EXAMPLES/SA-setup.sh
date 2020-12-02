@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/SA-setup.sh  3.1.187.1935  2020-12-02T14:15:39.103264-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.186  
+# 	   hooks/EXAMPLES/SA-setup.sh -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
 # 	hooks/EXAMPLES/SA-setup.sh  3.1.186.1934  2020-12-02T13:59:33.717105-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.185  
 # 	   hooks/EXAMPLES/SA-setup.sh -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
 #86# hooks/EXAMPLES/SA-setup.sh - This script is optional.  It is for 
@@ -101,6 +103,7 @@ REPOSITORY_RELATIVE_PATH=$(git rev-parse --show-cdup)  #  path of the top-level 
 set +x
 pwd
 echo ">>> >>> >>> >>> REPOSITORY_RELATIVE_PATH >${REPOSITORY_RELATIVE_PATH}<"
+ls -la
 
 #    Uncomment shared TEST cases for command
 #  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-exit-code-error-124-001"   SA-exit-code-error-124-001
