@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/SA-setup.sh  3.1.183.1931  2020-12-02T12:27:40.840472-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.182  
+# 	   hooks/EXAMPLES/SA-setup.sh -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
 # 	hooks/EXAMPLES/SA-setup.sh  3.1.180.1925  2020-12-01T12:47:28.614331-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.179-1-g60ff82a  
 # 	   hooks/EXAMPLES/SA-setup.sh -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
 #86# hooks/EXAMPLES/SA-setup.sh - This script is optional.  It is for 
@@ -89,7 +91,6 @@ else
   echo ">>> REPOSITORY_ABSOLUTE_PATH >${REPOSITORY_ABSOLUTE_PATH}<"
 # >>>
 fi
-
 # >>>
 #	git status --untracked-files=no
 #	$(cd ${REPOSITORY_ABSOLUTE_PATH} ; git status --untracked-files=no)
@@ -97,6 +98,7 @@ fi
 #	$(cd ${REPOSITORY_ABSOLUTE_PATH}/hooks/EXAMPLES ; git status --untracked-files=no)
 #	pwd
 echo ">>> >>> >>> REPOSITORY_ABSOLUTE_PATH >${REPOSITORY_ABSOLUTE_PATH}<"
+echo ">>> >>> >>> REPOSITORY_RELATIVE_PATH >${REPOSITORY_RELATIVE_PATH}<"
 REPOSITORY_RELATIVE_PATH=$(git rev-parse --show-cdup)  #  path of the top-level directory relative to the current directory or AN EMPTY STRING
 set +x
 pwd
