@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.1.185.1933  2020-12-02T13:25:02.604427-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.184  
+#	   hooks/post-commit -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
 #	hooks/post-commit  3.1.172.1903  2020-12-01T11:14:31.312123-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.171  
 #	   hooks/post-commit -->   testing  
 #	hooks/post-commit  2.373.1261  2020-01-25T21:40:56.673970-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.372  
@@ -192,7 +194,7 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
     echo "[${BOLD}${YELLOW}INFO${NORMAL}]         ${BOLD}${RED}No${NORMAL} test case directory found ${COMMIT_PATH}TEST/${BOLD}${CYAN}${COMMIT_FILE_NAME}${NORMAL}, for ${GIT_AUTHOR_NAME}."
   fi
 done
-if [[ "${DEBUG}" == "0" ]] ; then  rm "${REPOSITORY_ABSOLUTE_PATH}"/hooks/COMMIT_FILE_LIST ; fi #  Remove COMMIT_FILE_LIST if NOT in DEBUG
+#	if [[ "${DEBUG}" == "0" ]] ; then  rm "${REPOSITORY_ABSOLUTE_PATH}"/hooks/COMMIT_FILE_LIST ; fi #  Remove COMMIT_FILE_LIST if NOT in DEBUG
 
 #    Process times
 echo -e "${BOLD}${YELLOW}\n     CPU Time    \n  user     sys${CYAN}"
