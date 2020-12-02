@@ -1,5 +1,5 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/SA-setup.sh  3.1.184.1932  2020-12-02T13:20:44.370298-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.183  
+# 	hooks/EXAMPLES/SA-setup.sh  3.1.186.1934  2020-12-02T13:59:33.717105-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.185  
 # 	   hooks/EXAMPLES/SA-setup.sh -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
 #86# hooks/EXAMPLES/SA-setup.sh - This script is optional.  It is for 
 #    'Production standard 10.0 TESTing' test cases.  Copy it to TEST/<file_name>/.
