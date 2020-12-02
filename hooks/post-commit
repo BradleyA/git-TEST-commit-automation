@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.1.198.1946  2020-12-02T15:46:12.446645-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.197  
+#	   hooks/post-commit -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
 #	hooks/post-commit  3.1.196.1944  2020-12-02T15:34:19.423818-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.195  
 #	   hooks/post-commit -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
 #	hooks/post-commit  3.1.194.1942  2020-12-02T15:26:36.888155-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.193  
@@ -113,6 +115,7 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
     echo "[${BOLD}${YELLOW}INFO${NORMAL}]         Test case directory found ${COMMIT_PATH}TEST/${BOLD}${GREEN}${COMMIT_FILE_NAME}${NORMAL}, for ${GIT_AUTHOR_NAME} (${USER})." 1>&2
     cd "${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}"
 # >>>
+echo ">>>>>>>>>>>>>>>>   any body out there ????????????????????????????"
 new_message "${LINENO}" "DEBUG" "  \${COMMIT_PATH_FILE_NAME} >${COMMIT_PATH_FILE_NAME}< \${COMMIT_FILE_NAME} >${COMMIT_FILE_NAME}< \${COMMIT_PATH} >${COMMIT_PATH}< \${COMMIT_PATH}TEST/\${COMMIT_FILE_NAME} >${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}<" 
 pwd
 ls -la
