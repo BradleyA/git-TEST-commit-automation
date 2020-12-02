@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  3.1.173.1917  2020-12-01T11:34:11.451800-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.172-13-g3421e3f  
-# 	   hooks/bin/git-TEST-cases.sh hooks/bin/git-set-env-for-manual-test.sh -->   change REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
+# 	hooks/bin/git-TEST-cases.sh  3.1.182.1930  2020-12-01T22:37:14.185402-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.181-3-gaa9fee6  
+# 	   hooks/bin/git-TEST-cases.sh -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
 # 	hooks/bin/git-TEST-cases.sh  3.1.132.1847  2020-11-18T22:44:28.728514-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.131  
 # 	   hooks/bin/git-TEST-cases.sh -->   add support for -f=*|--filename=*)  
 # 	hooks/bin/git-TEST-cases.sh  3.1.130.1843  2020-11-18T15:47:45.471017-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.129  
@@ -41,6 +41,7 @@ WHITE=$(tput  setaf 7)
 ###  Production standard 7.0 Default variable value
 DEFAULT_ALL_TEST_CASES="NO"
 DEFAULT_ADD_TEST_CASE="NO"
+CLI_OPTION=""
 
 ###  Production standard 8.3.541 --usage
 COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')                                               # 3.541
@@ -285,6 +286,7 @@ if [[ "${CLI_OPTION}" == "f" ]]  ; then
     touch "TEST/${TMP_FILE_NAME}/SA-shellcheck-001.expected"
     git add "TEST/${TMP_FILE_NAME}/SA-shellcheck-001.expected" "TEST/${TMP_FILE_NAME}/SA-setup.sh" "TEST/${TMP_FILE_NAME}/SA-cleanup.sh"
     git commit -m 'initial commit' "TEST/${TMP_FILE_NAME}/SA-shellcheck-001.expected" "TEST/${TMP_FILE_NAME}/SA-setup.sh" "TEST/${TMP_FILE_NAME}/SA-cleanup.sh"
+    cd "${REPOSITORY_ABSOLUTE_PATH}"
   fi  #  #29
   if [[ "${FILE_NAME}" != $(basename "${FILE_NAME}") ]] ; then  #  Is there a directory included
     cd "$(dirname "${FILE_NAME}")"
@@ -292,14 +294,14 @@ if [[ "${CLI_OPTION}" == "f" ]]  ; then
   cd TEST/"${TMP_FILE_NAME}"
   if [[ -x "FVT-setup.sh" ]]  ; then ./FVT-setup.sh ; fi
   if [[ -x "SA-setup.sh"  ]]  ; then ./SA-setup.sh  ; fi
-  cd "${REPOSITORY_ABSOLUTE_PATH}"
-  if [[ "${ALL_TEST_CASES}" == "YES" ]] ; then
-    echo -e "${BOLD}${YELLOW}\n    INFO:  ${WHITE}If filename is not found.  Check spelling of filename\n    or try  ${YELLOW}${COMMAND_NAME} --help${NORMAL}\n" 1>&2
-    find . -print | grep --color=auto "${FILE_NAME}"
-  else
-    echo -e "${BOLD}${YELLOW}\n    INFO:  ${WHITE}If filename is not found.  Check spelling of filename\n    or try  ${YELLOW}${COMMAND_NAME} --filename <PATH>/<FILE_NAME> --hooks\n    ${WHITE}or try  ${YELLOW}${COMMAND_NAME} --help${NORMAL}\n" 1>&2
-    find . -print | grep -v 'hooks/' | grep --color=auto "${FILE_NAME}"
-  fi
+# >>> >>>  cd "${REPOSITORY_ABSOLUTE_PATH}"
+# >>>  if [[ "${ALL_TEST_CASES}" == "YES" ]] ; then
+# >>>    echo -e "${BOLD}${YELLOW}\n    INFO:  ${WHITE}If filename is not found.  Check spelling of filename\n    or try  ${YELLOW}${COMMAND_NAME} --help${NORMAL}\n" 1>&2
+# >>>    find . -print | grep --color=auto "${FILE_NAME}"
+# >>>  else
+# >>>    echo -e "${BOLD}${YELLOW}\n    INFO:  ${WHITE}If filename is not found.  Check spelling of filename\n    or try  ${YELLOW}${COMMAND_NAME} --filename <PATH>/<FILE_NAME> --hooks\n    ${WHITE}or try  ${YELLOW}${COMMAND_NAME} --help${NORMAL}\n" 1>&2
+# >>>    find . -print | grep -v 'hooks/' | grep --color=auto "${FILE_NAME}"
+# >>>  fi
 else
   if [[ "${CLI_OPTION}" == "n" ]] ; then  #  #18
     TMP_GITALLFILES=$(mktemp /tmp/GITALLFILESXXXXXX)                       #  create temporary file for all files in repository
