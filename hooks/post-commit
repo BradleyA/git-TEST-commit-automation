@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.1.192.1940  2020-12-02T15:00:03.595217-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.191  
+#	   hooks/post-commit -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
 #	hooks/post-commit  3.1.190.1938  2020-12-02T14:29:04.659621-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.189  
 #	   hooks/post-commit -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
 #	hooks/post-commit  3.1.188.1936  2020-12-02T14:19:31.448337-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.187  
@@ -128,7 +130,11 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
     #    Loop through test cases
     for SA_TEST_CASE in ${SA_TEST_CASES} ; do
       #    Run SA_TEST_CASE(s)
-      if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  \${REPOSITORY_ABSOLUTE_PATH}/\${COMMIT_PATH}TEST/\${COMMIT_FILE_NAME}/\${SA_TEST_CASE} >${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/${SA_TEST_CASE}< \${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH_FILE_NAME} >${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH_FILE_NAME}< ; pwd ; ls -l " 1>&2 ; fi
+      if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  \${REPOSITORY_ABSOLUTE_PATH}/\${COMMIT_PATH}TEST/\${COMMIT_FILE_NAME}/\${SA_TEST_CASE} >${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/${SA_TEST_CASE}< \${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH_FILE_NAME} >${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH_FILE_NAME}<" 1>&2 ; fi
+# >>>
+pwd
+ls -la
+# >>>
       TEST_CASE="${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/${SA_TEST_CASE} ${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH_FILE_NAME}"
       eval "${TEST_CASE}"
       EXIT_CODE=${?}
