@@ -1,5 +1,5 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/SA-setup.sh  3.1.199.1947  2020-12-02T15:46:40.929532-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.198  
+# 	hooks/EXAMPLES/SA-setup.sh  3.1.200.1948  2020-12-02T15:50:26.026305-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.199  
 # 	   hooks/EXAMPLES/SA-setup.sh -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
 #86# hooks/EXAMPLES/SA-setup.sh - This script is optional.  It is for 
 #    'Production standard 10.0 TESTing' test cases.  Copy it to TEST/<file_name>/.
@@ -100,6 +100,7 @@ echo ">>> >>> >>> REPOSITORY_RELATIVE_PATH >${REPOSITORY_RELATIVE_PATH}<"
 REPOSITORY_RELATIVE_PATH=$(git rev-parse --show-cdup)  #  path of the top-level directory relative to the current directory or AN EMPTY STRING
 set +x
 pwd
+ls -l 
 echo ">>> >>> >>> >>> REPOSITORY_RELATIVE_PATH >${REPOSITORY_RELATIVE_PATH}<"
 ls -la
 
