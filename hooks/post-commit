@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.1.212.1960  2020-12-02T21:12:21.764050-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.211  
+#	   hooks/EXAMPLES/SA-setup.sh hooks/post-commit -->   testing  
 #	hooks/post-commit  3.1.210.1958  2020-12-02T21:00:11.199164-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.209  
 #	   hooks/post-commit -->   testing  
 #	hooks/post-commit  3.1.208.1956  2020-12-02T20:56:48.753530-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.207  
@@ -146,6 +148,7 @@ set -x
 # >>>
       "${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-setup.sh" "${REPOSITORY_ABSOLUTE_PATH}"
 # >>>
+echo "${BOLD}${YELLOW}${LINENO} post-commit >>>>>>>>>>>>>>>>>>>   finished SA.setup${NORMAL}"
 ls -la
 set +x
 # >>>

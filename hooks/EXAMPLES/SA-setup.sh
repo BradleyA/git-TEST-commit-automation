@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/SA-setup.sh  3.1.212.1960  2020-12-02T21:12:15.238389-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.211  
+# 	   hooks/EXAMPLES/SA-setup.sh hooks/post-commit -->   testing  
 # 	hooks/EXAMPLES/SA-setup.sh  3.1.211.1959  2020-12-02T21:01:28.827024-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.210  
 # 	   hooks/EXAMPLES/SA-setup.sh -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
 #86# hooks/EXAMPLES/SA-setup.sh - This script is optional.  It is for 
@@ -98,11 +100,11 @@ fi
 echo "${BOLD}${YELLOW}${LINENO} SA-setup  >>> >>> >>> REPOSITORY_ABSOLUTE_PATH >${REPOSITORY_ABSOLUTE_PATH}<${NORMAL}"
 echo "${BOLD}${YELLOW}${LINENO} SA-setup  >>> >>> >>> REPOSITORY_RELATIVE_PATH >${REPOSITORY_RELATIVE_PATH}<${NORMAL}"
 REPOSITORY_RELATIVE_PATH=$(git rev-parse --show-cdup)  #  path of the top-level directory relative to the current directory or AN EMPTY STRING
-set +x
 pwd
 ls -l 
 echo "${BOLD}${YELLOW}${LINENO} SA-setup  >>> >>> >>> >>> REPOSITORY_RELATIVE_PATH >${REPOSITORY_RELATIVE_PATH}<${NORMAL}"
 ls -la
+# >>>
 
 #    Uncomment shared TEST cases for command
 #  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-exit-code-error-124-001"   SA-exit-code-error-124-001
@@ -132,6 +134,8 @@ ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-775-001"        
 ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-shellcheck-001"            SA-shellcheck-001
 #
 
+set +x
+ls -l ~/github/BradleyA/git-TEST-commit-automation/hooks/EXAMPLES/TEST/SA-setup.sh/
 DEBUG=1
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Operation finished..." 1>&2 ; fi
 DEBUG=0
