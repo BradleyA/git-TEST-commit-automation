@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/SA-setup.sh  3.1.214.1962  2020-12-02T22:16:53.530261-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.213  
+# 	   hooks/EXAMPLES/SA-setup.sh hooks/post-commit -->   testing  
 # 	hooks/EXAMPLES/SA-setup.sh  3.1.213.1961  2020-12-02T21:20:36.759400-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.212  
 # 	   hooks/EXAMPLES/SA-setup.sh -->   testing  
 # 	hooks/EXAMPLES/SA-setup.sh  3.1.212.1960  2020-12-02T21:12:15.238389-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.211  
@@ -79,34 +81,27 @@ set -x
 # >>>
 if [[ ! -z "${1}" ]] ; then  # post-commit must pass REPOSITORY_ABSOLUTE_PATH because post-commit is executed in .git/hooks/ which is not in the repository
   REPOSITORY_ABSOLUTE_PATH=${1}
-else
+  if [[ ! -z "${2}" ]] ; then  # post-commit must pass REPOSITORY_RELATIVE_PATH top-level directory relative to the current directory
+    REPOSITORY_RELATIVE_PATH=${2}
+  else
+    new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${YELLOW}REPOSITORY_RELATIVE_PATH${WHITE}, not received as second argument." 1>&2
 # >>>
-  echo "${BOLD}${YELLOW}${LINENO} SA-setup  >>> REPOSITORY_ABSOLUTE_PATH >${REPOSITORY_ABSOLUTE_PATH}<${NORMAL}"
+    echo "${BOLD}${YELLOW}${LINENO} SA-setup  >>> REPOSITORY_RELATIVE_PATH >${REPOSITORY_RELATIVE_PATH}<${NORMAL}"
 # >>>
-  REPOSITORY_ABSOLUTE_PATH=$(git rev-parse --show-toplevel)  #  not called by post-commit
-  if [[ "${0}" != $(basename "${0}") ]] ; then  #  script must executed in TEST/<COMMIT_FILE_NAME>/ directory
-    cd "$(dirname "${0}")"
-# >>>
-    pwd
-# >>>
+    exit 1
   fi
+else
+  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${YELLOW}REPOSITORY_ABSOLUTE_PATH${WHITE}, not received as first argument." 1>&2
 # >>>
   echo "${BOLD}${YELLOW}${LINENO} SA-setup  >>> REPOSITORY_ABSOLUTE_PATH >${REPOSITORY_ABSOLUTE_PATH}<${NORMAL}"
 # >>>
+  exit 1
 fi
 # >>>
-#	git status --untracked-files=no
-#	$(cd ${REPOSITORY_ABSOLUTE_PATH} ; git status --untracked-files=no)
-#	$(cd ${REPOSITORY_ABSOLUTE_PATH}/hooks ; git status --untracked-files=no)
-#	$(cd ${REPOSITORY_ABSOLUTE_PATH}/hooks/EXAMPLES ; git status --untracked-files=no)
-#	pwd
 echo "${BOLD}${YELLOW}${LINENO} SA-setup  >>> >>> >>> REPOSITORY_ABSOLUTE_PATH >${REPOSITORY_ABSOLUTE_PATH}<${NORMAL}"
 echo "${BOLD}${YELLOW}${LINENO} SA-setup  >>> >>> >>> REPOSITORY_RELATIVE_PATH >${REPOSITORY_RELATIVE_PATH}<${NORMAL}"
-REPOSITORY_RELATIVE_PATH=$(git rev-parse --show-cdup)  #  path of the top-level directory relative to the current directory or AN EMPTY STRING
 pwd
 ls -l 
-echo "${BOLD}${YELLOW}${LINENO} SA-setup  >>> >>> >>> >>> REPOSITORY_RELATIVE_PATH >${REPOSITORY_RELATIVE_PATH}<${NORMAL}"
-ls -la
 # >>>
 
 #    Uncomment shared TEST cases for command
