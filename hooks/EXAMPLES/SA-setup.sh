@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/SA-setup.sh  3.1.213.1961  2020-12-02T21:20:36.759400-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.212  
+# 	   hooks/EXAMPLES/SA-setup.sh -->   testing  
 # 	hooks/EXAMPLES/SA-setup.sh  3.1.212.1960  2020-12-02T21:12:15.238389-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.211  
 # 	   hooks/EXAMPLES/SA-setup.sh hooks/post-commit -->   testing  
 # 	hooks/EXAMPLES/SA-setup.sh  3.1.211.1959  2020-12-02T21:01:28.827024-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.210  
@@ -71,6 +73,7 @@ fi
 ###  Production standard 10.0 TESTing 
 
 # >>>
+echo "${BOLD}${YELLOW}${LINENO} SA-setup  >>> REPOSITORY_ABSOLUTE_PATH >${REPOSITORY_ABSOLUTE_PATH}<${NORMAL}"
 pwd
 set -x
 # >>>
@@ -135,6 +138,7 @@ ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-shellcheck-001"            
 #
 
 set +x
+pwd
 ls -l ~/github/BradleyA/git-TEST-commit-automation/hooks/EXAMPLES/TEST/SA-setup.sh/
 DEBUG=1
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Operation finished..." 1>&2 ; fi
