@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.1.202.1950  2020-12-02T20:30:44.904694-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.201  
+#	   hooks/post-commit -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
 #	hooks/post-commit  3.1.198.1946  2020-12-02T15:46:12.446645-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.197  
 #	   hooks/post-commit -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
 #	hooks/post-commit  3.1.196.1944  2020-12-02T15:34:19.423818-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.195  
@@ -82,6 +84,11 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}
 
 ###  Production standard 10.0 TESTing 
 
+# >>>
+echo "${BOLD}${YELLOW} post-commit >>>>>>>>>>>>>>>>>>>   ${NORMAL}"
+pwd
+ls -la
+# >>>
 REPOSITORY_ABSOLUTE_PATH=$(git rev-parse --show-toplevel)
 export REPOSITORY_ABSOLUTE_PATH  #  export REPOSITORY_ABSOLUTE_PATH so test scripts can use it
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  REPOSITORY_ABSOLUTE_PATH  >${REPOSITORY_ABSOLUTE_PATH}<" 1>&2 ; fi
@@ -115,7 +122,7 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
     echo "[${BOLD}${YELLOW}INFO${NORMAL}]         Test case directory found ${COMMIT_PATH}TEST/${BOLD}${GREEN}${COMMIT_FILE_NAME}${NORMAL}, for ${GIT_AUTHOR_NAME} (${USER})." 1>&2
     cd "${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}"
 # >>>
-echo ">>>>>>>>>>>>>>>>   any body out there ????????????????????????????"
+echo "${BOLD}${YELLOW} post-commit >>>>>>>>>>>>>>>>   any body out there ????????????????????????????${NORMAL}"
 new_message "${LINENO}" "DEBUG" "  \${COMMIT_PATH_FILE_NAME} >${COMMIT_PATH_FILE_NAME}< \${COMMIT_FILE_NAME} >${COMMIT_FILE_NAME}< \${COMMIT_PATH} >${COMMIT_PATH}< \${COMMIT_PATH}TEST/\${COMMIT_FILE_NAME} >${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}<" 
 pwd
 ls -la
@@ -125,21 +132,29 @@ ls -la
     #    run SA-cleanup.sh if found
     if [[ -s "${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-cleanup.sh" ]] ; then
 # >>>
-echo ">>>>>>>>>>>>>>>>>>>   RUN SA.cleanup"
+echo "${BOLD}${YELLOW} post-commit >>>>>>>>>>>>>>>>>>>   RUN SA.cleanup${NORMAL}"
 pwd
 ls -la
+set -x
 # >>>
       "${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-cleanup.sh" "${REPOSITORY_ABSOLUTE_PATH}"
+# >>>
+set +x
+# >>>
     fi
 
     #    run SA-setup.sh if found
     if [[ -s "${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-setup.sh" ]] ; then
 # >>>
-echo ">>>>>>>>>>>>>>>>>>>   RUN SA.setup"
+echo "${BOLD}${YELLOW} post-commit >>>>>>>>>>>>>>>>>>>   RUN SA.setup${NORMAL}"
 pwd
 ls -la
+set -x
 # >>>
       "${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-setup.sh" "${REPOSITORY_ABSOLUTE_PATH}"
+# >>>
+set +x
+# >>>
 ls -la
     fi
 
