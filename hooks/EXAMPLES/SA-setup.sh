@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/SA-setup.sh  3.1.221.1969  2020-12-03T17:50:26.528335-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.220  
+# 	   hooks/EXAMPLES/SA-setup.sh -->   Production standard 1.3.614 DEBUG variable  Production standard 2.3.614 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)  
 # 	hooks/EXAMPLES/SA-setup.sh  3.1.216.1964  2020-12-03T12:53:34.913190-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.215  
 # 	   hooks/EXAMPLES/SA-setup.sh hooks/post-commit -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
 # 	hooks/EXAMPLES/SA-setup.sh  3.1.211.1959  2020-12-02T21:01:28.827024-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.210  
@@ -12,7 +14,7 @@
 ###  Production standard 5.3.559 Copyright                                    # 3.559
 #    Copyright (c) 2020 Bradley Allen                                                # 3.555
 #    MIT License is online in the repository as a file named LICENSE"         # 3.559
-###  Production standard 1.3.550 DEBUG variable                                             # 3.550
+###  Production standard 1.3.614 DEBUG variable
 #    Order of precedence: environment variable, default code
 if [[ "${DEBUG}" == ""  ]] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
 if [[ "${DEBUG}" == "2" ]] ; then set -x    ; fi   # Print trace of simple commands before they are executed
@@ -27,6 +29,7 @@ RED=$(tput    setaf 1)
 YELLOW=$(tput setaf 3)
 BLUE=$(tput   setaf 4)
 PURPLE=$(tput setaf 5)
+CYAN=$(tput   setaf 6)
 WHITE=$(tput  setaf 7)
 
 #    Date and time function ISO 8601
@@ -51,14 +54,14 @@ if [[ "${SCRIPT_VERSION}" == "" ]] ; then SCRIPT_VERSION="v?.?" ; fi
 #    GID
 GROUP_ID=$(id -g)
 
-###  Production standard 2.3.578 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)
+###  Production standard 2.3.614 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)
 new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
   get_date_stamp
-  echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${SCRIPT_NAME}[$$] ${BOLD}${BLUE}${SCRIPT_VERSION} ${PURPLE}${1}${NORMAL} ${USER} ${UID}:${GROUP_ID} ${BOLD}[${2}]${NORMAL}  ${3}"
+  echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${BOLD}${CYAN}${SCRIPT_NAME}${NORMAL}[$$] ${BOLD}${BLUE}${SCRIPT_VERSION} ${PURPLE}${1}${NORMAL} ${USER} ${UID}:${GROUP_ID} ${BOLD}[${2}]${NORMAL}  ${3}"  # 2.3.614
 }
 
 #    INFO
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2 ; fi  #  2.3.578
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "${BOLD}${CYAN}  Started...${NORMAL}" 1>&2 ; fi  # 1.3.614
 
 #    This script does not support -* or help or usage or version
 if [[ "${1}" == -* ]] || [[ "${1}" == "help" ]] || [[ "${1}" == "usage" ]] || [[ "${1}" == "version" ]]  ; then
@@ -71,34 +74,21 @@ fi
 ###  Production standard 10.0 TESTing 
 
 # >>>
-echo "${BOLD}${YELLOW}${LINENO} SA-setup  >>> REPOSITORY_ABSOLUTE_PATH >${REPOSITORY_ABSOLUTE_PATH}<${NORMAL}"
-pwd
-set -x
+DEBUG=1
 # >>>
+
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "${BOLD}  REPOSITORY_ABSOLUTE_PATH >${CYAN}${REPOSITORY_ABSOLUTE_PATH}<${NORMAL}  REPOSITORY_RELATIVE_PATH >${CYAN}${REPOSITORY_RELATIVE_PATH}<${NORMAL}" 1>&2 ; fi  # 1.3.614
 if [[ ! -z "${1}" ]] ; then  # post-commit must pass REPOSITORY_ABSOLUTE_PATH because post-commit is executed in .git/hooks/ which is not in the repository
   REPOSITORY_ABSOLUTE_PATH=${1}
   if [[ ! -z "${2}" ]] ; then  # post-commit must pass REPOSITORY_RELATIVE_PATH top-level directory relative to the current directory
     REPOSITORY_RELATIVE_PATH=${2}
   else
     new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${YELLOW}REPOSITORY_RELATIVE_PATH${WHITE}, not received as second argument." 1>&2
-# >>>
-    echo "${BOLD}${YELLOW}${LINENO} SA-setup  >>> REPOSITORY_RELATIVE_PATH >${REPOSITORY_RELATIVE_PATH}<${NORMAL}"
-# >>>
-    exit 1
   fi
 else
   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${YELLOW}REPOSITORY_ABSOLUTE_PATH${WHITE}, not received as first argument." 1>&2
-# >>>
-  echo "${BOLD}${YELLOW}${LINENO} SA-setup  >>> REPOSITORY_ABSOLUTE_PATH >${REPOSITORY_ABSOLUTE_PATH}<${NORMAL}"
-# >>>
-  exit 1
 fi
-# >>>
-echo "${BOLD}${YELLOW}${LINENO} SA-setup  >>> >>> >>> REPOSITORY_ABSOLUTE_PATH >${REPOSITORY_ABSOLUTE_PATH}<${NORMAL}"
-echo "${BOLD}${YELLOW}${LINENO} SA-setup  >>> >>> >>> REPOSITORY_RELATIVE_PATH >${REPOSITORY_RELATIVE_PATH}<${NORMAL}"
-pwd
-ls -l 
-# >>>
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "${BOLD}  REPOSITORY_ABSOLUTE_PATH >${CYAN}${REPOSITORY_ABSOLUTE_PATH}<${NORMAL}  REPOSITORY_RELATIVE_PATH >${CYAN}${REPOSITORY_RELATIVE_PATH}<${NORMAL}" 1>&2 ; fi  # 1.3.614
 
 #    Uncomment shared TEST cases for command
 #  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-exit-code-error-124-001"   SA-exit-code-error-124-001
@@ -128,10 +118,10 @@ ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-775-001"        
 ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-shellcheck-001"            SA-shellcheck-001
 #
 
-set +x
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "${BOLD}${CYAN}  Operation finished...${NORMAL}" 1>&2 ; fi  # 1.3.614
+# >>>
 pwd
 ls -l ~/github/BradleyA/git-TEST-commit-automation/hooks/EXAMPLES/TEST/SA-setup.sh/
-DEBUG=1
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Operation finished..." 1>&2 ; fi
 DEBUG=0
+# >>>
 ###
