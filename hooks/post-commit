@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.1.210.1958  2020-12-02T21:00:11.199164-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.209  
+#	   hooks/post-commit -->   testing  
 #	hooks/post-commit  3.1.208.1956  2020-12-02T20:56:48.753530-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.207  
 #	   hooks/post-commit -->   testing  
 #	hooks/post-commit  3.1.204.1952  2020-12-02T20:35:47.505902-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.203  
@@ -129,6 +131,7 @@ set -x
 # >>>
       "${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-cleanup.sh" "${REPOSITORY_ABSOLUTE_PATH}"
 # >>>
+ls -la
 set +x
 # >>>
     fi
@@ -143,6 +146,7 @@ set -x
 # >>>
       "${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-setup.sh" "${REPOSITORY_ABSOLUTE_PATH}"
 # >>>
+ls -la
 set +x
 # >>>
 ls -la
