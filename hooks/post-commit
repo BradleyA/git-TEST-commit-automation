@@ -1,22 +1,8 @@
 #!/bin/bash
-#	hooks/post-commit  3.1.202.1950  2020-12-02T20:30:44.904694-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.201  
-#	   hooks/post-commit -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
-#	hooks/post-commit  3.1.198.1946  2020-12-02T15:46:12.446645-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.197  
-#	   hooks/post-commit -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
-#	hooks/post-commit  3.1.196.1944  2020-12-02T15:34:19.423818-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.195  
-#	   hooks/post-commit -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
-#	hooks/post-commit  3.1.194.1942  2020-12-02T15:26:36.888155-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.193  
-#	   hooks/post-commit -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
-#	hooks/post-commit  3.1.192.1940  2020-12-02T15:00:03.595217-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.191  
-#	   hooks/post-commit -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
-#	hooks/post-commit  3.1.190.1938  2020-12-02T14:29:04.659621-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.189  
-#	   hooks/post-commit -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
-#	hooks/post-commit  3.1.188.1936  2020-12-02T14:19:31.448337-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.187  
+#	hooks/post-commit  3.1.204.1952  2020-12-02T20:35:47.505902-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.203  
 #	   hooks/post-commit -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
 #	hooks/post-commit  3.1.185.1933  2020-12-02T13:25:02.604427-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.184  
 #	   hooks/post-commit -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
-#	hooks/post-commit  3.1.172.1903  2020-12-01T11:14:31.312123-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.171  
-#	   hooks/post-commit -->   testing  
 #	hooks/post-commit  2.373.1261  2020-01-25T21:40:56.673970-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.372  
 #	   hooks/post-commit   Production standard 5.3.559 Copyright  Production standard 1.3.550 DEBUG variable  Production standard 2.3.529 log format 
 #	hooks/post-commit  2.328.1206  2020-01-23T23:13:49.393804-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.327  
@@ -87,7 +73,7 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}
 # >>>
 echo "${BOLD}${YELLOW} post-commit >>>>>>>>>>>>>>>>>>>   ${NORMAL}"
 pwd
-ls -la
+ls -la /home/uadmin/github/BradleyA/git-TEST-commit-automation/hooks/EXAMPLES/TEST/SA-setup.sh
 # >>>
 REPOSITORY_ABSOLUTE_PATH=$(git rev-parse --show-toplevel)
 export REPOSITORY_ABSOLUTE_PATH  #  export REPOSITORY_ABSOLUTE_PATH so test scripts can use it
