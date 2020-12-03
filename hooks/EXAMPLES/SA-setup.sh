@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/SA-setup.sh  3.1.215.1963  2020-12-03T08:39:58.040589-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.214  
-# 	   hooks/EXAMPLES/SA-setup.sh -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
+# 	hooks/EXAMPLES/SA-setup.sh  3.1.216.1964  2020-12-03T12:53:34.913190-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.215  
+# 	   hooks/EXAMPLES/SA-setup.sh hooks/post-commit -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
 # 	hooks/EXAMPLES/SA-setup.sh  3.1.211.1959  2020-12-02T21:01:28.827024-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.210  
 # 	   hooks/EXAMPLES/SA-setup.sh -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
 #86# hooks/EXAMPLES/SA-setup.sh - This script is optional.  It is for 

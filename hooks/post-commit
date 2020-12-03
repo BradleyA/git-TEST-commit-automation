@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.1.216.1964  2020-12-03T12:53:38.338663-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.215  
+#	   hooks/EXAMPLES/SA-setup.sh hooks/post-commit -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
 #	hooks/post-commit  3.1.214.1962  2020-12-02T22:16:58.318805-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.213  
 #	   hooks/EXAMPLES/SA-setup.sh hooks/post-commit -->   testing  
 #	hooks/post-commit  3.1.185.1933  2020-12-02T13:25:02.604427-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.184  
@@ -131,6 +133,7 @@ set -x
 # >>>
       "${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-cleanup.sh" "${REPOSITORY_ABSOLUTE_PATH}"
 # >>>
+echo "${BOLD}${YELLOW}${LINENO} post-commit >>>>>>>>>>>>>>>>>>>   ${CYAN}finished SA.cleanup${NORMAL}"
 ls -la
 set +x
 # >>>
@@ -146,7 +149,7 @@ set -x
 # >>>
       "${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-setup.sh" "${REPOSITORY_ABSOLUTE_PATH}"
 # >>>
-echo "${BOLD}${YELLOW}${LINENO} post-commit >>>>>>>>>>>>>>>>>>>   finished SA.setup${NORMAL}"
+echo "${BOLD}${YELLOW}${LINENO} post-commit >>>>>>>>>>>>>>>>>>>   ${CYAN}finished SA.setup${NORMAL}"
 ls -la
 set +x
 # >>>
