@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/SA-cleanup.sh  3.1.266.2025  2020-12-04T17:16:13.578997-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.265-1-gc61878b  
+# 	   hooks/EXAMPLES/FVT-cleanup.sh hooks/EXAMPLES/FVT-option-add-001 hooks/EXAMPLES/FVT-option-all-001 hooks/EXAMPLES/FVT-setup.sh hooks/EXAMPLES/SA-cleanup.sh hooks/EXAMPLES/SA-exit-code-error-124-001 hooks/EXAMPLES/SA-exit-code-error-124-002 hooks/EXAMPLES/SA-exit-code-error-2-001 hooks/EXAMPLES/SA-permission-400-001 hooks/EXAMPLES/SA-permission-440-001 hooks/EXAMPLES/SA-permission-444-001 hooks/EXAMPLES/SA-permission-600-001 hooks/EXAMPLES/SA-permission-640-001 hooks/EXAMPLES/SA-permission-644-001 hooks/EXAMPLES/SA-permission-660-001 hooks/EXAMPLES/SA-permission-664-001 hooks/EXAMPLES/SA-permission-666-001 hooks/EXAMPLES/SA-permission-700-001 hooks/EXAMPLES/SA-permission-750-001 hooks/EXAMPLES/SA-permission-755-001 hooks/EXAMPLES/SA-permission-770-001 hooks/EXAMPLES/SA-permission-775-001 hooks/EXAMPLES/SA-permission-777-001 hooks/EXAMPLES/SA-permission-dir-001 hooks/EXAMPLES/SA-permission-grp-10000-001 hooks/EXAMPLES/SA-permission-own-10000-001 hooks/EXAMPLES/SA-setup.sh hooks/EXAMPLES/SA-shellcheck-001 hooks/EXAMPLES/SA-type-tar-V7-001 hooks/post-commit -->   typo  
 # 	hooks/EXAMPLES/SA-cleanup.sh  3.1.6.1551  2020-05-21T21:27:33.147323-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.5-42-g58ba3b2  
 # 	   hooks/EXAMPLES/SA-cleanup.sh -->   upgrade Production standards #49  
 # 	hooks/EXAMPLES/SA-cleanup.sh  2.138.787  2019-09-27T12:33:27.537389-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.137  
@@ -67,7 +69,7 @@ fi
 
 ###  Place test case cleanup here 
 
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "${BOLD}  REPOSITORY_ABSOLUTE_PATH >${CYAN}${REPOSITORY_ABSOLUTE_PATH}<${NORMAL}  REPOSITORY_DIR_COUNT  >${BOLD}${CYAN}${REPOSITORY_DIR_COUNT}${NORMAL}<  EXAMPLES_DIRECTORY >${CYAN}${EXAMPLES_DIRECTORY}<${NORMAL}" 1>&2 ; fi  # 1.3.614
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "${BOLD}  REPOSITORY_ABSOLUTE_PATH >${CYAN}${REPOSITORY_ABSOLUTE_PATH}${NORMAL}<  REPOSITORY_DIR_COUNT  >${BOLD}${CYAN}${REPOSITORY_DIR_COUNT}${NORMAL}<  EXAMPLES_DIRECTORY >${CYAN}${EXAMPLES_DIRECTORY}${NORMAL}<" 1>&2 ; fi  # 1.3.614
 
 #    Remove directories
 rm -rf tmp
