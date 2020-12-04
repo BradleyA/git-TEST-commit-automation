@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/SA-setup.sh  3.1.227.1975  2020-12-03T20:01:25.483043-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.226  
+# 	   hooks/EXAMPLES/SA-cleanup.sh hooks/EXAMPLES/SA-setup.sh hooks/post-commit -->   testing  
 # 	hooks/EXAMPLES/SA-setup.sh  3.1.226.1974  2020-12-03T19:42:38.900235-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.225  
 # 	   hooks/EXAMPLES/SA-setup.sh -->   testing  
 # 	hooks/EXAMPLES/SA-setup.sh  3.1.221.1969  2020-12-03T17:50:26.528335-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.220  
@@ -118,9 +120,4 @@ ln -fs "${EXAMPLES_DIRECTORY}/SA-shellcheck-001"            SA-shellcheck-001
 #
 
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "${BOLD}${CYAN}  Operation finished...${NORMAL}" 1>&2 ; fi  # 1.3.614
-# >>>
-pwd
-ls -l ~/github/BradleyA/git-TEST-commit-automation/hooks/EXAMPLES/TEST/SA-setup.sh/
-DEBUG=0
-# >>>
 ###

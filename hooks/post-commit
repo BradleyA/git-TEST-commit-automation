@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.1.227.1975  2020-12-03T20:01:33.054672-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.226  
+#	   hooks/EXAMPLES/SA-cleanup.sh hooks/EXAMPLES/SA-setup.sh hooks/post-commit -->   testing  
 #	hooks/post-commit  3.1.223.1971  2020-12-03T19:25:02.622038-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.222  
 #	   hooks/post-commit -->   change DEBUG output format  
 #	hooks/post-commit  3.1.222.1970  2020-12-03T19:04:04.968520-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.221  
@@ -122,7 +124,7 @@ new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  \${COMMIT_PATH_FILE_NAME} >$
       cd "$(dirname "${COMMIT_PATH_FILE_NAME}")"
       DIR_COUNT=$(echo "${COMMIT_PATH_FILE_NAME}" | grep -o '/' | wc -l)  # count number of '/'
     fi
-    if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  ${BOLD}${YELLOW}DIR_COUNT  >${BOLD}${CYAN}${DIR_COUNT}${NORMAL}< COMMIT_PATH_FILE_NAME  >${BOLD}${CYAN}${COMMIT_PATH_FILE_NAME}${NORMAL}<  pwd  >${BOLD}${CYAN}$(pwd)<${NORMAL}" 1>&2 ; fi  # 1.3.614
+    if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  DIR_COUNT  >${BOLD}${CYAN}${DIR_COUNT}${NORMAL}< COMMIT_PATH_FILE_NAME  >${BOLD}${CYAN}${COMMIT_PATH_FILE_NAME}${NORMAL}<  pwd  >${BOLD}${CYAN}$(pwd)<${NORMAL}" 1>&2 ; fi  # 1.3.614
     EXAMPLES_DIRECTORY="../../hooks/EXAMPLES"
     if [[ ${DIR_COUNT} != 0 ]] ; then
       while [[ ${DIR_COUNT} != 0 ]] ; do  DIR_COUNT=$((DIR_COUNT - 1)) ; EXAMPLES_DIRECTORY="../${EXAMPLES_DIRECTORY}" ; done

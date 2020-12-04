@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/SA-cleanup.sh  3.1.181.1926  2020-12-01T12:58:20.854356-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.180  
-# 	   hooks/EXAMPLES/SA-cleanup.sh hooks/EXAMPLES/TEST/SA-setup.sh/SA-shellcheck-001.expected -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
+# 	hooks/EXAMPLES/SA-cleanup.sh  3.1.227.1975  2020-12-03T20:01:25.267634-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.226  
+# 	   hooks/EXAMPLES/SA-cleanup.sh hooks/EXAMPLES/SA-setup.sh hooks/post-commit -->   testing  
 # 	hooks/EXAMPLES/SA-cleanup.sh  3.1.6.1551  2020-05-21T21:27:33.147323-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.5-42-g58ba3b2  
 # 	   hooks/EXAMPLES/SA-cleanup.sh -->   upgrade Production standards #49  
 # 	hooks/EXAMPLES/SA-cleanup.sh  2.138.787  2019-09-27T12:33:27.537389-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.137  
@@ -10,7 +10,7 @@
 ###  Production standard 5.3.559 Copyright                                    # 3.559
 #    Copyright (c) 2020 Bradley Allen                                                # 3.555
 #    MIT License is online in the repository as a file named LICENSE"         # 3.559
-###  Production standard 1.3.550 DEBUG variable                                             # 3.550
+###  Production standard 1.3.614 DEBUG variable
 #    Order of precedence: environment variable, default code
 if [[ "${DEBUG}" == ""  ]] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
 if [[ "${DEBUG}" == "2" ]] ; then set -x    ; fi   # Print trace of simple commands before they are executed
@@ -25,6 +25,7 @@ RED=$(tput    setaf 1)
 YELLOW=$(tput setaf 3)
 BLUE=$(tput   setaf 4)
 PURPLE=$(tput setaf 5)
+CYAN=$(tput   setaf 6)
 WHITE=$(tput  setaf 7)
 
 #    Date and time function ISO 8601
@@ -49,14 +50,14 @@ if [[ "${SCRIPT_VERSION}" == "" ]] ; then SCRIPT_VERSION="v?.?" ; fi
 #    GID
 GROUP_ID=$(id -g)
 
-###  Production standard 2.3.578 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)
+###  Production standard 2.3.614 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)
 new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
   get_date_stamp
-  echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${SCRIPT_NAME}[$$] ${BOLD}${BLUE}${SCRIPT_VERSION} ${PURPLE}${1}${NORMAL} ${USER} ${UID}:${GROUP_ID} ${BOLD}[${2}]${NORMAL}  ${3}"
+  echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${BOLD}${CYAN}${SCRIPT_NAME}${NORMAL}[$$] ${BOLD}${BLUE}${SCRIPT_VERSION} ${PURPLE}${1}${NORMAL} ${USER} ${UID}:${GROUP_ID} ${BOLD}[${2}]${NORMAL}  ${3}"  # 2.3.614
 }
 
 #    INFO
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "${BOLD}${CYAN}  Started...${NORMAL}" 1>&2 ; fi  # 1.3.614
 
 #    This script does not support -* or help or usage or version
 if [[ "${1}" == -* ]] || [[ "${1}" == "help" ]] || [[ "${1}" == "usage" ]] || [[ "${1}" == "version" ]]  ; then
@@ -68,23 +69,20 @@ fi
 
 ###  Place test case cleanup here 
 
-#    Remove environment variables
-#  unset DEBUG
 #    Remove directories
 rm -rf tmp
 #    Remove output from previous run of test cases
 rm -f SA-*.test-case-output
-#    Remove temporary files
-#  rm -f temporary files
+
 #    Remove linked SA-* files except SA-cleanup.sh and SA-setup.sh
 for k in $(ls -1 SA-*) ; do
   if [[ "${k}" != "SA-cleanup.sh" ]] ; then
     if [[ "${k}" != "SA-setup.sh" ]] ; then
       { [[ ! -L "${k}" ]] || rm "${k}"; }  #  Remove files with symbolic link
-      if [[ ! -s "${k}" ]] ; then  #  Remove SA-test-case.expected that has a size of zero
-        if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Empty file ${k}" 1>&2 ; fi
+      if [[ ! -s "${k}" ]] ; then  #  Remove SA-test-case.expected that have a file size of zero
+        if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Empty file ${BOLD}${CYAN}${k}${NORMAL}" 1>&2 ; fi  # 1.3.614
         if [[ "${k##*.}" == "expected" ]] ; then
-          if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  File ${k} has expected extension >${k##*.}<" 1>&2 ; fi
+          if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  File ${k} has expected extension >${BOLD}${CYAN}${k##*.}${NORMAL}<" 1>&2 ; fi  # 1.3.614
           rm "${k}"
         fi
       fi
@@ -93,5 +91,5 @@ for k in $(ls -1 SA-*) ; do
   fi
 done
 
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Operation finished..." 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "${BOLD}${CYAN}  Operation finished...${NORMAL}" 1>&2 ; fi  # 1.3.614
 ###
