@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/FVT-setup.sh  3.1.263.2020  2020-12-04T16:23:20.273191-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.262-1-g73de1ed  
+# 	   hooks/EXAMPLES/FVT-cleanup.sh hooks/EXAMPLES/FVT-setup.sh -->   testing  
 # 	hooks/EXAMPLES/FVT-setup.sh  3.1.260.2013  2020-12-04T15:24:24.921960-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.259  
 # 	   hooks/EXAMPLES/FVT-cleanup.sh hooks/EXAMPLES/FVT-setup.sh -->   Production standard 1.3.614 DEBUG variable  Production standard 2.3.614 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)  
 # 	hooks/EXAMPLES/FVT-setup.sh  3.1.120.1814  2020-11-12T13:28:04.220484-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.119-6-g94d18a4  
@@ -48,6 +50,7 @@ RED=$(tput    setaf 1)
 YELLOW=$(tput setaf 3)
 BLUE=$(tput   setaf 4)
 PURPLE=$(tput setaf 5)
+CYAN=$(tput   setaf 6)
 WHITE=$(tput  setaf 7)
 
 #    Date and time function ISO 8601
