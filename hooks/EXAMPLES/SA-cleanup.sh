@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/SA-cleanup.sh  3.1.255.2007  2020-12-04T13:25:43.055456-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.254  
+# 	   hooks/EXAMPLES/SA-cleanup.sh hooks/EXAMPLES/SA-permission-775-001 hooks/EXAMPLES/SA-setup.sh -->   update DEBUG test case shared variables  
 # 	hooks/EXAMPLES/SA-cleanup.sh  3.1.6.1551  2020-05-21T21:27:33.147323-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.5-42-g58ba3b2  
 # 	   hooks/EXAMPLES/SA-cleanup.sh -->   upgrade Production standards #49  
 # 	hooks/EXAMPLES/SA-cleanup.sh  2.138.787  2019-09-27T12:33:27.537389-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.137  
@@ -67,7 +69,7 @@ fi
 
 ###  Place test case cleanup here 
 
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "${BOLD}  REPOSITORY_ABSOLUTE_PATH >${CYAN}${REPOSITORY_ABSOLUTE_PATH}<${NORMAL}  EXAMPLES_DIRECTORY >${CYAN}${EXAMPLES_DIRECTORY}<${NORMAL}" 1>&2 ; fi  # 1.3.614
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "${BOLD}  REPOSITORY_ABSOLUTE_PATH >${CYAN}${REPOSITORY_ABSOLUTE_PATH}<${NORMAL}  REPOSITORY_DIR_COUNT  >${BOLD}${CYAN}${REPOSITORY_DIR_COUNT}${NORNAL}<  EXAMPLES_DIRECTORY >${CYAN}${EXAMPLES_DIRECTORY}<${NORMAL}" 1>&2 ; fi  # 1.3.614
 
 #    Remove directories
 rm -rf tmp
