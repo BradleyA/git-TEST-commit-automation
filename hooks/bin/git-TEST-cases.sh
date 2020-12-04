@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  3.1.182.1930  2020-12-01T22:37:14.185402-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.181-3-gaa9fee6  
-# 	   hooks/bin/git-TEST-cases.sh -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
+# 	hooks/bin/git-TEST-cases.sh  3.1.261.2015  2020-12-04T15:38:57.475022-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.260-1-g9a58e43  
+# 	   hooks/bin/git-TEST-cases.sh -->   ipdate SEE ALSO section  
 # 	hooks/bin/git-TEST-cases.sh  3.1.132.1847  2020-11-18T22:44:28.728514-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.131  
 # 	   hooks/bin/git-TEST-cases.sh -->   add support for -f=*|--filename=*)  
 # 	hooks/bin/git-TEST-cases.sh  3.1.130.1843  2020-11-18T15:47:45.471017-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.129  
@@ -155,8 +155,9 @@ echo -e "   Setup default SA- test cases for file sample.sh without test cases\n
 echo -e "   Check test case depth for file sample.sh (option -f)\n\t${BOLD}${COMMAND_NAME} -f sample.sh${NORMAL}\n"        # 3.550
 
 echo -e "\n${BOLD}SEE ALSO${NORMAL}"                                                        # 3.550
+echo    "   ${BOLD}git-set-env-for-manual-test.sh${NORMAL}  (https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#description)"  # 3.550
 echo    "   ${BOLD}git-setup-TEST-cases.sh${NORMAL}  (https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#description)"  # 3.550
-echo    "   ${BOLD}uninstall-git-TEST-cases.sh${NORMAL}  (https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#description)"  # 3.550
+echo    "   ${BOLD}git-uninstall-TEST-cases.sh${NORMAL}  (https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#description)"  # 3.550
 echo    "   ${BOLD}markit${NORMAL}  (https://github.com/BradleyA/markit/blob/master/README.md#markit------)"  # 3.550
 
 echo -e "\n${BOLD}AUTHOR${NORMAL}"                                                          # 3.550
