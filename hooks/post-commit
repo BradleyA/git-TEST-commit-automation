@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.1.222.1970  2020-12-03T19:04:04.968520-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.221  
+#	   hooks/EXAMPLES/SA-setup.sh hooks/post-commit -->   changing REPOSITORY_RELATIVE_PATH to EXAMPLES_DIRECTORY  
 #	hooks/post-commit  3.1.220.1968  2020-12-03T17:13:23.694747-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.219  
 #	   hooks/post-commit -->   typo  
 #	hooks/post-commit  3.1.219.1967  2020-12-03T17:01:45.196945-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.218  
@@ -82,10 +84,6 @@ set +x
 REPOSITORY_ABSOLUTE_PATH=$(git rev-parse --show-toplevel)
 export REPOSITORY_ABSOLUTE_PATH  #  export REPOSITORY_ABSOLUTE_PATH so test scripts can use it
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  REPOSITORY_ABSOLUTE_PATH  >${REPOSITORY_ABSOLUTE_PATH}<" 1>&2 ; fi  # 1.3.614
-REPOSITORY_DIR_COUNT=$(awk -F"/" '{print NF-1}' <<< "${REPOSITORY_ABSOLUTE_PATH}")  #
-REPOSITORY_DIR_COUNT=$((REPOSITORY_DIR_COUNT+1))
-export REPOSITORY_DIR_COUNT  #  export number of directories + 1
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  REPOSITORY_DIR_COUNT  >${REPOSITORY_DIR_COUNT}<" 1>&2 ; fi  # 1.3.614
 
 if [[ ! -r "${REPOSITORY_ABSOLUTE_PATH}/hooks/COMMIT_FILE_LIST" ]] ; then echo "COMMIT_FILE_LIST is created by pre-commit (git hook) and is required input for this script." ; exit 1 ; fi
 COMMIT_FILE_LIST=$(cat "${REPOSITORY_ABSOLUTE_PATH}"/hooks/COMMIT_FILE_LIST)
@@ -110,14 +108,27 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
   #    Check if COMMIT_FILE has a 'TEST' directory
   if [[ -d "${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}" ]] ; then
     echo "[${BOLD}${YELLOW}INFO${NORMAL}]         Test case directory found ${COMMIT_PATH}TEST/${BOLD}${GREEN}${COMMIT_FILE_NAME}${NORMAL}, for ${GIT_AUTHOR_NAME} (${USER})." 1>&2
-
-REPOSITORY_RELATIVE_PATH=$(git rev-parse --show-toplevel)
-export REPOSITORY_RELATIVE_PATH  #  export REPOSITORY_RELATIVE_PATH so test scripts can use it
-
     cd "${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}"
+
 # >>>
 echo "${BOLD}${YELLOW}${LINENO} post-commit >>>>>>>>>>>>>>>>   any body out there ????????????????????????????${NORMAL}"
 new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  \${COMMIT_PATH_FILE_NAME} >${COMMIT_PATH_FILE_NAME}< \${COMMIT_FILE_NAME} >${COMMIT_FILE_NAME}< \${COMMIT_PATH} >${COMMIT_PATH}< \${COMMIT_PATH}TEST/\${COMMIT_FILE_NAME} >${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}<"   # 1.3.614
+# >>>
+
+    DIR_COUNT=0  # set default to NO sub-directory included
+    if [[ "${COMMIT_PATH_FILE_NAME}" != $(basename "${COMMIT_PATH_FILE_NAME}") ]] ; then  #  Is there a sub-directory included
+      cd "$(dirname "${COMMIT_PATH_FILE_NAME}")"
+      DIR_COUNT=$(echo "${COMMIT_PATH_FILE_NAME}" | grep -o '/' | wc -l)  # count number of '/'
+    fi
+    if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  ${BOLD}${YELLOW}DIR_COUNT  >${DIR_COUNT}< COMMIT_PATH_FILE_NAME  >${COMMIT_PATH_FILE_NAME}<  pwd  >$(pwd)<${NORMAL}" 1>&2 ; fi  # 1.3.614
+    EXAMPLES_DIRECTORY="../../hooks/EXAMPLES"
+    if [[ ${DIR_COUNT} != 0 ]] ; then
+      while [[ ${DIR_COUNT} != 0 ]] ; do  DIR_COUNT=$((DIR_COUNT - 1)) ; EXAMPLES_DIRECTORY="../${EXAMPLES_DIRECTORY}" ; done
+    fi
+    if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  EXAMPLES_DIRECTORY >${EXAMPLES_DIRECTORY}<" 1>&2 ; fi
+    export EXAMPLES_DIRECTORY  #  export EXAMPLES_DIRECTORY so test scripts can use it
+
+# >>>	REPOSITORY_RELATIVE_PATH  need change REPOSITORY_RELATIVE_PATH everywhere to EXAMPLES_DIRECTORY
 pwd
 ls -la
 # >>>
@@ -127,15 +138,12 @@ ls -la
     if [[ -s "${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-cleanup.sh" ]] ; then
 # >>>
 echo "${BOLD}${YELLOW}${LINENO} post-commit >>>>>>>>>>>>>>>>>>>   RUN SA.cleanup${NORMAL}"
-pwd
-ls -la
-set -x
 # >>>
-      "${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-cleanup.sh" "${REPOSITORY_ABSOLUTE_PATH}"
+# >>> remove because no argument is required      "${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-cleanup.sh" "${REPOSITORY_ABSOLUTE_PATH}"
+    "${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-cleanup.sh"
 # >>>
 echo "${BOLD}${YELLOW}${LINENO} post-commit >>>>>>>>>>>>>>>>>>>   ${CYAN}finished SA.cleanup${NORMAL}"
 ls -la
-set +x
 # >>>
     fi
 
@@ -147,7 +155,7 @@ pwd
 ls -la
 set -x
 # >>>
-      "${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-setup.sh" "${REPOSITORY_ABSOLUTE_PATH}"
+      "${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-setup.sh" "${REPOSITORY_ABSOLUTE_PATH}" "${REPOSITORY_RELATIVE_PATH}"
 # >>>
 echo "${BOLD}${YELLOW}${LINENO} post-commit >>>>>>>>>>>>>>>>>>>   ${CYAN}finished SA.setup${NORMAL}"
 ls -la

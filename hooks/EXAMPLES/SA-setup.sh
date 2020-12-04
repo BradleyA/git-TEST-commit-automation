@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/EXAMPLES/SA-setup.sh  3.1.222.1970  2020-12-03T19:03:58.474309-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.221  
+# 	   hooks/EXAMPLES/SA-setup.sh hooks/post-commit -->   changing REPOSITORY_RELATIVE_PATH to EXAMPLES_DIRECTORY  
 # 	hooks/EXAMPLES/SA-setup.sh  3.1.221.1969  2020-12-03T17:50:26.528335-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.220  
 # 	   hooks/EXAMPLES/SA-setup.sh -->   Production standard 1.3.614 DEBUG variable  Production standard 2.3.614 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)  
 # 	hooks/EXAMPLES/SA-setup.sh  3.1.216.1964  2020-12-03T12:53:34.913190-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.215  
@@ -77,45 +79,49 @@ fi
 DEBUG=1
 # >>>
 
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "${BOLD}  REPOSITORY_ABSOLUTE_PATH >${CYAN}${REPOSITORY_ABSOLUTE_PATH}<${NORMAL}  REPOSITORY_RELATIVE_PATH >${CYAN}${REPOSITORY_RELATIVE_PATH}<${NORMAL}" 1>&2 ; fi  # 1.3.614
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "${BOLD}  REPOSITORY_ABSOLUTE_PATH >${CYAN}${REPOSITORY_ABSOLUTE_PATH}<${NORMAL}  EXAMPLES_DIRECTORY >${CYAN}${EXAMPLES_DIRECTORY}<${NORMAL}" 1>&2 ; fi  # 1.3.614
 if [[ ! -z "${1}" ]] ; then  # post-commit must pass REPOSITORY_ABSOLUTE_PATH because post-commit is executed in .git/hooks/ which is not in the repository
   REPOSITORY_ABSOLUTE_PATH=${1}
-  if [[ ! -z "${2}" ]] ; then  # post-commit must pass REPOSITORY_RELATIVE_PATH top-level directory relative to the current directory
-    REPOSITORY_RELATIVE_PATH=${2}
+# >>>
+  if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  EXAMPLES_DIRECTORY >${EXAMPLES_DIRECTORY}<" 1>&2 ; fi
+# >>>
+
+  if [[ ! -z "${2}" ]] ; then  # post-commit must pass EXAMPLES_DIRECTORY top-level directory relative to the current directory
+    EXAMPLES_DIRECTORY=${2}
   else
-    new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${YELLOW}REPOSITORY_RELATIVE_PATH${WHITE}, not received as second argument." 1>&2
+    new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${YELLOW}EXAMPLES_DIRECTORY${WHITE}, not received as second argument." 1>&2
   fi
 else
   new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${YELLOW}REPOSITORY_ABSOLUTE_PATH${WHITE}, not received as first argument." 1>&2
 fi
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "${BOLD}  REPOSITORY_ABSOLUTE_PATH >${CYAN}${REPOSITORY_ABSOLUTE_PATH}<${NORMAL}  REPOSITORY_RELATIVE_PATH >${CYAN}${REPOSITORY_RELATIVE_PATH}<${NORMAL}" 1>&2 ; fi  # 1.3.614
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "${BOLD}  REPOSITORY_ABSOLUTE_PATH >${CYAN}${REPOSITORY_ABSOLUTE_PATH}<${NORMAL}  EXAMPLES_DIRECTORY >${CYAN}${EXAMPLES_DIRECTORY}<${NORMAL}" 1>&2 ; fi  # 1.3.614
 
 #    Uncomment shared TEST cases for command
-#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-exit-code-error-124-001"   SA-exit-code-error-124-001
-#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-exit-code-error-124-002"   SA-exit-code-error-124-002
-#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-exit-code-error-2-001"     SA-exit-code-error-2-001
+#  ln -fs "${EXAMPLES_DIRECTORY}hooks/EXAMPLES/SA-exit-code-error-124-001"   SA-exit-code-error-124-001
+#  ln -fs "${EXAMPLES_DIRECTORY}hooks/EXAMPLES/SA-exit-code-error-124-002"   SA-exit-code-error-124-002
+#  ln -fs "${EXAMPLES_DIRECTORY}hooks/EXAMPLES/SA-exit-code-error-2-001"     SA-exit-code-error-2-001
 #
-#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-400-001"        SA-permission-400-001
-#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-440-001"        SA-permission-440-001
-#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-444-001"        SA-permission-444-001
-#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-640-001"        SA-permission-640-001
-#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-644-001"        SA-permission-644-001
-#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-664-001"        SA-permission-664-001
-#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-600-001"        SA-permission-600-001
-#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-660-001"        SA-permission-660-001
-#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-666-001"        SA-permission-666-001
-#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-750-001"        SA-permission-750-001
-#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-755-001"        SA-permission-755-001
-#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-700-001"        SA-permission-700-001
-#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-770-001"        SA-permission-770-001
-ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-775-001"        SA-permission-775-001
-#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-777-001"        SA-permission-777-001
+#  ln -fs "${EXAMPLES_DIRECTORY}hooks/EXAMPLES/SA-permission-400-001"        SA-permission-400-001
+#  ln -fs "${EXAMPLES_DIRECTORY}hooks/EXAMPLES/SA-permission-440-001"        SA-permission-440-001
+#  ln -fs "${EXAMPLES_DIRECTORY}hooks/EXAMPLES/SA-permission-444-001"        SA-permission-444-001
+#  ln -fs "${EXAMPLES_DIRECTORY}hooks/EXAMPLES/SA-permission-640-001"        SA-permission-640-001
+#  ln -fs "${EXAMPLES_DIRECTORY}hooks/EXAMPLES/SA-permission-644-001"        SA-permission-644-001
+#  ln -fs "${EXAMPLES_DIRECTORY}hooks/EXAMPLES/SA-permission-664-001"        SA-permission-664-001
+#  ln -fs "${EXAMPLES_DIRECTORY}hooks/EXAMPLES/SA-permission-600-001"        SA-permission-600-001
+#  ln -fs "${EXAMPLES_DIRECTORY}hooks/EXAMPLES/SA-permission-660-001"        SA-permission-660-001
+#  ln -fs "${EXAMPLES_DIRECTORY}hooks/EXAMPLES/SA-permission-666-001"        SA-permission-666-001
+#  ln -fs "${EXAMPLES_DIRECTORY}hooks/EXAMPLES/SA-permission-750-001"        SA-permission-750-001
+#  ln -fs "${EXAMPLES_DIRECTORY}hooks/EXAMPLES/SA-permission-755-001"        SA-permission-755-001
+#  ln -fs "${EXAMPLES_DIRECTORY}hooks/EXAMPLES/SA-permission-700-001"        SA-permission-700-001
+#  ln -fs "${EXAMPLES_DIRECTORY}hooks/EXAMPLES/SA-permission-770-001"        SA-permission-770-001
+ln -fs "${EXAMPLES_DIRECTORY}hooks/EXAMPLES/SA-permission-775-001"        SA-permission-775-001
+#  ln -fs "${EXAMPLES_DIRECTORY}hooks/EXAMPLES/SA-permission-777-001"        SA-permission-777-001
 #
-#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-dir-001"        SA-permission-dir-001
-#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-grp-10000-001"  SA-permission-grp-10000-001
-#  ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-permission-own-10000-001"  SA-permission-own-10000-001
+#  ln -fs "${EXAMPLES_DIRECTORY}hooks/EXAMPLES/SA-permission-dir-001"        SA-permission-dir-001
+#  ln -fs "${EXAMPLES_DIRECTORY}hooks/EXAMPLES/SA-permission-grp-10000-001"  SA-permission-grp-10000-001
+#  ln -fs "${EXAMPLES_DIRECTORY}hooks/EXAMPLES/SA-permission-own-10000-001"  SA-permission-own-10000-001
 #
-ln -fs "${REPOSITORY_RELATIVE_PATH}hooks/EXAMPLES/SA-shellcheck-001"            SA-shellcheck-001
+ln -fs "${EXAMPLES_DIRECTORY}hooks/EXAMPLES/SA-shellcheck-001"            SA-shellcheck-001
 #
 
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "${BOLD}${CYAN}  Operation finished...${NORMAL}" 1>&2 ; fi  # 1.3.614
