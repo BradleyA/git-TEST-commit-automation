@@ -1,6 +1,4 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/SA-setup.sh  3.1.241.1989  2020-12-04T00:03:09.686998-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.240  
-# 	   hooks/EXAMPLES/SA-cleanup.sh hooks/EXAMPLES/SA-setup.sh -->   testing  
 # 	hooks/EXAMPLES/SA-setup.sh  3.1.221.1969  2020-12-03T17:50:26.528335-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.220  
 # 	   hooks/EXAMPLES/SA-setup.sh -->   Production standard 1.3.614 DEBUG variable  Production standard 2.3.614 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)  
 #86# hooks/EXAMPLES/SA-setup.sh - This script is optional.  It is for 
