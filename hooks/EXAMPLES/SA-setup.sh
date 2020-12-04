@@ -1,12 +1,8 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/SA-setup.sh  3.1.222.1970  2020-12-03T19:03:58.474309-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.221  
-# 	   hooks/EXAMPLES/SA-setup.sh hooks/post-commit -->   changing REPOSITORY_RELATIVE_PATH to EXAMPLES_DIRECTORY  
+# 	hooks/EXAMPLES/SA-setup.sh  3.1.224.1972  2020-12-03T19:29:31.454541-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.223  
+# 	   hooks/EXAMPLES/SA-setup.sh -->   testing  
 # 	hooks/EXAMPLES/SA-setup.sh  3.1.221.1969  2020-12-03T17:50:26.528335-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.220  
 # 	   hooks/EXAMPLES/SA-setup.sh -->   Production standard 1.3.614 DEBUG variable  Production standard 2.3.614 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)  
-# 	hooks/EXAMPLES/SA-setup.sh  3.1.216.1964  2020-12-03T12:53:34.913190-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.215  
-# 	   hooks/EXAMPLES/SA-setup.sh hooks/post-commit -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
-# 	hooks/EXAMPLES/SA-setup.sh  3.1.211.1959  2020-12-02T21:01:28.827024-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.210  
-# 	   hooks/EXAMPLES/SA-setup.sh -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
 #86# hooks/EXAMPLES/SA-setup.sh - This script is optional.  It is for 
 #    'Production standard 10.0 TESTing' test cases.  Copy it to TEST/<file_name>/.
 #    If SA-setup.sh is found in TEST/<file_name>/ post-commit executes it.
