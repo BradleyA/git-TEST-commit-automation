@@ -1,7 +1,5 @@
 #!/bin/bash
-#	hooks/EXAMPLES/SA-permission-775-001  3.1.255.2007  2020-12-04T13:25:55.711916-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.254  
-#	   hooks/EXAMPLES/SA-cleanup.sh hooks/EXAMPLES/SA-permission-775-001 hooks/EXAMPLES/SA-setup.sh -->   update DEBUG test case shared variables  
-#	hooks/EXAMPLES/SA-permission-775-001  3.1.254.2006  2020-12-04T13:03:33.487876-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.253-3-gcd027c5  
+#	hooks/EXAMPLES/SA-permission-775-001  3.1.256.2008  2020-12-04T13:43:44.424851-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.255  
 #	   hooks/EXAMPLES/SA-permission-775-001 -->   testing  
 #	hooks/EXAMPLES/SA-permission-775-001  3.1.24.1570  2020-05-21T23:29:42.070168-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.23  
 #	   hooks/EXAMPLES/SA-permission-775-001 -->   upgrade Production standards #49  
@@ -76,8 +74,6 @@ fi
 
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "${BOLD}  REPOSITORY_ABSOLUTE_PATH >${CYAN}${REPOSITORY_ABSOLUTE_PATH}<${NORMAL}  REPOSITORY_DIR_COUNT  >${BOLD}${CYAN}${REPOSITORY_DIR_COUNT}${NORNAL}<  EXAMPLES_DIRECTORY >${CYAN}${EXAMPLES_DIRECTORY}<${NORMAL}" 1>&2 ; fi  # 1.3.614
 
-echo ">>> what is this?  ${0}<"
-set -x
 TEST_CASE_TMP_1=$(echo "${0}" | cut -d'/' -f"${REPOSITORY_DIR_COUNT}"-)
 TEST_CASE_TMP_2=$(dirname -- "${TEST_CASE_TMP_1}")
 TEST_CASE_TMP_3=$(basename -- "${TEST_CASE_TMP_1}")
@@ -85,7 +81,6 @@ TEST_CASE="${TEST_CASE_TMP_2}/${BOLD}${YELLOW}${TEST_CASE_TMP_3}${NORMAL}"
 FILE_NAME_TMP_1=$(echo "${1}" | cut -d'/' -f"${REPOSITORY_DIR_COUNT}"-)
 FILE_NAME_TMP_3=$(basename -- "${FILE_NAME_TMP_1}")
 FILE_NAME="${BOLD}${YELLOW}${FILE_NAME_TMP_3}${NORMAL}"
-set +x
 
 if [[ ! -x ${1} ]] ; then  #  Command invoked does not exist or cannot execute
   RETURN_CODE=126
