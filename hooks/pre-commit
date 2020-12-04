@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/pre-commit  3.1.234.1982  2020-12-03T23:01:57.038962-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.233  
+#	   hooks/post-commit hooks/pre-commit -->   Production standard 1.3.614 DEBUG variable  Production standard 2.3.614 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)  
 #	hooks/pre-commit  3.1.169.1900  2020-11-24T15:48:02.692777-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.168  
 #	   hooks/pre-commit -->   change REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
 #86# hooks/pre-commit  -  (git hook)  Create ${REPOSITORY_ABSOLUTE_PATH}/hooks/COMMIT_FILE_LIST which includes files being committed
@@ -6,7 +8,7 @@
 ###  Production standard 5.3.559 Copyright                                    # 3.559
 #    Copyright (c) 2020 Bradley Allen                                                # 3.555
 #    MIT License is online in the repository as a file named LICENSE"         # 3.559
-###  Production standard 1.3.550 DEBUG variable                                             # 3.550
+###  Production standard 1.3.614 DEBUG variable
 #    Order of precedence: environment variable, default code
 if [[ "${DEBUG}" == ""  ]] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
 if [[ "${DEBUG}" == "2" ]] ; then set -x    ; fi   # Print trace of simple commands before they are executed
@@ -17,6 +19,9 @@ if [[ "${DEBUG}" == "5" ]] ; then set -e -o pipefail ; fi   # Exit immediately i
 BOLD=$(tput -Txterm bold)
 NORMAL=$(tput -Txterm sgr0)
 YELLOW=$(tput setaf 3)
+BLUE=$(tput   setaf 4)
+PURPLE=$(tput setaf 5)
+CYAN=$(tput   setaf 6)
 WHITE=$(tput  setaf 7)
 
 #    Date and time function ISO 8601
@@ -41,23 +46,23 @@ if [[ "${SCRIPT_VERSION}" == "" ]] ; then SCRIPT_VERSION="v?.?" ; fi
 #    GID
 GROUP_ID=$(id -g)
 
-###  Production standard 2.3.529 log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)
+###  Production standard 2.3.614 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)
 new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
   get_date_stamp
-  echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${SCRIPT_NAME}[$$] ${SCRIPT_VERSION} ${1} ${USER} ${UID}:${GROUP_ID} ${BOLD}[${2}]${NORMAL}  ${3}"
+  echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${BOLD}${CYAN}${SCRIPT_NAME}${NORMAL}[$$] ${BOLD}${BLUE}${SCRIPT_VERSION} ${PURPLE}${1}${NORMAL} ${USER} ${UID}:${GROUP_ID} ${BOLD}[${2}]${NORMAL}  ${3}"  # 2.3.614
 }
 
 #    INFO
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "${BOLD}${CYAN}  Started...${NORMAL}" 1>&2 ; fi  # 1.3.614
 
 ### production standard 10.0 TESTing
 
 REPOSITORY_ABSOLUTE_PATH=$(git rev-parse --show-toplevel)
 cd "${REPOSITORY_ABSOLUTE_PATH}"
 if [[ ! -d "${REPOSITORY_ABSOLUTE_PATH}/hooks" ]] ; then mkdir -p "${REPOSITORY_ABSOLUTE_PATH}/hooks" ; fi
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Creating ${REPOSITORY_ABSOLUTE_PATH}/hooks/COMMIT_FILE_LIST file includes files being committed${NORMAL} for ${GIT_AUTHOR_NAME} (${USER})." 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  Creating ${REPOSITORY_ABSOLUTE_PATH}/hooks/COMMIT_FILE_LIST file includes files being committed${NORMAL} for ${GIT_AUTHOR_NAME} (${USER})." 1>&2 ; fi  # 1.3.614
 git status -s --untracked-files=no | grep -v '^D  ' | awk '{print $2}' > "${REPOSITORY_ABSOLUTE_PATH}"/hooks/COMMIT_FILE_LIST
 
 #
-if [ "${DEBUG}" == "1" ] ; then new_message "${LINENO}" "INFO" "  Operation finished..." 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "${BOLD}${CYAN}  Operation finished...${NORMAL}" 1>&2 ; fi  # 1.3.614
 ###

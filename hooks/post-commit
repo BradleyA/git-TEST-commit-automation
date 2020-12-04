@@ -1,18 +1,8 @@
 #!/bin/bash
-#	hooks/post-commit  3.1.233.1981  2020-12-03T20:34:55.498660-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.232  
-#	   hooks/post-commit -->   testing  
-#	hooks/post-commit  3.1.230.1978  2020-12-03T20:23:29.074277-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.229  
-#	   hooks/post-commit -->   testing  
-#	hooks/post-commit  3.1.228.1976  2020-12-03T20:14:43.924544-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.227  
-#	   hooks/post-commit -->   testing  
-#	hooks/post-commit  3.1.227.1975  2020-12-03T20:01:33.054672-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.226  
-#	   hooks/EXAMPLES/SA-cleanup.sh hooks/EXAMPLES/SA-setup.sh hooks/post-commit -->   testing  
+#	hooks/post-commit  3.1.234.1982  2020-12-03T23:01:49.496495-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.233  
+#	   hooks/post-commit hooks/pre-commit -->   Production standard 1.3.614 DEBUG variable  Production standard 2.3.614 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)  
 #	hooks/post-commit  3.1.223.1971  2020-12-03T19:25:02.622038-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.222  
 #	   hooks/post-commit -->   change DEBUG output format  
-#	hooks/post-commit  3.1.222.1970  2020-12-03T19:04:04.968520-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.221  
-#	   hooks/EXAMPLES/SA-setup.sh hooks/post-commit -->   changing REPOSITORY_RELATIVE_PATH to EXAMPLES_DIRECTORY  
-#	hooks/post-commit  3.1.220.1968  2020-12-03T17:13:23.694747-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.219  
-#	   hooks/post-commit -->   typo  
 #	hooks/post-commit  3.1.219.1967  2020-12-03T17:01:45.196945-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.218  
 #	   hooks/post-commit -->   ###  Production standard 2.3.614 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)  
 #	hooks/post-commit  2.373.1261  2020-01-25T21:40:56.673970-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.372  
@@ -79,7 +69,6 @@ new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
 }
 
 #    INFO
-DEBUG=1
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "${BOLD}${CYAN}  Started...${NORMAL}" 1>&2 ; fi  # 1.3.614
 
 ###  Production standard 10.0 TESTing 
@@ -239,5 +228,4 @@ echo -e "${NORMAL}\n"
 
 #
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "${BOLD}${CYAN}  Operation finished...${NORMAL}" 1>&2 ; fi  # 1.3.614
-DEBUG=0
 ###
