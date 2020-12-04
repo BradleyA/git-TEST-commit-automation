@@ -1,5 +1,7 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  3.1.262.2018  2020-12-04T16:11:34.317893-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.261-2-g768e620  
+# 	hooks/bin/git-TEST-cases.sh  3.1.263.2019  2020-12-04T16:16:27.865146-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.262  
+# 	   hooks/bin/git-TEST-cases.sh -->   testing  
+# 	hooks/bin/git-TEST-cases.sh  3.1.262.2018  2020-12-04T16:11:34.317893-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.261-2-g768e620 
 # 	   hooks/bin/git-TEST-cases.sh -->   Production standard 1.3.614 DEBUG variable  Production standard 2.3.614 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)  
 # 	hooks/bin/git-TEST-cases.sh  3.1.261.2015  2020-12-04T15:38:57.475022-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.260-1-g9a58e43  
 # 	   hooks/bin/git-TEST-cases.sh -->   ipdate SEE ALSO section  
