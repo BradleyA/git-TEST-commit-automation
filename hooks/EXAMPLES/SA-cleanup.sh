@@ -1,6 +1,4 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/SA-cleanup.sh  3.1.257.2009  2020-12-04T13:50:15.131151-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.256  
-# 	   hooks/EXAMPLES/SA-cleanup.sh hooks/EXAMPLES/SA-permission-775-001 hooks/EXAMPLES/SA-setup.sh -->   testing  
 # 	hooks/EXAMPLES/SA-cleanup.sh  3.1.6.1551  2020-05-21T21:27:33.147323-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.5-42-g58ba3b2  
 # 	   hooks/EXAMPLES/SA-cleanup.sh -->   upgrade Production standards #49  
 # 	hooks/EXAMPLES/SA-cleanup.sh  2.138.787  2019-09-27T12:33:27.537389-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.137  

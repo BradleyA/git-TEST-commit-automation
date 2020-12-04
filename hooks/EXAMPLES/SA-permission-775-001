@@ -1,6 +1,4 @@
 #!/bin/bash
-#	hooks/EXAMPLES/SA-permission-775-001  3.1.257.2009  2020-12-04T13:50:21.446595-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.256  
-#	   hooks/EXAMPLES/SA-cleanup.sh hooks/EXAMPLES/SA-permission-775-001 hooks/EXAMPLES/SA-setup.sh -->   testing  
 #	hooks/EXAMPLES/SA-permission-775-001  3.1.24.1570  2020-05-21T23:29:42.070168-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.23  
 #	   hooks/EXAMPLES/SA-permission-775-001 -->   upgrade Production standards #49  
 #	hooks/EXAMPLES/SA-permission-775-001  2.447.1341  2020-01-30T15:07:08.720474-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.446  
