@@ -1,5 +1,5 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/SA-setup.sh  3.1.225.1973  2020-12-03T19:34:32.000353-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.224  
+# 	hooks/EXAMPLES/SA-setup.sh  3.1.226.1974  2020-12-03T19:42:38.900235-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.225  
 # 	   hooks/EXAMPLES/SA-setup.sh -->   testing  
 # 	hooks/EXAMPLES/SA-setup.sh  3.1.221.1969  2020-12-03T17:50:26.528335-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.220  
 # 	   hooks/EXAMPLES/SA-setup.sh -->   Production standard 1.3.614 DEBUG variable  Production standard 2.3.614 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)  
@@ -71,26 +71,23 @@ fi
 
 ###  Production standard 10.0 TESTing 
 
-# >>>
-DEBUG=1
-# >>>
-
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "${BOLD}  REPOSITORY_ABSOLUTE_PATH >${CYAN}${REPOSITORY_ABSOLUTE_PATH}<${NORMAL}  EXAMPLES_DIRECTORY >${CYAN}${EXAMPLES_DIRECTORY}<${NORMAL}" 1>&2 ; fi  # 1.3.614
-if [[ ! -z "${1}" ]] ; then  # post-commit must pass REPOSITORY_ABSOLUTE_PATH because post-commit is executed in .git/hooks/ which is not in the repository
-  REPOSITORY_ABSOLUTE_PATH=${1}
-# >>>
-  if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  EXAMPLES_DIRECTORY >${EXAMPLES_DIRECTORY}<" 1>&2 ; fi
-# >>>
 
-  if [[ ! -z "${2}" ]] ; then  # post-commit must pass EXAMPLES_DIRECTORY top-level directory relative to the current directory
-    EXAMPLES_DIRECTORY=${2}
-  else
-    new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${YELLOW}EXAMPLES_DIRECTORY${WHITE}, not received as second argument." 1>&2
-  fi
-else
-  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${YELLOW}REPOSITORY_ABSOLUTE_PATH${WHITE}, not received as first argument." 1>&2
-fi
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "${BOLD}  REPOSITORY_ABSOLUTE_PATH >${CYAN}${REPOSITORY_ABSOLUTE_PATH}<${NORMAL}  EXAMPLES_DIRECTORY >${CYAN}${EXAMPLES_DIRECTORY}<${NORMAL}" 1>&2 ; fi  # 1.3.614
+# >>>if [[ ! -z "${1}" ]] ; then  # post-commit must pass REPOSITORY_ABSOLUTE_PATH because post-commit is executed in .git/hooks/ which is not in the repository
+# >>>  REPOSITORY_ABSOLUTE_PATH=${1}
+# >>>
+# >>>  if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  EXAMPLES_DIRECTORY >${EXAMPLES_DIRECTORY}<" 1>&2 ; fi
+# >>>
+# >>>
+# >>>  if [[ ! -z "${2}" ]] ; then  # post-commit must pass EXAMPLES_DIRECTORY top-level directory relative to the current directory
+# >>>    EXAMPLES_DIRECTORY=${2}
+# >>>  else
+# >>>    new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${YELLOW}EXAMPLES_DIRECTORY${WHITE}, not received as second argument." 1>&2
+# >>>  fi
+# >>>else
+# >>>  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${YELLOW}REPOSITORY_ABSOLUTE_PATH${WHITE}, not received as first argument." 1>&2
+# >>>fi
+# >>>if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "${BOLD}  REPOSITORY_ABSOLUTE_PATH >${CYAN}${REPOSITORY_ABSOLUTE_PATH}<${NORMAL}  EXAMPLES_DIRECTORY >${CYAN}${EXAMPLES_DIRECTORY}<${NORMAL}" 1>&2 ; fi  # 1.3.614
 
 #    Uncomment shared TEST cases for command
 #  ln -fs "${EXAMPLES_DIRECTORY}/SA-exit-code-error-124-001"   SA-exit-code-error-124-001
