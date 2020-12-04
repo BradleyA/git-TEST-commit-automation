@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/SA-setup.sh  3.1.255.2007  2020-12-04T13:25:55.978567-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.254  
-# 	   hooks/EXAMPLES/SA-cleanup.sh hooks/EXAMPLES/SA-permission-775-001 hooks/EXAMPLES/SA-setup.sh -->   update DEBUG test case shared variables  
+# 	hooks/EXAMPLES/SA-setup.sh  3.1.257.2009  2020-12-04T13:50:21.675208-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.256  
+# 	   hooks/EXAMPLES/SA-cleanup.sh hooks/EXAMPLES/SA-permission-775-001 hooks/EXAMPLES/SA-setup.sh -->   testing  
 # 	hooks/EXAMPLES/SA-setup.sh  3.1.221.1969  2020-12-03T17:50:26.528335-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.220  
 # 	   hooks/EXAMPLES/SA-setup.sh -->   Production standard 1.3.614 DEBUG variable  Production standard 2.3.614 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)  
 #86# hooks/EXAMPLES/SA-setup.sh - This script is optional.  It is for 
@@ -71,7 +71,7 @@ fi
 
 ###  Production standard 10.0 TESTing 
 
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "${BOLD}  REPOSITORY_ABSOLUTE_PATH >${CYAN}${REPOSITORY_ABSOLUTE_PATH}<${NORMAL}  REPOSITORY_DIR_COUNT  >${BOLD}${CYAN}${REPOSITORY_DIR_COUNT}${NORNAL}<  EXAMPLES_DIRECTORY >${CYAN}${EXAMPLES_DIRECTORY}<${NORMAL}" 1>&2 ; fi  # 1.3.614
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "${BOLD}  REPOSITORY_ABSOLUTE_PATH >${CYAN}${REPOSITORY_ABSOLUTE_PATH}<${NORMAL}  REPOSITORY_DIR_COUNT  >${BOLD}${CYAN}${REPOSITORY_DIR_COUNT}${NORMAL}<  EXAMPLES_DIRECTORY >${CYAN}${EXAMPLES_DIRECTORY}<${NORMAL}" 1>&2 ; fi  # 1.3.614
 
 #    Uncomment shared TEST cases for command
 #  ln -fs "${EXAMPLES_DIRECTORY}/SA-exit-code-error-124-001"   SA-exit-code-error-124-001
