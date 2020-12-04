@@ -1,2 +1,0 @@
-#	hooks/EXAMPLES/TEST/SA-setup.sh/SA-shellcheck-001.expected  3.1.181.1926  2020-12-01T12:58:29.329482-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.180  
-#	   hooks/EXAMPLES/SA-cleanup.sh hooks/EXAMPLES/TEST/SA-setup.sh/SA-shellcheck-001.expected -->   testing REPOSITORY_DIR  to  REPOSITORY_ABSOLUTE_PATH  
