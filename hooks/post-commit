@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.1.228.1976  2020-12-03T20:14:43.924544-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.227  
+#	   hooks/post-commit -->   testing  
 #	hooks/post-commit  3.1.227.1975  2020-12-03T20:01:33.054672-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.226  
 #	   hooks/EXAMPLES/SA-cleanup.sh hooks/EXAMPLES/SA-setup.sh hooks/post-commit -->   testing  
 #	hooks/post-commit  3.1.223.1971  2020-12-03T19:25:02.622038-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.222  
@@ -78,13 +80,6 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}
 
 ###  Production standard 10.0 TESTing 
 
-# >>>
-echo "${BOLD}${YELLOW}${LINENO} post-commit >>>>>>>>>>>>>>>>>>>   ${NORMAL}"
-pwd
-set -x
-ls -la /home/uadmin/github/BradleyA/git-TEST-commit-automation/hooks/EXAMPLES/TEST/SA-setup.sh
-set +x
-# >>>
 REPOSITORY_ABSOLUTE_PATH=$(git rev-parse --show-toplevel)
 export REPOSITORY_ABSOLUTE_PATH  #  export REPOSITORY_ABSOLUTE_PATH so test scripts can use it
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  REPOSITORY_ABSOLUTE_PATH  >${BOLD}${CYAN}${REPOSITORY_ABSOLUTE_PATH}${NORMAL}<" 1>&2 ; fi  # 1.3.614
@@ -113,12 +108,6 @@ for COMMIT_PATH_FILE_NAME in ${COMMIT_FILE_LIST} ; do
   if [[ -d "${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}" ]] ; then
     echo "[${BOLD}${YELLOW}INFO${NORMAL}]         Test case directory found ${COMMIT_PATH}TEST/${BOLD}${GREEN}${COMMIT_FILE_NAME}${NORMAL}, for ${GIT_AUTHOR_NAME} (${USER})." 1>&2
     cd "${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}"
-
-# >>>
-echo "${BOLD}${YELLOW}${LINENO} post-commit >>>>>>>>>>>>>>>>   any body out there ????????????????????????????${NORMAL}"
-new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  \${COMMIT_PATH_FILE_NAME} >${COMMIT_PATH_FILE_NAME}< \${COMMIT_FILE_NAME} >${COMMIT_FILE_NAME}< \${COMMIT_PATH} >${COMMIT_PATH}< \${COMMIT_PATH}TEST/\${COMMIT_FILE_NAME} >${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}<"   # 1.3.614
-# >>>
-
     DIR_COUNT=0  # set default to NO sub-directory included
     if [[ "${COMMIT_PATH_FILE_NAME}" != $(basename "${COMMIT_PATH_FILE_NAME}") ]] ; then  #  Is there a sub-directory included
       cd "$(dirname "${COMMIT_PATH_FILE_NAME}")"
@@ -131,41 +120,24 @@ new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  \${COMMIT_PATH_FILE_NAME} >$
     fi
     if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  EXAMPLES_DIRECTORY >${BOLD}${CYAN}${EXAMPLES_DIRECTORY}${NORMAL}<" 1>&2 ; fi
     export EXAMPLES_DIRECTORY  #  export EXAMPLES_DIRECTORY so test scripts can use it
-
-# >>>	REPOSITORY_RELATIVE_PATH  need change REPOSITORY_RELATIVE_PATH everywhere to EXAMPLES_DIRECTORY
-pwd
-ls -la
-# >>>
-
     ###  SA (Static Analysis)
     #    run SA-cleanup.sh if found
     if [[ -s "${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-cleanup.sh" ]] ; then
-# >>>
-echo "${BOLD}${YELLOW}${LINENO} post-commit >>>>>>>>>>>>>>>>>>>   RUN SA.cleanup${NORMAL}"
-# >>>
-# >>> remove because no argument is required      "${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-cleanup.sh" "${REPOSITORY_ABSOLUTE_PATH}"
-    "${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-cleanup.sh"
-# >>>
-echo "${BOLD}${YELLOW}${LINENO} post-commit >>>>>>>>>>>>>>>>>>>   ${CYAN}finished SA.cleanup${NORMAL}"
-ls -la
-# >>>
+      "${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-cleanup.sh"
     fi
-
     #    run SA-setup.sh if found
     if [[ -s "${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-setup.sh" ]] ; then
 # >>>
 echo "${BOLD}${YELLOW}${LINENO} post-commit >>>>>>>>>>>>>>>>>>>   RUN SA.setup${NORMAL}"
 pwd
 ls -la
-set -x
 # >>>
-      "${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-setup.sh" "${REPOSITORY_ABSOLUTE_PATH}" "${REPOSITORY_RELATIVE_PATH}"
+# >>>      "${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-setup.sh" "${REPOSITORY_ABSOLUTE_PATH}" "${REPOSITORY_RELATIVE_PATH}"
+      "${REPOSITORY_ABSOLUTE_PATH}/${COMMIT_PATH}TEST/${COMMIT_FILE_NAME}/SA-setup.sh"
 # >>>
 echo "${BOLD}${YELLOW}${LINENO} post-commit >>>>>>>>>>>>>>>>>>>   ${CYAN}finished SA.setup${NORMAL}"
 ls -la
-set +x
 # >>>
-ls -la
     fi
 
     #    Create list of test cases
