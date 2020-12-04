@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.1.236.1984  2020-12-03T23:39:06.558608-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.235  
+#	   hooks/post-commit -->   add REPOSITORY_DIR_COUNT for some SA & FVT test cases  
 #	hooks/post-commit  3.1.234.1982  2020-12-03T23:01:49.496495-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.233  
 #	   hooks/post-commit hooks/pre-commit -->   Production standard 1.3.614 DEBUG variable  Production standard 2.3.614 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)  
 #	hooks/post-commit  3.1.223.1971  2020-12-03T19:25:02.622038-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.222  
@@ -76,6 +78,10 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}
 REPOSITORY_ABSOLUTE_PATH=$(git rev-parse --show-toplevel)
 export REPOSITORY_ABSOLUTE_PATH  #  export REPOSITORY_ABSOLUTE_PATH so test scripts can use it
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  REPOSITORY_ABSOLUTE_PATH  >${BOLD}${CYAN}${REPOSITORY_ABSOLUTE_PATH}${NORMAL}<" 1>&2 ; fi  # 1.3.614
+REPOSITORY_DIR_COUNT=$(awk -F"/" '{print NF-1}' <<< "${REPOSITORY_ABSOLUTE_PATH}")  # Some SA & FVT test cases require REPOSITORY_DIR_COUNT
+REPOSITORY_DIR_COUNT=$((REPOSITORY_DIR_COUNT+1))
+export REPOSITORY_DIR_COUNT  #  export number of directories + 1
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  REPOSITORY_DIR_COUNT  >${BOLD}${CYAN}${REPOSITORY_DIR_COUNT}${NORNAL}<" 1>&2 ; fi  # 1.3.614
 
 if [[ ! -r "${REPOSITORY_ABSOLUTE_PATH}/hooks/COMMIT_FILE_LIST" ]] ; then echo "COMMIT_FILE_LIST is created by pre-commit (git hook) and is required input for this script." ; exit 1 ; fi
 COMMIT_FILE_LIST=$(cat "${REPOSITORY_ABSOLUTE_PATH}"/hooks/COMMIT_FILE_LIST)
