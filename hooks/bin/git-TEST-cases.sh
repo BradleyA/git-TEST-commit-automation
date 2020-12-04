@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/git-TEST-cases.sh  3.1.262.2018  2020-12-04T16:11:34.317893-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.261-2-g768e620  
+# 	   hooks/bin/git-TEST-cases.sh -->   Production standard 1.3.614 DEBUG variable  Production standard 2.3.614 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)  
 # 	hooks/bin/git-TEST-cases.sh  3.1.261.2015  2020-12-04T15:38:57.475022-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.260-1-g9a58e43  
 # 	   hooks/bin/git-TEST-cases.sh -->   ipdate SEE ALSO section  
 # 	hooks/bin/git-TEST-cases.sh  3.1.132.1847  2020-11-18T22:44:28.728514-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.131  
@@ -9,12 +11,6 @@
 # 	   hooks/bin/git-TEST-cases.sh hooks/bin/git-setup-TEST-cases.sh hooks/bin/uninstall-git-TEST-cases.sh -->   rename git-TEST-setup-cases.sh -> git-setup-TEST-cases.sh  
 # 	hooks/bin/git-TEST-cases.sh  3.1.2.1494  2020-02-03T23:24:09.832614-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.1-1-g16879e3  
 # 	   hooks/bin/git-TEST-cases.sh   close #36   Beta-3 
-# 	hooks/bin/git-TEST-cases.sh  2.525.1468  2020-02-03T15:05:29.296666-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.524 
-# 	   hooks/bin/git-TEST-cases.sh   added additional SA-cleanup.sh near the end of the script because when testing git-TEST-cases.sh some of the FVT test case caused SA-setup.sh to be run 
-# 	hooks/bin/git-TEST-cases.sh  2.435.1326  2020-01-28T10:11:57.566271-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.434 
-# 	   hooks/bin/git-TEST-cases.sh   Set REPOSITORY_ABSOLUTE_PATH if not already set, exit if NOT a git repository (or any of the parent directories) close #42 
-# 	hooks/bin/git-TEST-cases.sh  2.208.904  2019-10-12T16:36:32.359495-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.207-1-ga99b68e  
-# 	   close #40    git-TEST-cases.sh   - add git add & commit when creating default test case 
 #86# hooks/bin/git-TEST-cases.sh  -  lists and manages files in TEST case directories
 #       git-TEST-cases.sh --all   -  runs FVT-setup.sh and SA-setup.sh to create symbolic links to EXAMPLES before listing all test cases
 #       git-TEST-cases.sh --clean -  remove symbolic links from TEST/<command>/ directories
@@ -22,7 +18,7 @@
 ###  Production standard 5.3.559 Copyright                                    # 3.559
 #    Copyright (c) 2020 Bradley Allen                                                # 3.555
 #    MIT License is online in the repository as a file named LICENSE"         # 3.559
-###  Production standard 1.3.550 DEBUG variable                                             # 3.550
+###  Production standard 1.3.614 DEBUG variable
 #    Order of precedence: environment variable, default code
 if [[ "${DEBUG}" == ""  ]] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
 if [[ "${DEBUG}" == "2" ]] ; then set -x    ; fi   # Print trace of simple commands before they are executed
@@ -194,21 +190,21 @@ if [[ "${SCRIPT_VERSION}" == "" ]] ; then SCRIPT_VERSION="v?.?" ; fi
 #    GID
 GROUP_ID=$(id -g)
 
-###  Production standard 2.3.529 log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)
+###  Production standard 2.3.614 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)
 new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
   get_date_stamp
-  echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${SCRIPT_NAME}[$$] ${SCRIPT_VERSION} ${1} ${USER} ${UID}:${GROUP_ID} ${BOLD}[${2}]${NORMAL}  ${3}"
+  echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${BOLD}${CYAN}${SCRIPT_NAME}${NORMAL}[$$] ${BOLD}${BLUE}${SCRIPT_VERSION} ${PURPLE}${1}${NORMAL} ${USER} ${UID}:${GROUP_ID} ${BOLD}[${2}]${NORMAL}  ${3}"  # 2.3.614
 }
 
 #    INFO
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "${BOLD}${CYAN}  Started...${NORMAL}" 1>&2 ; fi  # 1.3.614
 
 #    Added following code because USER is not defined in crobtab jobs
 if ! [[ "${USER}" == "${LOGNAME}" ]] ; then  USER=${LOGNAME} ; fi
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Setting USER to support crobtab...  USER >${USER}<  LOGNAME >${LOGNAME}<" 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  Setting USER to support crobtab...  USER >${BOLD}${CYAN}${USER}${NORMAL}<  LOGNAME >${BOLD}${CYAN}${LOGNAME}${NORMAL}<" 1>&2 ; fi  # 1.3.614
 
 #    DEBUG
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Name_of_command >${SCRIPT_NAME}< Name_of_arg1 >${1}< Name_of_arg2 >${2}< Name_of_arg3 >${3}<  Version of bash ${BASH_VERSION}" 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  Name_of_command >${BOLD}${CYAN}${SCRIPT_NAME}${NORMAL}< Name_of_arg1 >${BOLD}${CYAN}${1}${NORMAL}< Name_of_arg2 >${BOLD}${CYAN}${2}${NORMAL}< Name_of_arg3 >${BOLD}${CYAN}${3}${NORMAL}<  Version of bash >${BOLD}${CYAN}${BASH_VERSION}${NORMAL}<" 1>&2 ; fi  # 1.3.614
 
 ###  Production standard 7.0 Default variable value
 #    Order of precedence: CLI argument, environment variable, default code
@@ -248,11 +244,11 @@ while [[ "${#}" -gt 0 ]] ; do
   esac
 done
 
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Variable... CLI_OPTION >${CLI_OPTION}< FILE_NAME >${FILE_NAME}< ALL_TEST_CASES >${ALL_TEST_CASES}<" 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  Variable... CLI_OPTION >${BOLD}${CYAN}${CLI_OPTION}${NORMAL}< FILE_NAME >${BOLD}${CYAN}${FILE_NAME}${NORMAL}< ALL_TEST_CASES >${BOLD}${CYAN}${ALL_TEST_CASES}${NORMAL}<" 1>&2 ; fi  # 1.3.614
 
 ###  Production standard 10.0 TESTing
 
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  ${BOLD}${YELLOW}REPOSITORY_ABSOLUTE_PATH >${REPOSITORY_ABSOLUTE_PATH}<${NORMAL}" 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  REPOSITORY_ABSOLUTE_PATH >${BOLD}${CYAN}${REPOSITORY_ABSOLUTE_PATH}${NORMAL}<" 1>&2 ; fi  # 1.3.614
 
 if [[ "${REPOSITORY_ABSOLUTE_PATH}" == "" ]] ; then
   REPOSITORY_ABSOLUTE_PATH=$(git rev-parse --show-toplevel) || { new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Not a git repository (or any of the parent directories)" 1>&2 ; exit 1 ; } 
@@ -267,7 +263,7 @@ if [[ "${CLI_OPTION}" == "f" ]]  ; then
     new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${FILE_NAME} file is not found or is empty or is not readable" 1>&2
     exit 1
   fi
-  if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  File name with directory path: >${FILE_NAME}<  DEFAULT_ADD_TEST_CASE >${DEFAULT_ADD_TEST_CASE}<" 1>&2 ; fi
+  if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  File name with directory path: >${BOLD}${CYAN}${FILE_NAME}${NORMAL}<  DEFAULT_ADD_TEST_CASE >${BOLD}${CYAN}${DEFAULT_ADD_TEST_CASE}${NORMAL}<" 1>&2 ; fi  # 1.3.614
   if [[ "${DEFAULT_ADD_TEST_CASE}" == "YES" ]] ; then  #  #29  --add default SA files
     if [[ "${FILE_NAME}" != $(basename "${FILE_NAME}") ]] ; then  #  Is there a sub-directory included
       cd "$(dirname "${FILE_NAME}")"
@@ -275,13 +271,13 @@ if [[ "${CLI_OPTION}" == "f" ]]  ; then
     else 
       DIR_COUNT=0  # NO sub-directory included
     fi
-    if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  ${BOLD}${YELLOW}DIR_COUNT  >${DIR_COUNT}< FILE_NAME  >${FILE_NAME}<  pwd  >$(pwd)<${NORMAL}" 1>&2 ; fi
+    if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  DIR_COUNT  >${BOLD}${CYAN}${DIR_COUNT}${NORMAL}< FILE_NAME  >${BOLD}${CYAN}${FILE_NAME}${NORMAL}<  pwd  >${BOLD}${CYAN}$(pwd)${NORMAL}<" 1>&2 ; fi  # 1.3.614
     mkdir -p TEST/"${TMP_FILE_NAME}"/
     EXAMPLES_DIRECTORY="../../hooks/EXAMPLES"
     if [[ ${DIR_COUNT} != 0 ]] ; then
       while [[ ${DIR_COUNT} != 0 ]] ; do  DIR_COUNT=$((DIR_COUNT - 1)) ; EXAMPLES_DIRECTORY="../${EXAMPLES_DIRECTORY}" ; done
     fi
-    if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  EXAMPLES_DIRECTORY >${EXAMPLES_DIRECTORY}<" 1>&2 ; fi
+    if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  EXAMPLES_DIRECTORY >${BOLD}${CYAN}${EXAMPLES_DIRECTORY}${NORMAL}<" 1>&2 ; fi  # 1.3.614
     ln -sf "${EXAMPLES_DIRECTORY}/SA-setup.sh"   "TEST/${TMP_FILE_NAME}/SA-setup.sh"
     ln -sf "${EXAMPLES_DIRECTORY}/SA-cleanup.sh" "TEST/${TMP_FILE_NAME}/SA-cleanup.sh"
     touch "TEST/${TMP_FILE_NAME}/SA-shellcheck-001.expected"
@@ -323,24 +319,24 @@ else
     rm /tmp/GITALL*
   else
     DIR_LIST=$(find . -type d -name TEST)  #  create list of TEST directories
-    if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  \${DIR_LIST} >${DIR_LIST=}<" 1>&2 ; fi
+    if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  DIR_LIST >${BOLD}${CYAN}${DIR_LIST}${NORMAL}<" 1>&2 ; fi  # 1.3.614
     for i in $DIR_LIST ; do
-      if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  TEST directory >${i}<" 1>&2 ; fi
+      if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  TEST directory >${BOLD}${CYAN}${i}${NORMAL}<" 1>&2 ; fi  # 1.3.614
       if [[ ! $(ls -1A "${i}") ]] ; then continue ; fi  #  Skip no test case in directoy 
       TEST_CASE_DIR_LIST=$(ls -1d "${i}"/* | cut -c 3-)
       for j in ${TEST_CASE_DIR_LIST} ; do 
-        if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Directory >${j}<" 1>&2 ; fi
+        if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  Directory >${BOLD}${CYAN}${j}${NORMAL}<" 1>&2 ; fi  # 1.3.614
         if [[ $j == *"hooks"* ]] && [[ "${ALL_TEST_CASES}" == "NO" ]] ; then continue ; fi  #  Skip to next j in for loop if 
         TEST_CASE_DIR_END=$(echo "${j}" | rev | cut -d '/' -f 1 | rev)
         TEST_CASE_DIR_START="${j//${TEST_CASE_DIR_END}/}"
         printf "${TEST_CASE_DIR_START}${BOLD}${YELLOW}${TEST_CASE_DIR_END}${NORMAL}\n"
         if [[ "${CLI_OPTION}" == "a" ]]  ; then
-          if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Run FVT-setup.sh and SA-setup.sh if -a or --all" 1>&2 ; fi
+          if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  Run FVT-setup.sh and SA-setup.sh if -a or --all" 1>&2 ; fi  # 1.3.614
           if [[ -e "${j}/FVT-setup.sh" ]]    ; then $(cd "${j}" ; ./FVT-setup.sh   "${REPOSITORY_ABSOLUTE_PATH}") ; fi
           if [[ -e "${j}/SA-setup.sh"  ]]    ; then $(cd "${j}" ; ./SA-setup.sh    "${REPOSITORY_ABSOLUTE_PATH}") ; fi
         fi
         if [[ "${CLI_OPTION}" == "c" ]]  ; then
-          if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Run FVT-cleanup.sh and SA-cleanup.sh if -c or --clean" 1>&2 ; fi
+          if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  Run FVT-cleanup.sh and SA-cleanup.sh if -c or --clean" 1>&2 ; fi  # 1.3.614
           if [[ -e "${j}/FVT-cleanup.sh" ]]  ; then $(cd "${j}" ; ./FVT-cleanup.sh "${REPOSITORY_ABSOLUTE_PATH}") ; fi
           if [[ -e "${j}/SA-cleanup.sh"  ]]  ; then $(cd "${j}" ; ./SA-cleanup.sh  "${REPOSITORY_ABSOLUTE_PATH}") ; fi
         fi
@@ -353,5 +349,5 @@ else
   fi
 fi
 
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "INFO" "  Operation finished..." 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "${BOLD}${CYAN}  Operation finished...${NORMAL}" 1>&2 ; fi  # 1.3.614
 ###
