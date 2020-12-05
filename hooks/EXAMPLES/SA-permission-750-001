@@ -1,8 +1,6 @@
 #!/bin/bash
-#	hooks/EXAMPLES/SA-permission-750-001  3.1.266.2025  2020-12-04T17:17:01.583264-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.265-1-gc61878b  
-#	   hooks/EXAMPLES/FVT-cleanup.sh hooks/EXAMPLES/FVT-option-add-001 hooks/EXAMPLES/FVT-option-all-001 hooks/EXAMPLES/FVT-setup.sh hooks/EXAMPLES/SA-cleanup.sh hooks/EXAMPLES/SA-exit-code-error-124-001 hooks/EXAMPLES/SA-exit-code-error-124-002 hooks/EXAMPLES/SA-exit-code-error-2-001 hooks/EXAMPLES/SA-permission-400-001 hooks/EXAMPLES/SA-permission-440-001 hooks/EXAMPLES/SA-permission-444-001 hooks/EXAMPLES/SA-permission-600-001 hooks/EXAMPLES/SA-permission-640-001 hooks/EXAMPLES/SA-permission-644-001 hooks/EXAMPLES/SA-permission-660-001 hooks/EXAMPLES/SA-permission-664-001 hooks/EXAMPLES/SA-permission-666-001 hooks/EXAMPLES/SA-permission-700-001 hooks/EXAMPLES/SA-permission-750-001 hooks/EXAMPLES/SA-permission-755-001 hooks/EXAMPLES/SA-permission-770-001 hooks/EXAMPLES/SA-permission-775-001 hooks/EXAMPLES/SA-permission-777-001 hooks/EXAMPLES/SA-permission-dir-001 hooks/EXAMPLES/SA-permission-grp-10000-001 hooks/EXAMPLES/SA-permission-own-10000-001 hooks/EXAMPLES/SA-setup.sh hooks/EXAMPLES/SA-shellcheck-001 hooks/EXAMPLES/SA-type-tar-V7-001 hooks/post-commit -->   typo  
-#	hooks/EXAMPLES/SA-permission-750-001  3.1.258.2011  2020-12-04T14:38:56.478264-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.257-1-ga3c2bc3  
-#	   hooks/EXAMPLES/SA-permission-400-001 hooks/EXAMPLES/SA-permission-440-001 hooks/EXAMPLES/SA-permission-444-001 hooks/EXAMPLES/SA-permission-600-001 hooks/EXAMPLES/SA-permission-640-001 hooks/EXAMPLES/SA-permission-644-001 hooks/EXAMPLES/SA-permission-660-001 hooks/EXAMPLES/SA-permission-664-001 hooks/EXAMPLES/SA-permission-666-001 hooks/EXAMPLES/SA-permission-700-001 hooks/EXAMPLES/SA-permission-750-001 hooks/EXAMPLES/SA-permission-755-001 hooks/EXAMPLES/SA-permission-770-001 hooks/EXAMPLES/SA-permission-777-001 hooks/EXAMPLES/SA-permission-dir-001 hooks/EXAMPLES/SA-permission-grp-10000-001 hooks/EXAMPLES/SA-permission-own-10000-001 -->   Production standard 1.3.614 DEBUG variable  Production standard 2.3.614 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)  
+#	hooks/EXAMPLES/SA-permission-750-001  3.1.268.2027  2020-12-04T21:42:46.853172-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.267  
+#	   hooks/EXAMPLES/SA-cleanup.sh hooks/EXAMPLES/SA-exit-code-error-124-001 hooks/EXAMPLES/SA-exit-code-error-124-002 hooks/EXAMPLES/SA-exit-code-error-2-001 hooks/EXAMPLES/SA-permission-400-001 hooks/EXAMPLES/SA-permission-440-001 hooks/EXAMPLES/SA-permission-444-001 hooks/EXAMPLES/SA-permission-600-001 hooks/EXAMPLES/SA-permission-640-001 hooks/EXAMPLES/SA-permission-644-001 hooks/EXAMPLES/SA-permission-660-001 hooks/EXAMPLES/SA-permission-664-001 hooks/EXAMPLES/SA-permission-666-001 hooks/EXAMPLES/SA-permission-700-001 hooks/EXAMPLES/SA-permission-750-001 hooks/EXAMPLES/SA-permission-755-001 hooks/EXAMPLES/SA-permission-770-001 hooks/EXAMPLES/SA-permission-775-001 hooks/EXAMPLES/SA-permission-777-001 hooks/EXAMPLES/SA-permission-dir-001 hooks/EXAMPLES/SA-permission-grp-10000-001 hooks/EXAMPLES/SA-permission-own-10000-001 hooks/EXAMPLES/SA-shellcheck-001 hooks/EXAMPLES/SA-type-tar-V7-001 -->   typo  
 #	hooks/EXAMPLES/SA-permission-750-001  3.1.21.1567  2020-05-21T23:20:36.926359-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.20  
 #	   hooks/EXAMPLES/SA-permission-750-001 -->   upgrade Production standards #49  
 #	hooks/EXAMPLES/SA-permission-750-001  2.447.1341  2020-01-30T15:07:00.135824-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.446  
@@ -72,9 +70,9 @@ if [[ "${1}" == -* ]] || [[ "${1}" == "help" ]] || [[ "${1}" == "usage" ]] || [[
   exit 1
 fi
 
-###
-
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "${BOLD}  REPOSITORY_ABSOLUTE_PATH >${CYAN}${REPOSITORY_ABSOLUTE_PATH}${NORMAL}<  REPOSITORY_DIR_COUNT  >${BOLD}${CYAN}${REPOSITORY_DIR_COUNT}${NORMAL}<  EXAMPLES_DIRECTORY >${CYAN}${EXAMPLES_DIRECTORY}${NORMAL}<" 1>&2 ; fi  # 1.3.614
+
+###
 
 TEST_CASE_TMP_1=$(echo "${0}" | cut -d'/' -f"${REPOSITORY_DIR_COUNT}"-)
 TEST_CASE_TMP_2=$(dirname -- "${TEST_CASE_TMP_1}")
