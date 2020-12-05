@@ -1,6 +1,6 @@
 #!/bin/bash
-#	hooks/EXAMPLES/FVT-option-filename-hooks-008  3.1.123.1827  2020-11-13T00:07:25.757836-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.122  
-#	   hooks/EXAMPLES/FVT-option-add-001 hooks/EXAMPLES/FVT-option-all-001 hooks/EXAMPLES/FVT-option-all-002 hooks/EXAMPLES/FVT-option-all-hooks-001 hooks/EXAMPLES/FVT-option-all-hooks-002 hooks/EXAMPLES/FVT-option-clean-001 hooks/EXAMPLES/FVT-option-clean-002 hooks/EXAMPLES/FVT-option-clean-hooks-001 hooks/EXAMPLES/FVT-option-clean-hooks-002 hooks/EXAMPLES/FVT-option-clean-hooks-003 hooks/EXAMPLES/FVT-option-clean-hooks-004 hooks/EXAMPLES/FVT-option-filename-hooks-001 hooks/EXAMPLES/FVT-option-filename-hooks-002 hooks/EXAMPLES/FVT-option-filename-hooks-003 hooks/EXAMPLES/FVT-option-filename-hooks-004 hooks/EXAMPLES/FVT-option-filename-hooks-005 hooks/EXAMPLES/FVT-option-filename-hooks-006 hooks/EXAMPLES/FVT-option-filename-hooks-007 hooks/EXAMPLES/FVT-option-filename-hooks-008 hooks/EXAMPLES/FVT-option-filename-hooks-009 hooks/EXAMPLES/FVT-option-filename-hooks-010 hooks/EXAMPLES/FVT-option-filename-hooks-011 hooks/EXAMPLES/FVT-option-filename-hooks-012 hooks/EXAMPLES/FVT-option-none-001 hooks/EXAMPLES/FVT-option-none-002 hooks/EXAMPLES/FVT-option-none-hooks-001 hooks/EXAMPLES/FVT-option-none-hooks-002 hooks/EXAMPLES/FVT-option-none-hooks-003 hooks/EXAMPLES/FVT-option-none-hooks-004 -->   added FVT_TEST_INPUT  
+#	hooks/EXAMPLES/FVT-option-filename-hooks-008  3.1.275.2034  2020-12-04T23:36:27.895218-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.274  
+#	   hooks/EXAMPLES/FVT-option-filename-hooks-001 hooks/EXAMPLES/FVT-option-filename-hooks-002 hooks/EXAMPLES/FVT-option-filename-hooks-003 hooks/EXAMPLES/FVT-option-filename-hooks-004 hooks/EXAMPLES/FVT-option-filename-hooks-005 hooks/EXAMPLES/FVT-option-filename-hooks-006 hooks/EXAMPLES/FVT-option-filename-hooks-007 hooks/EXAMPLES/FVT-option-filename-hooks-008 hooks/EXAMPLES/FVT-option-filename-hooks-009 hooks/EXAMPLES/FVT-option-filename-hooks-010 hooks/EXAMPLES/FVT-option-filename-hooks-011 hooks/EXAMPLES/FVT-option-filename-hooks-012 -->   Production standard 1.3.614 DEBUG variable  Production standard 2.3.614 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)  
 #	hooks/EXAMPLES/FVT-option-filename-hooks-008  3.1.70.1620  2020-05-22T12:08:16.357205-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.69  
 #	   hooks/EXAMPLES/FVT-option-filename-hooks-008 -->   upgrade Production standards #49  
 #	hooks/EXAMPLES/FVT-option-filename-hooks-008  2.454.1357  2020-01-30T21:49:38.095323-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.453-5-g03b67b7  
@@ -14,7 +14,7 @@
 ###  Production standard 5.3.559 Copyright                                    # 3.559
 #    Copyright (c) 2020 Bradley Allen                                                # 3.555
 #    MIT License is online in the repository as a file named LICENSE"         # 3.559
-###  Production standard 1.3.550 DEBUG variable                                             # 3.550
+###  Production standard 1.3.614 DEBUG variable
 #    Order of precedence: environment variable, default code
 if [[ "${DEBUG}" == ""  ]] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
 if [[ "${DEBUG}" == "2" ]] ; then set -x    ; fi   # Print trace of simple commands before they are executed
@@ -55,14 +55,14 @@ if [[ "${SCRIPT_VERSION}" == "" ]] ; then SCRIPT_VERSION="v?.?" ; fi
 #    GID
 GROUP_ID=$(id -g)
 
-###  Production standard 2.3.578 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)
+###  Production standard 2.3.614 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)
 new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
   get_date_stamp
-  echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${SCRIPT_NAME}[$$] ${BOLD}${BLUE}${SCRIPT_VERSION} ${PURPLE}${1}${NORMAL} ${USER} ${UID}:${GROUP_ID} ${BOLD}[${2}]${NORMAL}  ${3}"
+  echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${BOLD}${CYAN}${SCRIPT_NAME}${NORMAL}[$$] ${BOLD}${BLUE}${SCRIPT_VERSION} ${PURPLE}${1}${NORMAL} ${USER} ${UID}:${GROUP_ID} ${BOLD}[${2}]${NORMAL}  ${3}"  # 2.3.614
 }
 
 #    INFO
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "${BOLD}${CYAN}  Started...${NORMAL}" 1>&2 ; fi  # 1.3.614
 
 #    This script does not support -* or help or usage or version
 if [[ "${1}" == -* ]] || [[ "${1}" == "help" ]] || [[ "${1}" == "usage" ]] || [[ "${1}" == "version" ]]  ; then
@@ -71,6 +71,8 @@ if [[ "${1}" == -* ]] || [[ "${1}" == "help" ]] || [[ "${1}" == "usage" ]] || [[
   echo -e "    For more information:\n${BOLD}${YELLOW}    ${UNDERLINE}https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks#git-test-commit-automation------${NORMAL}"
   exit 1
 fi
+
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "${BOLD}  REPOSITORY_ABSOLUTE_PATH >${BOLD}${CYAN}${REPOSITORY_ABSOLUTE_PATH}${NORMAL}<  REPOSITORY_DIR_COUNT  >${BOLD}${CYAN}${REPOSITORY_DIR_COUNT}${NORMAL}<  EXAMPLES_DIRECTORY >${BOLD}${CYAN}${EXAMPLES_DIRECTORY}${NORMAL}<" 1>&2 ; fi  # 1.3.614
 
 ###
 
