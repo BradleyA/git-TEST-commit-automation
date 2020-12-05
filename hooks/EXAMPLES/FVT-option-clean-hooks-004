@@ -1,6 +1,6 @@
 #!/bin/bash
-#	hooks/EXAMPLES/FVT-option-clean-hooks-004  3.1.123.1827  2020-11-13T00:06:47.673078-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.122  
-#	   hooks/EXAMPLES/FVT-option-add-001 hooks/EXAMPLES/FVT-option-all-001 hooks/EXAMPLES/FVT-option-all-002 hooks/EXAMPLES/FVT-option-all-hooks-001 hooks/EXAMPLES/FVT-option-all-hooks-002 hooks/EXAMPLES/FVT-option-clean-001 hooks/EXAMPLES/FVT-option-clean-002 hooks/EXAMPLES/FVT-option-clean-hooks-001 hooks/EXAMPLES/FVT-option-clean-hooks-002 hooks/EXAMPLES/FVT-option-clean-hooks-003 hooks/EXAMPLES/FVT-option-clean-hooks-004 hooks/EXAMPLES/FVT-option-filename-hooks-001 hooks/EXAMPLES/FVT-option-filename-hooks-002 hooks/EXAMPLES/FVT-option-filename-hooks-003 hooks/EXAMPLES/FVT-option-filename-hooks-004 hooks/EXAMPLES/FVT-option-filename-hooks-005 hooks/EXAMPLES/FVT-option-filename-hooks-006 hooks/EXAMPLES/FVT-option-filename-hooks-007 hooks/EXAMPLES/FVT-option-filename-hooks-008 hooks/EXAMPLES/FVT-option-filename-hooks-009 hooks/EXAMPLES/FVT-option-filename-hooks-010 hooks/EXAMPLES/FVT-option-filename-hooks-011 hooks/EXAMPLES/FVT-option-filename-hooks-012 hooks/EXAMPLES/FVT-option-none-001 hooks/EXAMPLES/FVT-option-none-002 hooks/EXAMPLES/FVT-option-none-hooks-001 hooks/EXAMPLES/FVT-option-none-hooks-002 hooks/EXAMPLES/FVT-option-none-hooks-003 hooks/EXAMPLES/FVT-option-none-hooks-004 -->   added FVT_TEST_INPUT  
+#	hooks/EXAMPLES/FVT-option-clean-hooks-004  3.1.271.2030  2020-12-04T22:50:10.273863-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.270  
+#	   hooks/EXAMPLES/FVT-option-clean-001 hooks/EXAMPLES/FVT-option-clean-002 hooks/EXAMPLES/FVT-option-clean-hooks-001 hooks/EXAMPLES/FVT-option-clean-hooks-002 hooks/EXAMPLES/FVT-option-clean-hooks-003 hooks/EXAMPLES/FVT-option-clean-hooks-004 -->   Production standard 1.3.614 DEBUG variable  Production standard 2.3.614 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)  
 #	hooks/EXAMPLES/FVT-option-clean-hooks-004  3.1.56.1605  2020-05-22T10:50:56.488961-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.55-1-gd9801ee  
 #	   hooks/EXAMPLES/FVT-option-clean-hooks-004 -->   upgrade Production standards #49  
 #	hooks/EXAMPLES/FVT-option-clean-hooks-004  2.509.1442  2020-02-03T10:12:08.975482-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 2.508  
@@ -10,15 +10,8 @@
 ###  Production standard 5.3.559 Copyright                                    # 3.559
 #    Copyright (c) 2020 Bradley Allen                                                # 3.555
 #    MIT License is online in the repository as a file named LICENSE"         # 3.559
-###  Production standard 1.3.550 DEBUG variable                                             # 3.550
+###  Production standard 1.3.614 DEBUG variable
 #    Order of precedence: environment variable, default code
-
-
-# >>>   remove after debuggiing    #47
-DEBUG=1
-# >>>   remove after debuggiing    #47
-
-
 if [[ "${DEBUG}" == ""  ]] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
 if [[ "${DEBUG}" == "2" ]] ; then set -x    ; fi   # Print trace of simple commands before they are executed
 if [[ "${DEBUG}" == "3" ]] ; then set -v    ; fi   # Print shell input lines as they are read
@@ -58,14 +51,14 @@ if [[ "${SCRIPT_VERSION}" == "" ]] ; then SCRIPT_VERSION="v?.?" ; fi
 #    GID
 GROUP_ID=$(id -g)
 
-###  Production standard 2.3.578 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)
+###  Production standard 2.3.614 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)
 new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
   get_date_stamp
-  echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${SCRIPT_NAME}[$$] ${BOLD}${BLUE}${SCRIPT_VERSION} ${PURPLE}${1}${NORMAL} ${USER} ${UID}:${GROUP_ID} ${BOLD}[${2}]${NORMAL}  ${3}"
+  echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${BOLD}${CYAN}${SCRIPT_NAME}${NORMAL}[$$] ${BOLD}${BLUE}${SCRIPT_VERSION} ${PURPLE}${1}${NORMAL} ${USER} ${UID}:${GROUP_ID} ${BOLD}[${2}]${NORMAL}  ${3}"  # 2.3.614
 }
 
 #    INFO
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "${BOLD}${CYAN}  Started...${NORMAL}" 1>&2 ; fi  # 1.3.614
 
 #    This script does not support -* or help or usage or version
 if [[ "${1}" == -* ]] || [[ "${1}" == "help" ]] || [[ "${1}" == "usage" ]] || [[ "${1}" == "version" ]]  ; then
@@ -74,6 +67,8 @@ if [[ "${1}" == -* ]] || [[ "${1}" == "help" ]] || [[ "${1}" == "usage" ]] || [[
   echo -e "    For more information:\n${BOLD}${YELLOW}    ${UNDERLINE}https://github.com/BradleyA/git-TEST-commit-automation/tree/master/hooks#git-test-commit-automation------${NORMAL}"
   exit 1
 fi
+
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "${BOLD}  REPOSITORY_ABSOLUTE_PATH >${BOLD}${CYAN}${REPOSITORY_ABSOLUTE_PATH}${NORMAL}<  REPOSITORY_DIR_COUNT  >${BOLD}${CYAN}${REPOSITORY_DIR_COUNT}${NORMAL}<  EXAMPLES_DIRECTORY >${BOLD}${CYAN}${EXAMPLES_DIRECTORY}${NORMAL}<" 1>&2 ; fi  # 1.3.614
 
 ###
 
@@ -96,30 +91,30 @@ fi
 
 #    Create a directory that IS in the hooks directory and includes a file that DOES have EXAMPLES and custom test cases, and test case setup and cleanup scripts with one begin custom
 #    Test case types are custom and EXAMPLES test cases.  Other files are test case setup and cleanup scripts with one begin custom and custom script
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  REPOSITORY_DIR is exported in post-commit script >${REPOSITORY_DIR}<" 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  EXAMPLES_DIRECTORY is exported in post-commit script >${BOLD}${CYAN}${EXAMPLES_DIRECTORY}${NORMAL}<" 1>&2 ; fi
 COMMAND_NAME=$(echo "${0}" | sed 's/^.*\///')
-mkdir -p "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"
-ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/SA-setup.sh             "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/SA-setup.sh
-ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/SA-cleanup.sh           "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/SA-cleanup.sh
-ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/SA-permission-775-001   "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/SA-permission-775-001
-ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/SA-shellcheck-001       "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/SA-shellcheck-001
-echo     "#!/bin/bash" > "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/FVT-setup.sh
-ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/FVT-cleanup.sh          "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/FVT-cleanup.sh
-ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/FVT-option-help-001     "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/FVT-option-help-001
-ln -fs   "${REPOSITORY_DIR}"/hooks/EXAMPLES/FVT-option-version-001  "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/FVT-option-version-001
-echo     "#!/bin/bash" > "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/SA-custom-test-case-001
-echo     "#!/bin/bash" > "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/FVT-custom-test-case-001
-echo     "#!/bin/bash" > "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/tmp_CMD_"${COMMAND_NAME}"
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  COMMAND_NAME >${COMMAND_NAME}<  ${REPOSITORY_DIR}/hooks/tmp_DIR_${COMMAND_NAME}/TEST/tmp_CMD_${COMMAND_NAME}" 1>&2 ; fi
+mkdir -p "${EXAMPLES_DIRECTORY}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"
+ln -fs   "${EXAMPLES_DIRECTORY}"/hooks/EXAMPLES/SA-setup.sh             "${EXAMPLES_DIRECTORY}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/SA-setup.sh
+ln -fs   "${EXAMPLES_DIRECTORY}"/hooks/EXAMPLES/SA-cleanup.sh           "${EXAMPLES_DIRECTORY}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/SA-cleanup.sh
+ln -fs   "${EXAMPLES_DIRECTORY}"/hooks/EXAMPLES/SA-permission-775-001   "${EXAMPLES_DIRECTORY}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/SA-permission-775-001
+ln -fs   "${EXAMPLES_DIRECTORY}"/hooks/EXAMPLES/SA-shellcheck-001       "${EXAMPLES_DIRECTORY}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/SA-shellcheck-001
+echo     "#!/bin/bash" > "${EXAMPLES_DIRECTORY}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/FVT-setup.sh
+ln -fs   "${EXAMPLES_DIRECTORY}"/hooks/EXAMPLES/FVT-cleanup.sh          "${EXAMPLES_DIRECTORY}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/FVT-cleanup.sh
+ln -fs   "${EXAMPLES_DIRECTORY}"/hooks/EXAMPLES/FVT-option-help-001     "${EXAMPLES_DIRECTORY}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/FVT-option-help-001
+ln -fs   "${EXAMPLES_DIRECTORY}"/hooks/EXAMPLES/FVT-option-version-001  "${EXAMPLES_DIRECTORY}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/FVT-option-version-001
+echo     "#!/bin/bash" > "${EXAMPLES_DIRECTORY}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/SA-custom-test-case-001
+echo     "#!/bin/bash" > "${EXAMPLES_DIRECTORY}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}"/FVT-custom-test-case-001
+echo     "#!/bin/bash" > "${EXAMPLES_DIRECTORY}"/hooks/tmp_DIR_"${COMMAND_NAME}"/tmp_CMD_"${COMMAND_NAME}"
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  COMMAND_NAME >${BOLD}${CYAN}${COMMAND_NAME}${NORMAL}<  ${EXAMPLES_DIRECTORY}/hooks/tmp_DIR_${COMMAND_NAME}/TEST/tmp_CMD_${COMMAND_NAME}" 1>&2 ; fi
 
 FVT_TEST_INPUT="${1} --clean -hooks"
 
 eval "${FVT_TEST_INPUT}" >"${0}".test-case-output 2>&1
 
 #    Test if the test cases have been removed/cleaned, leaving FVT-cleanup.sh, SA-cleanup.sh, FVT-setup.sh, and SA-setup.sh,
-FILE_COUNT=$(ls -1 "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}" | wc -l)
+FILE_COUNT=$(ls -1 "${EXAMPLES_DIRECTORY}"/hooks/tmp_DIR_"${COMMAND_NAME}"/TEST/tmp_CMD_"${COMMAND_NAME}" | wc -l)
 if [[ "${DEBUG}" == "0" ]] ; then  #  Don't remove when in DEBUG modes
-  rm -r  "${REPOSITORY_DIR}"/hooks/tmp_DIR_"${COMMAND_NAME}"  #  Remove test case files in ${REPOSITORY_DIR}/hooks/tmp_DIR_${COMMAND_NAME}
+  rm -r  "${EXAMPLES_DIRECTORY}"/hooks/tmp_DIR_"${COMMAND_NAME}"  #  Remove test case files in ${EXAMPLES_DIRECTORY}/hooks/tmp_DIR_${COMMAND_NAME}
 fi
 
 #    MUST restore deleted test cases because git-TEST-cases.sh -c --hooks , just deleted them
