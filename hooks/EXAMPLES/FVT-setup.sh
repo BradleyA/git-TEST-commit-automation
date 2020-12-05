@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/EXAMPLES/FVT-setup.sh  3.1.266.2025  2020-12-04T17:16:13.325222-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.265-1-gc61878b  
-# 	   hooks/EXAMPLES/FVT-cleanup.sh hooks/EXAMPLES/FVT-option-add-001 hooks/EXAMPLES/FVT-option-all-001 hooks/EXAMPLES/FVT-setup.sh hooks/EXAMPLES/SA-cleanup.sh hooks/EXAMPLES/SA-exit-code-error-124-001 hooks/EXAMPLES/SA-exit-code-error-124-002 hooks/EXAMPLES/SA-exit-code-error-2-001 hooks/EXAMPLES/SA-permission-400-001 hooks/EXAMPLES/SA-permission-440-001 hooks/EXAMPLES/SA-permission-444-001 hooks/EXAMPLES/SA-permission-600-001 hooks/EXAMPLES/SA-permission-640-001 hooks/EXAMPLES/SA-permission-644-001 hooks/EXAMPLES/SA-permission-660-001 hooks/EXAMPLES/SA-permission-664-001 hooks/EXAMPLES/SA-permission-666-001 hooks/EXAMPLES/SA-permission-700-001 hooks/EXAMPLES/SA-permission-750-001 hooks/EXAMPLES/SA-permission-755-001 hooks/EXAMPLES/SA-permission-770-001 hooks/EXAMPLES/SA-permission-775-001 hooks/EXAMPLES/SA-permission-777-001 hooks/EXAMPLES/SA-permission-dir-001 hooks/EXAMPLES/SA-permission-grp-10000-001 hooks/EXAMPLES/SA-permission-own-10000-001 hooks/EXAMPLES/SA-setup.sh hooks/EXAMPLES/SA-shellcheck-001 hooks/EXAMPLES/SA-type-tar-V7-001 hooks/post-commit -->   typo  
+# 	hooks/EXAMPLES/FVT-setup.sh  3.1.269.2028  2020-12-04T21:51:48.694947-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.268  
+# 	   hooks/EXAMPLES/FVT-cleanup.sh hooks/EXAMPLES/FVT-option-add-001 hooks/EXAMPLES/FVT-option-all-001 hooks/EXAMPLES/FVT-option-all-002 hooks/EXAMPLES/FVT-setup.sh -->   typo  
 # 	hooks/EXAMPLES/FVT-setup.sh  3.1.260.2013  2020-12-04T15:24:24.921960-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.259  
 # 	   hooks/EXAMPLES/FVT-cleanup.sh hooks/EXAMPLES/FVT-setup.sh -->   Production standard 1.3.614 DEBUG variable  Production standard 2.3.614 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)  
 # 	hooks/EXAMPLES/FVT-setup.sh  3.1.120.1814  2020-11-12T13:28:04.220484-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.119-6-g94d18a4  
@@ -22,7 +22,7 @@
 # 	hooks/EXAMPLES/FVT-setup.sh  2.276.1076  2020-01-21T19:14:19.604461-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.275  
 # 	   FVT-*    Production standard 5.3.559 Copyright 
 # 	hooks/EXAMPLES/FVT-setup.sh  2.258.1047  2020-01-19T09:50:49.987834-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  dev  uadmin  five-rpi3b.cptx86.com 2.257  
-# 	   hooks/EXAMPLES/FVT-setup.sh   Production standard 5.3.555 Copyright, Production standard 1.3.550 DEBUG variable, ###  Production standard 2.3.529 log format:w 
+# 	   hooks/EXAMPLES/FVT-setup.sh   Production standard 5.3.555 Copyright, Production standard 1.3.550 DEBUG variable, ###  Production standard 2.3.529 log format
 # 	hooks/EXAMPLES/FVT-setup.sh  2.138.787  2019-09-27T12:33:27.430817-05:00 (CDT)  https://github.com/BradleyA/git-TEST-commit-automation.git  uadmin  five-rpi3b.cptx86.com 2.137  
 # 	   close #34    EXAMPLES/SA-* FVT-*   added NO -x ${1} exit ERROR 126 
 #86# hooks/EXAMPLES/FVT-setup.sh  -  This test script is optional.  It is for
@@ -92,9 +92,9 @@ if [[ "${1}" == -* ]] || [[ "${1}" == "help" ]] || [[ "${1}" == "usage" ]] || [[
   exit 1
 fi
 
-###  Production standard 10.0 TESTing
-
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "${BOLD}  REPOSITORY_ABSOLUTE_PATH >${CYAN}${REPOSITORY_ABSOLUTE_PATH}${NORMAL}<  REPOSITORY_DIR_COUNT  >${BOLD}${CYAN}${REPOSITORY_DIR_COUNT}${NORMAL}<  EXAMPLES_DIRECTORY >${CYAN}${EXAMPLES_DIRECTORY}${NORMAL}<" 1>&2 ; fi  # 1.3.614
+
+###  Production standard 10.0 TESTing
 
 #    Uncomment shared TEST cases for TESTing
 #  ln -fs "${EXAMPLES_DIRECTORY}/FVT-exit-code-error-0-001"	FVT-exit-code-error-0-001
@@ -238,5 +238,5 @@ ln -fs "${EXAMPLES_DIRECTORY}/FVT-option-version-004"	FVT-option-version-004
 
 #
 
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Operation finished..." 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "${BOLD}${CYAN}  Operation finished...${NORMAL}" 1>&2 ; fi  # 1.3.614
 ###
