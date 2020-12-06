@@ -19,7 +19,7 @@ To use a different SA- test case other than the default test cases, remove the s
 
 #### hooks/bin/git-set-env-for-manual-test.shh
  Source this script when manually testing test cases: **source hooks/bin/git-set-env-for-manual-test.sh**
- This script sets REPOSITORY_DIR and REPOSITORY_DIR_COUNT environment variables which are normally set when post-commit is run
+ This script sets EXAMPLES_DIRECTORY and REPOSITORY_DIR_COUNT environment variables which are normally set when post-commit is run
  This is required because post-commit is has not run before manually testing a test case
 
 
