@@ -15,17 +15,17 @@ To use a different SA- test case other than the default test cases, remove the s
     chmod 750 sample.sh                   #  change file permission 750
     ./TEST/sample.sh/SA-permission-750-001 ./sample.sh  #  run test case on sample.sh
 
-**WARNING need to add note about testing manually during custom design, hooks/bin/set-env-for-manual-test.sh **
+**WARNING need to add note about testing manually during custom design, hooks/bin/git-set-env-for-manual-test.sh**
 
-#### hooks/bin/set-env-for-manual-test.sh
- Source this script when manually testing test cases: **source hooks/bin/set-env-for-manual-test.sh**
+#### hooks/bin/git-set-env-for-manual-test.shh
+ Source this script when manually testing test cases: **source hooks/bin/git-set-env-for-manual-test.sh**
  This script sets REPOSITORY_DIR and REPOSITORY_DIR_COUNT environment variables which are normally set when post-commit is run
  This is required because post-commit is has not run before manually testing a test case
 
 
 <img id="Steps git-TEST-commit-automation-5-1.gif" src="../images/git-TEST-commit-automation-5-1.gif" >
 
-    source hooks/bin/set-env-for-manual-test.sh
+    source hooks/bin/git-set-env-for-manual-test.sh
     TEST/find-code.sh/SA-permission-775-001 find-code.sh
     2020-10-21T16:41:40.568414-05:00 (CDT) five-rpi3b.cptx86.com hooks/EXAMPLES/SA-permission-775-001[8604] 3.1.24.1570 61 uadmin 10000:10000 [INFO]    Started...
     Test case ---> ./ find-code.sh 0 - file permission: check mode 775 - PASS - PASS
