@@ -24,7 +24,7 @@ Objective 1) **Quick setup with default test cases for any Git repository (in se
 
 **Download and execute git-setup-TEST-cases.sh** to setup git-TEST-commit-automation solution.
 
-This will download git-TEST-commit-automation files into a Git repository top directoy named **hooks**.  It will create two symbolic links for .git/hooks/pre-commit and .git/hooks/post-commit to hooks/pre-commit and hooks/post-commit.  It will also copy three files, git-TEST-cases.sh, git-setup-TEST-cases.sh and uninstall-git-TEST-cases.sh to /usr/local/bin.
+This will download git-TEST-commit-automation files into a Git repository top directoy named **hooks**.  It will create two symbolic links for .git/hooks/pre-commit and .git/hooks/post-commit to hooks/pre-commit and hooks/post-commit.  It will also copy four files, git-TEST-cases.sh, git-setup-TEST-cases.sh, git-set-env-for-manual-test.sh, and git-uninstall-TEST-cases.sh to /usr/local/bin.
 
     curl -L https://api.github.com/repos/BradleyA/git-TEST-commit-automation/tarball | tar -xzf - --wildcards BradleyA-git-TEST-commit-automation-*/hooks/bin/git-setup-TEST-cases.sh ; mv BradleyA-git-TEST-commit-automation-*/hooks/bin/git-setup-TEST-cases.sh . ; rm -r BradleyA-git-TEST-commit-automation-*/
     ./git-setup-TEST-cases.sh   #  setup git-TEST-commit-automation in hooks directory and .git/hooks directory
