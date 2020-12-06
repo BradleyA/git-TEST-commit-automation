@@ -52,7 +52,7 @@ echo    "   ${COMMAND_NAME} [--usage | -usage | -u]"
 echo    "   ${COMMAND_NAME} [--version | -version | -v]"
 }
 
-###  Production standard 0.3.550 --help                                                     # 3.550
+###  Production standard 0.3.615 --help                                                     # 3.550
 display_help() {
 display_usage
 #    Displaying help DESCRIPTION in English en_US.UTF-8, en.UTF-8, C.UTF-8                  # 3.550
@@ -64,13 +64,13 @@ echo    "directory.  It supports locating (-n) which files in a Git repository d
 echo    "have test cases.  It supports listing (--filename) the test cases for a file in"
 echo    "a Git repository.  It supports adding (--add) default SA test cases for a file."
 
-###  Production standard 4.3.550 Documentation Language                                     # 3.550
+###  Production standard 4.3.587 Documentation Language
 #    Displaying help DESCRIPTION in French fr_CA.UTF-8, fr_FR.UTF-8, fr_CH.UTF-8
 if [[ "${LANG}" == "fr_CA.UTF-8" ]] || [[ "${LANG}" == "fr_FR.UTF-8" ]] || [[ "${LANG}" == "fr_CH.UTF-8" ]] ; then
   echo -e "\n--> ${LANG}"
-  echo    "<votre aide va ici>" # your help goes here
-  echo    "Souhaitez-vous traduire la section description?" # Do you want to translate the description section?
-elif ! [[ "${LANG}" == "en_US.UTF-8" ||  "${LANG}" == "en.UTF-8" || "${LANG}" == "C.UTF-8" ]] ; then  # 3.550
+  echo    "<Votre aide va ici>" # Your help goes here
+  echo    "Souhaitez-vous traduire la section description?" # Would you like to translate the description section?
+elif ! [[ "${LANG}" == "en_US.UTF-8" ||  "${LANG}" == "en.UTF-8" || "${LANG}" == "C.UTF-8" ]] ; then
   new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Your language, ${LANG}, is not supported.  Would you like to translate the description section?" 1>&2
 fi
 
@@ -81,7 +81,7 @@ echo    "command, 'unset DEBUG' to remove the exported information from the envi
 echo    "variable DEBUG.  You are on your own defining environment variables if"
 echo    "you are using other shells."
 
-###  Production standard 1.3.550 DEBUG variable                                             # 3.550
+###  Production standard 1.3.614 DEBUG variable
 echo    "   DEBUG           (default off '0')  The DEBUG environment variable can be set"   # 3.550
 echo    "                   to 0, 1, 2, 3, 4 or 5.  The setting '' or 0 will turn off"      # 3.550
 echo    "                   all DEBUG messages during execution of this script.  The"       # 3.550
@@ -97,13 +97,13 @@ echo    "                   more information about the set options, see man bash
 echo    "   ALL_TEST_CASES  Include hooks/ directory (default ${DEFAULT_ALL_TEST_CASES})"
 
 echo -e "\n${BOLD}OPTIONS${NORMAL}"
-echo -e "Order of precedence: CLI options, environment variable, default value.\n"     # 3.572
-echo    "   --help, -help, help, -h, h, -?"                                            # 3.572
-echo -e "\tOn-line brief reference manual\n"                                           # 3.572
-echo    "   --usage, -usage, -u"                                                       # 3.572
-echo -e "\tOn-line command usage\n"                                                    # 3.572
-echo    "   --version, -version, -v"                                                      # 0.3.579
-echo -e "\tOn-line command version\n"                                                  # 3.572
+echo -e "Order of precedence: CLI options, environment variable, default value.\n"                     # 0.3.595
+echo    "   --help, -help, help, -h, h, -?"                                                            # 0.3.595
+echo -e "\tOn-line brief reference manual\n"                                                           # 0.3.595
+echo    "   --usage, -usage, -u"                                                                       # 0.3.595
+echo -e "\tOn-line command usage\n"                                                                    # 0.3.595
+echo    "   --version, -version, -v"                                                                   # 0.3.595
+echo -e "\tOn-line command version\n"                                                                  # 0.3.595
 #
 echo    "   -a, --all"
 echo -e "\tPrint all test case files after running FVT-setup.sh and SA-setup.sh"
@@ -144,12 +144,12 @@ echo    "    │   └── <TEST_CASE>/               <-- Other test cases for
 echo    "    └── <FILE_NAME-2>/                 <-- Test case directory for FILE_NAME-2"
 
 echo -e "\n${BOLD}DOCUMENTATION${NORMAL}"
-echo    "   https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md"
+echo    "   ${UNDERLINE}https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md${NORMAL}"
 
 echo -e "\n${BOLD}EXAMPLES${NORMAL}"
 echo -e "   List files in TEST case directories including hooks/ directory\n\t${BOLD}${COMMAND_NAME} --hooks${NORMAL}\n" # 3.550
 echo -e "   Setup default SA- test cases for file sample.sh without test cases\n\t${BOLD}${COMMAND_NAME} --filename sample.sh --add${NORMAL}\n"        # 3.550
-echo -e "   Check test case depth for file sample.sh (option -f)\n\t${BOLD}${COMMAND_NAME} -f sample.sh${NORMAL}\n"        # 3.550
+echo -e "   Check test case depth for file sample.sh (option -f)\n\t${BOLD}${COMMAND_NAME} -f sample.sh${NORMAL}"        # 3.550
 
 echo -e "\n${BOLD}SEE ALSO${NORMAL}"                                                                          #  0.3.615
 echo    "   ${BOLD}git-set-env-for-manual-test.sh${NORMAL}  sets EXAMPLES_DIRECTORY and"                      #  0.3.615
@@ -164,13 +164,13 @@ echo -e "\tcurrent Git repository"                                              
 echo -e "\t(${UNDERLINE}https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#description${NORMAL})\n"  #  0.3.615
 echo    "   ${BOLD}markit${NORMAL}  adds Git Verion Control information into files and git add, git commit,"  #  0.3.615
 echo -e "\tgit pushes them to GitHub, Bitbucket, and/or GitLab."                                              #  0.3.615
-echo -e "\t(${UNDERLINE}https://github.com/BradleyA/markit/blob/master/README.md#markit------${NORMAL})\n"    #  0.3.615
+echo -e "\t(${UNDERLINE}https://github.com/BradleyA/markit/blob/master/README.md#markit------${NORMAL})"      #  0.3.615
 
 echo -e "\n${BOLD}AUTHOR${NORMAL}"                                                          # 3.550
 echo    "   ${COMMAND_NAME} was written by Bradley Allen <allen.bradley@ymail.com>"         # 3.550
 
 echo -e "\n${BOLD}REPORTING BUGS${NORMAL}"                                                  # 3.550
-echo    "   Report ${COMMAND_NAME} bugs https://github.com/BradleyA/git-TEST-commit-automation/issues/new/choose"  # 3.550
+echo    "   Report ${COMMAND_NAME} bugs ${UNDERLINE}https://github.com/BradleyA/git-TEST-commit-automation/issues/new/choose${NORMAL}"  # 3.550
 
 ###  Production standard 5.3.559 Copyright                                            # 3.559
 echo -e "\n${BOLD}COPYRIGHT${NORMAL}"                                                       # 3.550
