@@ -1,6 +1,4 @@
 #!/bin/bash
-# 	hooks/bin/git-TEST-cases.sh  3.1.266.2024  2020-12-04T16:32:22.424800-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.265  
-# 	   hooks/bin/git-TEST-cases.sh -->   testing  
 # 	hooks/bin/git-TEST-cases.sh  3.1.262.2018  2020-12-04T16:11:34.317893-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.261-2-g768e620 
 # 	   hooks/bin/git-TEST-cases.sh -->   Production standard 1.3.614 DEBUG variable  Production standard 2.3.614 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)  
 # 	hooks/bin/git-TEST-cases.sh  3.1.261.2015  2020-12-04T15:38:57.475022-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.260-1-g9a58e43  
@@ -29,6 +27,7 @@ if [[ "${DEBUG}" == "4" ]] ; then set -e    ; fi   # Exit immediately if non-zer
 if [[ "${DEBUG}" == "5" ]] ; then set -e -o pipefail ; fi   # Exit immediately if non-zero exit status and exit if any command in a pipeline errors
 #
 BOLD=$(tput -Txterm bold)
+UNDERLINE=$(tput -Txterm sgr 0 1)  # 0.3.583
 NORMAL=$(tput -Txterm sgr0)
 RED=$(tput    setaf 1)
 GREEN=$(tput  setaf 2)
@@ -152,11 +151,20 @@ echo -e "   List files in TEST case directories including hooks/ directory\n\t${
 echo -e "   Setup default SA- test cases for file sample.sh without test cases\n\t${BOLD}${COMMAND_NAME} --filename sample.sh --add${NORMAL}\n"        # 3.550
 echo -e "   Check test case depth for file sample.sh (option -f)\n\t${BOLD}${COMMAND_NAME} -f sample.sh${NORMAL}\n"        # 3.550
 
-echo -e "\n${BOLD}SEE ALSO${NORMAL}"                                                        # 3.550
-echo    "   ${BOLD}git-set-env-for-manual-test.sh${NORMAL}  (https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#description)"  # 3.550
-echo    "   ${BOLD}git-setup-TEST-cases.sh${NORMAL}  (https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#description)"  # 3.550
-echo    "   ${BOLD}git-uninstall-TEST-cases.sh${NORMAL}  (https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#description)"  # 3.550
-echo    "   ${BOLD}markit${NORMAL}  (https://github.com/BradleyA/markit/blob/master/README.md#markit------)"  # 3.550
+echo -e "\n${BOLD}SEE ALSO${NORMAL}"                                                                          #  0.3.615
+echo    "   ${BOLD}git-set-env-for-manual-test.sh${NORMAL}  sets EXAMPLES_DIRECTORY and"                      #  0.3.615
+echo -e "\tREPOSITORY_DIR_COUNT environment variables to manually test TEST cases"                            #  0.3.615
+echo -e "\t(${UNDERLINE}https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#description${NORMAL})\n"  #  0.3.615
+echo    "   ${BOLD}git-setup-TEST-cases.sh${NORMAL}  setup and update git-TEST-commit-automation"             #  0.3.615
+echo -e "\tfiles in <REPOSITORY-NAME>/hooks/ directory of current Git repository"                             #  0.3.615
+echo -e "\t(${UNDERLINE}https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#description${NORMAL})\n"  #  0.3.615
+echo    "   ${BOLD}git-uninstall-TEST-cases.sh${NORMAL}  uninstall git-TEST-commit-automation in"             #  0.3.615
+echo -e "\t<REPOSITORY-NAME>/hooks/ and <REPOSITORY-NAME>/TEST/<COMMIT_FILE>/ directories of"                 #  0.3.615
+echo -e "\tcurrent Git repository"                                                                            #  0.3.615
+echo -e "\t(${UNDERLINE}https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#description${NORMAL})\n"  #  0.3.615
+echo    "   ${BOLD}markit${NORMAL}  adds Git Verion Control information into files and git add, git commit,"  #  0.3.615
+echo -e "\tgit pushes them to GitHub, Bitbucket, and/or GitLab."                                              #  0.3.615
+echo -e "\t(${UNDERLINE}https://github.com/BradleyA/markit/blob/master/README.md#markit------${NORMAL})\n"    #  0.3.615
 
 echo -e "\n${BOLD}AUTHOR${NORMAL}"                                                          # 3.550
 echo    "   ${COMMAND_NAME} was written by Bradley Allen <allen.bradley@ymail.com>"         # 3.550
