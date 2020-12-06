@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/git-setup-TEST-cases.sh  3.1.151.1882  2020-11-24T11:00:49.168803-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.150  
-# 	   hooks/bin/git-set-env-for-manual-test.sh hooks/bin/git-setup-TEST-cases.sh -->   typo  
+# 	hooks/bin/git-setup-TEST-cases.sh  3.1.283.2052  2020-12-06T09:36:13.686413-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.282  
+# 	   hooks/bin/git-setup-TEST-cases.sh -->   Production standard 1.3.614 DEBUG variable  Production standard 2.3.614 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)  
 # 	hooks/bin/git-setup-TEST-cases.sh  3.1.126.1834  2020-11-18T13:46:54.839190-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.125  
 # 	   hooks/bin/git-TEST-cases.sh hooks/bin/git-setup-TEST-cases.sh hooks/bin/uninstall-git-TEST-cases.sh -->   rename git-TEST-setup-cases.sh -> git-setup-TEST-cases.sh  
 # 	hooks/bin/git-setup-TEST-cases.sh  3.1.125.1833  2020-11-18T12:53:01.253438-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.124  
@@ -16,7 +16,7 @@
 ###  Production standard 5.3.559 Copyright                                    # 3.559
 #    Copyright (c) 2020 Bradley Allen                                                # 3.555
 #    MIT License is online in the repository as a file named LICENSE"         # 3.559
-###  Production standard 1.3.550 DEBUG variable                                             # 3.550
+###  Production standard 1.3.614 DEBUG variable
 #    Order of precedence: environment variable, default code
 if [[ "${DEBUG}" == ""  ]] ; then DEBUG="0" ; fi   # 0 = debug off, 1 = debug on, 'export DEBUG=1', 'unset DEBUG' to unset environment variable (bash)
 if [[ "${DEBUG}" == "2" ]] ; then set -x    ; fi   # Print trace of simple commands before they are executed
@@ -53,21 +53,23 @@ if [[ "${SCRIPT_VERSION}" == "" ]] ; then SCRIPT_VERSION="v?.?" ; fi
 #    GID
 GROUP_ID=$(id -g)
 
-###  Production standard 2.3.529 log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)
+###  Production standard 2.3.614 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)
 new_message() {  #  $1="${LINENO}"  $2="DEBUG INFO ERROR WARN"  $3="message"
   get_date_stamp
-  echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${SCRIPT_NAME}[$$] ${SCRIPT_VERSION} ${1} ${USER} ${UID}:${GROUP_ID} ${BOLD}[${2}]${NORMAL}  ${3}"
+  echo -e "${NORMAL}${DATE_STAMP} ${LOCALHOST} ${BOLD}${CYAN}${SCRIPT_NAME}${NORMAL}[$$] ${BOLD}${BLUE}${SCRIPT_VERSION} ${PURPLE}${1}${NORMAL} ${USER} ${UID}:${GROUP_ID} ${BOLD}[${2}]${NORMAL}  ${3}"  # 2.3.614
 }
 
 #    INFO
-if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "  Started..." 1>&2 ; fi
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "${BOLD}${CYAN}  Started...${NORMAL}" 1>&2 ; fi  # 1.3.614
 
 #    No --help  # 0.3.583
 if [[ "${1}" != "" ]] ; then
-  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${SCRIPT_NAME} does not support arguements." 1>&2
+  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${SCRIPT_NAME} does not support arguements." 1>&2  # 1.3.614
   echo -e "    For more information:\n${BOLD}${YELLOW}    ${UNDERLINE}https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/docs/STEPS-TO-EVALUTE.md#installevaluate-git-test-commit-automation-solution \n${NORMAL}" # 0.3.583
   exit 1
 fi
+
+if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "${BOLD}  REPOSITORY_ABSOLUTE_PATH >${BOLD}${CYAN}${REPOSITORY_ABSOLUTE_PATH}${NORMAL}<  REPOSITORY_DIR_COUNT  >${BOLD}${CYAN}${REPOSITORY_DIR_COUNT}${NORMAL}<  EXAMPLES_DIRECTORY >${BOLD}${CYAN}${EXAMPLES_DIRECTORY}${NORMAL}<" 1>&2 ; fi  # 1.3.614
 
 ###
 
@@ -81,25 +83,25 @@ if git -C . rev-parse 2> /dev/null ; then  #  currect directory in a git reposit
   rm -rf  BradleyA-git-TEST-commit-automation-*
   cd hooks
   if [[ -x "post-commit" ]] && [[ -x "pre-commit" ]]  ; then  # do files exist and execute permission
-    if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Link pre-commit and post-commit" 1>&2 ; fi
+    if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  Link pre-commit and post-commit" 1>&2 ; fi  # 1.3.614
     ln -fs ../../hooks/pre-commit  ../.git/hooks/pre-commit
     ln -fs ../../hooks/post-commit ../.git/hooks/post-commit
   else
-    new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${BOLD}Unable to link ${YELLOW}${REPOSITORY_NAME}/hooks/{pre-commit,post-commit}${NORMAL}${BOLD} to ${REPOSITORY_NAME}/.git/hooks/{pre-commit,post-commit} because {pre-commit,post-commit} is NOT found in current directory ($(pwd)) or does not have execute permission.${NORMAL}" 1>&2
+    new_message "${LINENO}" "${RED}ERROR${WHITE}" "  ${BOLD}Unable to link ${YELLOW}${REPOSITORY_NAME}/hooks/{pre-commit,post-commit}${NORMAL}${BOLD} to ${REPOSITORY_NAME}/.git/hooks/{pre-commit,post-commit} because {pre-commit,post-commit} is NOT found in current directory ($(pwd)) or does not have execute permission.${NORMAL}" 1>&2  # 1.3.614
     exit 2
   fi
   if [[ -x "bin/git-TEST-cases.sh" ]] && [[ -x bin/git-setup-TEST-cases.sh ]]  && [[ -x bin/git-uninstall-TEST-cases.sh ]]  && [[ -x bin/git-set-env-for-manual-test.sh ]] && [[ -w /usr/local/bin ]] ; then
-    if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "DEBUG" "  Copy git-TEST-cases.sh, git-setup-TEST-cases.sh, git-uninstall-TEST-cases.sh, & git-set-env-for-manual-test.sh to /usr/local/bin" 1>&2 ; fi
+    if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  Copy git-TEST-cases.sh, git-setup-TEST-cases.sh, git-uninstall-TEST-cases.sh, & git-set-env-for-manual-test.sh to /usr/local/bin" 1>&2 ; fi  # 1.3.614
     cp -f -p bin/git-TEST-cases.sh              /usr/local/bin/git-TEST-cases.sh
     cp -f -p bin/git-setup-TEST-cases.sh        /usr/local/bin/git-setup-TEST-cases.sh
     cp -f -p bin/git-uninstall-TEST-cases.sh    /usr/local/bin/git-uninstall-TEST-cases.sh
     cp -f -p bin/git-set-env-for-manual-test.sh /usr/local/bin/git-set-env-for-manual-test.sh
   else
-    new_message "${LINENO}" "${YELLOW}WARN${WHITE}" "  Copy ${REPOSITORY_NAME}/hooks/bin/{git-TEST-cases.sh,git-setup-TEST-cases.sh,git-uninstall-TEST-cases.sh,git-set-env-for-manual-test.sh} to /usr/local/bin because git-TEST-cases.sh or git-setup-TEST-cases.sh or git-uninstall-TEST-cases.sh or git-set-env-for-manual-test.sh is NOT found or does not have execute permission or /usr/local/bin is not writable." 1>&2
+    new_message "${LINENO}" "${YELLOW}WARN${WHITE}" "  Copy ${REPOSITORY_NAME}/hooks/bin/{git-TEST-cases.sh,git-setup-TEST-cases.sh,git-uninstall-TEST-cases.sh,git-set-env-for-manual-test.sh} to /usr/local/bin because git-TEST-cases.sh or git-setup-TEST-cases.sh or git-uninstall-TEST-cases.sh or git-set-env-for-manual-test.sh is NOT found or does not have execute permission or /usr/local/bin is not writable." 1>&2  # 1.3.614
   fi
 else
   EXIT_CODE=${?}
-  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  The current directory, ${BOLD}${YELLOW}$(pwd)${NORMAL}, is Not a git repository or any of the parent directories." 1>&2
+  new_message "${LINENO}" "${RED}ERROR${WHITE}" "  The current directory, ${BOLD}${YELLOW}$(pwd)${NORMAL}, is Not a git repository or any of the parent directories." 1>&2  # 1.3.614
   exit ${EXIT_CODE}
 fi
 
@@ -121,7 +123,7 @@ fi
 echo -e "    ${BOLD}For more information:${YELLOW}"
 echo    "    https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/docs/STEPS-TO-EVALUTE.md#installevaluate-git-test-commit-automation-solution"
 echo    "    git-setup-TEST-cases.sh has installed or upgraded git-TEST-commit-automation"
-echo    "    in the current repository.  The following commands git-TEST-cases.sh,"
+echo    "    in the current Git repository.  The following commands git-TEST-cases.sh,"
 echo    "    git-setup-TEST-cases.sh, git-set-env-for-manual-test.sh, and"
 echo    "    git-uninstall-TEST-cases.sh  have been copied to /usr/local/bin.  Test"
 echo    "    scripts have been updated with the latest test scipts from the remote git"
@@ -129,5 +131,5 @@ echo    "    repository.  git-TEST-commit-automation runs pre-commit & post-comm
 echo    "    when git commit -m 'message' is executed.${NORMAL}"
 
 #
-new_message "${LINENO}" "INFO" "  Operation finished..." 1>&2
+new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "${BOLD}${CYAN}  Operation finished...${NORMAL}" 1>&2  # 1.3.614
 ###
