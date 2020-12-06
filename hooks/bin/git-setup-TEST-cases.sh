@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/git-setup-TEST-cases.sh  3.1.284.2056  2020-12-06T09:44:30.657337-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.283-3-g668111a  
+# 	   hooks/bin/git-setup-TEST-cases.sh -->   add BLUE PURPLE CYAN color  
 # 	hooks/bin/git-setup-TEST-cases.sh  3.1.283.2052  2020-12-06T09:36:13.686413-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.282  
 # 	   hooks/bin/git-setup-TEST-cases.sh -->   Production standard 1.3.614 DEBUG variable  Production standard 2.3.614 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)  
 # 	hooks/bin/git-setup-TEST-cases.sh  3.1.126.1834  2020-11-18T13:46:54.839190-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.125  
@@ -29,6 +31,9 @@ UNDERLINE=$(tput -Txterm sgr 0 1)  # 0.3.583
 NORMAL=$(tput -Txterm sgr0)
 RED=$(tput    setaf 1)
 YELLOW=$(tput setaf 3)
+BLUE=$(tput   setaf 4)
+PURPLE=$(tput setaf 5)
+CYAN=$(tput   setaf 6)
 WHITE=$(tput  setaf 7)
 
 #    Date and time function ISO 8601
