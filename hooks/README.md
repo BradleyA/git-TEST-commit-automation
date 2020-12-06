@@ -110,7 +110,7 @@ TL;DR - During code design, a software developer's focus is on how to solve part
       . . . stdout, logs-scrape, tables, email, twitter, slack, call a friand, etc.)
 
 **git-set-env-for-manual-test.sh**
-- uninstall git-TEST-commit-automation in \<REPOSITORY-NAME>/hooks/ and \<REPOSITORY-NAME>/TEST/ directories of current Git repository
+- xxxx
 
 **git-setup-TEST-cases.sh**
 - setup and update git-TEST-commit-automation in \<REPOSITORY-NAME>/hooks/ directory of current Git repository
@@ -119,7 +119,7 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 - lists and manages files in TEST/<COMMIT_FILE>/ directories in current Git repository
 
 **git-uninstall-TEST-cases.sh**
-- uninstall git-TEST-commit-automation in \<REPOSITORY-NAME>/hooks/ directory of current Git repository
+- uninstall git-TEST-commit-automation in \<REPOSITORY-NAME>/hooks/ and \<REPOSITORY-NAME>/TEST/<COMMIT_FILE>/ directories of current Git repository
 
 #### ARCHITECTURE TREE
 
