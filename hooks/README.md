@@ -110,7 +110,7 @@ TL;DR - During code design, a software developer's focus is on how to solve part
       . . . stdout, logs-scrape, tables, email, twitter, slack, call a friand, etc.)
 
 **git-set-env-for-manual-test.sh**
-- uninstall git-TEST-commit-automation in <REPOSITORY-NAME>/hooks/ and <REPOSITORY-NAME>/TEST/ directories of current Git repository
+- uninstall git-TEST-commit-automation in \<REPOSITORY-NAME>/hooks/ and \<REPOSITORY-NAME>/TEST/ directories of current Git repository
 
 **git-setup-TEST-cases.sh**
 - setup and update git-TEST-commit-automation in \<REPOSITORY-NAME>/hooks/ directory of current Git repository
