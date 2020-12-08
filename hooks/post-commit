@@ -1,4 +1,6 @@
 #!/bin/bash
+#	hooks/post-commit  3.1.286.2058  2020-12-08T12:09:58.680809-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.285  
+#	   hooks/bin/git-uninstall-TEST-cases.sh hooks/post-commit -->   update comments  
 #	hooks/post-commit  3.1.266.2025  2020-12-04T17:17:34.999131-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.265-1-gc61878b  
 #	   hooks/EXAMPLES/FVT-cleanup.sh hooks/EXAMPLES/FVT-option-add-001 hooks/EXAMPLES/FVT-option-all-001 hooks/EXAMPLES/FVT-setup.sh hooks/EXAMPLES/SA-cleanup.sh hooks/EXAMPLES/SA-exit-code-error-124-001 hooks/EXAMPLES/SA-exit-code-error-124-002 hooks/EXAMPLES/SA-exit-code-error-2-001 hooks/EXAMPLES/SA-permission-400-001 hooks/EXAMPLES/SA-permission-440-001 hooks/EXAMPLES/SA-permission-444-001 hooks/EXAMPLES/SA-permission-600-001 hooks/EXAMPLES/SA-permission-640-001 hooks/EXAMPLES/SA-permission-644-001 hooks/EXAMPLES/SA-permission-660-001 hooks/EXAMPLES/SA-permission-664-001 hooks/EXAMPLES/SA-permission-666-001 hooks/EXAMPLES/SA-permission-700-001 hooks/EXAMPLES/SA-permission-750-001 hooks/EXAMPLES/SA-permission-755-001 hooks/EXAMPLES/SA-permission-770-001 hooks/EXAMPLES/SA-permission-775-001 hooks/EXAMPLES/SA-permission-777-001 hooks/EXAMPLES/SA-permission-dir-001 hooks/EXAMPLES/SA-permission-grp-10000-001 hooks/EXAMPLES/SA-permission-own-10000-001 hooks/EXAMPLES/SA-setup.sh hooks/EXAMPLES/SA-shellcheck-001 hooks/EXAMPLES/SA-type-tar-V7-001 hooks/post-commit -->   typo  
 #	hooks/post-commit  3.1.236.1984  2020-12-03T23:39:06.558608-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.235  
@@ -69,12 +71,12 @@ if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}INFO${WHITE}
 
 ###  Production standard 10.0 TESTing 
 
-REPOSITORY_ABSOLUTE_PATH=$(git rev-parse --show-toplevel)
+REPOSITORY_ABSOLUTE_PATH=$(git rev-parse --show-toplevel) || { new_message "${LINENO}" "${RED}ERROR${WHITE}" "  Not a git repository (or any of the parent directories)" 1>&2 ; exit 1 ; }
 export REPOSITORY_ABSOLUTE_PATH  #  export REPOSITORY_ABSOLUTE_PATH so test scripts can use it
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  REPOSITORY_ABSOLUTE_PATH  >${BOLD}${CYAN}${REPOSITORY_ABSOLUTE_PATH}${NORMAL}<" 1>&2 ; fi  # 1.3.614
 REPOSITORY_DIR_COUNT=$(awk -F"/" '{print NF-1}' <<< "${REPOSITORY_ABSOLUTE_PATH}")  # Some SA & FVT test cases require REPOSITORY_DIR_COUNT
 REPOSITORY_DIR_COUNT=$((REPOSITORY_DIR_COUNT+1))
-export REPOSITORY_DIR_COUNT  #  export number of directories + 1
+export REPOSITORY_DIR_COUNT  #  export number of directories + 1 (REPOSITORY_DIR_COUNT) so test scripts can use it
 if [[ "${DEBUG}" == "1" ]] ; then new_message "${LINENO}" "${YELLOW}DEBUG${WHITE}" "  REPOSITORY_DIR_COUNT  >${BOLD}${CYAN}${REPOSITORY_DIR_COUNT}${NORNAL}<" 1>&2 ; fi  # 1.3.614
 
 if [[ ! -r "${REPOSITORY_ABSOLUTE_PATH}/hooks/COMMIT_FILE_LIST" ]] ; then echo "COMMIT_FILE_LIST is created by pre-commit (git hook) and is required input for this script." ; exit 1 ; fi
