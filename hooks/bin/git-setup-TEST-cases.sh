@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/git-setup-TEST-cases.sh  3.1.285.2057  2020-12-06T10:01:34.671802-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.284  
-# 	   hooks/bin/git-setup-TEST-cases.sh -->   typo  
+# 	hooks/bin/git-setup-TEST-cases.sh  3.1.288.2062  2020-12-14T13:31:25.883982-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  three-rpi3b.cptx86.com 3.1.287  
+# 	   hooks/bin/git-setup-TEST-cases.sh -->   update user hint text  
 # 	hooks/bin/git-setup-TEST-cases.sh  3.1.283.2052  2020-12-06T09:36:13.686413-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.282  
 # 	   hooks/bin/git-setup-TEST-cases.sh -->   Production standard 1.3.614 DEBUG variable  Production standard 2.3.614 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)  
 # 	hooks/bin/git-setup-TEST-cases.sh  3.1.126.1834  2020-11-18T13:46:54.839190-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.125  
@@ -126,12 +126,15 @@ fi
 echo -e "    ${BOLD}For more information:${YELLOW}"
 echo    "    https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/docs/STEPS-TO-EVALUTE.md#installevaluate-git-test-commit-automation-solution"
 echo    "    git-setup-TEST-cases.sh has installed or upgraded git-TEST-commit-automation"
-echo    "    in the current Git repository.  The following commands git-TEST-cases.sh,"
-echo    "    git-setup-TEST-cases.sh, git-set-env-for-manual-test.sh, and"
-echo    "    git-uninstall-TEST-cases.sh  have been copied to /usr/local/bin.  Test"
-echo    "    scripts have been updated with the latest test scipts from the remote git"
-echo    "    repository.  git-TEST-commit-automation runs pre-commit & post-commit hooks"
-echo    "    when git commit -m 'message' is executed.${NORMAL}"
+echo    "    in the current Git repository.  The following commands:"
+echo -e "\t${CYAN}git-TEST-cases.sh"
+echo -e "\tgit-setup-TEST-cases.sh"
+echo -e "\tgit-set-env-for-manual-test.sh"
+echo -e "\tgit-uninstall-TEST-cases.sh${YELLOW}"
+echo    "    have been copied to /usr/local/bin/.  TEST scripts have been updated with"
+echo    "    the latest TEST scipts from the remote Git repository."
+echo    "    git-TEST-commit-automation runs pre-commit & post-commit hooks when"
+echo    "    git commit -m 'message' is executed.${NORMAL}"
 
 #
 new_message "${LINENO}" "${YELLOW}INFO${WHITE}" "${BOLD}${CYAN}  Operation finished...${NORMAL}" 1>&2  # 1.3.614
