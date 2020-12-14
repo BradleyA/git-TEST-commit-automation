@@ -1,4 +1,6 @@
 #!/bin/bash
+# 	hooks/bin/git-TEST-cases.sh  3.1.287.2061  2020-12-14T13:13:36.310814-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  three-rpi3b.cptx86.com 3.1.286-2-g2ed00d7  
+# 	   hooks/bin/git-TEST-cases.sh -->   update Architecture tree for git-TEST-commit-automation  
 # 	hooks/bin/git-TEST-cases.sh  3.1.262.2018  2020-12-04T16:11:34.317893-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.261-2-g768e620 
 # 	   hooks/bin/git-TEST-cases.sh -->   Production standard 1.3.614 DEBUG variable  Production standard 2.3.614 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)  
 # 	hooks/bin/git-TEST-cases.sh  3.1.261.2015  2020-12-04T15:38:57.475022-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.260-1-g9a58e43  
@@ -57,12 +59,13 @@ display_help() {
 display_usage
 #    Displaying help DESCRIPTION in English en_US.UTF-8, en.UTF-8, C.UTF-8                  # 3.550
 echo -e "\n${BOLD}DESCRIPTION${NORMAL}"
-echo    "${COMMAND_NAME} is a bash script that lists and manages files in TEST"
-echo    "case directories in the current Git repository.  It supports adding (-a) and"
-echo    "removing (-c) symbolic links to default test cases found in the EXAMPLES"
-echo    "directory.  It supports locating (-n) which files in a Git repository do not"
-echo    "have test cases.  It supports listing (--filename) the test cases for a file in"
-echo    "a Git repository.  It supports adding (--add) default SA test cases for a file."
+echo    "${COMMAND_NAME} is a bash script that lists and manages files in TEST case"
+echo    "directories in a local Git repository.  It supports creating all (-a) and"
+echo    "removing (-c) symbolic links to default TEST cases found in the hooks/EXAMPLES"
+echo    "directory.  It supports locating files in a local Git repository that don't"
+echo    "have any TEST cases or have none (-n).  It supports listing TEST cases for a"
+echo    "file (--filename) in a local Git repository.  It supports adding (--add)"
+echo    "default SA TEST cases for a file."
 
 ###  Production standard 4.3.587 Documentation Language
 #    Displaying help DESCRIPTION in French fr_CA.UTF-8, fr_FR.UTF-8, fr_CH.UTF-8
@@ -130,18 +133,34 @@ echo -e "\tunless --hooks option is used."
 ###  Production standard 6.3.547  Architecture tree
 echo -e "\n${BOLD}ARCHITECTURE TREE${NORMAL}"  # STORAGE & CERTIFICATION
 echo    "<GIT_RESPOITORY>/                      <-- <GIT_RESPOITORY>"
+echo    "├── hooks/                             <-- git-TEST-commit-automation solution"
+echo    "│   ├── bin/                           <-- git-TEST-commit-automation commands"
+echo    "│   ├── CHANGELOG.md                   <-- git-TEST-commit-automation chronolog"
+echo    "│   │                                      ical list of changes"
+echo    "│   ├── docs/                          <-- git-TEST-commit-automation documents"
+echo    "│   │                                      and tutorials"
+echo    "│   ├── EXAMPLES/                      <-- Default TEST cases"
+echo    "│   ├── images/                        <-- git-TEST-commit-automation images"
+echo    "│   ├── LICENSE                        <-- git-TEST-commit-automation license"
+echo    "│   ├── post-commit                    <-- Searches for TEST/<filename>/ sub-"
+echo    "│   │                                      directory If TRUE runs TEST/<file"
+echo    "│   │                                      name>/SA-setup.sh and/or FVT-setup.sh"
+echo    "│   │                                      then run test cases"
+echo    "│   ├── pre-commit                     <-- Creates ${REPOSITORY-NAME}/hooks/"
+echo    "│   │                                      COMMIT_FILE_LIST with commited files"
+echo    "│   └── README.md                      <-- git-TEST-commit-automation README"
 echo    "├── <FILE_NAME-1>                      <-- FILE_NAME-1 to test"
 echo    "└── TEST/                              <-- TEST case directory"
-echo    "    ├── <FILE_NAME-1>/                 <-- Test case directory for FILE_NAME-1"
-echo    "    │   ├── SA-setup.sh                <-- Test case SA-setup.sh script"
-echo    "    │   ├── SA-cleanup.sh              <-- Test case SA-cleanup.sh script"
-echo    "    │   ├── SA-shellcheck-001          <-- Test case SA-shellcheck-001"
+echo    "    ├── <FILE_NAME-1>/                 <-- TEST case directory for FILE_NAME-1"
+echo    "    │   ├── SA-setup.sh                <-- TEST case SA-setup.sh script"
+echo    "    │   ├── SA-cleanup.sh              <-- TEST case SA-cleanup.sh script"
+echo    "    │   ├── SA-shellcheck-001          <-- TEST case SA-shellcheck-001"
 echo    "    │   ├── SA-shellcheck-001.expected <-- Expected output file from"
-echo    "    │   │                                  test case SA-shellcheck-001 when"
+echo    "    │   │                                  TEST case SA-shellcheck-001 when"
 echo    "    │   │                                  testing <FILE_NAME-1>"
-echo    "    │   ├── SA-permission-775-001      <-- Test case SA-permission-775-001"
-echo    "    │   └── <TEST_CASE>/               <-- Other test cases for <FILE_NAME-1>"
-echo    "    └── <FILE_NAME-2>/                 <-- Test case directory for FILE_NAME-2"
+echo    "    │   ├── SA-permission-775-001      <-- TEST case SA-permission-775-001"
+echo    "    │   └── <TEST_CASE>/               <-- Other TEST cases for <FILE_NAME-1>"
+echo    "    └── <FILE_NAME-2>/                 <-- TEST case directory for FILE_NAME-2"
 
 echo -e "\n${BOLD}DOCUMENTATION${NORMAL}"
 echo    "   ${UNDERLINE}https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md${NORMAL}"
