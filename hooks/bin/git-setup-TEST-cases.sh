@@ -1,6 +1,6 @@
 #!/bin/bash
-# 	hooks/bin/git-setup-TEST-cases.sh  3.1.288.2062  2020-12-14T13:31:25.883982-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  three-rpi3b.cptx86.com 3.1.287  
-# 	   hooks/bin/git-setup-TEST-cases.sh -->   update user hint text  
+# 	hooks/bin/git-setup-TEST-cases.sh  3.1.289.2063  2020-12-15T22:40:20.286003-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  three-rpi3b.cptx86.com 3.1.288  
+# 	   hooks/bin/git-setup-TEST-cases.sh -->   update user hint text and color  
 # 	hooks/bin/git-setup-TEST-cases.sh  3.1.283.2052  2020-12-06T09:36:13.686413-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.282  
 # 	   hooks/bin/git-setup-TEST-cases.sh -->   Production standard 1.3.614 DEBUG variable  Production standard 2.3.614 Log format (WHEN WHERE WHAT Version Line WHO UID:GID [TYPE] Message)  
 # 	hooks/bin/git-setup-TEST-cases.sh  3.1.126.1834  2020-11-18T13:46:54.839190-06:00 (CST)  https://github.com/BradleyA/git-TEST-commit-automation.git  master  uadmin  five-rpi3b.cptx86.com 3.1.125  
@@ -125,12 +125,12 @@ fi
 #    Answer that question, what now (WTF)  . . .  shit I forgot what this does, hadn't done this in six months, quick what is the answer!
 echo -e "    ${BOLD}For more information:${YELLOW}"
 echo    "    https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/docs/STEPS-TO-EVALUTE.md#installevaluate-git-test-commit-automation-solution"
-echo    "    git-setup-TEST-cases.sh has installed or upgraded git-TEST-commit-automation"
+echo    "    git-setup-TEST-cases.sh ${WHITE}has installed or upgraded git-TEST-commit-automation"
 echo    "    in the current Git repository.  The following commands:"
 echo -e "\t${CYAN}git-TEST-cases.sh"
 echo -e "\tgit-setup-TEST-cases.sh"
 echo -e "\tgit-set-env-for-manual-test.sh"
-echo -e "\tgit-uninstall-TEST-cases.sh${YELLOW}"
+echo -e "\tgit-uninstall-TEST-cases.sh${WHITE}"
 echo    "    have been copied to /usr/local/bin/.  TEST scripts have been updated with"
 echo    "    the latest TEST scipts from the remote Git repository."
 echo    "    git-TEST-commit-automation runs pre-commit & post-commit hooks when"
