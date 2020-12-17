@@ -10,7 +10,7 @@
 [![GitHub Closed Issues](https://img.shields.io/github/issues-closed/BradleyA/git-TEST-commit-automation?color=purple)](https://github.com/BradleyA/git-TEST-commit-automation/issues?q=is%3Aclosed+is%3Aissue)
 
 [<img alt="GitHub Clones" src="https://img.shields.io/static/v1?label=Clones&message=677&color=blueviolet">](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/images/clone.table.md)
-[<img alt="GitHub Views" src="https://img.shields.io/static/v1?label=Views&message=3675&color=blueviolet">](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/images/view.table.md)
+[<img alt="GitHub Views" src="https://img.shields.io/static/v1?label=Views&message=4286&color=blueviolet">](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/images/view.table.md)
 [![GitHub Size](https://img.shields.io/github/repo-size/BradleyA/git-TEST-commit-automation.svg)](https://github.com/BradleyA/git-TEST-commit-automation/)
 ![Language Bash](https://img.shields.io/badge/%20Language-bash-blue.svg)
 [![MIT License](http://img.shields.io/badge/License-MIT-blue.png)](LICENSE)
