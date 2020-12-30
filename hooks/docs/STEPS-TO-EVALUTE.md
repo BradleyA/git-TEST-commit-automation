@@ -36,7 +36,7 @@ Objective 1)  **Done, installed in seconds**
 
 Objective 4)  **Quick setup of default SA- test cases for a file (git-TEST-cases.sh --filename sample.sh --add)**
     
-**Configure two default test cases for sample.sh**   
+**Configure default test cases for sample.sh**   
   **<<>> need to review why I included git add and git commit below   **
    
     git-TEST-cases.sh --filename sample.sh --add
@@ -59,7 +59,7 @@ Objective 4)  **Done, in seconds**
 
 <img id="Steps git-TEST-commit-automation-4.gif" src="../images/git-TEST-commit-automation-4.gif" >
 
-Two Static Analysis (SA) test cases were executed on sample.sh with both PASSing.  When you make changes to sample.sh and run Git commit, hook post-commit will search for test cases to run in TEST/sample.sh/ directory.
+Static Analysis (SA) test cases were executed on sample.sh with both PASSing.  When you make changes to sample.sh and run Git commit, hook post-commit will search for test cases to run in TEST/sample.sh/ directory.
 
 **That is it!**
 
