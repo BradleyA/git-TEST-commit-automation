@@ -58,7 +58,8 @@ Why did I create git-TEST-commit-automation when there are so many great open so
 * inform, not impede code development
 * encourage 'git commit -m 'message', not exit 1 if there is any code incident
 * allows basic test cases to be included with code in a Git repository
-* could be setup and uninstall without effecting the code being developed.  A solution that would support adding other test solutions to this solution with minimal changes.
+* could be setup and uninstall without effecting the code being developed
+* support adding other test solutions to this solution with minimal changes.
 
 TL;DR - During code design, a software developer's focus is on how to solve parts of a bigger solution.  A developer may throw out a couple to dozens of lines of code.  It did not matter that those lines of code did or didn't meet every test requirement.  As a design matures it is increasingly important to have code PASS tests.  It is also important for a developer to design SA and FVT test cases for their new code.  At that time their code is ready for additional testing using open software and enterprise level testing solutions.
 
