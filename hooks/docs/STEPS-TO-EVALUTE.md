@@ -37,7 +37,8 @@ Objective 1)  **Done, installed in seconds**
 Objective 4)  **Quick setup of default SA- test cases for a file (git-TEST-cases.sh --filename sample.sh --add)**
     
 **Configure two default test cases for sample.sh**   
-    
+  **<<>> need to review why I included git add and git commit below   **
+   
     git-TEST-cases.sh --filename sample.sh --add
     git add TEST/sample.sh
     git commit -m 'initial commit'
