@@ -10,7 +10,7 @@ Steps to evaluate git-TEST-commit-automation solution
     
          #!/bin/bash
          ###  sample.sh 
-         echo "Hello World"
+         echo    "Hello World"
     
     chmod 775 sample.sh
     git add sample.sh
