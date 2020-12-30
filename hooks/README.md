@@ -78,7 +78,7 @@ TL;DR - During code design, a software developer's focus is on how to solve part
 <details>
 	
 * Quick setup with default test cases for any Git repository (in seconds)
-* Quick uninstall on any Git repository
+* Quick uninstall from any Git repository
 * Quick check of test case depth for a file (option -f) and all files for any Git repository (option -a)
 * Quick setup of default SA- test cases for a file (options --filename sample.sh --add)
 * Quick upgrade of default test cases and git-TEST-commit-automation commands (git-setup-TEST-cases.sh)
