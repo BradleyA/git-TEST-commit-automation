@@ -5,7 +5,9 @@ Objective 2) **Quick uninstall on any Git repository**
 After completing: **Install git-TEST-commit-automation solution** enter the following command to uninstall git-TEST-commit-automation.
 
     cd git-TEST-commit          #  Change directory into Git repository, git-TEST-commit
-    git-uninstall-TEST-cases.sh    
+    git-uninstall-TEST-cases.sh
+    
+  **>>>  update recorded screen   command name changed **
 
 <img id="Steps git-TEST-commit-automation-2-1.gif" src="../images/git-TEST-commit-automation-2-1.gif" >
 
