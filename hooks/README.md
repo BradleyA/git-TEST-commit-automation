@@ -201,14 +201,14 @@ Please do contribute!  Issues and pull requests are welcome.  Thank you for your
 [Return to top](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/hooks/README.md#git-TEST-commit-automation)
 
 #### Stars
-[![Stargazers repo roster for @BradleyA/XXXXX](https://reporoster.com/stars/BradleyA/XXXXX)](https://github.com/BradleyA/XXXXX/stargazers)
+[![Stargazers repo roster for @BradleyA/git-TEST-commit-automation](https://reporoster.com/stars/BradleyA/git-TEST-commit-automation)](https://github.com/BradleyA/git-TEST-commit-automation/stargazers)
 
-[Return to top](https://github.com/BradleyA/XXXXX/blob/master/README.md#XXXXX)
+[Return to top](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/README.md#git-TEST-commit-automation)
 
 #### Forks
-[![Forkers repo roster for @BradleyA/XXXXX](https://reporoster.com/forks/BradleyA/XXXXX)](https://github.com/BradleyA/XXXXX/network/members)
+[![Forkers repo roster for @BradleyA/git-TEST-commit-automation](https://reporoster.com/forks/BradleyA/git-TEST-commit-automation)](https://github.com/BradleyA/git-TEST-commit-automation/network/members)
 
-[Return to top](https://github.com/BradleyA/XXXXX/blob/master/README.md#XXXXX)
+[Return to top](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/README.md#git-TEST-commit-automation)
 
 #### Tested OS
  * Raspbian GNU/Linux 10 (buster)
