@@ -15,7 +15,6 @@ changes can be used.
 For more information on contributing:
 
 
-
 * [CONTRIBUTING.md](https://github.com/BradleyA/git-TEST-commit-automation/blob/master/.github/CONTRIBUTING.md)
   for high-level contribution guidelines.
 
