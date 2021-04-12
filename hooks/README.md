@@ -51,7 +51,7 @@ After entering the following command:
     
 Git runs any Git hooks found in \<REPOSITORY-NAME>/.git/hooks/ directory.  Git hooks are scripts that Git executes before and/or after events. Two local Git hooks are included with git-TEST-commit-automation (pre-commit, post-commit).
 
-**pre-commit** creates a file (${REPOSITORY-NAME}/hooks/COMMIT_FILE_LIST) which includes files being commited. 
+**pre-commit** creates a file (${REPOSITORY-NAME}/hooks/COMMIT_FILE_LIST) which includes file(s) that are commited. 
 
 **post-commit** searches for a TEST/\<filename>/ sub-directory where the commited filename is located. If the sub-directory is found **post-commit** runs TEST/\<filename>/SA-setup.sh and/or TEST/\<filename>/FVT-setup.sh then searches for files beginning with SA- of FVT- and runs them.
 
