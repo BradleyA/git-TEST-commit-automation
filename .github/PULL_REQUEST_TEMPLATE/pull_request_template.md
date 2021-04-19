@@ -1,5 +1,6 @@
 # Before pressing 'Create pull request' please review
 
+<img id="Construction" src="../../hooks/images/construction-icon.gif" width="120">
 <!--
 editing below needed .... .... .... .... 
 
